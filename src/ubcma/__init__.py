@@ -7,6 +7,13 @@ from .diagnostics import (
     leave_one_out,
     selection_function_grid,
 )
+from .comparators import (
+    reml_estimator,
+    trim_and_fill,
+    pet_peese,
+    copas_selection,
+    quality_effects,
+)
 
 __all__ = [
     "MetaAnalysisDataset",
@@ -20,4 +27,9 @@ __all__ = [
     "standardized_residuals",
     "leave_one_out",
     "selection_function_grid",
+    "reml_estimator",
+    "trim_and_fill",
+    "pet_peese",
+    "copas_selection",
+    "quality_effects",
 ]
