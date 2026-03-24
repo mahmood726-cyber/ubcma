@@ -14,6 +14,10 @@ dependencies = [
   "pandas>=2.2",
 ]
 
+[project.optional-dependencies]
+bayes = ["pymc>=5.10", "arviz>=0.17"]
+study = ["tqdm>=4.60"]
+
 [project.scripts]
 ubcma = "ubcma.cli:main"
 

@@ -43,6 +43,26 @@ def build_parser() -> argparse.ArgumentParser:
     diag_parser.add_argument("--design-reference", default=None)
     diag_parser.add_argument("--study-id", default=None)
 
+    bayes_parser = subparsers.add_parser("fit-bayes", help="Bayesian UBCMA fit via PyMC")
+    bayes_parser.add_argument("csv_path", type=Path)
+    bayes_parser.add_argument("--effect", default="yi")
+    bayes_parser.add_argument("--se", default="sei")
+    bayes_parser.add_argument("--quality", default=None)
+    bayes_parser.add_argument("--moderators", default=None)
+    bayes_parser.add_argument("--design", default=None)
+    bayes_parser.add_argument("--design-reference", default=None)
+    bayes_parser.add_argument("--study-id", default=None)
+    bayes_parser.add_argument("--chains", type=int, default=4)
+    bayes_parser.add_argument("--draws", type=int, default=2000)
+    bayes_parser.add_argument("--tune", type=int, default=1000)
+    bayes_parser.add_argument("--target-accept", type=float, default=0.9)
+    bayes_parser.add_argument(
+        "--prior-scale",
+        default="weakly_informative",
+        choices=["informative", "weakly_informative", "diffuse"],
+    )
+    bayes_parser.add_argument("--prior-sensitivity", action="store_true")
+
     sim_parser = subparsers.add_parser("simulate", help="Generate a synthetic dataset")
     sim_parser.add_argument("--output", type=Path, required=True)
     sim_parser.add_argument("--seed", type=int, default=42)
@@ -115,6 +135,39 @@ def main() -> None:
         print("\nLeave-one-out influence:")
         loo = leave_one_out(result, data, fitter)
         print(loo.to_string(index=False))
+        return
+
+    if args.command == "fit-bayes":
+        from .bayesian import BayesianUBCMAFit as _BayesFitter
+        data = MetaAnalysisDataset.from_csv(
+            args.csv_path,
+            effect_col=args.effect,
+            se_col=args.se,
+            quality_cols=_parse_csv_list(args.quality),
+            moderator_cols=_parse_csv_list(args.moderators),
+            design_col=args.design,
+            design_reference=args.design_reference,
+            study_id_col=args.study_id,
+        )
+        scale_map = {"informative": 0.5, "weakly_informative": 1.0, "diffuse": 3.0}
+        fitter = _BayesFitter()
+        if args.prior_sensitivity:
+            results = fitter.prior_sensitivity(
+                data, chains=args.chains, draws=args.draws, tune=args.tune
+            )
+            for name, res in results.items():
+                print(f"\n--- {name} (scale={scale_map[name]}) ---")
+                print(res.to_text())
+        else:
+            result = fitter.fit(
+                data,
+                chains=args.chains,
+                draws=args.draws,
+                tune=args.tune,
+                target_accept=args.target_accept,
+                prior_scale=scale_map[args.prior_scale],
+            )
+            print(result.to_text())
         return
 
     if args.command == "simulate":
