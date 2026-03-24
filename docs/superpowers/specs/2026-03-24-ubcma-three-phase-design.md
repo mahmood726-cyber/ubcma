@@ -1,7 +1,7 @@
 # UBCMA Three-Phase Development Design
 
 **Date**: 2026-03-24
-**Status**: Draft
+**Status**: Approved (spec review passed 2026-03-24)
 **Scope**: Harden frequentist prototype, add Bayesian inference, run simulation study
 
 ## Context
@@ -19,6 +19,10 @@ This spec defines three sequential phases to bring UBCMA from prototype to publi
 **Profile likelihood CIs for `mu_target`**. Walk the negative log-likelihood surface along `mu` while re-optimizing all other parameters at each step. Find where the profile objective increases by `chi2(1, alpha)/2` above the MLE. Use bisection search on each side of the MLE.
 
 - Default: 95% CI (alpha = 0.05)
+- Initial search bracket: MLE +/- 5 × SE_DL (the DerSimonian-Laird standard error). If the profile curve does not cross the chi-squared threshold within this bracket, double the bracket and retry once. If still no crossing, return +/-inf for that bound with a warning.
+- Maximum bisection iterations: 50. Convergence tolerance (`resolution`): 1e-4 on the mu scale.
+- At each profile step, re-optimize nuisance parameters using L-BFGS-B with the same bounds as the full fit, warm-started from the MLE solution. If re-optimization fails at an extreme mu value, exclude that point from the profile curve and issue a warning.
+- `n_points`: number of evenly-spaced mu values stored on the profile curve for diagnostic plotting (default 40, 20 per side of MLE).
 - Store profile curve data for diagnostic plotting
 - Expose via `UBCMAResult.mu_ci` as a `(low, high)` tuple
 
@@ -26,11 +30,12 @@ This spec defines three sequential phases to bring UBCMA from prototype to publi
 
 - Default B = 2000
 - BCa requires jackknife acceleration — compute via leave-one-out refits (already needed for influence diagnostics)
+- If a bootstrap refit fails to converge, record it as missing. Require at least 80% successful refits (1600/2000) for valid bootstrap CIs. Report `n_failed` in the result. If <80% succeed, return NaN CIs with a warning.
 - Expose via `UBCMAResult.mu_bootstrap_ci`
 - Store full bootstrap distribution for downstream use
 
 **Implementation**: New module `src/ubcma/inference.py` with:
-- `profile_likelihood_ci(result, alpha, n_points, resolution)`
+- `profile_likelihood_ci(result, alpha, n_points, resolution)` — `n_points` is the number of profile curve points for plotting; `resolution` is the bisection convergence tolerance on the mu scale
 - `bootstrap_ci(data, fitter, n_boot, alpha, method, seed)`
 
 ### 1.2 Multi-Start Optimization
@@ -42,6 +47,7 @@ Change: 20 random restarts using Latin hypercube sampling over the parameter spa
 - Sample mu from U(-1, 1), log-tau from U(-3, 0.5), mixture weight logit from U(-2, 2), gamma from N(0, 1), lambda from N(0, 0.5)
 - Report: number of converged restarts, objective spread, whether the best solution came from DL start or a random start
 - Add `n_restarts` parameter to `UBCMAFit.__init__` (default 20, set to 0 for single-start behavior for backward compat)
+- Implementation: retain `_build_start()` for the DL-based start. Add `_latin_hypercube_starts(n, rng)` method to generate random starts. `fit()` orchestrates running all starts (DL + LHS), collects converged solutions, and keeps the one with the lowest objective.
 
 ### 1.3 Diagnostics Module
 
@@ -49,12 +55,12 @@ New module `src/ubcma/diagnostics.py`:
 
 **Information criteria**:
 - AIC and BIC for the full model
-- Reduced models: (a) no selection (gamma fixed at flat), (b) no quality shift (lambda = 0), (c) single-component heterogeneity (mix_weight = 1), (d) null model (mu only + homogeneous)
-- Each reduced model is a constrained refit, not just a parameter count change
+- Reduced models: (a) no selection — `gamma_common = [c, 0, 0, 0]` where `c` is freely estimated (intercept-only, flat selection), `gamma_quality` = 0; (b) no quality shift — `lambda_bias` = 0; (c) single-component heterogeneity — `mix_weight` fixed at 1.0; (d) null model — mu only + homogeneous (tau=0, no moderators/design/quality/selection)
+- Each reduced model is a constrained refit, not just a parameter count change. Start from the full model MLE with constrained parameters set to their null values. Use single-start for reduced models (no multi-start).
 
 **Influence diagnostics**:
 - Leave-one-out: refit dropping each study, report delta-mu, delta-tau, delta-objective
-- Cook's distance analog: `D_i = (mu_full - mu_{-i})^2 / Var(mu_full)`
+- Cook's distance analog: `D_i = (mu_full - mu_{-i})^2 / Var(mu_full)`, where `Var(mu_full)` is estimated from the inverse observed information (Hessian approximation from L-BFGS-B at the MLE)
 - Externally studentized residuals: `r_i = (y_i - theta_i_hat) / sqrt(s_i^2 + tau^2_hat)`
 
 **Selection function visualization data**:
@@ -70,9 +76,11 @@ New module `src/ubcma/diagnostics.py`:
 
 Reproduce published results from reference papers:
 
-**Verde (2021)**: Bias-corrected meta-analysis. Extract the example dataset(s) from the paper or its R package. Run UBCMA and compare mu, tau, quality-shift estimates against published Table values.
+**Verde (2021)**: Bias-corrected meta-analysis. Extract the example dataset(s) from the paper or its R package (`baminger` or via Table data). Run UBCMA and compare mu, tau, quality-shift estimates against published Table values.
 
 **Bartos et al. (2022)**: RoBMA paper. Use their example datasets. Compare UBCMA frequentist estimates against their reported posterior means (acknowledging the Bayesian/frequentist distinction — focus on direction and magnitude agreement).
+
+**Fallback**: If datasets are not directly extractable from papers or R packages, simulate synthetic datasets matching the published summary statistics (k, mean effect, tau, proportion of high-RoB studies) as a secondary validation target.
 
 Store datasets as `examples/verde_2021_*.csv` and `examples/bartos_2022_*.csv`. Store expected values as test fixtures in `tests/fixtures/`.
 
@@ -83,7 +91,7 @@ Target: ~30+ tests total. New test categories:
 **Model fitting tests** (`tests/test_model.py`):
 - Convergence on toy data with all features (quality, moderators, design)
 - Convergence on minimal data (no quality, no moderators, no design)
-- CI coverage: simulate 200 datasets from known truth, check that 95% profile CIs contain true mu at ~93-97% rate
+- CI coverage: simulate 500 datasets from known truth, check that 95% profile CIs contain true mu at ~90-99% rate (SE at 500 reps ~ 0.97%, so this band has <5% false failure rate)
 - Edge cases: k=4 (minimum), k=200 (large), all-RCT, homogeneous (tau=0 DGP), no quality columns
 - Multi-start: verify best-of-20 objective <= single-start objective
 
@@ -136,29 +144,33 @@ Same likelihood structure as the frequentist model:
 
 ```
 mu ~ Normal(0, 2.5)
-beta ~ Normal(0, 1.5)        # moderator coefficients
-delta ~ Normal(0, 1.5)       # design shift coefficients
-lambda ~ Normal(0, 0.75)     # quality-shift coefficients
+beta ~ Normal(0, 1.5)            # moderator coefficients, shape (n_moderators,)
+delta ~ Normal(0, 1.5)           # design shift coefficients, shape (n_design,)
+lambda_bias ~ Normal(0, 0.75)    # quality-shift coefficients, shape (n_quality,)
 log_tau1 ~ Normal(-1, 1)
-log_tau2_gap ~ Normal(-1, 1)  # tau2 = tau1 + exp(log_tau2_gap)
-mix_logit ~ Normal(1.4, 1)   # logit(0.8) ~ 1.4
-gamma_common ~ Normal(0, 1)  # 4 selection coefficients
-gamma_quality ~ Normal(0, 0.75)
+log_tau2_gap ~ Normal(-1, 1)     # tau2 = tau1 + exp(log_tau2_gap)
+mix_logit ~ Normal(1.4, 1)       # logit(0.8) ~ 1.4
+gamma_common ~ Normal(0, 1)      # shape (4,): intercept, significance, precision, direction
+gamma_quality ~ Normal(0, 0.75)  # shape (n_selection_quality,)
 
-# Per-study heterogeneity component assignment
-component_i ~ Bernoulli(mix_weight)
-h_i ~ Normal(0, tau_{component_i})
+# Heterogeneity: marginalized mixture (NOT discrete latent)
+# Analytically marginalize over the two-component assignment using logsumexp,
+# matching the frequentist implementation (model.py lines 364-370).
+# log p(y_i | ...) = logsumexp(log(w) + logN(y_i; loc, sd1), log(1-w) + logN(y_i; loc, sd2))
 
 # Observation model
-theta_i = mu + X_i beta + Z_i delta + h_i
-b_i = Q_i lambda
-y_i ~ Normal(theta_i + b_i, se_i^2)
+theta_i = mu + X_i @ beta + Z_i @ delta
+b_i = Q_i @ lambda_bias
+# Mixture marginal density per study, not a per-study discrete assignment
+
+# In PyMC code, use sigma=se_i (standard deviation), NOT se_i^2.
+# PyMC's Normal is parameterized as Normal(mu, sigma), not Normal(mu, variance).
 
 # Selection likelihood (custom Potential)
 log P(R_i=1 | y_i, se_i, Q_i; gamma) - log E[P(R=1 | ...)]
 ```
 
-The selection normalizer uses the same Gauss-Hermite quadrature as the frequentist model, wrapped in a `pm.Potential`.
+The selection normalizer uses the same Gauss-Hermite quadrature as the frequentist model, wrapped in a `pm.Potential`. The entire observation likelihood (mixture marginal + selection) is implemented as a single `pm.Potential` since the built-in distributions cannot express the selection-weighted mixture directly.
 
 ### 2.3 Prior Sensitivity
 
@@ -234,8 +246,8 @@ Additional flags:
 | UBCMA Bayesian | Phase 2 `BayesianUBCMAFit` |
 | Trim-and-fill | Implement in Python (Duval & Tweedie) |
 | PET-PEESE | Implement in Python (weighted regression on SE/SE^2) |
-| Copas selection model | Implement in Python (Copas & Shi 2000) |
-| Quality-effects model | Implement in Python (Doi et al. 2015) |
+| Copas selection model | Implement in Python (Copas & Shi 2000). Probit selection function with correlation parameter rho and threshold gamma. Profile likelihood over rho grid (0.0 to 0.99 in 20 steps), maximize over remaining parameters at each rho, report sensitivity range. |
+| Quality-effects model | Implement in Python (Doi et al. 2015, IVhet-based QE model as in metafor `method="IVhet"` with quality weights replacing inverse-variance weights). |
 | RoBMA | Optional R bridge via `rpy2` if available, otherwise skip with note |
 
 New module: `src/ubcma/comparators.py` for non-UBCMA methods.
@@ -258,6 +270,8 @@ Total cells: 3 × 3 × 3 × 2 × 3 × 2 = 324
 Replicates per cell: 1000
 
 Total simulation runs: 324,000 (frequentist methods are fast; Bayesian UBCMA runs on a subset of ~30 representative cells × 200 reps due to MCMC cost).
+
+**Wall-clock estimates**: Each UBCMA frequentist fit with 20 restarts takes ~0.5-2s. At 324K runs, that is ~45-180 hours single-threaded. With 4-core parallelization, ~12-45 hours. To reduce cost, the simulation study uses `n_restarts=5` (not 20) for UBCMA. Simpler methods (DL, REML, trim-and-fill, PET-PEESE) are ~1ms each. Bayesian subset (6,000 fits × 4 chains × 3K samples) requires ~4-20 days single-threaded; a multi-core machine or cloud resource is assumed.
 
 ### 3.3 Performance Metrics
 
@@ -320,7 +334,7 @@ CLI: `python -m ubcma study --replicates 1000 --seed 42 --jobs 4 --output result
 ### Phase 1
 - All existing tests pass (no regressions)
 - 30+ tests total, all green
-- Profile likelihood CI coverage 93-97% on 200-rep simulation with known mu
+- Profile likelihood CI coverage 90-99% on 500-rep simulation with known mu
 - Multi-start finds equal or better objective than single-start on 95%+ of runs
 - Verde and Bartos dataset estimates within stated tolerances
 
