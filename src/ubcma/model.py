@@ -167,11 +167,15 @@ class UBCMAFit:
         significance_softness: float = 6.0,
         direction_softness: float = 1.5,
         maxiter: int = 80,
+        n_restarts: int = 20,
+        restart_seed: int = 12345,
     ) -> None:
         self.quadrature_points = quadrature_points
         self.significance_softness = significance_softness
         self.direction_softness = direction_softness
         self.maxiter = maxiter
+        self.n_restarts = n_restarts
+        self.restart_seed = restart_seed
         self._gh_x, self._gh_w = np.polynomial.hermite.hermgauss(self.quadrature_points)
 
     def _selection_probability(
@@ -260,6 +264,72 @@ class UBCMAFit:
             1.0,
         ]
         return np.asarray(start, dtype=float)
+
+    def _latin_hypercube_starts(
+        self,
+        n: int,
+        n_params: int,
+        data: MetaAnalysisDataset,
+        rng: np.random.Generator,
+    ) -> list[np.ndarray]:
+        """Generate n random start vectors using per-parameter distributions.
+
+        Parameter layout (must match _build_start / unpack):
+          idx 0          : mu          ~ U(-1, 1)
+          idx 1..n_mod   : beta        ~ N(0, 0.5)
+          idx ..n_des    : delta       ~ N(0, 0.5)
+          idx ..n_qual   : lambda_bias ~ N(0, 0.3)
+          idx ..+4       : gamma_common: [intercept~U(-2,0.5), rest~N(0,1)]
+          idx ..n_selq   : gamma_quality~ N(0, 0.3)
+          idx ..+1       : log_tau1    ~ U(-3, 0.5)
+          idx ..+1       : log_tau2_inc~ U(-3, 0.5)
+          idx ..+1       : logit_mix   ~ U(-2, 2)
+        """
+        n_moderators = data.moderators.shape[1]
+        n_design = data.design.shape[1]
+        n_quality = data.quality.shape[1]
+        quality_score = data.quality_score.astype(float)
+        if n_quality:
+            n_selection_quality = n_quality
+        elif np.any(quality_score):
+            n_selection_quality = 1
+        else:
+            n_selection_quality = 0
+
+        starts: list[np.ndarray] = []
+        for _ in range(n):
+            v = np.zeros(n_params, dtype=float)
+            idx = 0
+            # mu
+            v[idx] = rng.uniform(-1.0, 1.0)
+            idx += 1
+            # beta (moderators)
+            v[idx : idx + n_moderators] = rng.normal(0.0, 0.5, size=n_moderators)
+            idx += n_moderators
+            # delta (design)
+            v[idx : idx + n_design] = rng.normal(0.0, 0.5, size=n_design)
+            idx += n_design
+            # lambda_bias (quality)
+            v[idx : idx + n_quality] = rng.normal(0.0, 0.3, size=n_quality)
+            idx += n_quality
+            # gamma_common[0] = intercept ~ U(-2, 0.5); rest ~ N(0, 1)
+            gc = rng.normal(0.0, 1.0, size=4)
+            gc[0] = rng.uniform(-2.0, 0.5)
+            v[idx : idx + 4] = gc
+            idx += 4
+            # gamma_quality
+            v[idx : idx + n_selection_quality] = rng.normal(0.0, 0.3, size=n_selection_quality)
+            idx += n_selection_quality
+            # log_tau1 ~ U(-3, 0.5)
+            v[idx] = rng.uniform(-3.0, 0.5)
+            idx += 1
+            # log_tau2_increment ~ U(-3, 0.5)  (added to tau1 via safe_exp in unpack)
+            v[idx] = rng.uniform(-3.0, 0.5)
+            idx += 1
+            # logit_mix_weight ~ U(-2, 2)
+            v[idx] = rng.uniform(-2.0, 2.0)
+            starts.append(v)
+        return starts
 
     def fit(self, data: MetaAnalysisDataset, allow_failed: bool = False) -> UBCMAResult:
         if data.n_studies < 4:
@@ -402,12 +472,41 @@ class UBCMAFit:
             total = np.sum(log_density + np.log(p_select_obs) - np.log(normalizer))
             return float(-(total + log_prior(params, parsed)))
 
-        best = minimize(
-            objective,
-            self._build_start(data),
-            method="L-BFGS-B",
-            options={"maxiter": self.maxiter, "ftol": 1e-4},
+        # --- Multi-start optimization ---
+        dl_start = self._build_start(data)
+        n_params = len(dl_start)
+        rng = np.random.default_rng(self.restart_seed)
+
+        # Build all start points: DL-based first, then random restarts
+        all_starts = [dl_start] + (
+            self._latin_hypercube_starts(self.n_restarts, n_params, data, rng)
+            if self.n_restarts > 0
+            else []
         )
+        n_attempted = len(all_starts)
+
+        results = []
+        for start_vec in all_starts:
+            res = minimize(
+                objective,
+                start_vec,
+                method="L-BFGS-B",
+                options={"maxiter": self.maxiter, "ftol": 1e-4},
+            )
+            results.append(res)
+
+        # Count converged runs
+        n_converged = sum(1 for r in results if r.success)
+
+        # Pick best result by objective value (lowest = best)
+        best_idx = int(np.argmin([r.fun for r in results]))
+        best = results[best_idx]
+        best_source = "dl_start" if best_idx == 0 else f"restart_{best_idx}"
+
+        # Objective spread: difference between worst and best finite objectives
+        finite_funs = [r.fun for r in results if np.isfinite(r.fun)]
+        objective_spread = float(max(finite_funs) - min(finite_funs)) if len(finite_funs) > 1 else 0.0
+
         if not best.success and not allow_failed:
             raise RuntimeError(f"UBCMA optimization failed: {best.message}")
         parsed = unpack(best.x)
@@ -447,6 +546,12 @@ class UBCMAFit:
             "study_selection_probability": selection_probs,
             "bias_names": data.quality_names,
             "selection_quality_names": selection_quality_names,
+            "restart_info": {
+                "n_converged": n_converged,
+                "n_attempted": n_attempted,
+                "best_source": best_source,
+                "objective_spread": objective_spread,
+            },
         }
         return UBCMAResult(
             success=bool(best.success),
