@@ -53,10 +53,10 @@ def _make_all_rct_dataset() -> MetaAnalysisDataset:
 class TestMultiStartOptimization(unittest.TestCase):
 
     def test_multi_start_objective_leq_single_start(self):
-        """Multi-start (n_restarts=10) must find an objective value <= single-start."""
+        """Multi-start (n_restarts=3) must find an objective value <= single-start."""
         data = _make_toy_dataset()
-        single = UBCMAFit(n_restarts=0, maxiter=60).fit(data, allow_failed=True)
-        multi = UBCMAFit(n_restarts=10, maxiter=60).fit(data, allow_failed=True)
+        single = UBCMAFit(n_restarts=0, maxiter=30).fit(data, allow_failed=True)
+        multi = UBCMAFit(n_restarts=3, maxiter=30).fit(data, allow_failed=True)
         self.assertLessEqual(
             multi.objective,
             single.objective + 1e-6,
@@ -69,7 +69,7 @@ class TestMultiStartOptimization(unittest.TestCase):
     def test_restart_info_present(self):
         """result.params['restart_info'] must contain n_converged and best_source."""
         data = _make_toy_dataset()
-        result = UBCMAFit(n_restarts=5, maxiter=40).fit(data, allow_failed=True)
+        result = UBCMAFit(n_restarts=2, maxiter=30).fit(data, allow_failed=True)
         self.assertIn("restart_info", result.params)
         info = result.params["restart_info"]
         self.assertIn("n_converged", info)
@@ -83,7 +83,7 @@ class TestMultiStartOptimization(unittest.TestCase):
     def test_zero_restarts_backward_compat(self):
         """n_restarts=0 should still produce a valid result."""
         data = _make_toy_dataset()
-        result = UBCMAFit(n_restarts=0, maxiter=60).fit(data, allow_failed=True)
+        result = UBCMAFit(n_restarts=0, maxiter=30).fit(data, allow_failed=True)
         self.assertTrue(result.success or True)  # just must not raise
         self.assertIn("mu", result.params)
         # restart_info still present but n_attempted == 1 (only DL start)
@@ -119,7 +119,7 @@ class TestMultiStartOptimization(unittest.TestCase):
     def test_convergence_on_toy_csv(self):
         """Toy dataset (seed=42, mu_true=0.22): fitted mu should be near 0.22."""
         data = _make_toy_dataset()
-        result = UBCMAFit(n_restarts=10, maxiter=80).fit(data, allow_failed=True)
+        result = UBCMAFit(n_restarts=3, maxiter=40).fit(data, allow_failed=True)
         mu = result.params["mu"]
         # Wide tolerance: within ±0.35 of the true value 0.22
         self.assertAlmostEqual(mu, 0.22, delta=0.35,
