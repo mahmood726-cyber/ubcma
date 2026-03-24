@@ -3,6 +3,8 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
+import numpy as np
+
 from .data import MetaAnalysisDataset
 from .model import UBCMAFit
 from .simulation import benchmark, generate_synthetic_meta_analysis
@@ -27,6 +29,19 @@ def build_parser() -> argparse.ArgumentParser:
     fit_parser.add_argument("--design", default=None)
     fit_parser.add_argument("--design-reference", default=None)
     fit_parser.add_argument("--study-id", default=None)
+    fit_parser.add_argument("--n-restarts", type=int, default=20)
+    fit_parser.add_argument("--profile-ci", action="store_true", help="Compute profile likelihood CI for mu")
+    fit_parser.add_argument("--bootstrap", type=int, default=0, help="Number of bootstrap replicates (0=skip)")
+
+    diag_parser = subparsers.add_parser("diagnose", help="Run diagnostics on a fitted model")
+    diag_parser.add_argument("csv_path", type=Path)
+    diag_parser.add_argument("--effect", default="yi")
+    diag_parser.add_argument("--se", default="sei")
+    diag_parser.add_argument("--quality", default=None)
+    diag_parser.add_argument("--moderators", default=None)
+    diag_parser.add_argument("--design", default=None)
+    diag_parser.add_argument("--design-reference", default=None)
+    diag_parser.add_argument("--study-id", default=None)
 
     sim_parser = subparsers.add_parser("simulate", help="Generate a synthetic dataset")
     sim_parser.add_argument("--output", type=Path, required=True)
@@ -62,10 +77,44 @@ def main() -> None:
             design_reference=args.design_reference,
             study_id_col=args.study_id,
         )
-        fit = UBCMAFit().fit(data)
-        print(fit.to_text())
+        fitter = UBCMAFit(n_restarts=args.n_restarts)
+        result = fitter.fit(data)
+        print(result.to_text())
+        if args.profile_ci:
+            from .inference import profile_likelihood_ci
+            ci = profile_likelihood_ci(result, data, fitter)
+            print(f"\nProfile likelihood 95% CI for mu: [{ci['ci_low']:.4f}, {ci['ci_high']:.4f}]")
+        if args.bootstrap > 0:
+            from .inference import bootstrap_ci
+            bci = bootstrap_ci(data, fitter, n_boot=args.bootstrap)
+            print(f"Bootstrap 95% CI for mu: [{bci['ci_low']:.4f}, {bci['ci_high']:.4f}] ({bci['n_failed']} failed)")
         print()
-        print(fit.study_table().to_string(index=False))
+        print(result.study_table().to_string(index=False))
+        return
+
+    if args.command == "diagnose":
+        data = MetaAnalysisDataset.from_csv(
+            args.csv_path,
+            effect_col=args.effect,
+            se_col=args.se,
+            quality_cols=_parse_csv_list(args.quality),
+            moderator_cols=_parse_csv_list(args.moderators),
+            design_col=args.design,
+            design_reference=args.design_reference,
+            study_id_col=args.study_id,
+        )
+        fitter = UBCMAFit(n_restarts=5)
+        result = fitter.fit(data, allow_failed=True)
+        from .diagnostics import information_criteria, standardized_residuals, leave_one_out
+        ic = information_criteria(result, data, fitter)
+        print("Information criteria:")
+        for model_name, vals in ic.items():
+            print(f"  {model_name}: AIC={vals['aic']:.1f}  BIC={vals['bic']:.1f}  k={vals['n_params']}")
+        resid = standardized_residuals(result)
+        print(f"\nResiduals: mean={float(np.mean(resid)):.3f} sd={float(np.std(resid)):.3f}")
+        print("\nLeave-one-out influence:")
+        loo = leave_one_out(result, data, fitter)
+        print(loo.to_string(index=False))
         return
 
     if args.command == "simulate":

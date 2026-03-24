@@ -1,0 +1,7 @@
+study_id,yi,sei,rob_selection,rob_measurement,rob_reporting,quality_score
+CDP,0.017,0.065,0,0,0,0.0
+AMIS,0.014,0.066,0,0,0,0.0
+ISIS-2,-0.251,0.029,0,0,0,0.0
+UK-TIA,-0.040,0.100,0,1,0,0.33
+SALT,-0.063,0.126,0,0,0,0.0
+ESPS-2,-0.041,0.075,0,0,0,0.0
