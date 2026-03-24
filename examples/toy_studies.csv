@@ -1,0 +1,13 @@
+study_id,yi,sei,rob_selection,rob_measurement,rob_reporting,moderator,design
+study_01,0.41,0.12,1,0,1,0.7,OBS
+study_02,0.26,0.10,0,0,0,-0.1,RCT
+study_03,0.32,0.09,0,1,0,0.2,RCT
+study_04,0.12,0.14,1,1,0,-0.7,OBS
+study_05,0.18,0.11,0,0,1,-0.3,RCT
+study_06,0.38,0.08,1,0,0,0.4,OBS
+study_07,0.24,0.13,0,1,0,-0.2,RCT
+study_08,0.29,0.10,0,0,0,0.1,RCT
+study_09,0.47,0.15,1,1,1,0.9,OBS
+study_10,0.16,0.12,0,0,0,-0.5,RCT
+study_11,0.34,0.09,0,0,1,0.3,RCT
+study_12,0.22,0.11,0,1,0,-0.4,RCT

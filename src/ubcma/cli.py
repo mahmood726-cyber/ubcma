@@ -1,0 +1,97 @@
+from __future__ import annotations
+
+import argparse
+from pathlib import Path
+
+from .data import MetaAnalysisDataset
+from .model import UBCMAFit
+from .simulation import benchmark, generate_synthetic_meta_analysis
+
+
+def _parse_csv_list(value: str | None) -> list[str] | None:
+    if not value:
+        return None
+    return [item.strip() for item in value.split(",") if item.strip()]
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="UBCMA prototype")
+    subparsers = parser.add_subparsers(dest="command", required=True)
+
+    fit_parser = subparsers.add_parser("fit", help="Fit UBCMA to a CSV")
+    fit_parser.add_argument("csv_path", type=Path)
+    fit_parser.add_argument("--effect", default="yi")
+    fit_parser.add_argument("--se", default="sei")
+    fit_parser.add_argument("--quality", default=None)
+    fit_parser.add_argument("--moderators", default=None)
+    fit_parser.add_argument("--design", default=None)
+    fit_parser.add_argument("--design-reference", default=None)
+    fit_parser.add_argument("--study-id", default=None)
+
+    sim_parser = subparsers.add_parser("simulate", help="Generate a synthetic dataset")
+    sim_parser.add_argument("--output", type=Path, required=True)
+    sim_parser.add_argument("--seed", type=int, default=42)
+    sim_parser.add_argument(
+        "--include-latent",
+        action="store_true",
+        help="Also write a *_full.csv file with latent truth used only for method development.",
+    )
+
+    bench_parser = subparsers.add_parser(
+        "benchmark",
+        help="Run a synthetic benchmark under aligned assumptions",
+    )
+    bench_parser.add_argument("--replicates", type=int, default=1)
+    bench_parser.add_argument("--seed", type=int, default=42)
+
+    return parser
+
+
+def main() -> None:
+    parser = build_parser()
+    args = parser.parse_args()
+
+    if args.command == "fit":
+        data = MetaAnalysisDataset.from_csv(
+            args.csv_path,
+            effect_col=args.effect,
+            se_col=args.se,
+            quality_cols=_parse_csv_list(args.quality),
+            moderator_cols=_parse_csv_list(args.moderators),
+            design_col=args.design,
+            design_reference=args.design_reference,
+            study_id_col=args.study_id,
+        )
+        fit = UBCMAFit().fit(data)
+        print(fit.to_text())
+        print()
+        print(fit.study_table().to_string(index=False))
+        return
+
+    if args.command == "simulate":
+        published, full = generate_synthetic_meta_analysis(seed=args.seed)
+        args.output.parent.mkdir(parents=True, exist_ok=True)
+        published.to_csv(args.output, index=False)
+        print(f"saved published dataset to {args.output}")
+        if args.include_latent:
+            full_path = args.output.with_name(args.output.stem + "_full.csv")
+            full.to_csv(full_path, index=False)
+            print(f"saved latent development dataset to {full_path}")
+        return
+
+    if args.command == "benchmark":
+        result = benchmark(
+            replicates=args.replicates,
+            seed=args.seed,
+            progress=True,
+        )
+        print(result.to_string(index=False))
+        print()
+        print(result[["ubcma_bias", "wls_bias"]].mean().rename("mean_bias").to_string())
+        print()
+        print(result[["ubcma_bias", "wls_bias"]].abs().mean().rename("mean_abs_bias").to_string())
+        print()
+        print("note: this benchmark is an aligned synthetic check, not broad comparative evidence.")
+        return
+
+    raise RuntimeError(f"Unhandled command: {args.command}")
