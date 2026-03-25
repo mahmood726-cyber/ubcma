@@ -47,6 +47,44 @@ class BayesianUBCMAResult:
         parts.append(f"n_divergences: {diag.get('n_divergences', 'N/A')}")
         return "\n".join(parts)
 
+    @property
+    def mu(self) -> float:
+        return self.summary["mu"]["mean"]
+
+    def ci(self, prob: float = 0.95) -> tuple[float, float]:
+        """HDI interval for mu."""
+        lo_key = f"hdi_{(1 - prob) / 2 * 100:.1f}%"
+        hi_key = f"hdi_{(1 + prob) / 2 * 100:.1f}%"
+        mu_stats = self.summary["mu"]
+        return (mu_stats.get(lo_key, float("nan")), mu_stats.get(hi_key, float("nan")))
+
+    def to_dict(self) -> dict[str, Any]:
+        """Flat dict of posterior summaries + diagnostics."""
+        d: dict[str, Any] = {"mu_mean": self.mu, "diagnostics": self.diagnostics}
+        for param, stats in self.summary.items():
+            for stat_name, val in stats.items():
+                d[f"{param}_{stat_name}"] = val
+        return d
+
+    def to_json(self, path: str | None = None, indent: int = 2) -> str:
+        """JSON export. If path given, writes to file."""
+        import json
+        from pathlib import Path
+
+        def _convert(obj: Any) -> Any:
+            if isinstance(obj, (np.integer,)):
+                return int(obj)
+            if isinstance(obj, (np.floating,)):
+                return float(obj)
+            if isinstance(obj, np.ndarray):
+                return obj.tolist()
+            return obj
+
+        s = json.dumps(self.to_dict(), indent=indent, default=_convert)
+        if path is not None:
+            Path(path).write_text(s, encoding="utf-8")
+        return s
+
 
 class BayesianUBCMAFit:
     def __init__(
