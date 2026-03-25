@@ -90,5 +90,54 @@ class QualityEffectsTests(unittest.TestCase):
         self.assertIn("mu", r)
 
 
+from scipy.stats import t as t_dist_
+
+Y_SMALL = np.array([0.30, 0.45, 0.10, 0.55, 0.25])
+SE_SMALL = np.array([0.10, 0.12, 0.08, 0.15, 0.09])
+
+
+class HKSJTests(unittest.TestCase):
+    def test_hksj_ci_wider_than_z_ci(self) -> None:
+        from ubcma.comparators import knapp_hartung_adjustment
+        from ubcma.model import dersimonian_laird
+        dl = dersimonian_laird(Y_SMALL, SE_SMALL)
+        hksj = knapp_hartung_adjustment(Y_SMALL, SE_SMALL, dl["mu"], dl["tau"] ** 2)
+        z_width = dl["ci_high"] - dl["ci_low"]
+        hksj_width = hksj["ci_high"] - hksj["ci_low"]
+        self.assertGreaterEqual(hksj_width, z_width - 1e-9)
+
+    def test_hksj_uses_t_distribution(self) -> None:
+        from ubcma.comparators import knapp_hartung_adjustment
+        from ubcma.model import dersimonian_laird
+        dl = dersimonian_laird(Y_SMALL, SE_SMALL)
+        hksj = knapp_hartung_adjustment(Y_SMALL, SE_SMALL, dl["mu"], dl["tau"] ** 2)
+        k = len(Y_SMALL)
+        t_crit = t_dist_.ppf(0.975, df=k - 1)
+        expected_half_width = t_crit * hksj["se_adjusted"]
+        actual_half_width = (hksj["ci_high"] - hksj["ci_low"]) / 2.0
+        self.assertAlmostEqual(actual_half_width, expected_half_width, places=6)
+
+    def test_hksj_converges_to_z_at_large_k(self) -> None:
+        from ubcma.comparators import knapp_hartung_adjustment
+        from ubcma.model import dersimonian_laird
+        rng = np.random.default_rng(99)
+        y_big = rng.normal(0.3, 0.15, size=200)
+        se_big = rng.uniform(0.05, 0.15, size=200)
+        dl = dersimonian_laird(y_big, se_big)
+        hksj = knapp_hartung_adjustment(y_big, se_big, dl["mu"], dl["tau"] ** 2)
+        z_width = dl["ci_high"] - dl["ci_low"]
+        hksj_width = hksj["ci_high"] - hksj["ci_low"]
+        ratio = hksj_width / max(z_width, 1e-9)
+        self.assertAlmostEqual(ratio, 1.0, delta=0.05)
+
+    def test_hksj_returns_required_keys(self) -> None:
+        from ubcma.comparators import knapp_hartung_adjustment
+        from ubcma.model import dersimonian_laird
+        dl = dersimonian_laird(Y_SMALL, SE_SMALL)
+        hksj = knapp_hartung_adjustment(Y_SMALL, SE_SMALL, dl["mu"], dl["tau"] ** 2)
+        for key in ("mu", "se_adjusted", "ci_low", "ci_high", "q_hksj", "df"):
+            self.assertIn(key, hksj)
+
+
 if __name__ == "__main__":
     unittest.main()

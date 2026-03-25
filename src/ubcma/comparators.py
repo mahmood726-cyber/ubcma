@@ -13,10 +13,10 @@ from typing import Any
 
 import numpy as np
 from scipy.optimize import minimize_scalar, minimize
-from scipy.stats import norm
+from scipy.stats import norm, t as t_dist
 
 
-def reml_estimator(y: np.ndarray, se: np.ndarray) -> dict[str, float]:
+def reml_estimator(y: np.ndarray, se: np.ndarray, hksj: bool = False) -> dict[str, float]:
     """Restricted maximum likelihood random-effects estimator."""
     s2 = np.square(se)
 
@@ -37,6 +37,15 @@ def reml_estimator(y: np.ndarray, se: np.ndarray) -> dict[str, float]:
     w = 1.0 / (s2 + tau2)
     mu = float(np.sum(w * y) / np.sum(w))
     se_mu = float(np.sqrt(1.0 / np.sum(w)))
+    if hksj:
+        hk = knapp_hartung_adjustment(y, se, mu, tau2)
+        return {
+            "mu": mu,
+            "se": float(hk["se_adjusted"]),
+            "tau": float(tau),
+            "ci_low": hk["ci_low"],
+            "ci_high": hk["ci_high"],
+        }
     z = norm.ppf(0.975)
     return {
         "mu": mu,
@@ -234,4 +243,33 @@ def quality_effects(
         "se": se_mu,
         "ci_low": mu - z * se_mu,
         "ci_high": mu + z * se_mu,
+    }
+
+
+def knapp_hartung_adjustment(
+    y: np.ndarray, se: np.ndarray, mu: float, tau2: float,
+    alpha: float = 0.05,
+) -> dict[str, float]:
+    """HKSJ-adjusted SE and CI using t-distribution.
+
+    Implements IntHout et al. (2014) / Rover et al. (2015) with floor at 1.0.
+    """
+    k = len(y)
+    s2 = np.square(se)
+    w = 1.0 / (s2 + tau2)
+    se_mu = float(np.sqrt(1.0 / np.sum(w)))
+
+    q_hksj = float(np.sum(w * np.square(y - mu)) / (k - 1))
+    q_hksj = max(q_hksj, 1.0)  # floor per Rover et al. 2015
+    se_adj = se_mu * np.sqrt(q_hksj)
+
+    df = k - 1
+    t_crit = float(t_dist.ppf(1.0 - alpha / 2.0, df=df))
+    return {
+        "mu": mu,
+        "se_adjusted": float(se_adj),
+        "ci_low": mu - t_crit * se_adj,
+        "ci_high": mu + t_crit * se_adj,
+        "q_hksj": q_hksj,
+        "df": df,
     }

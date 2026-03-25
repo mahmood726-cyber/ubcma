@@ -103,6 +103,14 @@ def _run_method(
         elif method == "reml":
             r = reml_estimator(y, se)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
+        elif method == "dl_hksj":
+            from .comparators import knapp_hartung_adjustment
+            r = dersimonian_laird(y, se)
+            hk = knapp_hartung_adjustment(y, se, r["mu"], r["tau"] ** 2)
+            return {"mu_hat": r["mu"], "ci_low": hk["ci_low"], "ci_high": hk["ci_high"], "converged": True}
+        elif method == "reml_hksj":
+            r = reml_estimator(y, se, hksj=True)
+            return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
         elif method == "trim_and_fill":
             r = trim_and_fill(y, se)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
