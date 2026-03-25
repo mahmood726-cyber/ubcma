@@ -73,6 +73,60 @@ class UBCMAResult:
     params: dict[str, Any]
     data: MetaAnalysisDataset
     baseline: dict[str, float]
+    fitter: Any = None
+
+    @property
+    def mu(self) -> float:
+        return self.params["mu"]
+
+    @property
+    def tau1(self) -> float:
+        return self.params["tau1"]
+
+    @property
+    def tau2(self) -> float:
+        return self.params["tau2"]
+
+    @property
+    def mix_weight(self) -> float:
+        return self.params["mix_weight"]
+
+    @property
+    def beta(self) -> np.ndarray:
+        return np.asarray(self.params["beta"])
+
+    @property
+    def delta(self) -> np.ndarray:
+        return np.asarray(self.params["delta"])
+
+    @property
+    def lambda_bias(self) -> np.ndarray:
+        return np.asarray(self.params["lambda_bias"])
+
+    def to_dict(self) -> dict[str, Any]:
+        """Flat dict of key estimates, JSON-serializable."""
+        return {
+            "mu": self.mu,
+            "tau1": self.tau1,
+            "tau2": self.tau2,
+            "mix_weight": self.mix_weight,
+            "success": self.success,
+            "objective": self.objective,
+            "beta": [float(x) for x in self.params["beta"]],
+            "delta": [float(x) for x in self.params["delta"]],
+            "lambda_bias": [float(x) for x in self.params["lambda_bias"]],
+            "gamma_common": [float(x) for x in self.params["gamma_common"]],
+            "baseline": {k: float(v) for k, v in self.baseline.items()},
+        }
+
+    def to_json(self, path: str | None = None, indent: int = 2) -> str:
+        """JSON export. If path given, writes to file."""
+        import json
+        from pathlib import Path
+        s = json.dumps(self.to_dict(), indent=indent)
+        if path is not None:
+            Path(path).write_text(s, encoding="utf-8")
+        return s
 
     def summary_frame(self) -> pd.DataFrame:
         rows = [
@@ -560,4 +614,5 @@ class UBCMAFit:
             params=params,
             data=data,
             baseline=baseline,
+            fitter=self,
         )
