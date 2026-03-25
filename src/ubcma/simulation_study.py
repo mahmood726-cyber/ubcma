@@ -1,6 +1,7 @@
 """Factorial simulation study runner for UBCMA comparative evaluation."""
 from __future__ import annotations
 
+import itertools
 from dataclasses import dataclass
 from typing import Any
 
@@ -212,3 +213,123 @@ def compute_metrics(df: pd.DataFrame) -> pd.DataFrame:
         })
 
     return df.groupby("method").apply(_agg, include_groups=False).reset_index()
+
+
+def pilot_scenarios() -> list[ScenarioParams]:
+    """12-cell pilot: 3 selections x 2 biases x 2 taus, fixed mu=0.2/k=30/all_rct."""
+    scenarios = []
+    for sel, bias, tau in itertools.product(
+        ["none", "moderate", "strong"],
+        ["none", "moderate"],
+        [0.0, 0.1],
+    ):
+        scenarios.append(ScenarioParams(
+            mu=0.2, tau=tau, selection_strength=sel,
+            quality_bias=bias, k=30, design_mix="all_rct",
+        ))
+    return scenarios
+
+
+def focused_scenarios() -> list[ScenarioParams]:
+    """36-cell focused: 3 mus x 2 taus x 3 selections x 2 biases, fixed k=30/all_rct."""
+    scenarios = []
+    for mu, tau, sel, bias in itertools.product(
+        [0.0, 0.2, 0.5],
+        [0.0, 0.1],
+        ["none", "moderate", "strong"],
+        ["none", "moderate"],
+    ):
+        scenarios.append(ScenarioParams(
+            mu=mu, tau=tau, selection_strength=sel,
+            quality_bias=bias, k=30, design_mix="all_rct",
+        ))
+    return scenarios
+
+
+def full_scenarios() -> list[ScenarioParams]:
+    """324-cell full factorial."""
+    scenarios = []
+    for mu, tau, sel, bias, k, des in itertools.product(
+        [0.0, 0.2, 0.5],
+        [0.0, 0.1, 0.3],
+        ["none", "moderate", "strong"],
+        ["none", "moderate"],
+        [10, 30, 80],
+        ["all_rct", "mixed"],
+    ):
+        scenarios.append(ScenarioParams(
+            mu=mu, tau=tau, selection_strength=sel,
+            quality_bias=bias, k=k, design_mix=des,
+        ))
+    return scenarios
+
+
+def run_tier(
+    tier: str,
+    methods: list[str],
+    n_reps: int,
+    seed: int,
+    output_dir: str,
+) -> pd.DataFrame:
+    """Run a complete simulation tier with checkpointing."""
+    from pathlib import Path
+    out = Path(output_dir)
+    out.mkdir(parents=True, exist_ok=True)
+
+    if tier == "pilot":
+        scenarios = pilot_scenarios()
+    elif tier == "focused":
+        scenarios = focused_scenarios()
+    else:
+        scenarios = full_scenarios()
+
+    all_results = []
+    for i, params in enumerate(scenarios):
+        print(f"  [{tier}] scenario {i+1}/{len(scenarios)}: "
+              f"mu={params.mu} tau={params.tau} sel={params.selection_strength} "
+              f"bias={params.quality_bias} k={params.k}")
+        df = run_scenario(
+            params, methods=methods, n_reps=n_reps,
+            seed=seed + i * 10000,
+            checkpoint_path=str(out / f"scenario_{i:04d}.csv"),
+        )
+        all_results.append(df)
+
+    full = pd.concat(all_results, ignore_index=True)
+    full.to_csv(out / "simulation_study.csv", index=False)
+    metrics = compute_metrics(full)
+    metrics.to_csv(out / "simulation_summary.csv", index=False)
+    return full
+
+
+def format_table(summary_df: pd.DataFrame, fmt: str = "markdown") -> str:
+    """Format a compute_metrics() DataFrame as markdown or LaTeX table."""
+    cols = ["method", "bias", "rmse", "coverage", "interval_width", "convergence_rate"]
+    present = [c for c in cols if c in summary_df.columns]
+    df = summary_df[present].copy()
+
+    # Format numeric columns
+    for c in present:
+        if c != "method":
+            df[c] = df[c].map(lambda x: f"{x:.4f}" if isinstance(x, float) else str(x))
+
+    if fmt == "latex":
+        header = " & ".join(present)
+        lines = [
+            "\\begin{tabular}{" + "l" * len(present) + "}",
+            "\\hline",
+            header + " \\\\",
+            "\\hline",
+        ]
+        for _, row in df.iterrows():
+            lines.append(" & ".join(str(row[c]) for c in present) + " \\\\")
+        lines.append("\\hline")
+        lines.append("\\end{tabular}")
+        return "\n".join(lines)
+    else:  # markdown
+        header = "| " + " | ".join(present) + " |"
+        sep = "| " + " | ".join("---" for _ in present) + " |"
+        rows = []
+        for _, row in df.iterrows():
+            rows.append("| " + " | ".join(str(row[c]) for c in present) + " |")
+        return "\n".join([header, sep] + rows)

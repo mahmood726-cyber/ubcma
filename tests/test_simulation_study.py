@@ -56,5 +56,54 @@ class ScenarioRunnerTests(unittest.TestCase):
             self.assertEqual(len(df), len(df2))
 
 
+class TierTests(unittest.TestCase):
+    def test_pilot_has_12_scenarios(self) -> None:
+        from ubcma.simulation_study import pilot_scenarios
+        self.assertEqual(len(pilot_scenarios()), 12)
+
+    def test_focused_has_36_scenarios(self) -> None:
+        from ubcma.simulation_study import focused_scenarios
+        self.assertEqual(len(focused_scenarios()), 36)
+
+    def test_full_has_324_scenarios(self) -> None:
+        from ubcma.simulation_study import full_scenarios
+        self.assertEqual(len(full_scenarios()), 324)
+
+    def test_pilot_scenarios_are_scenarioparams(self) -> None:
+        from ubcma.simulation_study import pilot_scenarios
+        for s in pilot_scenarios():
+            self.assertIsInstance(s, ScenarioParams)
+
+
+class FormatTableTests(unittest.TestCase):
+    def test_markdown_has_header_separator(self) -> None:
+        from ubcma.simulation_study import format_table
+        df = pd.DataFrame({
+            "method": ["dl", "reml"],
+            "bias": [0.01, 0.02],
+            "rmse": [0.10, 0.11],
+            "coverage": [0.95, 0.94],
+            "interval_width": [0.40, 0.42],
+            "convergence_rate": [1.0, 1.0],
+        })
+        md = format_table(df, fmt="markdown")
+        self.assertIn("|", md)
+        self.assertIn("---", md)
+
+    def test_latex_has_tabular(self) -> None:
+        from ubcma.simulation_study import format_table
+        df = pd.DataFrame({
+            "method": ["dl", "reml"],
+            "bias": [0.01, 0.02],
+            "rmse": [0.10, 0.11],
+            "coverage": [0.95, 0.94],
+            "interval_width": [0.40, 0.42],
+            "convergence_rate": [1.0, 1.0],
+        })
+        tex = format_table(df, fmt="latex")
+        self.assertIn("\\begin{tabular}", tex)
+        self.assertIn("\\end{tabular}", tex)
+
+
 if __name__ == "__main__":
     unittest.main()
