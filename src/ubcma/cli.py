@@ -73,12 +73,13 @@ def build_parser() -> argparse.ArgumentParser:
     )
 
     study_parser = subparsers.add_parser("study", help="Run the simulation study")
-    study_parser.add_argument("--replicates", type=int, default=100)
+    study_parser.add_argument("--tier", default="pilot", choices=["pilot", "focused", "full"])
+    study_parser.add_argument("--replicates", type=int, default=50)
     study_parser.add_argument("--seed", type=int, default=42)
     study_parser.add_argument("--output", type=Path, default=Path("results"))
     study_parser.add_argument(
         "--methods",
-        default="dl,reml,trim_and_fill,pet_peese,copas,quality_effects,ubcma",
+        default="dl,dl_hksj,reml,reml_hksj,trim_and_fill,pet_peese,copas,quality_effects,ubcma",
     )
 
     bench_parser = subparsers.add_parser(
@@ -191,37 +192,13 @@ def main() -> None:
         return
 
     if args.command == "study":
-        import itertools
-        import pandas as pd
-        from .simulation_study import ScenarioParams, run_scenario, compute_metrics
-
+        from .simulation_study import run_tier, compute_metrics, format_table
         methods = [m.strip() for m in args.methods.split(",")]
-        args.output.mkdir(parents=True, exist_ok=True)
-
-        mus = [0.0, 0.2, 0.5]
-        taus = [0.0, 0.1, 0.3]
-        selections = ["none", "moderate", "strong"]
-        biases = ["none", "moderate"]
-        ks = [10, 30, 80]
-        designs = ["all_rct", "mixed"]
-
-        scenarios = list(itertools.product(mus, taus, selections, biases, ks, designs))
-        all_results = []
-        for i, (mu, tau, sel, bias, k, des) in enumerate(scenarios):
-            print(f"scenario {i+1}/{len(scenarios)}: mu={mu} tau={tau} sel={sel} bias={bias} k={k} des={des}")
-            params = ScenarioParams(mu=mu, tau=tau, selection_strength=sel, quality_bias=bias, k=k, design_mix=des)
-            df = run_scenario(
-                params, methods=methods, n_reps=args.replicates, seed=args.seed + i * 10000,
-                checkpoint_path=str(args.output / f"scenario_{i:04d}.csv"),
-            )
-            all_results.append(df)
-
-        full = pd.concat(all_results, ignore_index=True)
-        full.to_csv(args.output / "simulation_study.csv", index=False)
-        metrics = compute_metrics(full)
-        metrics.to_csv(args.output / "simulation_summary.csv", index=False)
-        print(f"\nResults saved to {args.output}")
-        print(metrics.to_string(index=False))
+        output_dir = str(args.output / args.tier)
+        full_df = run_tier(args.tier, methods, args.replicates, args.seed, output_dir)
+        metrics = compute_metrics(full_df)
+        print(f"\n{format_table(metrics)}")
+        print(f"\nResults saved to {output_dir}")
         return
 
     if args.command == "benchmark":
