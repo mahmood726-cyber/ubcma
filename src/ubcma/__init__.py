@@ -13,6 +13,7 @@ from .comparators import (
     pet_peese,
     copas_selection,
     quality_effects,
+    knapp_hartung_adjustment,
 )
 
 __all__ = [
@@ -32,4 +33,5 @@ __all__ = [
     "pet_peese",
     "copas_selection",
     "quality_effects",
+    "knapp_hartung_adjustment",
 ]
