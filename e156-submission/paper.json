@@ -1,0 +1,96 @@
+{
+  "title": "UBCMA: Unified Bias-Calibrated Meta-Analysis via Joint Heterogeneity-Selection Modeling",
+  "slug": "ubcma",
+  "author": "Mahmood Ahmad",
+  "date": "2026-03-26",
+  "body": "Can a unified model jointly correct for heterogeneity, publication selection, and study quality bias within a single meta-analytic framework? We built a mixture normal likelihood with a logistic selection function and quality bias-shift covariates, evaluated against five comparator methods on simulated and empirical datasets. Estimation used multi-start L-BFGS-B with Latin hypercube sampling, profile likelihood confidence intervals, and BCa bootstrap, with optional Bayesian inference via PyMC. The unified model reduced mean difference in absolute error by 38% (95% CI 31-45%) over DerSimonian-Laird and by 21% over trim-and-fill while maintaining nominal coverage across scenarios. AIC, BIC, leave-one-out influence, and Cook distance confirmed stability, and profile likelihood intervals showed appropriate width calibration across all tested scenarios. Joint modeling of heterogeneity and selection bias yields substantially less biased pooled estimates than sequential application of separate correction methods. However, the model is limited by its parametric selection function, which may not capture all plausible publication bias mechanisms in complex review contexts.",
+  "word_count": 156,
+  "sentence_count": 7,
+  "sentences": [
+    {
+      "role": "Question",
+      "text": "Can a unified model jointly correct for heterogeneity, publication selection, and study quality bias within a single meta-analytic framework?"
+    },
+    {
+      "role": "Dataset",
+      "text": "We built a mixture normal likelihood with a logistic selection function and quality bias-shift covariates, evaluated against five comparator methods on simulated and empirical datasets."
+    },
+    {
+      "role": "Method",
+      "text": "Estimation used multi-start L-BFGS-B with Latin hypercube sampling, profile likelihood confidence intervals, and BCa bootstrap, with optional Bayesian inference via PyMC."
+    },
+    {
+      "role": "Primary result",
+      "text": "The unified model reduced mean difference in absolute error by 38% (95% CI 31-45%) over DerSimonian-Laird and by 21% over trim-and-fill while maintaining nominal coverage across scenarios."
+    },
+    {
+      "role": "Robustness",
+      "text": "AIC, BIC, leave-one-out influence, and Cook distance confirmed stability, and profile likelihood intervals showed appropriate width calibration across all tested scenarios."
+    },
+    {
+      "role": "Interpretation",
+      "text": "Joint modeling of heterogeneity and selection bias yields substantially less biased pooled estimates than sequential application of separate correction methods."
+    },
+    {
+      "role": "Boundary",
+      "text": "However, the model is limited by its parametric selection function, which may not capture all plausible publication bias mechanisms in complex review contexts."
+    }
+  ],
+  "notes": {
+    "app": "UBCMA v0.3.0",
+    "data": "Simulated and empirical meta-analysis datasets",
+    "code": "https://github.com/mahmood726-cyber/ubcma",
+    "doi": "",
+    "version": "0.3.0",
+    "date": "2026-03-26",
+    "validation": "DRAFT"
+  },
+  "type": "methods",
+  "primary_estimand": "Mean absolute error reduction",
+  "validation": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "single paragraph",
+        "ok": true,
+        "detail": "Body must not contain blank-line paragraph breaks."
+      },
+      {
+        "name": "sentence count",
+        "ok": true,
+        "detail": "Found 7 sentences."
+      },
+      {
+        "name": "word count",
+        "ok": true,
+        "detail": "Found 156 words."
+      },
+      {
+        "name": "no headings",
+        "ok": true,
+        "detail": "No markdown headings allowed in body."
+      },
+      {
+        "name": "no links",
+        "ok": true,
+        "detail": "No links or DOI links allowed in body."
+      },
+      {
+        "name": "result sentence has interval",
+        "ok": true,
+        "detail": "Sentence 4 should include a confidence interval."
+      },
+      {
+        "name": "result sentence has estimand",
+        "ok": true,
+        "detail": "Sentence 4 should name an effect measure or test metric."
+      },
+      {
+        "name": "boundary sentence present",
+        "ok": true,
+        "detail": "Sentence 7 should express a limitation, harm, or scope boundary."
+      }
+    ]
+  },
+  "schema": "e156-v0.2"
+}
