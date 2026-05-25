@@ -1,5 +1,7 @@
 # UBCMA: Unified Bias-Calibrated Meta-Analysis
 
+[![ci](https://github.com/mahmood726-cyber/ubcma/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/mahmood726-cyber/ubcma/actions/workflows/ci.yml) [![codeql](https://github.com/mahmood726-cyber/ubcma/actions/workflows/codeql.yml/badge.svg?branch=master)](https://github.com/mahmood726-cyber/ubcma/actions/workflows/codeql.yml) [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE) [![python: 3.10+](https://img.shields.io/badge/python-3.10%2B-blue)](https://www.python.org/)
+
 A Python framework for meta-analysis that jointly models heterogeneity, publication selection bias, and study quality-dependent bias. UBCMA uses a mixture normal likelihood with a smooth selection function, optimized via multi-start L-BFGS-B with optional Bayesian (PyMC) inference.
 
 ## Install
