@@ -12,8 +12,9 @@ from __future__ import annotations
 from typing import Any
 
 import numpy as np
-from scipy.optimize import minimize_scalar, minimize
-from scipy.stats import norm, t as t_dist
+from scipy.optimize import minimize, minimize_scalar
+from scipy.stats import norm
+from scipy.stats import t as t_dist
 
 
 def reml_estimator(y: np.ndarray, se: np.ndarray, hksj: bool = False) -> dict[str, float]:

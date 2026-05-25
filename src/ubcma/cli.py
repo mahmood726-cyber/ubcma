@@ -135,7 +135,11 @@ def main() -> None:
         )
         fitter = UBCMAFit(n_restarts=5)
         result = fitter.fit(data, allow_failed=True)
-        from .diagnostics import information_criteria, standardized_residuals, leave_one_out
+        from .diagnostics import (
+            information_criteria,
+            leave_one_out,
+            standardized_residuals,
+        )
         ic = information_criteria(result, data, fitter)
         print("Information criteria:")
         for model_name, vals in ic.items():
@@ -192,7 +196,7 @@ def main() -> None:
         return
 
     if args.command == "study":
-        from .simulation_study import run_tier, compute_metrics, format_table
+        from .simulation_study import compute_metrics, format_table, run_tier
         methods = [m.strip() for m in args.methods.split(",")]
         output_dir = str(args.output / args.tier)
         full_df = run_tier(args.tier, methods, args.replicates, args.seed, output_dir)

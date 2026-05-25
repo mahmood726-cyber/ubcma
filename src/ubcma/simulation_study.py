@@ -9,7 +9,13 @@ import numpy as np
 import pandas as pd
 from scipy.special import expit
 
-from .comparators import reml_estimator, trim_and_fill, pet_peese, copas_selection, quality_effects
+from .comparators import (
+    copas_selection,
+    pet_peese,
+    quality_effects,
+    reml_estimator,
+    trim_and_fill,
+)
 from .data import MetaAnalysisDataset
 from .model import UBCMAFit, dersimonian_laird
 
@@ -27,17 +33,17 @@ class ScenarioParams:
 def _selection_gamma(strength: str) -> tuple[float, ...]:
     if strength == "none":
         return (0.0, 0.0, 0.0, 0.0, 0.0)
-    elif strength == "moderate":
+    if strength == "moderate":
         return (-0.5, 1.0, 0.2, 0.1, 0.4)
-    else:  # strong
-        return (-1.5, 2.5, 0.4, 0.2, 0.8)
+    # strong
+    return (-1.5, 2.5, 0.4, 0.2, 0.8)
 
 
 def _quality_lambda(bias: str) -> tuple[float, ...]:
     if bias == "none":
         return (0.0, 0.0, 0.0)
-    else:  # moderate
-        return (0.1, 0.08, 0.06)
+    # moderate
+    return (0.1, 0.08, 0.06)
 
 
 def generate_scenario_data(
@@ -101,30 +107,30 @@ def _run_method(
         if method == "dl":
             r = dersimonian_laird(y, se)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
-        elif method == "reml":
+        if method == "reml":
             r = reml_estimator(y, se)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
-        elif method == "dl_hksj":
+        if method == "dl_hksj":
             from .comparators import knapp_hartung_adjustment
             r = dersimonian_laird(y, se)
             hk = knapp_hartung_adjustment(y, se, r["mu"], r["tau"] ** 2)
             return {"mu_hat": r["mu"], "ci_low": hk["ci_low"], "ci_high": hk["ci_high"], "converged": True}
-        elif method == "reml_hksj":
+        if method == "reml_hksj":
             r = reml_estimator(y, se, hksj=True)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
-        elif method == "trim_and_fill":
+        if method == "trim_and_fill":
             r = trim_and_fill(y, se)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
-        elif method == "pet_peese":
+        if method == "pet_peese":
             r = pet_peese(y, se)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
-        elif method == "copas":
+        if method == "copas":
             r = copas_selection(y, se)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
-        elif method == "quality_effects":
+        if method == "quality_effects":
             r = quality_effects(y, se, quality_score)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
-        elif method == "ubcma":
+        if method == "ubcma":
             if data is None:
                 return {"mu_hat": float("nan"), "ci_low": float("nan"), "ci_high": float("nan"), "converged": False}
             fitter = UBCMAFit(n_restarts=5, maxiter=60)
@@ -137,8 +143,7 @@ def _run_method(
                 "ci_high": ci["ci_high"],
                 "converged": result.success,
             }
-        else:
-            return {"mu_hat": float("nan"), "ci_low": float("nan"), "ci_high": float("nan"), "converged": False}
+        return {"mu_hat": float("nan"), "ci_low": float("nan"), "ci_high": float("nan"), "converged": False}
     except Exception:
         return {"mu_hat": float("nan"), "ci_low": float("nan"), "ci_high": float("nan"), "converged": False}
 
@@ -326,10 +331,10 @@ def format_table(summary_df: pd.DataFrame, fmt: str = "markdown") -> str:
         lines.append("\\hline")
         lines.append("\\end{tabular}")
         return "\n".join(lines)
-    else:  # markdown
-        header = "| " + " | ".join(present) + " |"
-        sep = "| " + " | ".join("---" for _ in present) + " |"
-        rows = []
-        for _, row in df.iterrows():
-            rows.append("| " + " | ".join(str(row[c]) for c in present) + " |")
-        return "\n".join([header, sep] + rows)
+    # markdown
+    header = "| " + " | ".join(present) + " |"
+    sep = "| " + " | ".join("---" for _ in present) + " |"
+    rows = []
+    for _, row in df.iterrows():
+        rows.append("| " + " | ".join(str(row[c]) for c in present) + " |")
+    return "\n".join([header, sep] + rows)

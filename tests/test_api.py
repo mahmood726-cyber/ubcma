@@ -83,7 +83,8 @@ class ToJsonTests(unittest.TestCase):
         self.assertAlmostEqual(d["mu"], result.mu, places=6)
 
     def test_to_json_to_file(self) -> None:
-        import tempfile, os
+        import os
+        import tempfile
         result, _, _ = _get_result()
         with tempfile.TemporaryDirectory() as tmpdir:
             path = os.path.join(tmpdir, "result.json")

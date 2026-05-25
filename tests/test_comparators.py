@@ -6,13 +6,12 @@ import unittest
 import numpy as np
 
 from ubcma.comparators import (
+    copas_selection,
+    pet_peese,
+    quality_effects,
     reml_estimator,
     trim_and_fill,
-    pet_peese,
-    copas_selection,
-    quality_effects,
 )
-
 
 # Homogeneous dataset (tau~0)
 Y_HOMO = np.array([0.20, 0.22, 0.18, 0.21, 0.19, 0.23, 0.20, 0.17, 0.24, 0.21])

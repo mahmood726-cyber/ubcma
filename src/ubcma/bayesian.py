@@ -6,11 +6,10 @@ from dataclasses import dataclass
 from typing import Any
 
 import numpy as np
-import pandas as pd
 
 try:
-    import pymc as pm
     import arviz as az
+    import pymc as pm
     from pytensor import tensor as pt
     HAS_PYMC = True
 except ImportError:
@@ -106,7 +105,7 @@ class BayesianUBCMAFit:
         data: MetaAnalysisDataset,
         prior_scale: float = 1.0,
         simplified: bool = False,
-    ) -> "pm.Model":
+    ) -> pm.Model:
         """Build the PyMC model.
 
         If simplified=True, skips the Gauss-Hermite quadrature selection normalizer

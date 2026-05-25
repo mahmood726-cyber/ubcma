@@ -7,7 +7,7 @@ import unittest
 
 import pandas as pd
 
-from ubcma.simulation_study import ScenarioParams, run_scenario, compute_metrics
+from ubcma.simulation_study import ScenarioParams, compute_metrics, run_scenario
 
 
 class ScenarioRunnerTests(unittest.TestCase):

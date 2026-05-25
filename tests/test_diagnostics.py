@@ -13,15 +13,14 @@ import numpy as np
 import pandas as pd
 
 from ubcma.data import MetaAnalysisDataset
-from ubcma.model import UBCMAFit
-from ubcma.simulation import generate_synthetic_meta_analysis
 from ubcma.diagnostics import (
     information_criteria,
-    standardized_residuals,
     leave_one_out,
     selection_function_grid,
+    standardized_residuals,
 )
-
+from ubcma.model import UBCMAFit
+from ubcma.simulation import generate_synthetic_meta_analysis
 
 # ---------------------------------------------------------------------------
 # Module-level fixture cache — fits once per test run

@@ -1,8 +1,8 @@
 from __future__ import annotations
 
+from collections.abc import Sequence
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Sequence
 
 import numpy as np
 import pandas as pd
@@ -57,7 +57,7 @@ class MetaAnalysisDataset:
         design_col: str | None = None,
         design_reference: str | None = None,
         study_id_col: str | None = None,
-    ) -> "MetaAnalysisDataset":
+    ) -> MetaAnalysisDataset:
         df = pd.read_csv(path).copy()
         return cls.from_dataframe(
             df,
@@ -81,7 +81,7 @@ class MetaAnalysisDataset:
         design_col: str | None = None,
         design_reference: str | None = None,
         study_id_col: str | None = None,
-    ) -> "MetaAnalysisDataset":
+    ) -> MetaAnalysisDataset:
         df = df.copy()
         if effect_col not in df or se_col not in df:
             raise ValueError(

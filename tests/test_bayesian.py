@@ -13,8 +13,7 @@ import pandas as pd
 from ubcma.data import MetaAnalysisDataset
 
 try:
-    from ubcma.bayesian import BayesianUBCMAFit
-    HAS_PYMC = True
+    from ubcma.bayesian import HAS_PYMC, BayesianUBCMAFit
 except ImportError:
     HAS_PYMC = False
 

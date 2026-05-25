@@ -2,11 +2,12 @@
 from __future__ import annotations
 
 import unittest
+
 import numpy as np
 
-from ubcma.simulation import generate_synthetic_meta_analysis
 from ubcma.data import MetaAnalysisDataset
 from ubcma.model import UBCMAFit
+from ubcma.simulation import generate_synthetic_meta_analysis
 
 
 def _make_toy_dataset() -> MetaAnalysisDataset:
@@ -37,7 +38,6 @@ def _make_minimal_dataset(n: int = 5) -> MetaAnalysisDataset:
 def _make_all_rct_dataset() -> MetaAnalysisDataset:
     """Dataset where all studies are RCT — design column present but all one value."""
     published, _ = generate_synthetic_meta_analysis(seed=7)
-    import pandas as pd
     df = published.copy()
     df["design"] = "RCT"
     return MetaAnalysisDataset.from_dataframe(

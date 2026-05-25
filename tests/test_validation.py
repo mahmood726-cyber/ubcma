@@ -7,7 +7,6 @@ from pathlib import Path
 from ubcma.data import MetaAnalysisDataset
 from ubcma.model import UBCMAFit, dersimonian_laird
 
-
 EXAMPLES = Path(__file__).resolve().parent.parent / "examples"
 
 

@@ -12,7 +12,6 @@ from scipy.stats import chi2
 from .data import MetaAnalysisDataset
 from .model import UBCMAFit, UBCMAResult
 
-
 # ---------------------------------------------------------------------------
 # Internal helpers
 # ---------------------------------------------------------------------------

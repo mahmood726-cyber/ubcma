@@ -1,37 +1,37 @@
-from .data import MetaAnalysisDataset
-from .model import UBCMAFit, UBCMAResult, dersimonian_laird, weighted_meta_regression
-from .inference import profile_likelihood_ci, bootstrap_ci
-from .diagnostics import (
-    information_criteria,
-    standardized_residuals,
-    leave_one_out,
-    selection_function_grid,
-)
 from .comparators import (
+    copas_selection,
+    knapp_hartung_adjustment,
+    pet_peese,
+    quality_effects,
     reml_estimator,
     trim_and_fill,
-    pet_peese,
-    copas_selection,
-    quality_effects,
-    knapp_hartung_adjustment,
 )
+from .data import MetaAnalysisDataset
+from .diagnostics import (
+    information_criteria,
+    leave_one_out,
+    selection_function_grid,
+    standardized_residuals,
+)
+from .inference import bootstrap_ci, profile_likelihood_ci
+from .model import UBCMAFit, UBCMAResult, dersimonian_laird, weighted_meta_regression
 
 __all__ = [
     "MetaAnalysisDataset",
     "UBCMAFit",
     "UBCMAResult",
-    "dersimonian_laird",
-    "weighted_meta_regression",
-    "profile_likelihood_ci",
     "bootstrap_ci",
-    "information_criteria",
-    "standardized_residuals",
-    "leave_one_out",
-    "selection_function_grid",
-    "reml_estimator",
-    "trim_and_fill",
-    "pet_peese",
     "copas_selection",
-    "quality_effects",
+    "dersimonian_laird",
+    "information_criteria",
     "knapp_hartung_adjustment",
+    "leave_one_out",
+    "pet_peese",
+    "profile_likelihood_ci",
+    "quality_effects",
+    "reml_estimator",
+    "selection_function_grid",
+    "standardized_residuals",
+    "trim_and_fill",
+    "weighted_meta_regression",
 ]

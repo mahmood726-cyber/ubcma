@@ -2,16 +2,14 @@
 from __future__ import annotations
 
 import unittest
-import warnings
 
 import numpy as np
 import pandas as pd
 
-from ubcma.inference import bootstrap_ci, profile_likelihood_ci
 from ubcma.data import MetaAnalysisDataset
+from ubcma.inference import bootstrap_ci, profile_likelihood_ci
 from ubcma.model import UBCMAFit
 from ubcma.simulation import generate_synthetic_meta_analysis
-
 
 # ---------------------------------------------------------------------------
 # Shared fixtures — cached at module level for speed

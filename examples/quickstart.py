@@ -6,8 +6,12 @@
 
 # %%
 from ubcma import (
-    MetaAnalysisDataset, UBCMAFit, dersimonian_laird,
-    reml_estimator, information_criteria, standardized_residuals,
+    MetaAnalysisDataset,
+    UBCMAFit,
+    dersimonian_laird,
+    information_criteria,
+    reml_estimator,
+    standardized_residuals,
 )
 
 # %% [markdown]
