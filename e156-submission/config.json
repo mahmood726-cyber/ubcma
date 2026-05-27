@@ -3,7 +3,7 @@
   "slug": "ubcma",
   "author": "Mahmood Ahmad",
   "date": "2026-03-26",
-  "path": "C:\\ubcma",
+  "path": "..",
   "type": "methods",
   "primary_estimand": "Mean absolute error reduction",
   "summary": "A unified model jointly correcting heterogeneity, selection bias, and quality bias reduces MAE by 38% over standard methods.",
