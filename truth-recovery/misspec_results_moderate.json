@@ -1,0 +1,140 @@
+{
+  "spec": {
+    "mu": 0.2,
+    "tau": 0.1,
+    "k": 40,
+    "quality_bias": "moderate"
+  },
+  "strength": "moderate",
+  "reps": 120,
+  "seconds": 1768.7,
+  "seed": 20260613,
+  "grid": {
+    "smooth": {
+      "reml_hksj": {
+        "coverage": 0.35,
+        "bias": 0.0907,
+        "rmse": 0.0973,
+        "mean_width": 0.1547,
+        "n": 120,
+        "fail": 0
+      },
+      "trim_and_fill": {
+        "coverage": 0.342,
+        "bias": -0.0585,
+        "rmse": 0.083,
+        "mean_width": 0.0702,
+        "n": 120,
+        "fail": 0
+      },
+      "pet_peese": {
+        "coverage": 0.433,
+        "bias": 0.0677,
+        "rmse": 0.0987,
+        "mean_width": 0.1339,
+        "n": 120,
+        "fail": 0
+      },
+      "copas": {
+        "coverage": 0.275,
+        "bias": 0.0904,
+        "rmse": 0.097,
+        "mean_width": 0.137,
+        "n": 120,
+        "fail": 0
+      },
+      "ubcma": {
+        "coverage": 0.836,
+        "bias": 0.0215,
+        "rmse": 0.0691,
+        "mean_width": 0.2143,
+        "n": 116,
+        "fail": 4
+      }
+    },
+    "step": {
+      "reml_hksj": {
+        "coverage": 0.067,
+        "bias": 0.11,
+        "rmse": 0.1132,
+        "mean_width": 0.1278,
+        "n": 120,
+        "fail": 0
+      },
+      "trim_and_fill": {
+        "coverage": 0.492,
+        "bias": -0.0343,
+        "rmse": 0.0564,
+        "mean_width": 0.0612,
+        "n": 120,
+        "fail": 0
+      },
+      "pet_peese": {
+        "coverage": 0.283,
+        "bias": 0.0784,
+        "rmse": 0.0965,
+        "mean_width": 0.1123,
+        "n": 120,
+        "fail": 0
+      },
+      "copas": {
+        "coverage": 0.033,
+        "bias": 0.1095,
+        "rmse": 0.1128,
+        "mean_width": 0.1162,
+        "n": 120,
+        "fail": 0
+      },
+      "ubcma": {
+        "coverage": 0.8,
+        "bias": 0.0348,
+        "rmse": 0.0623,
+        "mean_width": 0.1803,
+        "n": 120,
+        "fail": 0
+      }
+    },
+    "copas": {
+      "reml_hksj": {
+        "coverage": 0.242,
+        "bias": 0.0827,
+        "rmse": 0.0868,
+        "mean_width": 0.1244,
+        "n": 120,
+        "fail": 0
+      },
+      "trim_and_fill": {
+        "coverage": 0.117,
+        "bias": -0.0815,
+        "rmse": 0.0961,
+        "mean_width": 0.0573,
+        "n": 120,
+        "fail": 0
+      },
+      "pet_peese": {
+        "coverage": 0.358,
+        "bias": 0.0631,
+        "rmse": 0.0882,
+        "mean_width": 0.1068,
+        "n": 120,
+        "fail": 0
+      },
+      "copas": {
+        "coverage": 0.167,
+        "bias": 0.0825,
+        "rmse": 0.0867,
+        "mean_width": 0.1159,
+        "n": 120,
+        "fail": 0
+      },
+      "ubcma": {
+        "coverage": 0.847,
+        "bias": 0.013,
+        "rmse": 0.0584,
+        "mean_width": 0.1854,
+        "n": 118,
+        "fail": 2
+      }
+    }
+  }
+}

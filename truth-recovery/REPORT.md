@@ -50,13 +50,25 @@ method in every row.
    This is the central claim of the unified-estimator work, here confirmed for
    UBCMA's classical implementation.
 
+## Result — moderate selection (same grid, `--strength moderate`)
+
+| mechanism | reml_hksj | trim&fill | pet_peese | copas | **ubcma** |
+|---|---|---|---|---|---|
+| smooth (matched) | 0.350 | 0.342 | 0.433 | 0.275 | **0.836** |
+| step (misspecified) | 0.067 | 0.492 | 0.283 | 0.033 | **0.800** |
+| copas (misspecified) | 0.242 | 0.117 | 0.358 | 0.167 | **0.847** |
+
+Under moderate selection UBCMA holds **0.80–0.85 across all three mechanisms**,
+and the misspecification cost (smooth→step) shrinks to **~3.6 points**. Every
+comparator still sits far below (0.03–0.49). Same qualitative picture as the
+strong grid, with everything shifted toward nominal.
+
 ### Honest caveats
 
-- Even UBCMA is **below nominal 0.95** under *strong* selection at k=40 (0.63–0.85).
-  Strong selection is an extreme distortion; no method recovers it fully. The
-  honest reading is *relative*: UBCMA loses ~15–30 coverage points where every
-  competitor loses ~80–95. (A `moderate`-strength run is included for the
-  near-nominal-when-matched baseline.)
+- Even UBCMA is **below nominal 0.95** under *strong* selection at k=40 (0.63–0.85;
+  0.80–0.85 under moderate). Strong selection is an extreme distortion; no method
+  recovers it fully. The honest reading is *relative*: UBCMA loses ~15–30 coverage
+  points where every competitor loses ~80–95.
 - This harness varies the *selection mechanism*; it does not add mechanisms
   outside the {smooth, step, copas} family. A fully unknown mechanism is what the
   allmeta PartialID bounds target — a natural future addition to UBCMA.
