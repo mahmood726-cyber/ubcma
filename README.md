@@ -44,7 +44,7 @@ ubcma study --tier pilot --replicates 50
 - **Profile likelihood CIs** (exact, no HKSJ correction needed)
 - **BCa bootstrap CIs** with jackknife acceleration
 - **Bayesian backend** via PyMC (NUTS, prior sensitivity analysis)
-- **5 comparator methods**: REML, trim-and-fill, PET-PEESE, Copas, quality-effects
+- **8 comparator methods**: DerSimonian-Laird, DL-HKSJ, REML, REML-HKSJ, trim-and-fill, PET-PEESE, Copas, quality-effects
 - **HKSJ correction** for DL and REML comparators
 - **Diagnostics**: AIC/BIC for 5 model variants, LOO influence, Cook's D
 - **Three-tier simulation study** framework (pilot/focused/full factorial)

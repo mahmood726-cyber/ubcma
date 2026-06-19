@@ -4,12 +4,12 @@ mahmood.ahmad2@nhs.net
 
 UBCMA: Unified Bias-Calibrated Meta-Analysis via Joint Heterogeneity-Selection Modeling
 
-Can a unified model jointly correct for heterogeneity, publication selection, and study quality bias within a single meta-analytic framework? We built a mixture normal likelihood with a logistic selection function and quality bias-shift covariates, evaluated against five comparator methods on simulated and empirical datasets. Estimation used multi-start L-BFGS-B with Latin hypercube sampling, profile likelihood confidence intervals, and BCa bootstrap, with optional Bayesian inference via PyMC. The unified model reduced mean difference in absolute error by 38% (95% CI 31-45%) over DerSimonian-Laird and by 21% over trim-and-fill while maintaining nominal coverage across scenarios. AIC, BIC, leave-one-out influence, and Cook distance confirmed stability, and profile likelihood intervals showed appropriate width calibration across all tested scenarios. Joint modeling of heterogeneity and selection bias yields substantially less biased pooled estimates than sequential application of separate correction methods. However, the model is limited by its parametric selection function, which may not capture all plausible publication bias mechanisms in complex review contexts.
+Can a unified model jointly correct for heterogeneity, publication selection, and study quality bias within a single meta-analytic framework? We built a mixture normal likelihood with a logistic selection function and quality bias-shift covariates, compared against eight comparators on simulated and empirical data. Estimation used multi-start L-BFGS-B, profile likelihood confidence intervals, and BCa bootstrap, with optional Bayesian inference via PyMC. Across twelve simulation scenarios (50 replicates, k=30), the unified model attained the highest interval coverage (88.8%) at low RMSE (0.070), versus 59.7% for DerSimonian-Laird, 63.8% for REML-HKSJ, and 39.0% for trim-and-fill. When both selection and quality bias were present, coverage held at 90.3% versus 31.3% for DerSimonian-Laird, while AIC, BIC, and leave-one-out diagnostics confirmed stability. Joint modeling of heterogeneity and selection bias yields substantially less biased pooled estimates than sequential application of separate correction methods. However, the model is limited by its parametric selection function, which may not capture all publication bias mechanisms in complex reviews.
 
 Outside Notes
 
 Type: methods
-Primary estimand: Mean absolute error reduction
+Primary estimand: Pooled-effect RMSE and CI coverage
 App: UBCMA v0.3.0
 Data: Simulated and empirical meta-analysis datasets
 Code: https://github.com/mahmood726-cyber/ubcma

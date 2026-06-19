@@ -1,5 +1,5 @@
 # Convenience targets. `make help` lists them.
-.PHONY: help install test cov lint fmt clean pre-commit-install pre-commit-run
+.PHONY: help install test cov lint fmt clean pre-commit-install pre-commit-run paper-results
 
 PY ?= python
 
@@ -37,3 +37,6 @@ pre-commit-install:	## Install pre-commit hooks
 
 pre-commit-run:	## Run all pre-commit hooks against all files
 	pre-commit run --all-files
+
+paper-results:	## Regenerate the manuscript's headline simulation tables (pilot, seed 42)
+	$(PY) scripts/reproduce_paper_results.py --force

@@ -3,5 +3,7 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-results/
+# Scratch/checkpoint simulation outputs (top-level only). Canonical,
+# version-controlled result tables live in paper/results/ and are committed.
+/results/
 .tmp_*
