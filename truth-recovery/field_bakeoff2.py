@@ -93,6 +93,7 @@ def generate_logor(mechanism, strength, spec, seed):
     """2x2-table log-OR DGP with the same selection mechanisms. Returns (df, mu)."""
     rng = np.random.default_rng(seed)
     need = 6 if spec.k >= 8 else 4
+    last_df = None
     for _ in range(60):
         k = spec.k
         n_ctrl = rng.integers(20, 200, size=k)
@@ -110,17 +111,19 @@ def generate_logor(mechanism, strength, spec, seed):
         # Haldane-Anscombe 0.5 correction
         y = np.log((a + 0.5) * (d + 0.5) / ((b + 0.5) * (c + 0.5)))
         se = np.sqrt(1/(a+0.5) + 1/(b+0.5) + 1/(c+0.5) + 1/(d+0.5))
+        df_all = pd.DataFrame({
+            "study_id": [f"s{i}" for i in range(k)], "yi": y, "sei": se,
+            "rob_selection": quality[:, 0], "rob_measurement": quality[:, 1],
+            "rob_reporting": quality[:, 2], "quality_score": quality_score,
+            "design": np.array(["RCT"] * k)})
+        last_df = df_all
         sel = _apply_selection(y, se, quality_score, mechanism, strength, spec, rng)
         if sel.sum() >= need:
-            df = pd.DataFrame({
-                "study_id": [f"s{i}" for i in range(k)], "yi": y, "sei": se,
-                "rob_selection": quality[:, 0], "rob_measurement": quality[:, 1],
-                "rob_reporting": quality[:, 2], "quality_score": quality_score,
-                "design": np.array(["RCT"] * k)})
-            return df[sel].reset_index(drop=True), spec.mu
+            return df_all[sel].reset_index(drop=True), spec.mu
         seed += 1000
         rng = np.random.default_rng(seed)
-    return df.reset_index(drop=True), spec.mu
+    # fallback: keep all studies from the last draw (honest no-selection result)
+    return last_df.reset_index(drop=True), spec.mu
 
 
 def _robust_avg_D(precomputed):

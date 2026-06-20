@@ -84,6 +84,31 @@ def test_grid_shape():
     assert any(c["k"] == 10 for c in grid)               # small-k present
 
 
+def test_field2_logor_generator_no_crash_on_fallback():
+    # Regression: generate_logor must not raise UnboundLocalError when no draw
+    # reaches the selection threshold (null + strong step -> few significant).
+    import field_bakeoff2 as F2
+    import misspec_harness as H2
+    for mu in (0.0, 0.4):
+        for mech in ("none", "step", "copas"):
+            df, m = F2.generate_logor(mech, "strong", H2.Spec(mu=mu, tau=0.15, k=10), 999)
+            assert len(df) >= 1 and m == mu
+            assert set(["yi", "sei", "quality_score", "study_id"]).issubset(df.columns)
+
+
+def test_field2_auto_selector_and_grids():
+    import field_bakeoff2 as F2
+    # tau-aware selector picks ens_calib at low tau_hat, petgate at high.
+    assert F2.TAU0 == 0.2
+    assert "adaptshrink_auto" in F2.SCORED and "adaptshrink_petgate" in F2.SCORED
+    # broadened grids expose the new axes
+    cont = F2.build_grid("continuous")
+    logor = F2.build_grid("logor")
+    assert any(c["k"] == 5 for c in cont)              # small k
+    assert any(c["tau"] == 0.5 for c in cont)          # high tau
+    assert all(c["outcome"] == "logor" for c in logor) and len(logor) >= 12
+
+
 if __name__ == "__main__":
     import pytest
     raise SystemExit(pytest.main([__file__, "-q"]))

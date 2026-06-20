@@ -1,0 +1,32 @@
+{
+  "tag": "c2",
+  "n_cells": 54,
+  "reps": 40,
+  "headlines": {
+    "adaptshrink_ens": {
+      "dominates": 16,
+      "total": 51,
+      "loss_cells": 20
+    },
+    "adaptshrink_ens_calib": {
+      "dominates": 19,
+      "total": 51,
+      "loss_cells": 20
+    },
+    "adaptshrink_fast": {
+      "dominates": 6,
+      "total": 51,
+      "loss_cells": 34
+    },
+    "adaptshrink_petgate": {
+      "dominates": 18,
+      "total": 51,
+      "loss_cells": 11
+    },
+    "adaptshrink_auto": {
+      "dominates": 31,
+      "total": 51,
+      "loss_cells": 6
+    }
+  }
+}
