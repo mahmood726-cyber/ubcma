@@ -1,3 +1,4 @@
+from .adaptshrink import adaptshrink_estimator
 from .comparators import (
     copas_selection,
     knapp_hartung_adjustment,
@@ -18,6 +19,7 @@ from .model import UBCMAFit, UBCMAResult, dersimonian_laird, weighted_meta_regre
 
 __all__ = [
     "MetaAnalysisDataset",
+    "adaptshrink_estimator",
     "UBCMAFit",
     "UBCMAResult",
     "bootstrap_ci",
