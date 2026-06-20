@@ -126,7 +126,11 @@ def generate(mechanism, strength, spec, seed):
             selected = sval > 0
         else:
             raise ValueError(mechanism)
-        if selected.sum() >= 6:
+        # Need enough survivors for a stable fit; relax for small k so the
+        # k=5 cells in the broadened grid don't always fall through to no-
+        # selection. k>=8 keeps the original 6 (committed results unchanged).
+        need = 6 if spec.k >= 8 else 4
+        if selected.sum() >= need:
             return _make_df(y, se, quality, quality_score, selected), spec.mu
         seed += 1000
         rng = np.random.default_rng(seed)

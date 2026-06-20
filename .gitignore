@@ -22,3 +22,5 @@ truth-recovery/field_*_shard*.csv
 truth-recovery/field_*_shard*.log
 truth-recovery/codex_modern_run.log
 truth-recovery/agy_derivation.log
+truth-recovery/field2_*_shard*.csv
+truth-recovery/field2_*_shard*.log
