@@ -49,9 +49,13 @@ CELL_KEYS = ["mu", "tau", "k", "mechanism", "strength", "outcome"]
 PANEL = FB.PANEL
 ENS_MEMBERS = FB.ENS_MEMBERS
 FAST_MEMBERS = FB.FAST_MEMBERS
-SCORED = PANEL + ["adaptshrink_ens", "adaptshrink_fast", "adaptshrink_ens_calib"]
-HEADLINES = ["adaptshrink_ens", "adaptshrink_ens_calib", "adaptshrink_fast"]
-CALIB_A = 2.0  # interval-inflation constant from avenue (a)
+SCORED = PANEL + ["adaptshrink_ens", "adaptshrink_fast", "adaptshrink_ens_calib",
+                  "adaptshrink_petgate", "adaptshrink_auto"]
+HEADLINES = ["adaptshrink_ens", "adaptshrink_ens_calib", "adaptshrink_fast",
+             "adaptshrink_petgate", "adaptshrink_auto"]
+CALIB_A = 2.0   # interval-inflation constant from avenue (a)
+CGATE = 4.0     # PET-asymmetry gate constant (avenue c); |t1|=2 -> g=0.5
+TAU0 = 0.2      # adaptshrink_auto: use ens_calib when tau_hat<TAU0 else petgate
 
 
 # --------------------------------------------------------------------------
@@ -153,6 +157,8 @@ def run_cell(cell, reps, seed0):
             quality_cols=["rob_selection", "rob_measurement", "rob_reporting"])
         res = {m: _run_method(m, y, se, qs, data) for m in PANEL}
         # ensembles
+        ens_mu = ens_half = ens_D = np.nan
+        ens_ok = False
         for tag, members in (("adaptshrink_ens", ENS_MEMBERS),
                              ("adaptshrink_fast", FAST_MEMBERS)):
             precomp = {}
@@ -165,17 +171,57 @@ def run_cell(cell, reps, seed0):
             mu, half, D, ok = _robust_avg_D(precomp)
             res[tag] = {"mu_hat": mu, "ci_low": mu - half, "ci_high": mu + half,
                         "converged": ok}
-            if tag == "adaptshrink_ens":  # calibrated (inflated) variant
+            if tag == "adaptshrink_ens":
+                ens_mu, ens_half, ens_D, ens_ok = mu, half, D, ok
                 h2 = half + CALIB_A * D if ok else float("nan")
                 res["adaptshrink_ens_calib"] = {
                     "mu_hat": mu, "ci_low": mu - h2, "ci_high": mu + h2,
                     "converged": ok}
+
+        # (c) PET-asymmetry-gated AdaptShrink: revert to efficient RE when funnel
+        # asymmetry (a tau-robust selection signal) is weak; use the calibrated
+        # ensemble when it is strong. g = t1^2/(t1^2 + CGATE).
+        try:
+            from ubcma.robust_methods import pet_fit
+            t1 = float(pet_fit(y, se)["t1"])
+        except Exception:
+            t1 = float("nan")
+        re = res["reml_hksj"]
+        mu_re = re["mu_hat"]
+        hw_re = (re["ci_high"] - re["ci_low"]) / 2.0
+        if ens_ok and np.isfinite(t1) and np.isfinite(mu_re):
+            g = t1 * t1 / (t1 * t1 + CGATE)
+            mu_pg = (1 - g) * mu_re + g * ens_mu
+            hw_pg = (1 - g) * hw_re + g * (ens_half + CALIB_A * ens_D)
+            res["adaptshrink_petgate"] = {"mu_hat": mu_pg, "ci_low": mu_pg - hw_pg,
+                                          "ci_high": mu_pg + hw_pg, "converged": True}
+        else:
+            res["adaptshrink_petgate"] = {"mu_hat": mu_re, "ci_low": re["ci_low"],
+                                          "ci_high": re["ci_high"],
+                                          "converged": bool(np.isfinite(mu_re))}
+
+        # adaptshrink_auto: tau-aware selector. Use the calibrated ensemble when
+        # heterogeneity is low (bias-correction pays off) and the PET-gated
+        # estimator when tau_hat is high (revert toward efficient RE). tau_hat is
+        # the observable DerSimonian-Laird estimate; saved for post-hoc sweeps.
+        try:
+            from ubcma.model import dersimonian_laird
+            tau_hat = float(dersimonian_laird(y, se)["tau"])
+        except Exception:
+            tau_hat = float("nan")
+        pick = "adaptshrink_ens_calib" if (np.isfinite(tau_hat) and tau_hat < TAU0) \
+            else "adaptshrink_petgate"
+        src = res[pick]
+        res["adaptshrink_auto"] = {"mu_hat": src["mu_hat"], "ci_low": src["ci_low"],
+                                   "ci_high": src["ci_high"],
+                                   "converged": bool(src["converged"])}
         for m in SCORED:
             rr = res[m]
             rows.append({**{kk: cell[kk] for kk in CELL_KEYS}, "rep": r,
                          "method": m, "true_mu": true_mu, "mu_hat": rr["mu_hat"],
                          "ci_low": rr["ci_low"], "ci_high": rr["ci_high"],
-                         "converged": bool(rr["converged"])})
+                         "converged": bool(rr["converged"]), "pet_t1": t1,
+                         "tau_hat": tau_hat})
     return pd.DataFrame(rows)
 
 
@@ -184,10 +230,12 @@ def run_cell(cell, reps, seed0):
 # --------------------------------------------------------------------------
 
 def build_grid(outcome):
+    # Representative broadened grid (the new axes vs v1 are tau=0.5, k=5, logOR);
+    # v1 already covered continuous tau in {0,0.1,0.3} at k in {10,40}.
     if outcome == "logor":
-        mus, taus, ks = [0.0, 0.4, 0.8], [0.0, 0.15, 0.4], [10, 40]
-    else:  # continuous, expanded
-        mus, taus, ks = [0.0, 0.2, 0.5], [0.0, 0.1, 0.3, 0.5], [5, 10, 40]
+        mus, taus, ks = [0.0, 0.4, 0.8], [0.15, 0.4], [10, 40]      # 36 cells
+    else:  # continuous: adds k=5 and tau=0.5
+        mus, taus, ks = [0.0, 0.2, 0.5], [0.1, 0.3, 0.5], [5, 40]   # 54 cells
     cells = []
     for mu, tau, k, mech in itertools.product(mus, taus, ks, ["none", "step", "copas"]):
         cells.append({"mu": mu, "tau": tau, "k": k, "mechanism": mech,
