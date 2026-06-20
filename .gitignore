@@ -7,3 +7,11 @@ build/
 # version-controlled result tables live in paper/results/ and are committed.
 /results/
 .tmp_*
+
+# truth-recovery: transient per-mechanism MC shards + run/install logs
+# (the combined realhc_<strength>_perrep.csv and *_table/_truthgate are tracked)
+truth-recovery/realhc_*_smooth_perrep.csv
+truth-recovery/realhc_*_step_perrep.csv
+truth-recovery/realhc_*_copas_perrep.csv
+truth-recovery/realhc_*.log
+truth-recovery/r_*install.log
