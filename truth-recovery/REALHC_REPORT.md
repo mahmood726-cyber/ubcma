@@ -72,6 +72,25 @@ Deployable coverage (target 0.95):
   bias-corrected centre (UBCMA, or an ensemble containing it) yields a narrower
   honest interval. The CI machinery is secondary.
 
+## Generalization: moderate selection (120 reps/cell)
+
+Re-running the whole comparison under **moderate** selection sharpens the scope
+of the win honestly:
+
+- **AdaptShrink-ensemble robustly beats real HC on smooth (ratio 0.84) and step
+  (0.68)** here too — so that win holds under BOTH moderate and strong selection.
+  **UBCMA** robustly beats real HC on step (CI `[-0.120, -0.008]`).
+- **On the copas mechanism under moderate selection, NO method robustly beats
+  real HC.** When selection is mild, HC's fixed-effect centre is only slightly
+  biased (bias 0.078, raw coverage 0.43), so the bias-corrected methods have no
+  decisive edge. The advantage on the copas mechanism is robust only under
+  *strong* selection.
+
+So the win is **concentrated where selection is severe** and on the
+smooth/step mechanisms. That is the genuine boundary — real Henmi-Copas is a
+respectable method when publication selection is mild; it is decisively beaten
+only when selection is strong enough to badly bias every inverse-variance centre.
+
 ## Bottom line
 
 Yes — there is a **real, bootstrap-verified win over the genuine Henmi-Copas**

@@ -1,0 +1,268 @@
+{
+  "adversary": "henmi_copas",
+  "target": 0.95,
+  "cov_tol": 0.06,
+  "pass": false,
+  "notes": [
+    "G1 FAIL: 1 non-finite converged rows"
+  ],
+  "G1_finite_ok": false,
+  "verified_wins_vs_real_hc": [
+    {
+      "mechanism": "smooth",
+      "method": "adaptshrink_ens",
+      "mciw0": 0.2474,
+      "hc_mciw0": 0.2944,
+      "ratio": 0.84,
+      "test_cov": 0.917,
+      "hc_test_cov": 0.95
+    },
+    {
+      "mechanism": "step",
+      "method": "adaptshrink_ens",
+      "mciw0": 0.1994,
+      "hc_mciw0": 0.2935,
+      "ratio": 0.679,
+      "test_cov": 0.933,
+      "hc_test_cov": 0.95
+    },
+    {
+      "mechanism": "step",
+      "method": "trim_and_fill",
+      "mciw0": 0.2334,
+      "hc_mciw0": 0.2935,
+      "ratio": 0.795,
+      "test_cov": 0.933,
+      "hc_test_cov": 0.95
+    }
+  ],
+  "bootstrap_mciw0_vs_real_hc": [
+    {
+      "mechanism": "copas",
+      "method": "adaptshrink_ens",
+      "mciw0_diff": -0.0222,
+      "ci_lo": -0.0541,
+      "ci_hi": 0.0225,
+      "robust_win": false,
+      "frac_better": 0.813
+    },
+    {
+      "mechanism": "copas",
+      "method": "adaptshrink_solo",
+      "mciw0_diff": 0.0233,
+      "ci_lo": 0.0041,
+      "ci_hi": 0.1589,
+      "robust_win": false,
+      "frac_better": 0.006
+    },
+    {
+      "mechanism": "copas",
+      "method": "copas",
+      "mciw0_diff": -0.0108,
+      "ci_lo": -0.0217,
+      "ci_hi": 0.0113,
+      "robust_win": false,
+      "frac_better": 0.838
+    },
+    {
+      "mechanism": "copas",
+      "method": "pet_peese",
+      "mciw0_diff": 0.0667,
+      "ci_lo": 0.0157,
+      "ci_hi": 0.0956,
+      "robust_win": false,
+      "frac_better": 0.004
+    },
+    {
+      "mechanism": "copas",
+      "method": "reml_hksj",
+      "mciw0_diff": -0.0108,
+      "ci_lo": -0.0216,
+      "ci_hi": 0.0123,
+      "robust_win": false,
+      "frac_better": 0.81
+    },
+    {
+      "mechanism": "copas",
+      "method": "trim_and_fill",
+      "mciw0_diff": 0.0975,
+      "ci_lo": 0.0329,
+      "ci_hi": 0.1332,
+      "robust_win": false,
+      "frac_better": 0.002
+    },
+    {
+      "mechanism": "copas",
+      "method": "ubcma",
+      "mciw0_diff": -0.019,
+      "ci_lo": -0.0628,
+      "ci_hi": 0.0222,
+      "robust_win": false,
+      "frac_better": 0.753
+    },
+    {
+      "mechanism": "smooth",
+      "method": "adaptshrink_ens",
+      "mciw0_diff": -0.0423,
+      "ci_lo": -0.1095,
+      "ci_hi": -0.0032,
+      "robust_win": true,
+      "frac_better": 0.985
+    },
+    {
+      "mechanism": "smooth",
+      "method": "adaptshrink_solo",
+      "mciw0_diff": 0.0293,
+      "ci_lo": -0.0086,
+      "ci_hi": 0.1475,
+      "robust_win": false,
+      "frac_better": 0.086
+    },
+    {
+      "mechanism": "smooth",
+      "method": "copas",
+      "mciw0_diff": -0.0059,
+      "ci_lo": -0.055,
+      "ci_hi": 0.0219,
+      "robust_win": false,
+      "frac_better": 0.715
+    },
+    {
+      "mechanism": "smooth",
+      "method": "pet_peese",
+      "mciw0_diff": 0.0664,
+      "ci_lo": 0.0137,
+      "ci_hi": 0.0947,
+      "robust_win": false,
+      "frac_better": 0.002
+    },
+    {
+      "mechanism": "smooth",
+      "method": "reml_hksj",
+      "mciw0_diff": -0.0083,
+      "ci_lo": -0.056,
+      "ci_hi": 0.0219,
+      "robust_win": false,
+      "frac_better": 0.704
+    },
+    {
+      "mechanism": "smooth",
+      "method": "trim_and_fill",
+      "mciw0_diff": -0.0013,
+      "ci_lo": -0.0631,
+      "ci_hi": 0.0544,
+      "robust_win": false,
+      "frac_better": 0.535
+    },
+    {
+      "mechanism": "smooth",
+      "method": "ubcma",
+      "mciw0_diff": -0.0348,
+      "ci_lo": -0.1004,
+      "ci_hi": 0.0032,
+      "robust_win": false,
+      "frac_better": 0.96
+    },
+    {
+      "mechanism": "step",
+      "method": "adaptshrink_ens",
+      "mciw0_diff": -0.0846,
+      "ci_lo": -0.144,
+      "ci_hi": -0.0457,
+      "robust_win": true,
+      "frac_better": 1.0
+    },
+    {
+      "mechanism": "step",
+      "method": "adaptshrink_solo",
+      "mciw0_diff": 0.0045,
+      "ci_lo": -0.0152,
+      "ci_hi": 0.1053,
+      "robust_win": false,
+      "frac_better": 0.247
+    },
+    {
+      "mechanism": "step",
+      "method": "copas",
+      "mciw0_diff": 0.0069,
+      "ci_lo": -0.0496,
+      "ci_hi": 0.0315,
+      "robust_win": false,
+      "frac_better": 0.15
+    },
+    {
+      "mechanism": "step",
+      "method": "pet_peese",
+      "mciw0_diff": 0.0215,
+      "ci_lo": -0.0017,
+      "ci_hi": 0.0689,
+      "robust_win": false,
+      "frac_better": 0.034
+    },
+    {
+      "mechanism": "step",
+      "method": "reml_hksj",
+      "mciw0_diff": 0.0081,
+      "ci_lo": -0.0476,
+      "ci_hi": 0.0328,
+      "robust_win": false,
+      "frac_better": 0.147
+    },
+    {
+      "mechanism": "step",
+      "method": "trim_and_fill",
+      "mciw0_diff": -0.0544,
+      "ci_lo": -0.1137,
+      "ci_hi": -0.0176,
+      "robust_win": true,
+      "frac_better": 1.0
+    },
+    {
+      "mechanism": "step",
+      "method": "ubcma",
+      "mciw0_diff": -0.061,
+      "ci_lo": -0.1204,
+      "ci_hi": -0.0084,
+      "robust_win": true,
+      "frac_better": 0.995
+    }
+  ],
+  "robust_wins_vs_real_hc": [
+    {
+      "mechanism": "smooth",
+      "method": "adaptshrink_ens",
+      "mciw0_diff": -0.0423,
+      "ci_lo": -0.1095,
+      "ci_hi": -0.0032,
+      "robust_win": true,
+      "frac_better": 0.985
+    },
+    {
+      "mechanism": "step",
+      "method": "adaptshrink_ens",
+      "mciw0_diff": -0.0846,
+      "ci_lo": -0.144,
+      "ci_hi": -0.0457,
+      "robust_win": true,
+      "frac_better": 1.0
+    },
+    {
+      "mechanism": "step",
+      "method": "trim_and_fill",
+      "mciw0_diff": -0.0544,
+      "ci_lo": -0.1137,
+      "ci_hi": -0.0176,
+      "robust_win": true,
+      "frac_better": 1.0
+    },
+    {
+      "mechanism": "step",
+      "method": "ubcma",
+      "mciw0_diff": -0.061,
+      "ci_lo": -0.1204,
+      "ci_hi": -0.0084,
+      "robust_win": true,
+      "frac_better": 0.995
+    }
+  ]
+}
