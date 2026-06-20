@@ -15,3 +15,10 @@ truth-recovery/realhc_*_step_perrep.csv
 truth-recovery/realhc_*_copas_perrep.csv
 truth-recovery/realhc_*.log
 truth-recovery/r_*install.log
+
+# field-wide bake-off: transient per-shard CSVs + run logs (combined
+# field_<tag>_perrep.csv + _scores/_pairwise/_domination/_summary are tracked)
+truth-recovery/field_*_shard*.csv
+truth-recovery/field_*_shard*.log
+truth-recovery/codex_modern_run.log
+truth-recovery/agy_derivation.log

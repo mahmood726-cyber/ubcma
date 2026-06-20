@@ -98,7 +98,12 @@ def generate(mechanism, strength, spec, seed):
     for _ in range(50):
         y, se, quality, quality_score = _base_draw(rng, spec)
         z = y / se
-        if mechanism == "smooth":
+        if mechanism == "none":
+            # No publication selection: every drawn study is observed. The
+            # honest negative-control cell -- bias-correction should cost a
+            # little efficiency here and win nothing.
+            selected = np.ones(spec.k, bool)
+        elif mechanism == "smooth":
             gamma = np.array(_selection_gamma(strength))
             sig = expit(6.0 * (np.abs(z) - 1.96))
             direction = np.tanh(z / 1.5)
