@@ -1,0 +1,23 @@
+{
+  "tag": "v1",
+  "target": 0.95,
+  "n_cells": 54,
+  "reps": 80,
+  "headlines": {
+    "adaptshrink_ens": {
+      "cells_dominated": 31,
+      "cells_total": 54,
+      "cells_with_loss": 18
+    },
+    "adaptshrink_fast": {
+      "cells_dominated": 13,
+      "cells_total": 54,
+      "cells_with_loss": 34
+    },
+    "adaptshrink_solo": {
+      "cells_dominated": 1,
+      "cells_total": 54,
+      "cells_with_loss": 52
+    }
+  }
+}
