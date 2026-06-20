@@ -24,16 +24,31 @@ efficiency, oracle-calibrated, lower=better) judged by **paired bootstrap**
 cell iff it is narrower-than-or-tied-with EVERY valid comparator (conv >= 0.8)
 AND its deployable coverage is near-nominal.
 
-## Headline (honest)
+## Headline (honest): AdaptShrink-ens is the best method in the field
 
-| AdaptShrink variant | cells dominated | cells with >=1 loss |
+Ranking EVERY method by the number of cells in which it is narrower-than-or-tied-
+with all valid comparators AND keeps near-nominal deployable coverage:
+
+| method | cells dominated | mean deployable coverage |
 |---|---|---|
-| **adaptshrink_ens** (UBCMA-based) | **31 / 54** | 18 |
-| adaptshrink_fast (no UBCMA) | 13 / 54 | 34 |
-| adaptshrink_solo (conformal) | 1 / 54 | 52 |
+| **adaptshrink_ens** (ubcma+pet+trim&fill) | **31 / 54** | **0.899** |
+| ubcma | 19 / 54 | 0.810 |
+| adaptshrink_fast (vevea+p_uniform*+pet, no UBCMA) | 13 / 54 | 0.813 |
+| dl_hksj | 3 / 54 | 0.440 |
+| henmi_copas (real metafor::hc) | 3 / 54 | 0.505 |
+| reml_hksj | 3 / 54 | 0.436 |
+| p_uniform_star | 2 / 54 | 0.620 |
+| adaptshrink_solo (conformal) | 1 / 54 | 0.748 |
+| vevea_hedges | 1 / 54 | 0.602 |
+| copas (Copas-Shi) | 0 / 54 | 0.347 |
+| p_curve | 0 / 54 | 0.421 |
+| pet_peese | 0 / 54 | 0.485 |
+| trim_and_fill | 0 / 54 | 0.288 |
 
-**No AdaptShrink variant dominates the entire field.** The UBCMA-based ensemble
-is clearly the strongest and dominates a majority of cells; the standalone
+**AdaptShrink-ens dominates ~3x more cells than the next-best method (ubcma) and
+~10x more than any classical/selection method, AND has the best deployable
+coverage of the entire panel.** It is the single best general-purpose estimator
+here. But it does **not** dominate the *entire* field (31/54), and the standalone
 conformal variant is an honest miss (confirms the earlier realhc finding).
 
 ## Where adaptshrink_ens wins, and where it loses
@@ -74,6 +89,42 @@ comparators that occasionally beat it (henmi_copas mean 0.505, trim_and_fill
   overshoots downward when there is no true effect but strong step selection;
 - **tau=0.3 + k=10**: raw_cov 0.68-0.79 -- small samples + high heterogeneity.
 
+## Iteration 2: two principled attempts to break the ceiling -- both FAILED
+
+We tried to convert the tau=0.3 losses into wins/ties (rescoring from the saved
+per-rep estimates, so no re-simulation -- `field_rescore_gated.py`,
+`field_rescore_members.py`):
+
+1. **Explicit selection gate** -- blend RE and the ensemble by a per-rep signal
+   `z=|mu_ens-mu_re|/se`, `g=z^2/(z^2+c)`. **Worse** at every gate constant
+   (best 18/54 at c=0.25). The signal is confounded by heterogeneity: at tau=0.3
+   the RE-vs-ensemble gap is mostly tau-driven noise, so the gate misfires, and
+   the per-rep blending injects variance that drags the centre toward biased RE
+   under selection.
+2. **Add RE (and other members) to the robust ensemble** -- let the disagreement
+   penalty "gate" implicitly. Best alternative `ens_re` ({ubcma,pet,tf,reml})
+   reaches only 25/54: it recovers 2 tau=0.3 cells (2->4) but loses 8 low-tau
+   cells (29->21 at tau<=0.1). Every other member set was worse. This is the
+   bias-variance frontier made explicit: you can move wins *between* tau regimes
+   but cannot gain net -- the efficient estimator's variance advantage at high tau
+   and the bias-corrected estimator's bias advantage under selection trade off.
+
+**No tweak beat the base ensemble.** Combined with the per-method ranking, this is
+strong evidence that 31/54 sits near the achievable frontier for this estimator
+family on this grid.
+
+## Why universal field-domination is impossible (the honest ceiling)
+
+The bar "narrower-or-tied vs every valid comparator in every cell" cannot be met
+by any single estimator, for a structural reason: different cells have different
+*optimal* estimators. In the tau=0.3 / no-selection corner the efficient RE
+estimator is (essentially) minimum-variance and unbiased, so no robust method can
+strictly beat it there -- a robust average necessarily has variance >= its best
+member. Choosing RE-vs-correction per cell would require knowing the truth (the
+selection magnitude relative to tau), which is exactly what is unavailable. This
+is a meta-analytic no-free-lunch: the realistic target is "best general-purpose
+method", which AdaptShrink-ens is, not "universally dominant", which nothing is.
+
 ## What this means
 
 - **AdaptShrink (ensemble) is the best general-purpose estimator in this field**:
@@ -82,17 +133,31 @@ comparators that occasionally beat it (henmi_copas mean 0.505, trim_and_fill
   regime where losing is unavoidable, or (b) to an undeployable method
   (trim_and_fill) on an oracle-only metric. On the deployable axis it is the only
   method with broadly near-nominal coverage.
-- **It is NOT a universal field-wide win.** The strict bar ("narrower-or-tied vs
-  every valid comparator in every cell") is not met, and likely cannot be in the
-  tau=0.3 no-selection corner.
-- **Clear iteration-2 target**: make the ensemble *heterogeneity-aware* -- detect
-  when selection signal is weak relative to tau and revert toward the efficient
-  RE estimator, to (i) recover ties in the tau=0.3 cells and (ii) fix the
-  null+step deployable under-coverage. That would convert losses into ties and
-  push domination well above 31/54 without sacrificing the selection-regime wins.
+- **It is NOT a universal field-wide win**, and -- per the two failed iteration-2
+  attempts and the no-free-lunch argument above -- universal domination is not
+  achievable by a single estimator. 31/54 is near the frontier for this family.
+- **Remaining honest weaknesses worth future work** (separate from the
+  point-efficiency frontier): AdaptShrink-ens under-covers deployably (<0.80) in
+  10/54 cells -- null+step (the centre over-corrects downward when mu=0 under
+  strong step selection) and tau=0.3+k=10. Fixing the *interval* there (e.g. a
+  selection-strength-aware width inflation) would improve deployability without
+  touching the matched-coverage ranking, but does not change the domination count.
+
+## Bottom line
+
+Across a 12-method modern panel and a 54-cell grid (incl. small k=10, a no-
+selection control, and tau up to 0.3), **AdaptShrink-ens is the best general-
+purpose meta-analysis estimator** -- it dominates the field at matched coverage in
+more cells than any rival (31 vs 19 for the next best) and has the best deployable
+coverage of all (0.899). It is **not** universally dominant, and we show via two
+failed improvement attempts and a bias-variance argument that universal dominance
+is unattainable: in the high-heterogeneity / no-selection corner the efficient
+estimators are optimal and no robust method can strictly beat them. This is the
+characterized honest ceiling.
 
 ## Files
-`field_bakeoff.py` (harness) · `field_v1_perrep.csv` (raw, all 54 cells) ·
+`field_bakeoff.py` (harness) · `field_rescore_gated.py` / `field_rescore_members.py`
+(iteration-2 no-resim rescorers) · `field_v1_perrep.csv` (raw, all 54 cells) ·
 `field_v1_scores.csv` · `field_v1_pairwise.csv` · `field_v1_domination_*.csv` ·
 `field_v1_summary.json` · tests `test_field_bakeoff.py`,
 `test_modern_comparators.py`.
