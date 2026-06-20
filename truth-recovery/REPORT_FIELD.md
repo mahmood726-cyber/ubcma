@@ -155,8 +155,39 @@ is unattainable: in the high-heterogeneity / no-selection corner the efficient
 estimators are optimal and no robust method can strictly beat them. This is the
 characterized honest ceiling.
 
+## Avenue (a): selection-strength-aware interval inflation -- modest honest win
+
+The 10 deployable-undercoverage cells were attacked by widening the ensemble
+interval in proportion to member disagreement D (the between-member SD):
+`hw' = hw + a*D`, a single GLOBAL constant. Rescored from the saved per-rep
+member estimates, so the point centre -- and therefore MCIW0 and every pairwise
+verdict -- is provably unchanged; only the deployable-coverage gate moves
+(baseline rescore reproduces 31/54 exactly).
+
+At **a = 2.0** (`field_rescore_interval.py`):
+
+| metric | baseline ens | inflated (a=2.0) |
+|---|---|---|
+| cells dominated | 31 / 54 | **35 / 54** |
+| overall mean deployable coverage | 0.899 | **0.946** |
+| mean raw width | 0.567 | 0.722 (x1.27) |
+
+Per-cell coverage on the 10 under-cells (base -> inflated): the tau=0.3 + small-k
+cells are largely fixed (e.g. 0.675->0.800, 0.787->0.887), and the +4 dominated
+cells come from the coverage-only-fail set. Disagreement-scaling is ~2x more
+width-efficient than a flat multiplier for the same coverage.
+
+**Honest caveat:** the **null + step** cells (mu=0, step selection) stay
+under-covered (0.46/0.50 -> 0.61/0.63). That is **centre bias** -- the ensemble
+over-corrects downward when the true effect is zero under strong step selection --
+which a symmetric interval cannot fix; only a better-centred point estimator can.
+So (a) is a genuine but bounded improvement: 31->35 dominated and near-nominal
+*average* deployable coverage, with a residual centring weakness in the null+step
+corner that is logged, not papered over.
+
 ## Files
 `field_bakeoff.py` (harness) · `field_rescore_gated.py` / `field_rescore_members.py`
+/ `field_rescore_interval.py` (iteration-2 + avenue-(a) no-resim rescorers)
 (iteration-2 no-resim rescorers) · `field_v1_perrep.csv` (raw, all 54 cells) ·
 `field_v1_scores.csv` · `field_v1_pairwise.csv` · `field_v1_domination_*.csv` ·
 `field_v1_summary.json` · tests `test_field_bakeoff.py`,
