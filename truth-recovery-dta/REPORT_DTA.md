@@ -90,6 +90,31 @@ Source: `dta_pilot_table.csv`, `dta_pilot_truthgate.json`.
 | k20 strong | adaptshrink_dta | −0.052 | [−0.141, +0.039] | 0.83 | ❌ |
 | k20 strong | reitsma_indep | −0.089 | [−0.201, +0.018] | 0.95 | ❌ (close) |
 
+## 4b. Robustness at 800 reps (`smallk` grid: k=6/10, higher τ)
+
+Re-run at 800 reps/cell on the cells where `Σ` is least identified (where the
+shrinkage should matter most). Source: `dta_smallk_table.csv`,
+`dta_smallk_truthgate.json`. Paired-bootstrap area advantage vs Reitsma:
+
+| cell | strength | method | dArea | 95% CI | P(better) | robust? |
+|---|---|---|---|---|---|---|
+| k6_hi  | strong | **adaptshrink_dta** | −0.325 | [−0.445, −0.071] | 0.997 | ✅ **ROBUST** |
+| k6_thr | strong | **adaptshrink_dta** | −0.133 | [−0.261, −0.023] | 0.993 | ✅ **ROBUST** |
+| k10_thr| strong | adaptshrink_dta | −0.126 | [−0.188, +0.018] | 0.947 | ❌ (near) |
+| k6_hi  | none | adaptshrink_dta | +0.006 | [−0.108, +0.174] | 0.37 | not robustly worse |
+| k10_thr| none | adaptshrink_dta | +0.032 | [−0.036, +0.075] | 0.20 | not robustly worse |
+| k6_thr | none | adaptshrink_dta | +0.056 | [−0.035, +0.147] | 0.10 | not robustly worse |
+| **k10_thr**| **none** | **reitsma_indep** | **+0.106** | **[+0.032, +0.187]** | **0.004** | ❌ **robustly WORSE** |
+| k6_thr | none | reitsma_indep | +0.098 | [−0.016, +0.201] | 0.05 | borderline worse |
+
+**The adaptive payoff is now visible.** `reitsma_indep` (fixed ρ=0) posts the
+biggest selection-regime wins (all three strong cells robust) **but is robustly
+*worse* than Reitsma under no selection** (k10/none, P=0.004) — the exact penalty
+a non-adaptive shrink pays. **AdaptShrink-DTA is bootstrap-robust under strong
+selection at small k (k6_hi, k6_thr; P≈0.99) and is *never* robustly worse under
+no selection** (all no-selection P(worse) CIs cross 0). It is the only method
+that wins where shrinkage helps without losing where it doesn't.
+
 ## 5. Honest verdict (so far)
 - **The core thesis is confirmed directionally.** Under selection, shrinking the
   selection-corrupted between-study correlation toward independence reduces the
@@ -101,15 +126,19 @@ Source: `dta_pilot_table.csv`, `dta_pilot_truthgate.json`.
   **uniformly better deployable joint coverage** than Reitsma in all four cells
   (0.78–0.89 vs 0.69–0.80, κ=1, no oracle), the bivariate echo of the univariate
   "only AdaptShrink's raw interval is near-nominal" finding.
-- **No win is yet bootstrap-robust at 300 reps** (best is `reitsma_indep` at
-  P≈0.95, just under the 0.975 bar; AdaptShrink-DTA P≈0.82–0.83). This mirrors the
-  univariate arc, where the pilot signal held and *strengthened* at higher reps.
-  **No oracle-only win is claimed as deployable** — the deployable claim is the
-  separate `raw_cov` column.
-- **Next iteration** (running): 800-rep `smallk` grid (k=6/10, higher τ) to test
-  whether the advantage becomes bootstrap-robust where `Σ` is least identified,
-  and to tune `δ` to shrink harder under detected selection (Deeks has low power
-  at DTA `k`, so the `δ_selection` boost currently fires rarely).
+- **Bootstrap-robust at 800 reps, small k** (§4b): AdaptShrink-DTA robustly beats
+  Reitsma under strong selection at k=6 (P≈0.99 in both k6_hi and k6_thr) while
+  *never* robustly losing under no selection — whereas the non-adaptive
+  `reitsma_indep` is robustly *worse* than Reitsma under no selection. k10/strong
+  is a near-miss (P=0.947). The 300-rep pilot signal held and strengthened with
+  reps, mirroring the univariate arc. **No oracle-only win is claimed as
+  deployable** — the deployable claim is the separate `raw_cov` column (uniformly
+  better than Reitsma in every cell).
+- **Next iteration:** push k10/strong over the bar (more reps or a Deeks-power
+  fix — the test has low power at DTA `k`, so `δ_selection` fires rarely);
+  broaden to the `full` grid (prevalence, sparse-cell, ρ_true sweeps); add an
+  HSROC comparator; and consider a stronger small-study signal than Deeks for the
+  δ-boost.
 
 ## Files
 `src/ubcma/dta.py` (estimators + regions) · `tests/test_dta.py` (12 tests) ·
