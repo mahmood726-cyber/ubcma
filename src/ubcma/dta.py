@@ -58,6 +58,7 @@ Z975 = 1.959963984540054
 # --- AdaptShrink-DTA a-priori constants (NOT tuned to any target) ---
 AS_KAPPA0 = 8.0      # small-k shrinkage curvature: delta_k = kappa0/(kappa0+(k-3))
 AS_BOUNDARY_BOOST = 0.25   # extra shrink when rho-hat is on the boundary / ill-cond
+AS_SELECTION_BOOST = 0.35  # extra shrink when Deeks funnel asymmetry is detected
 AS_DELTA_MAX = 0.9         # cap on total shrinkage intensity
 AS_COND_MAX = 1e3          # condition-number threshold flagging an unstable Sigma
 AS_RHO_BOUNDARY = 0.95     # |rho-hat| at/above this is treated as a boundary hit
@@ -373,8 +374,16 @@ def sep_univariate(studies: DTAStudies, alpha: float = 0.05) -> dict:
     return _summarize(M, V, Sigma, alpha, {"method": "sep_univariate"})
 
 
-def _shrinkage_delta(Sigma_hat: np.ndarray, k: int) -> tuple[float, dict]:
-    """A-priori condition/k-gated shrinkage intensity delta in [0, delta_max]."""
+def _shrinkage_delta(Sigma_hat: np.ndarray, k: int,
+                     asymmetry: bool = False) -> tuple[float, dict]:
+    """A-priori shrinkage intensity delta in [0, delta_max].
+
+    Three additive, a-priori components (NOT tuned to a target):
+      delta_k        small-k instability of rho-hat (-> more shrink as k falls);
+      delta_boundary rho-hat on the boundary / Sigma ill-conditioned;
+      delta_sel      Deeks funnel asymmetry detected (selection likely corrupts
+                     the between-study correlation -> shrink it harder).
+    """
     rho = Sigma_hat[0, 1] / np.sqrt(max(Sigma_hat[0, 0] * Sigma_hat[1, 1], _EPS))
     delta_k = AS_KAPPA0 / (AS_KAPPA0 + max(k - 3, 1))
     try:
@@ -382,10 +391,13 @@ def _shrinkage_delta(Sigma_hat: np.ndarray, k: int) -> tuple[float, dict]:
     except np.linalg.LinAlgError:
         cond = np.inf
     boundary = (abs(rho) >= AS_RHO_BOUNDARY) or (cond >= AS_COND_MAX)
-    delta = delta_k + (AS_BOUNDARY_BOOST if boundary else 0.0)
+    delta = (delta_k
+             + (AS_BOUNDARY_BOOST if boundary else 0.0)
+             + (AS_SELECTION_BOOST if asymmetry else 0.0))
     delta = float(np.clip(delta, 0.0, AS_DELTA_MAX))
     return delta, {"delta_k": float(delta_k), "rho_hat": float(rho),
-                   "cond": cond, "boundary": bool(boundary)}
+                   "cond": cond, "boundary": bool(boundary),
+                   "asymmetry": bool(asymmetry)}
 
 
 def _shrink_sigma(Sigma_hat: np.ndarray, delta: float) -> np.ndarray:
@@ -444,18 +456,28 @@ def deeks_asymmetry(studies: DTAStudies) -> dict:
 
 def adaptshrink_dta(studies: DTAStudies, alpha: float = 0.05,
                     selection_gate: bool = True) -> dict:
-    """AdaptShrink-DTA: Sigma-shrinkage + Deeks-gated SROC selection correction.
+    """AdaptShrink-DTA: asymmetry-gated adaptive shrinkage of the between-study
+    covariance toward independence.
 
     Steps:
       1. ML-fit Sigma_hat (Reitsma).
-      2. Compute a-priori shrinkage intensity delta from (k, |rho_hat|, cond).
-      3. Sigma_AS = shrink correlation toward 0 by delta. Recompute GLS (M, V)
-         using Sigma_AS (a genuinely different point + region than Reitsma).
-      4. (optional) If Deeks' asymmetry p < p_gate, apply a regression small-
-         study correction to the summary lnDOR and project it back onto the
-         summary operating point along the SROC.
+      2. (if ``selection_gate``) run Deeks' funnel-asymmetry test. Selection on
+         the SROC corrupts the between-study correlation, so a detected
+         asymmetry (p < p_gate) *increases* the shrinkage intensity rather than
+         applying a fragile point correction.
+      3. Compute the a-priori shrinkage intensity delta from
+         (k, |rho_hat|, cond, asymmetry).
+      4. Sigma_AS = shrink the CORRELATION of Sigma_hat toward 0 by delta, keep
+         the (stable) marginal variances. Recompute GLS (M, V) with Sigma_AS --
+         a genuinely different point + region than Reitsma.
 
-    Reduces to Reitsma when delta=0 and no asymmetry is detected.
+    Design note: an earlier v1 applied a PET-PEESE-style point shift to the
+    summary lnDOR when Deeks fired. In the matched-coverage bake-off that shift
+    was high-variance (the regression slope is unstable at DTA sample sizes) and
+    *inflated* the error cloud even under no selection (Deeks false-fires ~10%).
+    Routing the same asymmetry signal through the (bounded) shrinkage intensity
+    is the low-variance alternative and is what ships. Reduces to Reitsma when
+    delta=0 and no asymmetry is detected.
     """
     Y, S = _stack(studies)
     k = studies.k
@@ -464,31 +486,22 @@ def adaptshrink_dta(studies: DTAStudies, alpha: float = 0.05,
     Sigma_hat, ok = _fit_sigma(Y, S, fix_rho0=False)
     if not ok or Sigma_hat is None:
         return _fail()
-    delta, gate_info = _shrinkage_delta(Sigma_hat, k)
+
+    sel = {"detected": False, "p": float("nan"), "slope": float("nan")}
+    asym = False
+    if selection_gate:
+        dk = deeks_asymmetry(studies)
+        sel["p"] = dk["p"]
+        sel["slope"] = dk["slope"]
+        asym = bool(np.isfinite(dk["p"]) and dk["p"] < AS_DEEKS_PGATE)
+        sel["detected"] = asym
+
+    delta, gate_info = _shrinkage_delta(Sigma_hat, k, asymmetry=asym)
     Sigma_as = _shrink_sigma(Sigma_hat, delta)
     try:
         M, V = _gls_point_cov(Y, S, Sigma_as)
     except np.linalg.LinAlgError:
         return _fail()
-
-    # --- Deeks-asymmetry-gated SROC selection correction ---
-    sel = {"applied": False, "p": float("nan"), "slope": float("nan")}
-    if selection_gate:
-        dk = deeks_asymmetry(studies)
-        sel["p"] = dk["p"]
-        sel["slope"] = dk["slope"]
-        if np.isfinite(dk["p"]) and dk["p"] < AS_DEEKS_PGATE:
-            # PET-PEESE analogue on lnDOR: the asymmetry slope * mean(1/sqrt(ESS))
-            # is the small-study inflation of the pooled lnDOR. Remove it, holding
-            # the threshold/SROC position (M1 - M2 ~ const) fixed: move the
-            # operating point DOWN the SROC so lnDOR = M1 + M2 drops by the
-            # estimated inflation, split evenly between the two logit coords.
-            ess_corr = dk["slope"] * float(np.mean(1.0 / np.sqrt(dk["ess"])))
-            # current pooled lnDOR on the summary scale ~ M1 + M2
-            shift = 0.5 * ess_corr
-            M = np.array([M[0] - shift, M[1] - shift])
-            sel["applied"] = True
-            sel["shift"] = float(shift)
 
     extra = {"method": "adaptshrink_dta", "delta": delta, "selection": sel}
     extra.update({f"gate_{kk}": vv for kk, vv in gate_info.items()})
