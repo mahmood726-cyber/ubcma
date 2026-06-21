@@ -149,55 +149,64 @@ def _sigma_from_params(log_t1: float, log_t2: float, z_rho: float) -> np.ndarray
     return np.array([[t1 * t1, cov], [cov, t2 * t2]])
 
 
+def _accumulate(Sigma: np.ndarray, Y: np.ndarray, S: np.ndarray):
+    """Vectorized GLS accumulators for the bivariate normal-normal model.
+
+    Every per-study marginal precision is the inverse of the 2x2
+    ``Vi = Sigma + S_i`` (``S_i`` diagonal), computed analytically:
+        Vi = [[a_i, b], [b, c_i]],  det_i = a_i c_i - b^2,
+        Wi = (1/det_i) [[c_i, -b], [-b, a_i]].
+    Returns ``(A, rhs, logdet_sum, quad_sum, ok)`` where ``A = sum Wi`` (2x2),
+    ``rhs = sum Wi y_i`` (2,), ``quad_sum = sum y_i' Wi y_i``. ``ok`` is False if
+    any ``Vi`` is not positive-definite.
+    """
+    s11, s12, s22 = Sigma[0, 0], Sigma[0, 1], Sigma[1, 1]
+    y1 = Y[:, 0]
+    y2 = Y[:, 1]
+    a = s11 + S[:, 0, 0]              # (k,)
+    c = s22 + S[:, 1, 1]             # (k,)  (S off-diagonal is 0)
+    b = s12                          # scalar (constant across studies)
+    det = a * c - b * b
+    if np.any(det <= 0) or np.any(~np.isfinite(det)):
+        return None, None, None, None, False
+    inv = 1.0 / det
+    # Wi entries
+    w11 = c * inv
+    w22 = a * inv
+    w12 = -b * inv
+    A = np.array([[w11.sum(), w12.sum()], [w12.sum(), w22.sum()]])
+    rhs = np.array([(w11 * y1 + w12 * y2).sum(),
+                    (w12 * y1 + w22 * y2).sum()])
+    quad_sum = float((w11 * y1 * y1 + 2.0 * w12 * y1 * y2 + w22 * y2 * y2).sum())
+    logdet_sum = float(np.log(det).sum())
+    return A, rhs, logdet_sum, quad_sum, True
+
+
 def _neg_loglik(params: np.ndarray, Y: np.ndarray, S: np.ndarray,
                 fix_rho0: bool) -> float:
-    """Profile -2*loglik over (M1,M2) given Sigma params (GLS-concentrated ML).
-
-    For fixed Sigma the MLE of M is GLS; plugging it back gives a likelihood
-    that depends only on the Sigma params. Y is (k,2), S is (k,2,2) within-study.
-    """
+    """Profile -2*loglik/2 over (M1,M2) given Sigma params (GLS-concentrated ML)."""
     log_t1, log_t2 = params[0], params[1]
     z_rho = 0.0 if fix_rho0 else params[2]
     Sigma = _sigma_from_params(log_t1, log_t2, z_rho)
-    k = Y.shape[0]
-    A = np.zeros((2, 2))      # sum of precisions
-    b = np.zeros(2)           # sum precision * y
-    logdet_sum = 0.0
-    quad_sum = 0.0
-    Wi_list = np.empty((k, 2, 2))
-    for i in range(k):
-        Vi = Sigma + S[i]
-        sign, logdet = np.linalg.slogdet(Vi)
-        if sign <= 0 or not np.isfinite(logdet):
-            return 1e12
-        Wi = np.linalg.inv(Vi)
-        Wi_list[i] = Wi
-        A += Wi
-        b += Wi @ Y[i]
-        logdet_sum += logdet
-        quad_sum += Y[i] @ Wi @ Y[i]
-    try:
-        Ainv = np.linalg.inv(A)
-    except np.linalg.LinAlgError:
+    A, rhs, logdet_sum, quad_sum, ok = _accumulate(Sigma, Y, S)
+    if not ok:
         return 1e12
-    M = Ainv @ b
-    # quad form: sum (y_i - M)' Wi (y_i - M) = quad_sum - b' M
-    quad = quad_sum - b @ M
-    nll = 0.5 * (logdet_sum + quad)
-    return float(nll)
+    detA = A[0, 0] * A[1, 1] - A[0, 1] ** 2
+    if detA <= 0 or not np.isfinite(detA):
+        return 1e12
+    M = np.array([A[1, 1] * rhs[0] - A[0, 1] * rhs[1],
+                  -A[0, 1] * rhs[0] + A[0, 0] * rhs[1]]) / detA
+    quad = quad_sum - rhs @ M
+    return 0.5 * (logdet_sum + quad)
 
 
 def _gls_point_cov(Y: np.ndarray, S: np.ndarray, Sigma: np.ndarray):
     """Return (M, V) GLS summary point and its covariance for a fixed Sigma."""
-    k = Y.shape[0]
-    A = np.zeros((2, 2))
-    b = np.zeros(2)
-    for i in range(k):
-        Wi = np.linalg.inv(Sigma + S[i])
-        A += Wi
-        b += Wi @ Y[i]
+    A, rhs, _, _, ok = _accumulate(Sigma, Y, S)
+    if not ok:
+        raise np.linalg.LinAlgError("non-PD marginal covariance")
     V = np.linalg.inv(A)
-    M = V @ b
+    M = V @ rhs
     return M, V
 
 
