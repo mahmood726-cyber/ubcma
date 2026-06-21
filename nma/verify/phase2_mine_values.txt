@@ -1,0 +1,25 @@
+===== smoking =====
+B(1) kind=None vs engine league: max|TE|=9.99e-16 max|seTE|=2.78e-16
+B(2) PET asymmetry: beta=-1.369127 z=-1.9296 p=0.0537
+B(3) PEESE-adjusted league vs ref=A:
+     d[B-A]=0.25042 (se 0.37444)
+     d[C-A]=0.46042 (se 0.24636)
+     d[D-A]=0.31072 (se 0.47890)
+C (RE-weighted) Q_inc=4.90713 df_inc=7 p_inc=0.6713
+===== senn2013 =====
+B(1) kind=None vs engine league: max|TE|=6.23e-15 max|seTE|=5.00e-16
+B(2) PET asymmetry: beta=0.574880 z=0.7926 p=0.4280
+B(3) PEESE-adjusted league vs ref=acar:
+     d[benf-acar]=0.06406 (se 0.37984)
+     d[metf-acar]=-0.29913 (se 0.25842)
+     d[migl-acar]=-0.14976 (se 0.34024)
+     d[piog-acar]=-0.30863 (se 0.31627)
+     d[plac-acar]=0.89812 (se 0.25174)
+     d[rosi-acar]=-0.39667 (se 0.26056)
+     d[sita-acar]=0.29691 (se 0.43174)
+     d[sulf-acar]=0.45500 (se 0.26704)
+     d[vild-acar]=0.16777 (se 0.43125)
+C (RE-weighted) Q_inc=2.83382 df_inc=7 p_inc=0.8999
+
+(Note: C in production uses RE weights; the netmeta-parity check is at tau2=0,
+ reproduced exactly by test_decomp_parity.py to ~1e-13.)
