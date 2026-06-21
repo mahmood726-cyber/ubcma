@@ -47,16 +47,24 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
 
 import dta_sim as G  # noqa: E402
 from ubcma.dta import (  # noqa: E402
-    from_counts, reitsma, reitsma_indep, sep_univariate, adaptshrink_dta,
+    from_counts, reitsma, reitsma_reml, reitsma_indep, sep_univariate, hsroc,
+    adaptshrink_dta,
 )
 
-METHODS = {
+ALL_METHODS = {
     "reitsma": reitsma,
+    "reitsma_reml": reitsma_reml,
     "reitsma_indep": reitsma_indep,
     "sep_univariate": sep_univariate,
+    "hsroc": hsroc,
     "adaptshrink_dta": adaptshrink_dta,
 }
-HC = "reitsma"  # ground-truth comparator
+# Active method set for a run (subset via --methods). hsroc is the expensive
+# exact-binomial GLMM; it is dropped from the very large `full` grid by default
+# and run on the focused grids where the exact-binomial difference matters.
+METHODS = dict(ALL_METHODS)
+HC = "reitsma"  # ground-truth comparator (the DTA analogue of Henmi-Copas)
+OURS = "adaptshrink_dta"  # estimator under test (for the pairwise-vs-field gate)
 CHI2_2 = chi2.ppf(0.95, df=2)
 
 
@@ -81,11 +89,37 @@ def build_grid(name: str) -> list[dict]:
                                   G.DTASpec(k=k, rho=rho, tau1=0.6, tau2=0.6,
                                             prev=prev)))
         strengths = ["none", "moderate", "strong"]
+    elif name == "sparse":
+        # Sparse / zero-cell stress: small per-arm n (n_med low, n_sigma high) at
+        # low prevalence -> frequent zero cells -> the within-study normal
+        # approximation (Reitsma) is poorest and the exact-binomial HSROC differs
+        # most. High threshold het where rho is least identified.
+        specs = []
+        for k in (6, 10, 20):
+            for prev in (0.1, 0.3):
+                specs.append((f"k{k}_p{prev}_sparse",
+                              G.DTASpec(k=k, rho=-0.6, tau1=0.7, tau2=0.7,
+                                        prev=prev, n_med=40.0, n_sigma=0.9,
+                                        n_min=12)))
+        strengths = ["none", "moderate", "strong"]
     elif name == "smallk":
         specs = [
             ("k6_thr",  G.DTASpec(k=6, rho=-0.6, tau1=0.6, tau2=0.6, prev=0.3)),
             ("k10_thr", G.DTASpec(k=10, rho=-0.6, tau1=0.6, tau2=0.6, prev=0.3)),
             ("k6_hi",   G.DTASpec(k=6, rho=-0.4, tau1=0.8, tau2=0.8, prev=0.2)),
+        ]
+        strengths = ["none", "moderate", "strong"]
+    elif name == "focus":
+        # Headline cells for the "beats BOTH standard models + bootstrap-robust"
+        # claim, run WITH hsroc at high reps. Spans small/medium k, threshold
+        # het, high-tau, sparse cells, and a prevalence extreme.
+        specs = [
+            ("k6_thr",   G.DTASpec(k=6, rho=-0.6, tau1=0.6, tau2=0.6, prev=0.3)),
+            ("k10_thr",  G.DTASpec(k=10, rho=-0.6, tau1=0.6, tau2=0.6, prev=0.3)),
+            ("k10_hi",   G.DTASpec(k=10, rho=-0.4, tau1=0.8, tau2=0.8, prev=0.2)),
+            ("k20_thr",  G.DTASpec(k=20, rho=-0.6, tau1=0.6, tau2=0.6, prev=0.3)),
+            ("k10_sparse", G.DTASpec(k=10, rho=-0.6, tau1=0.7, tau2=0.7,
+                                     prev=0.1, n_med=40.0, n_sigma=0.9, n_min=12)),
         ]
         strengths = ["none", "moderate", "strong"]
     else:
@@ -221,13 +255,14 @@ def matched_coverage_table(df: pd.DataFrame, target: float = 0.95) -> pd.DataFra
     return pd.DataFrame(out)
 
 
-def _bootstrap_mciw0(df: pd.DataFrame, target: float, n_boot: int = 2000,
-                     seed: int = 7) -> list[dict]:
-    """Paired bootstrap of the MCIW0-2D AREA advantage (method - HC) per cell.
+def _bootstrap_mciw0(df: pd.DataFrame, target: float, ref: str = HC,
+                     n_boot: int = 2000, seed: int = 7) -> list[dict]:
+    """Paired bootstrap of the MCIW0-2D AREA advantage (method - ref) per cell.
 
     Errors paired across methods within a (cell, strength, rep). Resample reps;
     recompute each method's constant-region area = pi * q * sqrt(det W) where W
-    and q come from the resampled error cloud. Robust win iff 97.5th pct < 0.
+    and q come from the resampled error cloud. ``robust_win`` (method strictly
+    smaller area than ``ref``) iff the 97.5th pct of (method - ref) < 0.
     """
     rng = np.random.default_rng(seed)
     out = []
@@ -239,12 +274,12 @@ def _bootstrap_mciw0(df: pd.DataFrame, target: float, n_boot: int = 2000,
         piv1 = g.pivot_table(index="rep", columns="method", values="e1")
         piv2 = g.pivot_table(index="rep", columns="method", values="e2")
         common = piv1.dropna().index.intersection(piv2.dropna().index)
-        if HC not in piv1.columns or len(common) < 24:
+        if ref not in piv1.columns or len(common) < 24:
             continue
         piv1 = piv1.loc[common]
         piv2 = piv2.loc[common]
         reps = np.arange(len(common))
-        methods = [m for m in piv1.columns if m != HC]
+        methods = [m for m in piv1.columns if m != ref]
 
         def area_of(e1, e2):
             E = np.column_stack([e1, e2])
@@ -258,26 +293,47 @@ def _bootstrap_mciw0(df: pd.DataFrame, target: float, n_boot: int = 2000,
             return np.pi * q * np.sqrt(detW)
 
         boot_idx = rng.integers(0, len(reps), size=(n_boot, len(reps)))
-        hc1 = piv1[HC].to_numpy()
-        hc2 = piv2[HC].to_numpy()
-        hc_area_b = np.array([area_of(hc1[bi], hc2[bi]) for bi in boot_idx])
+        r1 = piv1[ref].to_numpy()
+        r2 = piv2[ref].to_numpy()
+        ref_area_b = np.array([area_of(r1[bi], r2[bi]) for bi in boot_idx])
         for m in methods:
             m1 = piv1[m].to_numpy()
             m2 = piv2[m].to_numpy()
             m_area_b = np.array([area_of(m1[bi], m2[bi]) for bi in boot_idx])
-            diff = m_area_b - hc_area_b
+            diff = m_area_b - ref_area_b
             diff = diff[np.isfinite(diff)]
             if len(diff) < 100:
                 continue
             lo, hi = np.quantile(diff, [0.025, 0.975])
-            point = area_of(m1, m2) - area_of(hc1, hc2)
+            point = area_of(m1, m2) - area_of(r1, r2)
             out.append({
-                "cell": cell, "strength": strength, "method": m,
+                "cell": cell, "strength": strength, "method": m, "ref": ref,
                 "darea": round(float(point), 4),
                 "ci_lo": round(float(lo), 4), "ci_hi": round(float(hi), 4),
                 "robust_win": bool(hi < 0.0),
                 "frac_better": round(float(np.mean(diff < 0.0)), 3),
             })
+    return out
+
+
+def _ours_vs_field(df: pd.DataFrame, target: float) -> list[dict]:
+    """Does OURS robustly beat EACH field member X? advantage = area(OURS)-area(X).
+
+    Uses ref=OURS so each row is (X - OURS); OURS robustly beats X iff the 2.5th
+    pct of (X - OURS) > 0 (X strictly larger area). Re-expressed as OURS's view.
+    """
+    raw = _bootstrap_mciw0(df, target, ref=OURS)
+    out = []
+    for r in raw:
+        out.append({
+            "cell": r["cell"], "strength": r["strength"],
+            "vs": r["method"],                         # the field member X
+            "darea_ours_minus_x": round(-r["darea"], 4),
+            "ours_better_ci_lo": round(-r["ci_hi"], 4),
+            "ours_better_ci_hi": round(-r["ci_lo"], 4),
+            "ours_robust_beats": bool(r["ci_lo"] > 0.0),   # X area > OURS area, robustly
+            "frac_ours_better": round(1.0 - r["frac_better"], 3),
+        })
     return out
 
 
@@ -320,17 +376,36 @@ def truth_gate(df: pd.DataFrame, table: pd.DataFrame, target: float,
     boot = _bootstrap_mciw0(df, target)
     gate["bootstrap_mciw0_vs_HC"] = boot
     gate["robust_wins_vs_HC"] = [b for b in boot if b["robust_win"]]
+    # Does OURS robustly beat EACH field member (reitsma / reml / indep / hsroc)?
+    field = _ours_vs_field(df, target)
+    gate["ours_vs_field"] = field
+    gate["ours_robust_wins_vs_field"] = [r for r in field if r["ours_robust_beats"]]
     return gate
 
 
 def main():
+    global METHODS
     ap = argparse.ArgumentParser()
     ap.add_argument("--reps", type=int, default=300)
-    ap.add_argument("--grid", default="pilot", choices=["pilot", "smallk", "full"])
+    ap.add_argument("--grid", default="pilot",
+                    choices=["pilot", "smallk", "full", "sparse", "focus"])
     ap.add_argument("--target", type=float, default=0.95)
     ap.add_argument("--out-prefix", default="truth-recovery-dta/dta")
     ap.add_argument("--from-csv", default=None)
+    ap.add_argument("--methods", default=None,
+                    help="comma list to subset methods (default: all; the large "
+                         "`full` grid drops hsroc unless overridden)")
     args = ap.parse_args()
+
+    if args.methods:
+        names = [m.strip() for m in args.methods.split(",") if m.strip()]
+        METHODS = {n: ALL_METHODS[n] for n in names}
+    elif args.grid == "full":
+        # hsroc (~0.3-0.9s/fit) is impractical across all 108 full-grid cells;
+        # it is exercised on the `focus`/`sparse` grids instead. Documented choice.
+        METHODS = {n: f for n, f in ALL_METHODS.items() if n != "hsroc"}
+    if HC not in METHODS:
+        raise SystemExit(f"HC '{HC}' must be in the active method set")
 
     t0 = time.time()
     raw_path = f"{args.out_prefix}_{args.grid}_perrep.csv"
@@ -386,6 +461,14 @@ def main():
         print(f"    [{b['cell']:<8} {b['strength']:<8}] {b['method']:<16} "
               f"dArea={b['darea']:+.4f} CI[{b['ci_lo']:+.4f},{b['ci_hi']:+.4f}] "
               f"P(better)={b['frac_better']:.3f}{flag}")
+    print("\n  Does adaptshrink_dta robustly beat EACH field member "
+          "(robust = 2.5% CI of area gain > 0)?")
+    for r in gate["ours_vs_field"]:
+        flag = "  OURS ROBUST WIN" if r["ours_robust_beats"] else ""
+        print(f"    [{r['cell']:<10} {r['strength']:<8}] vs {r['vs']:<16} "
+              f"dArea(ours-x)={r['darea_ours_minus_x']:+.4f} "
+              f"CI[{r['ours_better_ci_lo']:+.4f},{r['ours_better_ci_hi']:+.4f}] "
+              f"P(ours better)={r['frac_ours_better']:.3f}{flag}")
     print(f"\nWrote {raw_path}\n      {table_path}\n      {gate_path}  ({secs}s)")
 
 
