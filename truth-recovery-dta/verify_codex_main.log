@@ -1,0 +1,3423 @@
+Reading additional input from stdin...
+OpenAI Codex v0.135.0
+--------
+workdir: F:\ubcma
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ee91a-100e-71f2-b954-2635c379841c
+--------
+user
+# Independent verification task: bivariate DTA (Reitsma) ML estimator
+
+You are an INDEPENDENT re-implementer. **Do NOT read or import
+`src/ubcma/dta.py`** — implement the estimator yourself from the math spec below,
+then check your implementation against the reference-software fits in
+`truth-recovery-dta/reference_fits.json` (produced by R `mada::reitsma`, ML).
+
+## Math spec
+A diagnostic test accuracy meta-analysis has per-study 2×2 counts (TP, FP, FN,
+TN). With continuity correction matching `mada` (`correction=0.5`,
+`correction.control="all"`: if ANY study has a zero cell, add 0.5 to EVERY cell
+of EVERY study), define per study:
+
+```
+Se = TP/(TP+FN),  Sp = TN/(TN+FP)
+y1 = logit(Se),   y2 = logit(Sp)
+s1^2 = 1/TP + 1/FN   (within-study var of y1)
+s2^2 = 1/TN + 1/FP   (within-study var of y2)
+S_i  = diag(s1_i^2, s2_i^2)   (zero within-study covariance)
+```
+
+Bivariate normal-normal random-effects model: the marginal of study i is
+`(y1_i, y2_i) ~ N( M, Sigma + S_i )` with `M = (M1, M2)` and between-study
+covariance `Sigma = [[t1^2, rho t1 t2],[rho t1 t2, t2^2]]`. Fit `Sigma` by
+**maximum likelihood** (concentrate `M` out via GLS:
+`M = (sum_i Wi)^{-1} sum_i Wi y_i`, `Wi = (Sigma + S_i)^{-1}`). The summary
+sensitivity = `expit(M1)`, summary specificity = `expit(M2)`.
+
+NOTE: `mada` parameterizes the second coordinate as logit(FPR) = -logit(Sp). The
+ML fit is invariant to that sign flip, so your `M2 = logit(Sp)` must equal
+`-(mada logit FPR)` = the `m2_logit_spec` field in the JSON.
+
+## What to do
+1. Write your own standalone implementation to
+   `truth-recovery-dta/verify_<seat>.py` (replace `<seat>` with your identifier,
+   e.g. `verify_codex_main`, `verify_codex_noreen`, `verify_agy`). Use only
+   numpy/scipy. Do NOT import the project's `ubcma` package.
+2. For each dataset in `reference_fits.json` (`counts.TP/FP/FN/TN`), fit your
+   estimator and compute the absolute differences of your `(M1, M2,
+   sens_summary, spec_summary)` versus the JSON reference fields
+   (`m1_logit_sens`, `m2_logit_spec`, `sens_summary`, `spec_summary`).
+3. Print a per-dataset table and the worst-case absolute difference. State
+   clearly whether the worst-case is below 1e-6 (PASS) or not (FAIL), and write
+   the same verdict to `truth-recovery-dta/verify_<seat>_result.json` as
+   `{"worst_abs_diff": <float>, "pass": <bool>, "per_dataset": {...}}`.
+
+Report only: your worst-case agreement vs `mada::reitsma`, and PASS/FAIL at 1e-6.
+This is a math cross-check; no fabricated numbers — every figure must come from
+running your code.
+
+Your seat identifier is: codex_main
+codex
+I’ll follow the repo rules first, then inspect only the verification inputs and local project shape. I will avoid `src/ubcma/dta.py` entirely.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git status --short' in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Path F:\\E156\\rewrite-workbook.txt -TotalCount 80" in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content -Path F:\\ProjectIndex\\INDEX.md -TotalCount 80" in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'rg --files truth-recovery-dta' in F:\ubcma
+ succeeded in 1134ms:
+E156 REWRITE WORKBOOK
+sentinel:skip-file
+sentinel:claim-language-allow
+(Sentinel markers above:
+ - sentinel:skip-file: this workbook intentionally contains C:\Users\... PATH:
+   lines pointing to each project's local source directory â€” they're metadata,
+   not code. The marker keeps Sentinel from emitting ~16 P0 hardcoded-path
+   BLOCKs every push.
+ - sentinel:claim-language-allow: CURRENT BODY entries are the AI-drafted
+   summaries that students rewrite into hedged language â€” flagging overclaim
+   words IN those drafts is the whole pedagogical point, not a defect.
+   File-scope marker here suppresses the ~1293 claim-language WARNs on the
+   CURRENT BODY entries; the YOUR REWRITE entries are where the hedging
+   discipline matters and remains lintable in the rendered student board.)
+
+DENOMINATOR CONVENTION (added 2026-05-06 after review-findings P1-5):
+  Each entry header is `[N/total]` where N = ordinal insertion index and
+  `total` = current portfolio size as of the most recent reconcile sweep.
+  Older entries are back-rewritten on milestone boundaries (rather than
+  preserving their insertion-time denominator) to keep
+  reconcile_counts.py from flagging "WORKBOOK DRIFT". The pre-commit
+  guard (scripts/check_workbook_commit.py) blocks commits that bundle a
+  denominator sweep with substantive content edits to existing entries.
+
+======================================================================
+
+INSTRUCTIONS:
+- Replace text under YOUR REWRITE with your body (at most 156 words, 7 sentences)
+- S1=Question S2=Dataset S3=Method S4=Result(number+interval) S5=Robustness S6=Interpretation S7=Boundary(limitation)
+- Leave YOUR REWRITE blank to keep current version
+- Run: python C:/E156/scripts/apply_rewrites.py          (validate)
+- Run: python C:/E156/scripts/apply_rewrites.py --apply (apply)
+
+AUTHORSHIP RULE (mandatory for every submission):
+- Mahmood Ahmad (MA) must NEVER be listed as first author and NEVER as
+  last (senior) author. The student rewriter is first author. Last/senior
+  author must be a faculty supervisor or co-investigator distinct from MA.
+  MA's position is middle-author only (e.g. role: data curation, software,
+  methodology, supervision-of-tooling). This applies to every paper in
+  this workbook regardless of contribution depth.
+
+HOW TO SUBMIT TO â—† SYNTHÄ’SIS (OJS step-by-step):
+
+Journal: â—† SynthÄ“sis     URL: https://www.synthesis-medicine.org/index.php/journal
+Section: per-paper (Methods Note / Short Meta-Analysis / Brief Update â€” see your card)
+Length: submit the 156-word E156 body verbatim (journal ceiling is 400w; we don't pad).
+
+Step 1 â€” Prepare the .docx file
+  - Microsoft Word .docx, A4 page, 1.5 line spacing, 2.5 cm margins.
+  - Font: 11-pt Calibri OR 12-pt Times New Roman (consistent throughout).
+  - Order: Title Â· Authors + ORCIDs + affiliations Â· Body (the 156-word
+    E156 rewrite, 7 sentences, pasted verbatim from YOUR REWRITE â€” do
+    NOT pad toward the journal's 400-word ceiling; the micro-paper
+    length is the point of the format) Â· References (Vancouver/numeric, NLM
+    journal abbreviations, DOI without URL prefix; up to 6 authors then
+    "et al.") Â· Data availability Â· Ethics Â· Funding Â· Competing
+    interests (use the editorial-board statement from this workbook
+    verbatim) Â· CRediT contributions Â· AI disclosure Â· Copyright line:
+    "Â© The Author(s) 2026. CC BY 4.0."
+
+Step 2 â€” Register / login
+  - Register: https://www.synthesis-medicine.org/index.php/journal/user/register
+    (use ORCID where possible; pick a strong password; tick Author role).
+  - Login:    https://www.synthesis-medicine.org/index.php/journal/login
+
+Step 3 â€” Start the OJS submission wizard
+  - From your dashboard click "New Submission" (top right).
+  - 5-step OJS wizard:
+      (1) Start         â€” pick the Section name listed in YOUR card's
+                          "Target journal: â—† SynthÄ“sis" block above
+                          (one of: Methods Note, Short Meta-Analysis, or
+                          Brief Update â€” section is preassigned per
+                          paper, you don't need to reason about it).
+                          Language English; tick all 5 submission-
+                          checklist items; agree to CC-BY-4.0 + privacy.
+      (2) Upload File   â€” upload the .docx; component: "Article Text".
+      (3) Enter Metadata â€” paste the title; paste YOUR REWRITE (the
+                          156-word body) verbatim as the abstract â€” the
+                          E156 7-sentence structure IS the abstract, no
+                          shortening needed; add 4-6 keywords; add ALL
+
+ succeeded in 1132ms:
+<!-- sentinel:skip-file - portfolio registry; absolute paths ARE the data -->
+# C: Drive Project Index
+> **Last updated**: 2026-05-14 (C:\HTML apps focused repair batch continued: hub shell launch fix, static contracts across ten HTML app repos, NMA/living-meta/nma-dose-response landing and asset-link repairs, and NMA doc hardcoded-path cleanup. Prior SheafNMA v0.2.0, D-drive legacy smoke-contract continuation, CardioOracle lifecycle status freeze, C-drive model/project smoke-contract continuation, mahmood789 consolidation, Sentinel/Overmind JSONL and verification repair, C-drive reproducibility audit continuation, C-drive verification repair, D-drive repair batch, superapp, C-drive sweep, home-folder hardening, Trial Truthfulness Atlas, and portfolio notes retained below.)
+
+### C:\HTML apps focused repair batch (2026-05-14)
+> - `C:\HTML apps\hub\`: added a launchable `index.html` shell and static contract tests for required registry/runtime wiring; fixed `app.js` local `file://` launch resolution so the hub opened from `hub\index.html` links sibling apps from the parent HTML-apps directory instead of nesting paths under `hub`. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `node --check app.js && node --check projects.js` -> PASS; headless Chrome smoke on `file:///mnt/c/HTML%20apps/hub/index.html` confirmed the page title and sibling app links. GitHub pushed: `mahmood726-cyber/hub` main `c1a6725`.
+> - `C:\HTML apps\evidence-board\`, `C:\HTML apps\focus-studio\`, `C:\HTML apps\kanban-lab\`: added pytest-visible static app shell contracts covering title/description, localStorage persistence hooks, key controls, and absence of unresolved templates or hardcoded local drive paths; added repo `.gitignore` entries for Python caches and `PROGRESS.md`. Verification: each `pytest -q -p no:cacheprovider` -> `2 passed` with the existing pytest `cache_dir` warning; scoped `git diff --check` -> PASS. GitHub pushed: `evidence-board` master `9a87c8b`, `focus-studio` master `0fa728b`, `kanban-lab` master `81cad38`.
+> - `C:\HTML apps\nma-pro-v2\`: fixed the landing page's broken app links from absent v6/v7 asset filenames to the current `e156-submission/assets/nma-pro-v8.0.html`, added static link-resolution contracts, and removed Sentinel P0 hardcoded local OneDrive paths from legacy docs. Verification: `pytest -q -p no:cacheprovider tests/test_smoke.py tests/test_static_links.py` -> `3 passed`; manual Sentinel scan on the clean push clone -> `BLOCK=0 WARN=1 INFO=302` (pre-existing tracked autogen warning plus HTML a11y INFO). GitHub pushed: master `a2834e7` for the link fix and master `a74e385` for the P0 doc cleanup.
+> - `C:\HTML apps\IPD-Meta-Pro\` and `C:\HTML apps\Truthcert1\`: added static link-resolution contracts for landing-page local assets and canonical app entrypoints. Verification: `IPD-Meta-Pro` `pytest -q -p no:cacheprovider tests/test_static_links.py` -> `2 passed`; `Truthcert1` same command -> `2 passed` with existing pytest `cache_dir` warning. GitHub pushed: `IPD-Meta-Pro` master `b26ee09`, `Truthcert1` master `81eddd3`.
+> - `C:\HTML apps\living-meta\`: repaired landing-page validation links that pointed to a missing HTML asset and an out-of-repo sibling path; linked the existing validation and limitations docs instead, and added a static link-resolution contract. Verification: `pytest -q -p no:cacheprovider tests/test_static_links.py` -> `2 passed`; manual Sentinel scan on the clean push clone -> `BLOCK=0 WARN=0 INFO=8` (pre-existing HTML a11y INFO). GitHub pushed: master `c3c8a9b`.
+> - `C:\HTML apps\Pairwiseai\`: added a static landing-page contract covering local link resolution, absence of unresolved templates/local drive paths, and the key app entrypoints under `e156-submission/assets`. Verification: `pytest -q -p no:cacheprovider tests/test_static_links.py` -> `2 passed`; manual Sentinel scan on the clean push clone -> `BLOCK=0 WARN=0 INFO=1731` (pre-existing HTML a11y INFO). GitHub pushed: master `2ade493`.
+> - `C:\HTML apps\nma-dose-response-app\`: pushed the existing smoke-blocker commit and added an E156 asset-bundle repair so `e156-submission\assets\index*.html` resolves its JS runtime dependencies from inside the assets folder; added a static link-resolution contract covering root and E156 app entrypoints. Verification: `pytest -q -p no:cacheprovider tests/test_smoke.py tests/test_static_links.py` -> `4 passed` with the existing pytest `cache_dir` warning; manual Sentinel scan on the clean push clone -> `BLOCK=0 WARN=0 INFO=442` (pre-existing HTML a11y INFO). GitHub pushed: master `e95fae0` and `96594b6`.
+> - Push gate: Windows Git credential path succeeded after WSL Git lacked HTTPS credentials. Sentinel pre-push/manual scan verdicts were BLOCK=0; evidence-board INFO=18, focus-studio INFO=10, kanban-lab INFO=10, living-meta INFO=8, Pairwiseai INFO=1731, nma-dose-response-app INFO=442 (pre-existing P2 HTML accessibility notes); hub push emitted no Sentinel findings.
+> - Existing unrelated dirty files were left unstaged in these repos, mainly protocol/license/doc edits and untracked `paper\` outputs in the three app repos, plus pre-existing hub metadata/submission/style edits.
+
+### SheafNMA (2026-05-12; v0.2.0 real-NMA-corpus validation + 36-cell Ã— 1000-rep simulation + methods paper draft)
+> - `C:\Models\SheafNMA\` â€” cellular-sheaf inconsistency localization for network meta-analysis. v0.1.0 (2026-04-07) was math + single-file HTML dashboard + E156 #153 micro-paper on a synthetic 12-contrast network. v0.2.0 refactored the 457-LOC `generate_figures.py` into a `sheafnma/` package (`core`, `io`, `simulate`, `comparators`, `r_bridge`), validated on 13 R-netmeta built-in NMAs, and shipped a methods-paper draft for Research Synthesis Methods.
+> - Method: precision-weighted coboundary `F[e, treat1] = -1/SE_e, F[e, treat2] = +1/SE_e`; sheaf Laplacian `L = Fáµ€F` (symmetric PSD); WLS-solve node estimates with node 0 anchored; per-edge residuals `r_e = dÌƒ_e âˆ’ (F x*)_e` localize inconsistency; **Global Inconsistency Index** `GII = Î£ rÂ²` is the global statistic. One algebraic object yields both global + per-edge â€” complements (not replaces) node-splitting.
+> - Real-corpus headline: across **13 R-netmeta built-in NMAs** (Senn 2013 diabetes, Dias smokingcessation, Dong 2013 thrombolytics, Linde 2015/2016 acupuncture, Salanti antimanic, Baker, Dogliotti, Franchini, Gurusamy, Stowe, Woods, dietaryfat, parkinson) the global design-by-treatment Ï‡Â² (Higgins 2012) failed to reject in all 13. **SheafNMA flagged â‰¥1 localized inconsistency edge in 5 of those 13 (38.5%)** at the Youden-frozen threshold of **2.6912** â€” networks that look globally consistent harbor at least one inconsistent edge the global test misses.
+> - Simulation rigor: 36-cell grid (n_treatments âˆˆ {4,6,8} Ã— n_studies_per_edge âˆˆ {3,5,10} Ã— Ï„_inc âˆˆ {0,0.2,0.5,1.0}) Ã— **1000 replications per cell**, held-out training cell at (6,5,0.5) for Youden's-J threshold selection (frozen before evaluating remaining 35 cells). Type-I error at Ï„_inc=0 was **0.000 across all cells**. Mean per-edge sensitivity 0.981 / specificity 0.945 at Ï„_inc=0.5.
+> - Comparator suite: DBT-Ï‡Â² (Higgins 2012 Â§3.2, pure-Python), Bucher loop closure (Bucher 1997, pure-Python), node-splitting (Dias 2010, via `netmeta::netsplit` shelled to R 4.5.2). Per-edge agreement with node-splitting was 45.4% â€” asymmetric: SheafNMA flags 12/506 = 2.4% of edges vs node-splitting's 250/436 = 57% at p<0.05 Bonferroni-uncorrected (the calibrated Youden cut is much more conservative than a per-edge Î±-test). Â§4.2 of the paper explicitly explains this rather than presenting the 45.4% bare.
+> - Corpus export: `corpus/export_netmeta.R` handles 7 distinct netmeta dataset formats (contrast-level TE/seTE, arm-based event/n, arm-based mean/sd/n, wide multi-arm OR/MD, three-arm smokingcessation, rate-based IRR/person-years) and exports all 13 to `corpus/data/*.csv` in the sheafnma standard schema (`study, treat1, treat2, effect, se`).
+> - GitHub: `https://github.com/mahmood726-cyber/sheaf-nma` (master `6c7db13`, tag `v0.2.0`). Pages LIVE: `https://mahmood726-cyber.github.io/sheaf-nma/` (Phase-1 dashboard unchanged in v0.2). 33 tests passing; Sentinel BLOCK=0 WARN=0 (2 INFO = pre-existing HTML a11y items in the v0.1 dashboard).
+> - Workbook entry: `[153/919] SheafNMA`. CURRENT BODY updated 2026-05-12 to the v0.2 156-word / 7-sentence body (replaces v0.1 synthetic-"smoking cessation" framing with the real netmeta corpus). SUBMITTED `[ ]`; YOUR REWRITE preserved untouched per workbook protection rules. Target: Research Synthesis Methods full methods paper (`paper/sheafnma_v2.md`, 1190 words drafted; [TODO] prose blocks in Â§1 Background / Â§4.3 case studies / Â§5 Discussion) + SynthÄ“sis Methods Note companion (`paper/methods_note.md`, 156-word).
+> - Known landmine: `Dong2013` netsplit fails inside netmeta's multi-arm validator ("wrong number of comparisons"); SheafNMA + DBT + Bucher still run on it, only `netsplit_p` column is blank for its 70 edges.
+> - v0.2 deferrals (spec Â§10): multi-arm covariance correction (single-D stalks only), higher-D stalks (Phase 1 Â§3.4 future work), Bayesian sheaf priors, OTS / Bitcoin anchor (broken on Py 3.13 Windows per `lessons.md`).
+
+### hksj-q-floor-atlas (2026-05-12; 8th Pairwise70 atlas; tags prereg-v0.0.1 + v0.1.0)
+> - `C:\Projects\hksj-q-floor-atlas\` â€” 8th calibration atlas in the Pairwise70 series. Sister to `cochrane-modern-re` (engine source), `repro-floor-atlas`, `responder-floor-atlas`, `trial-truthfulness-atlas`, `africa-tb-atlas`, `pactr-hiddenness-atlas`, `africa-hiv-prep-atlas`.
+> - Question: how often does omitting the `max(1, Q/(k-1))` floor on HKSJ variance, in the I^2=0 regime where un-floored HKSJ narrows below REML+Wald, overstate precision across the Cochrane CDSR? Pre-registered via `prereg-v0.0.1` tag + 4 Internet Archive snapshots (Bitcoin OTS deferred â€” Python 3.13 SSL libeay32 bug per lessons.md; web-stamper fallback documented).
+> - Headline: D_1 (I^2=0, k>=2, converged) = 3,677 MAs = 57.6% of corpus. On D_1a (Q>0, n=3,536): median CI-width ratio (floored / un-floored) = 3.64x (IQR 1.60-10.56; 95th pct 57.4x); significance lost in 17.08% of MAs. D_1b (Q=0, n=141 = 3.83% of D_1): sig_loss 24.8%, ratio unbounded â€” un-floored HKSJ SE is exactly zero (the floor effect is unbounded); see `docs/AMENDMENTS.md` entry 1 for split rationale.
+> - Per k-stratum medians: k=2: 4.26x (sig_loss 8.6%); k=3: 3.64x (12.9%); k=4-5: 3.10x (13.1%); k=6-9: 3.18x (17.3%); k>=10: 3.80x (25.1%). sig_loss increases with k because higher-k pooled effects sit closer to null, so floor widening crosses zero more often.
+> - Engine: independent metafor pass via fork of cochrane-modern-re's `run_metafor.R` minus the floor block. Input parquet SHA-256 pinned in `docs/spec.md` sec.1.5 (`31434fb118c6ec44a025eeb43a90e35ef9e050711fa45aa2cb5c1244b2d89751`). 3 hand-verified golden MAs match metafor reference within 1e-6.
+> - GitHub: `https://github.com/mahmood726-cyber/hksj-q-floor-atlas` (master + tags `prereg-v0.0.1` and `v0.1.0`). Pages LIVE: `https://mahmood726-cyber.github.io/hksj-q-floor-atlas/`.
+> - 64 tests; Sentinel BLOCK=0 WARN=0 INFO=0; 7 IA snapshots recorded in `docs/preregistration.md`.
+> - Workbook entry: `[920/920] hksj-q-floor-atlas`; target SynthÄ“sis Methods Note (340w draft, â‰¤400 cap).
+> - v0.2 candidates (NOT in v0.1.0): published-CI matching ("is THIS Cochrane review wrong?"), PM/SJ/Bayesian Ï„Â² robustness, DL re-pooling, Bitcoin OTS once Python 3.13 issue is resolved.
+
+### D-drive legacy smoke-contract continuation (2026-05-12)
+> - `D:\Projects\mahmood789\786-MIII-Mean-single-group\`: fixed the placeholder issue-tracker link in `README.md` and added a pytest-visible static contract for the Shiny app package surface, sample-data schema, metafor workflow, downloads, and absence of local paths/template links. Verification: `pytest -q -p no:cacheprovider` -> `2 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\786-NMA\`: fixed malformed clone instructions in `README.md` and added a pytest-visible static contract for arm/contrast schemas, netmeta workflow hooks, sample CSV files, and absence of local paths/broken clone templates. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\786-MIII-Meta-analysis\`: added a pytest-visible inventory contract ensuring the documented source-collection entries exist and that the README remains free of local paths/placeholders. Verification: `pytest -q -p no:cacheprovider` -> `2 passed`; scoped `git diff --check -- tests/test_static_contract.py README.md` -> PASS. Repo-wide `git diff --check` is blocked by an unrelated line-ending/trailing-whitespace diff in `786MIIIConversion`.
+> - `D:\Projects\mahmood789\786Annualised-plot\`: added a pytest-visible static contract for the Shiny app package surface, CSV schema, plot/download outputs, and explicit no-hosted-deployment/no-DOI README status. Verification: `pytest -q -p no:cacheprovider` -> `2 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\786MIIII-python\`: added a pytest-visible static contract that compiles `meta.py` without importing optional dependencies and checks optional-dependency guards plus absence of local paths. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\786doseresponse\`: added a pytest-visible static contract for the Shiny dose-response app package surface, required CSV schema, dosresmeta/rcs workflow, downloads, and absence of local paths/placeholders. Verification: `pytest -q -p no:cacheprovider` -> `2 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\Americgender-\`: corrected inventory metadata, replaced generated-publication overclaims with archived-fixture disclosure, and added a compile/static contract covering embedded fixture disclosure, deterministic model seed, SHAP optionality, FIPS cleaning, and absence of generated-author/publication-ready claims. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\Bayesian-LLM\`: fixed the README's case-sensitive app filename and documented `GEMINI_API_KEY` as a runtime-only secret; added a static contract for package surface, sample datasets, API-key environment guard, and absence of checked-in API keys/local paths. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\CC\`: added an inventory-only pytest contract confirming the archive contains no runtime source and carries no release/publication claims or local paths. Verification: `pytest -q -p no:cacheprovider` -> `2 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\Cardiac3d\`: added a static contract for the Shiny cardiology teaching surfaces, 3D widget, clinical cases/quiz data, valid Shiny manifest, and absence of local paths/placeholders. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\DIF\`: corrected inventory metadata, replaced final-study claims with simulation-draft disclosure, seeded NumPy randomness, and added a compile/static contract for model functions, disclosure, deterministic seed, and absence of final/local-path claims. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\DTA\`: fixed the README's case-sensitive app filename and added a static contract for upload controls, threshold UI, confusion/ROC/PR outputs, pROC usage, and absence of local paths/placeholders. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\Druginteraction\`: added embedded-data disclosure that the table is educational, not clinical decision support, plus a static/manifest contract for interaction data, challenge mode, visNetwork output, and package surface. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\ECGapp\`: seeded R randomness, replaced dynamic `Sys.Date()` version text with static archive text, and added a static/manifest contract for ECG generation surfaces, vignettes, calipers, deterministic guard, and absence of local paths/placeholders. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\ECGhyperK\`: seeded R randomness, replaced dynamic `Sys.Date()` version text with static archive text, and added a static contract for electrolyte/AV-block/QT modes, vignettes, deterministic guard, and absence of local paths/placeholders. Verification: `pytest -q -p no:cacheprovider` -> `2 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\Finalmetapython\`: fixed README inventory to list the actual core engine, removed an unused hard import of `statsmodels` so the engine imports in lean environments, and added numerical tests for fixed/random-effect pooling plus README coverage. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+> - `D:\Projects\mahmood789\Framinghampaper\`: added embedded-fixture disclosure, replaced "completed"/entire-dataset claims with archived-demo wording, seeded R randomness, and added a static contract for model/SHAP surfaces and absence of overclaim/local-path text. Verification: `pytest -q -p no:cacheprovider` -> `3 passed`; `git diff --check` -> PASS.
+
+### CardioOracle status repair (2026-05-10)
+> - `C:\Models\CardioOracle\`: code and verification were already green, but the Tier 1 catalog row lacked an explicit lifecycle token and was being resolved as `Needs triage`. Froze the row as `SUBMISSION-READY (verified; prospective validation pending)`, updated the test-file count to 4, and refreshed the touch date. Verification: `python3 -m pytest -q --tb=line -x` -> `93 passed, 9 skipped`; `CARDIOORACLE_RUN_BROWSER_TESTS=1 python3 -m pytest -q tests/test_prediction.py --tb=line -x` -> `50 passed`; `PYTHONPATH=/mnt/c/Sentinel python3 -m sentinel scan --repo /mnt/c/Models/CardioOracle` -> `BLOCK=0 WARN=0 INFO=0`.
+
+### C-drive model/project smoke-contract continuation (2026-05-10)
+> - `C:\Models\MAPriors\` and `C:\Models\MultiverseMA\`: committed pytest smoke contracts covering canonical HTML app entry points and E156 submission pages. Verification: each Windows `python -m pytest -q --tb=line -x` -> `2 passed`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Models\New_Heterogeneity_Model\`: committed a pytest-visible R-package contract for HeterogeneityASE metadata, exports, testthat wiring, and granular priors; R testthat remains optional when `Rscript` is absent. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed, 1 skipped`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Models\CTGovHub\` and `C:\Models\EvidenceCommandCenter\`: committed static app contracts for required shell controls, linked tools/project cards, and placeholder-free HTML. Verification: each Windows `python -m pytest -q --tb=line -x` -> `2 passed`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Models\GuidelineLag\`, `C:\Models\ProtoPubDrift\`, and `C:\Models\RetractRipple\`: committed spec contracts locking source scope, endpoints, fail-closed rules, and truth gates. Verification: each Windows `python -m pytest -q --tb=line -x` -> `2 passed`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Models\TGEP_Development\`: committed a TGEP verification contract for exported R functions, documented edge cases, and optional Rscript execution. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed, 1 skipped`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Models\HTA_Unified_Intelligence_System\`: committed a verification contract that reruns manuscript-number checks, checks required dashboard/output artifacts, and optionally runs the R logic suite. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed, 1 skipped`; Sentinel -> `0 BLOCK, 0 WARN, 2 INFO` (pre-existing missing `alt` text in dashboard copies).
+> - `C:\Models\bapmr\` and `C:\Models\pwcvR2\`: committed pytest-visible R-package contracts covering package metadata, exports, testthat wiring, and optional Rscript execution. Verification: each Windows `python -m pytest -q --tb=line -x` -> `2 passed, 1 skipped`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Models\cbamm-lfa\`: replaced a hardcoded user-profile output path in `data-raw\create_example_data.R` with repo-relative `data\example_meta.rda` generation and committed a package contract locking that behavior. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed, 1 skipped`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Models\meta-stats-core\`: committed a pytest wrapper for the Node test suite and export-surface contract. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Models\SROCPlotter\`: committed a Selenium UI contract for redirect behavior, app shell loading, plot tab activation, and E156 page loading. Verification: Windows `python -m pytest -q --tb=line -x` -> `3 passed`; Sentinel -> `0 BLOCK, 0 WARN, 13 INFO` (pre-existing P2 accessibility notes).
+> - `C:\Projects\experimental-meta-analysis\`: committed a smoke contract for the existing top-level test script. Verification: Windows `python -m pytest -q --tb=line -x` -> `1 passed`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Projects\Fatiha-Course\` and `C:\Projects\Fatiha-course-github-v2\`: committed local HTTP UI smoke contracts for canonical and localized course pages. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed` in each repo; Sentinel -> `0 BLOCK, 0 WARN` with INFO-only pre-existing accessibility notes.
+> - `C:\Projects\metasprint-dta\`: committed a Selenium UI smoke contract for the dashboard/app shell. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed`; Sentinel -> `0 BLOCK, 0 WARN, 78 INFO` (pre-existing P2 accessibility notes).
+> - `C:\Projects\NMA\`: committed a surroNMA package smoke contract for metadata, source files, tests, and optional Rscript execution. Verification: Windows `python -m pytest -q --tb=line -x` -> `3 passed, 1 skipped`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Projects\DTA70\`, `C:\Projects\MLM501\`, and `C:\Projects\Multipledatameta\`: committed pytest smoke contracts for E156 submission completeness and 156-word/7-sentence config integrity. Verification: Windows `python -m pytest -q --tb=line -x` -> `1 passed` in each repo; Sentinel -> `0 BLOCK, 0 WARN` with DTA70 and Multipledatameta retaining INFO-only pre-existing accessibility notes.
+> - `C:\Projects\repo100\`: committed a metareg smoke contract covering package artifacts, manifest shape, and optional Rscript helper execution. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed, 1 skipped`; Sentinel -> `0 BLOCK/WARN/INFO`.
+> - `C:\Projects\metaoverfit\`: committed a static smoke contract for the deterministic R analysis script, required R2het functions, and absence of hardcoded local user paths. Verification: Windows `python -m pytest -q --tb=line -x` -> `2 passed`; Sentinel -> `0 BLOCK/WARN/INFO`.
+
+### mahmood789 â†’ mahmood726-cyber consolidation (2026-05-09)
+
+2026-06-21T07:34:43.710676Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:34:43.717194Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:34:43.719231Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:34:43.721784Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+The required index and workbook checks completed; I’m keeping the workbook untouched. The parallel preflight had two sandbox spawn hiccups, so I’m rerunning the repo status and target-file inventory separately.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git status --short' in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'rg --files truth-recovery-dta' in F:\ubcma
+2026-06-21T07:34:50.475430Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:34:50.477926Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:34:50.546576Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:34:50.552833Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+The sandbox is rejecting those two process launches at setup rather than returning command output. I’ll continue with single-command probes, which usually avoids that failure mode.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git status --short' in F:\ubcma
+2026-06-21T07:34:55.063217Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:34:55.065811Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+`git status` is still failing before execution. I’m checking whether this is command-specific or a broader sandbox process issue before editing anything.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command Get-Location in F:\ubcma
+2026-06-21T07:34:59.479378Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:34:59.483390Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+The failure is now affecting even `Get-Location`, so it is not a Git issue. I’ll try a no-workdir probe to see whether the workspace path mount is the trigger.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command Get-Location in F:\ubcma
+2026-06-21T07:35:04.356382Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:35:04.359366Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+The shell process launcher is currently blocked at sandbox setup. I’m checking whether any MCP-backed file context is exposed; if not, I’ll need the shell to recover before I can run the estimator and produce evidence-backed numbers.
+mcp: codex/list_mcp_resources started
+mcp: codex/list_mcp_resources (completed)
+codex
+No MCP resources are available for the workspace, so the local shell is the required path for both reading the JSON and running the check. I’m trying a minimal non-login launch next.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -NoProfile -Command Get-Location in F:\ubcma
+2026-06-21T07:35:16.234143Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:35:16.236010Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+The PowerShell launcher is still unusable. I’m going to use the available Node-backed runtime for filesystem reads and execution if it can be loaded, while still keeping the implementation standalone and NumPy/SciPy-based.
+codex
+The Node runtime is available. I’m using it only as a replacement launcher/inspector because PowerShell is failing; the actual verifier will still be a standalone Python/NumPy/SciPy script.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+codex
+The target directory already has prior verification artifacts, but no result JSON for this seat is listed. I’m reading only the reference JSON shape and not touching the project estimator.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+codex
+I have the reference fields and dataset names. Before writing the verifier, I’m checking whether Node can launch Python and Git since the normal shell entrypoint is unavailable.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+codex
+Git shows a dirty worktree with many unrelated edits and untracked files; I’ll leave those alone and add only the requested verifier/result files. Python launches through Node, so I can still run the standalone check.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+codex
+I’ve got enough context to implement. The verifier will read `reference_fits.json` relative to its own location, apply the global 0.5 correction rule, optimize the concentrated ML likelihood over a positive-definite between-study covariance, and write the requested result JSON.
+apply patch
+patch: completed
+F:\ubcma\truth-recovery-dta\verify_codex_main.py
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..841586a6c9be271896f626cfa950a9dd0067eef9
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,198 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
++
++
++if __name__ == "__main__":
++    main()
+
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..841586a6c9be271896f626cfa950a9dd0067eef9
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,198 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The standalone verifier is in place. I’m running it now and will use its generated JSON for the final verdict, not hand-calculated figures.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..841586a6c9be271896f626cfa950a9dd0067eef9
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,198 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The estimator ran and produced a PASS table, but Python hit a permission error when creating the required result JSON. I’m isolating whether this is a child-process write restriction or a path-specific issue, then I’ll make the verifier produce the file through an allowed path.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..841586a6c9be271896f626cfa950a9dd0067eef9
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,198 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The restriction is specific to Python child processes writing into the workspace; they can write to temp, and `apply_patch` can write the workspace. I’ll keep the verifier’s normal behavior, add a fallback that writes the JSON to stdout when workspace output is blocked, then materialize the exact generated JSON into the required file.
+codex
+Before changing the script, I’m checking one more path form. If Python can write with an absolute forward-slash path, the verifier can stay simpler and still generate the required JSON itself.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..841586a6c9be271896f626cfa950a9dd0067eef9
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,198 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+Absolute path forms are still blocked for Python child writes. I’m checking whether the Node runtime itself can write generated artifacts into the workspace; if so, I can preserve the script and place the exact JSON output file without manual transcription.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..841586a6c9be271896f626cfa950a9dd0067eef9
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,198 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_path.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The workspace is writable through `apply_patch` but not through child processes launched by Node. I’m adding a small fallback path to the verifier so it emits the exact result JSON when direct file output is denied.
+apply patch
+patch: completed
+F:\ubcma\truth-recovery-dta\verify_codex_main.py
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..e8710e2e11621acc5287af265245ff37aeb72b4e
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,204 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_json = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    try:
++        result_path.write_text(result_json, encoding="utf-8")
++    except PermissionError:
++        print("RESULT_JSON_BEGIN")
++        print(result_json, end="")
++        print("RESULT_JSON_END")
++
++
++if __name__ == "__main__":
++    main()
+
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..e8710e2e11621acc5287af265245ff37aeb72b4e
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,204 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_json = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    try:
++        result_path.write_text(result_json, encoding="utf-8")
++    except PermissionError:
++        print("RESULT_JSON_BEGIN")
++        print(result_json, end="")
++        print("RESULT_JSON_END")
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The fallback is in place. I’m rerunning the verifier to capture the generated result payload and confirm the optimizer output is stable.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..e8710e2e11621acc5287af265245ff37aeb72b4e
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,204 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_json = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    try:
++        result_path.write_text(result_json, encoding="utf-8")
++    except PermissionError:
++        print("RESULT_JSON_BEGIN")
++        print(result_json, end="")
++        print("RESULT_JSON_END")
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The rerun completed cleanly and emitted the full result payload. I’m now placing that generated payload at the requested path, since the child-process write path is blocked in this sandbox.
+apply patch
+patch: completed
+F:\ubcma\truth-recovery-dta\verify_codex_main_result.json
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..e8710e2e11621acc5287af265245ff37aeb72b4e
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,204 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_json = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    try:
++        result_path.write_text(result_json, encoding="utf-8")
++    except PermissionError:
++        print("RESULT_JSON_BEGIN")
++        print(result_json, end="")
++        print("RESULT_JSON_END")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/truth-recovery-dta/verify_codex_main_result.json b/truth-recovery-dta/verify_codex_main_result.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..bcdbe4ff0e931d07f4761139a49e61eda8adc73c
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main_result.json
+@@ -0,0 +1,81 @@
++{
++  "pass": true,
++  "per_dataset": {
++    "AuditC": {
++      "abs_diff": {
++        "M1": 1.6224508847528796e-08,
++        "M2": 7.602412033236305e-10,
++        "sens_summary": 1.5979434442314755e-09,
++        "spec_summary": 1.233712021431188e-10
++      },
++      "fit": {
++        "M1": 2.076259098024509,
++        "M2": 1.2624470868397588,
++        "sens_summary": 0.8885741842479434,
++        "spec_summary": 0.7794470725066288
++      },
++      "max_abs_diff": 1.6224508847528796e-08
++    },
++    "Dementia": {
++      "abs_diff": {
++        "M1": 2.0624511232192333e-07,
++        "M2": 9.034071699609569e-07,
++        "sens_summary": 3.44007889951925e-08,
++        "spec_summary": 9.137449119567265e-08
++      },
++      "fit": {
++        "M1": 1.3152804689548876,
++        "M2": 2.04870976950717,
++        "sens_summary": 0.788395427889211,
++        "spec_summary": 0.8858171831744912
++      },
++      "max_abs_diff": 9.034071699609569e-07
++    },
++    "SAQ": {
++      "abs_diff": {
++        "M1": 3.0175240084417965e-10,
++        "M2": 9.384999444250752e-10,
++        "sens_summary": 3.5836333900363115e-11,
++        "spec_summary": 7.799583201517635e-11
++      },
++      "fit": {
++        "M1": 2.0296536103017524,
++        "M2": 2.3454946527615,
++        "sens_summary": 0.8838755293658364,
++        "spec_summary": 0.9125754517120042
++      },
++      "max_abs_diff": 9.384999444250752e-10
++    },
++    "skin_tests": {
++      "abs_diff": {
++        "M1": 2.5997071162464636e-10,
++        "M2": 3.4827740691412146e-10,
++        "sens_summary": 5.204320308038746e-11,
++        "spec_summary": 1.077449240938222e-11
++      },
++      "fit": {
++        "M1": -1.0557341627400292,
++        "M2": 3.4699412283482776,
++        "sens_summary": 0.2581255053420432,
++        "spec_summary": 0.9698202983807744
++      },
++      "max_abs_diff": 3.4827740691412146e-10
++    },
++    "smoking": {
++      "abs_diff": {
++        "M1": 1.5238468265010852e-09,
++        "M2": 1.8568204751545636e-09,
++        "sens_summary": 1.1083889361884758e-10,
++        "spec_summary": 1.3694068101699486e-10
++      },
++      "fit": {
++        "M1": 2.4424639754761532,
++        "M2": 2.4033032022568204,
++        "sens_summary": 0.9200086063691612,
++        "spec_summary": 0.9170788426269407
++      },
++      "max_abs_diff": 1.8568204751545636e-09
++    }
++  },
++  "worst_abs_diff": 9.034071699609569e-07
++}
+
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..e8710e2e11621acc5287af265245ff37aeb72b4e
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,204 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_json = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    try:
++        result_path.write_text(result_json, encoding="utf-8")
++    except PermissionError:
++        print("RESULT_JSON_BEGIN")
++        print(result_json, end="")
++        print("RESULT_JSON_END")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/truth-recovery-dta/verify_codex_main_result.json b/truth-recovery-dta/verify_codex_main_result.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..bcdbe4ff0e931d07f4761139a49e61eda8adc73c
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main_result.json
+@@ -0,0 +1,81 @@
++{
++  "pass": true,
++  "per_dataset": {
++    "AuditC": {
++      "abs_diff": {
++        "M1": 1.6224508847528796e-08,
++        "M2": 7.602412033236305e-10,
++        "sens_summary": 1.5979434442314755e-09,
++        "spec_summary": 1.233712021431188e-10
++      },
++      "fit": {
++        "M1": 2.076259098024509,
++        "M2": 1.2624470868397588,
++        "sens_summary": 0.8885741842479434,
++        "spec_summary": 0.7794470725066288
++      },
++      "max_abs_diff": 1.6224508847528796e-08
++    },
++    "Dementia": {
++      "abs_diff": {
++        "M1": 2.0624511232192333e-07,
++        "M2": 9.034071699609569e-07,
++        "sens_summary": 3.44007889951925e-08,
++        "spec_summary": 9.137449119567265e-08
++      },
++      "fit": {
++        "M1": 1.3152804689548876,
++        "M2": 2.04870976950717,
++        "sens_summary": 0.788395427889211,
++        "spec_summary": 0.8858171831744912
++      },
++      "max_abs_diff": 9.034071699609569e-07
++    },
++    "SAQ": {
++      "abs_diff": {
++        "M1": 3.0175240084417965e-10,
++        "M2": 9.384999444250752e-10,
++        "sens_summary": 3.5836333900363115e-11,
++        "spec_summary": 7.799583201517635e-11
++      },
++      "fit": {
++        "M1": 2.0296536103017524,
++        "M2": 2.3454946527615,
++        "sens_summary": 0.8838755293658364,
++        "spec_summary": 0.9125754517120042
++      },
++      "max_abs_diff": 9.384999444250752e-10
++    },
++    "skin_tests": {
++      "abs_diff": {
++        "M1": 2.5997071162464636e-10,
++        "M2": 3.4827740691412146e-10,
++        "sens_summary": 5.204320308038746e-11,
++        "spec_summary": 1.077449240938222e-11
++      },
++      "fit": {
++        "M1": -1.0557341627400292,
++        "M2": 3.4699412283482776,
++        "sens_summary": 0.2581255053420432,
++        "spec_summary": 0.9698202983807744
++      },
++      "max_abs_diff": 3.4827740691412146e-10
++    },
++    "smoking": {
++      "abs_diff": {
++        "M1": 1.5238468265010852e-09,
++        "M2": 1.8568204751545636e-09,
++        "sens_summary": 1.1083889361884758e-10,
++        "spec_summary": 1.3694068101699486e-10
++      },
++      "fit": {
++        "M1": 2.4424639754761532,
++        "M2": 2.4033032022568204,
++        "sens_summary": 0.9200086063691612,
++        "spec_summary": 0.9170788426269407
++      },
++      "max_abs_diff": 1.8568204751545636e-09
++    }
++  },
++  "worst_abs_diff": 9.034071699609569e-07
++}
+
+codex
+The required result JSON now exists. I’m doing the final checks: parse the JSON, rerun the verifier command, and check whitespace on just the two files I touched.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..e8710e2e11621acc5287af265245ff37aeb72b4e
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,204 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_json = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    try:
++        result_path.write_text(result_json, encoding="utf-8")
++    except PermissionError:
++        print("RESULT_JSON_BEGIN")
++        print(result_json, end="")
++        print("RESULT_JSON_END")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/truth-recovery-dta/verify_codex_main_result.json b/truth-recovery-dta/verify_codex_main_result.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..bcdbe4ff0e931d07f4761139a49e61eda8adc73c
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main_result.json
+@@ -0,0 +1,81 @@
++{
++  "pass": true,
++  "per_dataset": {
++    "AuditC": {
++      "abs_diff": {
++        "M1": 1.6224508847528796e-08,
++        "M2": 7.602412033236305e-10,
++        "sens_summary": 1.5979434442314755e-09,
++        "spec_summary": 1.233712021431188e-10
++      },
++      "fit": {
++        "M1": 2.076259098024509,
++        "M2": 1.2624470868397588,
++        "sens_summary": 0.8885741842479434,
++        "spec_summary": 0.7794470725066288
++      },
++      "max_abs_diff": 1.6224508847528796e-08
++    },
++    "Dementia": {
++      "abs_diff": {
++        "M1": 2.0624511232192333e-07,
++        "M2": 9.034071699609569e-07,
++        "sens_summary": 3.44007889951925e-08,
++        "spec_summary": 9.137449119567265e-08
++      },
++      "fit": {
++        "M1": 1.3152804689548876,
++        "M2": 2.04870976950717,
++        "sens_summary": 0.788395427889211,
++        "spec_summary": 0.8858171831744912
++      },
++      "max_abs_diff": 9.034071699609569e-07
++    },
++    "SAQ": {
++      "abs_diff": {
++        "M1": 3.0175240084417965e-10,
++        "M2": 9.384999444250752e-10,
++        "sens_summary": 3.5836333900363115e-11,
++        "spec_summary": 7.799583201517635e-11
++      },
++      "fit": {
++        "M1": 2.0296536103017524,
++        "M2": 2.3454946527615,
++        "sens_summary": 0.8838755293658364,
++        "spec_summary": 0.9125754517120042
++      },
++      "max_abs_diff": 9.384999444250752e-10
++    },
++    "skin_tests": {
++      "abs_diff": {
++        "M1": 2.5997071162464636e-10,
++        "M2": 3.4827740691412146e-10,
++        "sens_summary": 5.204320308038746e-11,
++        "spec_summary": 1.077449240938222e-11
++      },
++      "fit": {
++        "M1": -1.0557341627400292,
++        "M2": 3.4699412283482776,
++        "sens_summary": 0.2581255053420432,
++        "spec_summary": 0.9698202983807744
++      },
++      "max_abs_diff": 3.4827740691412146e-10
++    },
++    "smoking": {
++      "abs_diff": {
++        "M1": 1.5238468265010852e-09,
++        "M2": 1.8568204751545636e-09,
++        "sens_summary": 1.1083889361884758e-10,
++        "spec_summary": 1.3694068101699486e-10
++      },
++      "fit": {
++        "M1": 2.4424639754761532,
++        "M2": 2.4033032022568204,
++        "sens_summary": 0.9200086063691612,
++        "spec_summary": 0.9170788426269407
++      },
++      "max_abs_diff": 1.8568204751545636e-09
++    }
++  },
++  "worst_abs_diff": 9.034071699609569e-07
++}
+
+codex
+Worst-case absolute difference vs `mada::reitsma`: `9.034071699609569e-07`.
+
+PASS at `1e-6`.
+diff --git a/truth-recovery-dta/verify_codex_main.py b/truth-recovery-dta/verify_codex_main.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..e8710e2e11621acc5287af265245ff37aeb72b4e
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main.py
+@@ -0,0 +1,204 @@
++"""Independent ML verification for the bivariate DTA Reitsma model.
++
++This file intentionally does not import the project package.  It reads the
++R/mada reference fits, fits the model from the likelihood specification, prints
++per-dataset agreement, and writes a machine-readable verdict JSON.
++"""
++
++from __future__ import annotations
++
++import json
++import math
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++TOL = 1e-6
++
++
++def _prepare_counts(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++
++    if np.any(tp == 0.0) or np.any(fp == 0.0) or np.any(fn == 0.0) or np.any(tn == 0.0):
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s_diag = np.column_stack((1.0 / tp + 1.0 / fn, 1.0 / tn + 1.0 / fp))
++    return y, s_diag
++
++
++def _decode_theta(theta: np.ndarray) -> np.ndarray:
++    tau1 = math.exp(float(theta[0]))
++    tau2 = math.exp(float(theta[1]))
++    rho = math.tanh(float(theta[2]))
++    cov = rho * tau1 * tau2
++    return np.array([[tau1 * tau1, cov], [cov, tau2 * tau2]], dtype=float)
++
++
++def _gls_mean(y: np.ndarray, s_diag: np.ndarray, sigma: np.ndarray) -> tuple[np.ndarray, float]:
++    sum_w = np.zeros((2, 2), dtype=float)
++    sum_wy = np.zeros(2, dtype=float)
++    logdet_sum = 0.0
++
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        if det <= 0.0 or not np.isfinite(det):
++            raise FloatingPointError("non-positive marginal covariance")
++        w = np.array([[v22, -v12], [-v12, v11]], dtype=float) / det
++        sum_w += w
++        sum_wy += w @ row
++        logdet_sum += math.log(det)
++
++    mean = np.linalg.solve(sum_w, sum_wy)
++    return mean, logdet_sum
++
++
++def _profile_nll(theta: np.ndarray, y: np.ndarray, s_diag: np.ndarray) -> float:
++    try:
++        sigma = _decode_theta(theta)
++        mean, logdet_sum = _gls_mean(y, s_diag, sigma)
++    except (FloatingPointError, OverflowError, np.linalg.LinAlgError):
++        return float("inf")
++
++    quad = 0.0
++    for row, diag in zip(y, s_diag):
++        v11 = sigma[0, 0] + diag[0]
++        v22 = sigma[1, 1] + diag[1]
++        v12 = sigma[0, 1]
++        det = v11 * v22 - v12 * v12
++        diff = row - mean
++        quad += (v22 * diff[0] * diff[0] - 2.0 * v12 * diff[0] * diff[1] + v11 * diff[1] * diff[1]) / det
++
++    return 0.5 * (logdet_sum + quad)
++
++
++def _initial_thetas(y: np.ndarray, s_diag: np.ndarray) -> list[np.ndarray]:
++    sample_cov = np.cov(y, rowvar=False, ddof=1)
++    moment_cov = sample_cov - np.diag(np.mean(s_diag, axis=0))
++
++    sd1 = math.sqrt(max(float(moment_cov[0, 0]), 1e-4))
++    sd2 = math.sqrt(max(float(moment_cov[1, 1]), 1e-4))
++    denom = sd1 * sd2
++    rho = float(moment_cov[0, 1] / denom) if denom > 0.0 else 0.0
++    rho = float(np.clip(rho, -0.8, 0.8))
++
++    sd_grid = [
++        (sd1, sd2),
++        (max(sd1, 0.1), max(sd2, 0.1)),
++        (0.25, 0.25),
++        (0.5, 0.5),
++        (1.0, 1.0),
++        (1.5, 1.5),
++    ]
++    rho_grid = [rho, 0.0, -0.5, 0.5, -0.8, 0.8]
++
++    starts: list[np.ndarray] = []
++    seen: set[tuple[float, float, float]] = set()
++    for s1, s2 in sd_grid:
++        for r in rho_grid:
++            key = (round(s1, 10), round(s2, 10), round(r, 10))
++            if key in seen:
++                continue
++            seen.add(key)
++            starts.append(np.array([math.log(s1), math.log(s2), math.atanh(float(np.clip(r, -0.95, 0.95)))], dtype=float))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s_diag = _prepare_counts(counts)
++
++    best = None
++    for start in _initial_thetas(y, s_diag):
++        rough = minimize(
++            _profile_nll,
++            start,
++            args=(y, s_diag),
++            method="Nelder-Mead",
++            options={"maxiter": 5000, "xatol": 1e-11, "fatol": 1e-11},
++        )
++        for candidate_start in (rough.x if rough.success or np.isfinite(rough.fun) else start, start):
++            refined = minimize(
++                _profile_nll,
++                candidate_start,
++                args=(y, s_diag),
++                method="BFGS",
++                options={"gtol": 1e-8, "maxiter": 5000},
++            )
++            if best is None or refined.fun < best.fun:
++                best = refined
++
++    if best is None or not np.isfinite(best.fun):
++        raise RuntimeError("optimization failed")
++
++    sigma = _decode_theta(best.x)
++    mean, _ = _gls_mean(y, s_diag, sigma)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++    }
++
++
++def main() -> None:
++    here = Path(__file__).resolve().parent
++    reference_path = here / "reference_fits.json"
++    result_path = here / "verify_codex_main_result.json"
++
++    references = json.loads(reference_path.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    print("dataset\tM1\tM2\tsens_summary\tspec_summary\tmax_abs_diff")
++    for name, ref in references.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        dataset_worst = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, dataset_worst)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(dataset_worst),
++        }
++        print(
++            f"{name}\t{diffs['M1']:.12g}\t{diffs['M2']:.12g}\t"
++            f"{diffs['sens_summary']:.12g}\t{diffs['spec_summary']:.12g}\t{dataset_worst:.12g}"
++        )
++
++    passed = worst_abs_diff < TOL
++    print(f"worst_abs_diff\t{worst_abs_diff:.12g}")
++    print(f"verdict\t{'PASS' if passed else 'FAIL'}")
++
++    result = {
++        "worst_abs_diff": float(worst_abs_diff),
++        "pass": bool(passed),
++        "per_dataset": per_dataset,
++    }
++    result_json = json.dumps(result, indent=2, sort_keys=True) + "\n"
++    try:
++        result_path.write_text(result_json, encoding="utf-8")
++    except PermissionError:
++        print("RESULT_JSON_BEGIN")
++        print(result_json, end="")
++        print("RESULT_JSON_END")
++
++
++if __name__ == "__main__":
++    main()
+diff --git a/truth-recovery-dta/verify_codex_main_result.json b/truth-recovery-dta/verify_codex_main_result.json
+new file mode 100644
+index 0000000000000000000000000000000000000000..bcdbe4ff0e931d07f4761139a49e61eda8adc73c
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_main_result.json
+@@ -0,0 +1,81 @@
++{
++  "pass": true,
++  "per_dataset": {
++    "AuditC": {
++      "abs_diff": {
++        "M1": 1.6224508847528796e-08,
++        "M2": 7.602412033236305e-10,
++        "sens_summary": 1.5979434442314755e-09,
++        "spec_summary": 1.233712021431188e-10
++      },
++      "fit": {
++        "M1": 2.076259098024509,
++        "M2": 1.2624470868397588,
++        "sens_summary": 0.8885741842479434,
++        "spec_summary": 0.7794470725066288
++      },
++      "max_abs_diff": 1.6224508847528796e-08
++    },
++    "Dementia": {
++      "abs_diff": {
++        "M1": 2.0624511232192333e-07,
++        "M2": 9.034071699609569e-07,
++        "sens_summary": 3.44007889951925e-08,
++        "spec_summary": 9.137449119567265e-08
++      },
++      "fit": {
++        "M1": 1.3152804689548876,
++        "M2": 2.04870976950717,
++        "sens_summary": 0.788395427889211,
++        "spec_summary": 0.8858171831744912
++      },
++      "max_abs_diff": 9.034071699609569e-07
++    },
++    "SAQ": {
++      "abs_diff": {
++        "M1": 3.0175240084417965e-10,
++        "M2": 9.384999444250752e-10,
++        "sens_summary": 3.5836333900363115e-11,
++        "spec_summary": 7.799583201517635e-11
++      },
++      "fit": {
++        "M1": 2.0296536103017524,
++        "M2": 2.3454946527615,
++        "sens_summary": 0.8838755293658364,
++        "spec_summary": 0.9125754517120042
++      },
++      "max_abs_diff": 9.384999444250752e-10
++    },
++    "skin_tests": {
++      "abs_diff": {
++        "M1": 2.5997071162464636e-10,
++        "M2": 3.4827740691412146e-10,
++        "sens_summary": 5.204320308038746e-11,
++        "spec_summary": 1.077449240938222e-11
++      },
++      "fit": {
++        "M1": -1.0557341627400292,
++        "M2": 3.4699412283482776,
++        "sens_summary": 0.2581255053420432,
++        "spec_summary": 0.9698202983807744
++      },
++      "max_abs_diff": 3.4827740691412146e-10
++    },
++    "smoking": {
++      "abs_diff": {
++        "M1": 1.5238468265010852e-09,
++        "M2": 1.8568204751545636e-09,
++        "sens_summary": 1.1083889361884758e-10,
++        "spec_summary": 1.3694068101699486e-10
++      },
++      "fit": {
++        "M1": 2.4424639754761532,
++        "M2": 2.4033032022568204,
++        "sens_summary": 0.9200086063691612,
++        "spec_summary": 0.9170788426269407
++      },
++      "max_abs_diff": 1.8568204751545636e-09
++    }
++  },
++  "worst_abs_diff": 9.034071699609569e-07
++}
+
+tokens used
+90,017
+Worst-case absolute difference vs `mada::reitsma`: `9.034071699609569e-07`.
+
+PASS at `1e-6`.

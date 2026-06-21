@@ -1,0 +1,1459 @@
+Reading additional input from stdin...
+OpenAI Codex v0.135.0
+--------
+workdir: F:\ubcma
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ee925-fadf-71d0-9116-1a2501f8c977
+--------
+user
+# Independent verification task: bivariate DTA (Reitsma) ML estimator
+
+You are an INDEPENDENT re-implementer. **Do NOT read or import
+`src/ubcma/dta.py`** — implement the estimator yourself from the math spec below,
+then check your implementation against the reference-software fits in
+`truth-recovery-dta/reference_fits.json` (produced by R `mada::reitsma`, ML).
+
+## Math spec
+A diagnostic test accuracy meta-analysis has per-study 2×2 counts (TP, FP, FN,
+TN). With continuity correction matching `mada` (`correction=0.5`,
+`correction.control="all"`: if ANY study has a zero cell, add 0.5 to EVERY cell
+of EVERY study), define per study:
+
+```
+Se = TP/(TP+FN),  Sp = TN/(TN+FP)
+y1 = logit(Se),   y2 = logit(Sp)
+s1^2 = 1/TP + 1/FN   (within-study var of y1)
+s2^2 = 1/TN + 1/FP   (within-study var of y2)
+S_i  = diag(s1_i^2, s2_i^2)   (zero within-study covariance)
+```
+
+Bivariate normal-normal random-effects model: the marginal of study i is
+`(y1_i, y2_i) ~ N( M, Sigma + S_i )` with `M = (M1, M2)` and between-study
+covariance `Sigma = [[t1^2, rho t1 t2],[rho t1 t2, t2^2]]`. Fit `Sigma` by
+**maximum likelihood** (concentrate `M` out via GLS:
+`M = (sum_i Wi)^{-1} sum_i Wi y_i`, `Wi = (Sigma + S_i)^{-1}`). The summary
+sensitivity = `expit(M1)`, summary specificity = `expit(M2)`.
+
+NOTE: `mada` parameterizes the second coordinate as logit(FPR) = -logit(Sp). The
+ML fit is invariant to that sign flip, so your `M2 = logit(Sp)` must equal
+`-(mada logit FPR)` = the `m2_logit_spec` field in the JSON.
+
+## What to do
+1. Write your own standalone implementation to
+   `truth-recovery-dta/verify_<seat>.py` (replace `<seat>` with your identifier,
+   e.g. `verify_codex_main`, `verify_codex_noreen`, `verify_agy`). Use only
+   numpy/scipy. Do NOT import the project's `ubcma` package.
+2. For each dataset in `reference_fits.json` (`counts.TP/FP/FN/TN`), fit your
+   estimator and compute the absolute differences of your `(M1, M2,
+   sens_summary, spec_summary)` versus the JSON reference fields
+   (`m1_logit_sens`, `m2_logit_spec`, `sens_summary`, `spec_summary`).
+3. Print a per-dataset table and the worst-case absolute difference. State
+   clearly whether the worst-case is below 1e-6 (PASS) or not (FAIL), and write
+   the same verdict to `truth-recovery-dta/verify_<seat>_result.json` as
+   `{"worst_abs_diff": <float>, "pass": <bool>, "per_dataset": {...}}`.
+
+Report only: your worst-case agreement vs `mada::reitsma`, and PASS/FAIL at 1e-6.
+This is a math cross-check; no fabricated numbers — every figure must come from
+running your code.
+
+Your seat identifier is: codex_noreen
+codex
+I’ll implement this as an independent script under `truth-recovery-dta`, using only the provided JSON and the math spec. I’ll avoid reading or importing `src/ubcma/dta.py`.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content truth-recovery-dta\\reference_fits.json -TotalCount 40" in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'Get-ChildItem -Force truth-recovery-dta' in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "python - <<'PY'
+import numpy, scipy
+print('numpy', numpy.__version__)
+print('scipy', scipy.__version__)
+PY" in F:\ubcma
+ succeeded in 626ms:
+{"AuditC":{"name":"AuditC","counts":{"TP":[47,126,19,36,130,84,68,752,59,142,137,57,34,152],"FP":[101,272,12,78,211,68,112,3226,55,571,107,103,21,88],"FN":[9,51,10,3,19,2,0,0,5,50,24,3,1,51],"TN":[738,1543,192,276,959,89,423,2977,136,2788,358,437,56,264]},"m1_logit_sens":2.0762590818,"m2_logit_spec":1.2624470876,"sens_summary":0.88857418265,"spec_summary":0.77944707263,"V_sens_fpr":[0.10231379065,0.041804065813,0.041804065813,0.028071174479],"Psi_sens_fpr":[1.2238417664,0.58323292126,0.58323292126,0.37488242382],"auc":0.88629379596},"smoking":{"name":"smoking","counts":{"TP":[21,90,104,332,3,437,23,350,397,379,478,3,59,27,81,103,81,103,120,21,15,17,120,132,158,55,57,312,163,177,141,28,346,336,25,56,149,213,206,214,187,207,126,115,77,83,71,76,1357,1649,19],"FP":[28,120,26,92,2,78,18,77,32,9,45,6,5,25,5,13,7,11,54,22,35,27,39,110,95,32,29,45,24,9,45,2,13,25,3,2,15,2,9,2,29,9,0,2,1,11,7,18,68,423,1],"FN":[15,10,8,18,0,23,13,35,34,37,72,45,5,47,7,5,24,8,5,25,0,2,1,52,8,0,1,24,3,4,3,3,3,3,11,33,8,47,28,0,6,0,11,7,2,2,3,3,185,17,2],"TN":[324,969,232,673,77,901,332,155,154,854,1078,198,227,1233,170,169,213,209,329,177,198,200,148,889,960,180,180,594,178,178,180,164,77,75,40,49,370,76,95,20,14,20,181,179,43,43,42,42,3322,6632,96]},"m1_logit_sens":2.442463977,"m2_logit_spec":2.4033032004,"sens_summary":0.92000860648,"spec_summary":0.91707884249,"V_sens_fpr":[0.041655944651,0.012012913537,0.012012913537,0.021101040645],"Psi_sens_fpr":[1.8620422646,0.60981190008,0.60981190008,0.95109145311],"auc":0.96519791179},"Dementia":{"name":"Dementia","counts":{"TP":[66,118,48,134,24,68,64,282,14,262,144,184,22,112,152,30,32,10,708,182,60,74,28,40,318,388,118,44,124,26,74,38,78],"FP":[240,10,64,28,44,48,0,20,44,30,30,34,152,590,126,26,4,12,1438,18,24,16,26,76,174,16,2,34,98,4,2,0,46],"FN":[4,12,20,8,6,16,18,64,2,20,18,34,0,0,82,26,6,4,88,108,30,24,12,6,52,116,66,8,46,44,32,46,34],"TN":[870,110,990,152,292,154,72,286,286,178,124,52,140,2092,1010,236,248,334,10448,184,74,144,210,528,578,54,44,396,310,172,226,440,376]},"m1_logit_sens":1.3152806752,"m2_logit_spec":2.0487088661,"sens_summary":0.78839546229,"spec_summary":0.8858170918,"V_sens_fpr":[0.02184416791,0.012520971089,0.012520971089,0.028202107828],"Psi_sens_fpr":[0.61541353366,0.41649206311,0.41649206311,0.83926503804],"auc":0.90416448387},"skin_tests":{"name":"skin_tests","counts":{"TP":[8,4,2,7,1,7,2,1,2,3],"FP":[3,4,3,60,1,7,1,2,28,12],"FN":[1,7,3,4,5,7,23,12,40,30],"TN":[184,559,122,90,28,75,312,210,350,681]},"m1_logit_sens":-1.055734163,"m2_logit_spec":3.469941228,"sens_summary":0.25812550529,"spec_summary":0.96982029837,"V_sens_fpr":[0.20880562967,0.070921832325,0.070921832325,0.22773116444],"Psi_sens_fpr":[1.4672305299,0.69997536242,0.69997536242,1.9503653486],"auc":0.80172031661},"SAQ":{"name":"SAQ","counts":{"TP":[21,90,104,332,3,437,23,350,397,3,59,27,81,103,81,103,120,21,15,17,120,132,158,55,57,163,177,141,25,56,19],"FP":[28,120,26,92,2,78,18,77,32,6,5,25,5,13,7,11,54,22,35,27,39,110,95,32,29,24,9,45,3,2,1],"FN":[15,10,8,18,0,23,13,35,34,45,5,47,7,5,24,8,5,25,0,2,1,52,8,0,1,3,4,3,11,33,2],"TN":[324,969,232,673,77,901,332,155,154,198,227,1233,170,169,213,209,329,177,198,200,148,889,960,180,180,178,178,180,40,49,96]},"m1_logit_sens":2.02965361,"m2_logit_spec":2.3454946537,"sens_summary":0.88387552933,"spec_summary":0.91257545179,"V_sens_fpr":[0.075130594281,0.01820008154,0.01820008154,0.018562902545],"Psi_sens_fpr":[2.0596586064,0.56130406829,0.56130406829,0.49521421378],"auc":0.95141439469}}
+
+ exited 1 in 798ms:
+At line:2 char:11
++ python - <<'PY'
++           ~
+Missing file specification after redirection operator.
+At line:2 char:10
++ python - <<'PY'
++          ~
+The '<' operator is reserved for future use.
+At line:2 char:11
++ python - <<'PY'
++           ~
+The '<' operator is reserved for future use.
+At line:4 char:15
++ print('numpy', numpy.__version__)
++               ~
+Missing expression after ','.
+At line:4 char:16
++ print('numpy', numpy.__version__)
++                ~~~~~~~~~~~~~~~~~
+Unexpected token 'numpy.__version__' in expression or statement.
+At line:4 char:15
++ print('numpy', numpy.__version__)
++               ~
+Missing closing ')' in expression.
+At line:4 char:33
++ print('numpy', numpy.__version__)
++                                 ~
+Unexpected token ')' in expression or statement.
+At line:5 char:15
++ print('scipy', scipy.__version__)
++               ~
+Missing expression after ','.
+At line:5 char:16
++ print('scipy', scipy.__version__)
++                ~~~~~~~~~~~~~~~~~
+Unexpected token 'scipy.__version__' in expression or statement.
+At line:5 char:15
++ print('scipy', scipy.__version__)
++               ~
+Missing closing ')' in expression.
+Not all parse errors were reported.  Correct the reported errors and try again.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingFileSpecification
+ 
+
+2026-06-21T07:47:38.094957Z ERROR codex_core::tools::router: error=Exit code: 1
+Wall time: 0.8 seconds
+Output:
+At line:2 char:11
++ python - <<'PY'
++           ~
+Missing file specification after redirection operator.
+At line:2 char:10
++ python - <<'PY'
++          ~
+The '<' operator is reserved for future use.
+At line:2 char:11
++ python - <<'PY'
++           ~
+The '<' operator is reserved for future use.
+At line:4 char:15
++ print('numpy', numpy.__version__)
++               ~
+Missing expression after ','.
+At line:4 char:16
++ print('numpy', numpy.__version__)
++                ~~~~~~~~~~~~~~~~~
+Unexpected token 'numpy.__version__' in expression or statement.
+At line:4 char:15
++ print('numpy', numpy.__version__)
++               ~
+Missing closing ')' in expression.
+At line:4 char:33
++ print('numpy', numpy.__version__)
++                                 ~
+Unexpected token ')' in expression or statement.
+At line:5 char:15
++ print('scipy', scipy.__version__)
++               ~
+Missing expression after ','.
+At line:5 char:16
++ print('scipy', scipy.__version__)
++                ~~~~~~~~~~~~~~~~~
+Unexpected token 'scipy.__version__' in expression or statement.
+At line:5 char:15
++ print('scipy', scipy.__version__)
++               ~
+Missing closing ')' in expression.
+Not all parse errors were reported.  Correct the reported errors and try again.
+    + CategoryInfo          : ParserError: (:) [], ParentContainsErrorRecordException
+    + FullyQualifiedErrorId : MissingFileSpecification
+ 
+
+ succeeded in 896ms:
+
+
+    Directory: F:\ubcma\truth-recovery-dta
+
+
+Mode                 LastWriteTime         Length Name                                                                 
+----                 -------------         ------ ----                                                                 
+d-----        21/06/2026     08:46                __pycache__                                                          
+-a----        21/06/2026     08:24           8666 DESIGN_BRIEF.md                                                      
+-a----        21/06/2026     08:31          16727 dta_bakeoff.py                                                       
+-a----        21/06/2026     08:39         904086 dta_pilot_perrep.csv                                                 
+-a----        21/06/2026     08:39           1666 dta_pilot_table.csv                                                  
+-a----        21/06/2026     08:39           3840 dta_pilot_truthgate.json                                             
+-a----        21/06/2026     08:30           4958 dta_sim.py                                                           
+-a----        21/06/2026     08:29           3499 reference_fits.json                                                  
+-a----        21/06/2026     08:47             47 run_pilot.log                                                        
+-a----        21/06/2026     08:35           4383 test_reitsma.py                                                      
+-a----        21/06/2026     08:27           1879 validate_python.py                                                   
+-a----        21/06/2026     08:28           2296 validate_reference.R                                                 
+-a----        21/06/2026     08:34              0 verify_agy.log                                                       
+-a----        21/06/2026     08:40         145357 verify_codex_main.log                                                
+-a----        21/06/2026     08:38           6765 verify_codex_main.py                                                 
+-a----        21/06/2026     08:39           2306 verify_codex_main_result.json                                        
+-a----        21/06/2026     08:47           2866 verify_codex_noreen.log                                              
+-a----        21/06/2026     08:34           2550 VERIFY_TASK.md                                                       
+
+
+
+codex
+The JSON contains the five reference datasets and includes zero cells, so the script needs to apply the global 0.5 correction per dataset before forming logits and sampling variances. Next I’m adding the standalone optimizer and result writer.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "@'
+import numpy, scipy
+print('numpy', numpy.__version__)
+print('scipy', scipy.__version__)
+'@ | python -" in F:\ubcma
+ succeeded in 962ms:
+numpy 2.4.4
+scipy 1.17.1
+
+codex
+I’m going to edit only a new `verify_codex_noreen.py` plus its generated JSON result. The implementation will compute the concentrated ML likelihood directly from the covariance matrices, then use multi-start SciPy optimization to avoid depending on any project code.
+apply patch
+patch: completed
+F:\ubcma\truth-recovery-dta\verify_codex_noreen.py
+diff --git a/truth-recovery-dta/verify_codex_noreen.py b/truth-recovery-dta/verify_codex_noreen.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..1891de861a21f12a68d289f49c7c89e222ce6e98
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_noreen.py
+@@ -0,0 +1,228 @@
++"""Independent ML verification for the bivariate Reitsma DTA model.
++
++This script intentionally does not import the project package.  It implements
++the model directly from the task specification and compares the concentrated ML
++fit against the R mada::reitsma reference values in reference_fits.json.
++"""
++
++from __future__ import annotations
++
++import json
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++HERE = Path(__file__).resolve().parent
++REFERENCE_PATH = HERE / "reference_fits.json"
++RESULT_PATH = HERE / "verify_codex_noreen_result.json"
++TOL = 1e-6
++
++
++def corrected_arrays(counts: dict[str, list[float]]) -> tuple[np.ndarray, ...]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++    if min(arr.min() for arr in (tp, fp, fn, tn)) == 0.0:
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++    return tp, fp, fn, tn
++
++
++def study_estimates(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
++    tp, fp, fn, tn = corrected_arrays(counts)
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s1_sq = 1.0 / tp + 1.0 / fn
++    s2_sq = 1.0 / tn + 1.0 / fp
++    return y, s1_sq, s2_sq
++
++
++def covariance_parts(theta: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> tuple[np.ndarray, ...]:
++    tau1 = np.exp(theta[0])
++    tau2 = np.exp(theta[1])
++    rho = np.tanh(theta[2])
++    cov12 = rho * tau1 * tau2
++    v11 = tau1 * tau1 + s1_sq
++    v22 = tau2 * tau2 + s2_sq
++    v12 = np.full_like(v11, cov12)
++    det = v11 * v22 - v12 * v12
++    return v11, v22, v12, det
++
++
++def gls_mean(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    return np.linalg.solve(normal, rhs)
++
++
++def neg_log_likelihood(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> float:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    if not np.all(np.isfinite(det)) or np.any(det <= 0.0):
++        return np.inf
++
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    try:
++        mean = np.linalg.solve(normal, rhs)
++    except np.linalg.LinAlgError:
++        return np.inf
++
++    resid1 = y[:, 0] - mean[0]
++    resid2 = y[:, 1] - mean[1]
++    quad = np.sum(w11 * resid1 * resid1 + 2.0 * w12 * resid1 * resid2 + w22 * resid2 * resid2)
++    return 0.5 * (np.sum(np.log(det)) + quad)
++
++
++def empirical_start(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    sample_cov = np.cov(y.T, ddof=1)
++    tau1_sq = max(float(sample_cov[0, 0] - np.mean(s1_sq)), 0.05**2)
++    tau2_sq = max(float(sample_cov[1, 1] - np.mean(s2_sq)), 0.05**2)
++    tau1 = np.sqrt(tau1_sq)
++    tau2 = np.sqrt(tau2_sq)
++    denom = tau1 * tau2
++    rho = 0.0 if denom == 0.0 else float(sample_cov[0, 1] / denom)
++    rho = float(np.clip(rho, -0.8, 0.8))
++    return np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)])
++
++
++def start_grid(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> list[np.ndarray]:
++    starts: list[np.ndarray] = [empirical_start(y, s1_sq, s2_sq)]
++    tau_values = (0.05, 0.15, 0.35, 0.75, 1.5, 3.0)
++    rho_values = (-0.9, -0.5, 0.0, 0.5, 0.9)
++    for tau1 in tau_values:
++        for tau2 in tau_values:
++            for rho in rho_values:
++                starts.append(np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)]))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s1_sq, s2_sq = study_estimates(counts)
++    bounds = ((-12.0, 4.0), (-12.0, 4.0), (-5.0, 5.0))
++    best = None
++
++    for start in start_grid(y, s1_sq, s2_sq):
++        result = minimize(
++            neg_log_likelihood,
++            start,
++            args=(y, s1_sq, s2_sq),
++            method="L-BFGS-B",
++            bounds=bounds,
++            options={"ftol": 1e-13, "gtol": 1e-8, "maxiter": 2000, "maxls": 50},
++        )
++        if result.fun == np.inf or not np.isfinite(result.fun):
++            continue
++        if best is None or result.fun < best.fun:
++            best = result
++
++    if best is None or not best.success:
++        message = "no successful optimizer result" if best is None else best.message
++        raise RuntimeError(f"ML optimization failed: {message}")
++
++    # A second polish from the best point tightens the finite-difference optimum.
++    polished = minimize(
++        neg_log_likelihood,
++        best.x,
++        args=(y, s1_sq, s2_sq),
++        method="L-BFGS-B",
++        bounds=bounds,
++        options={"ftol": 1e-15, "gtol": 1e-10, "maxiter": 4000, "maxls": 100},
++    )
++    if polished.success and np.isfinite(polished.fun) and polished.fun <= best.fun + 1e-9:
++        best = polished
++
++    mean = gls_mean(best.x, y, s1_sq, s2_sq)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++        "neg_log_likelihood": float(best.fun),
++    }
++
++
++def main() -> None:
++    reference = json.loads(REFERENCE_PATH.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    columns = (
++        "dataset",
++        "abs_M1",
++        "abs_M2",
++        "abs_sens",
++        "abs_spec",
++        "max_abs",
++    )
++    print(f"{columns[0]:<14} {columns[1]:>12} {columns[2]:>12} {columns[3]:>12} {columns[4]:>12} {columns[5]:>12}")
++    print("-" * 82)
++
++    for name, ref in reference.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        max_abs = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, max_abs)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(max_abs),
++        }
++        print(
++            f"{name:<14} "
++            f"{diffs['M1']:12.4g} {diffs['M2']:12.4g} "
++            f"{diffs['sens_summary']:12.4g} {diffs['spec_summary']:12.4g} "
++            f"{max_abs:12.4g}"
++        )
++
++    passed = bool(worst_abs_diff < TOL)
++    verdict = "PASS" if passed else "FAIL"
++    print("-" * 82)
++    print(f"worst_abs_diff = {worst_abs_diff:.12g}")
++    print(f"{verdict} at {TOL:g}")
++
++    RESULT_PATH.write_text(
++        json.dumps(
++            {
++                "worst_abs_diff": float(worst_abs_diff),
++                "pass": passed,
++                "per_dataset": per_dataset,
++            },
++            indent=2,
++            sort_keys=True,
++        )
++        + "\n",
++        encoding="utf-8",
++    )
++
++
++if __name__ == "__main__":
++    main()
+
+diff --git a/truth-recovery-dta/verify_codex_noreen.py b/truth-recovery-dta/verify_codex_noreen.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..1891de861a21f12a68d289f49c7c89e222ce6e98
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_noreen.py
+@@ -0,0 +1,228 @@
++"""Independent ML verification for the bivariate Reitsma DTA model.
++
++This script intentionally does not import the project package.  It implements
++the model directly from the task specification and compares the concentrated ML
++fit against the R mada::reitsma reference values in reference_fits.json.
++"""
++
++from __future__ import annotations
++
++import json
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++HERE = Path(__file__).resolve().parent
++REFERENCE_PATH = HERE / "reference_fits.json"
++RESULT_PATH = HERE / "verify_codex_noreen_result.json"
++TOL = 1e-6
++
++
++def corrected_arrays(counts: dict[str, list[float]]) -> tuple[np.ndarray, ...]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++    if min(arr.min() for arr in (tp, fp, fn, tn)) == 0.0:
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++    return tp, fp, fn, tn
++
++
++def study_estimates(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
++    tp, fp, fn, tn = corrected_arrays(counts)
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s1_sq = 1.0 / tp + 1.0 / fn
++    s2_sq = 1.0 / tn + 1.0 / fp
++    return y, s1_sq, s2_sq
++
++
++def covariance_parts(theta: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> tuple[np.ndarray, ...]:
++    tau1 = np.exp(theta[0])
++    tau2 = np.exp(theta[1])
++    rho = np.tanh(theta[2])
++    cov12 = rho * tau1 * tau2
++    v11 = tau1 * tau1 + s1_sq
++    v22 = tau2 * tau2 + s2_sq
++    v12 = np.full_like(v11, cov12)
++    det = v11 * v22 - v12 * v12
++    return v11, v22, v12, det
++
++
++def gls_mean(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    return np.linalg.solve(normal, rhs)
++
++
++def neg_log_likelihood(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> float:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    if not np.all(np.isfinite(det)) or np.any(det <= 0.0):
++        return np.inf
++
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    try:
++        mean = np.linalg.solve(normal, rhs)
++    except np.linalg.LinAlgError:
++        return np.inf
++
++    resid1 = y[:, 0] - mean[0]
++    resid2 = y[:, 1] - mean[1]
++    quad = np.sum(w11 * resid1 * resid1 + 2.0 * w12 * resid1 * resid2 + w22 * resid2 * resid2)
++    return 0.5 * (np.sum(np.log(det)) + quad)
++
++
++def empirical_start(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    sample_cov = np.cov(y.T, ddof=1)
++    tau1_sq = max(float(sample_cov[0, 0] - np.mean(s1_sq)), 0.05**2)
++    tau2_sq = max(float(sample_cov[1, 1] - np.mean(s2_sq)), 0.05**2)
++    tau1 = np.sqrt(tau1_sq)
++    tau2 = np.sqrt(tau2_sq)
++    denom = tau1 * tau2
++    rho = 0.0 if denom == 0.0 else float(sample_cov[0, 1] / denom)
++    rho = float(np.clip(rho, -0.8, 0.8))
++    return np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)])
++
++
++def start_grid(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> list[np.ndarray]:
++    starts: list[np.ndarray] = [empirical_start(y, s1_sq, s2_sq)]
++    tau_values = (0.05, 0.15, 0.35, 0.75, 1.5, 3.0)
++    rho_values = (-0.9, -0.5, 0.0, 0.5, 0.9)
++    for tau1 in tau_values:
++        for tau2 in tau_values:
++            for rho in rho_values:
++                starts.append(np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)]))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s1_sq, s2_sq = study_estimates(counts)
++    bounds = ((-12.0, 4.0), (-12.0, 4.0), (-5.0, 5.0))
++    best = None
++
++    for start in start_grid(y, s1_sq, s2_sq):
++        result = minimize(
++            neg_log_likelihood,
++            start,
++            args=(y, s1_sq, s2_sq),
++            method="L-BFGS-B",
++            bounds=bounds,
++            options={"ftol": 1e-13, "gtol": 1e-8, "maxiter": 2000, "maxls": 50},
++        )
++        if result.fun == np.inf or not np.isfinite(result.fun):
++            continue
++        if best is None or result.fun < best.fun:
++            best = result
++
++    if best is None or not best.success:
++        message = "no successful optimizer result" if best is None else best.message
++        raise RuntimeError(f"ML optimization failed: {message}")
++
++    # A second polish from the best point tightens the finite-difference optimum.
++    polished = minimize(
++        neg_log_likelihood,
++        best.x,
++        args=(y, s1_sq, s2_sq),
++        method="L-BFGS-B",
++        bounds=bounds,
++        options={"ftol": 1e-15, "gtol": 1e-10, "maxiter": 4000, "maxls": 100},
++    )
++    if polished.success and np.isfinite(polished.fun) and polished.fun <= best.fun + 1e-9:
++        best = polished
++
++    mean = gls_mean(best.x, y, s1_sq, s2_sq)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++        "neg_log_likelihood": float(best.fun),
++    }
++
++
++def main() -> None:
++    reference = json.loads(REFERENCE_PATH.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    columns = (
++        "dataset",
++        "abs_M1",
++        "abs_M2",
++        "abs_sens",
++        "abs_spec",
++        "max_abs",
++    )
++    print(f"{columns[0]:<14} {columns[1]:>12} {columns[2]:>12} {columns[3]:>12} {columns[4]:>12} {columns[5]:>12}")
++    print("-" * 82)
++
++    for name, ref in reference.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        max_abs = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, max_abs)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(max_abs),
++        }
++        print(
++            f"{name:<14} "
++            f"{diffs['M1']:12.4g} {diffs['M2']:12.4g} "
++            f"{diffs['sens_summary']:12.4g} {diffs['spec_summary']:12.4g} "
++            f"{max_abs:12.4g}"
++        )
++
++    passed = bool(worst_abs_diff < TOL)
++    verdict = "PASS" if passed else "FAIL"
++    print("-" * 82)
++    print(f"worst_abs_diff = {worst_abs_diff:.12g}")
++    print(f"{verdict} at {TOL:g}")
++
++    RESULT_PATH.write_text(
++        json.dumps(
++            {
++                "worst_abs_diff": float(worst_abs_diff),
++                "pass": passed,
++                "per_dataset": per_dataset,
++            },
++            indent=2,
++            sort_keys=True,
++        )
++        + "\n",
++        encoding="utf-8",
++    )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The verifier script is in place. I’m running it now; if the optimizer doesn’t reproduce the reference tightly enough, I’ll adjust the numerical strategy without using the project estimator.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "python truth-recovery-dta\\verify_codex_noreen.py" in F:\ubcma
+ succeeded in 15632ms:
+dataset              abs_M1       abs_M2     abs_sens     abs_spec      max_abs
+----------------------------------------------------------------------------------
+AuditC            6.076e-09     8.14e-10    5.931e-10    1.326e-10    6.076e-09
+smoking           1.879e-09    1.499e-10     1.37e-10     7.14e-12    1.879e-09
+Dementia          2.069e-07    9.049e-07    3.451e-08    9.152e-08    9.049e-07
+skin_tests        6.137e-10    1.904e-10    1.198e-10    4.991e-12    6.137e-10
+SAQ                 1.8e-11    6.732e-10    6.712e-12    5.683e-11    6.732e-10
+----------------------------------------------------------------------------------
+worst_abs_diff = 9.04890002928e-07
+PASS at 1e-06
+
+diff --git a/truth-recovery-dta/verify_codex_noreen.py b/truth-recovery-dta/verify_codex_noreen.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..1891de861a21f12a68d289f49c7c89e222ce6e98
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_noreen.py
+@@ -0,0 +1,228 @@
++"""Independent ML verification for the bivariate Reitsma DTA model.
++
++This script intentionally does not import the project package.  It implements
++the model directly from the task specification and compares the concentrated ML
++fit against the R mada::reitsma reference values in reference_fits.json.
++"""
++
++from __future__ import annotations
++
++import json
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++HERE = Path(__file__).resolve().parent
++REFERENCE_PATH = HERE / "reference_fits.json"
++RESULT_PATH = HERE / "verify_codex_noreen_result.json"
++TOL = 1e-6
++
++
++def corrected_arrays(counts: dict[str, list[float]]) -> tuple[np.ndarray, ...]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++    if min(arr.min() for arr in (tp, fp, fn, tn)) == 0.0:
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++    return tp, fp, fn, tn
++
++
++def study_estimates(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
++    tp, fp, fn, tn = corrected_arrays(counts)
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s1_sq = 1.0 / tp + 1.0 / fn
++    s2_sq = 1.0 / tn + 1.0 / fp
++    return y, s1_sq, s2_sq
++
++
++def covariance_parts(theta: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> tuple[np.ndarray, ...]:
++    tau1 = np.exp(theta[0])
++    tau2 = np.exp(theta[1])
++    rho = np.tanh(theta[2])
++    cov12 = rho * tau1 * tau2
++    v11 = tau1 * tau1 + s1_sq
++    v22 = tau2 * tau2 + s2_sq
++    v12 = np.full_like(v11, cov12)
++    det = v11 * v22 - v12 * v12
++    return v11, v22, v12, det
++
++
++def gls_mean(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    return np.linalg.solve(normal, rhs)
++
++
++def neg_log_likelihood(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> float:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    if not np.all(np.isfinite(det)) or np.any(det <= 0.0):
++        return np.inf
++
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    try:
++        mean = np.linalg.solve(normal, rhs)
++    except np.linalg.LinAlgError:
++        return np.inf
++
++    resid1 = y[:, 0] - mean[0]
++    resid2 = y[:, 1] - mean[1]
++    quad = np.sum(w11 * resid1 * resid1 + 2.0 * w12 * resid1 * resid2 + w22 * resid2 * resid2)
++    return 0.5 * (np.sum(np.log(det)) + quad)
++
++
++def empirical_start(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    sample_cov = np.cov(y.T, ddof=1)
++    tau1_sq = max(float(sample_cov[0, 0] - np.mean(s1_sq)), 0.05**2)
++    tau2_sq = max(float(sample_cov[1, 1] - np.mean(s2_sq)), 0.05**2)
++    tau1 = np.sqrt(tau1_sq)
++    tau2 = np.sqrt(tau2_sq)
++    denom = tau1 * tau2
++    rho = 0.0 if denom == 0.0 else float(sample_cov[0, 1] / denom)
++    rho = float(np.clip(rho, -0.8, 0.8))
++    return np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)])
++
++
++def start_grid(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> list[np.ndarray]:
++    starts: list[np.ndarray] = [empirical_start(y, s1_sq, s2_sq)]
++    tau_values = (0.05, 0.15, 0.35, 0.75, 1.5, 3.0)
++    rho_values = (-0.9, -0.5, 0.0, 0.5, 0.9)
++    for tau1 in tau_values:
++        for tau2 in tau_values:
++            for rho in rho_values:
++                starts.append(np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)]))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s1_sq, s2_sq = study_estimates(counts)
++    bounds = ((-12.0, 4.0), (-12.0, 4.0), (-5.0, 5.0))
++    best = None
++
++    for start in start_grid(y, s1_sq, s2_sq):
++        result = minimize(
++            neg_log_likelihood,
++            start,
++            args=(y, s1_sq, s2_sq),
++            method="L-BFGS-B",
++            bounds=bounds,
++            options={"ftol": 1e-13, "gtol": 1e-8, "maxiter": 2000, "maxls": 50},
++        )
++        if result.fun == np.inf or not np.isfinite(result.fun):
++            continue
++        if best is None or result.fun < best.fun:
++            best = result
++
++    if best is None or not best.success:
++        message = "no successful optimizer result" if best is None else best.message
++        raise RuntimeError(f"ML optimization failed: {message}")
++
++    # A second polish from the best point tightens the finite-difference optimum.
++    polished = minimize(
++        neg_log_likelihood,
++        best.x,
++        args=(y, s1_sq, s2_sq),
++        method="L-BFGS-B",
++        bounds=bounds,
++        options={"ftol": 1e-15, "gtol": 1e-10, "maxiter": 4000, "maxls": 100},
++    )
++    if polished.success and np.isfinite(polished.fun) and polished.fun <= best.fun + 1e-9:
++        best = polished
++
++    mean = gls_mean(best.x, y, s1_sq, s2_sq)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++        "neg_log_likelihood": float(best.fun),
++    }
++
++
++def main() -> None:
++    reference = json.loads(REFERENCE_PATH.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    columns = (
++        "dataset",
++        "abs_M1",
++        "abs_M2",
++        "abs_sens",
++        "abs_spec",
++        "max_abs",
++    )
++    print(f"{columns[0]:<14} {columns[1]:>12} {columns[2]:>12} {columns[3]:>12} {columns[4]:>12} {columns[5]:>12}")
++    print("-" * 82)
++
++    for name, ref in reference.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        max_abs = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, max_abs)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(max_abs),
++        }
++        print(
++            f"{name:<14} "
++            f"{diffs['M1']:12.4g} {diffs['M2']:12.4g} "
++            f"{diffs['sens_summary']:12.4g} {diffs['spec_summary']:12.4g} "
++            f"{max_abs:12.4g}"
++        )
++
++    passed = bool(worst_abs_diff < TOL)
++    verdict = "PASS" if passed else "FAIL"
++    print("-" * 82)
++    print(f"worst_abs_diff = {worst_abs_diff:.12g}")
++    print(f"{verdict} at {TOL:g}")
++
++    RESULT_PATH.write_text(
++        json.dumps(
++            {
++                "worst_abs_diff": float(worst_abs_diff),
++                "pass": passed,
++                "per_dataset": per_dataset,
++            },
++            indent=2,
++            sort_keys=True,
++        )
++        + "\n",
++        encoding="utf-8",
++    )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The first run passes at the requested threshold, with Dementia as the limiting dataset. I’m doing one quick rerun and checking the result file so the final number is the actual generated value.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "python truth-recovery-dta\\verify_codex_noreen.py" in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "Get-Content truth-recovery-dta\\verify_codex_noreen_result.json -TotalCount 20" in F:\ubcma
+ succeeded in 405ms:
+{
+  "pass": true,
+  "per_dataset": {
+    "AuditC": {
+      "abs_diff": {
+        "M1": 6.075510317060662e-09,
+        "M2": 8.14041500873941e-10,
+        "sens_summary": 5.930900215389556e-10,
+        "spec_summary": 1.3261991504975867e-10
+      },
+      "fit": {
+        "M1": 2.0762590878755103,
+        "M2": 1.2624470867859585,
+        "neg_log_likelihood": 6.670040356991564,
+        "sens_summary": 0.88857418324309,
+        "spec_summary": 0.7794470724973801
+      },
+      "max_abs_diff": 6.075510317060662e-09
+    },
+    "Dementia": {
+
+ succeeded in 15705ms:
+dataset              abs_M1       abs_M2     abs_sens     abs_spec      max_abs
+----------------------------------------------------------------------------------
+AuditC            6.076e-09     8.14e-10    5.931e-10    1.326e-10    6.076e-09
+smoking           1.879e-09    1.499e-10     1.37e-10     7.14e-12    1.879e-09
+Dementia          2.069e-07    9.049e-07    3.451e-08    9.152e-08    9.049e-07
+skin_tests        6.137e-10    1.904e-10    1.198e-10    4.991e-12    6.137e-10
+SAQ                 1.8e-11    6.732e-10    6.712e-12    5.683e-11    6.732e-10
+----------------------------------------------------------------------------------
+worst_abs_diff = 9.04890002928e-07
+PASS at 1e-06
+
+diff --git a/truth-recovery-dta/verify_codex_noreen.py b/truth-recovery-dta/verify_codex_noreen.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..1891de861a21f12a68d289f49c7c89e222ce6e98
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_noreen.py
+@@ -0,0 +1,228 @@
++"""Independent ML verification for the bivariate Reitsma DTA model.
++
++This script intentionally does not import the project package.  It implements
++the model directly from the task specification and compares the concentrated ML
++fit against the R mada::reitsma reference values in reference_fits.json.
++"""
++
++from __future__ import annotations
++
++import json
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++HERE = Path(__file__).resolve().parent
++REFERENCE_PATH = HERE / "reference_fits.json"
++RESULT_PATH = HERE / "verify_codex_noreen_result.json"
++TOL = 1e-6
++
++
++def corrected_arrays(counts: dict[str, list[float]]) -> tuple[np.ndarray, ...]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++    if min(arr.min() for arr in (tp, fp, fn, tn)) == 0.0:
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++    return tp, fp, fn, tn
++
++
++def study_estimates(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
++    tp, fp, fn, tn = corrected_arrays(counts)
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s1_sq = 1.0 / tp + 1.0 / fn
++    s2_sq = 1.0 / tn + 1.0 / fp
++    return y, s1_sq, s2_sq
++
++
++def covariance_parts(theta: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> tuple[np.ndarray, ...]:
++    tau1 = np.exp(theta[0])
++    tau2 = np.exp(theta[1])
++    rho = np.tanh(theta[2])
++    cov12 = rho * tau1 * tau2
++    v11 = tau1 * tau1 + s1_sq
++    v22 = tau2 * tau2 + s2_sq
++    v12 = np.full_like(v11, cov12)
++    det = v11 * v22 - v12 * v12
++    return v11, v22, v12, det
++
++
++def gls_mean(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    return np.linalg.solve(normal, rhs)
++
++
++def neg_log_likelihood(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> float:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    if not np.all(np.isfinite(det)) or np.any(det <= 0.0):
++        return np.inf
++
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    try:
++        mean = np.linalg.solve(normal, rhs)
++    except np.linalg.LinAlgError:
++        return np.inf
++
++    resid1 = y[:, 0] - mean[0]
++    resid2 = y[:, 1] - mean[1]
++    quad = np.sum(w11 * resid1 * resid1 + 2.0 * w12 * resid1 * resid2 + w22 * resid2 * resid2)
++    return 0.5 * (np.sum(np.log(det)) + quad)
++
++
++def empirical_start(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    sample_cov = np.cov(y.T, ddof=1)
++    tau1_sq = max(float(sample_cov[0, 0] - np.mean(s1_sq)), 0.05**2)
++    tau2_sq = max(float(sample_cov[1, 1] - np.mean(s2_sq)), 0.05**2)
++    tau1 = np.sqrt(tau1_sq)
++    tau2 = np.sqrt(tau2_sq)
++    denom = tau1 * tau2
++    rho = 0.0 if denom == 0.0 else float(sample_cov[0, 1] / denom)
++    rho = float(np.clip(rho, -0.8, 0.8))
++    return np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)])
++
++
++def start_grid(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> list[np.ndarray]:
++    starts: list[np.ndarray] = [empirical_start(y, s1_sq, s2_sq)]
++    tau_values = (0.05, 0.15, 0.35, 0.75, 1.5, 3.0)
++    rho_values = (-0.9, -0.5, 0.0, 0.5, 0.9)
++    for tau1 in tau_values:
++        for tau2 in tau_values:
++            for rho in rho_values:
++                starts.append(np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)]))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s1_sq, s2_sq = study_estimates(counts)
++    bounds = ((-12.0, 4.0), (-12.0, 4.0), (-5.0, 5.0))
++    best = None
++
++    for start in start_grid(y, s1_sq, s2_sq):
++        result = minimize(
++            neg_log_likelihood,
++            start,
++            args=(y, s1_sq, s2_sq),
++            method="L-BFGS-B",
++            bounds=bounds,
++            options={"ftol": 1e-13, "gtol": 1e-8, "maxiter": 2000, "maxls": 50},
++        )
++        if result.fun == np.inf or not np.isfinite(result.fun):
++            continue
++        if best is None or result.fun < best.fun:
++            best = result
++
++    if best is None or not best.success:
++        message = "no successful optimizer result" if best is None else best.message
++        raise RuntimeError(f"ML optimization failed: {message}")
++
++    # A second polish from the best point tightens the finite-difference optimum.
++    polished = minimize(
++        neg_log_likelihood,
++        best.x,
++        args=(y, s1_sq, s2_sq),
++        method="L-BFGS-B",
++        bounds=bounds,
++        options={"ftol": 1e-15, "gtol": 1e-10, "maxiter": 4000, "maxls": 100},
++    )
++    if polished.success and np.isfinite(polished.fun) and polished.fun <= best.fun + 1e-9:
++        best = polished
++
++    mean = gls_mean(best.x, y, s1_sq, s2_sq)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++        "neg_log_likelihood": float(best.fun),
++    }
++
++
++def main() -> None:
++    reference = json.loads(REFERENCE_PATH.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    columns = (
++        "dataset",
++        "abs_M1",
++        "abs_M2",
++        "abs_sens",
++        "abs_spec",
++        "max_abs",
++    )
++    print(f"{columns[0]:<14} {columns[1]:>12} {columns[2]:>12} {columns[3]:>12} {columns[4]:>12} {columns[5]:>12}")
++    print("-" * 82)
++
++    for name, ref in reference.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        max_abs = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, max_abs)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(max_abs),
++        }
++        print(
++            f"{name:<14} "
++            f"{diffs['M1']:12.4g} {diffs['M2']:12.4g} "
++            f"{diffs['sens_summary']:12.4g} {diffs['spec_summary']:12.4g} "
++            f"{max_abs:12.4g}"
++        )
++
++    passed = bool(worst_abs_diff < TOL)
++    verdict = "PASS" if passed else "FAIL"
++    print("-" * 82)
++    print(f"worst_abs_diff = {worst_abs_diff:.12g}")
++    print(f"{verdict} at {TOL:g}")
++
++    RESULT_PATH.write_text(
++        json.dumps(
++            {
++                "worst_abs_diff": float(worst_abs_diff),
++                "pass": passed,
++                "per_dataset": per_dataset,
++            },
++            indent=2,
++            sort_keys=True,
++        )
++        + "\n",
++        encoding="utf-8",
++    )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+worst_abs_diff = `9.04890002928e-07`
+
+PASS at `1e-6`
+diff --git a/truth-recovery-dta/verify_codex_noreen.py b/truth-recovery-dta/verify_codex_noreen.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..1891de861a21f12a68d289f49c7c89e222ce6e98
+--- /dev/null
++++ b/truth-recovery-dta/verify_codex_noreen.py
+@@ -0,0 +1,228 @@
++"""Independent ML verification for the bivariate Reitsma DTA model.
++
++This script intentionally does not import the project package.  It implements
++the model directly from the task specification and compares the concentrated ML
++fit against the R mada::reitsma reference values in reference_fits.json.
++"""
++
++from __future__ import annotations
++
++import json
++from pathlib import Path
++
++import numpy as np
++from scipy.optimize import minimize
++from scipy.special import expit
++
++
++HERE = Path(__file__).resolve().parent
++REFERENCE_PATH = HERE / "reference_fits.json"
++RESULT_PATH = HERE / "verify_codex_noreen_result.json"
++TOL = 1e-6
++
++
++def corrected_arrays(counts: dict[str, list[float]]) -> tuple[np.ndarray, ...]:
++    tp = np.asarray(counts["TP"], dtype=float)
++    fp = np.asarray(counts["FP"], dtype=float)
++    fn = np.asarray(counts["FN"], dtype=float)
++    tn = np.asarray(counts["TN"], dtype=float)
++    if min(arr.min() for arr in (tp, fp, fn, tn)) == 0.0:
++        tp = tp + 0.5
++        fp = fp + 0.5
++        fn = fn + 0.5
++        tn = tn + 0.5
++    return tp, fp, fn, tn
++
++
++def study_estimates(counts: dict[str, list[float]]) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
++    tp, fp, fn, tn = corrected_arrays(counts)
++    y = np.column_stack((np.log(tp / fn), np.log(tn / fp)))
++    s1_sq = 1.0 / tp + 1.0 / fn
++    s2_sq = 1.0 / tn + 1.0 / fp
++    return y, s1_sq, s2_sq
++
++
++def covariance_parts(theta: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> tuple[np.ndarray, ...]:
++    tau1 = np.exp(theta[0])
++    tau2 = np.exp(theta[1])
++    rho = np.tanh(theta[2])
++    cov12 = rho * tau1 * tau2
++    v11 = tau1 * tau1 + s1_sq
++    v22 = tau2 * tau2 + s2_sq
++    v12 = np.full_like(v11, cov12)
++    det = v11 * v22 - v12 * v12
++    return v11, v22, v12, det
++
++
++def gls_mean(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    return np.linalg.solve(normal, rhs)
++
++
++def neg_log_likelihood(theta: np.ndarray, y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> float:
++    v11, v22, v12, det = covariance_parts(theta, s1_sq, s2_sq)
++    if not np.all(np.isfinite(det)) or np.any(det <= 0.0):
++        return np.inf
++
++    w11 = v22 / det
++    w22 = v11 / det
++    w12 = -v12 / det
++
++    a11 = np.sum(w11)
++    a22 = np.sum(w22)
++    a12 = np.sum(w12)
++    b1 = np.sum(w11 * y[:, 0] + w12 * y[:, 1])
++    b2 = np.sum(w12 * y[:, 0] + w22 * y[:, 1])
++
++    normal = np.array([[a11, a12], [a12, a22]])
++    rhs = np.array([b1, b2])
++    try:
++        mean = np.linalg.solve(normal, rhs)
++    except np.linalg.LinAlgError:
++        return np.inf
++
++    resid1 = y[:, 0] - mean[0]
++    resid2 = y[:, 1] - mean[1]
++    quad = np.sum(w11 * resid1 * resid1 + 2.0 * w12 * resid1 * resid2 + w22 * resid2 * resid2)
++    return 0.5 * (np.sum(np.log(det)) + quad)
++
++
++def empirical_start(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> np.ndarray:
++    sample_cov = np.cov(y.T, ddof=1)
++    tau1_sq = max(float(sample_cov[0, 0] - np.mean(s1_sq)), 0.05**2)
++    tau2_sq = max(float(sample_cov[1, 1] - np.mean(s2_sq)), 0.05**2)
++    tau1 = np.sqrt(tau1_sq)
++    tau2 = np.sqrt(tau2_sq)
++    denom = tau1 * tau2
++    rho = 0.0 if denom == 0.0 else float(sample_cov[0, 1] / denom)
++    rho = float(np.clip(rho, -0.8, 0.8))
++    return np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)])
++
++
++def start_grid(y: np.ndarray, s1_sq: np.ndarray, s2_sq: np.ndarray) -> list[np.ndarray]:
++    starts: list[np.ndarray] = [empirical_start(y, s1_sq, s2_sq)]
++    tau_values = (0.05, 0.15, 0.35, 0.75, 1.5, 3.0)
++    rho_values = (-0.9, -0.5, 0.0, 0.5, 0.9)
++    for tau1 in tau_values:
++        for tau2 in tau_values:
++            for rho in rho_values:
++                starts.append(np.array([np.log(tau1), np.log(tau2), np.arctanh(rho)]))
++    return starts
++
++
++def fit_reitsma_ml(counts: dict[str, list[float]]) -> dict[str, float]:
++    y, s1_sq, s2_sq = study_estimates(counts)
++    bounds = ((-12.0, 4.0), (-12.0, 4.0), (-5.0, 5.0))
++    best = None
++
++    for start in start_grid(y, s1_sq, s2_sq):
++        result = minimize(
++            neg_log_likelihood,
++            start,
++            args=(y, s1_sq, s2_sq),
++            method="L-BFGS-B",
++            bounds=bounds,
++            options={"ftol": 1e-13, "gtol": 1e-8, "maxiter": 2000, "maxls": 50},
++        )
++        if result.fun == np.inf or not np.isfinite(result.fun):
++            continue
++        if best is None or result.fun < best.fun:
++            best = result
++
++    if best is None or not best.success:
++        message = "no successful optimizer result" if best is None else best.message
++        raise RuntimeError(f"ML optimization failed: {message}")
++
++    # A second polish from the best point tightens the finite-difference optimum.
++    polished = minimize(
++        neg_log_likelihood,
++        best.x,
++        args=(y, s1_sq, s2_sq),
++        method="L-BFGS-B",
++        bounds=bounds,
++        options={"ftol": 1e-15, "gtol": 1e-10, "maxiter": 4000, "maxls": 100},
++    )
++    if polished.success and np.isfinite(polished.fun) and polished.fun <= best.fun + 1e-9:
++        best = polished
++
++    mean = gls_mean(best.x, y, s1_sq, s2_sq)
++    return {
++        "M1": float(mean[0]),
++        "M2": float(mean[1]),
++        "sens_summary": float(expit(mean[0])),
++        "spec_summary": float(expit(mean[1])),
++        "neg_log_likelihood": float(best.fun),
++    }
++
++
++def main() -> None:
++    reference = json.loads(REFERENCE_PATH.read_text(encoding="utf-8"))
++    per_dataset: dict[str, dict[str, object]] = {}
++    worst_abs_diff = 0.0
++
++    columns = (
++        "dataset",
++        "abs_M1",
++        "abs_M2",
++        "abs_sens",
++        "abs_spec",
++        "max_abs",
++    )
++    print(f"{columns[0]:<14} {columns[1]:>12} {columns[2]:>12} {columns[3]:>12} {columns[4]:>12} {columns[5]:>12}")
++    print("-" * 82)
++
++    for name, ref in reference.items():
++        fit = fit_reitsma_ml(ref["counts"])
++        diffs = {
++            "M1": abs(fit["M1"] - float(ref["m1_logit_sens"])),
++            "M2": abs(fit["M2"] - float(ref["m2_logit_spec"])),
++            "sens_summary": abs(fit["sens_summary"] - float(ref["sens_summary"])),
++            "spec_summary": abs(fit["spec_summary"] - float(ref["spec_summary"])),
++        }
++        max_abs = max(diffs.values())
++        worst_abs_diff = max(worst_abs_diff, max_abs)
++        per_dataset[name] = {
++            "fit": fit,
++            "abs_diff": diffs,
++            "max_abs_diff": float(max_abs),
++        }
++        print(
++            f"{name:<14} "
++            f"{diffs['M1']:12.4g} {diffs['M2']:12.4g} "
++            f"{diffs['sens_summary']:12.4g} {diffs['spec_summary']:12.4g} "
++            f"{max_abs:12.4g}"
++        )
++
++    passed = bool(worst_abs_diff < TOL)
++    verdict = "PASS" if passed else "FAIL"
++    print("-" * 82)
++    print(f"worst_abs_diff = {worst_abs_diff:.12g}")
++    print(f"{verdict} at {TOL:g}")
++
++    RESULT_PATH.write_text(
++        json.dumps(
++            {
++                "worst_abs_diff": float(worst_abs_diff),
++                "pass": passed,
++                "per_dataset": per_dataset,
++            },
++            indent=2,
++            sort_keys=True,
++        )
++        + "\n",
++        encoding="utf-8",
++    )
++
++
++if __name__ == "__main__":
++    main()
+
+tokens used
+26,767
+worst_abs_diff = `9.04890002928e-07`
+
+PASS at `1e-6`
