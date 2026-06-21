@@ -14,7 +14,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent / "truth-recovery"))
 
 from nma_core import fit_nma  # noqa: E402
 from smallstudy_nma import network_smallstudy_league, network_asymmetry  # noqa: E402
+from inconsistency_nma import q_decomposition, inconsistency_factor  # noqa: E402
 import nma_sim as S  # noqa: E402
+
+Z975 = 1.959963984540054
 
 
 # ---------------------------------------------------------------- Component B
@@ -75,3 +78,53 @@ def test_asymmetry_fires_and_peese_debiases_under_strong_selection():
     assert np.mean(betas) > 0.1                     # positive small-study slope
     # PEESE materially reduces the magnitude of the (downward) bias
     assert abs(np.mean(bias_pe)) < abs(np.mean(bias_dl)) * 0.6
+
+
+# ---------------------------------------------------------------- Component C
+
+@pytest.mark.parametrize("geom,n,expected_loops", [
+    ("star", 6, 0), ("line", 6, 0), ("loop", 6, 1), ("full", 5, 6)])
+def test_df_inc_equals_independent_loops(geom, n, expected_loops):
+    spec = S.NetSpec(geom=geom, n=n, studies_per_comp=(3, 4),
+                     hetero="homogeneous", inconsistency=0.0)
+    comps, _, _ = S.generate(spec, seed=1)
+    d = q_decomposition(comps)
+    assert d["df_inc"] == expected_loops
+    assert abs(d["Q_total"] - (d["Q_het"] + d["Q_inc"])) < 1e-9 or d["Q_inc"] == 0.0
+
+
+def test_inconsistency_null_calibration_no_overfire():
+    """Consistent network with real heterogeneity must NOT be flagged inconsistent
+    (RE-weighted decomposition: heterogeneity is not mistaken for inconsistency)."""
+    spec = S.NetSpec(geom="full", n=5, studies_per_comp=(2, 4),
+                     hetero="homogeneous", tau_homog=0.1, inconsistency=0.0)
+    fired = []
+    for r in range(300):
+        comps, _, _ = S.generate(spec, seed=9000 + r)
+        if len({c.t1 for c in comps} | {c.t2 for c in comps}) < 5:
+            continue
+        fired.append(inconsistency_factor(comps)["fired"])
+    assert np.mean(fired) < 0.12          # ~nominal 0.10 gate, no over-firing
+
+
+def test_inconsistency_inflation_restores_coverage():
+    """Under design inconsistency, gated phi inflation improves deployable
+    coverage of the basic contrasts over the un-inflated consistency model."""
+    spec = S.NetSpec(geom="full", n=5, studies_per_comp=(2, 4),
+                     hetero="homogeneous", tau_homog=0.1, inconsistency=0.30)
+    cov_dl, cov_phi, phis = [], [], []
+    for r in range(300):
+        comps, d_true, _ = S.generate(spec, seed=9000 + r)
+        if len({c.t1 for c in comps} | {c.t2 for c in comps}) < 5:
+            continue
+        phi = inconsistency_factor(comps)["phi"]
+        phis.append(phi)
+        fit = fit_nma(comps, random=True)
+        tidx = fit.meta["tidx"]
+        for t in range(1, 5):
+            se = fit.seTE[tidx[str(t)], tidx["0"]]
+            err = abs(d_true[t] - fit.TE[tidx[str(t)], tidx["0"]])
+            cov_dl.append(err <= Z975 * se)
+            cov_phi.append(err <= Z975 * phi * se)
+    assert np.mean(phis) > 1.2                       # fires and inflates
+    assert np.mean(cov_phi) > np.mean(cov_dl) + 0.05  # materially better coverage
