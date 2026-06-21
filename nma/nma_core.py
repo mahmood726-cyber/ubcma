@@ -97,8 +97,10 @@ def _study_blocks(comps: Sequence[Comparison], tidx: dict[str, int]):
             v[r] = c.se ** 2
             g1[r] = tidx[c.t1]
             g2[r] = tidx[c.t2]
+        types = [(c.t1, c.t2) for c in sub]
         blocks.append({"studlab": studlab, "rows": rows, "arms": arms,
-                       "A": A, "v": v, "g1": g1, "g2": g2, "p": p})
+                       "A": A, "v": v, "g1": g1, "g2": g2, "p": p,
+                       "types": types})
     return blocks
 
 
@@ -114,27 +116,51 @@ def _arm_variances(A: np.ndarray, v: np.ndarray) -> np.ndarray:
     return sig2
 
 
-def _weight_block(blk: dict, tau2: float) -> np.ndarray:
+def _block_tau2(blk: dict, tau2: float, tau2_map: dict | None) -> np.ndarray:
+    """Per-comparison tau^2 for a study block (length c).
+
+    Scalar `tau2` unless `tau2_map` (frozenset({t1,t2}) -> tau^2_c) is given, in
+    which case each comparison uses its type-specific heterogeneity. Comparisons
+    with no entry fall back to the scalar.
+    """
+    c_n = len(blk["v"])
+    if tau2_map is None:
+        return np.full(c_n, tau2)
+    out = np.empty(c_n)
+    for r, (a, b) in enumerate(blk["types"]):
+        out[r] = tau2_map.get(frozenset((a, b)), tau2)
+    return out
+
+
+def _weight_block(blk: dict, tau2: float, tau2_map: dict | None = None) -> np.ndarray:
     """Study weight block = pinv(V_block).
 
     2-arm: V = [[v + tau^2]], W = 1/(v+tau^2).
     multi-arm: reconstruct arm variances, V = A diag(sigma^2 + tau^2/2) A',
                W = Moore-Penrose pseudoinverse of V.
+    With comparison-specific tau^2 (tau2_map), the 2-arm comparison uses its own
+    tau^2_c exactly; a multi-arm block uses the mean of its comparisons' tau^2_c
+    with the shared-arm 0.5 A A' structure (keeps the block PSD and reduces to the
+    homogeneous case when all tau^2_c are equal -- documented in DESIGN_BRIEF.md).
     """
     A, v, p = blk["A"], blk["v"], blk["p"]
+    t2 = _block_tau2(blk, tau2, tau2_map)
     if p == 2:
-        return np.array([[1.0 / (v[0] + tau2)]])
+        return np.array([[1.0 / (v[0] + t2[0])]])
     sig2 = _arm_variances(A, v)
-    d = sig2 + 0.5 * tau2
+    d = sig2 + 0.5 * float(np.mean(t2))
     V = A @ np.diag(d) @ A.T
     return np.linalg.pinv(V, rcond=1e-12)
 
 
-def _assemble(comps, tidx, n, tau2, with_S: bool = False):
+def _assemble(comps, tidx, n, tau2, with_S: bool = False, tau2_map: dict | None = None):
     """Build global incidence B (m x n), block-diagonal W (m x m), y (m,).
 
     If `with_S`, also return S = block-diag(0.5 A A') = dV/dtau^2, the structure
     matrix used by the Jackson (2012) generalized DerSimonian-Laird estimator.
+    `tau2_map` (frozenset({t1,t2}) -> tau^2_c) enables comparison-specific
+    heterogeneity (used by AdaptShrink-NMA); None keeps the scalar tau^2 path
+    that is verified netmeta-identical.
     """
     m = len(comps)
     B = np.zeros((m, n))
@@ -148,7 +174,7 @@ def _assemble(comps, tidx, n, tau2, with_S: bool = False):
             B[r, gi] += 1.0
         for r, gi in zip(rows, blk["g2"]):
             B[r, gi] += -1.0
-        Wb = _weight_block(blk, tau2)
+        Wb = _weight_block(blk, tau2, tau2_map)
         ri = np.array(rows)
         W[np.ix_(ri, ri)] = Wb
         if with_S:
@@ -203,7 +229,8 @@ def _dl_tau2(comps, tidx, n, df_Q):
 def fit_nma(comparisons: Sequence[Comparison] | Sequence[tuple],
             reference: str | None = None,
             random: bool = True,
-            tau2: float | None = None) -> NMAFit:
+            tau2: float | None = None,
+            tau2_map: dict | None = None) -> NMAFit:
     """Fit a graph-theoretic NMA.
 
     Parameters
@@ -239,7 +266,8 @@ def fit_nma(comparisons: Sequence[Comparison] | Sequence[tuple],
         tau2_est = float(tau2)
 
     use_tau2 = tau2_est if random else 0.0
-    B, W, y, blocks = _assemble(comps, tidx, n, tau2=use_tau2)
+    use_map = tau2_map if (random and tau2_map is not None) else None
+    B, W, y, blocks = _assemble(comps, tidx, n, tau2=use_tau2, tau2_map=use_map)
     L = B.T @ W @ B
     Lplus = np.linalg.pinv(L, rcond=1e-12)
     theta = Lplus @ (B.T @ (W @ y))

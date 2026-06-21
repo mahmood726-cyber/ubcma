@@ -1,0 +1,7 @@
+method,tau_band,true_tau,coverage,mean_width,n
+common_DL,low,0.05,0.9911,0.7271,900
+common_DL,high,0.4,0.825,0.7287,600
+adaptshrink,low,0.05,0.99,0.6735,900
+adaptshrink,high,0.4,0.8683,0.8249,600
+comp_specific,low,0.05,0.96,0.5548,900
+comp_specific,high,0.4,0.8733,0.9157,600

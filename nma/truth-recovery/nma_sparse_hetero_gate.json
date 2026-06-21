@@ -1,0 +1,47 @@
+{
+  "cell": "sparse_hetero",
+  "spec": {
+    "geom": "loop",
+    "n": 6,
+    "studies_per_comp": [
+      1,
+      2
+    ],
+    "multiarm_frac": 0.0,
+    "hetero": "heterogeneous",
+    "tau_low": 0.05,
+    "tau_high": 0.3,
+    "tau_homog": 0.15,
+    "inconsistency": 0.0,
+    "selection": "none",
+    "effect_sd": 0.5,
+    "se_range": [
+      0.1,
+      0.45
+    ]
+  },
+  "reps": 40,
+  "nu": 4.0,
+  "target": 0.95,
+  "baseline": "common_DL",
+  "n_scored_reps": 40,
+  "bootstrap_vs_baseline": [
+    {
+      "method": "comp_specific",
+      "mciw0_diff": 0.028924862914472715,
+      "ci_lo": -0.05137905790473463,
+      "ci_hi": 0.14382960939993159,
+      "robust_win": false,
+      "frac_better": 0.2875
+    },
+    {
+      "method": "adaptshrink",
+      "mciw0_diff": -0.00641491572311681,
+      "ci_lo": -0.014030701276391739,
+      "ci_hi": 0.029108362979996607,
+      "robust_win": false,
+      "frac_better": 0.356
+    }
+  ],
+  "G1_all_finite": true
+}
