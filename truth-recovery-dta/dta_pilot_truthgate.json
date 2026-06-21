@@ -1,0 +1,187 @@
+{
+  "target": 0.95,
+  "cov_tol": 0.06,
+  "pass": true,
+  "notes": [],
+  "G1_finite_point_ok": true,
+  "npd_region_excluded": 0,
+  "verified_wins_vs_HC": [
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "mciw0_area": 0.95,
+      "hc_area": 0.9829,
+      "ratio": 0.967,
+      "test_cov": 0.953
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "mciw0_area": 0.7952,
+      "hc_area": 0.9829,
+      "ratio": 0.809,
+      "test_cov": 0.94
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "mciw0_area": 0.8427,
+      "hc_area": 0.9829,
+      "ratio": 0.857,
+      "test_cov": 0.933
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "mciw0_area": 0.6287,
+      "hc_area": 0.7068,
+      "ratio": 0.89,
+      "test_cov": 0.947
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "mciw0_area": 0.5322,
+      "hc_area": 0.7068,
+      "ratio": 0.753,
+      "test_cov": 0.92
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "mciw0_area": 0.597,
+      "hc_area": 0.7068,
+      "ratio": 0.845,
+      "test_cov": 0.94
+    }
+  ],
+  "bootstrap_mciw0_vs_HC": [
+    {
+      "cell": "k10_thr",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": -0.0132,
+      "ci_lo": -0.0789,
+      "ci_hi": 0.0702,
+      "robust_win": false,
+      "frac_better": 0.355
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.0691,
+      "ci_lo": -0.0228,
+      "ci_hi": 0.1761,
+      "robust_win": false,
+      "frac_better": 0.075
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.0046,
+      "ci_lo": -0.0855,
+      "ci_hi": 0.0967,
+      "robust_win": false,
+      "frac_better": 0.46
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": -0.0027,
+      "ci_lo": -0.2708,
+      "ci_hi": 0.0597,
+      "robust_win": false,
+      "frac_better": 0.823
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": -0.1316,
+      "ci_lo": -0.3699,
+      "ci_hi": 0.0281,
+      "robust_win": false,
+      "frac_better": 0.95
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.1071,
+      "ci_lo": -0.3338,
+      "ci_hi": 0.1028,
+      "robust_win": false,
+      "frac_better": 0.858
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 0.0254,
+      "ci_lo": -0.0242,
+      "ci_hi": 0.0582,
+      "robust_win": false,
+      "frac_better": 0.231
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.0654,
+      "ci_lo": -0.0027,
+      "ci_hi": 0.163,
+      "robust_win": false,
+      "frac_better": 0.03
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.0602,
+      "ci_lo": -0.0137,
+      "ci_hi": 0.152,
+      "robust_win": false,
+      "frac_better": 0.054
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": -0.0524,
+      "ci_lo": -0.141,
+      "ci_hi": 0.0393,
+      "robust_win": false,
+      "frac_better": 0.834
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": -0.0893,
+      "ci_lo": -0.2014,
+      "ci_hi": 0.0175,
+      "robust_win": false,
+      "frac_better": 0.951
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.0618,
+      "ci_lo": -0.1651,
+      "ci_hi": 0.0345,
+      "robust_win": false,
+      "frac_better": 0.883
+    }
+  ],
+  "robust_wins_vs_HC": []
+}

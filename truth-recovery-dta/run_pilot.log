@@ -1,0 +1,56 @@
+[dta] cell=k10_thr strength=none reps=300 ...
+[dta] cell=k10_thr strength=strong reps=300 ...
+[dta] cell=k20_thr strength=none reps=300 ...
+[dta] cell=k20_thr strength=strong reps=300 ...
+
+# AdaptShrink-DTA matched-coverage bake-off (grid=pilot, target=0.95)
+MCIW0-2D area = matched-coverage region AREA (PRIMARY; lower=better).
+raw_cov/raw_area = deployable (kappa=1). HC = reitsma.
+
+-- cell=k10_thr strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.143  -0.059   0.341    0.720   1.1108   0.960   1.4158  0.947
+adaptshrink_dta   -0.150  -0.059   0.343    0.783   1.1327   0.967   1.2299  0.913
+sep_univariate    -0.154  -0.058   0.345    0.813   1.1431   0.967   1.3613  0.947
+reitsma_indep     -0.171  -0.064   0.355    0.733   1.2046   0.960   1.3446  0.927
+
+-- cell=k10_thr strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.032   0.090   0.323    0.883   0.7952   0.940   1.4909  0.967  <-- smaller than HC
+sep_univariate     0.051   0.097   0.329    0.903   0.8427   0.933   1.4122  0.973  <-- smaller than HC
+adaptshrink_dta    0.061   0.097   0.331    0.890   0.9500   0.953   1.4477  0.980  <-- smaller than HC
+reitsma            0.072   0.099   0.340    0.797   0.9829   0.947   1.3580  0.960
+
+-- cell=k20_thr strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.158  -0.057   0.275    0.687   0.7207   0.980   0.7989  0.907
+adaptshrink_dta   -0.159  -0.057   0.275    0.763   0.7318   0.980   0.8022  0.947
+sep_univariate    -0.168  -0.063   0.282    0.770   0.7923   0.973   0.9669  0.960
+reitsma_indep     -0.175  -0.064   0.286    0.757   0.8118   0.980   0.9501  0.960
+
+-- cell=k20_thr strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.032   0.090   0.249    0.877   0.5322   0.920   0.6351  0.947  <-- smaller than HC
+sep_univariate     0.041   0.093   0.252    0.880   0.5970   0.940   0.6482  0.953  <-- smaller than HC
+adaptshrink_dta    0.064   0.100   0.260    0.883   0.6287   0.947   0.6204  0.953  <-- smaller than HC
+reitsma            0.068   0.101   0.264    0.773   0.7068   0.960   0.6883  0.967
+
+# TRUTH-GATE
+  G1 finite points ok: True  (NPD-region rows excluded: 0)
+  Paired-bootstrap MCIW0-2D area advantage vs HC (robust win = 97.5% CI < 0):
+    [k10_thr  none    ] adaptshrink_dta  dArea=-0.0132 CI[-0.0789,+0.0702] P(better)=0.355
+    [k10_thr  none    ] reitsma_indep    dArea=+0.0691 CI[-0.0228,+0.1761] P(better)=0.075
+    [k10_thr  none    ] sep_univariate   dArea=+0.0046 CI[-0.0855,+0.0967] P(better)=0.460
+    [k10_thr  strong  ] adaptshrink_dta  dArea=-0.0027 CI[-0.2708,+0.0597] P(better)=0.823
+    [k10_thr  strong  ] reitsma_indep    dArea=-0.1316 CI[-0.3699,+0.0281] P(better)=0.950
+    [k10_thr  strong  ] sep_univariate   dArea=-0.1071 CI[-0.3338,+0.1028] P(better)=0.858
+    [k20_thr  none    ] adaptshrink_dta  dArea=+0.0254 CI[-0.0242,+0.0582] P(better)=0.231
+    [k20_thr  none    ] reitsma_indep    dArea=+0.0654 CI[-0.0027,+0.1630] P(better)=0.030
+    [k20_thr  none    ] sep_univariate   dArea=+0.0602 CI[-0.0137,+0.1520] P(better)=0.054
+    [k20_thr  strong  ] adaptshrink_dta  dArea=-0.0524 CI[-0.1410,+0.0393] P(better)=0.834
+    [k20_thr  strong  ] reitsma_indep    dArea=-0.0893 CI[-0.2014,+0.0175] P(better)=0.951
+    [k20_thr  strong  ] sep_univariate   dArea=-0.0618 CI[-0.1651,+0.0345] P(better)=0.883
+
+Wrote truth-recovery-dta/dta_pilot_perrep.csv
+      truth-recovery-dta/dta_pilot_table.csv
+      truth-recovery-dta/dta_pilot_truthgate.json  (355.1s)
