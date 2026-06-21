@@ -1,5 +1,12 @@
 # AdaptShrink-NMA — first matched-coverage bake-off (milestone 1)
 
+> **Phase 2 is complete — see `nma/REPORT_NMA_PHASE2.md`.** Components B
+> (network-funnel-asymmetry-gated small-study correction) and C
+> (inconsistency-aware inflation) deliver the genuine matched-coverage MCIW0
+> efficiency win this milestone said was missing — bootstrap-robust at
+> select_strong_dense_n6 (dMCIW0 −0.0206 [−0.0348,−0.0013]) — plus broad
+> deployable-coverage restoration. This document remains the milestone-1 record.
+
 Generalizing the univariate AdaptShrink program to network meta-analysis. This
 is the **first milestone**: a verified reference engine, the AdaptShrink-NMA
 estimator (heterogeneity-structure shrinkage, component A), and the first
