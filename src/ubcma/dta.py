@@ -21,8 +21,12 @@ Estimators provided
 -------------------
 * ``reitsma`` -- ML of the bivariate normal-normal model (the field-to-beat;
   validated against ``mada::reitsma`` and ``metafor::rma.mv``).
+* ``reitsma_reml`` -- the same model fit by REML (small-sample-corrected variant).
 * ``reitsma_indep`` -- the same with ``rho`` fixed at 0 (Riley-style small-k
   stabilizer / separate-variances bivariate).
+* ``hsroc`` -- the Rutter-Gatsonis HSROC model (the second standard DTA model),
+  the bivariate GLMM fit by the exact binomial likelihood via adaptive
+  Gauss-Hermite quadrature (validated against ``lme4::glmer``).
 * ``sep_univariate`` -- pool logit-Se and logit-Sp independently (naive lower
   bound).
 * ``adaptshrink_dta`` -- the new estimator: adaptive shrinkage of ``Sigma``
@@ -184,8 +188,15 @@ def _accumulate(Sigma: np.ndarray, Y: np.ndarray, S: np.ndarray):
 
 
 def _neg_loglik(params: np.ndarray, Y: np.ndarray, S: np.ndarray,
-                fix_rho0: bool) -> float:
-    """Profile -2*loglik/2 over (M1,M2) given Sigma params (GLS-concentrated ML)."""
+                fix_rho0: bool, reml: bool = False) -> float:
+    """Profile -2*loglik/2 over (M1,M2) given Sigma params (GLS-concentrated ML).
+
+    With ``reml=True`` add the restricted-likelihood correction ``+0.5*log det A``
+    (``A = sum_i W_i`` is the GLS precision of the summary point). For the
+    bivariate location model whose per-study design is the identity this is the
+    exact REML penalty; it removes the downward small-sample bias of the
+    between-study variance components -- the standard small-sample correction.
+    """
     log_t1, log_t2 = params[0], params[1]
     z_rho = 0.0 if fix_rho0 else params[2]
     Sigma = _sigma_from_params(log_t1, log_t2, z_rho)
@@ -198,7 +209,10 @@ def _neg_loglik(params: np.ndarray, Y: np.ndarray, S: np.ndarray,
     M = np.array([A[1, 1] * rhs[0] - A[0, 1] * rhs[1],
                   -A[0, 1] * rhs[0] + A[0, 0] * rhs[1]]) / detA
     quad = quad_sum - rhs @ M
-    return 0.5 * (logdet_sum + quad)
+    nll = 0.5 * (logdet_sum + quad)
+    if reml:
+        nll += 0.5 * np.log(detA)
+    return nll
 
 
 def _gls_point_cov(Y: np.ndarray, S: np.ndarray, Sigma: np.ndarray):
@@ -211,8 +225,8 @@ def _gls_point_cov(Y: np.ndarray, S: np.ndarray, Sigma: np.ndarray):
     return M, V
 
 
-def _fit_sigma(Y: np.ndarray, S: np.ndarray, fix_rho0: bool):
-    """ML-fit Sigma; return (Sigma, converged). Multi-start for robustness."""
+def _fit_sigma(Y: np.ndarray, S: np.ndarray, fix_rho0: bool, reml: bool = False):
+    """ML- (or REML-) fit Sigma; return (Sigma, converged). Multi-start."""
     # Moment start: between-study var ~ max(var(y) - mean(s^2), small).
     v1 = max(np.var(Y[:, 0], ddof=1) - np.mean(S[:, 0, 0]), 1e-3)
     v2 = max(np.var(Y[:, 1], ddof=1) - np.mean(S[:, 1, 1]), 1e-3)
@@ -226,7 +240,7 @@ def _fit_sigma(Y: np.ndarray, S: np.ndarray, fix_rho0: bool):
     for s0 in starts:
         x0 = s0[:p0_dim]
         try:
-            res = minimize(_neg_loglik, x0, args=(Y, S, fix_rho0),
+            res = minimize(_neg_loglik, x0, args=(Y, S, fix_rho0, reml),
                            method="Nelder-Mead",
                            options={"xatol": 1e-7, "fatol": 1e-9, "maxiter": 4000})
         except Exception:
@@ -329,6 +343,27 @@ def reitsma(studies: DTAStudies, alpha: float = 0.05) -> dict:
     except np.linalg.LinAlgError:
         return _fail()
     return _summarize(M, V, Sigma, alpha, {"method": "reitsma"})
+
+
+def reitsma_reml(studies: DTAStudies, alpha: float = 0.05) -> dict:
+    """Bivariate random-effects fit by REML (small-sample-corrected variant).
+
+    Same model as ``reitsma`` but the between-study covariance is estimated by
+    restricted maximum likelihood, which corrects the downward small-sample bias
+    of the ML variance components. This is the recognised small-sample-corrected
+    bivariate comparator (the DTA analogue of REML-vs-ML in standard MA).
+    """
+    Y, S = _stack(studies)
+    if studies.k < 2:
+        return _fail()
+    Sigma, ok = _fit_sigma(Y, S, fix_rho0=False, reml=True)
+    if not ok or Sigma is None:
+        return _fail()
+    try:
+        M, V = _gls_point_cov(Y, S, Sigma)
+    except np.linalg.LinAlgError:
+        return _fail()
+    return _summarize(M, V, Sigma, alpha, {"method": "reitsma_reml"})
 
 
 def reitsma_indep(studies: DTAStudies, alpha: float = 0.05) -> dict:
@@ -508,11 +543,225 @@ def adaptshrink_dta(studies: DTAStudies, alpha: float = 0.05,
     return _summarize(M, V, Sigma_as, alpha, extra)
 
 
+_GH_NODES = 8   # adaptive GH nodes per random-effect dimension
+
+
+def _glmm_logintegrand(b1, b2, tp, fn, fp, tn, mu1, mu2, Sinv, logdetS):
+    """log p(data_i | b) + log N(b;0,Sigma), vectorized over studies.
+
+    ``b1, b2`` are the random-effect deviations of (logit Se, logit Sp) from the
+    means (mu1, mu2). Binomial normalizing constants are constant in ``b`` and
+    drop out (they cancel between optimizer and region).
+    """
+    eta1 = np.clip(mu1 + b1, -40.0, 40.0)            # logit Se
+    eta2 = np.clip(mu2 + b2, -40.0, 40.0)            # logit Sp
+    lse = tp * (-np.logaddexp(0.0, -eta1)) + fn * (-np.logaddexp(0.0, eta1))
+    lsp = tn * (-np.logaddexp(0.0, -eta2)) + fp * (-np.logaddexp(0.0, eta2))
+    quad = (Sinv[0, 0] * b1 * b1 + 2.0 * Sinv[0, 1] * b1 * b2
+            + Sinv[1, 1] * b2 * b2)
+    lpri = -0.5 * quad - np.log(2.0 * np.pi) - 0.5 * logdetS
+    return lse + lsp + lpri
+
+
+def _glmm_mode(tp, fn, fp, tn, mu1, mu2, Sinv, n_newton=8):
+    """Per-study Newton mode + precision (-Hessian) of the GLMM log-integrand.
+
+    Vectorized over the k studies. Returns (b1_m, b2_m, P) with ``P`` the
+    (k,2,2) precision at the mode used for the adaptive-GHQ whitening.
+    """
+    k = len(tp)
+    n1 = tp + fn
+    n0 = fp + tn
+    b1 = np.zeros(k)
+    b2 = np.zeros(k)
+    si11, si12, si22 = Sinv[0, 0], Sinv[0, 1], Sinv[1, 1]
+    w1 = np.zeros(k)
+    w2 = np.zeros(k)
+    for _ in range(n_newton):
+        se = 1.0 / (1.0 + np.exp(-np.clip(mu1 + b1, -40.0, 40.0)))
+        sp = 1.0 / (1.0 + np.exp(-np.clip(mu2 + b2, -40.0, 40.0)))
+        g1 = (tp - n1 * se) - (si11 * b1 + si12 * b2)
+        g2 = (tn - n0 * sp) - (si12 * b1 + si22 * b2)
+        w1 = n1 * se * (1.0 - se)
+        w2 = n0 * sp * (1.0 - sp)
+        h11 = -(w1 + si11)
+        h22 = -(w2 + si22)
+        h12 = -si12
+        det = h11 * h22 - h12 * h12
+        det = np.where(np.abs(det) < 1e-12, -1e-12, det)
+        db1 = -(h22 * g1 - h12 * g2) / det
+        db2 = -(-h12 * g1 + h11 * g2) / det
+        b1 = b1 + np.clip(db1, -4.0, 4.0)
+        b2 = b2 + np.clip(db2, -4.0, 4.0)
+    P = np.empty((k, 2, 2))
+    P[:, 0, 0] = w1 + si11
+    P[:, 1, 1] = w2 + si22
+    P[:, 0, 1] = P[:, 1, 0] = si12
+    return b1, b2, P
+
+
+def _glmm_negll(params, tp, fn, fp, tn, n1, n0, gh_x, gh_w):
+    """Negative exact-binomial bivariate-GLMM log-likelihood via adaptive GHQ.
+
+    params = [mu1, mu2, log_tau1, log_tau2, atanh_rho] -- the same model as the
+    Rutter-Gatsonis HSROC (Harbord 2007 reparameterization), fit by the exact
+    binomial likelihood (cf. Reitsma's within-study normal approximation).
+    """
+    from scipy.special import logsumexp
+    mu1, mu2 = params[0], params[1]
+    t1 = np.exp(np.clip(params[2], -8.0, 4.0))
+    t2 = np.exp(np.clip(params[3], -8.0, 4.0))
+    rho = np.tanh(np.clip(params[4], -8.0, 8.0))
+    c = rho * t1 * t2
+    Sigma = np.array([[t1 * t1, c], [c, t2 * t2]])
+    detS = Sigma[0, 0] * Sigma[1, 1] - Sigma[0, 1] ** 2
+    if detS <= 1e-18 or not np.isfinite(detS):
+        return 1e12
+    Sinv = np.array([[Sigma[1, 1], -Sigma[0, 1]],
+                     [-Sigma[0, 1], Sigma[0, 0]]]) / detS
+    logdetS = np.log(detS)
+    b1m, b2m, P = _glmm_mode(tp, fn, fp, tn, mu1, mu2, Sinv)
+    sign, logdetP = np.linalg.slogdet(P)
+    if np.any(sign <= 0) or not np.all(np.isfinite(logdetP)):
+        return 1e12
+    try:
+        Cov = np.linalg.inv(P)
+        L = np.linalg.cholesky(Cov)              # (k,2,2)
+    except np.linalg.LinAlgError:
+        return 1e12
+    rt2 = np.sqrt(2.0)
+    X1, X2 = np.meshgrid(gh_x, gh_x, indexing="ij")
+    x = np.column_stack([X1.ravel(), X2.ravel()])   # (Q,2)
+    logw = np.log(gh_w)
+    LW = (logw[:, None] + logw[None, :]).ravel()    # (Q,)
+    Lx = np.einsum("kij,qj->kqi", L, rt2 * x)        # (k,Q,2)
+    b1n = b1m[:, None] + Lx[:, :, 0]
+    b2n = b2m[:, None] + Lx[:, :, 1]
+    Qn = _glmm_logintegrand(b1n, b2n, tp[:, None], fn[:, None],
+                            fp[:, None], tn[:, None], mu1, mu2, Sinv, logdetS)
+    halflogdetCov = -0.5 * logdetP
+    xnorm2 = np.sum(x ** 2, axis=1)
+    terms = Qn + (LW + xnorm2)[None, :]
+    ll_i = (np.log(2.0) + halflogdetCov) + logsumexp(terms, axis=1)
+    if not np.all(np.isfinite(ll_i)):
+        return 1e12
+    return float(-np.sum(ll_i))
+
+
+def _num_hessian(f, x: np.ndarray, eps: float = 1e-4) -> np.ndarray:
+    """Central-difference Hessian of scalar f at x."""
+    n = len(x)
+    H = np.zeros((n, n))
+    h = eps * (1.0 + np.abs(x))
+    f0 = f(x)
+    for i in range(n):
+        for j in range(i, n):
+            if i == j:
+                xi = x.copy(); xi[i] = x[i] + h[i]; fpv = f(xi)
+                xi[i] = x[i] - h[i]; fmv = f(xi)
+                H[i, i] = (fpv - 2.0 * f0 + fmv) / (h[i] * h[i])
+            else:
+                xpp = x.copy(); xpp[i] += h[i]; xpp[j] += h[j]
+                xpm = x.copy(); xpm[i] += h[i]; xpm[j] -= h[j]
+                xmp = x.copy(); xmp[i] -= h[i]; xmp[j] += h[j]
+                xmm = x.copy(); xmm[i] -= h[i]; xmm[j] -= h[j]
+                H[i, j] = H[j, i] = (
+                    (f(xpp) - f(xpm) - f(xmp) + f(xmm)) / (4.0 * h[i] * h[j]))
+    return H
+
+
+def hsroc(studies: DTAStudies, alpha: float = 0.05) -> dict:
+    """HSROC (Rutter-Gatsonis 2001) summary operating point + confidence region.
+
+    The HSROC model is the bivariate generalized linear mixed model (Harbord
+    2007 reparameterization) fit by the **exact binomial** likelihood, integrated
+    over the study random effects by adaptive (Laplace-centred) Gauss-Hermite
+    quadrature. It is the second standard DTA field-to-beat alongside the
+    normal-normal Reitsma model and differs from it most where the within-study
+    normal approximation is poor -- sparse / zero-cell tables and small per-arm
+    n. The fit is parameterized as ``(mu1, mu2, log tau1, log tau2, atanh rho)``
+    and warm-started from the normal-normal fit (essentially at the GLMM
+    optimum), so a single local optimization converges; the summary point is
+    ``(mu1, mu2)`` and its covariance is the (mu1, mu2) block of the inverse
+    observed information. Reported HSROC shape ``beta = log(tau2/tau1)``.
+    """
+    k = studies.k
+    if k < 2:
+        return _fail()
+    tp = np.asarray(studies.tp, float); fn = np.asarray(studies.fn, float)
+    fp = np.asarray(studies.fp, float); tn = np.asarray(studies.tn, float)
+    n1 = tp + fn
+    n0 = tn + fp
+    gh_x, gh_w = np.polynomial.hermite.hermgauss(_GH_NODES)
+
+    def f(p):
+        return _glmm_negll(p, tp, fn, fp, tn, n1, n0, gh_x, gh_w)
+
+    # Warm start: the normal-normal Reitsma fit sits essentially at the exact-
+    # binomial GLMM optimum -> one local optimization suffices.
+    Y, S = _stack(studies)
+    Sig0, ok0 = _fit_sigma(Y, S, fix_rho0=False)
+    if ok0 and Sig0 is not None:
+        try:
+            M0, _ = _gls_point_cov(Y, S, Sig0)
+        except np.linalg.LinAlgError:
+            M0 = np.array([np.mean(studies.y1), np.mean(studies.y2)])
+        t1_0 = np.sqrt(max(Sig0[0, 0], 1e-3))
+        t2_0 = np.sqrt(max(Sig0[1, 1], 1e-3))
+        rho0 = float(np.clip(Sig0[0, 1] / (t1_0 * t2_0), -0.95, 0.95))
+        p0 = np.array([M0[0], M0[1], np.log(t1_0), np.log(t2_0),
+                       np.arctanh(rho0)])
+    else:
+        p0 = np.array([float(np.mean(studies.y1)), float(np.mean(studies.y2)),
+                       np.log(0.5), np.log(0.5), 0.0])
+
+    best = None
+    for x0 in (p0, np.array([p0[0], p0[1], np.log(0.8), np.log(0.8), 0.0])):
+        try:
+            r1 = minimize(f, x0, method="Nelder-Mead",
+                          options={"xatol": 1e-7, "fatol": 1e-9,
+                                   "maxiter": 4000})
+            r2 = minimize(f, r1.x, method="L-BFGS-B",
+                          bounds=[(-20, 20), (-20, 20), (-7, 4),
+                                  (-7, 4), (-6, 6)],
+                          options={"maxiter": 300, "ftol": 1e-12, "gtol": 1e-8})
+            res = r2 if r2.fun <= r1.fun else r1
+        except Exception:
+            continue
+        if best is None or res.fun < best.fun:
+            best = res
+    if best is None or not np.isfinite(best.fun) or best.fun >= 1e11:
+        return _fail()
+
+    phat = best.x
+    M = np.array([phat[0], phat[1]])
+    try:
+        H = _num_hessian(f, phat)
+        C = np.linalg.inv(H)
+        V = C[np.ix_([0, 1], [0, 1])]
+        V = 0.5 * (V + V.T)
+        if (not np.all(np.isfinite(V))) or np.linalg.det(V) <= 0:
+            return _fail()
+    except np.linalg.LinAlgError:
+        return _fail()
+    t1 = float(np.exp(phat[2])); t2 = float(np.exp(phat[3]))
+    rho = float(np.tanh(phat[4]))
+    Sigma_report = np.array([[t1 * t1, rho * t1 * t2],
+                             [rho * t1 * t2, t2 * t2]])
+    return _summarize(M, V, Sigma_report, alpha, {
+        "method": "hsroc",
+        "hsroc_beta": float(np.log(t2 / t1)),
+        "hsroc_tau1": t1, "hsroc_tau2": t2, "hsroc_rho": rho,
+    })
+
+
 # Convenience dispatcher mirroring the univariate `_run_method` shape.
 _DTA_METHODS = {
     "reitsma": reitsma,
+    "reitsma_reml": reitsma_reml,
     "reitsma_indep": reitsma_indep,
     "sep_univariate": sep_univariate,
+    "hsroc": hsroc,
     "adaptshrink_dta": adaptshrink_dta,
 }
 

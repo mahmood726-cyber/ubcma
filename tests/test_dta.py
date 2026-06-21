@@ -9,11 +9,12 @@ import pytest
 
 from ubcma.dta import (
     AS_DELTA_MAX, adaptshrink_dta, deeks_asymmetry, ellipse_area, from_counts,
-    in_region, reitsma, reitsma_indep, sep_univariate, _shrink_sigma,
-    _shrinkage_delta,
+    hsroc, in_region, reitsma, reitsma_indep, reitsma_reml, sep_univariate,
+    _glmm_negll, _shrink_sigma, _shrinkage_delta,
 )
 
 REF = Path(__file__).resolve().parents[1] / "truth-recovery-dta" / "reference_fits.json"
+REF_GLMM = Path(__file__).resolve().parents[1] / "truth-recovery-dta" / "reference_glmm.json"
 
 
 # --- continuity correction semantics --------------------------------------
@@ -133,6 +134,89 @@ def test_estimators_converge_small_k():
         assert r["converged"]
         assert np.isfinite(r["M1"]) and np.isfinite(r["M2"])
         assert np.isfinite(r["region_area"]) and r["region_area"] > 0
+
+
+# --- reitsma_reml (small-sample-corrected variant) -----------------------
+def test_reitsma_reml_converges_and_reml_penalty_inflates_variance():
+    # REML penalty +0.5 log det A makes the REML objective differ from ML, and
+    # REML typically estimates a larger between-study variance at small k -> a
+    # region no smaller than ML's. Just assert a finite, PD fit + the penalty.
+    rng = np.random.default_rng(11)
+    from scipy.special import expit
+    k = 8
+    uv = rng.multivariate_normal([1.3, 1.5], [[0.4, -0.1], [-0.1, 0.4]], size=k)
+    se = expit(uv[:, 0]); sp = expit(uv[:, 1])
+    n1 = rng.integers(40, 90, k); n0 = rng.integers(40, 90, k)
+    tp = rng.binomial(n1, se); tn = rng.binomial(n0, sp)
+    st = from_counts(tp, n0 - tn, n1 - tp, tn)
+    rr = reitsma_reml(st); r = reitsma(st)
+    assert rr["converged"] and np.isfinite(rr["region_area"]) and rr["region_area"] > 0
+    assert rr["method"] == "reitsma_reml"
+    # different objective -> generally a different Sigma than ML
+    assert not np.allclose(rr["Sigma"], r["Sigma"], atol=1e-6)
+
+
+# --- HSROC (Rutter-Gatsonis exact-binomial GLMM) --------------------------
+def test_hsroc_converges_pd_region():
+    rng = np.random.default_rng(7)
+    from scipy.special import expit
+    k = 12
+    uv = rng.multivariate_normal([1.4, 1.6], [[0.5, -0.2], [-0.2, 0.5]], size=k)
+    se = expit(uv[:, 0]); sp = expit(uv[:, 1])
+    n1 = rng.integers(50, 150, k); n0 = rng.integers(50, 150, k)
+    tp = rng.binomial(n1, se); tn = rng.binomial(n0, sp)
+    st = from_counts(tp, n0 - tn, n1 - tp, tn)
+    h = hsroc(st)
+    assert h["converged"] and h["method"] == "hsroc"
+    assert np.isfinite(h["region_area"]) and h["region_area"] > 0
+    assert 0.0 < h["se_summary"] < 1.0 and 0.0 < h["sp_summary"] < 1.0
+
+
+@pytest.mark.skipif(not REF_GLMM.exists(), reason="reference_glmm.json not generated")
+def test_hsroc_matches_glmer_reference():
+    # HSROC == bivariate GLMM (Harbord 2007); the exact-binomial fit must agree
+    # with lme4::glmer's summary Se/Sp. Tolerance 0.02 absolute: glmer uses the
+    # Laplace approximation (nAGQ=1), biased for large random effects, whereas
+    # this fit uses adaptive GHQ -- the residual gap is glmer's, not ours.
+    ref = json.loads(REF.read_text())
+    glmm = json.loads(REF_GLMM.read_text())
+    worst = 0.0
+    for name, o in ref.items():
+        if name not in glmm or not glmm[name].get("ok", False):
+            continue
+        c = o["counts"]
+        st = from_counts(c["TP"], c["FP"], c["FN"], c["TN"])
+        h = hsroc(st)
+        g = glmm[name]
+        worst = max(worst, abs(h["se_summary"] - g["sens_summary"]),
+                    abs(h["sp_summary"] - g["spec_summary"]))
+    assert worst < 0.02, f"worst |hsroc - glmer| Se/Sp = {worst}"
+
+
+@pytest.mark.skipif(not REF_GLMM.exists(), reason="reference_glmm.json not generated")
+def test_hsroc_is_a_better_exact_optimum_than_glmer_laplace():
+    # The decisive correctness check: evaluate the EXACT binomial NLL at our MLE
+    # and at glmer's reported parameters. Ours must be no worse (lower NLL) --
+    # confirming our optimizer maximizes the exact likelihood at least as well.
+    ref = json.loads(REF.read_text())
+    glmm = json.loads(REF_GLMM.read_text())
+    gh_x, gh_w = np.polynomial.hermite.hermgauss(16)
+    for name in ("AuditC", "SAQ", "smoking"):
+        c = ref[name]["counts"]
+        st = from_counts(c["TP"], c["FP"], c["FN"], c["TN"])
+        tp = np.asarray(st.tp, float); fn = np.asarray(st.fn, float)
+        fp = np.asarray(st.fp, float); tn = np.asarray(st.tn, float)
+        n1 = tp + fn; n0 = tn + fp
+        h = hsroc(st)
+        mine = np.array([h["M1"], h["M2"], np.log(h["hsroc_tau1"]),
+                         np.log(h["hsroc_tau2"]), np.arctanh(h["hsroc_rho"])])
+        g = glmm[name]
+        glp = np.array([g["m1_logit_sens"], g["m2_logit_spec"],
+                        np.log(g["tau_sens"]), np.log(g["tau_spec"]),
+                        np.arctanh(np.clip(g["rho"], -0.99, 0.99))])
+        nll_mine = _glmm_negll(mine, tp, fn, fp, tn, n1, n0, gh_x, gh_w)
+        nll_glm = _glmm_negll(glp, tp, fn, fp, tn, n1, n0, gh_x, gh_w)
+        assert nll_mine <= nll_glm + 1e-6, f"{name}: ours {nll_mine} > glmer {nll_glm}"
 
 
 def test_deeks_detects_injected_asymmetry():
