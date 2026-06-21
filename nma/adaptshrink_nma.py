@@ -38,8 +38,15 @@ from typing import Sequence
 import numpy as np
 
 from nma_core import Comparison, NMAFit, fit_nma, _study_blocks
+from smallstudy_nma import network_asymmetry, network_smallstudy_league
+from inconsistency_nma import inconsistency_factor
 
 _EPS = 1e-12
+
+# Two-sided gate level for the network-funnel asymmetry test (component B).
+ASYM_GATE_P = 0.05
+# Gate level for the design-by-treatment inconsistency test (component C).
+INCONS_GATE_P = 0.10
 
 
 def _dl_univariate(y: np.ndarray, v: np.ndarray) -> float:
@@ -140,4 +147,98 @@ def adaptshrink_nma(comps: Sequence[Comparison] | Sequence[tuple],
     fit.meta["nu"] = nu
     fit.meta["kappa"] = kappa
     fit.meta["tau2_map"] = {tuple(sorted(k)): v for k, v in tau2_map.items()}
+    return fit
+
+
+def adaptshrink_nma_auto(comps: Sequence[Comparison] | Sequence[tuple],
+                         reference: str | None = None,
+                         nu: float = 4.0,
+                         asym_gate_p: float = ASYM_GATE_P,
+                         incons_gate_p: float = INCONS_GATE_P,
+                         smallstudy_kind: str = "peese",
+                         enable_b: bool = True,
+                         enable_c: bool = True) -> NMAFit:
+    """Integrated AdaptShrink-NMA (components A + B + C with gates).
+
+    Composition (each later component is additive and gated, so the estimator
+    reduces to the netmeta field default on a clean, consistent, symmetric
+    network):
+
+      A (always)  adaptive heterogeneity-structure shrinkage -> tau2_map; sets
+                  the random-effects block weights (milestone-1: nearer-nominal,
+                  more uniform deployable coverage; no harm under homogeneity).
+      B (gated)   if the network-funnel asymmetry test rejects (PET-slope two-
+                  sided p < asym_gate_p), blend the league toward the PEESE
+                  small-study-corrected league by an SNR shrink
+                  lambda = beta^2 / (beta^2 + Var(beta)). Full correction when the
+                  slope is large and well-estimated; ~none when marginal. This is
+                  the only component that moves the POINT estimate -> the matched-
+                  coverage efficiency win in selection-biased networks.
+      C (gated)   if the design-by-treatment inconsistency test rejects (p <
+                  incons_gate_p), inflate seTE by phi = sqrt(max(1, Q_inc/df_inc))
+                  -> restores deployable coverage when direct/indirect conflict.
+
+    The switch is data-driven: tau-hat & geometry drive A's per-comparison
+    shrinkage, the asymmetry test gates B, the inconsistency test gates C. All
+    gate decisions are returned in `fit.meta` for transparency.
+    """
+    comps = [c if isinstance(c, Comparison) else Comparison(*c) for c in comps]
+
+    # ---- A: heterogeneity-structure shrinkage sets the RE weights -------------
+    tau2_map = compute_shrunk_tau2(comps, nu=nu)
+    fitA = fit_nma(comps, reference=reference, random=True, tau2_map=tau2_map)
+    ref = fitA.reference
+    fit_common = fit_nma(comps, reference=ref, random=True)
+
+    info = {"nu": nu, "tau2_map": {tuple(sorted(k)): v for k, v in tau2_map.items()},
+            "b_fired": False, "c_fired": False, "lambda_b": 0.0, "phi_c": 1.0}
+
+    # ---- regime switch for the POINT-estimate base ---------------------------
+    # B's win regime (selection in dense/well-powered nets) is DISJOINT from A's
+    # (sparse heterogeneous-tau). On the homogeneous, data-rich networks where
+    # selection bias is correctable, A's per-comparison tau^2 only injects
+    # point-estimate noise. So when the asymmetry gate fires we de-bias the
+    # field-default common-DL point; otherwise we keep A's calibrated league.
+    asym = network_asymmetry(comps, reference=ref, tau2_map=None) if enable_b else None
+    b_gate = enable_b and asym["p"] < asym_gate_p
+    if b_gate:
+        TE = fit_common.TE.copy()
+        seTE = fit_common.seTE.copy()
+    else:
+        TE = fitA.TE.copy()
+        seTE = fitA.seTE.copy()
+
+    # ---- B: asymmetry-gated, SNR-shrunk small-study point correction ----------
+    if b_gate:
+        info["asym_p"] = asym["p"]
+        info["asym_beta"] = asym["beta"]
+        fitB = network_smallstudy_league(comps, reference=ref,
+                                         kind=smallstudy_kind, tau2_map=None)
+        beta = fitB.meta["beta"]
+        var_beta = fitB.meta["var_beta"]
+        lam = float(beta ** 2 / (beta ** 2 + var_beta)) if var_beta > _EPS else 0.0
+        TE = (1.0 - lam) * TE + lam * fitB.TE
+        seTE = (1.0 - lam) * seTE + lam * fitB.seTE
+        info["b_fired"] = True
+        info["lambda_b"] = lam
+    elif enable_b:
+        info["asym_p"] = asym["p"]
+        info["asym_beta"] = asym["beta"]
+
+    # ---- C: inconsistency-gated interval inflation ---------------------------
+    if enable_c:
+        inc = inconsistency_factor(comps, alpha_gate=incons_gate_p)
+        info["inc_p"] = inc["p_inc"]
+        info["df_inc"] = inc["df_inc"]
+        if inc["fired"]:
+            seTE = seTE * inc["phi"]
+            info["c_fired"] = True
+            info["phi_c"] = inc["phi"]
+
+    fit = NMAFit(
+        treatments=fitA.treatments, theta=fitA.theta, Lplus=fitA.Lplus,
+        TE=TE, seTE=seTE, tau2=fitA.tau2, tau=fitA.tau, Q=fitA.Q, df_Q=fitA.df_Q,
+        I2=fitA.I2, n=fitA.n, k=fitA.k, m=fitA.m, reference=ref, random=True,
+        meta={"treatments": fitA.treatments, "tidx": fitA.meta["tidx"], **info},
+    )
     return fit

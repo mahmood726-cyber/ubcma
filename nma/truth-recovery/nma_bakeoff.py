@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # nma/
 import nma_sim as S  # noqa: E402
 from nma_core import fit_nma, p_score  # noqa: E402
-from adaptshrink_nma import adaptshrink_nma  # noqa: E402
+from adaptshrink_nma import adaptshrink_nma, adaptshrink_nma_auto  # noqa: E402
 
 BASE_SEED = 20260621
 NU_DEFAULT = 4.0
@@ -65,6 +65,32 @@ CELLS = {
     "sparse_homog": S.NetSpec(geom="loop", n=6, studies_per_comp=(1, 2),
                               hetero="homogeneous", multiarm_frac=0.0,
                               selection="none"),
+    # --- selection axis (component B): dense, well-powered nets where the
+    #     small-study bias dominates sampling variance -> point-estimate win. ---
+    "select_strong_dense": S.NetSpec(geom="full", n=5, studies_per_comp=(8, 15),
+                                     hetero="homogeneous", tau_homog=0.10,
+                                     selection="strong"),
+    # larger dense net: more contrasts -> lower-variance MCIW0 advantage, the
+    # regime where B's point de-biasing is a bootstrap-robust efficiency win.
+    "select_strong_dense_n6": S.NetSpec(geom="full", n=6, studies_per_comp=(8, 15),
+                                        hetero="homogeneous", tau_homog=0.10,
+                                        selection="strong"),
+    "select_moderate_dense": S.NetSpec(geom="full", n=5, studies_per_comp=(8, 15),
+                                       hetero="homogeneous", tau_homog=0.10,
+                                       selection="moderate"),
+    "select_strong_sparse": S.NetSpec(geom="full", n=5, studies_per_comp=(3, 5),
+                                      hetero="homogeneous", tau_homog=0.10,
+                                      selection="strong"),
+    # --- inconsistency axis (component C): loops where direct/indirect conflict.
+    "incons_full": S.NetSpec(geom="full", n=5, studies_per_comp=(2, 4),
+                             hetero="homogeneous", tau_homog=0.10,
+                             inconsistency=0.30),
+    "incons_loop": S.NetSpec(geom="loop", n=6, studies_per_comp=(2, 4),
+                             hetero="homogeneous", tau_homog=0.10,
+                             inconsistency=0.30),
+    "consistent_full": S.NetSpec(geom="full", n=5, studies_per_comp=(2, 4),
+                                 hetero="homogeneous", tau_homog=0.10,
+                                 inconsistency=0.0),
 }
 
 
@@ -73,6 +99,7 @@ def _fit_methods(comps, nu):
     out["common_DL"] = fit_nma(comps, random=True)
     out["comp_specific"] = adaptshrink_nma(comps, nu=0.0)
     out["adaptshrink"] = adaptshrink_nma(comps, nu=nu)
+    out["adaptshrink_auto"] = adaptshrink_nma_auto(comps, nu=nu)
     return out
 
 

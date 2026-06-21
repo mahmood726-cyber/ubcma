@@ -12,9 +12,10 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent / "truth-recovery"))
 
-from nma_core import fit_nma  # noqa: E402
+from nma_core import fit_nma, p_score  # noqa: E402
 from smallstudy_nma import network_smallstudy_league, network_asymmetry  # noqa: E402
 from inconsistency_nma import q_decomposition, inconsistency_factor  # noqa: E402
+from adaptshrink_nma import adaptshrink_nma_auto  # noqa: E402
 import nma_sim as S  # noqa: E402
 
 Z975 = 1.959963984540054
@@ -128,3 +129,56 @@ def test_inconsistency_inflation_restores_coverage():
             cov_phi.append(err <= Z975 * phi * se)
     assert np.mean(phis) > 1.2                       # fires and inflates
     assert np.mean(cov_phi) > np.mean(cov_dl) + 0.05  # materially better coverage
+
+
+# -------------------------------------------------------- Integrated A+B+C
+
+def test_auto_does_no_harm_on_clean_network():
+    """Clean, consistent, symmetric network: gates rarely fire and the auto
+    estimator stays near the field default's deployable coverage."""
+    spec = S.NetSpec(geom="full", n=5, studies_per_comp=(3, 5),
+                     hetero="homogeneous", tau_homog=0.1,
+                     selection="none", inconsistency=0.0)
+    b_fire = c_fire = 0
+    cov = []
+    tot = 0
+    for r in range(200):
+        comps, d_true, _ = S.generate(spec, seed=100 + r)
+        if len({c.t1 for c in comps} | {c.t2 for c in comps}) < 5:
+            continue
+        tot += 1
+        au = adaptshrink_nma_auto(comps)
+        b_fire += au.meta["b_fired"]
+        c_fire += au.meta["c_fired"]
+        tidx = au.meta["tidx"]
+        for t in range(1, 5):
+            se = au.seTE[tidx[str(t)], tidx["0"]]
+            cov.append(abs(d_true[t] - au.TE[tidx[str(t)], tidx["0"]]) <= Z975 * se)
+    assert b_fire / tot < 0.12 and c_fire / tot < 0.12      # ~nominal false fires
+    assert np.mean(cov) > 0.90                              # no coverage damage
+    # P-score still produces a valid ranking on the integrated league
+    ps = p_score(au)
+    assert len(ps) == 5 and all(0.0 <= v <= 1.0 for v in ps.values())
+
+
+def test_auto_debiases_under_dense_strong_selection():
+    """Integrated estimator reduces bias and improves coverage vs the field
+    default in a dense well-powered net under strong selection (B's regime)."""
+    spec = S.NetSpec(geom="full", n=6, studies_per_comp=(8, 15),
+                     hetero="homogeneous", tau_homog=0.1, selection="strong")
+    bias_dl, bias_au, cov_dl, cov_au = [], [], [], []
+    for r in range(200):
+        comps, d_true, _ = S.generate(spec, seed=10000 + r)
+        if len({c.t1 for c in comps} | {c.t2 for c in comps}) < 6:
+            continue
+        dl = fit_nma(comps, random=True)
+        au = adaptshrink_nma_auto(comps)
+        td, ta = dl.meta["tidx"], au.meta["tidx"]
+        for t in range(1, 6):
+            tl = str(t)
+            bias_dl.append(dl.TE[td[tl], td["0"]] - d_true[t])
+            bias_au.append(au.TE[ta[tl], ta["0"]] - d_true[t])
+            cov_dl.append(abs(dl.TE[td[tl], td["0"]] - d_true[t]) <= Z975 * dl.seTE[td[tl], td["0"]])
+            cov_au.append(abs(au.TE[ta[tl], ta["0"]] - d_true[t]) <= Z975 * au.seTE[ta[tl], ta["0"]])
+    assert abs(np.mean(bias_au)) < abs(np.mean(bias_dl)) * 0.75   # bias reduced
+    assert np.mean(cov_au) > np.mean(cov_dl) + 0.03              # coverage improved
