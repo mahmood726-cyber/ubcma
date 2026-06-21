@@ -29,14 +29,20 @@ The hardest parts — multi-arm covariance reconstruction (arm variances solved
 from pairwise contrast variances; +τ²/2 per shared arm) and the network
 generalized-DL τ² — match netmeta exactly.
 
-**Independent cross-implementation.** Per the verification policy, Codex
-re-derived the multi-arm NMA from `nma/verify/VERIFY_SPEC.md` *without reading*
-`nma_core.py` (independent GLS + Moore-Penrose construction) and reproduced the
-netmeta league tables to **~5e-11 on both networks** (`nma/verify/codex_mahmood_RESULT.md`).
-Three independent routes (R netmeta, this engine, Codex's independent Python) thus
-agree to machine precision. (The second Codex seat and `agy` were blocked by
-Windows sandbox-spawn / CLI-print environment issues, not by any disagreement;
-retry in progress.)
+**Independent cross-implementation.** Per the verification policy, **both Codex
+seats** re-derived the multi-arm NMA from `nma/verify/VERIFY_SPEC.md` *without
+reading* `nma_core.py` (independent GLS + Moore-Penrose constructions) and each
+reproduced the netmeta random-effects league tables to **~5e-11 on both
+networks**:
+- seat `mahmood726` (`nma/verify/codex_mahmood_RESULT.md`): smoking TE 4.999e-11 /
+  seTE 4.553e-11; senn2013 TE 4.786e-11 / seTE 4.804e-11.
+- seat `noreenahmad01` (`nma/verify/codex_noreen_run2.log`): smoking TE 4.999e-11 /
+  seTE 4.553e-11; senn2013 TE 4.786e-11 / seTE 4.804e-11 — identical to 1e-13.
+
+Four independent routes (R netmeta, this engine, and two independent Codex
+re-implementations) thus agree to machine precision. (`agy` was blocked by a
+Windows CLI `--print` timeout — an environment issue, not a disagreement; the
+first Codex seat also needed the sandbox bypass to run shell commands on Windows.)
 
 ---
 
