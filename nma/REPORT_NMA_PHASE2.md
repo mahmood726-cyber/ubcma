@@ -158,13 +158,20 @@ Deployable coverage (closer to 0.95 better) and MCIW0, `adaptshrink_auto` vs fie
 | R netmeta 3.6-1 | engine league (common+random), τ², Q, P-score | ~1e-11 (milestone 1) |
 | R netmeta `decomp.design` | **C: Q_total / Q_het / Q_inc + df**, both multi-arm nets | **~1e-13, df exact** (`test_decomp_parity.py`) |
 | this engine | **B: no-covariate league == netmeta** | ~1e-15 (`test_components.py`) |
-| Codex (independent re-impl) | B augmented-WLS + C decomposition from spec | see `nma/verify/codex_*_phase2_RESULT.md` |
-| agy (independent re-impl) | same | see `nma/verify/agy_phase2_RESULT.md` |
+| Codex seat 1 (independent re-impl) | B + C from spec | **BLOCKED**: both Codex seats expired (401); needs interactive re-auth |
+| agy/Gemini (independent re-impl) | B + C from spec | **BLOCKED**: driver returned PLANNER\_RESPONSE only (agent mode stall on Pro model) |
+| Claude Sonnet 4.6 (independent re-impl) | **B: B1 max\|TE diff\|=4.8e-11, B2 beta/z/p matched, C Q\_inc diff<1e-13** | **PASS** — see `nma/verify/claude_phase2_RESULT.md` |
 
 Independent re-derivations work from `nma/verify/VERIFY_SPEC_PHASE2.md` without
 reading the component sources. The component math is additionally pinned by tests:
 `nma/test_components.py` (10), `nma/reference/test_decomp_parity.py` (2),
 `nma/test_nma.py` + parity (9) — **21 passing**.
+
+**Status (2026-06-25):** Cross-engine corroboration is partially complete. The Claude
+re-implementation confirms B + C math to machine precision. Codex Phase-2 corroboration
+is pending re-auth (`CODEX_HOME=~/.codex codex` interactive login needed for both seats).
+agy Phase-2 corroboration needs a non-agent invocation (flash model with direct math
+query, not code-generation request).
 
 ---
 
