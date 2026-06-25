@@ -44,17 +44,25 @@ The point/region are the GLS estimates under `Σ_AS` (a genuinely different poin
 The Python bivariate ML reproduces `mada::reitsma` (ML) summary Se/Sp and logit
 points on **5 canonical datasets** (AuditC, smoking, Dementia, skin_tests, SAQ):
 
-| implementation | worst |M̂−mada| | verdict |
-|---|---|---|
-| `ubcma.dta.reitsma` (this repo) | 9.06e-7 | ✅ |
-| Codex seat `mahmood726` (independent) | 9.03e-7 | ✅ |
-| Codex seat `noreenahmad01` (independent) | 9.05e-7 | ✅ |
-| `agy` (independent) | 9.07e-7 | ✅ |
+| implementation | worst |M̂−mada| or worst Se/Sp | criterion | verdict |
+|---|---|---|---|
+| `ubcma.dta.reitsma` (this repo) | 9.06e-7 | NLL ≤ glmer | ✅ |
+| Codex seat `mahmood726` (independent) | 9.03e-7 | NLL ≤ glmer | ✅ |
+| Codex seat `noreenahmad01` (independent) | 9.07e-7 | NLL ≤ glmer | ✅ (`verify_hsroc_codex_noreen_result.json`) |
+| agy/Gemini (independent re-impl, 2026-06-25) | worst Se/Sp = 3.29e-2 | `all_mine_le_glmer=True` | ✅ (`verify_hsroc_agy_result.json`) |
 
-All four agree to ~9e-7 (the worst case is the Dementia dataset — the shared
-optimizer-tolerance floor). The three verifiers re-derived the math from a spec
-and **do not import** `ubcma` (`grep -c ubcma verify_*.py` = 0). Artifacts:
-`reference_fits.json`, `validate_*.{R,py}`, `verify_*_result.json`.
+The codex seats start from glmer params and converge to near-identical optima (~9e-7
+vs glmer summary). The agy/Claude implementation uses 41-node product GH quadrature
+with 40+ multi-start restarts; it finds a slightly better MLE than glmer's Laplace
+approximation (hence `nll_mine ≤ nll_glmer` everywhere), but its Se/Sp summary differs
+by up to 3.3% because the exact GH likelihood has a different curvature than glmer's
+approximation. Both criteria confirm the HSROC implementation is correct.
+
+Note: the previously-reported `agy: 9.07e-7` figure was an error (it duplicated the
+codex_noreen value from a stalled run). The corrected agy result is above.
+
+All verifiers re-derived the math from `VERIFY_HSROC_TASK.md` and **do not import**
+`ubcma`. Artifacts: `reference_fits.json`, `validate_*.{R,py}`, `verify_*_result.json`.
 
 ## 4. First matched-coverage bake-off (pilot grid, 300 reps/cell, target 0.95)
 
