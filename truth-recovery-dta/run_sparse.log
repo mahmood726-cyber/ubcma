@@ -1,0 +1,374 @@
+[dta] cell=k6_p0.1_sparse strength=none reps=600 ...
+[dta] cell=k6_p0.1_sparse strength=moderate reps=600 ...
+[dta] cell=k6_p0.1_sparse strength=strong reps=600 ...
+[dta] cell=k6_p0.3_sparse strength=none reps=600 ...
+[dta] cell=k6_p0.3_sparse strength=moderate reps=600 ...
+[dta] cell=k6_p0.3_sparse strength=strong reps=600 ...
+[dta] cell=k10_p0.1_sparse strength=none reps=600 ...
+[dta] cell=k10_p0.1_sparse strength=moderate reps=600 ...
+[dta] cell=k10_p0.1_sparse strength=strong reps=600 ...
+[dta] cell=k10_p0.3_sparse strength=none reps=600 ...
+[dta] cell=k10_p0.3_sparse strength=moderate reps=600 ...
+[dta] cell=k10_p0.3_sparse strength=strong reps=600 ...
+[dta] cell=k20_p0.1_sparse strength=none reps=600 ...
+[dta] cell=k20_p0.1_sparse strength=moderate reps=600 ...
+[dta] cell=k20_p0.1_sparse strength=strong reps=600 ...
+[dta] cell=k20_p0.3_sparse strength=none reps=600 ...
+[dta] cell=k20_p0.3_sparse strength=moderate reps=600 ...
+[dta] cell=k20_p0.3_sparse strength=strong reps=600 ...
+
+# AdaptShrink-DTA matched-coverage bake-off (grid=sparse, target=0.95)
+MCIW0-2D area = matched-coverage region AREA (PRIMARY; lower=better).
+raw_cov/raw_area = deployable (kappa=1). HC = reitsma.
+
+-- cell=k10_p0.1_sparse strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.266   0.044   0.499    0.828   1.9009   0.927   2.5063  0.937  <-- smaller than HC
+reitsma_reml      -0.392  -0.050   0.564    0.765   2.4771   0.933   3.0516  0.947  <-- smaller than HC
+reitsma           -0.397  -0.063   0.569    0.733   2.6835   0.947   3.3050  0.953
+sep_univariate    -0.437  -0.058   0.599    0.730   2.7577   0.943   3.4629  0.960
+adaptshrink_dta   -0.414  -0.068   0.582    0.737   2.8138   0.943   3.1773  0.957
+reitsma_indep     -0.434  -0.071   0.599    0.688   2.8783   0.950   3.6751  0.960
+
+-- cell=k10_p0.1_sparse strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.436  -0.072   0.601    0.663   2.6219   0.927   4.0842  0.977  <-- smaller than HC
+reitsma_reml      -0.561  -0.156   0.698    0.573   3.2846   0.897   4.4032  0.967  <-- smaller than HC
+reitsma           -0.564  -0.167   0.704    0.540   3.3621   0.897   4.4985  0.970
+adaptshrink_dta   -0.580  -0.172   0.718    0.557   3.6586   0.910   4.4845  0.970
+reitsma_indep     -0.598  -0.175   0.736    0.513   3.9660   0.930   4.4510  0.967
+sep_univariate    -0.597  -0.165   0.733    0.533   3.9717   0.940   4.4622  0.970
+
+-- cell=k10_p0.1_sparse strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.233   0.058   0.474    0.862   1.5589   0.907   2.7087  0.943  <-- smaller than HC
+reitsma           -0.238   0.042   0.476    0.842   1.5936   0.907   2.9181  0.950
+hsroc             -0.108   0.152   0.466    0.858   1.7506   0.907   2.7402  0.943
+adaptshrink_dta   -0.258   0.037   0.488    0.840   1.7717   0.917   2.8778  0.940
+sep_univariate    -0.286   0.048   0.511    0.830   1.7983   0.907   2.9001  0.927
+reitsma_indep     -0.284   0.032   0.507    0.808   1.8011   0.900   3.2429  0.947
+
+-- cell=k10_p0.3_sparse strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.060   0.030   0.410    0.843   1.4228   0.927   1.9253  0.950  <-- smaller than HC
+reitsma_reml      -0.185  -0.070   0.434    0.785   1.6451   0.940   2.2231  0.927  <-- smaller than HC
+sep_univariate    -0.229  -0.086   0.452    0.787   1.6917   0.927   2.2689  0.940  <-- smaller than HC
+reitsma           -0.195  -0.082   0.441    0.748   1.7087   0.940   2.4298  0.947
+adaptshrink_dta   -0.212  -0.090   0.448    0.765   1.7273   0.933   2.3593  0.933
+reitsma_indep     -0.236  -0.100   0.462    0.720   1.8988   0.943   2.6054  0.947
+
+-- cell=k10_p0.3_sparse strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.204  -0.090   0.446    0.720   1.7942   0.933   2.5966  0.953  <-- smaller than HC
+reitsma_reml      -0.322  -0.181   0.522    0.607   2.5438   0.933   3.4474  0.960  <-- smaller than HC
+reitsma           -0.332  -0.191   0.532    0.570   2.6191   0.933   3.5744  0.953
+adaptshrink_dta   -0.348  -0.199   0.545    0.625   2.8101   0.930   3.1897  0.950
+sep_univariate    -0.360  -0.197   0.553    0.642   2.9786   0.950   3.4260  0.947
+reitsma_indep     -0.369  -0.208   0.565    0.570   3.2380   0.957   3.9059  0.957
+
+-- cell=k10_p0.3_sparse strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.109   0.008   0.413    0.807   1.3447   0.910   2.3757  0.940  <-- smaller than HC
+reitsma           -0.057   0.032   0.407    0.842   1.3597   0.923   1.9182  0.920
+reitsma_reml      -0.042   0.048   0.407    0.873   1.3623   0.930   1.9357  0.920
+adaptshrink_dta   -0.078   0.021   0.406    0.843   1.3926   0.923   2.3191  0.943
+sep_univariate    -0.105   0.023   0.412    0.828   1.4085   0.913   2.1384  0.933
+hsroc              0.078   0.146   0.455    0.838   1.7254   0.910   2.0109  0.940
+
+-- cell=k20_p0.1_sparse strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.248   0.053   0.386    0.820   1.2029   0.960   1.3146  0.953  <-- smaller than HC
+reitsma_reml      -0.398  -0.044   0.486    0.640   1.5773   0.937   1.5678  0.917  <-- smaller than HC
+reitsma           -0.401  -0.050   0.489    0.628   1.5826   0.937   1.5868  0.917
+adaptshrink_dta   -0.416  -0.054   0.502    0.635   1.7240   0.957   1.6244  0.937
+sep_univariate    -0.451  -0.051   0.536    0.528   1.8589   0.950   1.9935  0.933
+reitsma_indep     -0.441  -0.058   0.527    0.560   1.8634   0.953   1.9348  0.953
+
+-- cell=k20_p0.1_sparse strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.428  -0.071   0.528    0.507   1.8940   0.957   2.1746  0.947  <-- smaller than HC
+reitsma_reml      -0.566  -0.163   0.653    0.277   2.7114   0.957   2.6259  0.950  <-- smaller than HC
+reitsma           -0.568  -0.168   0.656    0.260   2.7392   0.957   2.6337  0.953
+adaptshrink_dta   -0.585  -0.172   0.671    0.258   2.8485   0.960   2.6471  0.960
+reitsma_indep     -0.603  -0.176   0.689    0.208   2.9445   0.957   2.7662  0.963
+sep_univariate    -0.609  -0.171   0.694    0.200   2.9876   0.957   2.8283  0.963
+
+-- cell=k20_p0.1_sparse strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.248   0.047   0.376    0.842   0.9537   0.910   1.1556  0.950
+hsroc             -0.102   0.154   0.348    0.862   0.9590   0.943   1.0722  0.947
+reitsma_reml      -0.245   0.054   0.375    0.855   0.9673   0.917   1.1345  0.943
+adaptshrink_dta   -0.266   0.043   0.386    0.845   0.9762   0.903   1.2246  0.950
+sep_univariate    -0.313   0.045   0.429    0.740   1.1946   0.930   1.5224  0.923
+reitsma_indep     -0.301   0.037   0.415    0.765   1.1972   0.950   1.3182  0.920
+
+-- cell=k20_p0.3_sparse strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.055   0.030   0.281    0.892   0.5903   0.907   0.7412  0.930  <-- smaller than HC
+reitsma_reml      -0.197  -0.076   0.337    0.733   1.0213   0.947   1.2006  0.947  <-- smaller than HC
+reitsma           -0.203  -0.083   0.343    0.697   1.0673   0.947   1.2803  0.947
+adaptshrink_dta   -0.215  -0.089   0.350    0.728   1.0954   0.943   1.2646  0.933
+sep_univariate    -0.241  -0.095   0.369    0.692   1.1527   0.930   1.2793  0.937
+reitsma_indep     -0.242  -0.103   0.373    0.670   1.2104   0.937   1.2460  0.937
+
+-- cell=k20_p0.3_sparse strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.202  -0.090   0.361    0.663   1.0740   0.943   1.5755  0.963  <-- smaller than HC
+reitsma_reml      -0.335  -0.189   0.470    0.362   1.7256   0.943   2.1802  0.953  <-- smaller than HC
+reitsma           -0.340  -0.194   0.476    0.317   1.7678   0.953   2.5290  0.970
+adaptshrink_dta   -0.353  -0.202   0.487    0.368   1.8360   0.917   1.9889  0.943
+sep_univariate    -0.372  -0.207   0.503    0.377   2.0321   0.930   2.2245  0.957
+reitsma_indep     -0.374  -0.213   0.507    0.353   2.0554   0.930   2.3099  0.957
+
+-- cell=k20_p0.3_sparse strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.049   0.027   0.279    0.910   0.6319   0.950   0.8114  0.943  <-- smaller than HC
+adaptshrink_dta   -0.072   0.011   0.281    0.905   0.6334   0.943   0.8597  0.950  <-- smaller than HC
+reitsma_indep     -0.111  -0.006   0.296    0.852   0.6359   0.917   0.9990  0.943  <-- smaller than HC
+sep_univariate    -0.113   0.002   0.295    0.868   0.6497   0.933   1.0248  0.953  <-- smaller than HC
+reitsma           -0.055   0.020   0.280    0.890   0.6517   0.953   0.8198  0.943
+hsroc              0.088   0.136   0.330    0.802   1.1955   0.987   1.0906  0.973
+
+-- cell=k6_p0.1_sparse strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.254   0.036   0.600    0.813   3.2334   0.940   5.1002  0.960  <-- smaller than HC
+reitsma_reml      -0.369  -0.041   0.640    0.798   3.6792   0.950   4.3876  0.927  <-- smaller than HC
+reitsma           -0.379  -0.060   0.648    0.750   3.7308   0.950   4.8463  0.923
+adaptshrink_dta   -0.403  -0.065   0.662    0.768   3.7812   0.950   5.1298  0.930
+sep_univariate    -0.418  -0.050   0.673    0.773   3.7941   0.953   4.8147  0.933
+reitsma_indep     -0.421  -0.068   0.679    0.725   3.9076   0.947   5.1077  0.927
+
+-- cell=k6_p0.1_sparse strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.428  -0.088   0.681    0.740   3.6802   0.923   4.8857  0.930  <-- smaller than HC
+reitsma_reml      -0.532  -0.161   0.749    0.710   4.3023   0.923   5.3588  0.917  <-- smaller than HC
+sep_univariate    -0.574  -0.170   0.785    0.688   4.5731   0.927   5.7600  0.940  <-- smaller than HC
+adaptshrink_dta   -0.561  -0.183   0.778    0.677   4.7412   0.917   5.9983  0.930  <-- smaller than HC
+reitsma           -0.541  -0.180   0.763    0.643   4.8169   0.917   6.2012  0.930
+reitsma_indep     -0.578  -0.185   0.794    0.635   4.8181   0.917   6.2979  0.940
+
+-- cell=k6_p0.1_sparse strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.118   0.129   0.554    0.838   2.5065   0.943   4.6096  0.967  <-- smaller than HC
+reitsma_reml      -0.227   0.050   0.558    0.860   2.6274   0.940   3.7753  0.927  <-- smaller than HC
+reitsma           -0.238   0.029   0.563    0.833   2.6427   0.937   3.9898  0.937
+adaptshrink_dta   -0.267   0.023   0.577    0.837   2.7280   0.943   4.2644  0.937
+sep_univariate    -0.288   0.038   0.595    0.830   2.9109   0.947   4.8723  0.957
+reitsma_indep     -0.289   0.018   0.596    0.795   2.9178   0.943   4.8084  0.950
+
+-- cell=k6_p0.3_sparse strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.153  -0.075   0.533    0.810   2.2442   0.897   4.1224  0.930  <-- smaller than HC
+sep_univariate    -0.202  -0.091   0.540    0.795   2.2519   0.900   4.1207  0.937  <-- smaller than HC
+hsroc             -0.036   0.011   0.527    0.825   2.2711   0.933   3.7561  0.947  <-- smaller than HC
+reitsma           -0.173  -0.093   0.541    0.768   2.3085   0.907   3.6127  0.910
+adaptshrink_dta   -0.195  -0.102   0.544    0.783   2.3344   0.907   3.9938  0.923
+reitsma_indep     -0.222  -0.111   0.558    0.720   2.5067   0.903   4.0881  0.913
+
+-- cell=k6_p0.3_sparse strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+hsroc             -0.181  -0.096   0.540    0.762   2.5892   0.933   3.9569  0.930  <-- smaller than HC
+reitsma_reml      -0.284  -0.177   0.585    0.718   3.1286   0.937   4.6506  0.937  <-- smaller than HC
+sep_univariate    -0.326  -0.196   0.616    0.715   3.3118   0.933   4.1061  0.913  <-- smaller than HC
+adaptshrink_dta   -0.323  -0.206   0.619    0.697   3.4923   0.937   5.4179  0.953  <-- smaller than HC
+reitsma           -0.302  -0.197   0.604    0.652   3.6075   0.943   5.2652  0.950
+reitsma_indep     -0.343  -0.214   0.638    0.620   3.6990   0.933   5.6275  0.950
+
+-- cell=k6_p0.3_sparse strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.020   0.040   0.523    0.860   1.9279   0.917   3.8835  0.967  <-- smaller than HC
+reitsma           -0.043   0.018   0.526    0.815   2.1055   0.927   3.5654  0.933
+adaptshrink_dta   -0.073   0.005   0.525    0.830   2.1198   0.927   4.3748  0.947
+sep_univariate    -0.087   0.013   0.520    0.838   2.1685   0.927   4.1050  0.943
+reitsma_indep     -0.105  -0.008   0.533    0.783   2.3013   0.937   4.3794  0.943
+hsroc              0.087   0.124   0.562    0.837   2.3242   0.923   3.9122  0.973
+
+# TRUTH-GATE
+  G1 finite points ok: True  (NPD-region rows excluded: 0)
+  Paired-bootstrap MCIW0-2D area advantage vs HC (robust win = 97.5% CI < 0):
+    [k10_p0.1_sparse moderate] adaptshrink_dta  dArea=+0.0945 CI[+0.0150,+0.2496] P(better)=0.013
+    [k10_p0.1_sparse moderate] hsroc            dArea=-0.6788 CI[-0.7810,-0.3647] P(better)=1.000  ROBUST WIN
+    [k10_p0.1_sparse moderate] reitsma_indep    dArea=+0.1673 CI[+0.0246,+0.3387] P(better)=0.008
+    [k10_p0.1_sparse moderate] reitsma_reml     dArea=-0.0723 CI[-0.1748,-0.0062] P(better)=0.982  ROBUST WIN
+    [k10_p0.1_sparse moderate] sep_univariate   dArea=+0.0421 CI[-0.0467,+0.2789] P(better)=0.118
+    [k10_p0.1_sparse none    ] adaptshrink_dta  dArea=+0.0809 CI[-0.0591,+0.2433] P(better)=0.104
+    [k10_p0.1_sparse none    ] hsroc            dArea=-0.8729 CI[-1.1015,-0.6471] P(better)=1.000  ROBUST WIN
+    [k10_p0.1_sparse none    ] reitsma_indep    dArea=+0.2201 CI[+0.0470,+0.4367] P(better)=0.006
+    [k10_p0.1_sparse none    ] reitsma_reml     dArea=-0.1852 CI[-0.2851,-0.0002] P(better)=0.975  ROBUST WIN
+    [k10_p0.1_sparse none    ] sep_univariate   dArea=+0.1060 CI[-0.0677,+0.3519] P(better)=0.098
+    [k10_p0.1_sparse strong  ] adaptshrink_dta  dArea=+0.0285 CI[-0.0327,+0.2287] P(better)=0.098
+    [k10_p0.1_sparse strong  ] hsroc            dArea=-0.0352 CI[-0.2289,+0.2350] P(better)=0.486
+    [k10_p0.1_sparse strong  ] reitsma_indep    dArea=+0.1578 CI[+0.0497,+0.4177] P(better)=0.004
+    [k10_p0.1_sparse strong  ] reitsma_reml     dArea=-0.0415 CI[-0.0674,+0.0690] P(better)=0.507
+    [k10_p0.1_sparse strong  ] sep_univariate   dArea=+0.1639 CI[+0.0727,+0.4199] P(better)=0.003
+    [k10_p0.3_sparse moderate] adaptshrink_dta  dArea=+0.1078 CI[-0.0988,+0.1748] P(better)=0.233
+    [k10_p0.3_sparse moderate] hsroc            dArea=-0.2053 CI[-0.4750,-0.0123] P(better)=0.981  ROBUST WIN
+    [k10_p0.3_sparse moderate] reitsma_indep    dArea=+0.2193 CI[-0.0214,+0.3140] P(better)=0.047
+    [k10_p0.3_sparse moderate] reitsma_reml     dArea=-0.0440 CI[-0.1717,+0.0196] P(better)=0.907
+    [k10_p0.3_sparse moderate] sep_univariate   dArea=+0.1067 CI[-0.1000,+0.2561] P(better)=0.195
+    [k10_p0.3_sparse none    ] adaptshrink_dta  dArea=+0.0471 CI[+0.0147,+0.3060] P(better)=0.011
+    [k10_p0.3_sparse none    ] hsroc            dArea=-0.7395 CI[-0.8935,-0.5402] P(better)=1.000  ROBUST WIN
+    [k10_p0.3_sparse none    ] reitsma_indep    dArea=+0.4313 CI[+0.2025,+0.6371] P(better)=0.000
+    [k10_p0.3_sparse none    ] reitsma_reml     dArea=-0.1282 CI[-0.1955,-0.0259] P(better)=0.995  ROBUST WIN
+    [k10_p0.3_sparse none    ] sep_univariate   dArea=+0.1636 CI[+0.0581,+0.3871] P(better)=0.004
+    [k10_p0.3_sparse strong  ] adaptshrink_dta  dArea=+0.0051 CI[-0.0991,+0.1067] P(better)=0.467
+    [k10_p0.3_sparse strong  ] hsroc            dArea=+0.4920 CI[+0.2373,+0.8085] P(better)=0.000
+    [k10_p0.3_sparse strong  ] reitsma_indep    dArea=+0.0912 CI[-0.0660,+0.2200] P(better)=0.135
+    [k10_p0.3_sparse strong  ] reitsma_reml     dArea=+0.0116 CI[-0.0774,+0.1037] P(better)=0.373
+    [k10_p0.3_sparse strong  ] sep_univariate   dArea=+0.0465 CI[-0.0523,+0.2547] P(better)=0.143
+    [k20_p0.1_sparse moderate] adaptshrink_dta  dArea=+0.0760 CI[-0.0021,+0.1406] P(better)=0.032
+    [k20_p0.1_sparse moderate] hsroc            dArea=-0.4826 CI[-0.6546,-0.3623] P(better)=1.000  ROBUST WIN
+    [k20_p0.1_sparse moderate] reitsma_indep    dArea=+0.1945 CI[+0.0613,+0.2700] P(better)=0.002
+    [k20_p0.1_sparse moderate] reitsma_reml     dArea=-0.0011 CI[-0.0508,+0.0038] P(better)=0.925
+    [k20_p0.1_sparse moderate] sep_univariate   dArea=+0.1791 CI[+0.0466,+0.2704] P(better)=0.002
+    [k20_p0.1_sparse none    ] adaptshrink_dta  dArea=+0.1167 CI[+0.0340,+0.2252] P(better)=0.005
+    [k20_p0.1_sparse none    ] hsroc            dArea=-0.8363 CI[-0.9908,-0.6732] P(better)=1.000  ROBUST WIN
+    [k20_p0.1_sparse none    ] reitsma_indep    dArea=+0.2258 CI[+0.1145,+0.3928] P(better)=0.000
+    [k20_p0.1_sparse none    ] reitsma_reml     dArea=-0.0571 CI[-0.0890,-0.0026] P(better)=0.982  ROBUST WIN
+    [k20_p0.1_sparse none    ] sep_univariate   dArea=+0.2732 CI[+0.1422,+0.4363] P(better)=0.000
+    [k20_p0.1_sparse strong  ] adaptshrink_dta  dArea=+0.0707 CI[-0.0108,+0.0777] P(better)=0.103
+    [k20_p0.1_sparse strong  ] hsroc            dArea=-0.0609 CI[-0.1876,+0.0255] P(better)=0.921
+    [k20_p0.1_sparse strong  ] reitsma_indep    dArea=+0.1501 CI[+0.0638,+0.1999] P(better)=0.000
+    [k20_p0.1_sparse strong  ] reitsma_reml     dArea=+0.0050 CI[-0.0462,+0.0242] P(better)=0.636
+    [k20_p0.1_sparse strong  ] sep_univariate   dArea=+0.1705 CI[+0.0780,+0.2419] P(better)=0.000
+    [k20_p0.3_sparse moderate] adaptshrink_dta  dArea=+0.0506 CI[+0.0014,+0.1162] P(better)=0.022
+    [k20_p0.3_sparse moderate] hsroc            dArea=-0.4438 CI[-0.5386,-0.3359] P(better)=1.000  ROBUST WIN
+    [k20_p0.3_sparse moderate] reitsma_indep    dArea=+0.1606 CI[+0.0764,+0.2447] P(better)=0.000
+    [k20_p0.3_sparse moderate] reitsma_reml     dArea=-0.0751 CI[-0.0836,-0.0121] P(better)=0.997  ROBUST WIN
+    [k20_p0.3_sparse moderate] sep_univariate   dArea=+0.0951 CI[+0.0441,+0.2279] P(better)=0.002
+    [k20_p0.3_sparse none    ] adaptshrink_dta  dArea=+0.1462 CI[+0.0739,+0.2235] P(better)=0.001
+    [k20_p0.3_sparse none    ] hsroc            dArea=-0.6603 CI[-0.8144,-0.5604] P(better)=1.000  ROBUST WIN
+    [k20_p0.3_sparse none    ] reitsma_indep    dArea=+0.3313 CI[+0.2046,+0.3942] P(better)=0.000
+    [k20_p0.3_sparse none    ] reitsma_reml     dArea=-0.0215 CI[-0.0715,+0.0045] P(better)=0.954
+    [k20_p0.3_sparse none    ] sep_univariate   dArea=+0.3133 CI[+0.1894,+0.4018] P(better)=0.000
+    [k20_p0.3_sparse strong  ] adaptshrink_dta  dArea=+0.0094 CI[-0.0284,+0.0576] P(better)=0.241
+    [k20_p0.3_sparse strong  ] hsroc            dArea=+0.4350 CI[+0.3378,+0.5399] P(better)=0.000
+    [k20_p0.3_sparse strong  ] reitsma_indep    dArea=+0.1000 CI[+0.0207,+0.1876] P(better)=0.008
+    [k20_p0.3_sparse strong  ] reitsma_reml     dArea=-0.0054 CI[-0.0285,+0.0174] P(better)=0.662
+    [k20_p0.3_sparse strong  ] sep_univariate   dArea=+0.0960 CI[+0.0009,+0.1645] P(better)=0.025
+    [k6_p0.1_sparse moderate] adaptshrink_dta  dArea=+0.0722 CI[-0.0142,+0.3250] P(better)=0.040
+    [k6_p0.1_sparse moderate] hsroc            dArea=-0.5033 CI[-0.7440,-0.1862] P(better)=0.999  ROBUST WIN
+    [k6_p0.1_sparse moderate] reitsma_indep    dArea=+0.2182 CI[+0.0662,+0.5341] P(better)=0.002
+    [k6_p0.1_sparse moderate] reitsma_reml     dArea=-0.1623 CI[-0.2760,+0.0398] P(better)=0.918
+    [k6_p0.1_sparse moderate] sep_univariate   dArea=+0.0997 CI[-0.1110,+0.3048] P(better)=0.182
+    [k6_p0.1_sparse none    ] adaptshrink_dta  dArea=+0.1637 CI[-0.1855,+0.4157] P(better)=0.240
+    [k6_p0.1_sparse none    ] hsroc            dArea=-1.0864 CI[-1.5439,-0.6780] P(better)=1.000  ROBUST WIN
+    [k6_p0.1_sparse none    ] reitsma_indep    dArea=+0.1938 CI[-0.1412,+0.5417] P(better)=0.170
+    [k6_p0.1_sparse none    ] reitsma_reml     dArea=-0.3220 CI[-0.7656,-0.0853] P(better)=0.998  ROBUST WIN
+    [k6_p0.1_sparse none    ] sep_univariate   dArea=-0.0595 CI[-0.5389,+0.3593] P(better)=0.722
+    [k6_p0.1_sparse strong  ] adaptshrink_dta  dArea=+0.0081 CI[-0.0742,+0.1642] P(better)=0.203
+    [k6_p0.1_sparse strong  ] hsroc            dArea=-0.1543 CI[-0.4484,+0.2777] P(better)=0.860
+    [k6_p0.1_sparse strong  ] reitsma_indep    dArea=+0.2709 CI[+0.0344,+0.4647] P(better)=0.011
+    [k6_p0.1_sparse strong  ] reitsma_reml     dArea=+0.0599 CI[-0.1773,+0.1549] P(better)=0.524
+    [k6_p0.1_sparse strong  ] sep_univariate   dArea=+0.1958 CI[-0.0523,+0.3643] P(better)=0.059
+    [k6_p0.3_sparse moderate] adaptshrink_dta  dArea=-0.0283 CI[-0.1928,+0.1334] P(better)=0.491
+    [k6_p0.3_sparse moderate] hsroc            dArea=-0.2389 CI[-0.5167,+0.0499] P(better)=0.953
+    [k6_p0.3_sparse moderate] reitsma_indep    dArea=+0.1628 CI[-0.0258,+0.3815] P(better)=0.047
+    [k6_p0.3_sparse moderate] reitsma_reml     dArea=-0.1124 CI[-0.2562,+0.0500] P(better)=0.897
+    [k6_p0.3_sparse moderate] sep_univariate   dArea=-0.0679 CI[-0.2611,+0.1264] P(better)=0.717
+    [k6_p0.3_sparse none    ] adaptshrink_dta  dArea=-0.1078 CI[-0.1976,+0.3729] P(better)=0.339
+    [k6_p0.3_sparse none    ] hsroc            dArea=-0.9573 CI[-1.2748,-0.4864] P(better)=1.000  ROBUST WIN
+    [k6_p0.3_sparse none    ] reitsma_indep    dArea=+0.3067 CI[-0.0031,+0.7111] P(better)=0.027
+    [k6_p0.3_sparse none    ] reitsma_reml     dArea=-0.3012 CI[-0.4928,-0.0207] P(better)=0.988  ROBUST WIN
+    [k6_p0.3_sparse none    ] sep_univariate   dArea=-0.1751 CI[-0.3421,+0.3109] P(better)=0.575
+    [k6_p0.3_sparse strong  ] adaptshrink_dta  dArea=+0.0665 CI[-0.0737,+0.1794] P(better)=0.194
+    [k6_p0.3_sparse strong  ] hsroc            dArea=+0.3741 CI[+0.1273,+0.8033] P(better)=0.001
+    [k6_p0.3_sparse strong  ] reitsma_indep    dArea=+0.1086 CI[-0.0134,+0.3725] P(better)=0.037
+    [k6_p0.3_sparse strong  ] reitsma_reml     dArea=+0.0254 CI[-0.1813,+0.0918] P(better)=0.691
+    [k6_p0.3_sparse strong  ] sep_univariate   dArea=+0.0442 CI[-0.1104,+0.2120] P(better)=0.278
+
+  Does adaptshrink_dta robustly beat EACH field member (robust = 2.5% CI of area gain > 0)?
+    [k10_p0.1_sparse moderate] vs hsroc            dArea(ours-x)=+0.7733 CI[+0.4776,+0.9179] P(ours better)=0.000
+    [k10_p0.1_sparse moderate] vs reitsma          dArea(ours-x)=+0.0945 CI[+0.0150,+0.2496] P(ours better)=0.013
+    [k10_p0.1_sparse moderate] vs reitsma_indep    dArea(ours-x)=-0.0728 CI[-0.1749,+0.0460] P(ours better)=0.819
+    [k10_p0.1_sparse moderate] vs reitsma_reml     dArea(ours-x)=+0.1668 CI[+0.0697,+0.3375] P(ours better)=0.002
+    [k10_p0.1_sparse moderate] vs sep_univariate   dArea(ours-x)=+0.0524 CI[-0.1359,+0.1524] P(ours better)=0.340
+    [k10_p0.1_sparse none    ] vs hsroc            dArea(ours-x)=+0.9538 CI[+0.7373,+1.2040] P(ours better)=0.000
+    [k10_p0.1_sparse none    ] vs reitsma          dArea(ours-x)=+0.0809 CI[-0.0591,+0.2433] P(ours better)=0.104
+    [k10_p0.1_sparse none    ] vs reitsma_indep    dArea(ours-x)=-0.1392 CI[-0.3087,-0.0031] P(ours better)=0.977  OURS ROBUST WIN
+    [k10_p0.1_sparse none    ] vs reitsma_reml     dArea(ours-x)=+0.2661 CI[+0.0299,+0.3934] P(ours better)=0.013
+    [k10_p0.1_sparse none    ] vs sep_univariate   dArea(ours-x)=-0.0250 CI[-0.2406,+0.1469] P(ours better)=0.694
+    [k10_p0.1_sparse strong  ] vs hsroc            dArea(ours-x)=+0.0637 CI[-0.1276,+0.3173] P(ours better)=0.251
+    [k10_p0.1_sparse strong  ] vs reitsma          dArea(ours-x)=+0.0285 CI[-0.0327,+0.2287] P(ours better)=0.098
+    [k10_p0.1_sparse strong  ] vs reitsma_indep    dArea(ours-x)=-0.1293 CI[-0.2794,-0.0243] P(ours better)=0.989  OURS ROBUST WIN
+    [k10_p0.1_sparse strong  ] vs reitsma_reml     dArea(ours-x)=+0.0700 CI[-0.0477,+0.2499] P(ours better)=0.128
+    [k10_p0.1_sparse strong  ] vs sep_univariate   dArea(ours-x)=-0.1354 CI[-0.2745,-0.0285] P(ours better)=0.991  OURS ROBUST WIN
+    [k10_p0.3_sparse moderate] vs hsroc            dArea(ours-x)=+0.3131 CI[+0.0495,+0.5247] P(ours better)=0.007
+    [k10_p0.3_sparse moderate] vs reitsma          dArea(ours-x)=+0.1078 CI[-0.0988,+0.1748] P(ours better)=0.233
+    [k10_p0.3_sparse moderate] vs reitsma_indep    dArea(ours-x)=-0.1115 CI[-0.2182,+0.0073] P(ours better)=0.964
+    [k10_p0.3_sparse moderate] vs reitsma_reml     dArea(ours-x)=+0.1518 CI[-0.0465,+0.2480] P(ours better)=0.085
+    [k10_p0.3_sparse moderate] vs sep_univariate   dArea(ours-x)=+0.0011 CI[-0.1774,+0.1074] P(ours better)=0.686
+    [k10_p0.3_sparse none    ] vs hsroc            dArea(ours-x)=+0.7866 CI[+0.6589,+1.0484] P(ours better)=0.000
+    [k10_p0.3_sparse none    ] vs reitsma          dArea(ours-x)=+0.0471 CI[+0.0147,+0.3060] P(ours better)=0.011
+    [k10_p0.3_sparse none    ] vs reitsma_indep    dArea(ours-x)=-0.3842 CI[-0.4868,-0.1055] P(ours better)=1.000  OURS ROBUST WIN
+    [k10_p0.3_sparse none    ] vs reitsma_reml     dArea(ours-x)=+0.1754 CI[+0.1200,+0.4316] P(ours better)=0.000
+    [k10_p0.3_sparse none    ] vs sep_univariate   dArea(ours-x)=-0.1165 CI[-0.2000,+0.0767] P(ours better)=0.850
+    [k10_p0.3_sparse strong  ] vs hsroc            dArea(ours-x)=-0.4869 CI[-0.8154,-0.2364] P(ours better)=1.000  OURS ROBUST WIN
+    [k10_p0.3_sparse strong  ] vs reitsma          dArea(ours-x)=+0.0051 CI[-0.0991,+0.1067] P(ours better)=0.467
+    [k10_p0.3_sparse strong  ] vs reitsma_indep    dArea(ours-x)=-0.0861 CI[-0.1978,+0.0285] P(ours better)=0.923
+    [k10_p0.3_sparse strong  ] vs reitsma_reml     dArea(ours-x)=-0.0065 CI[-0.1318,+0.1059] P(ours better)=0.557
+    [k10_p0.3_sparse strong  ] vs sep_univariate   dArea(ours-x)=-0.0414 CI[-0.2278,+0.0369] P(ours better)=0.879
+    [k20_p0.1_sparse moderate] vs hsroc            dArea(ours-x)=+0.5586 CI[+0.4246,+0.7037] P(ours better)=0.000
+    [k20_p0.1_sparse moderate] vs reitsma          dArea(ours-x)=+0.0760 CI[-0.0021,+0.1406] P(ours better)=0.031
+    [k20_p0.1_sparse moderate] vs reitsma_indep    dArea(ours-x)=-0.1185 CI[-0.1753,-0.0260] P(ours better)=0.996  OURS ROBUST WIN
+    [k20_p0.1_sparse moderate] vs reitsma_reml     dArea(ours-x)=+0.0771 CI[+0.0116,+0.1585] P(ours better)=0.005
+    [k20_p0.1_sparse moderate] vs sep_univariate   dArea(ours-x)=-0.1031 CI[-0.1841,-0.0186] P(ours better)=0.991  OURS ROBUST WIN
+    [k20_p0.1_sparse none    ] vs hsroc            dArea(ours-x)=+0.9530 CI[+0.7834,+1.1168] P(ours better)=0.000
+    [k20_p0.1_sparse none    ] vs reitsma          dArea(ours-x)=+0.1167 CI[+0.0340,+0.2252] P(ours better)=0.005
+    [k20_p0.1_sparse none    ] vs reitsma_indep    dArea(ours-x)=-0.1091 CI[-0.2377,-0.0247] P(ours better)=0.992  OURS ROBUST WIN
+    [k20_p0.1_sparse none    ] vs reitsma_reml     dArea(ours-x)=+0.1738 CI[+0.0681,+0.2577] P(ours better)=0.000
+    [k20_p0.1_sparse none    ] vs sep_univariate   dArea(ours-x)=-0.1565 CI[-0.2935,-0.0315] P(ours better)=0.994  OURS ROBUST WIN
+    [k20_p0.1_sparse strong  ] vs hsroc            dArea(ours-x)=+0.1316 CI[-0.0049,+0.2210] P(ours better)=0.034
+    [k20_p0.1_sparse strong  ] vs reitsma          dArea(ours-x)=+0.0707 CI[-0.0108,+0.0777] P(ours better)=0.103
+    [k20_p0.1_sparse strong  ] vs reitsma_indep    dArea(ours-x)=-0.0794 CI[-0.1651,-0.0424] P(ours better)=0.999  OURS ROBUST WIN
+    [k20_p0.1_sparse strong  ] vs reitsma_reml     dArea(ours-x)=+0.0657 CI[-0.0157,+0.0838] P(ours better)=0.089
+    [k20_p0.1_sparse strong  ] vs sep_univariate   dArea(ours-x)=-0.0998 CI[-0.2046,-0.0578] P(ours better)=0.999  OURS ROBUST WIN
+    [k20_p0.3_sparse moderate] vs hsroc            dArea(ours-x)=+0.4944 CI[+0.3835,+0.5942] P(ours better)=0.000
+    [k20_p0.3_sparse moderate] vs reitsma          dArea(ours-x)=+0.0506 CI[+0.0014,+0.1162] P(ours better)=0.022
+    [k20_p0.3_sparse moderate] vs reitsma_indep    dArea(ours-x)=-0.1100 CI[-0.1863,-0.0394] P(ours better)=0.999  OURS ROBUST WIN
+    [k20_p0.3_sparse moderate] vs reitsma_reml     dArea(ours-x)=+0.1257 CI[+0.0393,+0.1622] P(ours better)=0.000
+    [k20_p0.3_sparse moderate] vs sep_univariate   dArea(ours-x)=-0.0445 CI[-0.1530,+0.0036] P(ours better)=0.965
+    [k20_p0.3_sparse none    ] vs hsroc            dArea(ours-x)=+0.8065 CI[+0.6953,+0.9719] P(ours better)=0.000
+    [k20_p0.3_sparse none    ] vs reitsma          dArea(ours-x)=+0.1462 CI[+0.0739,+0.2235] P(ours better)=0.000
+    [k20_p0.3_sparse none    ] vs reitsma_indep    dArea(ours-x)=-0.1851 CI[-0.2306,-0.0809] P(ours better)=0.999  OURS ROBUST WIN
+    [k20_p0.3_sparse none    ] vs reitsma_reml     dArea(ours-x)=+0.1677 CI[+0.1123,+0.2509] P(ours better)=0.000
+    [k20_p0.3_sparse none    ] vs sep_univariate   dArea(ours-x)=-0.1672 CI[-0.2335,-0.0571] P(ours better)=0.998  OURS ROBUST WIN
+    [k20_p0.3_sparse strong  ] vs hsroc            dArea(ours-x)=-0.4257 CI[-0.5288,-0.3151] P(ours better)=1.000  OURS ROBUST WIN
+    [k20_p0.3_sparse strong  ] vs reitsma          dArea(ours-x)=+0.0094 CI[-0.0284,+0.0576] P(ours better)=0.241
+    [k20_p0.3_sparse strong  ] vs reitsma_indep    dArea(ours-x)=-0.0906 CI[-0.1555,-0.0162] P(ours better)=0.996  OURS ROBUST WIN
+    [k20_p0.3_sparse strong  ] vs reitsma_reml     dArea(ours-x)=+0.0147 CI[-0.0195,+0.0621] P(ours better)=0.177
+    [k20_p0.3_sparse strong  ] vs sep_univariate   dArea(ours-x)=-0.0867 CI[-0.1378,+0.0038] P(ours better)=0.967
+    [k6_p0.1_sparse moderate] vs hsroc            dArea(ours-x)=+0.5755 CI[+0.2937,+0.9027] P(ours better)=0.000
+    [k6_p0.1_sparse moderate] vs reitsma          dArea(ours-x)=+0.0722 CI[-0.0142,+0.3250] P(ours better)=0.040
+    [k6_p0.1_sparse moderate] vs reitsma_indep    dArea(ours-x)=-0.1460 CI[-0.3725,+0.0084] P(ours better)=0.965
+    [k6_p0.1_sparse moderate] vs reitsma_reml     dArea(ours-x)=+0.2345 CI[+0.0370,+0.4523] P(ours better)=0.009
+    [k6_p0.1_sparse moderate] vs sep_univariate   dArea(ours-x)=-0.0276 CI[-0.1085,+0.2259] P(ours better)=0.324
+    [k6_p0.1_sparse none    ] vs hsroc            dArea(ours-x)=+1.2501 CI[+0.7097,+1.6588] P(ours better)=0.000
+    [k6_p0.1_sparse none    ] vs reitsma          dArea(ours-x)=+0.1637 CI[-0.1855,+0.4157] P(ours better)=0.240
+    [k6_p0.1_sparse none    ] vs reitsma_indep    dArea(ours-x)=-0.0301 CI[-0.3537,+0.1586] P(ours better)=0.660
+    [k6_p0.1_sparse none    ] vs reitsma_reml     dArea(ours-x)=+0.4856 CI[+0.0734,+0.8897] P(ours better)=0.011
+    [k6_p0.1_sparse none    ] vs sep_univariate   dArea(ours-x)=+0.2231 CI[-0.1279,+0.6051] P(ours better)=0.111
+    [k6_p0.1_sparse strong  ] vs hsroc            dArea(ours-x)=+0.1624 CI[-0.2705,+0.4785] P(ours better)=0.098
+    [k6_p0.1_sparse strong  ] vs reitsma          dArea(ours-x)=+0.0081 CI[-0.0742,+0.1642] P(ours better)=0.203
+    [k6_p0.1_sparse strong  ] vs reitsma_indep    dArea(ours-x)=-0.2628 CI[-0.3847,-0.0400] P(ours better)=0.995  OURS ROBUST WIN
+    [k6_p0.1_sparse strong  ] vs reitsma_reml     dArea(ours-x)=-0.0518 CI[-0.1237,+0.2406] P(ours better)=0.307
+    [k6_p0.1_sparse strong  ] vs sep_univariate   dArea(ours-x)=-0.1877 CI[-0.2874,+0.0505] P(ours better)=0.929
+    [k6_p0.3_sparse moderate] vs hsroc            dArea(ours-x)=+0.2106 CI[-0.0623,+0.5356] P(ours better)=0.060
+    [k6_p0.3_sparse moderate] vs reitsma          dArea(ours-x)=-0.0283 CI[-0.1928,+0.1334] P(ours better)=0.491
+    [k6_p0.3_sparse moderate] vs reitsma_indep    dArea(ours-x)=-0.1911 CI[-0.3602,-0.0322] P(ours better)=0.996  OURS ROBUST WIN
+    [k6_p0.3_sparse moderate] vs reitsma_reml     dArea(ours-x)=+0.0841 CI[-0.1083,+0.2826] P(ours better)=0.150
+    [k6_p0.3_sparse moderate] vs sep_univariate   dArea(ours-x)=+0.0396 CI[-0.0926,+0.2316] P(ours better)=0.269
+    [k6_p0.3_sparse none    ] vs hsroc            dArea(ours-x)=+0.8495 CI[+0.5701,+1.4116] P(ours better)=0.000
+    [k6_p0.3_sparse none    ] vs reitsma          dArea(ours-x)=-0.1078 CI[-0.1976,+0.3729] P(ours better)=0.339
+    [k6_p0.3_sparse none    ] vs reitsma_indep    dArea(ours-x)=-0.4145 CI[-0.5918,-0.0071] P(ours better)=0.979  OURS ROBUST WIN
+    [k6_p0.3_sparse none    ] vs reitsma_reml     dArea(ours-x)=+0.1934 CI[+0.0108,+0.6642] P(ours better)=0.019
+    [k6_p0.3_sparse none    ] vs sep_univariate   dArea(ours-x)=+0.0674 CI[-0.1381,+0.3568] P(ours better)=0.217
+    [k6_p0.3_sparse strong  ] vs hsroc            dArea(ours-x)=-0.3075 CI[-0.7729,-0.0747] P(ours better)=0.993  OURS ROBUST WIN
+    [k6_p0.3_sparse strong  ] vs reitsma          dArea(ours-x)=+0.0665 CI[-0.0737,+0.1794] P(ours better)=0.194
+    [k6_p0.3_sparse strong  ] vs reitsma_indep    dArea(ours-x)=-0.0421 CI[-0.2842,+0.0082] P(ours better)=0.957
+    [k6_p0.3_sparse strong  ] vs reitsma_reml     dArea(ours-x)=+0.0411 CI[-0.0988,+0.2771] P(ours better)=0.181
+    [k6_p0.3_sparse strong  ] vs sep_univariate   dArea(ours-x)=+0.0223 CI[-0.1230,+0.1228] P(ours better)=0.514
+
+Wrote truth-recovery-dta/dta_sparse_perrep.csv
+      truth-recovery-dta/dta_sparse_table.csv
+      truth-recovery-dta/dta_sparse_truthgate.json  (11695.3s)

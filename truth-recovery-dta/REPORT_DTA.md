@@ -205,18 +205,29 @@ Non-robust in no-selection and sparse cells (see §6.5 for honest verdict).
 
 ### 6.4 HSROC tail — sparse-cell characterisation
 
-*Pending: sparse grid (k ∈ {6,10,20} × prev ∈ {0.1,0.3}, n_med=40, zero-cell-inducing) at 600 reps with all six methods is running; source will be `dta_sparse_{perrep,table}.csv`, `dta_sparse_truthgate.json`, `dta_phase2_hsroc_tail.txt`. Summary from k10_sparse focus-cell (already at 800 reps):*
+**Sparse grid: k ∈ {6,10,20} × prev ∈ {0.1,0.3}, n_med=40, n_sigma=0.9, n_min=12 (zero-cell-inducing), 600 reps, 6 methods. Source: `dta_sparse_{perrep,table}.csv`, `dta_sparse_truthgate.json`, `dta_phase2_hsroc_tail.txt`.**
 
-**k10_sparse summary (from focus grid, 800 reps)**
-| selection | HSROC | Reitsma | AdaptShrink-DTA | verdict |
+**HSROC vs HC (Reitsma ML) — robust bootstrap wins (G4 gate):**
+HSROC robustly beats HC in **11/18** sparse cells: all six no-selection cells and five of six moderate-selection cells (exception: k6_p0.3×moderate, where areas are nearly tied: HSROC 2.271 vs HC 2.309). HSROC never robustly beats HC under strong selection (0/6).
+
+| k | prev | none (Δ area) | moderate (Δ area) | strong (Δ area) |
 |---|---|---|---|---|
-| none | 2.618 | 3.368 | 3.608 | HSROC **robustly wins** (CI [−1.09,−0.68]); OURS loses |
-| moderate | 2.007 | 2.638 | 2.744 | HSROC **robustly wins** (CI [−0.74,−0.39]); OURS loses |
-| strong | 1.719 | 1.623 | 1.766 | tight; OURS beats reitsma_indep robustly (CI [−0.25,−0.04]) |
+| 6 | 0.1 | −1.137 **ROBUST** | −0.497 **ROBUST** | −0.136 (no) |
+| 6 | 0.3 | −1.018 **ROBUST** | −0.037 (no) | +0.219 (no) |
+| 10 | 0.1 | −0.740 **ROBUST** | −0.783 **ROBUST** | +0.157 (no) |
+| 10 | 0.3 | −0.825 **ROBUST** | −0.286 **ROBUST** | +0.366 (no) |
+| 20 | 0.1 | −0.845 **ROBUST** | −0.380 **ROBUST** | +0.005 (no) |
+| 20 | 0.3 | −0.694 **ROBUST** | −0.477 **ROBUST** | +0.544 (no) |
 
-(MCIW0-2D area; lower=better; all raw_cov 0.57–0.86)
+(MCIW0-2D area difference HSROC − HC; lower=better; negative means HSROC is better)
 
-In k10_sparse, the exact-binomial HSROC has a fundamental advantage: at 10 studies with small arm counts, the within-study normal approximation (Reitsma/AdaptShrink-DTA) incurs non-trivial logit-scale bias, and HSROC's exact binomial model for the random effects absorbs this. This gap is expected to *widen* at k=6 and *narrow* at k=20. The sparse grid will quantify both. Under strong selection, HSROC breaks down and the correlation-shrinkage comparators take over.
+**HSROC under strong selection — prevalence-dependent breakdown:**
+At prev=0.1, HSROC stays near HC (k6: −0.14, k10: +0.16, k20: +0.01 — all within noise). At prev=0.3, HSROC degrades badly: HSROC area exceeds HC by +0.22/+0.37/+0.54 (k=6/10/20); in these cells AdaptShrink-DTA robustly beats HSROC (G4 CIs: k6 [−0.773,−0.075], k10 [−0.815,−0.236], k20 [−0.529,−0.315]). The mechanism: at high prevalence, selection-induced lnDOR heterogeneity is larger and HSROC's exact-binomial model has no small-study correction, causing its confidence ellipses to expand.
+
+**AdaptShrink-DTA in sparse cells (honest):**
+AdaptShrink-DTA never robustly beats HC (Reitsma ML) in any sparse cell (0/18). It robustly beats reitsma_indep (ρ=0) in 9/18 cells and sep_univariate in 5/18. It robustly beats HSROC only in the three high-prevalence strong-selection cells noted above. Elsewhere in sparse cells, AdaptShrink-DTA behaves like Reitsma ML (areas within 5–10% of HC across most no-selection and moderate-selection cells). The correlation-shrinkage mechanism adds no material benefit when cells are sparse and selection is absent.
+
+**HSROC n_converged:** all 18 cell-strength combinations converged all 600 reps (n_converged=600 throughout), confirming the GHQ implementation is numerically stable even at k=6 with small n.
 
 ### 6.5 Honest phase-2 verdict
 
@@ -226,11 +237,14 @@ In k10_sparse, the exact-binomial HSROC has a fundamental advantage: at 10 studi
 3. **HSROC is substantially beaten under selection.** In 7/15 focus cells, AdaptShrink-DTA robustly beats the exact-binomial model; HSROC degrades badly (mciw0 2.5–2.5 vs 1.5–1.8) because it has no small-study correction.
 
 **What is NOT claimed:**
-- **Sparse + no-selection: HSROC wins.** The exact-binomial advantage in these cells is real and substantial. AdaptShrink-DTA does not beat HSROC here, and the gap is large. A practitioner with predominantly sparse cells and no selection pressure should prefer HSROC.
+- **Sparse + no-selection: HSROC wins.** The exact-binomial advantage in these cells is real and substantial (area gap −0.69 to −1.14 across k×prev; all bootstrap-robust). AdaptShrink-DTA does not beat HSROC here; a practitioner with sparse cells and no selection pressure should prefer HSROC.
+- **Sparse + moderate-selection: HSROC wins in 5/6 cells** (exception: k6_p0.3×moderate, where the gap closes). AdaptShrink-DTA does not help.
+- **Sparse + strong-selection: method-by-prevalence interaction.** At prev=0.1, HSROC roughly ties HC; at prev=0.3, HSROC degrades and AdaptShrink-DTA robustly beats it (3 cells). No method robustly beats HC in strong-selection sparse cells.
 - **k10_thr×strong is a near-miss (97.5% CI = [−0.184, +0.027]).** Not bootstrap-robust at 800 reps.
 - **Across the full 108-cell grid, 0/108 cells pass the bootstrap gate at 400 reps.** The advantage is consistent in direction but requires concentrated reps to pin down.
+- **Sparse cells: AdaptShrink-DTA never beats HC (0/18 cells).** The correlation-shrinkage mechanism does not help when cells are sparse; the dominant problem is the normal approximation to binomial counts, not between-study correlation instability.
 
-**Summary statement.** AdaptShrink-DTA occupies a distinct regime from HSROC: it wins when selection is present (HSROC's blind spot) and loses when cells are sparse and selection is absent (HSROC's home turf). Against the Reitsma family it robustly beats both ML and REML under strong selection and small k, while staying at parity under no selection — the adaptive property the design aimed for.
+**Summary statement.** AdaptShrink-DTA occupies a distinct niche: it robustly wins when selection is present and studies are of moderate size (HSROC's blind spot), stays at parity under no selection (the adaptive design target), and loses to HSROC when cells are sparse and selection is absent (HSROC's home turf via exact-binomial likelihood). The method is not a universal improvement — it trades the sparse/no-selection regime for the selection/moderate-n regime. Both wins and losses are quantified and bootstrap-verified.
 
 ## Files
 `src/ubcma/dta.py` (estimators + regions) · `tests/test_dta.py` (12 tests) ·
@@ -239,6 +253,6 @@ In k10_sparse, the exact-binomial HSROC has a fundamental advantage: at 10 studi
 `dta_full_{perrep,table}.csv`, `dta_full_truthgate.json` (full grid, 108 cells) ·
 `dta_focus_{perrep,table}.csv`, `dta_focus_truthgate.json` (focus grid, 800 reps+HSROC) ·
 `dta_phase2_scoreboard.{csv,txt}` (method×regime×metric synthesis) ·
-`dta_sparse_{perrep,table}.csv`, `dta_sparse_truthgate.json` (HSROC-tail, pending) ·
-`dta_phase2_hsroc_tail.txt` (HSROC-tail characterisation, pending) ·
+`dta_sparse_{perrep,table}.csv`, `dta_sparse_truthgate.json` (HSROC-tail, 600 reps) ·
+`dta_phase2_hsroc_tail.txt` (HSROC-tail characterisation) ·
 `reference_fits.json` + `validate_*` + `verify_*` (validation & cross-checks).
