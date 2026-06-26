@@ -1,0 +1,126 @@
+```python
+import json
+import os
+import numpy as np
+from scipy.special import expit, roots_hermite, logsumexp, gammaln
+from scipy.optimize import minimize
+
+def log_binom_comb(k, n):
+    return gammaln(n + 1) - gammaln(k + 1) - gammaln(n - k + 1)
+
+def fast_logpmf(k, n, logit_p):
+    return k * logit_p - n * np.logaddexp(0, logit_p) + log_binom_comb(k, n)
+
+def main():
+    with open('truth-recovery-dta/reference_fits.json', 'r') as f:
+        ref_fits = json.load(f)
+    with open('truth-recovery-dta/reference_glmm.json', 'r') as f:
+        ref_glmm = json.load(f)
+
+    # Gauss-Hermite quadrature
+    x, w = roots_hermite(60)
+    z = np.sqrt(2) * x
+    v = w / np.sqrt(np.pi)
+    log_v = np.log(v)
+    
+    results = {"per_dataset": {}}
+    worst_se = 0.0
+    worst_sp = 0.0
+    all_mine_le_glmer = True
+
+    for ds_name, glmer_res in ref_glmm.items():
+        if not glmer_res.get("ok", False):
+            continue
+            
+        counts = ref_fits[ds_name]["counts"]
+        TP = np.array(counts["TP"], dtype=float)
+        FP = np.array(counts["FP"], dtype=float)
+        FN = np.array(counts["FN"], dtype=float)
+        TN = np.array(counts["TN"], dtype=float)
+        
+        # Continuity correction
+        if np.any(TP == 0) or np.any(FP == 0) or np.any(FN == 0) or np.any(TN == 0):
+            TP += 0.5
+            FP += 0.5
+            FN += 0.5
+            TN += 0.5
+            
+        n1 = TP + FN
+        n0 = TN + FP
+        N = len(TP)
+
+        def get_nll(params):
+            mu1, mu2, log_t1, log_t2, fisher_rho = params
+            t1 = np.exp(log_t1)
+            t2 = np.exp(log_t2)
+            rho = np.tanh(fisher_rho)
+            
+            b1 = t1 * z[:, None]  # (60, 1)
+            b2 = t2 * (rho * z[:, None] + np.sqrt(1 - rho**2) * z[None, :])  # (60, 60)
+            
+            l1 = mu1 + b1  # (60, 1)
+            l2 = mu2 + b2  # (60, 60)
+            
+            logpmf1 = fast_logpmf(TP[:, None, None], n1[:, None, None], l1[None, :, :])
+            logpmf2 = fast_logpmf(TN[:, None, None], n0[:, None
+<truncated 985 bytes>
+pit(mu1_opt))
+        sp_opt = float(expit(mu2_opt))
+        t1_opt = float(np.exp(log_t1_opt))
+        t2_opt = float(np.exp(log_t2_opt))
+        rho_opt = float(np.tanh(f_rho_opt))
+        
+        # Eval at glmer params
+        mu1_glmer = glmer_res["m1_logit_sens"]
+        mu2_glmer = glmer_res["m2_logit_spec"]
+        t1_glmer = glmer_res["tau_sens"]
+        t2_glmer = glmer_res["tau_spec"]
+        rho_glmer = glmer_res["rho"]
+        
+        # avoid log(0) for boundary tau
+        log_t1_glmer = np.log(max(t1_glmer, 1e-6))
+        log_t2_glmer = np.log(max(t2_glmer, 1e-6))
+        # clip rho for arctanh
+        rho_glmer_clipped = np.clip(rho_glmer, -0.99999, 0.99999)
+        frho_glmer = np.arctanh(rho_glmer_clipped)
+        
+        nll_glmer = get_nll([mu1_glmer, mu2_glmer, log_t1_glmer, log_t2_glmer, frho_glmer])
+        
+        se_glmer = glmer_res["sens_summary"]
+        sp_glmer = glmer_res["spec_summary"]
+        
+        dse = abs(se_opt - se_glmer)
+        dsp = abs(sp_opt - sp_glmer)
+        
+        worst_se = max(worst_se, dse)
+        worst_sp = max(worst_sp, dsp)
+        
+        mine_le_glmer = bool(nll_mine <= nll_glmer + 1e-4) # small tolerance for numerical noise
+        if not mine_le_glmer:
+            all_mine_le_glmer = False
+
+        results["per_dataset"][ds_name] = {
+            "se": se_opt,
+            "sp": sp_opt,
+            "mu1": float(mu1_opt),
+            "mu2": float(mu2_opt),
+            "t1": t1_opt,
+            "t2": t2_opt,
+            "rho": rho_opt,
+            "dse_vs_glmer": dse,
+            "dsp_vs_glmer": dsp,
+            "nll_mine": float(nll_mine),
+            "nll_glmer_params": float(nll_glmer),
+            "mine_le_glmer": mine_le_glmer
+        }
+
+    results["worst_se_sp_vs_glmer"] = max(worst_se, worst_sp)
+    results["all_mine_le_glmer"] = all_mine_le_glmer
+    results["seat_identifier"] = "agy"
+
+    with open('truth-recovery-dta/verify_hsroc_agy_result.json', 'w') as f:
+        json.dump(results, f, indent=2)
+
+if __name__ == "__main__":
+    main()
+```

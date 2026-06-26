@@ -1,0 +1,272 @@
+# AdaptShrink-DTA Phase-2 Scoreboard — focus grid (800 reps)
+========================================================================
+MCIW0-2D area = matched-coverage region area (PRIMARY, lower=better).
+Bootstrap(2000) 97.5th %ile of (method−HC) < 0 → robust_win.
+OURS = adaptshrink_dta; HC = reitsma (field-to-beat); field = rest.
+
+## k10_hi  selection=none
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  HSROC                    1.4811 -0.3241      YES    0.826  0.4047
+  Reitsma (REML)           1.7745 -0.0307      YES    0.740  0.4439
+  Reitsma (ML)             1.8052 +0.0000        —    0.690  0.4531
+  Sep-Univariate           1.8550 +0.0498       no    0.782  0.4549
+  AdaptShrink-DTA    *     1.8594 +0.0542       no    0.767  0.4539
+  Reitsma (ρ=0)            1.9244 +0.1192       no    0.741  0.4647
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=+0.0542 robust=loses  frac_better=0.163
+    vs Reitsma (REML)    : Δarea=+0.0849 robust=loses  frac_better=0.003
+    vs Reitsma (ρ=0)     : Δarea=-0.0650 robust=BEATS  frac_better=0.985
+    vs Sep-Univariate    : Δarea=+0.0044 robust=loses  frac_better=0.772
+    vs HSROC             : Δarea=+0.3783 robust=loses  frac_better=0.000
+
+## k10_hi  selection=moderate
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Sep-Univariate           1.2725 -0.1489       no    0.865  0.3910
+  AdaptShrink-DTA    *     1.3676 -0.0538       no    0.851  0.3933
+  Reitsma (ρ=0)            1.3975 -0.0239       no    0.836  0.3961
+  Reitsma (REML)           1.4033 -0.0181       no    0.831  0.3935
+  Reitsma (ML)             1.4214 +0.0000        —    0.805  0.3957
+  HSROC                    1.5738 +0.1524       no    0.823  0.4119
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=-0.0538 robust=loses  frac_better=0.565
+    vs Reitsma (REML)    : Δarea=-0.0357 robust=loses  frac_better=0.442
+    vs Reitsma (ρ=0)     : Δarea=-0.0299 robust=loses  frac_better=0.614
+    vs Sep-Univariate    : Δarea=+0.0951 robust=loses  frac_better=0.218
+    vs HSROC             : Δarea=-0.2062 robust=loses  frac_better=0.859
+
+## k10_hi  selection=strong
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Reitsma (ρ=0)            1.3907 -0.3223      YES    0.816  0.4122
+  Sep-Univariate           1.4706 -0.2424      YES    0.839  0.4143
+  AdaptShrink-DTA    *     1.5475 -0.1655      YES    0.831  0.4186
+  Reitsma (ML)             1.7130 +0.0000        —    0.767  0.4268
+  Reitsma (REML)           1.8165 +0.1035       no    0.786  0.4330
+  HSROC                    2.4772 +0.7642       no    0.651  0.5032
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=-0.1655 robust=BEATS  frac_better=0.985
+    vs Reitsma (REML)    : Δarea=-0.2690 robust=BEATS  frac_better=1.000
+    vs Reitsma (ρ=0)     : Δarea=+0.1568 robust=loses  frac_better=0.039
+    vs Sep-Univariate    : Δarea=+0.0769 robust=loses  frac_better=0.221
+    vs HSROC             : Δarea=-0.9297 robust=BEATS  frac_better=1.000
+
+## k10_sparse  selection=none
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  HSROC                    2.6184 -0.7494      YES    0.674  0.5944
+  Reitsma (REML)           3.2951 -0.0727      YES    0.576  0.6922
+  Reitsma (ML)             3.3678 +0.0000        —    0.542  0.6980
+  AdaptShrink-DTA    *     3.6076 +0.2398       no    0.565  0.7122
+  Sep-Univariate           3.6932 +0.3254       no    0.545  0.7272
+  Reitsma (ρ=0)            3.8561 +0.4883       no    0.517  0.7302
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=+0.2398 robust=loses  frac_better=0.112
+    vs Reitsma (REML)    : Δarea=+0.3125 robust=loses  frac_better=0.009
+    vs Reitsma (ρ=0)     : Δarea=-0.2485 robust=BEATS  frac_better=0.985
+    vs Sep-Univariate    : Δarea=-0.0856 robust=loses  frac_better=0.793
+    vs HSROC             : Δarea=+0.9892 robust=loses  frac_better=0.000
+
+## k10_sparse  selection=moderate
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  HSROC                    2.0066 -0.6315      YES    0.836  0.4957
+  Reitsma (REML)           2.4955 -0.1426      YES    0.767  0.5642
+  Reitsma (ML)             2.6381 +0.0000        —    0.739  0.5691
+  Sep-Univariate           2.7245 +0.0864       no    0.731  0.6019
+  AdaptShrink-DTA    *     2.7438 +0.1057       no    0.743  0.5826
+  Reitsma (ρ=0)            2.8372 +0.1991       no    0.700  0.6006
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=+0.1057 robust=loses  frac_better=0.013
+    vs Reitsma (REML)    : Δarea=+0.2483 robust=loses  frac_better=0.001
+    vs Reitsma (ρ=0)     : Δarea=-0.0934 robust=loses  frac_better=0.858
+    vs Sep-Univariate    : Δarea=+0.0193 robust=loses  frac_better=0.547
+    vs HSROC             : Δarea=+0.7372 robust=loses  frac_better=0.000
+
+## k10_sparse  selection=strong
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Reitsma (REML)           1.5893 -0.0337       no    0.861  0.4713
+  Reitsma (ML)             1.6230 +0.0000        —    0.844  0.4729
+  HSROC                    1.7190 +0.0960       no    0.859  0.4622
+  AdaptShrink-DTA    *     1.7659 +0.1429       no    0.845  0.4855
+  Sep-Univariate           1.8492 +0.2262       no    0.826  0.5091
+  Reitsma (ρ=0)            1.8576 +0.2346       no    0.809  0.5051
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=+0.1429 robust=loses  frac_better=0.080
+    vs Reitsma (REML)    : Δarea=+0.1766 robust=loses  frac_better=0.144
+    vs Reitsma (ρ=0)     : Δarea=-0.0917 robust=BEATS  frac_better=0.996
+    vs Sep-Univariate    : Δarea=-0.0833 robust=BEATS  frac_better=0.995
+    vs HSROC             : Δarea=+0.0469 robust=loses  frac_better=0.231
+
+## k10_thr  selection=none
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  HSROC                    0.8984 -0.1882      YES    0.829  0.3233
+  Reitsma (REML)           1.0648 -0.0218       no    0.796  0.3342
+  Reitsma (ML)             1.0866 +0.0000        —    0.761  0.3383
+  Sep-Univariate           1.1196 +0.0330       no    0.836  0.3424
+  AdaptShrink-DTA    *     1.1197 +0.0331       no    0.821  0.3405
+  Reitsma (ρ=0)            1.1639 +0.0773       no    0.777  0.3495
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=+0.0331 robust=loses  frac_better=0.205
+    vs Reitsma (REML)    : Δarea=+0.0549 robust=loses  frac_better=0.061
+    vs Reitsma (ρ=0)     : Δarea=-0.0442 robust=BEATS  frac_better=0.994
+    vs Sep-Univariate    : Δarea=+0.0001 robust=loses  frac_better=0.824
+    vs HSROC             : Δarea=+0.2213 robust=loses  frac_better=0.005
+
+## k10_thr  selection=moderate
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Reitsma (ρ=0)            0.7743 -0.0135       no    0.853  0.3149
+  Reitsma (ML)             0.7878 +0.0000        —    0.823  0.3151
+  Sep-Univariate           0.7940 +0.0062       no    0.879  0.3125
+  AdaptShrink-DTA    *     0.8079 +0.0201       no    0.870  0.3128
+  Reitsma (REML)           0.8119 +0.0241       no    0.849  0.3160
+  HSROC                    0.9958 +0.2080       no    0.838  0.3415
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=+0.0201 robust=loses  frac_better=0.386
+    vs Reitsma (REML)    : Δarea=-0.0040 robust=loses  frac_better=0.508
+    vs Reitsma (ρ=0)     : Δarea=+0.0336 robust=loses  frac_better=0.731
+    vs Sep-Univariate    : Δarea=+0.0139 robust=loses  frac_better=0.568
+    vs HSROC             : Δarea=-0.1879 robust=BEATS  frac_better=1.000
+
+## k10_thr  selection=strong
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Reitsma (ρ=0)            1.0522 -0.1896      YES    0.833  0.3426
+  AdaptShrink-DTA    *     1.1059 -0.1359       no    0.851  0.3520
+  Sep-Univariate           1.1332 -0.1086      YES    0.864  0.3483
+  Reitsma (ML)             1.2418 +0.0000        —    0.779  0.3612
+  Reitsma (REML)           1.2983 +0.0565       no    0.791  0.3671
+  HSROC                    1.8316 +0.5898       no    0.657  0.4242
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=-0.1359 robust=loses  frac_better=0.943
+    vs Reitsma (REML)    : Δarea=-0.1924 robust=BEATS  frac_better=0.995
+    vs Reitsma (ρ=0)     : Δarea=+0.0537 robust=loses  frac_better=0.003
+    vs Sep-Univariate    : Δarea=-0.0273 robust=loses  frac_better=0.146
+    vs HSROC             : Δarea=-0.7257 robust=BEATS  frac_better=1.000
+
+## k20_thr  selection=none
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  HSROC                    0.5448 -0.1780      YES    0.845  0.2413
+  Reitsma (REML)           0.7003 -0.0225      YES    0.713  0.2741
+  Sep-Univariate           0.7163 -0.0065       no    0.764  0.2834
+  Reitsma (ML)             0.7228 +0.0000        —    0.675  0.2773
+  AdaptShrink-DTA    *     0.7267 +0.0039       no    0.740  0.2775
+  Reitsma (ρ=0)            0.7318 +0.0090       no    0.735  0.2871
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=+0.0039 robust=loses  frac_better=0.265
+    vs Reitsma (REML)    : Δarea=+0.0264 robust=loses  frac_better=0.010
+    vs Reitsma (ρ=0)     : Δarea=-0.0051 robust=BEATS  frac_better=0.978
+    vs Sep-Univariate    : Δarea=+0.0104 robust=loses  frac_better=0.825
+    vs HSROC             : Δarea=+0.1819 robust=loses  frac_better=0.000
+
+## k20_thr  selection=moderate
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Sep-Univariate           0.3946 -0.0071       no    0.895  0.2261
+  AdaptShrink-DTA    *     0.3951 -0.0066       no    0.907  0.2229
+  Reitsma (ρ=0)            0.3968 -0.0049       no    0.879  0.2277
+  Reitsma (ML)             0.4017 +0.0000        —    0.879  0.2229
+  Reitsma (REML)           0.4169 +0.0152       no    0.895  0.2225
+  HSROC                    0.6107 +0.2090       no    0.851  0.2472
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=-0.0066 robust=loses  frac_better=0.669
+    vs Reitsma (REML)    : Δarea=-0.0218 robust=loses  frac_better=0.617
+    vs Reitsma (ρ=0)     : Δarea=-0.0017 robust=loses  frac_better=0.903
+    vs Sep-Univariate    : Δarea=+0.0005 robust=loses  frac_better=0.729
+    vs HSROC             : Δarea=-0.2156 robust=BEATS  frac_better=1.000
+
+## k20_thr  selection=strong
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Reitsma (ρ=0)            0.5384 -0.1234      YES    0.876  0.2420
+  Sep-Univariate           0.5804 -0.0814      YES    0.886  0.2450
+  AdaptShrink-DTA    *     0.6527 -0.0091       no    0.875  0.2532
+  Reitsma (ML)             0.6618 +0.0000        —    0.792  0.2557
+  Reitsma (REML)           0.6867 +0.0249       no    0.799  0.2588
+  HSROC                    1.1535 +0.4917       no    0.534  0.3278
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=-0.0091 robust=loses  frac_better=0.897
+    vs Reitsma (REML)    : Δarea=-0.0340 robust=BEATS  frac_better=0.985
+    vs Reitsma (ρ=0)     : Δarea=+0.1143 robust=loses  frac_better=0.008
+    vs Sep-Univariate    : Δarea=+0.0723 robust=loses  frac_better=0.057
+    vs HSROC             : Δarea=-0.5008 robust=BEATS  frac_better=1.000
+
+## k6_thr  selection=none
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  HSROC                    1.5010 -0.0981       no    0.828  0.4174
+  Reitsma (REML)           1.5397 -0.0594       no    0.819  0.4173
+  Sep-Univariate           1.5954 -0.0037       no    0.848  0.4212
+  Reitsma (ML)             1.5991 +0.0000        —    0.760  0.4213
+  AdaptShrink-DTA    *     1.6467 +0.0476       no    0.824  0.4237
+  Reitsma (ρ=0)            1.6841 +0.0850       no    0.765  0.4306
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=+0.0476 robust=loses  frac_better=0.108
+    vs Reitsma (REML)    : Δarea=+0.1070 robust=loses  frac_better=0.025
+    vs Reitsma (ρ=0)     : Δarea=-0.0374 robust=loses  frac_better=0.842
+    vs Sep-Univariate    : Δarea=+0.0513 robust=loses  frac_better=0.280
+    vs HSROC             : Δarea=+0.1457 robust=loses  frac_better=0.031
+
+## k6_thr  selection=moderate
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Reitsma (ρ=0)            1.5048 -0.1274       no    0.810  0.4081
+  Sep-Univariate           1.5079 -0.1243       no    0.860  0.4065
+  AdaptShrink-DTA    *     1.5696 -0.0626       no    0.840  0.4088
+  Reitsma (REML)           1.5973 -0.0349       no    0.833  0.4185
+  Reitsma (ML)             1.6322 +0.0000        —    0.801  0.4171
+  HSROC                    2.0059 +0.3737       no    0.785  0.4480
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=-0.0626 robust=loses  frac_better=0.924
+    vs Reitsma (REML)    : Δarea=-0.0277 robust=loses  frac_better=0.900
+    vs Reitsma (ρ=0)     : Δarea=+0.0648 robust=loses  frac_better=0.330
+    vs Sep-Univariate    : Δarea=+0.0617 robust=loses  frac_better=0.290
+    vs HSROC             : Δarea=-0.4363 robust=BEATS  frac_better=1.000
+
+## k6_thr  selection=strong
+method                mciw0_area   vs_HC   rob_HC  raw_cov    rmse
+  Reitsma (ρ=0)            1.6675 -0.2472      YES    0.789  0.4342
+  AdaptShrink-DTA    *     1.8086 -0.1061      YES    0.821  0.4432
+  Sep-Univariate           1.8094 -0.1053      YES    0.830  0.4414
+  Reitsma (ML)             1.9147 +0.0000        —    0.772  0.4576
+  Reitsma (REML)           1.9725 +0.0578       no    0.791  0.4659
+  HSROC                    2.5464 +0.6317       no    0.691  0.5154
+
+  AdaptShrink-DTA vs field  (robust = 97.5th %ile < 0):
+    vs Reitsma (ML)      : Δarea=-0.1061 robust=BEATS  frac_better=0.986
+    vs Reitsma (REML)    : Δarea=-0.1639 robust=BEATS  frac_better=0.999
+    vs Reitsma (ρ=0)     : Δarea=+0.1411 robust=loses  frac_better=0.005
+    vs Sep-Univariate    : Δarea=-0.0008 robust=loses  frac_better=0.200
+    vs HSROC             : Δarea=-0.7378 robust=BEATS  frac_better=1.000
+
+========================================================================
+OVERALL ROBUST WINS (bootstrap G4, 97.5th %ile < 0)
+
+AdaptShrink-DTA robustly beats HC (reitsma) in 2/15 cells (of those tested).
+
+AdaptShrink-DTA robustly beats each field member:
+  vs Reitsma (ML)      : 2/15 cells: k10_hi×strong, k6_thr×strong
+  vs Reitsma (REML)    : 4/15 cells: k10_hi×strong, k10_thr×strong, k20_thr×strong, k6_thr×strong
+  vs Reitsma (ρ=0)     : 5/15 cells: k10_hi×none, k10_sparse×none, k10_sparse×strong, k10_thr×none, k20_thr×none
+  vs Sep-Univariate    : 1/15 cells: k10_sparse×strong
+  vs HSROC             : 7/15 cells: k10_hi×strong, k10_thr×moderate, k10_thr×strong, k20_thr×moderate, k20_thr×strong, k6_thr×moderate, k6_thr×strong
+
+Cells where OURS does NOT robustly beat HC:
+  k10_hi×moderate: Δ=+0.0000 [-0.0774, +0.0558]  frac_better=0.565
+  k10_hi×none: Δ=+0.0614 [-0.0355, +0.1305]  frac_better=0.163
+  k10_sparse×moderate: Δ=+0.1061 [+0.0115, +0.2100]  frac_better=0.013
+  k10_sparse×none: Δ=+0.0538 [-0.0441, +0.2227]  frac_better=0.112
+  k10_sparse×strong: Δ=+0.0816 [-0.0240, +0.2164]  frac_better=0.080
+  k10_thr×moderate: Δ=-0.0055 [-0.0368, +0.0566]  frac_better=0.386
+  k10_thr×none: Δ=+0.0321 [-0.0368, +0.0767]  frac_better=0.205
+  k10_thr×strong: Δ=-0.1264 [-0.1842, +0.0266]  frac_better=0.943
+  k20_thr×moderate: Δ=-0.0053 [-0.0233, +0.0172]  frac_better=0.669
+  k20_thr×none: Δ=+0.0077 [-0.0197, +0.0343]  frac_better=0.265
+  k20_thr×strong: Δ=-0.0293 [-0.0714, +0.0121]  frac_better=0.897
+  k6_thr×moderate: Δ=-0.0868 [-0.1720, +0.0278]  frac_better=0.924
+  k6_thr×none: Δ=+0.0561 [-0.0293, +0.1492]  frac_better=0.108

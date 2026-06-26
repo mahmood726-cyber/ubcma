@@ -1,0 +1,1851 @@
+[dta] cell=k6_rho0.0_p0.1 strength=none reps=400 ...
+[dta] cell=k6_rho0.0_p0.1 strength=moderate reps=400 ...
+[dta] cell=k6_rho0.0_p0.1 strength=strong reps=400 ...
+[dta] cell=k6_rho0.0_p0.3 strength=none reps=400 ...
+[dta] cell=k6_rho0.0_p0.3 strength=moderate reps=400 ...
+[dta] cell=k6_rho0.0_p0.3 strength=strong reps=400 ...
+[dta] cell=k6_rho0.0_p0.5 strength=none reps=400 ...
+[dta] cell=k6_rho0.0_p0.5 strength=moderate reps=400 ...
+[dta] cell=k6_rho0.0_p0.5 strength=strong reps=400 ...
+[dta] cell=k6_rho-0.4_p0.1 strength=none reps=400 ...
+[dta] cell=k6_rho-0.4_p0.1 strength=moderate reps=400 ...
+[dta] cell=k6_rho-0.4_p0.1 strength=strong reps=400 ...
+[dta] cell=k6_rho-0.4_p0.3 strength=none reps=400 ...
+[dta] cell=k6_rho-0.4_p0.3 strength=moderate reps=400 ...
+[dta] cell=k6_rho-0.4_p0.3 strength=strong reps=400 ...
+[dta] cell=k6_rho-0.4_p0.5 strength=none reps=400 ...
+[dta] cell=k6_rho-0.4_p0.5 strength=moderate reps=400 ...
+[dta] cell=k6_rho-0.4_p0.5 strength=strong reps=400 ...
+[dta] cell=k6_rho-0.8_p0.1 strength=none reps=400 ...
+[dta] cell=k6_rho-0.8_p0.1 strength=moderate reps=400 ...
+[dta] cell=k6_rho-0.8_p0.1 strength=strong reps=400 ...
+[dta] cell=k6_rho-0.8_p0.3 strength=none reps=400 ...
+[dta] cell=k6_rho-0.8_p0.3 strength=moderate reps=400 ...
+[dta] cell=k6_rho-0.8_p0.3 strength=strong reps=400 ...
+[dta] cell=k6_rho-0.8_p0.5 strength=none reps=400 ...
+[dta] cell=k6_rho-0.8_p0.5 strength=moderate reps=400 ...
+[dta] cell=k6_rho-0.8_p0.5 strength=strong reps=400 ...
+[dta] cell=k10_rho0.0_p0.1 strength=none reps=400 ...
+[dta] cell=k10_rho0.0_p0.1 strength=moderate reps=400 ...
+[dta] cell=k10_rho0.0_p0.1 strength=strong reps=400 ...
+[dta] cell=k10_rho0.0_p0.3 strength=none reps=400 ...
+[dta] cell=k10_rho0.0_p0.3 strength=moderate reps=400 ...
+[dta] cell=k10_rho0.0_p0.3 strength=strong reps=400 ...
+[dta] cell=k10_rho0.0_p0.5 strength=none reps=400 ...
+[dta] cell=k10_rho0.0_p0.5 strength=moderate reps=400 ...
+[dta] cell=k10_rho0.0_p0.5 strength=strong reps=400 ...
+[dta] cell=k10_rho-0.4_p0.1 strength=none reps=400 ...
+[dta] cell=k10_rho-0.4_p0.1 strength=moderate reps=400 ...
+[dta] cell=k10_rho-0.4_p0.1 strength=strong reps=400 ...
+[dta] cell=k10_rho-0.4_p0.3 strength=none reps=400 ...
+[dta] cell=k10_rho-0.4_p0.3 strength=moderate reps=400 ...
+[dta] cell=k10_rho-0.4_p0.3 strength=strong reps=400 ...
+[dta] cell=k10_rho-0.4_p0.5 strength=none reps=400 ...
+[dta] cell=k10_rho-0.4_p0.5 strength=moderate reps=400 ...
+[dta] cell=k10_rho-0.4_p0.5 strength=strong reps=400 ...
+[dta] cell=k10_rho-0.8_p0.1 strength=none reps=400 ...
+[dta] cell=k10_rho-0.8_p0.1 strength=moderate reps=400 ...
+[dta] cell=k10_rho-0.8_p0.1 strength=strong reps=400 ...
+[dta] cell=k10_rho-0.8_p0.3 strength=none reps=400 ...
+[dta] cell=k10_rho-0.8_p0.3 strength=moderate reps=400 ...
+[dta] cell=k10_rho-0.8_p0.3 strength=strong reps=400 ...
+[dta] cell=k10_rho-0.8_p0.5 strength=none reps=400 ...
+[dta] cell=k10_rho-0.8_p0.5 strength=moderate reps=400 ...
+[dta] cell=k10_rho-0.8_p0.5 strength=strong reps=400 ...
+[dta] cell=k20_rho0.0_p0.1 strength=none reps=400 ...
+[dta] cell=k20_rho0.0_p0.1 strength=moderate reps=400 ...
+[dta] cell=k20_rho0.0_p0.1 strength=strong reps=400 ...
+[dta] cell=k20_rho0.0_p0.3 strength=none reps=400 ...
+[dta] cell=k20_rho0.0_p0.3 strength=moderate reps=400 ...
+[dta] cell=k20_rho0.0_p0.3 strength=strong reps=400 ...
+[dta] cell=k20_rho0.0_p0.5 strength=none reps=400 ...
+[dta] cell=k20_rho0.0_p0.5 strength=moderate reps=400 ...
+[dta] cell=k20_rho0.0_p0.5 strength=strong reps=400 ...
+[dta] cell=k20_rho-0.4_p0.1 strength=none reps=400 ...
+[dta] cell=k20_rho-0.4_p0.1 strength=moderate reps=400 ...
+[dta] cell=k20_rho-0.4_p0.1 strength=strong reps=400 ...
+[dta] cell=k20_rho-0.4_p0.3 strength=none reps=400 ...
+[dta] cell=k20_rho-0.4_p0.3 strength=moderate reps=400 ...
+[dta] cell=k20_rho-0.4_p0.3 strength=strong reps=400 ...
+[dta] cell=k20_rho-0.4_p0.5 strength=none reps=400 ...
+[dta] cell=k20_rho-0.4_p0.5 strength=moderate reps=400 ...
+[dta] cell=k20_rho-0.4_p0.5 strength=strong reps=400 ...
+[dta] cell=k20_rho-0.8_p0.1 strength=none reps=400 ...
+[dta] cell=k20_rho-0.8_p0.1 strength=moderate reps=400 ...
+[dta] cell=k20_rho-0.8_p0.1 strength=strong reps=400 ...
+[dta] cell=k20_rho-0.8_p0.3 strength=none reps=400 ...
+[dta] cell=k20_rho-0.8_p0.3 strength=moderate reps=400 ...
+[dta] cell=k20_rho-0.8_p0.3 strength=strong reps=400 ...
+[dta] cell=k20_rho-0.8_p0.5 strength=none reps=400 ...
+[dta] cell=k20_rho-0.8_p0.5 strength=moderate reps=400 ...
+[dta] cell=k20_rho-0.8_p0.5 strength=strong reps=400 ...
+[dta] cell=k40_rho0.0_p0.1 strength=none reps=400 ...
+[dta] cell=k40_rho0.0_p0.1 strength=moderate reps=400 ...
+[dta] cell=k40_rho0.0_p0.1 strength=strong reps=400 ...
+[dta] cell=k40_rho0.0_p0.3 strength=none reps=400 ...
+[dta] cell=k40_rho0.0_p0.3 strength=moderate reps=400 ...
+[dta] cell=k40_rho0.0_p0.3 strength=strong reps=400 ...
+[dta] cell=k40_rho0.0_p0.5 strength=none reps=400 ...
+[dta] cell=k40_rho0.0_p0.5 strength=moderate reps=400 ...
+[dta] cell=k40_rho0.0_p0.5 strength=strong reps=400 ...
+[dta] cell=k40_rho-0.4_p0.1 strength=none reps=400 ...
+[dta] cell=k40_rho-0.4_p0.1 strength=moderate reps=400 ...
+[dta] cell=k40_rho-0.4_p0.1 strength=strong reps=400 ...
+[dta] cell=k40_rho-0.4_p0.3 strength=none reps=400 ...
+[dta] cell=k40_rho-0.4_p0.3 strength=moderate reps=400 ...
+[dta] cell=k40_rho-0.4_p0.3 strength=strong reps=400 ...
+[dta] cell=k40_rho-0.4_p0.5 strength=none reps=400 ...
+[dta] cell=k40_rho-0.4_p0.5 strength=moderate reps=400 ...
+[dta] cell=k40_rho-0.4_p0.5 strength=strong reps=400 ...
+[dta] cell=k40_rho-0.8_p0.1 strength=none reps=400 ...
+[dta] cell=k40_rho-0.8_p0.1 strength=moderate reps=400 ...
+[dta] cell=k40_rho-0.8_p0.1 strength=strong reps=400 ...
+[dta] cell=k40_rho-0.8_p0.3 strength=none reps=400 ...
+[dta] cell=k40_rho-0.8_p0.3 strength=moderate reps=400 ...
+[dta] cell=k40_rho-0.8_p0.3 strength=strong reps=400 ...
+[dta] cell=k40_rho-0.8_p0.5 strength=none reps=400 ...
+[dta] cell=k40_rho-0.8_p0.5 strength=moderate reps=400 ...
+[dta] cell=k40_rho-0.8_p0.5 strength=strong reps=400 ...
+
+# AdaptShrink-DTA matched-coverage bake-off (grid=full, target=0.95)
+MCIW0-2D area = matched-coverage region AREA (PRIMARY; lower=better).
+raw_cov/raw_area = deployable (kappa=1). HC = reitsma.
+
+-- cell=k10_rho-0.4_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.226   0.020   0.405    0.815   1.1207   0.890   1.4210  0.910  <-- smaller than HC
+reitsma           -0.197   0.020   0.396    0.805   1.1384   0.895   1.6737  0.955
+reitsma_reml      -0.187   0.026   0.391    0.838   1.1422   0.905   1.6395  0.955
+adaptshrink_dta   -0.208   0.018   0.398    0.823   1.1538   0.905   1.5427  0.930
+reitsma_indep     -0.233   0.017   0.412    0.782   1.1644   0.885   1.5731  0.910
+
+-- cell=k10_rho-0.4_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.339  -0.059   0.467    0.677   1.6666   0.925   2.3897  0.940  <-- smaller than HC
+reitsma           -0.347  -0.064   0.474    0.650   1.7438   0.935   2.2019  0.935
+adaptshrink_dta   -0.352  -0.065   0.478    0.705   1.7807   0.940   2.1234  0.940
+sep_univariate    -0.365  -0.062   0.487    0.698   1.9050   0.955   2.2073  0.950
+reitsma_indep     -0.372  -0.066   0.495    0.650   1.9157   0.945   2.3587  0.950
+
+-- cell=k10_rho-0.4_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.073   0.099   0.358    0.845   1.0772   0.935   1.5475  0.950  <-- smaller than HC
+sep_univariate    -0.070   0.102   0.357    0.870   1.0937   0.935   1.6430  0.955  <-- smaller than HC
+adaptshrink_dta   -0.036   0.101   0.354    0.868   1.1210   0.935   1.6218  0.965  <-- smaller than HC
+reitsma           -0.017   0.102   0.359    0.863   1.1283   0.940   1.5324  0.955
+reitsma_reml      -0.008   0.110   0.361    0.873   1.1814   0.935   1.4927  0.960
+
+-- cell=k10_rho-0.4_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.046   0.024   0.309    0.863   0.8779   0.955   1.2438  0.950  <-- smaller than HC
+adaptshrink_dta   -0.032   0.028   0.310    0.873   0.8856   0.945   1.1792  0.945  <-- smaller than HC
+sep_univariate    -0.029   0.030   0.308    0.882   0.8970   0.955   1.1551  0.945  <-- smaller than HC
+reitsma           -0.026   0.029   0.313    0.843   0.9033   0.945   1.2913  0.950
+reitsma_reml      -0.015   0.036   0.313    0.858   0.9109   0.950   1.3624  0.955
+
+-- cell=k10_rho-0.4_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.147  -0.058   0.344    0.833   1.1249   0.950   1.3737  0.950  <-- smaller than HC
+reitsma_reml      -0.138  -0.054   0.341    0.775   1.1344   0.955   1.5230  0.955  <-- smaller than HC
+reitsma           -0.149  -0.061   0.346    0.738   1.1413   0.955   1.6602  0.950
+adaptshrink_dta   -0.150  -0.060   0.346    0.787   1.1549   0.955   1.5226  0.955
+reitsma_indep     -0.163  -0.063   0.353    0.760   1.1653   0.945   1.5999  0.955
+
+-- cell=k10_rho-0.4_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.062   0.121   0.341    0.833   1.1129   0.960   1.4494  0.970  <-- smaller than HC
+sep_univariate     0.080   0.130   0.347    0.860   1.1520   0.955   1.4785  0.970  <-- smaller than HC
+reitsma            0.090   0.129   0.353    0.765   1.1605   0.955   1.6003  0.975
+adaptshrink_dta    0.084   0.128   0.348    0.853   1.1619   0.960   1.5129  0.970
+reitsma_reml       0.102   0.138   0.359    0.772   1.2454   0.955   1.7024  0.985
+
+-- cell=k10_rho-0.4_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.002   0.025   0.300    0.855   0.7225   0.900   1.1279  0.940  <-- smaller than HC
+sep_univariate     0.010   0.036   0.303    0.885   0.7375   0.910   1.1336  0.945  <-- smaller than HC
+adaptshrink_dta    0.007   0.033   0.302    0.860   0.7458   0.915   1.1522  0.945  <-- smaller than HC
+reitsma_reml       0.019   0.044   0.306    0.845   0.7497   0.925   1.2012  0.945  <-- smaller than HC
+reitsma            0.009   0.034   0.304    0.818   0.7658   0.920   1.1690  0.945
+
+-- cell=k10_rho-0.4_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.076  -0.067   0.320    0.807   0.8418   0.910   1.3768  0.905  <-- smaller than HC
+sep_univariate    -0.084  -0.070   0.322    0.855   0.8484   0.900   1.3610  0.935  <-- smaller than HC
+adaptshrink_dta   -0.086  -0.074   0.323    0.833   0.8736   0.910   1.4499  0.950  <-- smaller than HC
+reitsma           -0.086  -0.075   0.324    0.785   0.8831   0.915   1.3537  0.905
+reitsma_indep     -0.094  -0.079   0.325    0.820   0.8952   0.910   1.5840  0.955
+
+-- cell=k10_rho-0.4_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.095   0.126   0.340    0.810   1.0279   0.935   1.3247  0.955  <-- smaller than HC
+sep_univariate     0.108   0.138   0.350    0.835   1.0670   0.935   1.5209  0.975  <-- smaller than HC
+adaptshrink_dta    0.106   0.137   0.350    0.810   1.1270   0.960   1.2850  0.945  <-- smaller than HC
+reitsma            0.110   0.140   0.355    0.713   1.1415   0.940   1.1881  0.920
+reitsma_reml       0.120   0.150   0.363    0.725   1.2014   0.940   1.3169  0.925
+
+-- cell=k10_rho-0.8_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.169   0.012   0.390    0.855   0.9741   0.885   1.3799  0.910  <-- smaller than HC
+reitsma           -0.177   0.006   0.393    0.845   0.9844   0.885   1.4112  0.920
+adaptshrink_dta   -0.204   0.004   0.404    0.848   1.0418   0.875   1.6593  0.935
+reitsma_indep     -0.253   0.001   0.434    0.787   1.1951   0.855   1.6310  0.915
+sep_univariate    -0.245   0.004   0.426    0.833   1.2171   0.865   1.7334  0.945
+
+-- cell=k10_rho-0.8_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.311  -0.055   0.446    0.725   1.5467   0.910   2.0661  0.955  <-- smaller than HC
+reitsma           -0.318  -0.060   0.452    0.693   1.6825   0.920   1.9427  0.935
+adaptshrink_dta   -0.340  -0.062   0.467    0.748   1.8171   0.915   1.7685  0.925
+sep_univariate    -0.368  -0.062   0.487    0.715   2.1899   0.935   1.9821  0.960
+reitsma_indep     -0.375  -0.065   0.494    0.682   2.2095   0.925   2.2511  0.940
+
+-- cell=k10_rho-0.8_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.121   0.063   0.375    0.845   0.9322   0.920   1.5455  0.930  <-- smaller than HC
+sep_univariate    -0.117   0.068   0.372    0.865   0.9666   0.930   1.3882  0.910  <-- smaller than HC
+adaptshrink_dta   -0.062   0.067   0.356    0.885   0.9886   0.940   1.3875  0.925  <-- smaller than HC
+reitsma           -0.030   0.069   0.358    0.882   1.1229   0.950   1.3320  0.935
+reitsma_reml      -0.021   0.076   0.359    0.897   1.1555   0.955   1.2910  0.935
+
+-- cell=k10_rho-0.8_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.029   0.019   0.314    0.892   0.8049   0.965   1.0062  0.965  <-- smaller than HC
+reitsma           -0.038   0.013   0.313    0.880   0.8116   0.970   0.9978  0.950
+adaptshrink_dta   -0.053   0.009   0.312    0.900   0.8343   0.965   1.2905  0.960
+reitsma_indep     -0.084   0.001   0.317    0.860   0.8427   0.960   1.4791  0.970
+sep_univariate    -0.066   0.006   0.314    0.880   0.8630   0.960   1.3307  0.965
+
+-- cell=k10_rho-0.8_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.118  -0.047   0.332    0.797   1.0302   0.955   1.2289  0.960  <-- smaller than HC
+reitsma           -0.126  -0.052   0.335    0.752   1.0521   0.950   1.2014  0.960
+adaptshrink_dta   -0.138  -0.055   0.340    0.830   1.1136   0.950   1.4382  0.965
+sep_univariate    -0.148  -0.057   0.346    0.828   1.1915   0.955   1.5344  0.970
+reitsma_indep     -0.165  -0.062   0.354    0.757   1.2589   0.945   1.7085  0.975
+
+-- cell=k10_rho-0.8_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate     0.028   0.073   0.318    0.890   0.8560   0.955   1.3529  0.960  <-- smaller than HC
+reitsma_indep      0.007   0.067   0.315    0.875   0.8590   0.960   1.5128  0.970  <-- smaller than HC
+adaptshrink_dta    0.046   0.077   0.322    0.900   0.8780   0.955   1.0603  0.945  <-- smaller than HC
+reitsma            0.064   0.080   0.331    0.855   0.9018   0.935   1.0387  0.950
+reitsma_reml       0.073   0.086   0.336    0.860   0.9382   0.935   1.1446  0.955
+
+-- cell=k10_rho-0.8_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.042   0.016   0.315    0.855   0.6611   0.900   1.5865  0.940  <-- smaller than HC
+sep_univariate    -0.032   0.025   0.316    0.870   0.6762   0.905   1.5141  0.945  <-- smaller than HC
+adaptshrink_dta   -0.024   0.030   0.315    0.880   0.7096   0.915   1.4065  0.945  <-- smaller than HC
+reitsma           -0.016   0.035   0.316    0.855   0.7277   0.925   1.0370  0.945
+reitsma_reml      -0.008   0.043   0.318    0.865   0.7364   0.925   1.1201  0.955
+
+-- cell=k10_rho-0.8_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.071  -0.057   0.325    0.805   0.7943   0.930   1.4842  0.965  <-- smaller than HC
+reitsma           -0.078  -0.064   0.328    0.762   0.8105   0.925   1.5258  0.975
+sep_univariate    -0.090  -0.070   0.332    0.845   0.8925   0.935   1.7234  0.975
+adaptshrink_dta   -0.085  -0.068   0.329    0.828   0.8946   0.935   1.5436  0.960
+reitsma_indep     -0.100  -0.079   0.335    0.802   0.9548   0.940   1.8218  0.970
+
+-- cell=k10_rho-0.8_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.038   0.088   0.329    0.855   0.7731   0.950   1.2538  0.925  <-- smaller than HC
+sep_univariate     0.049   0.101   0.336    0.877   0.8073   0.950   1.3951  0.960  <-- smaller than HC
+adaptshrink_dta    0.058   0.108   0.340    0.887   0.8748   0.950   1.2462  0.950  <-- smaller than HC
+reitsma            0.068   0.116   0.347    0.840   0.8877   0.935   1.0538  0.955
+reitsma_reml       0.076   0.124   0.352    0.848   0.9338   0.935   1.1363  0.950
+
+-- cell=k10_rho0.0_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.167   0.039   0.384    0.812   1.2905   0.965   1.8294  0.980  <-- smaller than HC
+sep_univariate    -0.174   0.042   0.384    0.835   1.3051   0.965   1.8139  0.980  <-- smaller than HC
+reitsma_reml      -0.150   0.046   0.382    0.835   1.3135   0.965   2.0242  0.985  <-- smaller than HC
+reitsma_indep     -0.181   0.038   0.388    0.802   1.3192   0.965   1.7865  0.965  <-- smaller than HC
+reitsma           -0.161   0.039   0.386    0.802   1.3357   0.965   2.0762  0.990
+
+-- cell=k10_rho0.0_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.340  -0.073   0.486    0.650   1.6700   0.945   2.1456  0.935
+reitsma_reml      -0.330  -0.067   0.478    0.688   1.6790   0.950   2.1638  0.940
+adaptshrink_dta   -0.343  -0.073   0.485    0.670   1.7009   0.950   1.9544  0.935
+reitsma_indep     -0.358  -0.073   0.494    0.642   1.7157   0.945   2.0492  0.930
+sep_univariate    -0.350  -0.070   0.486    0.688   1.7195   0.945   2.0535  0.945
+
+-- cell=k10_rho0.0_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma            0.018   0.139   0.380    0.818   1.2099   0.920   2.0809  0.975
+adaptshrink_dta    0.003   0.138   0.372    0.855   1.2122   0.925   1.9171  0.965
+reitsma_indep     -0.022   0.136   0.370    0.848   1.2366   0.925   1.8219  0.970
+sep_univariate    -0.019   0.142   0.371    0.855   1.2610   0.940   1.7175  0.950
+reitsma_reml       0.028   0.146   0.383    0.833   1.2874   0.920   2.0377  0.975
+
+-- cell=k10_rho0.0_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta    0.003   0.060   0.328    0.848   1.1413   0.950   1.2013  0.935  <-- smaller than HC
+reitsma            0.003   0.059   0.330    0.795   1.1563   0.960   1.7098  0.965
+sep_univariate     0.011   0.063   0.328    0.868   1.1716   0.955   1.1941  0.925
+reitsma_indep     -0.004   0.057   0.326    0.833   1.1796   0.960   1.3084  0.935
+reitsma_reml       0.016   0.068   0.333    0.828   1.2031   0.955   1.5922  0.960
+
+-- cell=k10_rho0.0_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.123  -0.060   0.343    0.770   1.0417   0.950   1.7354  0.950  <-- smaller than HC
+sep_univariate    -0.124  -0.062   0.343    0.833   1.0609   0.955   1.7766  0.965  <-- smaller than HC
+adaptshrink_dta   -0.133  -0.066   0.346    0.792   1.0658   0.945   1.8478  0.955  <-- smaller than HC
+reitsma           -0.135  -0.067   0.348    0.723   1.0678   0.945   1.9625  0.960
+reitsma_indep     -0.138  -0.067   0.349    0.770   1.0783   0.945   1.7505  0.950
+
+-- cell=k10_rho0.0_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.115   0.150   0.373    0.765   1.3701   0.955   1.3408  0.900  <-- smaller than HC
+adaptshrink_dta    0.128   0.153   0.379    0.785   1.4190   0.955   1.3996  0.910  <-- smaller than HC
+reitsma            0.132   0.154   0.382    0.728   1.4571   0.955   1.8130  0.950
+reitsma_reml       0.144   0.163   0.391    0.735   1.5125   0.955   1.9734  0.955
+sep_univariate     0.132   0.158   0.381    0.807   1.5794   0.970   1.4745  0.920
+
+-- cell=k10_rho0.0_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.030   0.034   0.323    0.845   1.0031   0.945   1.2355  0.955  <-- smaller than HC
+adaptshrink_dta    0.033   0.038   0.325    0.845   1.0148   0.955   1.3075  0.950  <-- smaller than HC
+sep_univariate     0.040   0.046   0.328    0.875   1.0554   0.950   1.1704  0.955  <-- smaller than HC
+reitsma            0.032   0.038   0.326    0.802   1.0773   0.960   1.3178  0.955
+reitsma_reml       0.043   0.048   0.330    0.833   1.1153   0.965   1.2930  0.955
+
+-- cell=k10_rho0.0_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.071  -0.083   0.326    0.845   0.8181   0.895   1.3055  0.950  <-- smaller than HC
+adaptshrink_dta   -0.077  -0.090   0.329    0.800   0.9031   0.920   1.7837  0.955  <-- smaller than HC
+reitsma_indep     -0.080  -0.092   0.329    0.797   0.9144   0.920   1.6237  0.950  <-- smaller than HC
+reitsma_reml      -0.070  -0.082   0.327    0.795   0.9337   0.930   1.9994  0.955  <-- smaller than HC
+reitsma           -0.080  -0.092   0.332    0.745   0.9375   0.920   1.9144  0.940
+
+-- cell=k10_rho0.0_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.140   0.151   0.388    0.713   1.5227   0.970   1.6132  0.965  <-- smaller than HC
+reitsma            0.147   0.159   0.397    0.647   1.5391   0.975   1.9739  0.980
+adaptshrink_dta    0.146   0.157   0.393    0.720   1.5498   0.970   1.7556  0.975
+reitsma_reml       0.159   0.171   0.407    0.665   1.5878   0.970   2.0856  0.975
+sep_univariate     0.154   0.165   0.400    0.743   1.6130   0.970   1.6849  0.965
+
+-- cell=k20_rho-0.4_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.211   0.021   0.311    0.810   0.7028   0.950   0.9827  0.970  <-- smaller than HC
+reitsma           -0.207   0.021   0.309    0.790   0.7139   0.960   0.9344  0.960
+reitsma_reml      -0.201   0.024   0.305    0.810   0.7180   0.960   0.9633  0.960
+sep_univariate    -0.237   0.020   0.329    0.745   0.7582   0.940   0.9535  0.950
+reitsma_indep     -0.235   0.019   0.329    0.760   0.7714   0.945   1.0274  0.945
+
+-- cell=k20_rho-0.4_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.376  -0.052   0.443    0.432   1.2696   0.950   1.6244  0.950  <-- smaller than HC
+reitsma           -0.381  -0.055   0.447    0.403   1.2934   0.955   1.5832  0.945
+adaptshrink_dta   -0.384  -0.056   0.450    0.445   1.2986   0.950   1.4954  0.955
+reitsma_indep     -0.399  -0.058   0.463    0.420   1.3025   0.945   1.5655  0.950
+sep_univariate    -0.397  -0.058   0.460    0.435   1.3163   0.945   1.5034  0.960
+
+-- cell=k20_rho-0.4_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.089   0.097   0.273    0.838   0.6453   0.955   0.9582  0.985  <-- smaller than HC
+reitsma_indep     -0.079   0.095   0.272    0.843   0.6642   0.955   0.8746  0.975  <-- smaller than HC
+adaptshrink_dta   -0.036   0.098   0.264    0.887   0.7562   0.975   0.8899  0.985  <-- smaller than HC
+reitsma_reml      -0.022   0.102   0.266    0.877   0.7627   0.975   0.8301  0.985  <-- smaller than HC
+reitsma           -0.028   0.098   0.266    0.870   0.7792   0.985   0.8289  0.985
+
+-- cell=k20_rho-0.4_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.045   0.017   0.231    0.882   0.3472   0.885   0.4641  0.895  <-- smaller than HC
+sep_univariate    -0.035   0.020   0.231    0.897   0.3516   0.900   0.4782  0.910  <-- smaller than HC
+adaptshrink_dta   -0.032   0.022   0.229    0.905   0.3532   0.895   0.4944  0.950  <-- smaller than HC
+reitsma_reml      -0.025   0.025   0.229    0.892   0.3571   0.900   0.4894  0.945  <-- smaller than HC
+reitsma           -0.032   0.021   0.229    0.873   0.3589   0.895   0.4955  0.945
+
+-- cell=k20_rho-0.4_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.153  -0.054   0.275    0.745   0.6960   0.960   0.9234  0.940  <-- smaller than HC
+adaptshrink_dta   -0.158  -0.057   0.278    0.755   0.7074   0.960   0.8338  0.945  <-- smaller than HC
+reitsma           -0.159  -0.057   0.278    0.728   0.7084   0.960   0.9503  0.940
+sep_univariate    -0.159  -0.060   0.280    0.775   0.7097   0.955   0.8521  0.960
+reitsma_indep     -0.166  -0.061   0.283    0.750   0.7280   0.955   0.8424  0.940
+
+-- cell=k20_rho-0.4_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.067   0.103   0.264    0.848   0.7295   0.955   0.7199  0.945  <-- smaller than HC
+adaptshrink_dta    0.089   0.110   0.273    0.838   0.7585   0.950   0.7638  0.970  <-- smaller than HC
+sep_univariate     0.077   0.107   0.269    0.858   0.7869   0.965   0.7554  0.955  <-- smaller than HC
+reitsma            0.090   0.110   0.274    0.755   0.7962   0.955   0.8072  0.965
+reitsma_reml       0.097   0.114   0.278    0.760   0.8180   0.955   0.8438  0.970
+
+-- cell=k20_rho-0.4_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.004   0.011   0.220    0.892   0.4082   0.955   0.5562  0.965  <-- smaller than HC
+adaptshrink_dta    0.012   0.019   0.221    0.895   0.4116   0.940   0.5318  0.965  <-- smaller than HC
+reitsma            0.011   0.018   0.221    0.880   0.4134   0.945   0.5617  0.955
+reitsma_reml       0.016   0.023   0.222    0.892   0.4201   0.940   0.5439  0.955
+sep_univariate     0.009   0.017   0.224    0.902   0.4281   0.955   0.6016  0.970
+
+-- cell=k20_rho-0.4_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.098  -0.076   0.257    0.777   0.6290   0.970   0.7463  0.960  <-- smaller than HC
+reitsma           -0.099  -0.077   0.257    0.743   0.6353   0.970   0.8411  0.940
+sep_univariate    -0.100  -0.078   0.260    0.802   0.6441   0.955   0.8074  0.965
+reitsma_reml      -0.095  -0.072   0.255    0.772   0.6487   0.970   0.8337  0.940
+reitsma_indep     -0.103  -0.082   0.261    0.792   0.6565   0.960   0.7421  0.960
+
+-- cell=k20_rho-0.4_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.097   0.106   0.259    0.823   0.6633   0.945   0.7233  0.960  <-- smaller than HC
+sep_univariate     0.103   0.113   0.267    0.830   0.7113   0.950   0.7564  0.975  <-- smaller than HC
+adaptshrink_dta    0.110   0.119   0.271    0.787   0.7183   0.945   0.8367  0.975  <-- smaller than HC
+reitsma            0.109   0.118   0.271    0.695   0.7372   0.945   0.9241  0.955
+reitsma_reml       0.114   0.123   0.276    0.693   0.7547   0.945   0.9774  0.955
+
+-- cell=k20_rho-0.8_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.180   0.013   0.291    0.855   0.5252   0.895   0.6158  0.925  <-- smaller than HC
+reitsma           -0.183   0.009   0.293    0.843   0.5651   0.905   0.6220  0.930
+adaptshrink_dta   -0.197   0.009   0.301    0.860   0.5757   0.900   0.7326  0.945
+reitsma_indep     -0.248   0.004   0.337    0.760   0.7003   0.895   0.8913  0.895
+sep_univariate    -0.248   0.005   0.336    0.770   0.7082   0.905   0.9254  0.920
+
+-- cell=k20_rho-0.8_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.341  -0.052   0.414    0.450   1.2620   0.945   1.2827  0.960  <-- smaller than HC
+reitsma           -0.344  -0.055   0.416    0.435   1.2731   0.935   1.2397  0.955
+adaptshrink_dta   -0.360  -0.057   0.429    0.497   1.3782   0.955   1.4020  0.970
+sep_univariate    -0.397  -0.062   0.460    0.410   1.4704   0.940   1.5526  0.970
+reitsma_indep     -0.400  -0.061   0.464    0.372   1.5042   0.945   1.6017  0.960
+
+-- cell=k20_rho-0.8_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.032   0.054   0.246    0.915   0.3515   0.885   0.5658  0.905  <-- smaller than HC
+reitsma           -0.013   0.055   0.245    0.920   0.4071   0.935   0.5119  0.915
+reitsma_reml      -0.010   0.058   0.245    0.927   0.4168   0.935   0.5095  0.915
+reitsma_indep     -0.101   0.049   0.266    0.840   0.4276   0.895   0.6750  0.880
+sep_univariate    -0.110   0.050   0.267    0.850   0.4413   0.905   0.7299  0.900
+
+-- cell=k20_rho-0.8_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.042   0.009   0.224    0.910   0.3609   0.925   0.4137  0.915  <-- smaller than HC
+adaptshrink_dta   -0.051   0.006   0.227    0.920   0.3636   0.905   0.4665  0.930  <-- smaller than HC
+reitsma           -0.047   0.006   0.225    0.897   0.3881   0.925   0.4203  0.915
+sep_univariate    -0.073  -0.002   0.235    0.885   0.3967   0.910   0.5166  0.920
+reitsma_indep     -0.083  -0.005   0.237    0.858   0.4120   0.915   0.5682  0.915
+
+-- cell=k20_rho-0.8_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.136  -0.048   0.268    0.715   0.6462   0.970   0.8373  0.960  <-- smaller than HC
+reitsma           -0.140  -0.051   0.270    0.688   0.6610   0.970   0.8399  0.965
+adaptshrink_dta   -0.144  -0.052   0.273    0.790   0.6868   0.970   0.8010  0.975
+sep_univariate    -0.162  -0.061   0.285    0.777   0.7536   0.950   0.9132  0.950
+reitsma_indep     -0.169  -0.063   0.288    0.757   0.7620   0.955   0.8682  0.940
+
+-- cell=k20_rho-0.8_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.017   0.049   0.245    0.858   0.4773   0.965   0.6212  0.910  <-- smaller than HC
+sep_univariate     0.028   0.052   0.247    0.870   0.5115   0.965   0.6317  0.910  <-- smaller than HC
+reitsma            0.065   0.063   0.256    0.828   0.5742   0.955   0.5625  0.960
+adaptshrink_dta    0.059   0.062   0.255    0.892   0.5743   0.975   0.5520  0.930
+reitsma_reml       0.070   0.066   0.258    0.828   0.5930   0.955   0.5707  0.960
+
+-- cell=k20_rho-0.8_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.028  -0.009   0.232    0.885   0.3616   0.905   0.6391  0.945  <-- smaller than HC
+reitsma_indep     -0.032  -0.014   0.231    0.873   0.3719   0.910   0.6509  0.940  <-- smaller than HC
+adaptshrink_dta   -0.013   0.005   0.230    0.907   0.4009   0.935   0.4885  0.935  <-- smaller than HC
+reitsma_reml      -0.009   0.009   0.231    0.890   0.4034   0.925   0.4683  0.925  <-- smaller than HC
+reitsma           -0.013   0.006   0.230    0.887   0.4062   0.930   0.4430  0.920
+
+-- cell=k20_rho-0.8_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.084  -0.063   0.247    0.775   0.5734   0.940   0.7565  0.945  <-- smaller than HC
+reitsma           -0.087  -0.066   0.248    0.757   0.5844   0.940   0.7525  0.950
+adaptshrink_dta   -0.088  -0.068   0.250    0.833   0.6077   0.950   0.7195  0.955
+sep_univariate    -0.100  -0.080   0.260    0.815   0.6236   0.935   0.8354  0.965
+reitsma_indep     -0.103  -0.084   0.261    0.800   0.6415   0.945   0.8648  0.960
+
+-- cell=k20_rho-0.8_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.038   0.062   0.244    0.860   0.5345   0.940   0.6757  0.955  <-- smaller than HC
+sep_univariate     0.044   0.068   0.248    0.863   0.5361   0.940   0.7240  0.960  <-- smaller than HC
+adaptshrink_dta    0.062   0.084   0.258    0.877   0.6234   0.935   0.6100  0.955  <-- smaller than HC
+reitsma            0.063   0.085   0.259    0.792   0.6666   0.935   0.6303  0.945
+reitsma_reml       0.067   0.089   0.261    0.790   0.6792   0.935   0.6414  0.945
+
+-- cell=k20_rho0.0_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.211   0.044   0.309    0.792   0.5918   0.900   0.7722  0.935  <-- smaller than HC
+reitsma           -0.210   0.044   0.310    0.782   0.6156   0.925   0.7428  0.925
+reitsma_reml      -0.205   0.047   0.306    0.800   0.6286   0.935   0.7711  0.930
+sep_univariate    -0.224   0.044   0.316    0.780   0.6356   0.910   0.8476  0.935
+reitsma_indep     -0.222   0.043   0.315    0.777   0.6442   0.920   0.9060  0.940
+
+-- cell=k20_rho0.0_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.377  -0.062   0.450    0.440   1.3186   0.900   1.4849  0.935  <-- smaller than HC
+reitsma           -0.383  -0.064   0.455    0.407   1.3552   0.900   1.4975  0.935
+adaptshrink_dta   -0.382  -0.064   0.454    0.425   1.3728   0.910   1.3996  0.925
+reitsma_indep     -0.390  -0.065   0.460    0.410   1.3779   0.910   1.4288  0.925
+sep_univariate    -0.387  -0.064   0.456    0.422   1.4021   0.910   1.4025  0.925
+
+-- cell=k20_rho0.0_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.058   0.142   0.278    0.805   0.7505   0.990   0.6983  0.965  <-- smaller than HC
+reitsma_indep     -0.050   0.141   0.276    0.812   0.7685   0.990   0.7739  0.970  <-- smaller than HC
+adaptshrink_dta   -0.031   0.142   0.274    0.838   0.7753   0.990   0.8306  0.985  <-- smaller than HC
+reitsma           -0.028   0.142   0.275    0.828   0.8345   0.995   0.8017  0.985
+reitsma_reml      -0.022   0.145   0.276    0.835   0.8602   0.995   0.7995  0.985
+
+-- cell=k20_rho0.0_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.021   0.045   0.218    0.910   0.3815   0.935   0.5160  0.935  <-- smaller than HC
+reitsma_reml      -0.015   0.048   0.219    0.902   0.3847   0.935   0.6420  0.955  <-- smaller than HC
+reitsma           -0.022   0.044   0.219    0.895   0.3964   0.940   0.6377  0.965
+reitsma_indep     -0.025   0.044   0.217    0.907   0.3969   0.945   0.5279  0.935
+sep_univariate    -0.015   0.046   0.217    0.920   0.4020   0.945   0.5026  0.950
+
+-- cell=k20_rho0.0_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.160  -0.069   0.286    0.740   0.7573   0.940   0.7806  0.935  <-- smaller than HC
+sep_univariate    -0.152  -0.067   0.282    0.765   0.7620   0.940   0.7492  0.935  <-- smaller than HC
+reitsma_reml      -0.152  -0.065   0.281    0.728   0.7766   0.940   0.9636  0.955  <-- smaller than HC
+adaptshrink_dta   -0.157  -0.068   0.284    0.725   0.7921   0.940   0.9236  0.965  <-- smaller than HC
+reitsma           -0.159  -0.069   0.285    0.703   0.8002   0.940   0.9264  0.945
+
+-- cell=k20_rho0.0_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.096   0.147   0.271    0.790   0.7448   0.965   0.8615  0.970  <-- smaller than HC
+adaptshrink_dta    0.105   0.150   0.276    0.735   0.7581   0.965   0.8914  0.975  <-- smaller than HC
+reitsma            0.105   0.150   0.277    0.690   0.7618   0.960   0.8809  0.955
+sep_univariate     0.106   0.151   0.276    0.797   0.7723   0.960   0.8904  0.975
+reitsma_reml       0.112   0.154   0.282    0.703   0.7932   0.960   0.9122  0.955
+
+-- cell=k20_rho0.0_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.041   0.026   0.215    0.905   0.3594   0.905   0.4588  0.945  <-- smaller than HC
+reitsma            0.042   0.027   0.216    0.892   0.3724   0.905   0.4509  0.930
+adaptshrink_dta    0.043   0.028   0.216    0.905   0.3730   0.910   0.4233  0.935
+sep_univariate     0.046   0.031   0.218    0.922   0.3734   0.910   0.4359  0.925
+reitsma_reml       0.047   0.032   0.218    0.897   0.3829   0.920   0.4686  0.930
+
+-- cell=k20_rho0.0_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.088  -0.086   0.253    0.840   0.5686   0.920   0.7308  0.945  <-- smaller than HC
+adaptshrink_dta   -0.091  -0.088   0.254    0.812   0.5874   0.925   0.7277  0.940  <-- smaller than HC
+reitsma_indep     -0.092  -0.090   0.254    0.823   0.5904   0.925   0.7715  0.950  <-- smaller than HC
+reitsma_reml      -0.087  -0.084   0.252    0.823   0.5999   0.930   0.8525  0.955  <-- smaller than HC
+reitsma           -0.092  -0.089   0.255    0.795   0.6195   0.930   0.8323  0.945
+
+-- cell=k20_rho0.0_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma            0.154   0.147   0.298    0.637   0.8364   0.965   0.9168  0.955
+reitsma_indep      0.150   0.142   0.293    0.708   0.8579   0.970   0.7431  0.960
+adaptshrink_dta    0.154   0.147   0.298    0.690   0.8599   0.965   0.8051  0.955
+sep_univariate     0.156   0.149   0.301    0.725   0.8616   0.965   0.7397  0.935
+reitsma_reml       0.159   0.152   0.304    0.645   0.8624   0.965   0.9389  0.950
+
+-- cell=k40_rho-0.4_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.240   0.027   0.294    0.573   0.5208   0.910   0.5991  0.930  <-- smaller than HC
+adaptshrink_dta   -0.244   0.025   0.296    0.575   0.5291   0.915   0.6023  0.915  <-- smaller than HC
+reitsma           -0.243   0.025   0.296    0.562   0.5295   0.915   0.6013  0.920
+sep_univariate    -0.274   0.023   0.320    0.497   0.5846   0.900   0.7215  0.940
+reitsma_indep     -0.265   0.023   0.314    0.525   0.5887   0.920   0.7504  0.950
+
+-- cell=k40_rho-0.4_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.392  -0.057   0.424    0.115   1.0130   0.900   1.0465  0.945  <-- smaller than HC
+reitsma           -0.395  -0.058   0.426    0.102   1.0160   0.900   1.0334  0.935
+adaptshrink_dta   -0.397  -0.059   0.428    0.110   1.0221   0.895   1.0350  0.945
+reitsma_indep     -0.409  -0.061   0.440    0.117   1.0872   0.905   1.0523  0.950
+sep_univariate    -0.411  -0.061   0.441    0.100   1.0988   0.885   1.0044  0.910
+
+-- cell=k40_rho-0.4_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.108   0.099   0.224    0.765   0.3254   0.910   0.4787  0.940  <-- smaller than HC
+adaptshrink_dta   -0.066   0.103   0.211    0.820   0.3359   0.915   0.3983  0.935  <-- smaller than HC
+reitsma           -0.064   0.102   0.212    0.805   0.3368   0.920   0.3604  0.920
+sep_univariate    -0.125   0.100   0.232    0.743   0.3387   0.920   0.5003  0.940
+reitsma_reml      -0.061   0.104   0.212    0.812   0.3444   0.920   0.3655  0.915
+
+-- cell=k40_rho-0.4_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.055   0.012   0.156    0.897   0.1922   0.925   0.2418  0.935  <-- smaller than HC
+adaptshrink_dta   -0.057   0.011   0.155    0.907   0.1937   0.925   0.2365  0.935  <-- smaller than HC
+reitsma           -0.059   0.011   0.157    0.887   0.1956   0.920   0.2472  0.940
+sep_univariate    -0.060   0.008   0.155    0.930   0.1973   0.925   0.2306  0.940
+reitsma_indep     -0.066   0.007   0.157    0.922   0.2073   0.935   0.2650  0.945
+
+-- cell=k40_rho-0.4_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.181  -0.071   0.243    0.522   0.4598   0.915   0.5761  0.955  <-- smaller than HC
+reitsma           -0.184  -0.073   0.245    0.485   0.4671   0.915   0.5931  0.955
+adaptshrink_dta   -0.183  -0.073   0.245    0.520   0.4725   0.920   0.5943  0.960
+sep_univariate    -0.186  -0.077   0.248    0.595   0.4790   0.920   0.4971  0.950
+reitsma_indep     -0.191  -0.077   0.252    0.568   0.4995   0.925   0.5418  0.955
+
+-- cell=k40_rho-0.4_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.050   0.097   0.185    0.868   0.3374   0.980   0.3483  0.970  <-- smaller than HC
+sep_univariate     0.056   0.099   0.188    0.877   0.3524   0.985   0.3709  0.975  <-- smaller than HC
+reitsma            0.064   0.104   0.196    0.690   0.3696   0.980   0.3996  0.970
+adaptshrink_dta    0.067   0.105   0.197    0.750   0.3728   0.980   0.3706  0.975
+reitsma_reml       0.067   0.106   0.198    0.688   0.3785   0.980   0.4126  0.970
+
+-- cell=k40_rho-0.4_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.008  -0.006   0.146    0.950   0.1582   0.910   0.1978  0.940  <-- smaller than HC
+reitsma_indep     -0.010  -0.009   0.145    0.948   0.1626   0.920   0.1980  0.950  <-- smaller than HC
+reitsma_reml      -0.003  -0.002   0.144    0.938   0.1639   0.930   0.2056  0.945  <-- smaller than HC
+reitsma           -0.005  -0.004   0.144    0.932   0.1652   0.930   0.2032  0.940
+adaptshrink_dta   -0.004  -0.003   0.144    0.945   0.1654   0.925   0.2121  0.955
+
+-- cell=k40_rho-0.4_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.114  -0.093   0.207    0.675   0.3873   0.930   0.3878  0.915  <-- smaller than HC
+adaptshrink_dta   -0.116  -0.094   0.209    0.677   0.3923   0.930   0.4035  0.930  <-- smaller than HC
+reitsma           -0.116  -0.095   0.209    0.645   0.3946   0.930   0.3975  0.915
+sep_univariate    -0.119  -0.097   0.213    0.748   0.4063   0.930   0.3749  0.935
+reitsma_indep     -0.120  -0.099   0.214    0.720   0.4101   0.920   0.3959  0.950
+
+-- cell=k40_rho-0.4_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.087   0.087   0.192    0.825   0.3341   0.915   0.2905  0.935  <-- smaller than HC
+sep_univariate     0.091   0.092   0.197    0.828   0.3401   0.905   0.2935  0.930  <-- smaller than HC
+adaptshrink_dta    0.098   0.099   0.203    0.682   0.3567   0.910   0.3777  0.930  <-- smaller than HC
+reitsma            0.096   0.097   0.202    0.635   0.3604   0.925   0.4423  0.935
+reitsma_reml       0.098   0.100   0.204    0.635   0.3677   0.920   0.4518  0.940
+
+-- cell=k40_rho-0.8_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.209   0.004   0.268    0.667   0.4255   0.920   0.5111  0.920  <-- smaller than HC
+reitsma           -0.210   0.003   0.269    0.660   0.4300   0.910   0.5040  0.915
+adaptshrink_dta   -0.220   0.002   0.274    0.690   0.4540   0.920   0.5364  0.935
+reitsma_indep     -0.274  -0.003   0.319    0.517   0.6139   0.940   0.7457  0.955
+sep_univariate    -0.281  -0.003   0.325    0.492   0.6426   0.945   0.7718  0.950
+
+-- cell=k40_rho-0.8_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.368  -0.056   0.402    0.117   1.0205   0.885   0.8727  0.925  <-- smaller than HC
+reitsma           -0.357  -0.055   0.393    0.092   1.0294   0.895   0.9187  0.930
+reitsma_reml      -0.356  -0.053   0.391    0.098   1.0301   0.895   0.9308  0.930
+reitsma_indep     -0.408  -0.061   0.440    0.090   1.1565   0.880   1.0613  0.940
+sep_univariate    -0.410  -0.062   0.441    0.068   1.1962   0.885   1.0541  0.955
+
+-- cell=k40_rho-0.8_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.056   0.055   0.185    0.910   0.2579   0.970   0.3112  0.950  <-- smaller than HC
+reitsma_reml      -0.044   0.056   0.186    0.917   0.2693   0.975   0.2775  0.950  <-- smaller than HC
+reitsma           -0.046   0.055   0.186    0.907   0.2737   0.975   0.2776  0.950
+reitsma_indep     -0.134   0.049   0.218    0.810   0.2982   0.955   0.4932  0.955
+sep_univariate    -0.149   0.049   0.227    0.792   0.3076   0.955   0.5802  0.970
+
+-- cell=k40_rho-0.8_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.056  -0.015   0.170    0.835   0.2157   0.900   0.2366  0.905  <-- smaller than HC
+reitsma           -0.058  -0.017   0.170    0.823   0.2212   0.895   0.2392  0.905
+adaptshrink_dta   -0.058  -0.016   0.170    0.875   0.2407   0.925   0.2586  0.930
+sep_univariate    -0.082  -0.027   0.179    0.855   0.2418   0.895   0.3424  0.925
+reitsma_indep     -0.088  -0.028   0.182    0.843   0.2633   0.910   0.3428  0.920
+
+-- cell=k40_rho-0.8_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.161  -0.062   0.227    0.432   0.4538   0.915   0.4802  0.930  <-- smaller than HC
+reitsma           -0.163  -0.063   0.228    0.407   0.4614   0.910   0.4941  0.930
+adaptshrink_dta   -0.164  -0.064   0.230    0.535   0.4667   0.915   0.4545  0.940
+sep_univariate    -0.185  -0.075   0.249    0.593   0.5613   0.930   0.4768  0.950
+reitsma_indep     -0.190  -0.076   0.252    0.570   0.5767   0.925   0.5083  0.950
+
+-- cell=k40_rho-0.8_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.005   0.033   0.160    0.895   0.2079   0.955   0.2690  0.930  <-- smaller than HC
+sep_univariate     0.011   0.034   0.161    0.910   0.2144   0.960   0.2709  0.935  <-- smaller than HC
+adaptshrink_dta    0.044   0.047   0.173    0.910   0.2526   0.955   0.2728  0.960  <-- smaller than HC
+reitsma            0.045   0.045   0.174    0.838   0.2574   0.945   0.2763  0.940
+reitsma_reml       0.047   0.047   0.175    0.843   0.2639   0.950   0.2843  0.945
+
+-- cell=k40_rho-0.8_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.025  -0.012   0.153    0.905   0.1819   0.950   0.2098  0.965
+reitsma_reml      -0.023  -0.010   0.153    0.910   0.1850   0.950   0.2083  0.965
+adaptshrink_dta   -0.023  -0.010   0.152    0.943   0.1882   0.955   0.2406  0.975
+reitsma_indep     -0.041  -0.029   0.157    0.902   0.2225   0.955   0.2719  0.960
+sep_univariate    -0.039  -0.027   0.158    0.915   0.2245   0.955   0.2646  0.945
+
+-- cell=k40_rho-0.8_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.104  -0.082   0.200    0.708   0.3866   0.895   0.3690  0.910  <-- smaller than HC
+reitsma_reml      -0.103  -0.081   0.199    0.585   0.3902   0.905   0.4106  0.890  <-- smaller than HC
+reitsma           -0.105  -0.083   0.201    0.568   0.3986   0.905   0.4186  0.900
+sep_univariate    -0.119  -0.096   0.215    0.745   0.4667   0.900   0.3673  0.935
+reitsma_indep     -0.120  -0.098   0.216    0.725   0.4825   0.900   0.3918  0.945
+
+-- cell=k40_rho-0.8_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.032   0.041   0.163    0.910   0.2056   0.915   0.2731  0.965  <-- smaller than HC
+sep_univariate     0.035   0.044   0.166    0.907   0.2234   0.920   0.2694  0.970  <-- smaller than HC
+adaptshrink_dta    0.054   0.065   0.178    0.880   0.2906   0.930   0.2635  0.960  <-- smaller than HC
+reitsma            0.052   0.063   0.177    0.777   0.2937   0.940   0.2830  0.930
+reitsma_reml       0.054   0.065   0.179    0.775   0.2993   0.940   0.2933  0.930
+
+-- cell=k40_rho0.0_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.228   0.036   0.281    0.635   0.5811   0.950   0.6395  0.945  <-- smaller than HC
+adaptshrink_dta   -0.231   0.035   0.283    0.613   0.5916   0.955   0.6401  0.940  <-- smaller than HC
+reitsma           -0.232   0.034   0.284    0.603   0.5923   0.950   0.6294  0.930
+sep_univariate    -0.247   0.035   0.294    0.562   0.5937   0.945   0.6014  0.925
+reitsma_indep     -0.238   0.034   0.288    0.590   0.6008   0.950   0.6348  0.940
+
+-- cell=k40_rho0.0_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.382  -0.070   0.418    0.207   0.8935   0.905   1.0074  0.895  <-- smaller than HC
+adaptshrink_dta   -0.385  -0.072   0.420    0.193   0.8984   0.900   0.9746  0.875  <-- smaller than HC
+reitsma_indep     -0.388  -0.072   0.423    0.180   0.9055   0.900   0.9956  0.890  <-- smaller than HC
+reitsma           -0.386  -0.072   0.421    0.190   0.9056   0.905   1.0040  0.895
+sep_univariate    -0.391  -0.072   0.425    0.155   0.9132   0.900   1.0156  0.910
+
+-- cell=k40_rho0.0_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.080   0.135   0.225    0.725   0.3999   0.945   0.4854  0.940  <-- smaller than HC
+reitsma           -0.047   0.136   0.218    0.745   0.4003   0.935   0.4556  0.955
+reitsma_reml      -0.044   0.137   0.218    0.748   0.4028   0.935   0.4609  0.955
+adaptshrink_dta   -0.048   0.136   0.217    0.745   0.4042   0.935   0.5021  0.965
+reitsma_indep     -0.064   0.134   0.220    0.733   0.4222   0.945   0.5249  0.950
+
+-- cell=k40_rho0.0_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.045   0.028   0.153    0.890   0.1954   0.945   0.2356  0.950  <-- smaller than HC
+reitsma_indep     -0.046   0.028   0.154    0.902   0.1957   0.940   0.2283  0.945  <-- smaller than HC
+reitsma           -0.046   0.028   0.153    0.887   0.1966   0.945   0.2421  0.955
+reitsma_reml      -0.043   0.030   0.153    0.892   0.1994   0.945   0.2370  0.950
+sep_univariate    -0.041   0.029   0.153    0.912   0.2147   0.955   0.2253  0.945
+
+-- cell=k40_rho0.0_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.161  -0.084   0.233    0.657   0.3809   0.910   0.4958  0.945  <-- smaller than HC
+reitsma_reml      -0.162  -0.082   0.233    0.642   0.3901   0.925   0.5600  0.955  <-- smaller than HC
+reitsma_indep     -0.165  -0.084   0.235    0.645   0.3920   0.920   0.5666  0.955  <-- smaller than HC
+adaptshrink_dta   -0.165  -0.084   0.235    0.630   0.3992   0.930   0.5811  0.965  <-- smaller than HC
+reitsma           -0.165  -0.084   0.236    0.630   0.4002   0.930   0.5770  0.960
+
+-- cell=k40_rho0.0_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma            0.089   0.138   0.220    0.615   0.4360   0.980   0.5216  0.980
+reitsma_reml       0.092   0.140   0.223    0.620   0.4391   0.980   0.5252  0.980
+reitsma_indep      0.084   0.137   0.217    0.690   0.4393   0.980   0.4542  0.980
+adaptshrink_dta    0.089   0.139   0.221    0.630   0.4401   0.980   0.4661  0.980
+sep_univariate     0.089   0.139   0.220    0.700   0.4698   0.985   0.4800  0.980
+
+-- cell=k40_rho0.0_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta    0.018   0.006   0.149    0.912   0.1761   0.895   0.2242  0.925  <-- smaller than HC
+reitsma_indep      0.016   0.004   0.148    0.922   0.1762   0.900   0.2187  0.930  <-- smaller than HC
+reitsma            0.017   0.005   0.149    0.910   0.1774   0.905   0.2363  0.930
+reitsma_reml       0.020   0.008   0.150    0.912   0.1814   0.905   0.2384  0.935
+sep_univariate     0.020   0.007   0.150    0.927   0.1853   0.915   0.2238  0.930
+
+-- cell=k40_rho0.0_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.097  -0.107   0.205    0.767   0.3346   0.925   0.3733  0.950  <-- smaller than HC
+sep_univariate    -0.097  -0.107   0.205    0.772   0.3352   0.925   0.3697  0.940  <-- smaller than HC
+reitsma_indep     -0.099  -0.109   0.207    0.762   0.3394   0.925   0.3539  0.935  <-- smaller than HC
+reitsma           -0.100  -0.109   0.207    0.740   0.3403   0.925   0.3813  0.950
+adaptshrink_dta   -0.099  -0.108   0.207    0.748   0.3415   0.925   0.3731  0.940
+
+-- cell=k40_rho0.0_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.131   0.125   0.234    0.623   0.4327   0.930   0.4600  0.935  <-- smaller than HC
+adaptshrink_dta    0.135   0.129   0.239    0.557   0.4397   0.930   0.5368  0.940  <-- smaller than HC
+sep_univariate     0.136   0.129   0.240    0.623   0.4398   0.925   0.4793  0.935  <-- smaller than HC
+reitsma            0.135   0.128   0.238    0.540   0.4409   0.935   0.5585  0.950
+reitsma_reml       0.138   0.131   0.241    0.535   0.4506   0.935   0.5655  0.950
+
+-- cell=k6_rho-0.4_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.161   0.038   0.472    0.858   1.6640   0.920   2.4397  0.905  <-- smaller than HC
+adaptshrink_dta   -0.143   0.034   0.472    0.830   1.7963   0.920   2.9610  0.920  <-- smaller than HC
+reitsma_reml      -0.101   0.047   0.468    0.850   1.8406   0.940   2.9613  0.955  <-- smaller than HC
+reitsma           -0.117   0.036   0.471    0.815   1.8410   0.930   2.9663  0.950
+reitsma_indep     -0.174   0.032   0.481    0.797   1.9074   0.925   3.1553  0.930
+
+-- cell=k6_rho-0.4_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.265  -0.058   0.498    0.810   2.1052   0.925   2.8405  0.920  <-- smaller than HC
+reitsma           -0.281  -0.066   0.508    0.767   2.1283   0.930   2.8186  0.920
+adaptshrink_dta   -0.297  -0.067   0.515    0.802   2.1286   0.925   2.6247  0.910
+reitsma_indep     -0.322  -0.069   0.532    0.735   2.2438   0.920   3.1601  0.925
+sep_univariate    -0.303  -0.062   0.515    0.812   2.2492   0.930   2.7124  0.930
+
+-- cell=k6_rho-0.4_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.037   0.112   0.458    0.855   1.5263   0.895   2.3165  0.900  <-- smaller than HC
+reitsma_indep     -0.051   0.102   0.463    0.833   1.5760   0.910   2.2510  0.870  <-- smaller than HC
+adaptshrink_dta   -0.011   0.106   0.461    0.848   1.6723   0.915   2.4059  0.885  <-- smaller than HC
+reitsma            0.017   0.108   0.468    0.838   1.6834   0.915   2.1753  0.880
+reitsma_reml       0.033   0.119   0.468    0.865   1.7392   0.915   2.2270  0.890
+
+-- cell=k6_rho-0.4_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.040   0.042   0.417    0.805   1.5306   0.935   2.7173  0.940  <-- smaller than HC
+adaptshrink_dta   -0.021   0.047   0.417    0.828   1.5669   0.935   2.7584  0.940  <-- smaller than HC
+sep_univariate    -0.015   0.053   0.415    0.860   1.6082   0.950   2.9905  0.960  <-- smaller than HC
+reitsma           -0.007   0.051   0.423    0.782   1.6410   0.945   2.5287  0.945
+reitsma_reml       0.012   0.062   0.425    0.820   1.7335   0.960   2.7360  0.950
+
+-- cell=k6_rho-0.4_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.104  -0.069   0.408    0.765   1.3263   0.920   1.9801  0.915
+reitsma_reml      -0.088  -0.058   0.404    0.830   1.3619   0.935   2.0649  0.910
+sep_univariate    -0.107  -0.063   0.408    0.858   1.4719   0.940   1.8849  0.890
+adaptshrink_dta   -0.113  -0.070   0.409    0.823   1.5143   0.950   1.8893  0.900
+reitsma_indep     -0.128  -0.072   0.415    0.795   1.6066   0.950   2.3058  0.915
+
+-- cell=k6_rho-0.4_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta    0.085   0.128   0.440    0.838   1.8811   0.955   2.4486  0.960  <-- smaller than HC
+reitsma_indep      0.062   0.122   0.435    0.805   1.9018   0.955   2.4615  0.970  <-- smaller than HC
+sep_univariate     0.089   0.134   0.444    0.858   1.9856   0.950   2.6265  0.965  <-- smaller than HC
+reitsma            0.101   0.131   0.446    0.760   2.0391   0.965   2.3364  0.950
+reitsma_reml       0.119   0.143   0.457    0.787   2.2561   0.970   2.6955  0.960
+
+-- cell=k6_rho-0.4_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma            0.027   0.053   0.399    0.810   1.4721   0.940   2.2563  0.955
+reitsma_indep      0.009   0.039   0.391    0.830   1.4890   0.940   2.5606  0.965
+sep_univariate     0.029   0.055   0.397    0.873   1.5431   0.950   2.6045  0.970
+adaptshrink_dta    0.021   0.048   0.394    0.858   1.5599   0.950   2.3703  0.955
+reitsma_reml       0.042   0.066   0.405    0.838   1.5916   0.950   2.6288  0.955
+
+-- cell=k6_rho-0.4_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.069  -0.084   0.394    0.752   1.2730   0.910   1.9060  0.930
+reitsma_reml      -0.054  -0.070   0.391    0.828   1.3009   0.920   2.1779  0.935
+adaptshrink_dta   -0.073  -0.087   0.395    0.830   1.3745   0.925   1.7881  0.915
+sep_univariate    -0.065  -0.079   0.397    0.850   1.3963   0.925   1.8412  0.895
+reitsma_indep     -0.080  -0.093   0.398    0.800   1.4138   0.925   1.9793  0.915
+
+-- cell=k6_rho-0.4_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma            0.113   0.140   0.447    0.723   1.6839   0.925   2.1145  0.935
+adaptshrink_dta    0.103   0.133   0.438    0.820   1.7176   0.930   2.1197  0.925
+reitsma_indep      0.088   0.120   0.428    0.795   1.7177   0.940   2.4553  0.945
+sep_univariate     0.107   0.138   0.440    0.828   1.7942   0.945   2.9419  0.950
+reitsma_reml       0.128   0.153   0.457    0.740   1.8161   0.930   2.5374  0.945
+
+-- cell=k6_rho-0.8_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.181   0.010   0.475    0.855   1.5726   0.930   2.7638  0.935  <-- smaller than HC
+reitsma_reml      -0.105   0.018   0.460    0.880   1.5897   0.930   2.9976  0.955  <-- smaller than HC
+reitsma           -0.118   0.009   0.463    0.853   1.6056   0.950   2.8365  0.945
+adaptshrink_dta   -0.154   0.006   0.468    0.845   1.6724   0.950   2.8680  0.930
+reitsma_indep     -0.198   0.004   0.486    0.818   1.8183   0.940   2.9448  0.920
+
+-- cell=k6_rho-0.8_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.251  -0.055   0.490    0.823   1.9660   0.915   2.4946  0.905  <-- smaller than HC
+reitsma           -0.264  -0.064   0.498    0.780   2.1512   0.925   2.4849  0.900
+adaptshrink_dta   -0.294  -0.067   0.513    0.812   2.1557   0.915   2.5716  0.905
+sep_univariate    -0.310  -0.063   0.522    0.805   2.4351   0.945   2.8763  0.935
+reitsma_indep     -0.329  -0.069   0.537    0.750   2.5610   0.945   3.3002  0.930
+
+-- cell=k6_rho-0.8_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta   -0.028   0.051   0.447    0.880   1.5844   0.945   2.4564  0.920  <-- smaller than HC
+reitsma_indep     -0.082   0.048   0.457    0.843   1.5916   0.935   2.6633  0.940  <-- smaller than HC
+sep_univariate    -0.065   0.055   0.449    0.882   1.6024   0.950   2.4341  0.940  <-- smaller than HC
+reitsma            0.014   0.054   0.456    0.887   1.6374   0.950   2.2960  0.955
+reitsma_reml       0.026   0.064   0.458    0.902   1.6839   0.945   2.1488  0.940
+
+-- cell=k6_rho-0.8_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.048   0.010   0.419    0.807   1.2924   0.910   2.4994  0.910  <-- smaller than HC
+adaptshrink_dta   -0.020   0.018   0.419    0.843   1.3418   0.925   2.5737  0.915  <-- smaller than HC
+sep_univariate    -0.021   0.022   0.419    0.855   1.3496   0.925   2.6068  0.920  <-- smaller than HC
+reitsma            0.002   0.025   0.426    0.818   1.3502   0.925   1.9731  0.910
+reitsma_reml       0.018   0.036   0.429    0.835   1.3578   0.930   2.0314  0.905
+
+-- cell=k6_rho-0.8_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.086  -0.058   0.403    0.797   1.2483   0.940   1.6667  0.900
+adaptshrink_dta   -0.104  -0.062   0.408    0.840   1.2753   0.910   2.1431  0.910
+reitsma_reml      -0.073  -0.048   0.400    0.855   1.2773   0.945   1.5502  0.900
+sep_univariate    -0.107  -0.059   0.412    0.848   1.3575   0.930   2.0094  0.900
+reitsma_indep     -0.127  -0.067   0.417    0.792   1.4204   0.930   2.4426  0.930
+
+-- cell=k6_rho-0.8_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.028   0.051   0.426    0.790   1.2776   0.900   2.6733  0.940  <-- smaller than HC
+adaptshrink_dta    0.064   0.060   0.432    0.838   1.3951   0.905   2.6300  0.950  <-- smaller than HC
+sep_univariate     0.057   0.064   0.431    0.853   1.4019   0.900   2.7986  0.950  <-- smaller than HC
+reitsma            0.087   0.065   0.442    0.805   1.4578   0.900   1.7492  0.915
+reitsma_reml       0.102   0.077   0.449    0.843   1.4786   0.900   1.7631  0.925
+
+-- cell=k6_rho-0.8_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep     -0.011   0.011   0.402    0.818   1.3152   0.930   2.7536  0.920  <-- smaller than HC
+sep_univariate     0.009   0.028   0.402    0.865   1.3436   0.935   3.0527  0.955  <-- smaller than HC
+adaptshrink_dta    0.006   0.025   0.402    0.873   1.3751   0.945   2.4699  0.925  <-- smaller than HC
+reitsma            0.017   0.036   0.406    0.840   1.4651   0.950   1.8043  0.930
+reitsma_reml       0.031   0.050   0.410    0.865   1.5625   0.955   1.9939  0.940
+
+-- cell=k6_rho-0.8_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.059  -0.069   0.396    0.795   1.0356   0.885   1.8556  0.930
+reitsma_reml      -0.048  -0.058   0.394    0.845   1.0419   0.905   1.7834  0.920
+adaptshrink_dta   -0.070  -0.077   0.398    0.835   1.1001   0.890   2.2184  0.935
+sep_univariate    -0.067  -0.074   0.401    0.850   1.1568   0.900   2.2184  0.915
+reitsma_indep     -0.082  -0.089   0.404    0.792   1.1627   0.895   2.4489  0.930
+
+-- cell=k6_rho-0.8_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_indep      0.061   0.079   0.438    0.787   1.5760   0.915   2.4838  0.905  <-- smaller than HC
+sep_univariate     0.080   0.095   0.444    0.838   1.6132   0.915   2.8151  0.940  <-- smaller than HC
+adaptshrink_dta    0.082   0.095   0.446    0.835   1.7276   0.935   2.8379  0.920  <-- smaller than HC
+reitsma            0.096   0.108   0.457    0.797   1.9224   0.945   2.2368  0.950
+reitsma_reml       0.109   0.121   0.465    0.815   2.0219   0.940   2.3090  0.955
+
+-- cell=k6_rho0.0_p0.1 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.119   0.052   0.434    0.843   1.4906   0.940   2.4517  0.950  <-- smaller than HC
+reitsma           -0.135   0.042   0.439    0.823   1.4929   0.940   2.2686  0.950
+adaptshrink_dta   -0.150   0.042   0.438    0.850   1.5370   0.935   2.2604  0.930
+sep_univariate    -0.158   0.049   0.439    0.860   1.5527   0.945   2.3379  0.955
+reitsma_indep     -0.173   0.040   0.446    0.820   1.5734   0.940   2.4474  0.955
+
+-- cell=k6_rho0.0_p0.1 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma_reml      -0.273  -0.055   0.500    0.795   1.9797   0.915   2.9284  0.910  <-- smaller than HC
+sep_univariate    -0.302  -0.059   0.512    0.810   1.9945   0.900   2.6583  0.915  <-- smaller than HC
+reitsma           -0.288  -0.065   0.511    0.743   2.1533   0.925   2.8225  0.905
+reitsma_indep     -0.320  -0.066   0.527    0.725   2.1542   0.920   2.6090  0.895
+adaptshrink_dta   -0.298  -0.065   0.513    0.782   2.1653   0.925   2.5882  0.895
+
+-- cell=k6_rho0.0_p0.1 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta    0.008   0.125   0.436    0.840   1.5710   0.910   2.4721  0.930  <-- smaller than HC
+reitsma            0.030   0.126   0.444    0.810   1.5766   0.900   2.4765  0.940
+sep_univariate    -0.013   0.134   0.437    0.855   1.5813   0.910   2.5131  0.945
+reitsma_reml       0.045   0.137   0.449    0.835   1.6024   0.900   2.5762  0.945
+reitsma_indep     -0.024   0.123   0.439    0.812   1.6079   0.915   2.4996  0.940
+
+-- cell=k6_rho0.0_p0.3 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate     0.032   0.067   0.397    0.877   1.4872   0.935   2.2841  0.960  <-- smaller than HC
+reitsma_indep      0.008   0.057   0.396    0.843   1.5531   0.950   2.3564  0.960  <-- smaller than HC
+reitsma            0.029   0.061   0.402    0.780   1.5667   0.950   2.2874  0.940
+adaptshrink_dta    0.022   0.060   0.398    0.845   1.5811   0.945   2.2947  0.965
+reitsma_reml       0.048   0.073   0.407    0.825   1.6600   0.945   2.3364  0.935
+
+-- cell=k6_rho0.0_p0.3 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate    -0.104  -0.061   0.414    0.843   1.5902   0.935   2.7380  0.960  <-- smaller than HC
+reitsma           -0.117  -0.069   0.420    0.738   1.6351   0.935   3.2086  0.965
+adaptshrink_dta   -0.118  -0.069   0.419    0.790   1.6353   0.940   3.3036  0.975
+reitsma_indep     -0.126  -0.072   0.421    0.767   1.6363   0.940   3.9127  0.970
+reitsma_reml      -0.098  -0.057   0.414    0.785   1.7145   0.955   3.0080  0.950
+
+-- cell=k6_rho0.0_p0.3 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+adaptshrink_dta    0.124   0.166   0.440    0.790   1.4997   0.915   2.0175  0.915  <-- smaller than HC
+reitsma_indep      0.107   0.161   0.434    0.765   1.5048   0.915   1.9436  0.925  <-- smaller than HC
+reitsma            0.135   0.168   0.447    0.710   1.5196   0.910   2.2417  0.925
+sep_univariate     0.132   0.173   0.444    0.812   1.5890   0.925   2.0797  0.930
+reitsma_reml       0.153   0.180   0.458    0.733   1.5987   0.905   2.5638  0.935
+
+-- cell=k6_rho0.0_p0.5 strength=moderate --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+sep_univariate     0.061   0.058   0.409    0.858   1.5342   0.940   2.8831  0.975  <-- smaller than HC
+adaptshrink_dta    0.048   0.046   0.405    0.825   1.5669   0.940   2.6132  0.960  <-- smaller than HC
+reitsma_indep      0.042   0.041   0.402    0.820   1.5670   0.940   2.6139  0.950  <-- smaller than HC
+reitsma            0.051   0.049   0.409    0.750   1.6697   0.950   2.7404  0.955
+reitsma_reml       0.067   0.066   0.415    0.787   1.7138   0.950   3.3553  0.970
+
+-- cell=k6_rho0.0_p0.5 strength=none --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma           -0.076  -0.083   0.404    0.762   1.4075   0.945   2.1781  0.920
+sep_univariate    -0.067  -0.073   0.404    0.863   1.4196   0.935   2.3894  0.935
+adaptshrink_dta   -0.076  -0.084   0.405    0.823   1.4211   0.935   2.5083  0.965
+reitsma_reml      -0.064  -0.067   0.402    0.807   1.4467   0.945   2.2803  0.920
+reitsma_indep     -0.080  -0.089   0.407    0.805   1.4669   0.935   2.8007  0.955
+
+-- cell=k6_rho0.0_p0.5 strength=strong --
+method             bias1   bias2    rmse  raw_cov   MCIW0a  mc0cov    MCIWa  mccov
+reitsma            0.159   0.161   0.450    0.693   1.7702   0.920   2.8895  0.970
+reitsma_indep      0.146   0.150   0.438    0.770   1.8381   0.925   2.5803  0.965
+adaptshrink_dta    0.154   0.158   0.445    0.770   1.8663   0.935   2.5945  0.965
+sep_univariate     0.168   0.169   0.454    0.802   1.9520   0.935   2.9025  0.970
+reitsma_reml       0.176   0.178   0.464    0.715   1.9552   0.935   3.1978  0.975
+
+# TRUTH-GATE
+  G1 finite points ok: True  (NPD-region rows excluded: 0)
+  Paired-bootstrap MCIW0-2D area advantage vs HC (robust win = 97.5% CI < 0):
+    [k10_rho-0.4_p0.1 moderate] adaptshrink_dta  dArea=-0.0090 CI[-0.0757,+0.1086] P(better)=0.448
+    [k10_rho-0.4_p0.1 moderate] reitsma_indep    dArea=+0.1129 CI[-0.0240,+0.1991] P(better)=0.077
+    [k10_rho-0.4_p0.1 moderate] reitsma_reml     dArea=-0.0453 CI[-0.0879,+0.0203] P(better)=0.863
+    [k10_rho-0.4_p0.1 moderate] sep_univariate   dArea=+0.0662 CI[-0.0827,+0.1576] P(better)=0.276
+    [k10_rho-0.4_p0.1 none    ] adaptshrink_dta  dArea=+0.0759 CI[-0.0715,+0.1501] P(better)=0.241
+    [k10_rho-0.4_p0.1 none    ] reitsma_indep    dArea=+0.2446 CI[-0.0063,+0.3316] P(better)=0.033
+    [k10_rho-0.4_p0.1 none    ] reitsma_reml     dArea=-0.0305 CI[-0.1642,+0.0141] P(better)=0.861
+    [k10_rho-0.4_p0.1 none    ] sep_univariate   dArea=+0.1502 CI[-0.0646,+0.2784] P(better)=0.116
+    [k10_rho-0.4_p0.1 strong  ] adaptshrink_dta  dArea=+0.0439 CI[-0.1366,+0.1044] P(better)=0.667
+    [k10_rho-0.4_p0.1 strong  ] reitsma_indep    dArea=+0.0092 CI[-0.2021,+0.0651] P(better)=0.774
+    [k10_rho-0.4_p0.1 strong  ] reitsma_reml     dArea=+0.0856 CI[-0.0372,+0.1117] P(better)=0.185
+    [k10_rho-0.4_p0.1 strong  ] sep_univariate   dArea=+0.0140 CI[-0.1864,+0.1203] P(better)=0.620
+    [k10_rho-0.4_p0.3 moderate] adaptshrink_dta  dArea=-0.0036 CI[-0.0627,+0.0258] P(better)=0.726
+    [k10_rho-0.4_p0.3 moderate] reitsma_indep    dArea=-0.0229 CI[-0.1136,+0.0271] P(better)=0.891
+    [k10_rho-0.4_p0.3 moderate] reitsma_reml     dArea=+0.0108 CI[-0.0444,+0.0456] P(better)=0.469
+    [k10_rho-0.4_p0.3 moderate] sep_univariate   dArea=-0.0070 CI[-0.0960,+0.0404] P(better)=0.796
+    [k10_rho-0.4_p0.3 none    ] adaptshrink_dta  dArea=+0.0117 CI[-0.0623,+0.0564] P(better)=0.512
+    [k10_rho-0.4_p0.3 none    ] reitsma_indep    dArea=+0.0413 CI[-0.0413,+0.1335] P(better)=0.242
+    [k10_rho-0.4_p0.3 none    ] reitsma_reml     dArea=-0.0472 CI[-0.1111,+0.0137] P(better)=0.928
+    [k10_rho-0.4_p0.3 none    ] sep_univariate   dArea=-0.0473 CI[-0.1464,+0.0585] P(better)=0.829
+    [k10_rho-0.4_p0.3 strong  ] adaptshrink_dta  dArea=-0.0418 CI[-0.1847,+0.1105] P(better)=0.772
+    [k10_rho-0.4_p0.3 strong  ] reitsma_indep    dArea=-0.0909 CI[-0.2753,+0.0737] P(better)=0.885
+    [k10_rho-0.4_p0.3 strong  ] reitsma_reml     dArea=+0.0418 CI[-0.0201,+0.0981] P(better)=0.060
+    [k10_rho-0.4_p0.3 strong  ] sep_univariate   dArea=-0.0426 CI[-0.2309,+0.1433] P(better)=0.702
+    [k10_rho-0.4_p0.5 moderate] adaptshrink_dta  dArea=-0.0188 CI[-0.0620,+0.0506] P(better)=0.751
+    [k10_rho-0.4_p0.5 moderate] reitsma_indep    dArea=-0.0114 CI[-0.0615,+0.0756] P(better)=0.582
+    [k10_rho-0.4_p0.5 moderate] reitsma_reml     dArea=-0.0113 CI[-0.0467,+0.0469] P(better)=0.623
+    [k10_rho-0.4_p0.5 moderate] sep_univariate   dArea=+0.0174 CI[-0.0574,+0.0815] P(better)=0.456
+    [k10_rho-0.4_p0.5 none    ] adaptshrink_dta  dArea=-0.0372 CI[-0.0750,+0.0144] P(better)=0.868
+    [k10_rho-0.4_p0.5 none    ] reitsma_indep    dArea=-0.0077 CI[-0.0769,+0.0456] P(better)=0.706
+    [k10_rho-0.4_p0.5 none    ] reitsma_reml     dArea=-0.0365 CI[-0.0693,+0.0080] P(better)=0.927
+    [k10_rho-0.4_p0.5 none    ] sep_univariate   dArea=-0.0448 CI[-0.1017,+0.0203] P(better)=0.914
+    [k10_rho-0.4_p0.5 strong  ] adaptshrink_dta  dArea=-0.1050 CI[-0.2173,+0.0241] P(better)=0.933
+    [k10_rho-0.4_p0.5 strong  ] reitsma_indep    dArea=-0.1493 CI[-0.2865,-0.0250] P(better)=0.996  ROBUST WIN
+    [k10_rho-0.4_p0.5 strong  ] reitsma_reml     dArea=+0.0994 CI[+0.0140,+0.1357] P(better)=0.011
+    [k10_rho-0.4_p0.5 strong  ] sep_univariate   dArea=-0.1044 CI[-0.2254,+0.0461] P(better)=0.879
+    [k10_rho-0.8_p0.1 moderate] adaptshrink_dta  dArea=+0.0531 CI[-0.0399,+0.2093] P(better)=0.131
+    [k10_rho-0.8_p0.1 moderate] reitsma_indep    dArea=+0.2443 CI[+0.0521,+0.3848] P(better)=0.005
+    [k10_rho-0.8_p0.1 moderate] reitsma_reml     dArea=-0.0417 CI[-0.1215,+0.0255] P(better)=0.861
+    [k10_rho-0.8_p0.1 moderate] sep_univariate   dArea=+0.1238 CI[+0.0182,+0.3381] P(better)=0.008
+    [k10_rho-0.8_p0.1 none    ] adaptshrink_dta  dArea=+0.1450 CI[-0.0288,+0.2384] P(better)=0.068
+    [k10_rho-0.8_p0.1 none    ] reitsma_indep    dArea=+0.3067 CI[+0.1141,+0.5223] P(better)=0.001
+    [k10_rho-0.8_p0.1 none    ] reitsma_reml     dArea=-0.0280 CI[-0.1686,+0.0063] P(better)=0.929
+    [k10_rho-0.8_p0.1 none    ] sep_univariate   dArea=+0.2939 CI[+0.0671,+0.4818] P(better)=0.003
+    [k10_rho-0.8_p0.1 strong  ] adaptshrink_dta  dArea=-0.0109 CI[-0.1525,+0.0481] P(better)=0.792
+    [k10_rho-0.8_p0.1 strong  ] reitsma_indep    dArea=+0.0073 CI[-0.1196,+0.1621] P(better)=0.389
+    [k10_rho-0.8_p0.1 strong  ] reitsma_reml     dArea=-0.0077 CI[-0.0170,+0.0834] P(better)=0.209
+    [k10_rho-0.8_p0.1 strong  ] sep_univariate   dArea=-0.0129 CI[-0.1365,+0.1478] P(better)=0.510
+    [k10_rho-0.8_p0.3 moderate] adaptshrink_dta  dArea=+0.0141 CI[-0.0345,+0.0763] P(better)=0.248
+    [k10_rho-0.8_p0.3 moderate] reitsma_indep    dArea=+0.0350 CI[-0.0270,+0.1483] P(better)=0.101
+    [k10_rho-0.8_p0.3 moderate] reitsma_reml     dArea=+0.0080 CI[-0.0361,+0.0530] P(better)=0.409
+    [k10_rho-0.8_p0.3 moderate] sep_univariate   dArea=+0.0816 CI[-0.0221,+0.1448] P(better)=0.086
+    [k10_rho-0.8_p0.3 none    ] adaptshrink_dta  dArea=+0.0224 CI[-0.0280,+0.1358] P(better)=0.141
+    [k10_rho-0.8_p0.3 none    ] reitsma_indep    dArea=+0.1092 CI[+0.0504,+0.2982] P(better)=0.001
+    [k10_rho-0.8_p0.3 none    ] reitsma_reml     dArea=-0.0399 CI[-0.0804,+0.0020] P(better)=0.964
+    [k10_rho-0.8_p0.3 none    ] sep_univariate   dArea=+0.0677 CI[-0.0197,+0.2008] P(better)=0.069
+    [k10_rho-0.8_p0.3 strong  ] adaptshrink_dta  dArea=-0.0878 CI[-0.2117,+0.0147] P(better)=0.952
+    [k10_rho-0.8_p0.3 strong  ] reitsma_indep    dArea=-0.1504 CI[-0.3069,-0.0199] P(better)=0.987  ROBUST WIN
+    [k10_rho-0.8_p0.3 strong  ] reitsma_reml     dArea=+0.0614 CI[-0.0017,+0.0886] P(better)=0.028
+    [k10_rho-0.8_p0.3 strong  ] sep_univariate   dArea=-0.1382 CI[-0.2752,+0.0083] P(better)=0.969
+    [k10_rho-0.8_p0.5 moderate] adaptshrink_dta  dArea=-0.0237 CI[-0.0862,+0.0362] P(better)=0.799
+    [k10_rho-0.8_p0.5 moderate] reitsma_indep    dArea=-0.0363 CI[-0.1068,+0.0895] P(better)=0.704
+    [k10_rho-0.8_p0.5 moderate] reitsma_reml     dArea=-0.0063 CI[-0.0295,+0.0485] P(better)=0.478
+    [k10_rho-0.8_p0.5 moderate] sep_univariate   dArea=-0.0168 CI[-0.0853,+0.0702] P(better)=0.639
+    [k10_rho-0.8_p0.5 none    ] adaptshrink_dta  dArea=+0.0385 CI[-0.0204,+0.1798] P(better)=0.091
+    [k10_rho-0.8_p0.5 none    ] reitsma_indep    dArea=+0.0746 CI[-0.0076,+0.2669] P(better)=0.038
+    [k10_rho-0.8_p0.5 none    ] reitsma_reml     dArea=-0.0569 CI[-0.0801,+0.0094] P(better)=0.944
+    [k10_rho-0.8_p0.5 none    ] sep_univariate   dArea=+0.0575 CI[-0.0531,+0.2145] P(better)=0.158
+    [k10_rho-0.8_p0.5 strong  ] adaptshrink_dta  dArea=-0.1109 CI[-0.2566,+0.0448] P(better)=0.896
+    [k10_rho-0.8_p0.5 strong  ] reitsma_indep    dArea=-0.2128 CI[-0.3778,-0.0491] P(better)=0.995  ROBUST WIN
+    [k10_rho-0.8_p0.5 strong  ] reitsma_reml     dArea=+0.0103 CI[-0.0386,+0.0936] P(better)=0.139
+    [k10_rho-0.8_p0.5 strong  ] sep_univariate   dArea=-0.1695 CI[-0.3251,+0.0051] P(better)=0.972
+    [k10_rho0.0_p0.1 moderate] adaptshrink_dta  dArea=-0.0129 CI[-0.0783,+0.0308] P(better)=0.820
+    [k10_rho0.0_p0.1 moderate] reitsma_indep    dArea=+0.0140 CI[-0.0610,+0.0793] P(better)=0.533
+    [k10_rho0.0_p0.1 moderate] reitsma_reml     dArea=-0.0065 CI[-0.0834,+0.0575] P(better)=0.647
+    [k10_rho0.0_p0.1 moderate] sep_univariate   dArea=+0.0618 CI[-0.0923,+0.0806] P(better)=0.467
+    [k10_rho0.0_p0.1 none    ] adaptshrink_dta  dArea=+0.0810 CI[-0.0685,+0.0820] P(better)=0.355
+    [k10_rho0.0_p0.1 none    ] reitsma_indep    dArea=+0.1058 CI[-0.0528,+0.1553] P(better)=0.122
+    [k10_rho0.0_p0.1 none    ] reitsma_reml     dArea=-0.0037 CI[-0.0944,+0.0527] P(better)=0.635
+    [k10_rho0.0_p0.1 none    ] sep_univariate   dArea=+0.1238 CI[-0.0638,+0.1441] P(better)=0.205
+    [k10_rho0.0_p0.1 strong  ] adaptshrink_dta  dArea=-0.0133 CI[-0.0792,+0.0570] P(better)=0.770
+    [k10_rho0.0_p0.1 strong  ] reitsma_indep    dArea=-0.0099 CI[-0.1056,+0.0827] P(better)=0.620
+    [k10_rho0.0_p0.1 strong  ] reitsma_reml     dArea=+0.0490 CI[-0.0042,+0.1043] P(better)=0.033
+    [k10_rho0.0_p0.1 strong  ] sep_univariate   dArea=+0.0317 CI[-0.0887,+0.1121] P(better)=0.456
+    [k10_rho0.0_p0.3 moderate] adaptshrink_dta  dArea=+0.0084 CI[-0.0951,+0.0783] P(better)=0.456
+    [k10_rho0.0_p0.3 moderate] reitsma_indep    dArea=-0.0684 CI[-0.1735,+0.0825] P(better)=0.702
+    [k10_rho0.0_p0.3 moderate] reitsma_reml     dArea=+0.0400 CI[-0.0373,+0.0929] P(better)=0.132
+    [k10_rho0.0_p0.3 moderate] sep_univariate   dArea=-0.0307 CI[-0.1177,+0.1134] P(better)=0.498
+    [k10_rho0.0_p0.3 none    ] adaptshrink_dta  dArea=-0.0197 CI[-0.0322,+0.0533] P(better)=0.655
+    [k10_rho0.0_p0.3 none    ] reitsma_indep    dArea=-0.0202 CI[-0.0306,+0.0806] P(better)=0.527
+    [k10_rho0.0_p0.3 none    ] reitsma_reml     dArea=-0.0354 CI[-0.1166,+0.0164] P(better)=0.882
+    [k10_rho0.0_p0.3 none    ] sep_univariate   dArea=-0.0213 CI[-0.1208,+0.0638] P(better)=0.792
+    [k10_rho0.0_p0.3 strong  ] adaptshrink_dta  dArea=-0.0463 CI[-0.2146,+0.0554] P(better)=0.770
+    [k10_rho0.0_p0.3 strong  ] reitsma_indep    dArea=-0.0715 CI[-0.2600,+0.0536] P(better)=0.892
+    [k10_rho0.0_p0.3 strong  ] reitsma_reml     dArea=+0.0773 CI[-0.0090,+0.0898] P(better)=0.044
+    [k10_rho0.0_p0.3 strong  ] sep_univariate   dArea=+0.0817 CI[-0.1692,+0.1602] P(better)=0.434
+    [k10_rho0.0_p0.5 moderate] adaptshrink_dta  dArea=-0.0157 CI[-0.0792,+0.0469] P(better)=0.689
+    [k10_rho0.0_p0.5 moderate] reitsma_indep    dArea=+0.0001 CI[-0.0999,+0.0522] P(better)=0.733
+    [k10_rho0.0_p0.5 moderate] reitsma_reml     dArea=+0.0245 CI[-0.0514,+0.0863] P(better)=0.216
+    [k10_rho0.0_p0.5 moderate] sep_univariate   dArea=+0.0219 CI[-0.1113,+0.1105] P(better)=0.489
+    [k10_rho0.0_p0.5 none    ] adaptshrink_dta  dArea=-0.0412 CI[-0.0797,+0.0224] P(better)=0.784
+    [k10_rho0.0_p0.5 none    ] reitsma_indep    dArea=-0.0247 CI[-0.0801,+0.0342] P(better)=0.777
+    [k10_rho0.0_p0.5 none    ] reitsma_reml     dArea=-0.0426 CI[-0.0756,+0.0114] P(better)=0.923
+    [k10_rho0.0_p0.5 none    ] sep_univariate   dArea=-0.0727 CI[-0.1161,+0.0384] P(better)=0.887
+    [k10_rho0.0_p0.5 strong  ] adaptshrink_dta  dArea=+0.0045 CI[-0.0690,+0.0831] P(better)=0.445
+    [k10_rho0.0_p0.5 strong  ] reitsma_indep    dArea=-0.0060 CI[-0.1260,+0.0597] P(better)=0.694
+    [k10_rho0.0_p0.5 strong  ] reitsma_reml     dArea=+0.0674 CI[+0.0041,+0.1288] P(better)=0.016
+    [k10_rho0.0_p0.5 strong  ] sep_univariate   dArea=+0.0999 CI[-0.0700,+0.1461] P(better)=0.170
+    [k20_rho-0.4_p0.1 moderate] adaptshrink_dta  dArea=-0.0049 CI[-0.0160,+0.0744] P(better)=0.208
+    [k20_rho-0.4_p0.1 moderate] reitsma_indep    dArea=+0.1050 CI[+0.0057,+0.1761] P(better)=0.016
+    [k20_rho-0.4_p0.1 moderate] reitsma_reml     dArea=-0.0313 CI[-0.0481,+0.0087] P(better)=0.872
+    [k20_rho-0.4_p0.1 moderate] sep_univariate   dArea=+0.0861 CI[+0.0210,+0.1863] P(better)=0.004
+    [k20_rho-0.4_p0.1 none    ] adaptshrink_dta  dArea=+0.0088 CI[-0.0655,+0.0510] P(better)=0.467
+    [k20_rho-0.4_p0.1 none    ] reitsma_indep    dArea=+0.0218 CI[-0.0286,+0.1235] P(better)=0.123
+    [k20_rho-0.4_p0.1 none    ] reitsma_reml     dArea=-0.0175 CI[-0.0317,+0.0100] P(better)=0.688
+    [k20_rho-0.4_p0.1 none    ] sep_univariate   dArea=+0.0448 CI[-0.0269,+0.1299] P(better)=0.093
+    [k20_rho-0.4_p0.1 strong  ] adaptshrink_dta  dArea=-0.0589 CI[-0.0620,+0.0282] P(better)=0.785
+    [k20_rho-0.4_p0.1 strong  ] reitsma_indep    dArea=-0.0298 CI[-0.1028,+0.0532] P(better)=0.750
+    [k20_rho-0.4_p0.1 strong  ] reitsma_reml     dArea=+0.0174 CI[-0.0224,+0.0295] P(better)=0.197
+    [k20_rho-0.4_p0.1 strong  ] sep_univariate   dArea=-0.0480 CI[-0.1110,+0.0540] P(better)=0.715
+    [k20_rho-0.4_p0.3 moderate] adaptshrink_dta  dArea=-0.0142 CI[-0.0397,+0.0174] P(better)=0.719
+    [k20_rho-0.4_p0.3 moderate] reitsma_indep    dArea=-0.0082 CI[-0.0506,+0.0296] P(better)=0.699
+    [k20_rho-0.4_p0.3 moderate] reitsma_reml     dArea=+0.0217 CI[-0.0165,+0.0234] P(better)=0.630
+    [k20_rho-0.4_p0.3 moderate] sep_univariate   dArea=+0.0174 CI[-0.0341,+0.0453] P(better)=0.404
+    [k20_rho-0.4_p0.3 none    ] adaptshrink_dta  dArea=+0.0165 CI[-0.0363,+0.0416] P(better)=0.350
+    [k20_rho-0.4_p0.3 none    ] reitsma_indep    dArea=+0.0354 CI[-0.0287,+0.0865] P(better)=0.185
+    [k20_rho-0.4_p0.3 none    ] reitsma_reml     dArea=-0.0133 CI[-0.0323,-0.0014] P(better)=0.987  ROBUST WIN
+    [k20_rho-0.4_p0.3 none    ] sep_univariate   dArea=+0.0170 CI[-0.0548,+0.0732] P(better)=0.370
+    [k20_rho-0.4_p0.3 strong  ] adaptshrink_dta  dArea=-0.0116 CI[-0.0481,+0.0432] P(better)=0.489
+    [k20_rho-0.4_p0.3 strong  ] reitsma_indep    dArea=-0.0425 CI[-0.1273,+0.0314] P(better)=0.866
+    [k20_rho-0.4_p0.3 strong  ] reitsma_reml     dArea=+0.0146 CI[+0.0052,+0.0452] P(better)=0.004
+    [k20_rho-0.4_p0.3 strong  ] sep_univariate   dArea=-0.0119 CI[-0.0873,+0.0837] P(better)=0.442
+    [k20_rho-0.4_p0.5 moderate] adaptshrink_dta  dArea=-0.0062 CI[-0.0319,+0.0173] P(better)=0.645
+    [k20_rho-0.4_p0.5 moderate] reitsma_indep    dArea=-0.0219 CI[-0.0721,+0.0106] P(better)=0.886
+    [k20_rho-0.4_p0.5 moderate] reitsma_reml     dArea=+0.0136 CI[-0.0107,+0.0246] P(better)=0.141
+    [k20_rho-0.4_p0.5 moderate] sep_univariate   dArea=+0.0034 CI[-0.0507,+0.0344] P(better)=0.426
+    [k20_rho-0.4_p0.5 none    ] adaptshrink_dta  dArea=-0.0125 CI[-0.0411,+0.0135] P(better)=0.786
+    [k20_rho-0.4_p0.5 none    ] reitsma_indep    dArea=+0.0083 CI[-0.0194,+0.0655] P(better)=0.247
+    [k20_rho-0.4_p0.5 none    ] reitsma_reml     dArea=-0.0174 CI[-0.0320,+0.0074] P(better)=0.923
+    [k20_rho-0.4_p0.5 none    ] sep_univariate   dArea=+0.0064 CI[-0.0224,+0.0512] P(better)=0.228
+    [k20_rho-0.4_p0.5 strong  ] adaptshrink_dta  dArea=-0.0074 CI[-0.0424,+0.0343] P(better)=0.559
+    [k20_rho-0.4_p0.5 strong  ] reitsma_indep    dArea=-0.0552 CI[-0.1111,-0.0068] P(better)=0.988  ROBUST WIN
+    [k20_rho-0.4_p0.5 strong  ] reitsma_reml     dArea=+0.0199 CI[+0.0058,+0.0418] P(better)=0.004
+    [k20_rho-0.4_p0.5 strong  ] sep_univariate   dArea=-0.0208 CI[-0.0726,+0.0269] P(better)=0.783
+    [k20_rho-0.8_p0.1 moderate] adaptshrink_dta  dArea=+0.0397 CI[-0.0152,+0.0783] P(better)=0.080
+    [k20_rho-0.8_p0.1 moderate] reitsma_indep    dArea=+0.1448 CI[+0.0766,+0.2246] P(better)=0.000
+    [k20_rho-0.8_p0.1 moderate] reitsma_reml     dArea=-0.0077 CI[-0.0470,-0.0007] P(better)=0.984  ROBUST WIN
+    [k20_rho-0.8_p0.1 moderate] sep_univariate   dArea=+0.1508 CI[+0.0828,+0.2296] P(better)=0.000
+    [k20_rho-0.8_p0.1 none    ] adaptshrink_dta  dArea=+0.1041 CI[+0.0177,+0.1548] P(better)=0.011
+    [k20_rho-0.8_p0.1 none    ] reitsma_indep    dArea=+0.2480 CI[+0.1464,+0.3267] P(better)=0.000
+    [k20_rho-0.8_p0.1 none    ] reitsma_reml     dArea=-0.0146 CI[-0.0577,-0.0019] P(better)=0.991  ROBUST WIN
+    [k20_rho-0.8_p0.1 none    ] sep_univariate   dArea=+0.2090 CI[+0.1272,+0.3021] P(better)=0.000
+    [k20_rho-0.8_p0.1 strong  ] adaptshrink_dta  dArea=+0.0043 CI[-0.0459,+0.0305] P(better)=0.571
+    [k20_rho-0.8_p0.1 strong  ] reitsma_indep    dArea=+0.0556 CI[-0.0165,+0.1443] P(better)=0.057
+    [k20_rho-0.8_p0.1 strong  ] reitsma_reml     dArea=+0.0079 CI[-0.0026,+0.0271] P(better)=0.061
+    [k20_rho-0.8_p0.1 strong  ] sep_univariate   dArea=+0.0788 CI[-0.0004,+0.1569] P(better)=0.025
+    [k20_rho-0.8_p0.3 moderate] adaptshrink_dta  dArea=+0.0114 CI[-0.0238,+0.0379] P(better)=0.288
+    [k20_rho-0.8_p0.3 moderate] reitsma_indep    dArea=+0.0498 CI[+0.0106,+0.0957] P(better)=0.006
+    [k20_rho-0.8_p0.3 moderate] reitsma_reml     dArea=-0.0137 CI[-0.0254,+0.0114] P(better)=0.865
+    [k20_rho-0.8_p0.3 moderate] sep_univariate   dArea=+0.0437 CI[+0.0010,+0.0847] P(better)=0.021
+    [k20_rho-0.8_p0.3 none    ] adaptshrink_dta  dArea=+0.0332 CI[-0.0102,+0.0713] P(better)=0.072
+    [k20_rho-0.8_p0.3 none    ] reitsma_indep    dArea=+0.1080 CI[+0.0664,+0.1863] P(better)=0.001
+    [k20_rho-0.8_p0.3 none    ] reitsma_reml     dArea=-0.0157 CI[-0.0264,+0.0004] P(better)=0.972
+    [k20_rho-0.8_p0.3 none    ] sep_univariate   dArea=+0.0878 CI[+0.0395,+0.1849] P(better)=0.001
+    [k20_rho-0.8_p0.3 strong  ] adaptshrink_dta  dArea=-0.0048 CI[-0.0576,+0.0371] P(better)=0.581
+    [k20_rho-0.8_p0.3 strong  ] reitsma_indep    dArea=-0.1079 CI[-0.1689,-0.0497] P(better)=1.000  ROBUST WIN
+    [k20_rho-0.8_p0.3 strong  ] reitsma_reml     dArea=+0.0351 CI[+0.0070,+0.0538] P(better)=0.001
+    [k20_rho-0.8_p0.3 strong  ] sep_univariate   dArea=-0.0769 CI[-0.1426,-0.0135] P(better)=0.996  ROBUST WIN
+    [k20_rho-0.8_p0.5 moderate] adaptshrink_dta  dArea=-0.0171 CI[-0.0584,+0.0088] P(better)=0.903
+    [k20_rho-0.8_p0.5 moderate] reitsma_indep    dArea=-0.0162 CI[-0.0500,+0.0448] P(better)=0.557
+    [k20_rho-0.8_p0.5 moderate] reitsma_reml     dArea=+0.0007 CI[-0.0235,+0.0173] P(better)=0.459
+    [k20_rho-0.8_p0.5 moderate] sep_univariate   dArea=-0.0104 CI[-0.0482,+0.0566] P(better)=0.530
+    [k20_rho-0.8_p0.5 none    ] adaptshrink_dta  dArea=-0.0075 CI[-0.0452,+0.0481] P(better)=0.470
+    [k20_rho-0.8_p0.5 none    ] reitsma_indep    dArea=+0.0306 CI[-0.0060,+0.1262] P(better)=0.041
+    [k20_rho-0.8_p0.5 none    ] reitsma_reml     dArea=-0.0095 CI[-0.0221,+0.0108] P(better)=0.923
+    [k20_rho-0.8_p0.5 none    ] sep_univariate   dArea=+0.0308 CI[-0.0192,+0.1175] P(better)=0.098
+    [k20_rho-0.8_p0.5 strong  ] adaptshrink_dta  dArea=-0.0455 CI[-0.0874,+0.0267] P(better)=0.855
+    [k20_rho-0.8_p0.5 strong  ] reitsma_indep    dArea=-0.1107 CI[-0.1877,-0.0473] P(better)=0.999  ROBUST WIN
+    [k20_rho-0.8_p0.5 strong  ] reitsma_reml     dArea=+0.0153 CI[+0.0008,+0.0382] P(better)=0.015
+    [k20_rho-0.8_p0.5 strong  ] sep_univariate   dArea=-0.0962 CI[-0.1688,-0.0190] P(better)=0.994  ROBUST WIN
+    [k20_rho0.0_p0.1 moderate] adaptshrink_dta  dArea=-0.0146 CI[-0.0254,+0.0219] P(better)=0.372
+    [k20_rho0.0_p0.1 moderate] reitsma_indep    dArea=+0.0197 CI[-0.0044,+0.0944] P(better)=0.048
+    [k20_rho0.0_p0.1 moderate] reitsma_reml     dArea=-0.0118 CI[-0.0293,+0.0118] P(better)=0.655
+    [k20_rho0.0_p0.1 moderate] sep_univariate   dArea=+0.0237 CI[-0.0096,+0.1034] P(better)=0.045
+    [k20_rho0.0_p0.1 none    ] adaptshrink_dta  dArea=-0.0385 CI[-0.0890,+0.0382] P(better)=0.657
+    [k20_rho0.0_p0.1 none    ] reitsma_indep    dArea=+0.0058 CI[-0.0980,+0.1195] P(better)=0.457
+    [k20_rho0.0_p0.1 none    ] reitsma_reml     dArea=-0.0235 CI[-0.0493,+0.0085] P(better)=0.771
+    [k20_rho0.0_p0.1 none    ] sep_univariate   dArea=-0.0227 CI[-0.0960,+0.0818] P(better)=0.616
+    [k20_rho0.0_p0.1 strong  ] adaptshrink_dta  dArea=-0.0196 CI[-0.0766,+0.0217] P(better)=0.795
+    [k20_rho0.0_p0.1 strong  ] reitsma_indep    dArea=-0.0652 CI[-0.0938,+0.0435] P(better)=0.617
+    [k20_rho0.0_p0.1 strong  ] reitsma_reml     dArea=+0.0040 CI[-0.0015,+0.0239] P(better)=0.041
+    [k20_rho0.0_p0.1 strong  ] sep_univariate   dArea=-0.0620 CI[-0.1034,+0.0343] P(better)=0.747
+    [k20_rho0.0_p0.3 moderate] adaptshrink_dta  dArea=+0.0023 CI[-0.0402,+0.0101] P(better)=0.677
+    [k20_rho0.0_p0.3 moderate] reitsma_indep    dArea=-0.0080 CI[-0.0501,+0.0311] P(better)=0.553
+    [k20_rho0.0_p0.3 moderate] reitsma_reml     dArea=+0.0012 CI[-0.0193,+0.0248] P(better)=0.364
+    [k20_rho0.0_p0.3 moderate] sep_univariate   dArea=-0.0052 CI[-0.0551,+0.0343] P(better)=0.564
+    [k20_rho0.0_p0.3 none    ] adaptshrink_dta  dArea=-0.0100 CI[-0.0413,+0.0122] P(better)=0.750
+    [k20_rho0.0_p0.3 none    ] reitsma_indep    dArea=-0.0205 CI[-0.0509,+0.0320] P(better)=0.692
+    [k20_rho0.0_p0.3 none    ] reitsma_reml     dArea=-0.0225 CI[-0.0438,-0.0052] P(better)=0.991  ROBUST WIN
+    [k20_rho0.0_p0.3 none    ] sep_univariate   dArea=-0.0334 CI[-0.0538,+0.0314] P(better)=0.812
+    [k20_rho0.0_p0.3 strong  ] adaptshrink_dta  dArea=-0.0245 CI[-0.0705,+0.0149] P(better)=0.769
+    [k20_rho0.0_p0.3 strong  ] reitsma_indep    dArea=-0.0598 CI[-0.0993,+0.0291] P(better)=0.877
+    [k20_rho0.0_p0.3 strong  ] reitsma_reml     dArea=+0.0288 CI[+0.0038,+0.0436] P(better)=0.007
+    [k20_rho0.0_p0.3 strong  ] sep_univariate   dArea=-0.0297 CI[-0.0757,+0.0392] P(better)=0.760
+    [k20_rho0.0_p0.5 moderate] adaptshrink_dta  dArea=+0.0029 CI[-0.0360,+0.0211] P(better)=0.497
+    [k20_rho0.0_p0.5 moderate] reitsma_indep    dArea=+0.0127 CI[-0.0397,+0.0320] P(better)=0.548
+    [k20_rho0.0_p0.5 moderate] reitsma_reml     dArea=+0.0115 CI[-0.0174,+0.0214] P(better)=0.197
+    [k20_rho0.0_p0.5 moderate] sep_univariate   dArea=+0.0202 CI[-0.0321,+0.0519] P(better)=0.356
+    [k20_rho0.0_p0.5 none    ] adaptshrink_dta  dArea=-0.0231 CI[-0.0372,+0.0073] P(better)=0.669
+    [k20_rho0.0_p0.5 none    ] reitsma_indep    dArea=-0.0122 CI[-0.0367,+0.0253] P(better)=0.541
+    [k20_rho0.0_p0.5 none    ] reitsma_reml     dArea=-0.0193 CI[-0.0340,+0.0001] P(better)=0.974
+    [k20_rho0.0_p0.5 none    ] sep_univariate   dArea=-0.0140 CI[-0.0488,+0.0320] P(better)=0.697
+    [k20_rho0.0_p0.5 strong  ] adaptshrink_dta  dArea=+0.0248 CI[-0.0245,+0.0488] P(better)=0.244
+    [k20_rho0.0_p0.5 strong  ] reitsma_indep    dArea=+0.0157 CI[-0.0613,+0.0391] P(better)=0.597
+    [k20_rho0.0_p0.5 strong  ] reitsma_reml     dArea=+0.0284 CI[+0.0015,+0.0455] P(better)=0.013
+    [k20_rho0.0_p0.5 strong  ] sep_univariate   dArea=+0.0493 CI[-0.0370,+0.0734] P(better)=0.269
+    [k40_rho-0.4_p0.1 moderate] adaptshrink_dta  dArea=-0.0052 CI[-0.0225,+0.0198] P(better)=0.564
+    [k40_rho-0.4_p0.1 moderate] reitsma_indep    dArea=+0.0348 CI[+0.0095,+0.0825] P(better)=0.005
+    [k40_rho-0.4_p0.1 moderate] reitsma_reml     dArea=-0.0126 CI[-0.0176,+0.0019] P(better)=0.940
+    [k40_rho-0.4_p0.1 moderate] sep_univariate   dArea=+0.0599 CI[+0.0273,+0.1084] P(better)=0.000
+    [k40_rho-0.4_p0.1 none    ] adaptshrink_dta  dArea=-0.0132 CI[-0.0175,+0.0460] P(better)=0.232
+    [k40_rho-0.4_p0.1 none    ] reitsma_indep    dArea=+0.0420 CI[-0.0043,+0.1072] P(better)=0.037
+    [k40_rho-0.4_p0.1 none    ] reitsma_reml     dArea=-0.0048 CI[-0.0241,+0.0035] P(better)=0.857
+    [k40_rho-0.4_p0.1 none    ] sep_univariate   dArea=+0.0744 CI[+0.0115,+0.1304] P(better)=0.015
+    [k40_rho-0.4_p0.1 strong  ] adaptshrink_dta  dArea=-0.0111 CI[-0.0226,+0.0146] P(better)=0.747
+    [k40_rho-0.4_p0.1 strong  ] reitsma_indep    dArea=-0.0128 CI[-0.0385,+0.0234] P(better)=0.736
+    [k40_rho-0.4_p0.1 strong  ] reitsma_reml     dArea=+0.0037 CI[-0.0009,+0.0080] P(better)=0.042
+    [k40_rho-0.4_p0.1 strong  ] sep_univariate   dArea=-0.0156 CI[-0.0371,+0.0259] P(better)=0.700
+    [k40_rho-0.4_p0.3 moderate] adaptshrink_dta  dArea=+0.0028 CI[-0.0213,+0.0040] P(better)=0.763
+    [k40_rho-0.4_p0.3 moderate] reitsma_indep    dArea=+0.0052 CI[-0.0236,+0.0260] P(better)=0.471
+    [k40_rho-0.4_p0.3 moderate] reitsma_reml     dArea=-0.0040 CI[-0.0130,+0.0029] P(better)=0.851
+    [k40_rho-0.4_p0.3 moderate] sep_univariate   dArea=+0.0029 CI[-0.0263,+0.0171] P(better)=0.626
+    [k40_rho-0.4_p0.3 none    ] adaptshrink_dta  dArea=+0.0004 CI[-0.0118,+0.0107] P(better)=0.502
+    [k40_rho-0.4_p0.3 none    ] reitsma_indep    dArea=+0.0227 CI[-0.0057,+0.0510] P(better)=0.060
+    [k40_rho-0.4_p0.3 none    ] reitsma_reml     dArea=-0.0062 CI[-0.0116,-0.0049] P(better)=1.000  ROBUST WIN
+    [k40_rho-0.4_p0.3 none    ] sep_univariate   dArea=+0.0103 CI[-0.0154,+0.0434] P(better)=0.195
+    [k40_rho-0.4_p0.3 strong  ] adaptshrink_dta  dArea=+0.0033 CI[-0.0111,+0.0196] P(better)=0.317
+    [k40_rho-0.4_p0.3 strong  ] reitsma_indep    dArea=-0.0316 CI[-0.0594,-0.0095] P(better)=0.994  ROBUST WIN
+    [k40_rho-0.4_p0.3 strong  ] reitsma_reml     dArea=+0.0040 CI[+0.0006,+0.0110] P(better)=0.013
+    [k40_rho-0.4_p0.3 strong  ] sep_univariate   dArea=-0.0222 CI[-0.0505,-0.0017] P(better)=0.981  ROBUST WIN
+    [k40_rho-0.4_p0.5 moderate] adaptshrink_dta  dArea=+0.0028 CI[-0.0046,+0.0085] P(better)=0.512
+    [k40_rho-0.4_p0.5 moderate] reitsma_indep    dArea=+0.0031 CI[-0.0177,+0.0126] P(better)=0.516
+    [k40_rho-0.4_p0.5 moderate] reitsma_reml     dArea=-0.0001 CI[-0.0068,+0.0060] P(better)=0.491
+    [k40_rho-0.4_p0.5 moderate] sep_univariate   dArea=+0.0118 CI[-0.0136,+0.0190] P(better)=0.319
+    [k40_rho-0.4_p0.5 none    ] adaptshrink_dta  dArea=-0.0009 CI[-0.0074,+0.0040] P(better)=0.539
+    [k40_rho-0.4_p0.5 none    ] reitsma_indep    dArea=+0.0143 CI[+0.0030,+0.0351] P(better)=0.008
+    [k40_rho-0.4_p0.5 none    ] reitsma_reml     dArea=-0.0076 CI[-0.0105,-0.0028] P(better)=1.000  ROBUST WIN
+    [k40_rho-0.4_p0.5 none    ] sep_univariate   dArea=+0.0094 CI[-0.0066,+0.0285] P(better)=0.107
+    [k40_rho-0.4_p0.5 strong  ] adaptshrink_dta  dArea=+0.0058 CI[-0.0054,+0.0290] P(better)=0.134
+    [k40_rho-0.4_p0.5 strong  ] reitsma_indep    dArea=-0.0436 CI[-0.0679,-0.0028] P(better)=0.989  ROBUST WIN
+    [k40_rho-0.4_p0.5 strong  ] reitsma_reml     dArea=+0.0064 CI[+0.0036,+0.0135] P(better)=0.000
+    [k40_rho-0.4_p0.5 strong  ] sep_univariate   dArea=-0.0275 CI[-0.0497,+0.0151] P(better)=0.820
+    [k40_rho-0.8_p0.1 moderate] adaptshrink_dta  dArea=+0.0184 CI[+0.0035,+0.0556] P(better)=0.013
+    [k40_rho-0.8_p0.1 moderate] reitsma_indep    dArea=+0.1620 CI[+0.1005,+0.2221] P(better)=0.000
+    [k40_rho-0.8_p0.1 moderate] reitsma_reml     dArea=-0.0056 CI[-0.0137,+0.0003] P(better)=0.957
+    [k40_rho-0.8_p0.1 moderate] sep_univariate   dArea=+0.1752 CI[+0.1265,+0.2398] P(better)=0.000
+    [k40_rho-0.8_p0.1 none    ] adaptshrink_dta  dArea=+0.0763 CI[+0.0041,+0.0977] P(better)=0.018
+    [k40_rho-0.8_p0.1 none    ] reitsma_indep    dArea=+0.1976 CI[+0.1205,+0.2726] P(better)=0.000
+    [k40_rho-0.8_p0.1 none    ] reitsma_reml     dArea=-0.0027 CI[-0.0282,+0.0003] P(better)=0.960
+    [k40_rho-0.8_p0.1 none    ] sep_univariate   dArea=+0.2143 CI[+0.1401,+0.2968] P(better)=0.000
+    [k40_rho-0.8_p0.1 strong  ] adaptshrink_dta  dArea=-0.0117 CI[-0.0193,+0.0084] P(better)=0.809
+    [k40_rho-0.8_p0.1 strong  ] reitsma_indep    dArea=+0.0400 CI[+0.0119,+0.0989] P(better)=0.004
+    [k40_rho-0.8_p0.1 strong  ] reitsma_reml     dArea=+0.0034 CI[-0.0049,+0.0051] P(better)=0.369
+    [k40_rho-0.8_p0.1 strong  ] sep_univariate   dArea=+0.0533 CI[+0.0233,+0.1002] P(better)=0.001
+    [k40_rho-0.8_p0.3 moderate] adaptshrink_dta  dArea=-0.0044 CI[-0.0238,+0.0146] P(better)=0.667
+    [k40_rho-0.8_p0.3 moderate] reitsma_indep    dArea=+0.0297 CI[+0.0091,+0.0625] P(better)=0.004
+    [k40_rho-0.8_p0.3 moderate] reitsma_reml     dArea=-0.0065 CI[-0.0093,+0.0009] P(better)=0.957
+    [k40_rho-0.8_p0.3 moderate] sep_univariate   dArea=+0.0201 CI[+0.0006,+0.0565] P(better)=0.023
+    [k40_rho-0.8_p0.3 none    ] adaptshrink_dta  dArea=-0.0020 CI[-0.0291,+0.0271] P(better)=0.556
+    [k40_rho-0.8_p0.3 none    ] reitsma_indep    dArea=+0.0742 CI[+0.0441,+0.1207] P(better)=0.000
+    [k40_rho-0.8_p0.3 none    ] reitsma_reml     dArea=-0.0059 CI[-0.0137,-0.0032] P(better)=1.000  ROBUST WIN
+    [k40_rho-0.8_p0.3 none    ] sep_univariate   dArea=+0.0684 CI[+0.0304,+0.1071] P(better)=0.000
+    [k40_rho-0.8_p0.3 strong  ] adaptshrink_dta  dArea=+0.0001 CI[-0.0208,+0.0160] P(better)=0.628
+    [k40_rho-0.8_p0.3 strong  ] reitsma_indep    dArea=-0.0602 CI[-0.0919,-0.0325] P(better)=1.000  ROBUST WIN
+    [k40_rho-0.8_p0.3 strong  ] reitsma_reml     dArea=+0.0108 CI[+0.0026,+0.0112] P(better)=0.002
+    [k40_rho-0.8_p0.3 strong  ] sep_univariate   dArea=-0.0481 CI[-0.0882,-0.0225] P(better)=1.000  ROBUST WIN
+    [k40_rho-0.8_p0.5 moderate] adaptshrink_dta  dArea=-0.0006 CI[-0.0204,+0.0122] P(better)=0.560
+    [k40_rho-0.8_p0.5 moderate] reitsma_indep    dArea=+0.0344 CI[-0.0013,+0.0547] P(better)=0.035
+    [k40_rho-0.8_p0.5 moderate] reitsma_reml     dArea=+0.0032 CI[-0.0056,+0.0059] P(better)=0.593
+    [k40_rho-0.8_p0.5 moderate] sep_univariate   dArea=+0.0395 CI[-0.0031,+0.0553] P(better)=0.043
+    [k40_rho-0.8_p0.5 none    ] adaptshrink_dta  dArea=+0.0052 CI[-0.0116,+0.0294] P(better)=0.215
+    [k40_rho-0.8_p0.5 none    ] reitsma_indep    dArea=+0.0820 CI[+0.0468,+0.1188] P(better)=0.000
+    [k40_rho-0.8_p0.5 none    ] reitsma_reml     dArea=-0.0042 CI[-0.0100,-0.0022] P(better)=1.000  ROBUST WIN
+    [k40_rho-0.8_p0.5 none    ] sep_univariate   dArea=+0.0591 CI[+0.0332,+0.0977] P(better)=0.000
+    [k40_rho-0.8_p0.5 strong  ] adaptshrink_dta  dArea=+0.0173 CI[-0.0142,+0.0379] P(better)=0.171
+    [k40_rho-0.8_p0.5 strong  ] reitsma_indep    dArea=-0.0723 CI[-0.0948,-0.0361] P(better)=1.000  ROBUST WIN
+    [k40_rho-0.8_p0.5 strong  ] reitsma_reml     dArea=+0.0047 CI[+0.0035,+0.0132] P(better)=0.000
+    [k40_rho-0.8_p0.5 strong  ] sep_univariate   dArea=-0.0631 CI[-0.0855,-0.0272] P(better)=1.000  ROBUST WIN
+    [k40_rho0.0_p0.1 moderate] adaptshrink_dta  dArea=-0.0083 CI[-0.0272,+0.0090] P(better)=0.629
+    [k40_rho0.0_p0.1 moderate] reitsma_indep    dArea=-0.0085 CI[-0.0292,+0.0343] P(better)=0.486
+    [k40_rho0.0_p0.1 moderate] reitsma_reml     dArea=-0.0087 CI[-0.0191,+0.0029] P(better)=0.865
+    [k40_rho0.0_p0.1 moderate] sep_univariate   dArea=+0.0355 CI[-0.0137,+0.0624] P(better)=0.101
+    [k40_rho0.0_p0.1 none    ] adaptshrink_dta  dArea=+0.0057 CI[-0.0206,+0.0105] P(better)=0.456
+    [k40_rho0.0_p0.1 none    ] reitsma_indep    dArea=+0.0280 CI[-0.0155,+0.0374] P(better)=0.214
+    [k40_rho0.0_p0.1 none    ] reitsma_reml     dArea=-0.0050 CI[-0.0237,+0.0021] P(better)=0.965
+    [k40_rho0.0_p0.1 none    ] sep_univariate   dArea=+0.0326 CI[-0.0084,+0.0698] P(better)=0.061
+    [k40_rho0.0_p0.1 strong  ] adaptshrink_dta  dArea=+0.0051 CI[-0.0101,+0.0114] P(better)=0.589
+    [k40_rho0.0_p0.1 strong  ] reitsma_indep    dArea=+0.0014 CI[-0.0260,+0.0357] P(better)=0.471
+    [k40_rho0.0_p0.1 strong  ] reitsma_reml     dArea=+0.0109 CI[-0.0078,+0.0189] P(better)=0.185
+    [k40_rho0.0_p0.1 strong  ] sep_univariate   dArea=-0.0021 CI[-0.0414,+0.0374] P(better)=0.565
+    [k40_rho0.0_p0.3 moderate] adaptshrink_dta  dArea=+0.0001 CI[-0.0053,+0.0060] P(better)=0.602
+    [k40_rho0.0_p0.3 moderate] reitsma_indep    dArea=-0.0010 CI[-0.0105,+0.0099] P(better)=0.574
+    [k40_rho0.0_p0.3 moderate] reitsma_reml     dArea=+0.0002 CI[-0.0071,+0.0048] P(better)=0.622
+    [k40_rho0.0_p0.3 moderate] sep_univariate   dArea=+0.0015 CI[-0.0141,+0.0183] P(better)=0.380
+    [k40_rho0.0_p0.3 none    ] adaptshrink_dta  dArea=-0.0005 CI[-0.0146,+0.0022] P(better)=0.699
+    [k40_rho0.0_p0.3 none    ] reitsma_indep    dArea=+0.0057 CI[-0.0167,+0.0175] P(better)=0.570
+    [k40_rho0.0_p0.3 none    ] reitsma_reml     dArea=-0.0056 CI[-0.0139,-0.0036] P(better)=0.994  ROBUST WIN
+    [k40_rho0.0_p0.3 none    ] sep_univariate   dArea=+0.0097 CI[-0.0196,+0.0247] P(better)=0.630
+    [k40_rho0.0_p0.3 strong  ] adaptshrink_dta  dArea=+0.0001 CI[-0.0068,+0.0107] P(better)=0.238
+    [k40_rho0.0_p0.3 strong  ] reitsma_indep    dArea=-0.0080 CI[-0.0281,+0.0103] P(better)=0.774
+    [k40_rho0.0_p0.3 strong  ] reitsma_reml     dArea=+0.0072 CI[+0.0027,+0.0168] P(better)=0.000
+    [k40_rho0.0_p0.3 strong  ] sep_univariate   dArea=+0.0188 CI[-0.0159,+0.0496] P(better)=0.265
+    [k40_rho0.0_p0.5 moderate] adaptshrink_dta  dArea=+0.0001 CI[-0.0050,+0.0093] P(better)=0.508
+    [k40_rho0.0_p0.5 moderate] reitsma_indep    dArea=-0.0017 CI[-0.0172,+0.0104] P(better)=0.621
+    [k40_rho0.0_p0.5 moderate] reitsma_reml     dArea=-0.0042 CI[-0.0053,+0.0069] P(better)=0.522
+    [k40_rho0.0_p0.5 moderate] sep_univariate   dArea=-0.0088 CI[-0.0182,+0.0160] P(better)=0.505
+    [k40_rho0.0_p0.5 none    ] adaptshrink_dta  dArea=+0.0002 CI[-0.0087,+0.0026] P(better)=0.550
+    [k40_rho0.0_p0.5 none    ] reitsma_indep    dArea=+0.0000 CI[-0.0091,+0.0077] P(better)=0.428
+    [k40_rho0.0_p0.5 none    ] reitsma_reml     dArea=-0.0074 CI[-0.0094,-0.0017] P(better)=1.000  ROBUST WIN
+    [k40_rho0.0_p0.5 none    ] sep_univariate   dArea=-0.0111 CI[-0.0171,+0.0153] P(better)=0.585
+    [k40_rho0.0_p0.5 strong  ] adaptshrink_dta  dArea=+0.0016 CI[-0.0013,+0.0106] P(better)=0.126
+    [k40_rho0.0_p0.5 strong  ] reitsma_indep    dArea=-0.0007 CI[-0.0270,+0.0224] P(better)=0.514
+    [k40_rho0.0_p0.5 strong  ] reitsma_reml     dArea=+0.0076 CI[+0.0055,+0.0145] P(better)=0.000
+    [k40_rho0.0_p0.5 strong  ] sep_univariate   dArea=+0.0266 CI[-0.0146,+0.0575] P(better)=0.121
+    [k6_rho-0.4_p0.1 moderate] adaptshrink_dta  dArea=+0.0055 CI[-0.1667,+0.1398] P(better)=0.389
+    [k6_rho-0.4_p0.1 moderate] reitsma_indep    dArea=+0.0597 CI[-0.1310,+0.2487] P(better)=0.235
+    [k6_rho-0.4_p0.1 moderate] reitsma_reml     dArea=-0.0482 CI[-0.2133,+0.0880] P(better)=0.648
+    [k6_rho-0.4_p0.1 moderate] sep_univariate   dArea=-0.0096 CI[-0.1921,+0.1444] P(better)=0.488
+    [k6_rho-0.4_p0.1 none    ] adaptshrink_dta  dArea=+0.0153 CI[-0.1220,+0.1816] P(better)=0.350
+    [k6_rho-0.4_p0.1 none    ] reitsma_indep    dArea=+0.1727 CI[-0.0259,+0.3219] P(better)=0.047
+    [k6_rho-0.4_p0.1 none    ] reitsma_reml     dArea=-0.0009 CI[-0.2277,+0.0507] P(better)=0.828
+    [k6_rho-0.4_p0.1 none    ] sep_univariate   dArea=+0.1925 CI[-0.1546,+0.2597] P(better)=0.240
+    [k6_rho-0.4_p0.1 strong  ] adaptshrink_dta  dArea=-0.0730 CI[-0.2473,+0.0463] P(better)=0.882
+    [k6_rho-0.4_p0.1 strong  ] reitsma_indep    dArea=-0.0683 CI[-0.2671,+0.1916] P(better)=0.696
+    [k6_rho-0.4_p0.1 strong  ] reitsma_reml     dArea=-0.0291 CI[-0.0889,+0.1441] P(better)=0.297
+    [k6_rho-0.4_p0.1 strong  ] sep_univariate   dArea=-0.1087 CI[-0.3079,+0.1222] P(better)=0.789
+    [k6_rho-0.4_p0.3 moderate] adaptshrink_dta  dArea=-0.0212 CI[-0.1386,+0.1190] P(better)=0.515
+    [k6_rho-0.4_p0.3 moderate] reitsma_indep    dArea=+0.0412 CI[-0.1449,+0.2286] P(better)=0.385
+    [k6_rho-0.4_p0.3 moderate] reitsma_reml     dArea=-0.0709 CI[-0.1218,+0.1027] P(better)=0.543
+    [k6_rho-0.4_p0.3 moderate] sep_univariate   dArea=-0.0659 CI[-0.2046,+0.1396] P(better)=0.688
+    [k6_rho-0.4_p0.3 none    ] adaptshrink_dta  dArea=+0.0199 CI[-0.0909,+0.1857] P(better)=0.232
+    [k6_rho-0.4_p0.3 none    ] reitsma_indep    dArea=+0.1177 CI[-0.0576,+0.3234] P(better)=0.112
+    [k6_rho-0.4_p0.3 none    ] reitsma_reml     dArea=-0.0602 CI[-0.1432,+0.0472] P(better)=0.801
+    [k6_rho-0.4_p0.3 none    ] sep_univariate   dArea=+0.0462 CI[-0.1074,+0.2426] P(better)=0.261
+    [k6_rho-0.4_p0.3 strong  ] adaptshrink_dta  dArea=-0.0051 CI[-0.2856,+0.1519] P(better)=0.730
+    [k6_rho-0.4_p0.3 strong  ] reitsma_indep    dArea=+0.0094 CI[-0.3446,+0.1497] P(better)=0.750
+    [k6_rho-0.4_p0.3 strong  ] reitsma_reml     dArea=+0.1316 CI[-0.0147,+0.2638] P(better)=0.054
+    [k6_rho-0.4_p0.3 strong  ] sep_univariate   dArea=+0.1024 CI[-0.2508,+0.2853] P(better)=0.399
+    [k6_rho-0.4_p0.5 moderate] adaptshrink_dta  dArea=-0.0259 CI[-0.1406,+0.0997] P(better)=0.627
+    [k6_rho-0.4_p0.5 moderate] reitsma_indep    dArea=-0.0147 CI[-0.1473,+0.1157] P(better)=0.631
+    [k6_rho-0.4_p0.5 moderate] reitsma_reml     dArea=+0.0578 CI[-0.0239,+0.1548] P(better)=0.087
+    [k6_rho-0.4_p0.5 moderate] sep_univariate   dArea=+0.0400 CI[-0.1069,+0.1987] P(better)=0.333
+    [k6_rho-0.4_p0.5 none    ] adaptshrink_dta  dArea=+0.0437 CI[-0.0813,+0.1541] P(better)=0.283
+    [k6_rho-0.4_p0.5 none    ] reitsma_indep    dArea=+0.0809 CI[-0.0672,+0.2162] P(better)=0.114
+    [k6_rho-0.4_p0.5 none    ] reitsma_reml     dArea=-0.0271 CI[-0.1164,+0.0580] P(better)=0.774
+    [k6_rho-0.4_p0.5 none    ] sep_univariate   dArea=+0.0361 CI[-0.0980,+0.1905] P(better)=0.242
+    [k6_rho-0.4_p0.5 strong  ] adaptshrink_dta  dArea=-0.0304 CI[-0.2060,+0.1345] P(better)=0.666
+    [k6_rho-0.4_p0.5 strong  ] reitsma_indep    dArea=-0.0613 CI[-0.2714,+0.0561] P(better)=0.867
+    [k6_rho-0.4_p0.5 strong  ] reitsma_reml     dArea=+0.0136 CI[-0.0029,+0.2390] P(better)=0.029
+    [k6_rho-0.4_p0.5 strong  ] sep_univariate   dArea=+0.0078 CI[-0.1696,+0.1936] P(better)=0.457
+    [k6_rho-0.8_p0.1 moderate] adaptshrink_dta  dArea=+0.1261 CI[-0.0934,+0.2899] P(better)=0.186
+    [k6_rho-0.8_p0.1 moderate] reitsma_indep    dArea=+0.3008 CI[-0.0234,+0.5373] P(better)=0.040
+    [k6_rho-0.8_p0.1 moderate] reitsma_reml     dArea=+0.0242 CI[-0.1152,+0.0947] P(better)=0.395
+    [k6_rho-0.8_p0.1 moderate] sep_univariate   dArea=+0.0807 CI[-0.1249,+0.2858] P(better)=0.201
+    [k6_rho-0.8_p0.1 none    ] adaptshrink_dta  dArea=+0.0668 CI[-0.0509,+0.2507] P(better)=0.105
+    [k6_rho-0.8_p0.1 none    ] reitsma_indep    dArea=+0.2906 CI[+0.0900,+0.5689] P(better)=0.003
+    [k6_rho-0.8_p0.1 none    ] reitsma_reml     dArea=-0.1345 CI[-0.2596,+0.0152] P(better)=0.958
+    [k6_rho-0.8_p0.1 none    ] sep_univariate   dArea=+0.2148 CI[-0.0183,+0.4244] P(better)=0.037
+    [k6_rho-0.8_p0.1 strong  ] adaptshrink_dta  dArea=-0.0346 CI[-0.3320,+0.1061] P(better)=0.772
+    [k6_rho-0.8_p0.1 strong  ] reitsma_indep    dArea=+0.0679 CI[-0.3263,+0.2285] P(better)=0.492
+    [k6_rho-0.8_p0.1 strong  ] reitsma_reml     dArea=+0.0919 CI[-0.0552,+0.1440] P(better)=0.183
+    [k6_rho-0.8_p0.1 strong  ] sep_univariate   dArea=-0.0042 CI[-0.4249,+0.0984] P(better)=0.733
+    [k6_rho-0.8_p0.3 moderate] adaptshrink_dta  dArea=-0.0041 CI[-0.1264,+0.1422] P(better)=0.447
+    [k6_rho-0.8_p0.3 moderate] reitsma_indep    dArea=+0.0075 CI[-0.1575,+0.2135] P(better)=0.401
+    [k6_rho-0.8_p0.3 moderate] reitsma_reml     dArea=-0.0323 CI[-0.1151,+0.0896] P(better)=0.538
+    [k6_rho-0.8_p0.3 moderate] sep_univariate   dArea=-0.0332 CI[-0.1764,+0.1350] P(better)=0.586
+    [k6_rho-0.8_p0.3 none    ] adaptshrink_dta  dArea=+0.1529 CI[-0.0133,+0.2867] P(better)=0.042
+    [k6_rho-0.8_p0.3 none    ] reitsma_indep    dArea=+0.2683 CI[+0.0468,+0.3924] P(better)=0.007
+    [k6_rho-0.8_p0.3 none    ] reitsma_reml     dArea=+0.0160 CI[-0.1001,+0.0467] P(better)=0.743
+    [k6_rho-0.8_p0.3 none    ] sep_univariate   dArea=+0.1851 CI[-0.0306,+0.2820] P(better)=0.050
+    [k6_rho-0.8_p0.3 strong  ] adaptshrink_dta  dArea=-0.0528 CI[-0.2338,+0.1856] P(better)=0.701
+    [k6_rho-0.8_p0.3 strong  ] reitsma_indep    dArea=-0.1337 CI[-0.4269,+0.0305] P(better)=0.948
+    [k6_rho-0.8_p0.3 strong  ] reitsma_reml     dArea=+0.1261 CI[-0.0002,+0.2465] P(better)=0.025
+    [k6_rho-0.8_p0.3 strong  ] sep_univariate   dArea=-0.0426 CI[-0.3180,+0.1480] P(better)=0.782
+    [k6_rho-0.8_p0.5 moderate] adaptshrink_dta  dArea=-0.1403 CI[-0.2033,+0.0485] P(better)=0.868
+    [k6_rho-0.8_p0.5 moderate] reitsma_indep    dArea=-0.1349 CI[-0.2391,+0.0924] P(better)=0.784
+    [k6_rho-0.8_p0.5 moderate] reitsma_reml     dArea=+0.0615 CI[-0.0153,+0.2079] P(better)=0.059
+    [k6_rho-0.8_p0.5 moderate] sep_univariate   dArea=-0.1323 CI[-0.2139,+0.0854] P(better)=0.778
+    [k6_rho-0.8_p0.5 none    ] adaptshrink_dta  dArea=+0.0307 CI[-0.1387,+0.1388] P(better)=0.493
+    [k6_rho-0.8_p0.5 none    ] reitsma_indep    dArea=+0.0659 CI[-0.1088,+0.2501] P(better)=0.246
+    [k6_rho-0.8_p0.5 none    ] reitsma_reml     dArea=+0.0080 CI[-0.1319,+0.0889] P(better)=0.661
+    [k6_rho-0.8_p0.5 none    ] sep_univariate   dArea=+0.0063 CI[-0.1722,+0.1776] P(better)=0.512
+    [k6_rho-0.8_p0.5 strong  ] adaptshrink_dta  dArea=-0.1861 CI[-0.3166,+0.0584] P(better)=0.902
+    [k6_rho-0.8_p0.5 strong  ] reitsma_indep    dArea=-0.3130 CI[-0.4514,-0.0076] P(better)=0.978  ROBUST WIN
+    [k6_rho-0.8_p0.5 strong  ] reitsma_reml     dArea=+0.1057 CI[+0.0087,+0.3271] P(better)=0.010
+    [k6_rho-0.8_p0.5 strong  ] sep_univariate   dArea=-0.1966 CI[-0.3725,+0.1082] P(better)=0.839
+    [k6_rho0.0_p0.1 moderate] adaptshrink_dta  dArea=+0.0426 CI[-0.0801,+0.1548] P(better)=0.320
+    [k6_rho0.0_p0.1 moderate] reitsma_indep    dArea=+0.1157 CI[-0.0583,+0.3338] P(better)=0.135
+    [k6_rho0.0_p0.1 moderate] reitsma_reml     dArea=-0.0350 CI[-0.1464,+0.0451] P(better)=0.559
+    [k6_rho0.0_p0.1 moderate] sep_univariate   dArea=+0.0411 CI[-0.0992,+0.2508] P(better)=0.238
+    [k6_rho0.0_p0.1 none    ] adaptshrink_dta  dArea=+0.0173 CI[-0.0893,+0.1465] P(better)=0.337
+    [k6_rho0.0_p0.1 none    ] reitsma_indep    dArea=+0.0944 CI[-0.0575,+0.2114] P(better)=0.124
+    [k6_rho0.0_p0.1 none    ] reitsma_reml     dArea=-0.0474 CI[-0.1724,+0.0417] P(better)=0.818
+    [k6_rho0.0_p0.1 none    ] sep_univariate   dArea=+0.0737 CI[-0.1310,+0.1833] P(better)=0.257
+    [k6_rho0.0_p0.1 strong  ] adaptshrink_dta  dArea=-0.0018 CI[-0.2000,+0.0619] P(better)=0.814
+    [k6_rho0.0_p0.1 strong  ] reitsma_indep    dArea=-0.0128 CI[-0.2433,+0.0913] P(better)=0.757
+    [k6_rho0.0_p0.1 strong  ] reitsma_reml     dArea=+0.0448 CI[-0.0490,+0.1504] P(better)=0.180
+    [k6_rho0.0_p0.1 strong  ] sep_univariate   dArea=-0.0861 CI[-0.2363,+0.0626] P(better)=0.862
+    [k6_rho0.0_p0.3 moderate] adaptshrink_dta  dArea=-0.0032 CI[-0.1506,+0.1485] P(better)=0.639
+    [k6_rho0.0_p0.3 moderate] reitsma_indep    dArea=-0.0440 CI[-0.1982,+0.1266] P(better)=0.721
+    [k6_rho0.0_p0.3 moderate] reitsma_reml     dArea=+0.0788 CI[-0.0326,+0.2006] P(better)=0.070
+    [k6_rho0.0_p0.3 moderate] sep_univariate   dArea=-0.0258 CI[-0.1515,+0.1411] P(better)=0.512
+    [k6_rho0.0_p0.3 none    ] adaptshrink_dta  dArea=-0.0194 CI[-0.1606,+0.0933] P(better)=0.628
+    [k6_rho0.0_p0.3 none    ] reitsma_indep    dArea=+0.0221 CI[-0.1364,+0.1484] P(better)=0.484
+    [k6_rho0.0_p0.3 none    ] reitsma_reml     dArea=+0.0086 CI[-0.1296,+0.0937] P(better)=0.608
+    [k6_rho0.0_p0.3 none    ] sep_univariate   dArea=+0.0058 CI[-0.1838,+0.1221] P(better)=0.639
+    [k6_rho0.0_p0.3 strong  ] adaptshrink_dta  dArea=-0.0177 CI[-0.1624,+0.0717] P(better)=0.748
+    [k6_rho0.0_p0.3 strong  ] reitsma_indep    dArea=-0.0915 CI[-0.1932,+0.0628] P(better)=0.832
+    [k6_rho0.0_p0.3 strong  ] reitsma_reml     dArea=+0.0371 CI[-0.0223,+0.1706] P(better)=0.055
+    [k6_rho0.0_p0.3 strong  ] sep_univariate   dArea=-0.0353 CI[-0.1524,+0.1443] P(better)=0.432
+    [k6_rho0.0_p0.5 moderate] adaptshrink_dta  dArea=-0.0274 CI[-0.2039,+0.0849] P(better)=0.712
+    [k6_rho0.0_p0.5 moderate] reitsma_indep    dArea=-0.0537 CI[-0.2351,+0.0962] P(better)=0.774
+    [k6_rho0.0_p0.5 moderate] reitsma_reml     dArea=+0.0443 CI[-0.0398,+0.1374] P(better)=0.211
+    [k6_rho0.0_p0.5 moderate] sep_univariate   dArea=-0.0342 CI[-0.2185,+0.1339] P(better)=0.713
+    [k6_rho0.0_p0.5 none    ] adaptshrink_dta  dArea=+0.0068 CI[-0.0802,+0.0841] P(better)=0.302
+    [k6_rho0.0_p0.5 none    ] reitsma_indep    dArea=+0.0196 CI[-0.1056,+0.1561] P(better)=0.215
+    [k6_rho0.0_p0.5 none    ] reitsma_reml     dArea=-0.0227 CI[-0.0939,+0.1391] P(better)=0.608
+    [k6_rho0.0_p0.5 none    ] sep_univariate   dArea=+0.0076 CI[-0.0873,+0.1341] P(better)=0.323
+    [k6_rho0.0_p0.5 strong  ] adaptshrink_dta  dArea=-0.0111 CI[-0.1848,+0.1015] P(better)=0.544
+    [k6_rho0.0_p0.5 strong  ] reitsma_indep    dArea=-0.0365 CI[-0.2539,+0.1510] P(better)=0.585
+    [k6_rho0.0_p0.5 strong  ] reitsma_reml     dArea=+0.2499 CI[-0.0718,+0.3013] P(better)=0.077
+    [k6_rho0.0_p0.5 strong  ] sep_univariate   dArea=+0.1463 CI[-0.0905,+0.2676] P(better)=0.141
+
+  Does adaptshrink_dta robustly beat EACH field member (robust = 2.5% CI of area gain > 0)?
+    [k10_rho-0.4_p0.1 moderate] vs reitsma          dArea(ours-x)=-0.0090 CI[-0.0757,+0.1086] P(ours better)=0.448
+    [k10_rho-0.4_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.1219 CI[-0.1740,+0.0066] P(ours better)=0.957
+    [k10_rho-0.4_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0363 CI[-0.0404,+0.1307] P(ours better)=0.188
+    [k10_rho-0.4_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.0752 CI[-0.1404,+0.0759] P(ours better)=0.700
+    [k10_rho-0.4_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.0759 CI[-0.0715,+0.1501] P(ours better)=0.241
+    [k10_rho-0.4_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.1687 CI[-0.2598,+0.0028] P(ours better)=0.972
+    [k10_rho-0.4_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.1064 CI[-0.0305,+0.1858] P(ours better)=0.069
+    [k10_rho-0.4_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.0744 CI[-0.2138,+0.0496] P(ours better)=0.855
+    [k10_rho-0.4_p0.1 strong  ] vs reitsma          dArea(ours-x)=+0.0439 CI[-0.1366,+0.1044] P(ours better)=0.667
+    [k10_rho-0.4_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0347 CI[-0.0745,+0.1313] P(ours better)=0.262
+    [k10_rho-0.4_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0417 CI[-0.1653,+0.0632] P(ours better)=0.856
+    [k10_rho-0.4_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=+0.0299 CI[-0.0984,+0.1247] P(ours better)=0.483
+    [k10_rho-0.4_p0.3 moderate] vs reitsma          dArea(ours-x)=-0.0036 CI[-0.0627,+0.0258] P(ours better)=0.726
+    [k10_rho-0.4_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=+0.0193 CI[-0.0292,+0.0908] P(ours better)=0.189
+    [k10_rho-0.4_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=-0.0144 CI[-0.0693,+0.0394] P(ours better)=0.733
+    [k10_rho-0.4_p0.3 moderate] vs sep_univariate   dArea(ours-x)=+0.0034 CI[-0.0494,+0.0741] P(ours better)=0.319
+    [k10_rho-0.4_p0.3 none    ] vs reitsma          dArea(ours-x)=+0.0117 CI[-0.0623,+0.0564] P(ours better)=0.512
+    [k10_rho-0.4_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0297 CI[-0.1154,+0.0295] P(ours better)=0.804
+    [k10_rho-0.4_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0589 CI[-0.0347,+0.1164] P(ours better)=0.151
+    [k10_rho-0.4_p0.3 none    ] vs sep_univariate   dArea(ours-x)=+0.0590 CI[-0.0527,+0.1480] P(ours better)=0.210
+    [k10_rho-0.4_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0418 CI[-0.1847,+0.1105] P(ours better)=0.772
+    [k10_rho-0.4_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0491 CI[-0.0128,+0.1494] P(ours better)=0.061
+    [k10_rho-0.4_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0837 CI[-0.2238,+0.0613] P(ours better)=0.905
+    [k10_rho-0.4_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=+0.0008 CI[-0.0931,+0.0999] P(ours better)=0.477
+    [k10_rho-0.4_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.0188 CI[-0.0620,+0.0506] P(ours better)=0.752
+    [k10_rho-0.4_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=-0.0074 CI[-0.0605,+0.0251] P(ours better)=0.659
+    [k10_rho-0.4_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0076 CI[-0.0656,+0.0494] P(ours better)=0.639
+    [k10_rho-0.4_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0362 CI[-0.0743,+0.0300] P(ours better)=0.828
+    [k10_rho-0.4_p0.5 none    ] vs reitsma          dArea(ours-x)=-0.0372 CI[-0.0750,+0.0144] P(ours better)=0.868
+    [k10_rho-0.4_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0296 CI[-0.0670,+0.0325] P(ours better)=0.619
+    [k10_rho-0.4_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=-0.0008 CI[-0.0511,+0.0488] P(ours better)=0.488
+    [k10_rho-0.4_p0.5 none    ] vs sep_univariate   dArea(ours-x)=+0.0075 CI[-0.0434,+0.0663] P(ours better)=0.256
+    [k10_rho-0.4_p0.5 strong  ] vs reitsma          dArea(ours-x)=-0.1050 CI[-0.2173,+0.0241] P(ours better)=0.933
+    [k10_rho-0.4_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0443 CI[-0.0147,+0.1836] P(ours better)=0.062
+    [k10_rho-0.4_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.2044 CI[-0.2734,-0.0410] P(ours better)=0.998  OURS ROBUST WIN
+    [k10_rho-0.4_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=-0.0006 CI[-0.0830,+0.1182] P(ours better)=0.527
+    [k10_rho-0.8_p0.1 moderate] vs reitsma          dArea(ours-x)=+0.0531 CI[-0.0399,+0.2093] P(ours better)=0.131
+    [k10_rho-0.8_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.1912 CI[-0.2864,-0.0132] P(ours better)=0.990  OURS ROBUST WIN
+    [k10_rho-0.8_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0948 CI[-0.0326,+0.2448] P(ours better)=0.086
+    [k10_rho-0.8_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.0707 CI[-0.2239,+0.0231] P(ours better)=0.924
+    [k10_rho-0.8_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.1450 CI[-0.0288,+0.2384] P(ours better)=0.068
+    [k10_rho-0.8_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.1617 CI[-0.3815,-0.0698] P(ours better)=0.998  OURS ROBUST WIN
+    [k10_rho-0.8_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.1729 CI[+0.0052,+0.2922] P(ours better)=0.019
+    [k10_rho-0.8_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.1489 CI[-0.3585,-0.0233] P(ours better)=0.990  OURS ROBUST WIN
+    [k10_rho-0.8_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0109 CI[-0.1525,+0.0481] P(ours better)=0.793
+    [k10_rho-0.8_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=-0.0182 CI[-0.1938,+0.0485] P(ours better)=0.854
+    [k10_rho-0.8_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0032 CI[-0.1824,+0.0387] P(ours better)=0.883
+    [k10_rho-0.8_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=+0.0019 CI[-0.1653,+0.0558] P(ours better)=0.759
+    [k10_rho-0.8_p0.3 moderate] vs reitsma          dArea(ours-x)=+0.0141 CI[-0.0345,+0.0763] P(ours better)=0.248
+    [k10_rho-0.8_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=-0.0209 CI[-0.1063,+0.0271] P(ours better)=0.846
+    [k10_rho-0.8_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=+0.0061 CI[-0.0493,+0.0801] P(ours better)=0.364
+    [k10_rho-0.8_p0.3 moderate] vs sep_univariate   dArea(ours-x)=-0.0675 CI[-0.1018,+0.0233] P(ours better)=0.902
+    [k10_rho-0.8_p0.3 none    ] vs reitsma          dArea(ours-x)=+0.0224 CI[-0.0280,+0.1358] P(ours better)=0.141
+    [k10_rho-0.8_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0868 CI[-0.2244,-0.0346] P(ours better)=0.998  OURS ROBUST WIN
+    [k10_rho-0.8_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0622 CI[+0.0044,+0.1641] P(ours better)=0.021
+    [k10_rho-0.8_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0453 CI[-0.1365,+0.0370] P(ours better)=0.824
+    [k10_rho-0.8_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0878 CI[-0.2117,+0.0147] P(ours better)=0.951
+    [k10_rho-0.8_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0626 CI[-0.0278,+0.1890] P(ours better)=0.076
+    [k10_rho-0.8_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.1491 CI[-0.2556,-0.0185] P(ours better)=0.991  OURS ROBUST WIN
+    [k10_rho-0.8_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=+0.0504 CI[-0.0524,+0.1622] P(ours better)=0.157
+    [k10_rho-0.8_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.0237 CI[-0.0862,+0.0362] P(ours better)=0.799
+    [k10_rho-0.8_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=+0.0126 CI[-0.0848,+0.0631] P(ours better)=0.496
+    [k10_rho-0.8_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0174 CI[-0.1039,+0.0380] P(ours better)=0.800
+    [k10_rho-0.8_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0069 CI[-0.0731,+0.0416] P(ours better)=0.685
+    [k10_rho-0.8_p0.5 none    ] vs reitsma          dArea(ours-x)=+0.0385 CI[-0.0204,+0.1798] P(ours better)=0.092
+    [k10_rho-0.8_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0361 CI[-0.1317,+0.0612] P(ours better)=0.847
+    [k10_rho-0.8_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0954 CI[+0.0003,+0.2211] P(ours better)=0.024
+    [k10_rho-0.8_p0.5 none    ] vs sep_univariate   dArea(ours-x)=-0.0190 CI[-0.1124,+0.0982] P(ours better)=0.592
+    [k10_rho-0.8_p0.5 strong  ] vs reitsma          dArea(ours-x)=-0.1109 CI[-0.2566,+0.0448] P(ours better)=0.896
+    [k10_rho-0.8_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.1019 CI[+0.0178,+0.2045] P(ours better)=0.007
+    [k10_rho-0.8_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.1212 CI[-0.2973,+0.0105] P(ours better)=0.968
+    [k10_rho-0.8_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=+0.0586 CI[-0.0353,+0.1514] P(ours better)=0.090
+    [k10_rho0.0_p0.1 moderate] vs reitsma          dArea(ours-x)=-0.0129 CI[-0.0783,+0.0308] P(ours better)=0.820
+    [k10_rho0.0_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.0270 CI[-0.0883,+0.0214] P(ours better)=0.797
+    [k10_rho0.0_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=-0.0065 CI[-0.0796,+0.0814] P(ours better)=0.640
+    [k10_rho0.0_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.0748 CI[-0.1036,+0.0613] P(ours better)=0.729
+    [k10_rho0.0_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.0810 CI[-0.0685,+0.0820] P(ours better)=0.355
+    [k10_rho0.0_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.0247 CI[-0.1168,+0.0224] P(ours better)=0.909
+    [k10_rho0.0_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.0847 CI[-0.0478,+0.1122] P(ours better)=0.273
+    [k10_rho0.0_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.0428 CI[-0.1052,+0.0475] P(ours better)=0.767
+    [k10_rho0.0_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0133 CI[-0.0792,+0.0570] P(ours better)=0.770
+    [k10_rho0.0_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=-0.0034 CI[-0.0904,+0.0627] P(ours better)=0.568
+    [k10_rho0.0_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0623 CI[-0.1409,+0.0126] P(ours better)=0.950
+    [k10_rho0.0_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=-0.0451 CI[-0.1164,+0.0537] P(ours better)=0.784
+    [k10_rho0.0_p0.3 moderate] vs reitsma          dArea(ours-x)=+0.0084 CI[-0.0951,+0.0783] P(ours better)=0.456
+    [k10_rho0.0_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=+0.0768 CI[-0.0418,+0.1392] P(ours better)=0.264
+    [k10_rho0.0_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=-0.0316 CI[-0.1293,+0.0652] P(ours better)=0.731
+    [k10_rho0.0_p0.3 moderate] vs sep_univariate   dArea(ours-x)=+0.0391 CI[-0.0918,+0.0939] P(ours better)=0.526
+    [k10_rho0.0_p0.3 none    ] vs reitsma          dArea(ours-x)=-0.0197 CI[-0.0322,+0.0533] P(ours better)=0.656
+    [k10_rho0.0_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=+0.0005 CI[-0.0611,+0.0210] P(ours better)=0.641
+    [k10_rho0.0_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0157 CI[-0.0234,+0.1450] P(ours better)=0.229
+    [k10_rho0.0_p0.3 none    ] vs sep_univariate   dArea(ours-x)=+0.0016 CI[-0.0597,+0.1346] P(ours better)=0.273
+    [k10_rho0.0_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0463 CI[-0.2146,+0.0554] P(ours better)=0.770
+    [k10_rho0.0_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0251 CI[-0.0304,+0.1312] P(ours better)=0.158
+    [k10_rho0.0_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.1236 CI[-0.2712,+0.0049] P(ours better)=0.968
+    [k10_rho0.0_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=-0.1280 CI[-0.1908,+0.0599] P(ours better)=0.824
+    [k10_rho0.0_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.0157 CI[-0.0792,+0.0469] P(ours better)=0.689
+    [k10_rho0.0_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=-0.0158 CI[-0.0414,+0.0591] P(ours better)=0.299
+    [k10_rho0.0_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0402 CI[-0.0991,+0.0373] P(ours better)=0.837
+    [k10_rho0.0_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0377 CI[-0.1123,+0.0777] P(ours better)=0.577
+    [k10_rho0.0_p0.5 none    ] vs reitsma          dArea(ours-x)=-0.0412 CI[-0.0797,+0.0224] P(ours better)=0.785
+    [k10_rho0.0_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0165 CI[-0.0332,+0.0274] P(ours better)=0.585
+    [k10_rho0.0_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0014 CI[-0.0437,+0.0703] P(ours better)=0.360
+    [k10_rho0.0_p0.5 none    ] vs sep_univariate   dArea(ours-x)=+0.0315 CI[-0.0396,+0.0917] P(ours better)=0.140
+    [k10_rho0.0_p0.5 strong  ] vs reitsma          dArea(ours-x)=+0.0045 CI[-0.0690,+0.0831] P(ours better)=0.445
+    [k10_rho0.0_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0104 CI[-0.0310,+0.1171] P(ours better)=0.226
+    [k10_rho0.0_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0629 CI[-0.1348,+0.0137] P(ours better)=0.944
+    [k10_rho0.0_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=-0.0954 CI[-0.1297,+0.0532] P(ours better)=0.854
+    [k20_rho-0.4_p0.1 moderate] vs reitsma          dArea(ours-x)=-0.0049 CI[-0.0160,+0.0744] P(ours better)=0.208
+    [k20_rho-0.4_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.1099 CI[-0.1541,-0.0015] P(ours better)=0.979  OURS ROBUST WIN
+    [k20_rho-0.4_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0264 CI[-0.0120,+0.0829] P(ours better)=0.057
+    [k20_rho-0.4_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.0910 CI[-0.1551,-0.0127] P(ours better)=0.995  OURS ROBUST WIN
+    [k20_rho-0.4_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.0088 CI[-0.0655,+0.0510] P(ours better)=0.467
+    [k20_rho-0.4_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.0130 CI[-0.1168,+0.0135] P(ours better)=0.917
+    [k20_rho-0.4_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.0262 CI[-0.0540,+0.0561] P(ours better)=0.324
+    [k20_rho-0.4_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.0360 CI[-0.1216,+0.0125] P(ours better)=0.938
+    [k20_rho-0.4_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0589 CI[-0.0620,+0.0282] P(ours better)=0.785
+    [k20_rho-0.4_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=-0.0291 CI[-0.0603,+0.0877] P(ours better)=0.447
+    [k20_rho-0.4_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0763 CI[-0.0804,+0.0290] P(ours better)=0.838
+    [k20_rho-0.4_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=-0.0109 CI[-0.0610,+0.0998] P(ours better)=0.471
+    [k20_rho-0.4_p0.3 moderate] vs reitsma          dArea(ours-x)=-0.0142 CI[-0.0397,+0.0174] P(ours better)=0.719
+    [k20_rho-0.4_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=-0.0060 CI[-0.0315,+0.0468] P(ours better)=0.401
+    [k20_rho-0.4_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=-0.0359 CI[-0.0334,+0.0236] P(ours better)=0.576
+    [k20_rho-0.4_p0.3 moderate] vs sep_univariate   dArea(ours-x)=-0.0317 CI[-0.0527,+0.0246] P(ours better)=0.725
+    [k20_rho-0.4_p0.3 none    ] vs reitsma          dArea(ours-x)=+0.0165 CI[-0.0363,+0.0416] P(ours better)=0.350
+    [k20_rho-0.4_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0188 CI[-0.0667,+0.0152] P(ours better)=0.892
+    [k20_rho-0.4_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0298 CI[-0.0109,+0.0536] P(ours better)=0.079
+    [k20_rho-0.4_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0005 CI[-0.0543,+0.0369] P(ours better)=0.606
+    [k20_rho-0.4_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0116 CI[-0.0481,+0.0432] P(ours better)=0.489
+    [k20_rho-0.4_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0309 CI[-0.0224,+0.1157] P(ours better)=0.111
+    [k20_rho-0.4_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0262 CI[-0.0731,+0.0155] P(ours better)=0.887
+    [k20_rho-0.4_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=+0.0003 CI[-0.0769,+0.0738] P(ours better)=0.570
+    [k20_rho-0.4_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.0062 CI[-0.0319,+0.0173] P(ours better)=0.645
+    [k20_rho-0.4_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=+0.0157 CI[-0.0186,+0.0548] P(ours better)=0.195
+    [k20_rho-0.4_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0198 CI[-0.0463,+0.0042] P(ours better)=0.933
+    [k20_rho-0.4_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0096 CI[-0.0416,+0.0340] P(ours better)=0.636
+    [k20_rho-0.4_p0.5 none    ] vs reitsma          dArea(ours-x)=-0.0125 CI[-0.0411,+0.0135] P(ours better)=0.787
+    [k20_rho-0.4_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0208 CI[-0.0659,+0.0046] P(ours better)=0.932
+    [k20_rho-0.4_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0049 CI[-0.0285,+0.0291] P(ours better)=0.389
+    [k20_rho-0.4_p0.5 none    ] vs sep_univariate   dArea(ours-x)=-0.0189 CI[-0.0559,+0.0076] P(ours better)=0.935
+    [k20_rho-0.4_p0.5 strong  ] vs reitsma          dArea(ours-x)=-0.0074 CI[-0.0424,+0.0343] P(ours better)=0.559
+    [k20_rho-0.4_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0478 CI[+0.0118,+0.0984] P(ours better)=0.003
+    [k20_rho-0.4_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0274 CI[-0.0633,+0.0110] P(ours better)=0.932
+    [k20_rho-0.4_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=+0.0133 CI[-0.0230,+0.0652] P(ours better)=0.237
+    [k20_rho-0.8_p0.1 moderate] vs reitsma          dArea(ours-x)=+0.0397 CI[-0.0152,+0.0783] P(ours better)=0.080
+    [k20_rho-0.8_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.1051 CI[-0.1883,-0.0521] P(ours better)=1.000  OURS ROBUST WIN
+    [k20_rho-0.8_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0473 CI[+0.0052,+0.0955] P(ours better)=0.014
+    [k20_rho-0.8_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.1111 CI[-0.1990,-0.0563] P(ours better)=1.000  OURS ROBUST WIN
+    [k20_rho-0.8_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.1041 CI[+0.0177,+0.1548] P(ours better)=0.011
+    [k20_rho-0.8_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.1439 CI[-0.2494,-0.0768] P(ours better)=1.000  OURS ROBUST WIN
+    [k20_rho-0.8_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.1187 CI[+0.0394,+0.1739] P(ours better)=0.002
+    [k20_rho-0.8_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.1049 CI[-0.2199,-0.0519] P(ours better)=1.000  OURS ROBUST WIN
+    [k20_rho-0.8_p0.1 strong  ] vs reitsma          dArea(ours-x)=+0.0043 CI[-0.0459,+0.0305] P(ours better)=0.571
+    [k20_rho-0.8_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=-0.0513 CI[-0.1469,+0.0011] P(ours better)=0.971
+    [k20_rho-0.8_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0037 CI[-0.0567,+0.0222] P(ours better)=0.734
+    [k20_rho-0.8_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=-0.0745 CI[-0.1556,-0.0118] P(ours better)=0.988  OURS ROBUST WIN
+    [k20_rho-0.8_p0.3 moderate] vs reitsma          dArea(ours-x)=+0.0114 CI[-0.0238,+0.0379] P(ours better)=0.288
+    [k20_rho-0.8_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=-0.0384 CI[-0.0804,-0.0126] P(ours better)=0.998  OURS ROBUST WIN
+    [k20_rho-0.8_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=+0.0250 CI[-0.0147,+0.0458] P(ours better)=0.119
+    [k20_rho-0.8_p0.3 moderate] vs sep_univariate   dArea(ours-x)=-0.0323 CI[-0.0679,-0.0057] P(ours better)=0.987  OURS ROBUST WIN
+    [k20_rho-0.8_p0.3 none    ] vs reitsma          dArea(ours-x)=+0.0332 CI[-0.0102,+0.0713] P(ours better)=0.073
+    [k20_rho-0.8_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0748 CI[-0.1450,-0.0429] P(ours better)=1.000  OURS ROBUST WIN
+    [k20_rho-0.8_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0489 CI[+0.0078,+0.0803] P(ours better)=0.012
+    [k20_rho-0.8_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0545 CI[-0.1480,-0.0214] P(ours better)=0.997  OURS ROBUST WIN
+    [k20_rho-0.8_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0048 CI[-0.0576,+0.0371] P(ours better)=0.581
+    [k20_rho-0.8_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.1032 CI[+0.0534,+0.1461] P(ours better)=0.000
+    [k20_rho-0.8_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0398 CI[-0.0809,+0.0156] P(ours better)=0.916
+    [k20_rho-0.8_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=+0.0721 CI[+0.0200,+0.1259] P(ours better)=0.004
+    [k20_rho-0.8_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.0171 CI[-0.0584,+0.0088] P(ours better)=0.903
+    [k20_rho-0.8_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=-0.0009 CI[-0.0629,+0.0289] P(ours better)=0.741
+    [k20_rho-0.8_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0179 CI[-0.0543,+0.0086] P(ours better)=0.884
+    [k20_rho-0.8_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0067 CI[-0.0744,+0.0221] P(ours better)=0.775
+    [k20_rho-0.8_p0.5 none    ] vs reitsma          dArea(ours-x)=-0.0075 CI[-0.0452,+0.0481] P(ours better)=0.470
+    [k20_rho-0.8_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0382 CI[-0.1041,-0.0091] P(ours better)=0.989  OURS ROBUST WIN
+    [k20_rho-0.8_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0020 CI[-0.0326,+0.0576] P(ours better)=0.298
+    [k20_rho-0.8_p0.5 none    ] vs sep_univariate   dArea(ours-x)=-0.0383 CI[-0.1021,+0.0060] P(ours better)=0.956
+    [k20_rho-0.8_p0.5 strong  ] vs reitsma          dArea(ours-x)=-0.0455 CI[-0.0874,+0.0267] P(ours better)=0.855
+    [k20_rho-0.8_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0652 CI[+0.0243,+0.1519] P(ours better)=0.002
+    [k20_rho-0.8_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0608 CI[-0.1071,+0.0048] P(ours better)=0.965
+    [k20_rho-0.8_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=+0.0507 CI[+0.0028,+0.1286] P(ours better)=0.020
+    [k20_rho0.0_p0.1 moderate] vs reitsma          dArea(ours-x)=-0.0146 CI[-0.0254,+0.0219] P(ours better)=0.373
+    [k20_rho0.0_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.0343 CI[-0.0893,+0.0018] P(ours better)=0.967
+    [k20_rho0.0_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=-0.0028 CI[-0.0180,+0.0318] P(ours better)=0.291
+    [k20_rho0.0_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.0383 CI[-0.1043,+0.0092] P(ours better)=0.955
+    [k20_rho0.0_p0.1 none    ] vs reitsma          dArea(ours-x)=-0.0385 CI[-0.0890,+0.0382] P(ours better)=0.657
+    [k20_rho0.0_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.0443 CI[-0.1152,+0.0402] P(ours better)=0.705
+    [k20_rho0.0_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=-0.0150 CI[-0.0794,+0.0531] P(ours better)=0.434
+    [k20_rho0.0_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.0158 CI[-0.0800,+0.0776] P(ours better)=0.536
+    [k20_rho0.0_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0196 CI[-0.0766,+0.0217] P(ours better)=0.796
+    [k20_rho0.0_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0457 CI[-0.0473,+0.0546] P(ours better)=0.610
+    [k20_rho0.0_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0236 CI[-0.0881,+0.0145] P(ours better)=0.898
+    [k20_rho0.0_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=+0.0425 CI[-0.0431,+0.0723] P(ours better)=0.390
+    [k20_rho0.0_p0.3 moderate] vs reitsma          dArea(ours-x)=+0.0023 CI[-0.0402,+0.0101] P(ours better)=0.677
+    [k20_rho0.0_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=+0.0104 CI[-0.0326,+0.0223] P(ours better)=0.637
+    [k20_rho0.0_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=+0.0011 CI[-0.0394,+0.0111] P(ours better)=0.795
+    [k20_rho0.0_p0.3 moderate] vs sep_univariate   dArea(ours-x)=+0.0075 CI[-0.0365,+0.0342] P(ours better)=0.581
+    [k20_rho0.0_p0.3 none    ] vs reitsma          dArea(ours-x)=-0.0100 CI[-0.0413,+0.0122] P(ours better)=0.749
+    [k20_rho0.0_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=+0.0104 CI[-0.0377,+0.0297] P(ours better)=0.460
+    [k20_rho0.0_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0125 CI[-0.0204,+0.0384] P(ours better)=0.167
+    [k20_rho0.0_p0.3 none    ] vs sep_univariate   dArea(ours-x)=+0.0233 CI[-0.0348,+0.0405] P(ours better)=0.295
+    [k20_rho0.0_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0245 CI[-0.0705,+0.0149] P(ours better)=0.769
+    [k20_rho0.0_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0352 CI[-0.0283,+0.0727] P(ours better)=0.185
+    [k20_rho0.0_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0534 CI[-0.0911,-0.0034] P(ours better)=0.990  OURS ROBUST WIN
+    [k20_rho0.0_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=+0.0052 CI[-0.0417,+0.0496] P(ours better)=0.362
+    [k20_rho0.0_p0.5 moderate] vs reitsma          dArea(ours-x)=+0.0029 CI[-0.0360,+0.0211] P(ours better)=0.498
+    [k20_rho0.0_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=-0.0098 CI[-0.0261,+0.0301] P(ours better)=0.414
+    [k20_rho0.0_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0086 CI[-0.0414,+0.0144] P(ours better)=0.755
+    [k20_rho0.0_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0172 CI[-0.0477,+0.0245] P(ours better)=0.703
+    [k20_rho0.0_p0.5 none    ] vs reitsma          dArea(ours-x)=-0.0231 CI[-0.0372,+0.0073] P(ours better)=0.669
+    [k20_rho0.0_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0109 CI[-0.0211,+0.0104] P(ours better)=0.591
+    [k20_rho0.0_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=-0.0038 CI[-0.0163,+0.0349] P(ours better)=0.108
+    [k20_rho0.0_p0.5 none    ] vs sep_univariate   dArea(ours-x)=-0.0091 CI[-0.0298,+0.0299] P(ours better)=0.367
+    [k20_rho0.0_p0.5 strong  ] vs reitsma          dArea(ours-x)=+0.0248 CI[-0.0245,+0.0488] P(ours better)=0.244
+    [k20_rho0.0_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0091 CI[-0.0186,+0.0646] P(ours better)=0.243
+    [k20_rho0.0_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0036 CI[-0.0446,+0.0173] P(ours better)=0.854
+    [k20_rho0.0_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=-0.0245 CI[-0.0608,+0.0392] P(ours better)=0.685
+    [k40_rho-0.4_p0.1 moderate] vs reitsma          dArea(ours-x)=-0.0052 CI[-0.0225,+0.0198] P(ours better)=0.564
+    [k40_rho-0.4_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.0400 CI[-0.0821,-0.0126] P(ours better)=0.998  OURS ROBUST WIN
+    [k40_rho-0.4_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0074 CI[-0.0163,+0.0266] P(ours better)=0.244
+    [k40_rho-0.4_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.0651 CI[-0.1080,-0.0298] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.4_p0.1 none    ] vs reitsma          dArea(ours-x)=-0.0132 CI[-0.0175,+0.0460] P(ours better)=0.232
+    [k40_rho-0.4_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.0552 CI[-0.0836,+0.0063] P(ours better)=0.955
+    [k40_rho-0.4_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=-0.0083 CI[-0.0175,+0.0555] P(ours better)=0.136
+    [k40_rho-0.4_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.0876 CI[-0.1051,-0.0092] P(ours better)=0.987  OURS ROBUST WIN
+    [k40_rho-0.4_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0111 CI[-0.0226,+0.0146] P(ours better)=0.747
+    [k40_rho-0.4_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0017 CI[-0.0260,+0.0355] P(ours better)=0.401
+    [k40_rho-0.4_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0149 CI[-0.0273,+0.0121] P(ours better)=0.836
+    [k40_rho-0.4_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=+0.0045 CI[-0.0271,+0.0343] P(ours better)=0.420
+    [k40_rho-0.4_p0.3 moderate] vs reitsma          dArea(ours-x)=+0.0028 CI[-0.0213,+0.0040] P(ours better)=0.763
+    [k40_rho-0.4_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=-0.0024 CI[-0.0301,+0.0138] P(ours better)=0.724
+    [k40_rho-0.4_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=+0.0068 CI[-0.0163,+0.0089] P(ours better)=0.644
+    [k40_rho-0.4_p0.3 moderate] vs sep_univariate   dArea(ours-x)=-0.0001 CI[-0.0204,+0.0159] P(ours better)=0.574
+    [k40_rho-0.4_p0.3 none    ] vs reitsma          dArea(ours-x)=+0.0004 CI[-0.0118,+0.0107] P(ours better)=0.502
+    [k40_rho-0.4_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0223 CI[-0.0472,+0.0012] P(ours better)=0.970
+    [k40_rho-0.4_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0066 CI[-0.0028,+0.0178] P(ours better)=0.088
+    [k40_rho-0.4_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0099 CI[-0.0391,+0.0111] P(ours better)=0.834
+    [k40_rho-0.4_p0.3 strong  ] vs reitsma          dArea(ours-x)=+0.0033 CI[-0.0111,+0.0196] P(ours better)=0.317
+    [k40_rho-0.4_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0349 CI[+0.0122,+0.0629] P(ours better)=0.003
+    [k40_rho-0.4_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0008 CI[-0.0177,+0.0119] P(ours better)=0.739
+    [k40_rho-0.4_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=+0.0255 CI[+0.0072,+0.0540] P(ours better)=0.004
+    [k40_rho-0.4_p0.5 moderate] vs reitsma          dArea(ours-x)=+0.0028 CI[-0.0046,+0.0085] P(ours better)=0.513
+    [k40_rho-0.4_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=-0.0003 CI[-0.0111,+0.0175] P(ours better)=0.454
+    [k40_rho-0.4_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=+0.0029 CI[-0.0077,+0.0086] P(ours better)=0.460
+    [k40_rho-0.4_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0090 CI[-0.0173,+0.0120] P(ours better)=0.689
+    [k40_rho-0.4_p0.5 none    ] vs reitsma          dArea(ours-x)=-0.0009 CI[-0.0074,+0.0040] P(ours better)=0.539
+    [k40_rho-0.4_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0152 CI[-0.0345,-0.0049] P(ours better)=0.996  OURS ROBUST WIN
+    [k40_rho-0.4_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0067 CI[-0.0002,+0.0116] P(ours better)=0.031
+    [k40_rho-0.4_p0.5 none    ] vs sep_univariate   dArea(ours-x)=-0.0103 CI[-0.0279,+0.0057] P(ours better)=0.913
+    [k40_rho-0.4_p0.5 strong  ] vs reitsma          dArea(ours-x)=+0.0058 CI[-0.0054,+0.0290] P(ours better)=0.133
+    [k40_rho-0.4_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0494 CI[+0.0138,+0.0723] P(ours better)=0.000
+    [k40_rho-0.4_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0007 CI[-0.0132,+0.0200] P(ours better)=0.568
+    [k40_rho-0.4_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=+0.0332 CI[-0.0028,+0.0563] P(ours better)=0.043
+    [k40_rho-0.8_p0.1 moderate] vs reitsma          dArea(ours-x)=+0.0184 CI[+0.0035,+0.0556] P(ours better)=0.013
+    [k40_rho-0.8_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.1436 CI[-0.1859,-0.0784] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.8_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0240 CI[+0.0092,+0.0601] P(ours better)=0.004
+    [k40_rho-0.8_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.1568 CI[-0.2082,-0.1033] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.8_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.0763 CI[+0.0041,+0.0977] P(ours better)=0.018
+    [k40_rho-0.8_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.1213 CI[-0.2159,-0.0807] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.8_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.0790 CI[+0.0098,+0.1061] P(ours better)=0.009
+    [k40_rho-0.8_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.1380 CI[-0.2404,-0.0973] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.8_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0117 CI[-0.0193,+0.0084] P(ours better)=0.809
+    [k40_rho-0.8_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=-0.0517 CI[-0.1046,-0.0190] P(ours better)=0.998  OURS ROBUST WIN
+    [k40_rho-0.8_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0151 CI[-0.0200,+0.0076] P(ours better)=0.808
+    [k40_rho-0.8_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=-0.0650 CI[-0.1048,-0.0298] P(ours better)=0.999  OURS ROBUST WIN
+    [k40_rho-0.8_p0.3 moderate] vs reitsma          dArea(ours-x)=-0.0044 CI[-0.0238,+0.0146] P(ours better)=0.667
+    [k40_rho-0.8_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=-0.0341 CI[-0.0630,-0.0187] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.8_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=+0.0021 CI[-0.0205,+0.0177] P(ours better)=0.472
+    [k40_rho-0.8_p0.3 moderate] vs sep_univariate   dArea(ours-x)=-0.0245 CI[-0.0542,-0.0088] P(ours better)=0.994  OURS ROBUST WIN
+    [k40_rho-0.8_p0.3 none    ] vs reitsma          dArea(ours-x)=-0.0020 CI[-0.0291,+0.0271] P(ours better)=0.556
+    [k40_rho-0.8_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0762 CI[-0.1192,-0.0450] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.8_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0039 CI[-0.0206,+0.0375] P(ours better)=0.275
+    [k40_rho-0.8_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0704 CI[-0.1051,-0.0337] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.8_p0.3 strong  ] vs reitsma          dArea(ours-x)=+0.0001 CI[-0.0208,+0.0160] P(ours better)=0.629
+    [k40_rho-0.8_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0603 CI[+0.0319,+0.0862] P(ours better)=0.000
+    [k40_rho-0.8_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0107 CI[-0.0266,+0.0095] P(ours better)=0.816
+    [k40_rho-0.8_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=+0.0482 CI[+0.0238,+0.0827] P(ours better)=0.000
+    [k40_rho-0.8_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.0006 CI[-0.0204,+0.0122] P(ours better)=0.560
+    [k40_rho-0.8_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=-0.0350 CI[-0.0565,-0.0018] P(ours better)=0.982  OURS ROBUST WIN
+    [k40_rho-0.8_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0038 CI[-0.0187,+0.0125] P(ours better)=0.551
+    [k40_rho-0.8_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0401 CI[-0.0557,+0.0018] P(ours better)=0.967
+    [k40_rho-0.8_p0.5 none    ] vs reitsma          dArea(ours-x)=+0.0052 CI[-0.0116,+0.0294] P(ours better)=0.215
+    [k40_rho-0.8_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0768 CI[-0.1028,-0.0455] P(ours better)=1.000  OURS ROBUST WIN
+    [k40_rho-0.8_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0094 CI[-0.0048,+0.0333] P(ours better)=0.069
+    [k40_rho-0.8_p0.5 none    ] vs sep_univariate   dArea(ours-x)=-0.0539 CI[-0.0845,-0.0269] P(ours better)=0.999  OURS ROBUST WIN
+    [k40_rho-0.8_p0.5 strong  ] vs reitsma          dArea(ours-x)=+0.0173 CI[-0.0142,+0.0379] P(ours better)=0.170
+    [k40_rho-0.8_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0896 CI[+0.0477,+0.1083] P(ours better)=0.000
+    [k40_rho-0.8_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=+0.0125 CI[-0.0204,+0.0316] P(ours better)=0.330
+    [k40_rho-0.8_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=+0.0804 CI[+0.0388,+0.0980] P(ours better)=0.000
+    [k40_rho0.0_p0.1 moderate] vs reitsma          dArea(ours-x)=-0.0083 CI[-0.0272,+0.0090] P(ours better)=0.630
+    [k40_rho0.0_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=+0.0002 CI[-0.0373,+0.0222] P(ours better)=0.651
+    [k40_rho0.0_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0004 CI[-0.0239,+0.0184] P(ours better)=0.352
+    [k40_rho0.0_p0.1 moderate] vs sep_univariate   dArea(ours-x)=-0.0439 CI[-0.0663,+0.0067] P(ours better)=0.950
+    [k40_rho0.0_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.0057 CI[-0.0206,+0.0105] P(ours better)=0.456
+    [k40_rho0.0_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.0223 CI[-0.0331,+0.0055] P(ours better)=0.881
+    [k40_rho0.0_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.0107 CI[-0.0144,+0.0268] P(ours better)=0.160
+    [k40_rho0.0_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.0269 CI[-0.0676,+0.0074] P(ours better)=0.953
+    [k40_rho0.0_p0.1 strong  ] vs reitsma          dArea(ours-x)=+0.0051 CI[-0.0101,+0.0114] P(ours better)=0.589
+    [k40_rho0.0_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0037 CI[-0.0375,+0.0238] P(ours better)=0.560
+    [k40_rho0.0_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0058 CI[-0.0186,+0.0095] P(ours better)=0.789
+    [k40_rho0.0_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=+0.0072 CI[-0.0389,+0.0429] P(ours better)=0.445
+    [k40_rho0.0_p0.3 moderate] vs reitsma          dArea(ours-x)=+0.0001 CI[-0.0053,+0.0060] P(ours better)=0.602
+    [k40_rho0.0_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=+0.0011 CI[-0.0098,+0.0105] P(ours better)=0.461
+    [k40_rho0.0_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=-0.0001 CI[-0.0038,+0.0070] P(ours better)=0.425
+    [k40_rho0.0_p0.3 moderate] vs sep_univariate   dArea(ours-x)=-0.0014 CI[-0.0186,+0.0133] P(ours better)=0.645
+    [k40_rho0.0_p0.3 none    ] vs reitsma          dArea(ours-x)=-0.0005 CI[-0.0146,+0.0022] P(ours better)=0.699
+    [k40_rho0.0_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0063 CI[-0.0181,+0.0091] P(ours better)=0.509
+    [k40_rho0.0_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0051 CI[-0.0019,+0.0127] P(ours better)=0.082
+    [k40_rho0.0_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0102 CI[-0.0254,+0.0168] P(ours better)=0.447
+    [k40_rho0.0_p0.3 strong  ] vs reitsma          dArea(ours-x)=+0.0001 CI[-0.0068,+0.0107] P(ours better)=0.239
+    [k40_rho0.0_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0081 CI[-0.0053,+0.0291] P(ours better)=0.128
+    [k40_rho0.0_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0072 CI[-0.0174,+0.0026] P(ours better)=0.940
+    [k40_rho0.0_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=-0.0187 CI[-0.0478,+0.0184] P(ours better)=0.691
+    [k40_rho0.0_p0.5 moderate] vs reitsma          dArea(ours-x)=+0.0001 CI[-0.0050,+0.0093] P(ours better)=0.508
+    [k40_rho0.0_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=+0.0018 CI[-0.0066,+0.0156] P(ours better)=0.340
+    [k40_rho0.0_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=+0.0043 CI[-0.0068,+0.0053] P(ours better)=0.438
+    [k40_rho0.0_p0.5 moderate] vs sep_univariate   dArea(ours-x)=+0.0089 CI[-0.0140,+0.0175] P(ours better)=0.452
+    [k40_rho0.0_p0.5 none    ] vs reitsma          dArea(ours-x)=+0.0002 CI[-0.0087,+0.0026] P(ours better)=0.550
+    [k40_rho0.0_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=+0.0002 CI[-0.0075,+0.0053] P(ours better)=0.647
+    [k40_rho0.0_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0076 CI[-0.0032,+0.0095] P(ours better)=0.050
+    [k40_rho0.0_p0.5 none    ] vs sep_univariate   dArea(ours-x)=+0.0113 CI[-0.0163,+0.0154] P(ours better)=0.429
+    [k40_rho0.0_p0.5 strong  ] vs reitsma          dArea(ours-x)=+0.0016 CI[-0.0013,+0.0106] P(ours better)=0.126
+    [k40_rho0.0_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0023 CI[-0.0149,+0.0283] P(ours better)=0.410
+    [k40_rho0.0_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0060 CI[-0.0125,+0.0013] P(ours better)=0.958
+    [k40_rho0.0_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=-0.0250 CI[-0.0529,+0.0159] P(ours better)=0.853
+    [k6_rho-0.4_p0.1 moderate] vs reitsma          dArea(ours-x)=+0.0055 CI[-0.1667,+0.1398] P(ours better)=0.389
+    [k6_rho-0.4_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.0542 CI[-0.2198,+0.0437] P(ours better)=0.820
+    [k6_rho-0.4_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0537 CI[-0.1547,+0.2051] P(ours better)=0.312
+    [k6_rho-0.4_p0.1 moderate] vs sep_univariate   dArea(ours-x)=+0.0152 CI[-0.1162,+0.1519] P(ours better)=0.418
+    [k6_rho-0.4_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.0153 CI[-0.1220,+0.1816] P(ours better)=0.350
+    [k6_rho-0.4_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.1574 CI[-0.3087,+0.0193] P(ours better)=0.930
+    [k6_rho-0.4_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.0162 CI[-0.0874,+0.2727] P(ours better)=0.207
+    [k6_rho-0.4_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.1772 CI[-0.2286,+0.1566] P(ours better)=0.671
+    [k6_rho-0.4_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0730 CI[-0.2473,+0.0463] P(ours better)=0.882
+    [k6_rho-0.4_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=-0.0047 CI[-0.2479,+0.1356] P(ours better)=0.609
+    [k6_rho-0.4_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0439 CI[-0.3160,+0.0463] P(ours better)=0.891
+    [k6_rho-0.4_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=+0.0357 CI[-0.1765,+0.1752] P(ours better)=0.422
+    [k6_rho-0.4_p0.3 moderate] vs reitsma          dArea(ours-x)=-0.0212 CI[-0.1386,+0.1190] P(ours better)=0.516
+    [k6_rho-0.4_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=-0.0623 CI[-0.2165,+0.0829] P(ours better)=0.638
+    [k6_rho-0.4_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=+0.0498 CI[-0.1718,+0.1509] P(ours better)=0.461
+    [k6_rho-0.4_p0.3 moderate] vs sep_univariate   dArea(ours-x)=+0.0447 CI[-0.0828,+0.1545] P(ours better)=0.320
+    [k6_rho-0.4_p0.3 none    ] vs reitsma          dArea(ours-x)=+0.0199 CI[-0.0909,+0.1857] P(ours better)=0.232
+    [k6_rho-0.4_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0978 CI[-0.2324,+0.0344] P(ours better)=0.852
+    [k6_rho-0.4_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.0801 CI[-0.0773,+0.2236] P(ours better)=0.133
+    [k6_rho-0.4_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0263 CI[-0.1320,+0.1187] P(ours better)=0.553
+    [k6_rho-0.4_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0051 CI[-0.2856,+0.1519] P(ours better)=0.729
+    [k6_rho-0.4_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=-0.0145 CI[-0.1041,+0.1495] P(ours better)=0.274
+    [k6_rho-0.4_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.1366 CI[-0.3882,+0.0297] P(ours better)=0.939
+    [k6_rho-0.4_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=-0.1075 CI[-0.2789,+0.0812] P(ours better)=0.828
+    [k6_rho-0.4_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.0259 CI[-0.1406,+0.0997] P(ours better)=0.627
+    [k6_rho-0.4_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=-0.0111 CI[-0.0778,+0.0727] P(ours better)=0.470
+    [k6_rho-0.4_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0837 CI[-0.2219,+0.0419] P(ours better)=0.885
+    [k6_rho-0.4_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0659 CI[-0.1703,+0.0411] P(ours better)=0.863
+    [k6_rho-0.4_p0.5 none    ] vs reitsma          dArea(ours-x)=+0.0437 CI[-0.0813,+0.1541] P(ours better)=0.283
+    [k6_rho-0.4_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0372 CI[-0.1757,+0.0635] P(ours better)=0.822
+    [k6_rho-0.4_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0707 CI[-0.0610,+0.1769] P(ours better)=0.126
+    [k6_rho-0.4_p0.5 none    ] vs sep_univariate   dArea(ours-x)=+0.0076 CI[-0.1367,+0.0958] P(ours better)=0.577
+    [k6_rho-0.4_p0.5 strong  ] vs reitsma          dArea(ours-x)=-0.0304 CI[-0.2060,+0.1345] P(ours better)=0.666
+    [k6_rho-0.4_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0310 CI[-0.0106,+0.1697] P(ours better)=0.093
+    [k6_rho-0.4_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0439 CI[-0.3292,+0.0361] P(ours better)=0.930
+    [k6_rho-0.4_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=-0.0382 CI[-0.1815,+0.0673] P(ours better)=0.785
+    [k6_rho-0.8_p0.1 moderate] vs reitsma          dArea(ours-x)=+0.1261 CI[-0.0934,+0.2899] P(ours better)=0.186
+    [k6_rho-0.8_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.1747 CI[-0.3683,+0.0325] P(ours better)=0.949
+    [k6_rho-0.8_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.1019 CI[-0.1053,+0.3277] P(ours better)=0.237
+    [k6_rho-0.8_p0.1 moderate] vs sep_univariate   dArea(ours-x)=+0.0454 CI[-0.1342,+0.1378] P(ours better)=0.475
+    [k6_rho-0.8_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.0668 CI[-0.0509,+0.2507] P(ours better)=0.106
+    [k6_rho-0.8_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.2238 CI[-0.4539,-0.0386] P(ours better)=0.991  OURS ROBUST WIN
+    [k6_rho-0.8_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.2013 CI[+0.0057,+0.3803] P(ours better)=0.022
+    [k6_rho-0.8_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.1479 CI[-0.3133,+0.0810] P(ours better)=0.868
+    [k6_rho-0.8_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0346 CI[-0.3320,+0.1061] P(ours better)=0.772
+    [k6_rho-0.8_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=-0.1026 CI[-0.2540,+0.0935] P(ours better)=0.802
+    [k6_rho-0.8_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.1266 CI[-0.4007,+0.0756] P(ours better)=0.894
+    [k6_rho-0.8_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=-0.0304 CI[-0.1159,+0.1753] P(ours better)=0.455
+    [k6_rho-0.8_p0.3 moderate] vs reitsma          dArea(ours-x)=-0.0041 CI[-0.1264,+0.1422] P(ours better)=0.447
+    [k6_rho-0.8_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=-0.0116 CI[-0.1680,+0.1390] P(ours better)=0.642
+    [k6_rho-0.8_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=+0.0282 CI[-0.1513,+0.1819] P(ours better)=0.441
+    [k6_rho-0.8_p0.3 moderate] vs sep_univariate   dArea(ours-x)=+0.0291 CI[-0.1041,+0.1293] P(ours better)=0.310
+    [k6_rho-0.8_p0.3 none    ] vs reitsma          dArea(ours-x)=+0.1529 CI[-0.0133,+0.2867] P(ours better)=0.041
+    [k6_rho-0.8_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.1155 CI[-0.2613,+0.0089] P(ours better)=0.962
+    [k6_rho-0.8_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=+0.1369 CI[+0.0098,+0.3158] P(ours better)=0.016
+    [k6_rho-0.8_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0323 CI[-0.1287,+0.0987] P(ours better)=0.567
+    [k6_rho-0.8_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0528 CI[-0.2338,+0.1856] P(ours better)=0.701
+    [k6_rho-0.8_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0809 CI[-0.0483,+0.3689] P(ours better)=0.118
+    [k6_rho-0.8_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.1789 CI[-0.3195,+0.0926] P(ours better)=0.904
+    [k6_rho-0.8_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=-0.0102 CI[-0.1534,+0.2369] P(ours better)=0.336
+    [k6_rho-0.8_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.1403 CI[-0.2033,+0.0485] P(ours better)=0.868
+    [k6_rho-0.8_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=-0.0054 CI[-0.1486,+0.1284] P(ours better)=0.515
+    [k6_rho-0.8_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.2018 CI[-0.3140,-0.0045] P(ours better)=0.978  OURS ROBUST WIN
+    [k6_rho-0.8_p0.5 moderate] vs sep_univariate   dArea(ours-x)=-0.0080 CI[-0.1488,+0.1133] P(ours better)=0.589
+    [k6_rho-0.8_p0.5 none    ] vs reitsma          dArea(ours-x)=+0.0307 CI[-0.1387,+0.1388] P(ours better)=0.494
+    [k6_rho-0.8_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0352 CI[-0.2115,+0.0508] P(ours better)=0.864
+    [k6_rho-0.8_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0227 CI[-0.1585,+0.1704] P(ours better)=0.390
+    [k6_rho-0.8_p0.5 none    ] vs sep_univariate   dArea(ours-x)=+0.0244 CI[-0.1256,+0.1095] P(ours better)=0.492
+    [k6_rho-0.8_p0.5 strong  ] vs reitsma          dArea(ours-x)=-0.1861 CI[-0.3166,+0.0584] P(ours better)=0.902
+    [k6_rho-0.8_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.1268 CI[-0.0729,+0.3595] P(ours better)=0.130
+    [k6_rho-0.8_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.2918 CI[-0.4848,-0.0579] P(ours better)=0.996  OURS ROBUST WIN
+    [k6_rho-0.8_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=+0.0104 CI[-0.1874,+0.2526] P(ours better)=0.506
+    [k6_rho0.0_p0.1 moderate] vs reitsma          dArea(ours-x)=+0.0426 CI[-0.0801,+0.1548] P(ours better)=0.320
+    [k6_rho0.0_p0.1 moderate] vs reitsma_indep    dArea(ours-x)=-0.0731 CI[-0.2699,+0.0440] P(ours better)=0.861
+    [k6_rho0.0_p0.1 moderate] vs reitsma_reml     dArea(ours-x)=+0.0776 CI[-0.0549,+0.1705] P(ours better)=0.247
+    [k6_rho0.0_p0.1 moderate] vs sep_univariate   dArea(ours-x)=+0.0015 CI[-0.2051,+0.0947] P(ours better)=0.663
+    [k6_rho0.0_p0.1 none    ] vs reitsma          dArea(ours-x)=+0.0173 CI[-0.0893,+0.1465] P(ours better)=0.337
+    [k6_rho0.0_p0.1 none    ] vs reitsma_indep    dArea(ours-x)=-0.0771 CI[-0.1595,+0.0363] P(ours better)=0.860
+    [k6_rho0.0_p0.1 none    ] vs reitsma_reml     dArea(ours-x)=+0.0648 CI[-0.0498,+0.2067] P(ours better)=0.166
+    [k6_rho0.0_p0.1 none    ] vs sep_univariate   dArea(ours-x)=-0.0564 CI[-0.1402,+0.1280] P(ours better)=0.623
+    [k6_rho0.0_p0.1 strong  ] vs reitsma          dArea(ours-x)=-0.0018 CI[-0.2000,+0.0619] P(ours better)=0.814
+    [k6_rho0.0_p0.1 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0110 CI[-0.1097,+0.1521] P(ours better)=0.511
+    [k6_rho0.0_p0.1 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0467 CI[-0.2466,+0.0418] P(ours better)=0.917
+    [k6_rho0.0_p0.1 strong  ] vs sep_univariate   dArea(ours-x)=+0.0843 CI[-0.0805,+0.1398] P(ours better)=0.323
+    [k6_rho0.0_p0.3 moderate] vs reitsma          dArea(ours-x)=-0.0032 CI[-0.1506,+0.1485] P(ours better)=0.640
+    [k6_rho0.0_p0.3 moderate] vs reitsma_indep    dArea(ours-x)=+0.0407 CI[-0.0414,+0.1356] P(ours better)=0.321
+    [k6_rho0.0_p0.3 moderate] vs reitsma_reml     dArea(ours-x)=-0.0820 CI[-0.2328,+0.0497] P(ours better)=0.883
+    [k6_rho0.0_p0.3 moderate] vs sep_univariate   dArea(ours-x)=+0.0226 CI[-0.1254,+0.0924] P(ours better)=0.586
+    [k6_rho0.0_p0.3 none    ] vs reitsma          dArea(ours-x)=-0.0194 CI[-0.1606,+0.0933] P(ours better)=0.628
+    [k6_rho0.0_p0.3 none    ] vs reitsma_indep    dArea(ours-x)=-0.0415 CI[-0.1287,+0.0430] P(ours better)=0.697
+    [k6_rho0.0_p0.3 none    ] vs reitsma_reml     dArea(ours-x)=-0.0280 CI[-0.1201,+0.1142] P(ours better)=0.588
+    [k6_rho0.0_p0.3 none    ] vs sep_univariate   dArea(ours-x)=-0.0252 CI[-0.0932,+0.1191] P(ours better)=0.439
+    [k6_rho0.0_p0.3 strong  ] vs reitsma          dArea(ours-x)=-0.0177 CI[-0.1624,+0.0717] P(ours better)=0.748
+    [k6_rho0.0_p0.3 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0738 CI[-0.0519,+0.1146] P(ours better)=0.289
+    [k6_rho0.0_p0.3 strong  ] vs reitsma_reml     dArea(ours-x)=-0.0549 CI[-0.2463,+0.0222] P(ours better)=0.950
+    [k6_rho0.0_p0.3 strong  ] vs sep_univariate   dArea(ours-x)=+0.0175 CI[-0.1452,+0.0804] P(ours better)=0.784
+    [k6_rho0.0_p0.5 moderate] vs reitsma          dArea(ours-x)=-0.0274 CI[-0.2039,+0.0849] P(ours better)=0.712
+    [k6_rho0.0_p0.5 moderate] vs reitsma_indep    dArea(ours-x)=+0.0262 CI[-0.0863,+0.1271] P(ours better)=0.333
+    [k6_rho0.0_p0.5 moderate] vs reitsma_reml     dArea(ours-x)=-0.0717 CI[-0.2590,+0.0663] P(ours better)=0.841
+    [k6_rho0.0_p0.5 moderate] vs sep_univariate   dArea(ours-x)=+0.0067 CI[-0.1416,+0.1386] P(ours better)=0.461
+    [k6_rho0.0_p0.5 none    ] vs reitsma          dArea(ours-x)=+0.0068 CI[-0.0802,+0.0841] P(ours better)=0.302
+    [k6_rho0.0_p0.5 none    ] vs reitsma_indep    dArea(ours-x)=-0.0128 CI[-0.1207,+0.0411] P(ours better)=0.810
+    [k6_rho0.0_p0.5 none    ] vs reitsma_reml     dArea(ours-x)=+0.0295 CI[-0.1561,+0.1192] P(ours better)=0.312
+    [k6_rho0.0_p0.5 none    ] vs sep_univariate   dArea(ours-x)=-0.0008 CI[-0.1480,+0.0867] P(ours better)=0.538
+    [k6_rho0.0_p0.5 strong  ] vs reitsma          dArea(ours-x)=-0.0111 CI[-0.1848,+0.1015] P(ours better)=0.544
+    [k6_rho0.0_p0.5 strong  ] vs reitsma_indep    dArea(ours-x)=+0.0254 CI[-0.1068,+0.1431] P(ours better)=0.432
+    [k6_rho0.0_p0.5 strong  ] vs reitsma_reml     dArea(ours-x)=-0.2610 CI[-0.3258,+0.0778] P(ours better)=0.893
+    [k6_rho0.0_p0.5 strong  ] vs sep_univariate   dArea(ours-x)=-0.1574 CI[-0.2447,+0.0530] P(ours better)=0.912
+
+Wrote truth-recovery-dta/dta_full_perrep.csv
+      truth-recovery-dta/dta_full_table.csv
+      truth-recovery-dta/dta_full_truthgate.json  (16510.3s)
+exit=0 wall=16514s
