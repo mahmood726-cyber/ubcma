@@ -88,6 +88,31 @@ def build_grid(name: str) -> list[dict]:
             ("k6_hi",   G.DTASpec(k=6, rho=-0.4, tau1=0.8, tau2=0.8, prev=0.2)),
         ]
         strengths = ["none", "moderate", "strong"]
+    elif name == "focus":
+        # Targeted contested-regime grid: small k, high tau, threshold heterogeneity,
+        # selection. These are the failure modes the design brief flagged.
+        specs = []
+        for k in (6, 10):
+            for tau in (0.6, 0.8):
+                for rho in (0.0, -0.6):
+                    for prev in (0.1, 0.3):
+                        lbl = f"k{k}_t{tau}_r{rho}_p{prev}"
+                        specs.append((lbl, G.DTASpec(k=k, rho=rho, tau1=tau, tau2=tau,
+                                                     prev=prev, n_med=80.0, n_sigma=0.7)))
+        strengths = ["none", "moderate", "strong"]
+    elif name == "hsroc_tail":
+        # Sparse-cell / heavy-tail regime: low n_med, low prevalence, high tau.
+        # HSROC (= Reitsma without covariates) is most unstable here. This grid
+        # quantifies AdaptShrink-DTA vs Reitsma in the HSROC-failure tail.
+        specs = []
+        for k in (6, 10):
+            for tau in (0.6, 0.8):
+                for prev in (0.1, 0.3):
+                    lbl = f"sparse_k{k}_t{tau}_p{prev}"
+                    specs.append((lbl, G.DTASpec(
+                        k=k, rho=-0.6, tau1=tau, tau2=tau, prev=prev,
+                        n_med=40.0, n_sigma=0.9, n_min=8)))  # very sparse cells
+        strengths = ["none", "strong"]
     else:
         raise ValueError(name)
     for label, spec in specs:
@@ -298,6 +323,12 @@ def truth_gate(df: pd.DataFrame, table: pd.DataFrame, target: float,
             f"G1 FAIL: {len(bad_point)} converged rows with non-finite point")
 
     wins = []
+    if table.empty or "cell" not in table.columns:
+        gate["notes"].append("WARN: matched_coverage_table is empty (too few reps?)")
+        gate["verified_wins_vs_HC"] = wins
+        gate["bootstrap_mciw0_vs_HC"] = []
+        gate["robust_wins_vs_HC"] = []
+        return gate
     for (cell, strength), g in table.groupby(["cell", "strength"]):
         g = g.set_index("method")
         if HC not in g.index:
@@ -326,7 +357,7 @@ def truth_gate(df: pd.DataFrame, table: pd.DataFrame, target: float,
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--reps", type=int, default=300)
-    ap.add_argument("--grid", default="pilot", choices=["pilot", "smallk", "full"])
+    ap.add_argument("--grid", default="pilot", choices=["pilot", "smallk", "full", "focus", "hsroc_tail"])
     ap.add_argument("--target", type=float, default=0.95)
     ap.add_argument("--out-prefix", default="truth-recovery-dta/dta")
     ap.add_argument("--from-csv", default=None)
