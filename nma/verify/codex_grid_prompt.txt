@@ -1,0 +1,29 @@
+You are an INDEPENDENT verifier cross-checking another team's network meta-analysis
+result. Do NOT assume any hidden code; work only from the spec file and the data
+CSVs in the current directory. Use python (not python3). Actually EXECUTE your code
+with the shell tool -- do not compute anything by hand.
+
+1. Read grid_verify_spec.md in this directory (the full metric + bootstrap spec).
+2. There are several gridcell_<cellid>_perrep.csv files in this directory, columns:
+   rep,method,contrast,d_hat,ci_low,ci_high,d_true
+   method in {common_DL (baseline), comp_specific, adaptshrink, adaptshrink_auto}.
+3. Implement the MCIW0 matched-coverage metric and the paired-bootstrap robust-win
+   test FROM SCRATCH (numpy + pandas only), exactly as the spec describes:
+   - e=|d_hat-d_true|; calib=(rep%2==0), test=(rep%2==1);
+     c_half=np.quantile(e[calib],0.95); MCIW0(method,contrast)=2*c_half;
+     MCIW0(method)=mean over contrasts; dMCIW0=MCIW0(method)-MCIW0(common_DL).
+   - paired bootstrap: per-method (R x (n-1)) |error| matrix indexed rep x contrast,
+     keep reps where BOTH baseline and method are fully non-NaN; B=2000 resamples
+     with rng=numpy.random.default_rng(7), idx=rng.integers(0,R,size=(B,R));
+     d0 = 2*mean_contrasts(quantile_0.95(|err|[rows],axis=rows)) for method minus
+     same for baseline; report 2.5/97.5 percentiles; robust_win iff 97.5% < 0.
+4. For adaptshrink_auto vs common_DL, for EVERY gridcell CSV, compute
+   n_paired_reps, mciw0_method, mciw0_baseline, dMCIW0, ci_low(2.5%), ci_high(97.5%),
+   robust_win.
+5. Write a file result_codex_NODE_grid.json (replace NODE with this machine's tag,
+   given to you below) shaped:
+   {"cells": {"<cellid>": {"n_paired_reps":..., "mciw0_method":...,
+      "mciw0_baseline":..., "dMCIW0":..., "ci_low":..., "ci_high":...,
+      "robust_win": true/false}, ...}, "verifier": "codex_NODE"}
+   and print each cell's cellid, dMCIW0, [ci_low,ci_high], robust_win to stdout.
+NODE = pc2

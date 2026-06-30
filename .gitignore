@@ -24,3 +24,10 @@ truth-recovery/codex_modern_run.log
 truth-recovery/agy_derivation.log
 truth-recovery/field2_*_shard*.csv
 truth-recovery/field2_*_shard*.log
+
+# NMA Phase-4 grid: large regenerable per-rep CSVs (reproduce via dump_grid_cells.py, matched seed) + run logs
+nma/verify/grid/*.csv
+nma/truth-recovery/tausel_grid_run.log
+nma/verify/agy_grid_gen.log
+nma/verify/codex_pc2_grid.log
+nma/verify/laptop_watch.log

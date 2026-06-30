@@ -1,0 +1,77 @@
+{
+  "cells": {
+    "t05_strong_n6": {
+      "n_paired_reps": 600,
+      "mciw0_method": 0.4030325721579421,
+      "mciw0_baseline": 0.42875287310212185,
+      "dMCIW0": -0.025720300944179764,
+      "ci_low": -0.038139485507335126,
+      "ci_high": 0.0023598382009110256,
+      "robust_win": false
+    },
+    "t10_moderate_n12": {
+      "n_paired_reps": 600,
+      "mciw0_method": 0.194885787983815,
+      "mciw0_baseline": 0.20359060739542786,
+      "dMCIW0": -0.008704819411612857,
+      "ci_low": -0.014767724240972457,
+      "ci_high": -0.00471074479349558,
+      "robust_win": true
+    },
+    "t10_none_n8": {
+      "n_paired_reps": 600,
+      "mciw0_method": 0.15665107031155087,
+      "mciw0_baseline": 0.15355170961894782,
+      "dMCIW0": 0.0030993606926030537,
+      "ci_low": 0.0016915259324574972,
+      "ci_high": 0.009348528310131153,
+      "robust_win": false
+    },
+    "t10_strong_n10": {
+      "n_paired_reps": 600,
+      "mciw0_method": 0.3341027000091827,
+      "mciw0_baseline": 0.40076256470108446,
+      "dMCIW0": -0.06665986469190177,
+      "ci_low": -0.07961600575640965,
+      "ci_high": -0.0496802491287588,
+      "robust_win": true
+    },
+    "t10_strong_n5": {
+      "n_paired_reps": 595,
+      "mciw0_method": 0.5892251457896138,
+      "mciw0_baseline": 0.5779834897160132,
+      "dMCIW0": 0.011241656073600614,
+      "ci_low": -0.01381359827918742,
+      "ci_high": 0.050762379394386596,
+      "robust_win": false
+    },
+    "t10_strong_n6": {
+      "n_paired_reps": 600,
+      "mciw0_method": 0.4582099631818025,
+      "mciw0_baseline": 0.5075445883888605,
+      "dMCIW0": -0.049334625207058,
+      "ci_low": -0.041384081026007255,
+      "ci_high": 0.0008674112077828707,
+      "robust_win": false
+    },
+    "t20_strong_n8": {
+      "n_paired_reps": 600,
+      "mciw0_method": 0.55467339088708,
+      "mciw0_baseline": 0.6105396888392681,
+      "dMCIW0": -0.055866297952188115,
+      "ci_low": -0.09003640144599963,
+      "ci_high": -0.045139742301687054,
+      "robust_win": true
+    },
+    "t30_strong_n12": {
+      "n_paired_reps": 600,
+      "mciw0_method": 0.5904911157333838,
+      "mciw0_baseline": 0.7390803687997977,
+      "dMCIW0": -0.1485892530664139,
+      "ci_low": -0.1712728511003955,
+      "ci_high": -0.1374324288983099,
+      "robust_win": true
+    }
+  },
+  "verifier": "agy"
+}
