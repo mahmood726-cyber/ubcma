@@ -2,10 +2,11 @@
 
 *Methods report — branch `methods-borrowing`, F:\ubcma\borrowing · 2026-06-30*
 
-> **Build status.** §4.6 (replication across slices, added 2026-06-30) is in this
-> markdown but **not yet in `Registry_Borrowing.docx`** — rebuild via
-> `manuscript/build_borrowing_docx.js` before submission. Replication artifacts:
-> `REPORT_BORROWING_REPLICATION.md`, `borrowing/replication/`.
+> **Build status.** §4.6 (replication), §4.7 (cross-specialty replication) and §5.6
+> (BCG transportability) — all added 2026-06-30 — are in this markdown but **not yet in
+> `Registry_Borrowing.docx`**; rebuild via `manuscript/build_borrowing_docx.js` before
+> submission. Artifacts: `REPORT_BORROWING_REPLICATION.md`, `REPORT_BORROWING_MULTISPECIALTY.md`
+> (`borrowing/replication/`), `REPORT_BORROWING_BCG.md` (`borrowing/bcg/`).
 
 > **Provenance.** Every quantitative claim below is transcribed from one of three
 > committed pilot reports (`REPORT_BORROWING_PILOT.md`, `…PILOT2.md`, `…PILOT3.md`)
@@ -318,6 +319,44 @@ schizophrenia *within-molecule* dose signals (real at *p* < .001 but pooled-mask
 by Simpson, and lacking ≥ 8 single-molecule placebo-anchored trials) are the leading
 candidates, likely reachable only via IPD.
 
+### 4.7 Cross-specialty replication — N = 5 clean slices across 3 specialties
+
+> *Added 2026-06-30 (`REPORT_BORROWING_MULTISPECIALTY.md`, `borrowing/replication/`).*
+
+To break the §4.6 same-class (GLP1) bound, we ran the identical five-way LOO on four
+**new public meta-analytic datasets**, each a different specialty with a real
+within-set continuous modifier (cited as original publications): SAT-coaching hours
+(Kalaian & Raudenbush 1996, *Psychol Methods*; k = 65), teacher-expectancy contact
+weeks (Raudenbush 1984, *J Educ Psychol*; k = 19), brief-alcohol-intervention age
+(Tanner-Smith & Lipsey 2015, *J Subst Abuse Treat*; k = 113), and phase-I
+dose-toxicity (Ursino et al. 2021; k = 49). Each modifier was verified in-data
+(WLS slope + 10k-permutation; metafor REML external cross-check on the two
+escalc-ready slices).
+
+**Oncology dose-toxicity is a clean new-specialty win**: relevance beats both nulls at
+all bandwidths (rel−uniform −0.119 [−0.174, −0.061]; rel−scrambled −0.141 [−0.206,
+−0.079]). Teacher-expectancy (a documented real modifier) is directional but
+k = 19-underpowered (rel−uniform −0.020, n.s.). SAT-coaching is nominally clean
+(perm *p* = 0.045) but trivially weak (R² = 0.08) in a near-homogeneous field, so
+relevance correctly **ties** the nulls. The flat-modifier slice (alcohol-by-age,
+perm *p* = 0.49) is correctly **inert** (+2.7 %) — the in-data β = 0 control.
+
+Pooling the scale-free fractional MAE reduction (DL random-effects) across the **5
+clean qualifiers in 3 specialties** (Endocrine/Metabolic ×2, Education ×2, Oncology ×1):
+
+| comparison | pooled fractional MAE reduction | verdict |
+|---|---|---|
+| relevance − uniform (no-relevance null) | **−10.9 % [−20.2 %, −1.5 %]** | **CI < 0 robust** |
+| relevance − scrambled null | **−12.4 % [−22.8 %, −2.0 %]** | **CI < 0 robust** |
+
+(Strong-modifier subset, R² ≥ 0.15, N = 4: −13.8 % [−20.6 %, −7.0 %] and −15.9 %
+[−24.5 %, −7.3 %].) **Verdict: the §4.6 suggestive N = 2 estimate (CI crossed 0) is now
+a robustly significant cross-specialty result.** Relevance beats both nulls in 3/5 clean
+slices, and the per-slice benefit **scales with modifier strength** (R² 0.08 → ≈ 0 %;
+0.38 → −14.5 %; GLP1 dose → −40 %), exactly as a relevance mechanism should. Caveat: two
+of the five clean slices share the GLP1 class (3 genuinely independent specialties), and
+two slices are effect-level rather than study-independent.
+
 ---
 
 ## 5. Pilot 3 — the transportability boundary (conditional, with a power gate)
@@ -397,6 +436,39 @@ class).** This is a property of the **data**, not the method: with known truth t
 powerful. The honest threshold is quantified — transportability earns its keep only when a population
 covariate modifies the effect at **β ≳ 0.02** (≈ 3× what obesity delivers here).
 
+### 5.6 The fair transportability test — dat.bcg (strong real modifier)
+
+> *Added 2026-06-30 (`REPORT_BORROWING_BCG.md`, `borrowing/bcg/`).*
+
+Pilot 4 showed the AACT registry *structurally separates* a wide population gradient from a clean
+placebo-anchored effect. **`dat.bcg`** supplies what AACT could not: 13 **placebo-controlled**
+BCG-vaccine trials (Colditz et al. 1994 *JAMA*; Berkey et al. 1995 *Stat Med*) with absolute
+latitude 13°→55°, where latitude is the textbook **strong** modifier of BCG efficacy (Fine 1995
+*Lancet*). The modifier is verified real: RE meta-regression slope −0.0292/deg, perm *p* = 0.023
+(in-house) / **0.0052** (metafor REML external), surviving year and allocation adjustment — note
+the fixed-weight WLS permutation is leverage-conservative (*p* = 0.106) because 2 of 13 trials hold
+65 % of the weight, which is exactly why the random-effects model is the correct one. Because
+latitude is the *only* covariate, relevance and transport share the same kernel and differ only by
+the standardisation shift `y_s→t = y_s + β_lat·(lat_t − lat_s)`, so **transport − relevance isolates
+the g-computation step**. Five-way real LOO (truth = real held-out logRR), central bw = SD:
+
+| contrast | ΔMAE [95 % CI] | verdict |
+|---|---|---|
+| **transport − NMA** | **−0.198 [−0.344, −0.041]** | **transport beats the textbook baseline (robust, all bw & all 3 paths)** |
+| relevance − uniform | −0.175 [−0.306, −0.034] | relevance kernel beats no-relevance |
+| transport − relevance | −0.049 [−0.131, +0.035] | directional (W at narrow bw / jackknife); **n.s. at k = 13** |
+| target = pool control | **+0.187 [+0.017, +0.347]** | standardising to the wrong target **hurts** — gain is real-target-specific |
+
+β = 0 collapses transport exactly onto relevance (Δ = 0.000, inert). **Verdict: the full
+transportability-weighted method robustly beats standard RE pooling on real held-out trials where the
+modifier is genuinely strong** — and the `target = pool` control proves the gain comes from
+standardising to the *real* target's latitude, not generic shrinkage. Its incremental margin
+*specifically over* relevance-down-weighting is directionally positive everywhere but
+k = 13-underpowered (CI crosses 0 at the pre-registered bandwidth). Mirror image of pilot 2: there
+the kernel carried the win and standardisation was untestable; on BCG the **standardisation** carries
+it and the raw-effect kernel barely beats the scrambled null. Confirmed three internal ways
+(Gaussian/bootstrap, from-scratch Mandel-Paule, Epanechnikov/jackknife) plus external metafor.
+
 ---
 
 ## 6. Discussion — what is defensible, and what is conditional
@@ -407,7 +479,8 @@ covariate modifies the effect at **β ≳ 0.02** (≈ 3× what obesity delivers 
    precision, fused by conflict-discounted precision fusion under an a-priori stand-down — **beats
    standard meta-analysis on real held-out effects** when a measured covariate predicts the effect
    (GLP1 dose: real LOO advantage CIs exclude 0; replicated under a fresh slice and a fresh anchor in
-   pilot 3, relevance − NMA −0.0616 [−0.1186, −0.0071]).
+   pilot 3, relevance − NMA −0.0616 [−0.1186, −0.0071]; **replicated across 3 specialties** in §4.7,
+   pooled relevance − no-relevance null −10.9 % [−20.2 %, −1.5 %]).
 2. **The inertia boundary is the honesty result.** The method is **provably inert** when no covariate
    carries signal (β = 0 reproduces pilot 1 exactly), so it cannot manufacture a spurious win. Its
    benefit is the value of *real* covariate information, not of borrowing per se.
@@ -419,8 +492,14 @@ covariate modifies the effect at **β ≳ 0.02** (≈ 3× what obesity delivers 
 
 4. **Population transportability** is a correct, ready layer with a **quantified power threshold**
    (β ≳ 0.02). On the registry slice tested it is inert because the population modifier is weak after
-   class adjustment. It should **not** be claimed as a demonstrated win until tested on a slice with a
-   documented strong population modifier.
+   class adjustment. On the **fair test** — `dat.bcg`, where latitude is a genuinely strong modifier
+   (§5.6) — the full transportability-weighted method **robustly beats standard RE pooling on real
+   held-out trials** (transport − NMA −0.198 [−0.344, −0.041]), and a `target = pool` control confirms
+   the gain is specific to standardising toward the real target. Its incremental margin *over*
+   relevance-down-weighting is directionally positive but k = 13-underpowered, so we present
+   transportability as **validated against the textbook baseline on real strong-modifier data, with
+   the relevance-incremental margin bounded by k**, rather than claiming a decisive transport-beats-
+   relevance result.
 
 The unifying picture is a single boundary map: borrowing (relevance, then transportability) earns its
 keep in proportion to the strength of the covariate it exploits, is inert below threshold, and — with
