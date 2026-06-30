@@ -23,5 +23,26 @@ truth-gate. Mirrors the structure of the `nma/` and `borrowing/` threads.
 
 `PYTHONPATH=doseresponse python -m pytest doseresponse/test_drma.py -q`  -> 9 passed.
 
-## Stage 2 -- model-based dose-response NMA (MBNMA)  [next]
+## Stage 2 -- model-based dose-response NMA (`mbnma.py`)
+Frequentist analogue of Bayesian `MBNMAdose`. Treatments are (agent, dose)
+nodes; each agent's nodes are constrained to a dose-response curve f_a(dose).
+Built on the verified `nma_core` contrast machinery (multi-arm shared-arm
+correlation preserved). Models: `nma` (saturated), `linear`, `exponential`,
+`emax` (Gauss-Newton GLS). Placebo = network reference, f_a(0)=0.
+
+### Validation (synthetic dose network, 45-80 studies; test_mbnma.py)
+| check | result |
+|---|---|
+| saturated MBNMA common-effect vs R `netmeta` -- TE | max abs diff 9.7e-15 |
+| saturated MBNMA common-effect vs R `netmeta` -- SE | max abs diff 4.9e-16 |
+| linear slope recovery (truth 0.12 / 0.30) | mean 0.119 / 0.301 |
+| Emax recovery (truth Emax 0.9, ED50 2.0) | median 0.915 / 2.033 |
+
+`PYTHONPATH=doseresponse python -m pytest doseresponse/test_mbnma.py -q` -> 5 passed.
+
+JAGS / `MBNMAdose` is not installed in this environment (no JAGS binary), so an
+exact match to the Bayesian package is not attempted; the netmeta common-effect
+reduction is the external anchor. Bayesian cross-validation is a documented
+next step.
+
 ## Stage 3 -- AdaptShrink matched-coverage bake-off on DR data  [next]
