@@ -1,0 +1,416 @@
+[
+{
+"nct_id": "NCT00658021",
+"active": "GLP1",
+"y": -0.28,
+"se": 0.37245658074654586,
+"baseline": null,
+"enroll": 122.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01590797",
+"active": "DPP4",
+"y": -0.35212618296529974,
+"se": 0.06601653363812847,
+"baseline": null,
+"enroll": 467.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00350779",
+"active": "DPP4",
+"y": -0.7410254372019077,
+"se": 0.08933138585070287,
+"baseline": 8.766666666666667,
+"enroll": 262.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02558296",
+"active": "SGLT2",
+"y": -0.46617951095188775,
+"se": 0.013806539032444633,
+"baseline": null,
+"enroll": 1700.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02973100",
+"active": "GLP1",
+"y": -0.8756535801918356,
+"se": 0.08001656030005445,
+"baseline": 8.094,
+"enroll": 318.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT04591626",
+"active": "GLP1",
+"y": -0.95,
+"se": 0.09438968142206981,
+"baseline": 8.59,
+"enroll": 291.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01103414",
+"active": "TZD",
+"y": -0.6810757370261975,
+"se": 0.1011293537636083,
+"baseline": 8.081666666666665,
+"enroll": 356.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00894322",
+"active": "GLP1",
+"y": -0.9499999999999998,
+"se": 0.2806179717953428,
+"baseline": null,
+"enroll": 65.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT03131687",
+"active": "GLP1",
+"y": -1.4713793103448274,
+"se": 0.08389031483505631,
+"baseline": 8.13857142857143,
+"enroll": 318.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT05260021",
+"active": "GLP1",
+"y": -1.8006013563636136,
+"se": 0.17871055102202962,
+"baseline": 8.0425,
+"enroll": 99.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01537120",
+"active": "DPP4",
+"y": -0.3226655490360436,
+"se": 0.036610327383397215,
+"baseline": null,
+"enroll": 25.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00736879",
+"active": "SGLT2",
+"y": -0.7551553410254677,
+"se": 0.09718659998301069,
+"baseline": 7.913999999999999,
+"enroll": 497.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01128153",
+"active": "DPP4",
+"y": -0.66,
+"se": 0.09949182636380335,
+"baseline": 8.283333333333333,
+"enroll": 257.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00972244",
+"active": "SGLT2",
+"y": -0.605219110900174,
+"se": 0.050055810682287004,
+"baseline": 8.073333333333332,
+"enroll": 417.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02429258",
+"active": "SGLT2",
+"y": -0.22999999999999998,
+"se": 0.1020428988346701,
+"baseline": 8.34,
+"enroll": 226.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT04657003",
+"active": "GLP1",
+"y": -2.013732645775486,
+"se": 0.06401870996985928,
+"baseline": null,
+"enroll": 938.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00127192",
+"active": "DPP4",
+"y": -0.914134313282369,
+"se": 0.04364808807090753,
+"baseline": 7.616666666666667,
+"enroll": 363.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00698932",
+"active": "DPP4",
+"y": -0.5,
+"se": 0.07908324659686933,
+"baseline": null,
+"enroll": 568.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT03954834",
+"active": "GLP1",
+"y": -1.982447202264315,
+"se": 0.08198044892467232,
+"baseline": 7.942,
+"enroll": 478.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT05963022",
+"active": "GLP1",
+"y": -1.2245273866469044,
+"se": 0.10258158189101792,
+"baseline": 8.022,
+"enroll": 206.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01769378",
+"active": "GLP1",
+"y": -1.27,
+"se": 0.15306434825200518,
+"baseline": null,
+"enroll": 300.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02597049",
+"active": "GLP1",
+"y": -0.7381693772312575,
+"se": 0.04526806394250232,
+"baseline": 8.0425,
+"enroll": 424.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01475461",
+"active": "DPP4",
+"y": -0.37057591516363614,
+"se": 0.048133017025930425,
+"baseline": null,
+"enroll": 345.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01294423",
+"active": "SGLT2",
+"y": -0.37059688195991086,
+"se": 0.06040981148527124,
+"baseline": 7.487500000000001,
+"enroll": 261.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00975286",
+"active": "GLP1",
+"y": -0.32,
+"se": 0.07449131614930918,
+"baseline": 7.580000000000001,
+"enroll": 446.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01704261",
+"active": "DPP4",
+"y": -0.61,
+"se": 0.11990040613073738,
+"baseline": null,
+"enroll": 307.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT04039503",
+"active": "GLP1",
+"y": -1.5366666666666666,
+"se": 0.06627880699997234,
+"baseline": 8.314,
+"enroll": 475.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01169779",
+"active": "GLP1",
+"y": -0.36,
+"se": 0.09923671911671668,
+"baseline": 7.900000000000001,
+"enroll": 391.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00357370",
+"active": "SGLT2",
+"y": -0.74,
+"se": 0.13709492890206332,
+"baseline": null,
+"enroll": 163.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00673231",
+"active": "SGLT2",
+"y": -0.5215612327656124,
+"se": 0.04171404346552172,
+"baseline": 8.53,
+"enroll": 1240.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02963766",
+"active": "GLP1",
+"y": -1.270559610705596,
+"se": 0.1799442289240076,
+"baseline": 8.075000000000001,
+"enroll": 154.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT03311724",
+"active": "GLP1",
+"y": -2.033333333333333,
+"se": 0.16201486155548797,
+"baseline": 8.352,
+"enroll": 111.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00541775",
+"active": "DPP4",
+"y": -0.51,
+"se": 0.09694075389293658,
+"baseline": 7.725,
+"enroll": 273.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02647320",
+"active": "DPP4",
+"y": -0.43,
+"se": 0.1392181895555961,
+"baseline": 7.941666666666667,
+"enroll": 298.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00984867",
+"active": "SGLT2",
+"y": -0.5842157235093048,
+"se": 0.05985822764701729,
+"baseline": 7.933333333333334,
+"enroll": 833.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01095653",
+"active": "SGLT2",
+"y": -0.785,
+"se": 0.06854746445103166,
+"baseline": null,
+"enroll": 1179.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00147745",
+"active": "insulin",
+"y": -0.97,
+"se": 0.5204187840568175,
+"baseline": 8.625,
+"enroll": 36.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02157298",
+"active": "SGLT2",
+"y": -0.6,
+"se": 0.10714504377640362,
+"baseline": 8.373333333333333,
+"enroll": 266.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00918879",
+"active": "DPP4",
+"y": -0.46,
+"se": 0.1403089858976714,
+"baseline": null,
+"enroll": 213.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01042977",
+"active": "SGLT2",
+"y": -0.4,
+"se": 0.05102144941733505,
+"baseline": 8.06,
+"enroll": 964.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01798706",
+"active": "GLP1",
+"y": -0.64,
+"se": 0.08826710749198964,
+"baseline": 8.043333333333333,
+"enroll": 350.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00289848",
+"active": "DPP4",
+"y": -1.03,
+"se": 0.1020428988346701,
+"baseline": 8.743333333333334,
+"enroll": 530.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT01137474",
+"active": "SGLT2",
+"y": -0.46,
+"se": 0.06632788424253555,
+"baseline": null,
+"enroll": 2996.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT00305604",
+"active": "DPP4",
+"y": -0.7,
+"se": 0.11990040613073738,
+"baseline": 7.8,
+"enroll": 206.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02002221",
+"active": "DPP4",
+"y": -0.91,
+"se": 0.08928753648033635,
+"baseline": null,
+"enroll": 156.0,
+"results_posted": true
+},
+{
+"nct_id": "NCT02413398",
+"active": "SGLT2",
+"y": -0.34,
+"se": 0.09694075389293659,
+"baseline": null,
+"enroll": 321.0,
+"results_posted": true
+}
+]
