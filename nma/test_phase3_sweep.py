@@ -54,6 +54,37 @@ def test_ci_upper_bound_moves_monotonically_below_zero(autos):
     assert his == sorted(his, reverse=True), f"CI uppers not monotone ↓: {his}"
 
 
+def _auto_for(cell_file):
+    return _auto(cell_file)
+
+
+def test_control_no_selection_is_not_a_win():
+    """KEY falsification: with no selection the win must vanish (not an
+    under-coverage artifact). dMCIW0 wrong-sign / CI above 0, coverage unharmed."""
+    b = _auto_for("swp_select_none_dense_n8_gate.json")
+    assert b["mciw0_robust_win"] is False
+    assert b["mciw0_ci_lo"] > 0.0  # entire CI above zero: not narrower at all
+
+
+def test_moderate_selection_not_robust_even_at_n8():
+    """The efficiency win needs STRONG selection; large n does not rescue weak."""
+    b = _auto_for("swp_select_moderate_dense_n8_gate.json")
+    assert b["mciw0_robust_win"] is False
+
+
+def test_win_strengthens_through_n10():
+    b8 = _auto_for("swp_select_strong_dense_n8_gate.json")
+    b10 = _auto_for("swp_select_strong_dense_n10_gate.json")
+    assert b10["mciw0_robust_win"] is True
+    assert b10["mciw0_diff"] < b8["mciw0_diff"]  # still strengthening, no plateau
+
+
+def test_high_tau_amplifies_point_efficiency_win():
+    b = _auto_for("swp_select_strong_dense_n8_hitau_gate.json")
+    assert b["mciw0_robust_win"] is True
+    assert b["mciw0_diff"] < -0.05  # larger than the low-tau n8 win
+
+
 def test_ranking_preserved_no_degradation(autos):
     """P-score Spearman must not be degraded by the estimator (read from summary)."""
     import pandas as pd

@@ -84,6 +84,24 @@ CELLS = {
     "select_strong_dense_n8": S.NetSpec(geom="full", n=8, studies_per_comp=(8, 15),
                                         hetero="homogeneous", tau_homog=0.10,
                                         selection="strong"),
+    # Phase-3 wave 2 (boundary map / falsification). Same dense full net.
+    # CONTROL: no selection at large n. If adaptshrink_auto were robustly narrower
+    # here, the "win" would be an under-coverage artifact -> MUST be no robust win.
+    "select_none_dense_n8": S.NetSpec(geom="full", n=8, studies_per_comp=(8, 15),
+                                      hetero="homogeneous", tau_homog=0.10,
+                                      selection="none"),
+    # does the win appear under MODERATE selection once n is large?
+    "select_moderate_dense_n8": S.NetSpec(geom="full", n=8, studies_per_comp=(8, 15),
+                                          hetero="homogeneous", tau_homog=0.10,
+                                          selection="moderate"),
+    # does heterogeneity (high tau) erase the selection-driven win at the headline n?
+    "select_strong_dense_n8_hitau": S.NetSpec(geom="full", n=8, studies_per_comp=(8, 15),
+                                              hetero="homogeneous", tau_homog=0.30,
+                                              selection="strong"),
+    # extend the size trend: does the win keep strengthening or plateau at n=10?
+    "select_strong_dense_n10": S.NetSpec(geom="full", n=10, studies_per_comp=(8, 15),
+                                         hetero="homogeneous", tau_homog=0.10,
+                                         selection="strong"),
     "select_moderate_dense": S.NetSpec(geom="full", n=5, studies_per_comp=(8, 15),
                                        hetero="homogeneous", tau_homog=0.10,
                                        selection="moderate"),

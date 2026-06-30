@@ -88,6 +88,48 @@ n−1 contrasts. As n grows at fixed studies/edge:
    0.013); robustness emerges because the point advantage **outruns** the CI
    half-width.
 
+## 4b. Wave 2 — boundary map and falsification controls
+
+The monotone-in-n result raises the obvious referee questions: *is the win real
+de-biasing or an under-coverage artifact? does it need strong selection? does
+heterogeneity kill it?* Five further dense full-network cells (1200 reps, n=10 at
+1000 reps), `adaptshrink_auto` vs `common_DL`:
+
+| cell | n | selection | τ | dMCIW0 | 95% CI | robust | raw_cov auto / DL |
+|---|---:|---|---:|---:|---|:--:|---|
+| **none_dense_n8 (CONTROL)** | 8 | none | 0.10 | **+0.005** | [+0.002, +0.008] | **no** | 0.942 / 0.944 |
+| moderate_dense_n8 | 8 | moderate | 0.10 | −0.003 | [−0.008, +0.002] | no | 0.922 / 0.898 |
+| strong_dense_n10 | 10 | strong | 0.10 | **−0.067** | [−0.079, −0.054] | **YES** | 0.906 / 0.711 |
+| strong_dense_n8_hitau | 8 | strong | 0.30 | **−0.091** | [−0.110, −0.068] | **YES** | 0.809 / 0.538 |
+
+Combined with §3 (strong, τ=0.10, n=5→8), the full picture:
+
+1. **The win is NOT an under-coverage artifact (the key control).** With *no*
+   selection at n=8, `adaptshrink_auto` is the *wrong sign* — dMCIW0 **+0.005**,
+   CI entirely **above** zero — and coverage is unharmed (0.942 vs 0.944, both
+   nominal). When there is no bias to remove, component B's gate stands down and
+   there is no spurious narrowing. The win only appears when real selection bias
+   exists to correct.
+2. **It needs STRONG selection.** At *moderate* selection even n=8 gives no robust
+   win (−0.003, CI crosses 0). Large n does **not** compensate for weak selection;
+   the efficiency win requires selection bias to dominate sampling variance.
+3. **It keeps strengthening through n=10** (no plateau): dMCIW0 −0.021 → −0.028 →
+   −0.036 → **−0.067** for n = 6, 7, 8, 10. The field default's coverage collapses
+   to 0.711 at n=10 (more contrasts inherit uncorrected bias); `adaptshrink_auto`
+   holds 0.906 (+19.5 pp).
+4. **Heterogeneity amplifies, not erases.** At τ=0.30 the point-efficiency win is
+   the largest seen (−0.091, robust) and coverage recovery is +27 pp (0.538 →
+   0.809). Honest nuance: at high τ the *own-width* MCIW (the method's actually-
+   reported interval) is **not** a robust win — heterogeneity noise washes out the
+   interval-width story even though the point estimator is far better. The robust
+   claim at high τ is specifically about MCIW0 (point efficiency), and is flagged
+   as such.
+
+**One-line summary of the region:** the bootstrap-robust matched-coverage
+efficiency win exists iff (strong small-study selection) AND (n ≥ 6); within that
+region it strengthens monotonically with n and with τ; outside it (no/moderate
+selection, or n=5) there is correctly no width win and coverage is never harmed.
+
 ## 5. Honest negatives / caveats
 
 - **n=5 is not a robust win** (dMCIW0 +0.016, CI upper +0.031). The efficiency win
@@ -112,7 +154,7 @@ n−1 contrasts. As n grows at fixed studies/edge:
 |---|---|---|---|
 | Claude harness | `nma/truth-recovery/nma_bakeoff.py` | full sweep, gate JSONs | robust at n=6,7,8 |
 | Claude independent | `nma/verify/phase3_independent.py` (no harness import, from-scratch MCIW0 + bootstrap) | all 4 cells | reproduces harness to ~3 dp |
-| agy (external, Gemini/Antigravity) | from-scratch, no `ubcma` import, own Python | **full sweep n=5,6,7,8** | **dMCIW0 matches to 4 dp at every n**; agy's own verdict: `robust_win_emerges: true`, `robust_win_strengthens_monotonically: true` |
+| agy (external, Gemini/Antigravity) | from-scratch, no `ubcma` import, own Python | **full size sweep + wave-2 boundary** | **dMCIW0 matches to 4 dp on all 8 cells**; agy's verdict: `robust_win_emerges/strengthens: true`; control confirmed not-a-win (`result_agy_sweep.json`, `result_agy_wave2.json`) |
 | Codex (both seats) | — | — | **BLOCKED**: 401, revoked refresh token (needs interactive re-login; cannot run headless) |
 | gemini-direct | — | — | **BLOCKED**: missing `GEMINI_API_KEY` |
 
