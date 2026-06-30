@@ -45,4 +45,21 @@ exact match to the Bayesian package is not attempted; the netmeta common-effect
 reduction is the external anchor. Bayesian cross-validation is a documented
 next step.
 
-## Stage 3 -- AdaptShrink matched-coverage bake-off on DR data  [next]
+## Stage 3 -- AdaptShrink matched-coverage bake-off (`dr_bakeoff.py`)
+Estimand = pooled linear dose-response slope; baseline = two-stage REML DRMA;
+data = ir studies with known truth + one-sided publication selection
+(`sim_doseresponse.py`). **Result: HONEST NULL** -- no estimator robustly beats
+two-stage REML at matched coverage (paired-bootstrap MCIW0 CI includes/exceeds 0
+in every cell). Mechanism: regression correctors (PET/PEESE) are structurally
+invalid for log-RR slopes (biased even with NO selection), so there is no valid
+oracle-free bias-corrected member; the kernel collapses onto the field standard.
+Confirmed 4 independent internal ways + a from-scratch re-derivation
+(`selfverify_dr.py`) because external vendors were unreachable. Full write-up:
+`../REPORT_DOSERESPONSE.md`.
+
+`PYTHONPATH=doseresponse:src python -m pytest doseresponse/test_dr_bakeoff.py -q` -> 3 passed.
+
+## Stage 4 -- borrowing connection (`BORROWING_CONNECTION.md`)
+Design note: dose is a within-class relevance covariate; MBNMA already *is*
+dose-borrowing (precision fusion with a dose-proximity kernel). Proposed forward
+test reuses `borrowing/` pilot-2 machinery on the real GLP1-dose slice.
