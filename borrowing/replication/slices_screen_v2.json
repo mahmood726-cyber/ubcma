@@ -1,0 +1,327 @@
+[
+ {
+  "label": "T2DM_HbA1c:dapagliflozin:dose",
+  "key": "dose",
+  "n": 15,
+  "single_mol": true,
+  "n_mol": 1,
+  "slope": -0.007478940760458506,
+  "se": 0.011580340187682696,
+  "ci": [
+   -0.030176407528316587,
+   0.015218526007399577
+  ],
+  "perm_p": 0.5585,
+  "R2_between": 0.446619245891546,
+  "xrange": [
+   2.8333333333333335,
+   15.0
+  ],
+  "xsd": 3.0026146013840083,
+  "n_unique": 7,
+  "wmol_slope": null,
+  "wmol_p": null,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "T2DM_HbA1c:ALL:dose",
+  "key": "dose",
+  "n": 36,
+  "single_mol": false,
+  "n_mol": 8,
+  "slope": 0.0002847043743120616,
+  "se": 0.0015454451776123227,
+  "ci": [
+   -0.002744368173808091,
+   0.003313776922432214
+  ],
+  "perm_p": 0.923,
+  "R2_between": 0.6259987832337088,
+  "xrange": [
+   1.125,
+   100.0
+  ],
+  "xsd": 28.83707730229247,
+  "n_unique": 20,
+  "wmol_slope": -0.013876058911007474,
+  "wmol_p": 0.2055785635077405,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "T2DM_HbA1c:ALL:baseline",
+  "key": "baseline",
+  "n": 31,
+  "single_mol": false,
+  "n_mol": 6,
+  "slope": -0.09259329894637444,
+  "se": 0.17854672294458956,
+  "ci": [
+   -0.44254487591777003,
+   0.2573582780250211
+  ],
+  "perm_p": 0.7175,
+  "R2_between": 0.2692383127564132,
+  "xrange": [
+   7.487500000000001,
+   8.94
+  ],
+  "xsd": 0.34585530094037564,
+  "n_unique": 29,
+  "wmol_slope": -0.06499836678791963,
+  "wmol_p": 0.4305194875063427,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "T2DM_HbA1c_GLP1only:ALL:dose",
+  "key": "dose",
+  "n": 12,
+  "single_mol": false,
+  "n_mol": 3,
+  "slope": -0.09173889168646263,
+  "se": 0.01178914995934827,
+  "ci": [
+   -0.11484562560678524,
+   -0.06863215776614001
+  ],
+  "perm_p": 0.01,
+  "R2_between": 0.9268554408707854,
+  "xrange": [
+   1.125,
+   14.0
+  ],
+  "xsd": 4.539865638477872,
+  "n_unique": 9,
+  "wmol_slope": -0.07086040118683803,
+  "wmol_p": 0.02435834094166789,
+  "adj_slope": null,
+  "qualifies": true
+ },
+ {
+  "label": "T2DM_HbA1c_GLP1only:ALL:baseline",
+  "key": "baseline",
+  "n": 10,
+  "single_mol": false,
+  "n_mol": 2,
+  "slope": -0.1448405062893377,
+  "se": 0.15095625176618863,
+  "ci": [
+   -0.4407147597510674,
+   0.15103374717239199
+  ],
+  "perm_p": 0.914,
+  "R2_between": 1.0,
+  "xrange": [
+   7.942,
+   8.59
+  ],
+  "xsd": 0.1875326317182789,
+  "n_unique": 9,
+  "wmol_slope": -0.08689096718041119,
+  "wmol_p": 0.8081544620135428,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "Obesity_weight:tirzepatide:dose",
+  "key": "dose",
+  "n": 11,
+  "single_mol": true,
+  "n_mol": 1,
+  "slope": -1.7691322641295004,
+  "se": 0.028380729008448107,
+  "ci": [
+   -1.8247584929860587,
+   -1.713506035272942
+  ],
+  "perm_p": 0.109,
+  "R2_between": 1.0,
+  "xrange": [
+   5.333333333333333,
+   15.0
+  ],
+  "xsd": 2.597413419890873,
+  "n_unique": 7,
+  "wmol_slope": null,
+  "wmol_p": null,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "Obesity_weight:ALL:dose",
+  "key": "dose",
+  "n": 17,
+  "single_mol": false,
+  "n_mol": 4,
+  "slope": -0.5176218918270844,
+  "se": 0.012673437592703946,
+  "ci": [
+   -0.5424618295087842,
+   -0.49278195414538467
+  ],
+  "perm_p": 0.149,
+  "R2_between": 1.0,
+  "xrange": [
+   1.125,
+   15.0
+  ],
+  "xsd": 4.809599235870758,
+  "n_unique": 11,
+  "wmol_slope": -1.5837221883811334,
+  "wmol_p": 0.0,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "Obesity_weight:ALL:baseline",
+  "key": "baseline",
+  "n": 9,
+  "single_mol": false,
+  "n_mol": 3,
+  "slope": -0.13655391327928743,
+  "se": 0.02826154618106608,
+  "ci": [
+   -0.19194654379417694,
+   -0.08116128276439791
+  ],
+  "perm_p": 0.0015,
+  "R2_between": 0.5836599480492424,
+  "xrange": [
+   37.266666666666666,
+   107.30333333333334
+  ],
+  "xsd": 21.755320314684248,
+  "n_unique": 9,
+  "wmol_slope": -0.11538328974221194,
+  "wmol_p": 0.06874267051960103,
+  "adj_slope": null,
+  "qualifies": true
+ },
+ {
+  "label": "Depression:vortioxetine:dose",
+  "key": "dose",
+  "n": 17,
+  "single_mol": true,
+  "n_mol": 1,
+  "slope": -0.054686682963963534,
+  "se": 0.005943179413406764,
+  "ci": [
+   -0.06633531461424079,
+   -0.04303805131368628
+  ],
+  "perm_p": 0.6045,
+  "R2_between": 1.0,
+  "xrange": [
+   5.333333333333333,
+   61.875
+  ],
+  "xsd": 12.928216233896627,
+  "n_unique": 13,
+  "wmol_slope": null,
+  "wmol_p": null,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "Depression:ALL:dose",
+  "key": "dose",
+  "n": 26,
+  "single_mol": false,
+  "n_mol": 7,
+  "slope": 0.004989759206550413,
+  "se": 0.0014942753645669016,
+  "ci": [
+   0.0020609794919992856,
+   0.00791853892110154
+  ],
+  "perm_p": 0.7955,
+  "R2_between": 1.0,
+  "xrange": [
+   5.333333333333333,
+   150.0
+  ],
+  "xsd": 30.71161245167674,
+  "n_unique": 19,
+  "wmol_slope": -0.05486512946496938,
+  "wmol_p": 0.0,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "Depression:ALL:baseline",
+  "key": "baseline",
+  "n": 21,
+  "single_mol": false,
+  "n_mol": 4,
+  "slope": -0.09565727362235286,
+  "se": 0.056662094609889954,
+  "ci": [
+   -0.20671497905773717,
+   0.01540043181303144
+  ],
+  "perm_p": 0.2265,
+  "R2_between": 0.3708885238800347,
+  "xrange": [
+   10.257499999999997,
+   35.04
+  ],
+  "xsd": 4.967033278134727,
+  "n_unique": 21,
+  "wmol_slope": 0.04340207966117751,
+  "wmol_p": 0.0003449267183324167,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "Schizophrenia_PANSS:ALL:dose",
+  "key": "dose",
+  "n": 15,
+  "single_mol": false,
+  "n_mol": 8,
+  "slope": 0.0036271222804578913,
+  "se": 0.008066509840462407,
+  "ci": [
+   -0.012183237006848426,
+   0.01943748156776421
+  ],
+  "perm_p": 0.8,
+  "R2_between": -2.51063910903431,
+  "xrange": [
+   2.3333333333333335,
+   300.0
+  ],
+  "xsd": 74.74897264060174,
+  "n_unique": 13,
+  "wmol_slope": -0.06593646196001429,
+  "wmol_p": 0.00516326379407972,
+  "adj_slope": null,
+  "qualifies": false
+ },
+ {
+  "label": "Schizophrenia_PANSS:ALL:baseline",
+  "key": "baseline",
+  "n": 8,
+  "single_mol": false,
+  "n_mol": 6,
+  "slope": -0.05071076736021799,
+  "se": 0.029335042128597576,
+  "ci": [
+   -0.10820744993226925,
+   0.006785915211833256
+  ],
+  "perm_p": 0.1715,
+  "R2_between": 0.4478594843139396,
+  "xrange": [
+   86.26,
+   153.5
+  ],
+  "xsd": 20.42013022385937,
+  "n_unique": 8,
+  "wmol_slope": null,
+  "wmol_p": null,
+  "adj_slope": null,
+  "qualifies": false
+ }
+]

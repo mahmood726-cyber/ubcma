@@ -1,0 +1,262 @@
+{
+ "T2DM_HbA1c_GLP1": {
+  "dose": [
+   {
+    "nct_id": "NCT03131687",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -1.4713793103448274,
+    "se": 0.08389031483505631,
+    "dose": 6.4,
+    "baseline": 8.13857142857143,
+    "weeks": null,
+    "enroll": 318.0,
+    "year": 2017.0
+   },
+   {
+    "nct_id": "NCT02597049",
+    "klabel": "GLP1",
+    "molecule": "glutide",
+    "y": -0.7381693772312575,
+    "se": 0.04526806394250232,
+    "dose": 1.125,
+    "baseline": 8.0425,
+    "weeks": null,
+    "enroll": 424.0,
+    "year": 2015.0
+   },
+   {
+    "nct_id": "NCT02973100",
+    "klabel": "GLP1",
+    "molecule": "glutide",
+    "y": -0.8756535801918356,
+    "se": 0.08001656030005445,
+    "dose": 3.0,
+    "baseline": 8.094,
+    "weeks": null,
+    "enroll": 318.0,
+    "year": 2016.0
+   },
+   {
+    "nct_id": "NCT03954834",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -1.982447202264315,
+    "se": 0.08198044892467232,
+    "dose": 10.0,
+    "baseline": 7.942,
+    "weeks": null,
+    "enroll": 478.0,
+    "year": 2019.0
+   },
+   {
+    "nct_id": "NCT04591626",
+    "klabel": "GLP1",
+    "molecule": "glutide",
+    "y": -0.95,
+    "se": 0.09438968142206981,
+    "dose": 1.5,
+    "baseline": 8.59,
+    "weeks": null,
+    "enroll": 291.0,
+    "year": 2020.0
+   },
+   {
+    "nct_id": "NCT03311724",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -2.033333333333333,
+    "se": 0.16201486155548797,
+    "dose": 14.0,
+    "baseline": 8.352,
+    "weeks": 13.035000000000002,
+    "enroll": 111.0,
+    "year": 2017.0
+   },
+   {
+    "nct_id": "NCT05963022",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -1.2245273866469042,
+    "se": 0.10258158189101792,
+    "dose": 10.0,
+    "baseline": 8.022,
+    "weeks": null,
+    "enroll": 206.0,
+    "year": 2023.0
+   },
+   {
+    "nct_id": "NCT04039503",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -1.5366666666666668,
+    "se": 0.06627880699997234,
+    "dose": 10.0,
+    "baseline": 8.314,
+    "weeks": null,
+    "enroll": 475.0,
+    "year": 2019.0
+   },
+   {
+    "nct_id": "NCT05260021",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -1.8006013563636136,
+    "se": 0.17871055102202962,
+    "dose": 8.333333333333334,
+    "baseline": 8.0425,
+    "weeks": null,
+    "enroll": 99.0,
+    "year": 2022.0
+   },
+   {
+    "nct_id": "NCT02963766",
+    "klabel": "GLP1",
+    "molecule": "glutide",
+    "y": -1.2705596107055959,
+    "se": 0.1799442289240076,
+    "dose": 1.125,
+    "baseline": 8.075000000000001,
+    "weeks": null,
+    "enroll": 154.0,
+    "year": 2016.0
+   },
+   {
+    "nct_id": "NCT04657003",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -2.013732645775486,
+    "se": 0.06401870996985928,
+    "dose": 12.5,
+    "baseline": null,
+    "weeks": null,
+    "enroll": 938.0,
+    "year": 2021.0
+   },
+   {
+    "nct_id": "NCT00894322",
+    "klabel": "GLP1",
+    "molecule": "exenatide",
+    "y": -0.9499999999999998,
+    "se": 0.2806179717953428,
+    "dose": 2.0,
+    "baseline": null,
+    "weeks": null,
+    "enroll": 65.0,
+    "year": 2009.0
+   }
+  ]
+ },
+ "Obesity_weight_GLP1": {
+  "baseline": [
+   {
+    "nct_id": "NCT05024032",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -6.600595832468223,
+    "se": 0.2483616421201216,
+    "dose": 12.5,
+    "baseline": 91.825,
+    "weeks": null,
+    "enroll": 210.0,
+    "year": 2021.0
+   },
+   {
+    "nct_id": "NCT02664441",
+    "klabel": "GLP1",
+    "molecule": "exenatide",
+    "y": -1.7,
+    "se": 1.1990040613073736,
+    "dose": null,
+    "baseline": 37.266666666666666,
+    "weeks": 36.0,
+    "enroll": 42.0,
+    "year": 2016.0
+   },
+   {
+    "nct_id": "NCT04184622",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -8.91412014257542,
+    "se": 0.11036473059862978,
+    "dose": 10.5,
+    "baseline": 104.798,
+    "weeks": null,
+    "enroll": 2539.0,
+    "year": 2019.0
+   },
+   {
+    "nct_id": "NCT04660643",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -10.466747344998309,
+    "se": 0.16192331814857513,
+    "dose": null,
+    "baseline": 107.30333333333333,
+    "weeks": null,
+    "enroll": 783.0,
+    "year": 2021.0
+   },
+   {
+    "nct_id": "NCT03311724",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -4.997091257791273,
+    "se": 0.6675903712945239,
+    "dose": 14.0,
+    "baseline": 88.968,
+    "weeks": 13.035000000000002,
+    "enroll": 111.0,
+    "year": 2017.0
+   },
+   {
+    "nct_id": "NCT04657003",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -5.590587940137263,
+    "se": 0.16067678257530654,
+    "dose": 12.5,
+    "baseline": 100.705,
+    "weeks": null,
+    "enroll": 938.0,
+    "year": 2021.0
+   },
+   {
+    "nct_id": "NCT01798706",
+    "klabel": "GLP1",
+    "molecule": "lixisenatide",
+    "y": -1.3200000000000003,
+    "se": 0.278832221065736,
+    "dose": null,
+    "baseline": 85.945,
+    "weeks": null,
+    "enroll": 350.0,
+    "year": 2013.0
+   },
+   {
+    "nct_id": "NCT04657016",
+    "klabel": "GLP1",
+    "molecule": "tirzepatide",
+    "y": -12.347772240999698,
+    "se": 0.2932869110598322,
+    "dose": null,
+    "baseline": 101.87666666666667,
+    "weeks": 72.0,
+    "enroll": 579.0,
+    "year": 2021.0
+   },
+   {
+    "nct_id": "NCT00894322",
+    "klabel": "GLP1",
+    "molecule": "exenatide",
+    "y": -1.03,
+    "se": 0.8699157125655627,
+    "dose": 2.0,
+    "baseline": 66.7125,
+    "weeks": null,
+    "enroll": 65.0,
+    "year": 2009.0
+   }
+  ]
+ }
+}

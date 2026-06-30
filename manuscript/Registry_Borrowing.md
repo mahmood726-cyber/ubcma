@@ -2,6 +2,11 @@
 
 *Methods report — branch `methods-borrowing`, F:\ubcma\borrowing · 2026-06-30*
 
+> **Build status.** §4.6 (replication across slices, added 2026-06-30) is in this
+> markdown but **not yet in `Registry_Borrowing.docx`** — rebuild via
+> `manuscript/build_borrowing_docx.js` before submission. Replication artifacts:
+> `REPORT_BORROWING_REPLICATION.md`, `borrowing/replication/`.
+
 > **Provenance.** Every quantitative claim below is transcribed from one of three
 > committed pilot reports (`REPORT_BORROWING_PILOT.md`, `…PILOT2.md`, `…PILOT3.md`)
 > and the result artifacts they were built from (`pilot_bootstrap.json`,
@@ -281,6 +286,37 @@ All four binding requirements now pass: beat NMA in sparse (off-centre cells), b
 (real LOO + sim; inert at β = 0 as required), no worse in rich (no harm cell remains anywhere),
 calibrated coverage / negative controls. **Relevance-weighted borrowing is real, exactly to the degree
 a real, measured covariate predicts the effect.**
+
+### 4.6 Replication across slices — reproducible phenomenon, bounded at N = 2
+
+> *Added 2026-06-30 (`REPORT_BORROWING_REPLICATION.md`, `borrowing/replication/`).*
+
+To test whether the §4 win is a one-slice artefact, we re-ran the identical five-way
+LOO gate on **11 condition/outcome/drug-class domains** of AACT, admitting a slice
+only if a within-class continuous modifier passed a pre-registered gate (n ≥ 8,
+permutation *p* < 0.05, ≥ 4 unique values, Simpson guard: single-molecule or
+within-molecule sign-preserving). **Two slices qualified** and relevance beat **both**
+nulls on **both** (2/2): the **GLP1 dose → HbA1c** anchor (reproduced: rel−uniform
+−0.180 [−0.305, −0.037]) and a **new** slice — **baseline body-weight → weight loss
+within GLP1** (rel−uniform −0.497 [−1.055, −0.099]; rel−scrambled −0.599 [−1.250,
+−0.028]) — replicating on a **different outcome and a different modifier *type***
+(baseline severity, not dose). Relevance was correctly **inert on 3/3 real flat
+slices** (e.g. dapagliflozin dose → HbA1c, where SGLT2 dose plateaus: rel−uniform
++0.005) — the in-data analogue of the §4.3 β = 0 control. It **failed honestly**
+where the modifier was out-of-sample-unreliable: vortioxetine dose → MADRS has
+R² = 1.00 in-sample but **permutation *p* = 0.61** and loses the LOO (rel−scrambled
++0.359) — the permutation gate prevented a false positive.
+
+The scale-free pooled fractional MAE reduction across the two clean slices is
+**−25.8 % [−51.2 %, −0.4 %] vs the scrambled null (robust)** and **−23.3 %
+[−48.5 %, +1.9 %] vs the no-relevance null (suggestive; CI marginally crosses 0 at
+N = 2)**. **Verdict: the win is no longer single-slice — it reproduces on an
+independent modifier — but is bounded by only two clean GLP1-class slices.** The
+rate-limiting step for a fully robust, multi-class contribution is a non-GLP1 slice
+with a clean, permutation-robust within-class modifier; the depression and
+schizophrenia *within-molecule* dose signals (real at *p* < .001 but pooled-masked
+by Simpson, and lacking ≥ 8 single-molecule placebo-anchored trials) are the leading
+candidates, likely reachable only via IPD.
 
 ---
 

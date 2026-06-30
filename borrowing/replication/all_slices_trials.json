@@ -1,0 +1,2425 @@
+{
+ "T2DM_HbA1c:dapagliflozin:dose": {
+  "tier": "flat",
+  "key": "dose",
+  "n": 15,
+  "slope": -0.007478940760458506,
+  "perm_p": 0.5585,
+  "R2": 0.446619245891546,
+  "single_mol": true,
+  "trials": [
+   {
+    "nct_id": "NCT01294423",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.37059688195991086,
+    "se": 0.06040981148527124,
+    "dose": 7.5,
+    "baseline": 7.487500000000001,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01095653",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.785,
+    "se": 0.06854746445103166,
+    "dose": 7.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00736879",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.7551553410254677,
+    "se": 0.09718659998301069,
+    "dose": 2.8333333333333335,
+    "baseline": 7.914,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00683878",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.47338728323699414,
+    "se": 0.08386590347686194,
+    "dose": 7.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00680745",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.534780887757987,
+    "se": 0.05104488476323741,
+    "dose": 5.833333333333333,
+    "baseline": 8.111999999999998,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01217892",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.2830601336302896,
+    "se": 0.06040981148527124,
+    "dose": 3.75,
+    "baseline": 7.8,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01392677",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6900000000000001,
+    "se": 0.1020428988346701,
+    "dose": 10.0,
+    "baseline": 8.16,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00357370",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.74,
+    "se": 0.13709492890206332,
+    "dose": 15.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00673231",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.5215612327656124,
+    "se": 0.04171404346552172,
+    "dose": 5.833333333333333,
+    "baseline": 8.53,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01137474",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.46,
+    "se": 0.06632788424253555,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01095666",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6049999999999999,
+    "se": 0.061331941877238866,
+    "dose": 7.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00972244",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6052191109001741,
+    "se": 0.050055810682287004,
+    "dose": 4.625,
+    "baseline": 8.073333333333332,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02725593",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.75,
+    "se": 0.45919304475601536,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01619059",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.35,
+    "se": 0.08673646400946959,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01195662",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.61,
+    "se": 0.07653217412600258,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   }
+  ]
+ },
+ "T2DM_HbA1c:ALL:dose": {
+  "tier": "flat",
+  "key": "dose",
+  "n": 36,
+  "slope": 0.0002847043743120616,
+  "perm_p": 0.923,
+  "R2": 0.6259987832337088,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT00918879",
+    "domain": "T2DM_HbA1c",
+    "molecule": "saxagliptin",
+    "y": -0.46,
+    "se": 0.1403089858976714,
+    "dose": 5.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00350779",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.7410254372019077,
+    "se": 0.08933138585070287,
+    "dose": 100.0,
+    "baseline": 8.766666666666667,
+    "weeks": 18.0
+   },
+   {
+    "nct_id": "NCT01294423",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.37059688195991086,
+    "se": 0.06040981148527124,
+    "dose": 7.5,
+    "baseline": 7.487500000000001,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04039503",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.5366666666666668,
+    "se": 0.06627880699997234,
+    "dose": 10.0,
+    "baseline": 8.314,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01095653",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.785,
+    "se": 0.06854746445103166,
+    "dose": 7.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00736879",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.7551553410254677,
+    "se": 0.09718659998301069,
+    "dose": 2.8333333333333335,
+    "baseline": 7.914,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03131687",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.4713793103448276,
+    "se": 0.08389031483505631,
+    "dose": 6.4,
+    "baseline": 8.13857142857143,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00683878",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.47338728323699414,
+    "se": 0.08386590347686194,
+    "dose": 7.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00680745",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.534780887757987,
+    "se": 0.05104488476323741,
+    "dose": 5.833333333333333,
+    "baseline": 8.111999999999998,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05963022",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.2245273866469042,
+    "se": 0.10258158189101792,
+    "dose": 10.0,
+    "baseline": 8.022,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04591626",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dulaglutide",
+    "y": -0.95,
+    "se": 0.09438968142206981,
+    "dose": 1.5,
+    "baseline": 8.59,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01217892",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.2830601336302896,
+    "se": 0.06040981148527124,
+    "dose": 3.75,
+    "baseline": 7.8,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02558296",
+    "domain": "T2DM_HbA1c",
+    "molecule": "bexagliflozin",
+    "y": -0.4661795109518879,
+    "se": 0.013806539032444635,
+    "dose": 20.0,
+    "baseline": null,
+    "weeks": 24.0
+   },
+   {
+    "nct_id": "NCT03311724",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -2.033333333333333,
+    "se": 0.16201486155548797,
+    "dose": 14.0,
+    "baseline": 8.352,
+    "weeks": 13.035000000000002
+   },
+   {
+    "nct_id": "NCT00127192",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.9141343132823693,
+    "se": 0.04364808807090753,
+    "dose": 93.75,
+    "baseline": 7.616666666666667,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01392677",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6900000000000001,
+    "se": 0.1020428988346701,
+    "dose": 10.0,
+    "baseline": 8.16,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02597049",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dulaglutide",
+    "y": -0.7381693772312575,
+    "se": 0.04526806394250232,
+    "dose": 1.125,
+    "baseline": 8.0425,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02647320",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.43,
+    "se": 0.1392181895555961,
+    "dose": 100.0,
+    "baseline": 7.941666666666667,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00357370",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.74,
+    "se": 0.13709492890206332,
+    "dose": 15.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00673231",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.5215612327656124,
+    "se": 0.04171404346552172,
+    "dose": 5.833333333333333,
+    "baseline": 8.53,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01137474",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.46,
+    "se": 0.06632788424253555,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02973100",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dulaglutide",
+    "y": -0.8756535801918359,
+    "se": 0.08001656030005445,
+    "dose": 3.0,
+    "baseline": 8.094,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01095666",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6049999999999999,
+    "se": 0.061331941877238866,
+    "dose": 7.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03954834",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.9824472022643154,
+    "se": 0.08198044892467232,
+    "dose": 10.0,
+    "baseline": 7.942,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00972244",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6052191109001741,
+    "se": 0.050055810682287004,
+    "dose": 4.625,
+    "baseline": 8.073333333333332,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02725593",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.75,
+    "se": 0.45919304475601536,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00661362",
+    "domain": "T2DM_HbA1c",
+    "molecule": "saxagliptin",
+    "y": -0.42,
+    "se": 0.06632788424253558,
+    "dose": 5.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04657003",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -2.013732645775486,
+    "se": 0.06401870996985928,
+    "dose": 12.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00894322",
+    "domain": "T2DM_HbA1c",
+    "molecule": "exenatide",
+    "y": -0.9499999999999998,
+    "se": 0.2806179717953428,
+    "dose": 2.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01619059",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.35,
+    "se": 0.08673646400946959,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02963766",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dulaglutide",
+    "y": -1.270559610705596,
+    "se": 0.1799442289240076,
+    "dose": 1.125,
+    "baseline": 8.075000000000001,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00289848",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -1.03,
+    "se": 0.1020428988346701,
+    "dose": 100.0,
+    "baseline": 8.743333333333334,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00698932",
+    "domain": "T2DM_HbA1c",
+    "molecule": "saxagliptin",
+    "y": -0.5,
+    "se": 0.07908324659686933,
+    "dose": 5.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01195662",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.61,
+    "se": 0.07653217412600258,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05260021",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.8006013563636136,
+    "se": 0.17871055102202962,
+    "dose": 8.333333333333334,
+    "baseline": 8.0425,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02512068",
+    "domain": "T2DM_HbA1c",
+    "molecule": "trelagliptin",
+    "y": -0.72,
+    "se": 0.1257678728137309,
+    "dose": 25.0,
+    "baseline": 7.653333333333333,
+    "weeks": null
+   }
+  ]
+ },
+ "T2DM_HbA1c:ALL:baseline": {
+  "tier": "flat",
+  "key": "baseline",
+  "n": 31,
+  "slope": -0.09259329894637444,
+  "perm_p": 0.7175,
+  "R2": 0.2692383127564132,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT00350779",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.7410254372019077,
+    "se": 0.08933138585070287,
+    "dose": 100.0,
+    "baseline": 8.766666666666667,
+    "weeks": 18.0
+   },
+   {
+    "nct_id": "NCT01294423",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.37059688195991086,
+    "se": 0.06040981148527124,
+    "dose": 7.5,
+    "baseline": 7.487500000000001,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04039503",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.5366666666666668,
+    "se": 0.06627880699997234,
+    "dose": 10.0,
+    "baseline": 8.314,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00541775",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.51,
+    "se": 0.09694075389293658,
+    "dose": null,
+    "baseline": 7.725,
+    "weeks": 18.0
+   },
+   {
+    "nct_id": "NCT00736879",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.7551553410254677,
+    "se": 0.09718659998301069,
+    "dose": 2.8333333333333335,
+    "baseline": 7.914,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03131687",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.4713793103448276,
+    "se": 0.08389031483505631,
+    "dose": 6.4,
+    "baseline": 8.13857142857143,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00680745",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.534780887757987,
+    "se": 0.05104488476323741,
+    "dose": 5.833333333333333,
+    "baseline": 8.111999999999998,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02157298",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6,
+    "se": 0.10714504377640362,
+    "dose": null,
+    "baseline": 8.373333333333333,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05963022",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.2245273866469042,
+    "se": 0.10258158189101792,
+    "dose": 10.0,
+    "baseline": 8.022,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00984867",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.5842157235093048,
+    "se": 0.05985822764701729,
+    "dose": null,
+    "baseline": 7.933333333333334,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04591626",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dulaglutide",
+    "y": -0.95,
+    "se": 0.09438968142206981,
+    "dose": 1.5,
+    "baseline": 8.59,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01217892",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.2830601336302896,
+    "se": 0.06040981148527124,
+    "dose": 3.75,
+    "baseline": 7.8,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01606007",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.4263223249669749,
+    "se": 0.07845325849314282,
+    "dose": null,
+    "baseline": 8.94,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03311724",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -2.033333333333333,
+    "se": 0.16201486155548797,
+    "dose": 14.0,
+    "baseline": 8.352,
+    "weeks": 13.035000000000002
+   },
+   {
+    "nct_id": "NCT00127192",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.9141343132823693,
+    "se": 0.04364808807090753,
+    "dose": 93.75,
+    "baseline": 7.616666666666667,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01392677",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6900000000000001,
+    "se": 0.1020428988346701,
+    "dose": 10.0,
+    "baseline": 8.16,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02597049",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dulaglutide",
+    "y": -0.7381693772312575,
+    "se": 0.04526806394250232,
+    "dose": 1.125,
+    "baseline": 8.0425,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02647320",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.43,
+    "se": 0.1392181895555961,
+    "dose": 100.0,
+    "baseline": 7.941666666666667,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00305604",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.7,
+    "se": 0.11990040613073738,
+    "dose": null,
+    "baseline": 7.8,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02429258",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.22999999999999998,
+    "se": 0.1020428988346701,
+    "dose": null,
+    "baseline": 8.34,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00673231",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.5215612327656124,
+    "se": 0.04171404346552172,
+    "dose": 5.833333333333333,
+    "baseline": 8.53,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02973100",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dulaglutide",
+    "y": -0.8756535801918359,
+    "se": 0.08001656030005445,
+    "dose": 3.0,
+    "baseline": 8.094,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01128153",
+    "domain": "T2DM_HbA1c",
+    "molecule": "saxagliptin",
+    "y": -0.66,
+    "se": 0.09949182636380335,
+    "dose": null,
+    "baseline": 8.283333333333333,
+    "weeks": 24.0
+   },
+   {
+    "nct_id": "NCT03954834",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.9824472022643154,
+    "se": 0.08198044892467232,
+    "dose": 10.0,
+    "baseline": 7.942,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00972244",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.6052191109001741,
+    "se": 0.050055810682287004,
+    "dose": 4.625,
+    "baseline": 8.073333333333332,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02963766",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dulaglutide",
+    "y": -1.270559610705596,
+    "se": 0.1799442289240076,
+    "dose": 1.125,
+    "baseline": 8.075000000000001,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00289848",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -1.03,
+    "se": 0.1020428988346701,
+    "dose": 100.0,
+    "baseline": 8.743333333333334,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05260021",
+    "domain": "T2DM_HbA1c",
+    "molecule": "tirzepatide",
+    "y": -1.8006013563636136,
+    "se": 0.17871055102202962,
+    "dose": 8.333333333333334,
+    "baseline": 8.0425,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00372060",
+    "domain": "T2DM_HbA1c",
+    "molecule": "sitagliptin",
+    "y": -0.8,
+    "se": 0.1020428988346701,
+    "dose": null,
+    "baseline": 7.666666666666667,
+    "weeks": 12.0
+   },
+   {
+    "nct_id": "NCT02512068",
+    "domain": "T2DM_HbA1c",
+    "molecule": "trelagliptin",
+    "y": -0.72,
+    "se": 0.1257678728137309,
+    "dose": 25.0,
+    "baseline": 7.653333333333333,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01042977",
+    "domain": "T2DM_HbA1c",
+    "molecule": "dapagliflozin",
+    "y": -0.4,
+    "se": 0.05102144941733505,
+    "dose": null,
+    "baseline": 8.06,
+    "weeks": null
+   }
+  ]
+ },
+ "T2DM_HbA1c_GLP1only:ALL:dose": {
+  "tier": "clean",
+  "key": "dose",
+  "n": 12,
+  "slope": -0.09173889168646263,
+  "perm_p": 0.01,
+  "R2": 0.9268554408707854,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT02973100",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "dulaglutide",
+    "y": -0.8756535801918359,
+    "se": 0.08001656030005445,
+    "dose": 3.0,
+    "baseline": 8.094,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00894322",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "exenatide",
+    "y": -0.9499999999999998,
+    "se": 0.2806179717953428,
+    "dose": 2.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02597049",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "dulaglutide",
+    "y": -0.7381693772312575,
+    "se": 0.04526806394250232,
+    "dose": 1.125,
+    "baseline": 8.0425,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02963766",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "dulaglutide",
+    "y": -1.270559610705596,
+    "se": 0.1799442289240076,
+    "dose": 1.125,
+    "baseline": 8.075000000000001,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04657003",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -2.013732645775486,
+    "se": 0.06401870996985928,
+    "dose": 12.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03954834",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.9824472022643154,
+    "se": 0.08198044892467232,
+    "dose": 10.0,
+    "baseline": 7.942,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03131687",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.4713793103448276,
+    "se": 0.08389031483505631,
+    "dose": 6.4,
+    "baseline": 8.13857142857143,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04039503",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.5366666666666668,
+    "se": 0.06627880699997234,
+    "dose": 10.0,
+    "baseline": 8.314,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03311724",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -2.033333333333333,
+    "se": 0.16201486155548797,
+    "dose": 14.0,
+    "baseline": 8.352,
+    "weeks": 13.035000000000002
+   },
+   {
+    "nct_id": "NCT05963022",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.2245273866469042,
+    "se": 0.10258158189101792,
+    "dose": 10.0,
+    "baseline": 8.022,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04591626",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "dulaglutide",
+    "y": -0.95,
+    "se": 0.09438968142206981,
+    "dose": 1.5,
+    "baseline": 8.59,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05260021",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.8006013563636136,
+    "se": 0.17871055102202962,
+    "dose": 8.333333333333334,
+    "baseline": 8.0425,
+    "weeks": null
+   }
+  ]
+ },
+ "T2DM_HbA1c_GLP1only:ALL:baseline": {
+  "tier": "flat",
+  "key": "baseline",
+  "n": 10,
+  "slope": -0.1448405062893377,
+  "perm_p": 0.914,
+  "R2": 1.0,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT02973100",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "dulaglutide",
+    "y": -0.8756535801918359,
+    "se": 0.08001656030005445,
+    "dose": 3.0,
+    "baseline": 8.094,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02597049",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "dulaglutide",
+    "y": -0.7381693772312575,
+    "se": 0.04526806394250232,
+    "dose": 1.125,
+    "baseline": 8.0425,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02963766",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "dulaglutide",
+    "y": -1.270559610705596,
+    "se": 0.1799442289240076,
+    "dose": 1.125,
+    "baseline": 8.075000000000001,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03954834",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.9824472022643154,
+    "se": 0.08198044892467232,
+    "dose": 10.0,
+    "baseline": 7.942,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03131687",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.4713793103448276,
+    "se": 0.08389031483505631,
+    "dose": 6.4,
+    "baseline": 8.13857142857143,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04039503",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.5366666666666668,
+    "se": 0.06627880699997234,
+    "dose": 10.0,
+    "baseline": 8.314,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03311724",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -2.033333333333333,
+    "se": 0.16201486155548797,
+    "dose": 14.0,
+    "baseline": 8.352,
+    "weeks": 13.035000000000002
+   },
+   {
+    "nct_id": "NCT05963022",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.2245273866469042,
+    "se": 0.10258158189101792,
+    "dose": 10.0,
+    "baseline": 8.022,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04591626",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "dulaglutide",
+    "y": -0.95,
+    "se": 0.09438968142206981,
+    "dose": 1.5,
+    "baseline": 8.59,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05260021",
+    "domain": "T2DM_HbA1c_GLP1only",
+    "molecule": "tirzepatide",
+    "y": -1.8006013563636136,
+    "se": 0.17871055102202962,
+    "dose": 8.333333333333334,
+    "baseline": 8.0425,
+    "weeks": null
+   }
+  ]
+ },
+ "Obesity_weight:tirzepatide:dose": {
+  "tier": "nearmiss",
+  "key": "dose",
+  "n": 11,
+  "slope": -1.7691322641295004,
+  "perm_p": 0.109,
+  "R2": 1.0,
+  "single_mol": true,
+  "trials": [
+   {
+    "nct_id": "NCT05024032",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -6.600595832468223,
+    "se": 0.2483616421201216,
+    "dose": 12.5,
+    "baseline": 91.825,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04184622",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -8.914120142575419,
+    "se": 0.11036473059862976,
+    "dose": 10.5,
+    "baseline": 104.798,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05963022",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -5.422272624177819,
+    "se": 0.5693783511917302,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04844918",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -8.422443774840868,
+    "se": 0.27477174078775474,
+    "dose": 12.5,
+    "baseline": null,
+    "weeks": 72.0
+   },
+   {
+    "nct_id": "NCT03311724",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -4.997091257791273,
+    "se": 0.6675903712945239,
+    "dose": 14.0,
+    "baseline": 88.96799999999999,
+    "weeks": 13.035000000000002
+   },
+   {
+    "nct_id": "NCT03954834",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -7.3999999999999995,
+    "se": 0.4565873371109206,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03131687",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -4.342923211952308,
+    "se": 0.6477246759700704,
+    "dose": 5.333333333333333,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05260021",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -0.51,
+    "se": 0.05463826631976662,
+    "dose": 8.333333333333334,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04657003",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -5.590587940137263,
+    "se": 0.16067678257530654,
+    "dose": 12.5,
+    "baseline": 100.705,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04039503",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -10.05081466395112,
+    "se": 0.4662491972920064,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04081337",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -8.47,
+    "se": 1.3112512500255105,
+    "dose": 15.0,
+    "baseline": null,
+    "weeks": null
+   }
+  ]
+ },
+ "Obesity_weight:ALL:dose": {
+  "tier": "nearmiss",
+  "key": "dose",
+  "n": 17,
+  "slope": -0.5176218918270844,
+  "perm_p": 0.149,
+  "R2": 1.0,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT05024032",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -6.600595832468223,
+    "se": 0.2483616421201216,
+    "dose": 12.5,
+    "baseline": 91.825,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04184622",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -8.914120142575419,
+    "se": 0.11036473059862976,
+    "dose": 10.5,
+    "baseline": 104.798,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05963022",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -5.422272624177819,
+    "se": 0.5693783511917302,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02973100",
+    "domain": "Obesity_weight",
+    "molecule": "dulaglutide",
+    "y": -2.0503903477643712,
+    "se": 0.3139852705368373,
+    "dose": 3.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02597049",
+    "domain": "Obesity_weight",
+    "molecule": "dulaglutide",
+    "y": -0.625,
+    "se": 0.21684116002367396,
+    "dose": 1.125,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04844918",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -8.422443774840868,
+    "se": 0.27477174078775474,
+    "dose": 12.5,
+    "baseline": null,
+    "weeks": 72.0
+   },
+   {
+    "nct_id": "NCT02963766",
+    "domain": "Obesity_weight",
+    "molecule": "dulaglutide",
+    "y": -0.0672161005372917,
+    "se": 0.16067406672542742,
+    "dose": 1.125,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03311724",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -4.997091257791273,
+    "se": 0.6675903712945239,
+    "dose": 14.0,
+    "baseline": 88.96799999999999,
+    "weeks": 13.035000000000002
+   },
+   {
+    "nct_id": "NCT03954834",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -7.3999999999999995,
+    "se": 0.4565873371109206,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03131687",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -4.342923211952308,
+    "se": 0.6477246759700704,
+    "dose": 5.333333333333333,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05260021",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -0.51,
+    "se": 0.05463826631976662,
+    "dose": 8.333333333333334,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04657003",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -5.590587940137263,
+    "se": 0.16067678257530654,
+    "dose": 12.5,
+    "baseline": 100.705,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04591626",
+    "domain": "Obesity_weight",
+    "molecule": "dulaglutide",
+    "y": -1.18,
+    "se": 0.29847547909141003,
+    "dose": 1.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04039503",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -10.05081466395112,
+    "se": 0.4662491972920064,
+    "dose": 10.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04081337",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -8.47,
+    "se": 1.3112512500255105,
+    "dose": 15.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01272219",
+    "domain": "Obesity_weight",
+    "molecule": "liraglutide",
+    "y": -5.39,
+    "se": 0.22194330496540748,
+    "dose": 3.0,
+    "baseline": 72.03,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00894322",
+    "domain": "Obesity_weight",
+    "molecule": "exenatide",
+    "y": -1.03,
+    "se": 0.8699157125655627,
+    "dose": 2.0,
+    "baseline": 66.7125,
+    "weeks": null
+   }
+  ]
+ },
+ "Obesity_weight:ALL:baseline": {
+  "tier": "clean",
+  "key": "baseline",
+  "n": 9,
+  "slope": -0.13655391327928743,
+  "perm_p": 0.0015,
+  "R2": 0.5836599480492424,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT05024032",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -6.600595832468223,
+    "se": 0.2483616421201216,
+    "dose": 12.5,
+    "baseline": 91.825,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04184622",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -8.914120142575419,
+    "se": 0.11036473059862976,
+    "dose": 10.5,
+    "baseline": 104.798,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03311724",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -4.997091257791273,
+    "se": 0.6675903712945239,
+    "dose": 14.0,
+    "baseline": 88.96799999999999,
+    "weeks": 13.035000000000002
+   },
+   {
+    "nct_id": "NCT04660643",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -10.466747344998309,
+    "se": 0.16192331814857513,
+    "dose": null,
+    "baseline": 107.30333333333334,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT04657003",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -5.590587940137263,
+    "se": 0.16067678257530654,
+    "dose": 12.5,
+    "baseline": 100.705,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02664441",
+    "domain": "Obesity_weight",
+    "molecule": "exenatide",
+    "y": -1.7,
+    "se": 1.1990040613073736,
+    "dose": null,
+    "baseline": 37.266666666666666,
+    "weeks": 36.0
+   },
+   {
+    "nct_id": "NCT04657016",
+    "domain": "Obesity_weight",
+    "molecule": "tirzepatide",
+    "y": -12.347772240999698,
+    "se": 0.2932869110598322,
+    "dose": null,
+    "baseline": 101.87666666666667,
+    "weeks": 72.0
+   },
+   {
+    "nct_id": "NCT01272219",
+    "domain": "Obesity_weight",
+    "molecule": "liraglutide",
+    "y": -5.39,
+    "se": 0.22194330496540748,
+    "dose": 3.0,
+    "baseline": 72.03,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00894322",
+    "domain": "Obesity_weight",
+    "molecule": "exenatide",
+    "y": -1.03,
+    "se": 0.8699157125655627,
+    "dose": 2.0,
+    "baseline": 66.7125,
+    "weeks": null
+   }
+  ]
+ },
+ "Depression:vortioxetine:dose": {
+  "tier": "flat",
+  "key": "dose",
+  "n": 17,
+  "slope": -0.054686682963963534,
+  "perm_p": 0.6045,
+  "R2": 1.0,
+  "single_mol": true,
+  "trials": [
+   {
+    "nct_id": "NCT00596817",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.6159745291511483,
+    "se": 0.4220214897034841,
+    "dose": 10.0,
+    "baseline": 10.257499999999997,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00735709",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -4.260041259208416,
+    "se": 0.4869735554975627,
+    "dose": 5.333333333333333,
+    "baseline": 27.813333333333333,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01179516",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -0.3416977019145559,
+    "se": 0.8872524991417504,
+    "dose": 12.5,
+    "baseline": 26.8,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02709746",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -0.7198675725034532,
+    "se": 0.7406336081467831,
+    "dose": 16.666666666666668,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02371980",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.572107837087544,
+    "se": 0.17665872759519863,
+    "dose": 12.2,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00635219",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.5769371621039832,
+    "se": 0.3539229257358633,
+    "dose": 19.375,
+    "baseline": 31.024999999999995,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02389816",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.185639401006644,
+    "se": 0.4278561503068626,
+    "dose": 15.0,
+    "baseline": 26.362499999999997,
+    "weeks": 8.0
+   },
+   {
+    "nct_id": "NCT01153009",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.4775191685123596,
+    "se": 0.6223776233202593,
+    "dose": 31.666666666666668,
+    "baseline": 24.89,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00811252",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.5990604636677055,
+    "se": 0.2340366012647211,
+    "dose": 30.0,
+    "baseline": 29.75,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01355081",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.04,
+    "se": 1.2367599338762016,
+    "dose": 10.0,
+    "baseline": 26.799999999999997,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01255787",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.378685937512501,
+    "se": 0.7742543429782004,
+    "dose": 11.666666666666666,
+    "baseline": 25.19,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00839423",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.829001343919955,
+    "se": 0.32699346743451574,
+    "dose": 61.875,
+    "baseline": 31.809999999999995,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02709655",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.3043570935115945,
+    "se": 0.7177917712538718,
+    "dose": 16.666666666666668,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01140906",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -7.186842928574333,
+    "se": 0.5120834101929943,
+    "dose": 31.666666666666668,
+    "baseline": 31.419999999999998,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01163266",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -3.704179002053446,
+    "se": 0.6990000669595977,
+    "dose": 15.0,
+    "baseline": 25.3125,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00672620",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.6853404744856644,
+    "se": 0.6018941864182472,
+    "dose": 22.5,
+    "baseline": 25.94,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01422213",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": 0.14248895721987373,
+    "se": 0.03698370732504553,
+    "dose": 14.0,
+    "baseline": 31.567500000000003,
+    "weeks": null
+   }
+  ]
+ },
+ "Depression:ALL:dose": {
+  "tier": "flat",
+  "key": "dose",
+  "n": 26,
+  "slope": 0.004989759206550413,
+  "perm_p": 0.7955,
+  "R2": 1.0,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT01377194",
+    "domain": "Depression",
+    "molecule": "levomilnacipran",
+    "y": -3.2219247736405534,
+    "se": 0.7769311418379815,
+    "dose": 60.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00596817",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.6159745291511483,
+    "se": 0.4220214897034841,
+    "dose": 10.0,
+    "baseline": 10.257499999999997,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00735709",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -4.260041259208416,
+    "se": 0.4869735554975627,
+    "dose": 5.333333333333333,
+    "baseline": 27.813333333333333,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01179516",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -0.3416977019145559,
+    "se": 0.8872524991417504,
+    "dose": 12.5,
+    "baseline": 26.8,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00969709",
+    "domain": "Depression",
+    "molecule": "levomilnacipran",
+    "y": -4.017570086523196,
+    "se": 0.7977400538230508,
+    "dose": 80.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02709746",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -0.7198675725034532,
+    "se": 0.7406336081467831,
+    "dose": 16.666666666666668,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02371980",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.572107837087544,
+    "se": 0.17665872759519863,
+    "dose": 12.2,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00635219",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.5769371621039832,
+    "se": 0.3539229257358633,
+    "dose": 19.375,
+    "baseline": 31.024999999999995,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT03569475",
+    "domain": "Depression",
+    "molecule": "levomilnacipran",
+    "y": -1.7499096658370392,
+    "se": 0.9984467140078043,
+    "dose": 50.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01473381",
+    "domain": "Depression",
+    "molecule": "vilazodone",
+    "y": -2.3050085459027083,
+    "se": 0.49955101868234303,
+    "dose": 33.333333333333336,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00384033",
+    "domain": "Depression",
+    "molecule": "duloxetine",
+    "y": 0.35901357749939883,
+    "se": 0.1423787414348438,
+    "dose": 60.0,
+    "baseline": 23.458,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02389816",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.185639401006644,
+    "se": 0.4278561503068626,
+    "dose": 15.0,
+    "baseline": 26.362499999999997,
+    "weeks": 8.0
+   },
+   {
+    "nct_id": "NCT00807248",
+    "domain": "Depression",
+    "molecule": "citalopram",
+    "y": -2.0699935836708665,
+    "se": 0.5377556319484903,
+    "dose": 20.0,
+    "baseline": 35.04,
+    "weeks": 8.0
+   },
+   {
+    "nct_id": "NCT01153009",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.4775191685123596,
+    "se": 0.6223776233202593,
+    "dose": 31.666666666666668,
+    "baseline": 24.89,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00811252",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.5990604636677055,
+    "se": 0.2340366012647211,
+    "dose": 30.0,
+    "baseline": 29.75,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01355081",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.04,
+    "se": 1.2367599338762016,
+    "dose": 10.0,
+    "baseline": 26.799999999999997,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01441440",
+    "domain": "Depression",
+    "molecule": "venlafaxine",
+    "y": 1.3179569300232372,
+    "se": 0.23403442752209913,
+    "dose": 150.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01255787",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.378685937512501,
+    "se": 0.7742543429782004,
+    "dose": 11.666666666666666,
+    "baseline": 25.19,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00839423",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.829001343919955,
+    "se": 0.32699346743451574,
+    "dose": 61.875,
+    "baseline": 31.809999999999995,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02709655",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.3043570935115945,
+    "se": 0.7177917712538718,
+    "dose": 16.666666666666668,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01140906",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -7.186842928574333,
+    "se": 0.5120834101929943,
+    "dose": 31.666666666666668,
+    "baseline": 31.419999999999998,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01163266",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -3.704179002053446,
+    "se": 0.6990000669595977,
+    "dose": 15.0,
+    "baseline": 25.3125,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00672620",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.6853404744856644,
+    "se": 0.6018941864182472,
+    "dose": 22.5,
+    "baseline": 25.94,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02431806",
+    "domain": "Depression",
+    "molecule": "levomilnacipran",
+    "y": -0.06315781785523959,
+    "se": 1.0967193785144698,
+    "dose": 60.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01422213",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": 0.14248895721987373,
+    "se": 0.03698370732504553,
+    "dose": 14.0,
+    "baseline": 31.567500000000003,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01808612",
+    "domain": "Depression",
+    "molecule": "fluoxetine",
+    "y": 0.73,
+    "se": 0.6505234800710218,
+    "dose": 20.0,
+    "baseline": null,
+    "weeks": 6.0
+   }
+  ]
+ },
+ "Depression:ALL:baseline": {
+  "tier": "flat",
+  "key": "baseline",
+  "n": 21,
+  "slope": -0.09565727362235286,
+  "perm_p": 0.2265,
+  "R2": 0.3708885238800347,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT00596817",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.6159745291511483,
+    "se": 0.4220214897034841,
+    "dose": 10.0,
+    "baseline": 10.257499999999997,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00735709",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -4.260041259208416,
+    "se": 0.4869735554975627,
+    "dose": 5.333333333333333,
+    "baseline": 27.813333333333333,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01179516",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -0.3416977019145559,
+    "se": 0.8872524991417504,
+    "dose": 12.5,
+    "baseline": 26.8,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01000805",
+    "domain": "Depression",
+    "molecule": "duloxetine",
+    "y": -3.0939234756912906,
+    "se": 0.4446770395947097,
+    "dose": null,
+    "baseline": 30.149999999999995,
+    "weeks": 4.666666666666667
+   },
+   {
+    "nct_id": "NCT00635219",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.5769371621039832,
+    "se": 0.3539229257358633,
+    "dose": 19.375,
+    "baseline": 31.024999999999995,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00672958",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -0.26404163897679095,
+    "se": 0.28927997144237405,
+    "dose": null,
+    "baseline": 28.644444444444446,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00384033",
+    "domain": "Depression",
+    "molecule": "duloxetine",
+    "y": 0.35901357749939883,
+    "se": 0.1423787414348438,
+    "dose": 60.0,
+    "baseline": 23.458,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02389816",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.185639401006644,
+    "se": 0.4278561503068626,
+    "dose": 15.0,
+    "baseline": 26.362499999999997,
+    "weeks": 8.0
+   },
+   {
+    "nct_id": "NCT00807248",
+    "domain": "Depression",
+    "molecule": "citalopram",
+    "y": -2.0699935836708665,
+    "se": 0.5377556319484903,
+    "dose": 20.0,
+    "baseline": 35.04,
+    "weeks": 8.0
+   },
+   {
+    "nct_id": "NCT01687478",
+    "domain": "Depression",
+    "molecule": "fluoxetine",
+    "y": -1.6199999999999999,
+    "se": 1.7449335700728588,
+    "dose": null,
+    "baseline": 28.383333333333336,
+    "weeks": 8.0
+   },
+   {
+    "nct_id": "NCT01153009",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -2.4775191685123596,
+    "se": 0.6223776233202593,
+    "dose": 31.666666666666668,
+    "baseline": 24.89,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01070329",
+    "domain": "Depression",
+    "molecule": "duloxetine",
+    "y": -2.7874382424418287,
+    "se": 0.3819561039167595,
+    "dose": null,
+    "baseline": 29.95,
+    "weeks": 4.666666666666667
+   },
+   {
+    "nct_id": "NCT00811252",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.5990604636677055,
+    "se": 0.2340366012647211,
+    "dose": 30.0,
+    "baseline": 29.75,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01355081",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.04,
+    "se": 1.2367599338762016,
+    "dose": 10.0,
+    "baseline": 26.799999999999997,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01255787",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.378685937512501,
+    "se": 0.7742543429782004,
+    "dose": 11.666666666666666,
+    "baseline": 25.19,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00839423",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.829001343919955,
+    "se": 0.32699346743451574,
+    "dose": 61.875,
+    "baseline": 31.809999999999995,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01140906",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -7.186842928574333,
+    "se": 0.5120834101929943,
+    "dose": 31.666666666666668,
+    "baseline": 31.419999999999998,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01163266",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -3.704179002053446,
+    "se": 0.6990000669595977,
+    "dose": 15.0,
+    "baseline": 25.3125,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00672620",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": -1.6853404744856644,
+    "se": 0.6018941864182472,
+    "dose": 22.5,
+    "baseline": 25.94,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01422213",
+    "domain": "Depression",
+    "molecule": "vortioxetine",
+    "y": 0.14248895721987373,
+    "se": 0.03698370732504553,
+    "dose": 14.0,
+    "baseline": 31.567500000000003,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01635218",
+    "domain": "Depression",
+    "molecule": "fluoxetine",
+    "y": 3.2,
+    "se": 1.0051225535215005,
+    "dose": null,
+    "baseline": 20.825,
+    "weeks": 6.0
+   }
+  ]
+ },
+ "Schizophrenia_PANSS:ALL:dose": {
+  "tier": "flat",
+  "key": "dose",
+  "n": 15,
+  "slope": 0.0036271222804578913,
+  "perm_p": 0.8,
+  "R2": -2.51063910903431,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT01911429",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lurasidone",
+    "y": -7.85,
+    "se": 1.5693761597999356,
+    "dose": 60.0,
+    "baseline": null,
+    "weeks": 6.0
+   },
+   {
+    "nct_id": "NCT01821378",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lurasidone",
+    "y": -5.9046700982789835,
+    "se": 1.4393497626047174,
+    "dose": 105.0,
+    "baseline": null,
+    "weeks": 6.0
+   },
+   {
+    "nct_id": "NCT01098110",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "asenapine",
+    "y": -2.618455410079117,
+    "se": 0.17637375641180636,
+    "dose": 9.545454545454545,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01614899",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lurasidone",
+    "y": -1.3170091690953316,
+    "se": 0.31410692585590955,
+    "dose": 60.0,
+    "baseline": null,
+    "weeks": 6.0
+   },
+   {
+    "nct_id": "NCT01175135",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "risperidone",
+    "y": -1.8413614062347747,
+    "se": 0.1875093672114025,
+    "dose": 3.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01393613",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "brexpiprazole",
+    "y": -0.8263733663117352,
+    "se": 0.10210426777842359,
+    "dose": 2.3333333333333335,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01663532",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "aripiprazole",
+    "y": -2.3478514342915986,
+    "se": 0.13962505733438169,
+    "dose": 300.0,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02469155",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lumateperone",
+    "y": 0.30409913018875206,
+    "se": 1.2318563695131515,
+    "dose": 40.0,
+    "baseline": 89.9,
+    "weeks": 6.0
+   },
+   {
+    "nct_id": "NCT00694707",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "cariprazine",
+    "y": -10.398411633248056,
+    "se": 1.0840932443656979,
+    "dose": 3.25,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT05368558",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "cariprazine",
+    "y": -0.8861106453475154,
+    "se": 0.9034439988163886,
+    "dose": 4.5,
+    "baseline": 95.125,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00524043",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "paliperidone",
+    "y": -0.2870581704692084,
+    "se": 2.9690231549900545,
+    "dose": 3.75,
+    "baseline": null,
+    "weeks": 6.0
+   },
+   {
+    "nct_id": "NCT01104766",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "cariprazine",
+    "y": -7.3999999999999995,
+    "se": 1.4791821276275254,
+    "dose": 4.5,
+    "baseline": null,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02282761",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lumateperone",
+    "y": -3.407793830368549,
+    "se": 1.2960421103091544,
+    "dose": 50.0,
+    "baseline": 90.0,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01499563",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lumateperone",
+    "y": -3.372790204646736,
+    "se": 1.9391087664319373,
+    "dose": 90.0,
+    "baseline": 86.26,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01104779",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "cariprazine",
+    "y": -8.29863289594141,
+    "se": 1.6318393721819089,
+    "dose": 7.5,
+    "baseline": null,
+    "weeks": null
+   }
+  ]
+ },
+ "Schizophrenia_PANSS:ALL:baseline": {
+  "tier": "flat",
+  "key": "baseline",
+  "n": 8,
+  "slope": -0.05071076736021799,
+  "perm_p": 0.1715,
+  "R2": 0.4478594843139396,
+  "single_mol": false,
+  "trials": [
+   {
+    "nct_id": "NCT01810380",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "quetiapine",
+    "y": -6.05,
+    "se": 1.4972209340620075,
+    "dose": null,
+    "baseline": 98.34,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02876900",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "asenapine",
+    "y": -5.701402960955962,
+    "se": 1.1571883782825412,
+    "dose": null,
+    "baseline": 153.5,
+    "weeks": 6.0
+   },
+   {
+    "nct_id": "NCT03198078",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "aripiprazole",
+    "y": -1.5058232378231282,
+    "se": 0.3005366052911901,
+    "dose": null,
+    "baseline": 101.4,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT00396565",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "paliperidone",
+    "y": -3.7669835688738593,
+    "se": 0.41701392669509013,
+    "dose": null,
+    "baseline": 92.25,
+    "weeks": 6.0
+   },
+   {
+    "nct_id": "NCT02469155",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lumateperone",
+    "y": 0.30409913018875206,
+    "se": 1.2318563695131515,
+    "dose": 40.0,
+    "baseline": 89.9,
+    "weeks": 6.0
+   },
+   {
+    "nct_id": "NCT05368558",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "cariprazine",
+    "y": -0.8861106453475154,
+    "se": 0.9034439988163886,
+    "dose": 4.5,
+    "baseline": 95.125,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT02282761",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lumateperone",
+    "y": -3.407793830368549,
+    "se": 1.2960421103091544,
+    "dose": 50.0,
+    "baseline": 90.0,
+    "weeks": null
+   },
+   {
+    "nct_id": "NCT01499563",
+    "domain": "Schizophrenia_PANSS",
+    "molecule": "lumateperone",
+    "y": -3.372790204646736,
+    "se": 1.9391087664319373,
+    "dose": 90.0,
+    "baseline": 86.26,
+    "weeks": null
+   }
+  ]
+ }
+}
