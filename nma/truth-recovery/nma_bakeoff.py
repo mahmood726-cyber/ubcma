@@ -75,6 +75,15 @@ CELLS = {
     "select_strong_dense_n6": S.NetSpec(geom="full", n=6, studies_per_comp=(8, 15),
                                         hetero="homogeneous", tau_homog=0.10,
                                         selection="strong"),
+    # network-size sweep (Phase-3): identical to n6 headline except n. Tests the
+    # falsifiable mechanism that the MCIW0 robust win STRENGTHENS with n, because
+    # the mean-over-(n-1)-contrasts MCIW0 advantage has lower bootstrap variance.
+    "select_strong_dense_n7": S.NetSpec(geom="full", n=7, studies_per_comp=(8, 15),
+                                        hetero="homogeneous", tau_homog=0.10,
+                                        selection="strong"),
+    "select_strong_dense_n8": S.NetSpec(geom="full", n=8, studies_per_comp=(8, 15),
+                                        hetero="homogeneous", tau_homog=0.10,
+                                        selection="strong"),
     "select_moderate_dense": S.NetSpec(geom="full", n=5, studies_per_comp=(8, 15),
                                        hetero="homogeneous", tau_homog=0.10,
                                        selection="moderate"),
