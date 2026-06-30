@@ -1,0 +1,12 @@
+Reading data from: F:\ubcma-dta\truth-recovery-dta\dta_boundary_perrep.csv
+
+Written result to: F:\ubcma-dta\truth-recovery-dta\verify_boundary_agy_result.json
+
+cell       | strength   | reitsma    | adaptshrink  | darea      | ci_lo      | ci_hi      | frac_better  | robust | n_reps
+---------------------------------------------------------------------------------------------------------
+k6_thr     | strong     |     1.9084 |       1.7752 |    -0.1333 |    -0.2611 |    -0.0207 |       0.9885 | True   | 800   
+k8_thr     | strong     |     1.5257 |       1.4430 |    -0.0826 |    -0.2032 |     0.0059 |       0.9685 | False  | 800   
+k10_thr    | strong     |     1.3287 |       1.2022 |    -0.1264 |    -0.1888 |     0.0141 |       0.9510 | False  | 800   
+k12_thr    | strong     |     1.0062 |       0.9693 |    -0.0369 |    -0.0859 |     0.0204 |       0.8400 | False  | 800   
+k16_thr    | strong     |     0.7448 |       0.7090 |    -0.0357 |    -0.0783 |     0.0063 |       0.9425 | False  | 800   
+k20_thr    | strong     |     0.6377 |       0.6084 |    -0.0293 |    -0.0734 |     0.0138 |       0.9005 | False  | 800   

@@ -291,9 +291,12 @@ univariate arc: the payoff lives exactly where `Σ̂` is least identified (small
 The boundary grid's `k6_thr / k10_thr / k20_thr × {none,moderate,strong}` cells
 share the spec **and seed** of the Phase-2 focus grid. Every overlapping
 per-replicate fit reproduces focus to **0.00e+00** (`max|Δm1| = max|Δm2| =
-max|Δarea_raw| = 0` over all 800 reps × both methods × 3 strengths × 3 cells),
-confirming the DGP/seed pipeline is fully deterministic and the boundary grid is
-a faithful extension, not a re-tuned re-run.
+max|Δarea_raw| = 0` over all 800 reps × both methods × 3 strengths × 3 cells —
+14 400 matched rows), confirming the DGP/seed pipeline is fully deterministic and
+the boundary grid is a faithful extension, not a re-tuned re-run. Reproduced by
+an independent from-scratch checker that imports no project code
+(`verify_boundary_internal.py` → `verify_boundary_internal_result.json`,
+`bit_exact: true`).
 
 ### 7.3 Cross-vendor re-derivation of the headline (NMA-style)
 
@@ -327,7 +330,13 @@ The **deterministic `dArea` agrees across all three vendors to ≤5e-5 on every
 cell** (10/10 cells). Robustness verdicts are **unanimous everywhere except the
 k8 knife-edge** (all three `ci_hi` within ±0.006 of zero — 2/3 call it
 non-robust). The `noreen` Codex seat remains infra-blocked (unauthed) and was
-not used; agreement is therefore 2 external vendors + ubcma, all independent.
+not used; agreement is therefore **2 external vendors + ubcma + 1 from-scratch
+internal re-derivation** (`verify_boundary_internal.py`, no `ubcma`/`dta_bakeoff`
+import), all independent. The from-scratch path re-derives the deterministic
+`dArea` for **all 18 boundary cells** (not just the strong column) and matches
+the truth-gate to 4 dp on every one (k6/strong −0.1333 … k20/strong −0.0293; full
+none/moderate/strong grid), so the deterministic anchor is confirmed by four
+independent code paths.
 
 ### 7.4 Phase-3 verdict
 
@@ -341,8 +350,9 @@ not used; agreement is therefore 2 external vendors + ubcma, all independent.
   `dArea≈0` and never robustly worse at any k (k=6→20). The method does not pay
   a penalty where shrinkage is not needed.
 - **The headline numbers are reproducible to 4 dp by two independent external
-  re-implementations** that never touch the project code — the bake-off result,
-  not just the estimator, is now cross-vendor confirmed.
+  re-implementations** (agy, codex_pc2) plus **a from-scratch internal checker
+  that imports no project code** — the bake-off result, not just the estimator,
+  is now confirmed by four independent code paths.
 
 ## Files
 `src/ubcma/dta.py` (estimators + regions) · `tests/test_dta.py` (16 tests) ·
@@ -358,6 +368,9 @@ win-frontier map, 800 reps) · `make_boundary_map.py` (frontier renderer) ·
 `VENDOR_REDERIVE_TASK.md` + `VENDOR_REDERIVE_BOUNDARY_TASK.md` (vendor specs) ·
 `verify_rederive_{agy,codex_pc2}{.py,_result.json}` +
 `verify_boundary_{agy,codex_pc2}{.py,_result.json}` (independent vendor
-re-derivations) · `cross_vendor_rederive_table.json` +
+re-derivations) · `verify_boundary_internal.py` +
+`verify_boundary_internal_result.json` (from-scratch internal re-derivation,
+all 18 cells + bit-exact overlap, no project import) ·
+`cross_vendor_rederive_table.json` +
 `cross_vendor_boundary_table.json` (3-vendor agreement) ·
 `reference_fits.json` + `validate_*` + `verify_*` (validation & cross-checks).

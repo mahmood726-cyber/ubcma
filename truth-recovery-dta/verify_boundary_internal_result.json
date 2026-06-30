@@ -1,0 +1,180 @@
+{
+  "seat": "internal_rederive",
+  "imported_ubcma": false,
+  "input": "dta_boundary_perrep.csv",
+  "metric": "MCIW0-2D constant-region area (VENDOR_REDERIVE spec)",
+  "cells": [
+    {
+      "cell": "k6_thr",
+      "strength": "none",
+      "k": 6,
+      "area_reitsma": 1.6048547822634716,
+      "area_adaptshrink": 1.6609644764145983,
+      "darea": 0.056109694151126766,
+      "n_reps": 800
+    },
+    {
+      "cell": "k6_thr",
+      "strength": "moderate",
+      "k": 6,
+      "area_reitsma": 1.5540286196038666,
+      "area_adaptshrink": 1.4672188863073232,
+      "darea": -0.0868097332965434,
+      "n_reps": 800
+    },
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "k": 6,
+      "area_reitsma": 1.9084444795035012,
+      "area_adaptshrink": 1.7751587189179343,
+      "darea": -0.13328576058556685,
+      "n_reps": 800
+    },
+    {
+      "cell": "k8_thr",
+      "strength": "none",
+      "k": 8,
+      "area_reitsma": 1.2043949305021748,
+      "area_adaptshrink": 1.2381974091961885,
+      "darea": 0.03380247869401365,
+      "n_reps": 800
+    },
+    {
+      "cell": "k8_thr",
+      "strength": "moderate",
+      "k": 8,
+      "area_reitsma": 1.0550581746232337,
+      "area_adaptshrink": 1.0547273483416009,
+      "darea": -0.00033082628163283445,
+      "n_reps": 800
+    },
+    {
+      "cell": "k8_thr",
+      "strength": "strong",
+      "k": 8,
+      "area_reitsma": 1.525653230899388,
+      "area_adaptshrink": 1.4430238400161064,
+      "darea": -0.08262939088328158,
+      "n_reps": 800
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "none",
+      "k": 10,
+      "area_reitsma": 1.0436164113516342,
+      "area_adaptshrink": 1.0757649408136691,
+      "darea": 0.03214852946203495,
+      "n_reps": 800
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "moderate",
+      "k": 10,
+      "area_reitsma": 0.8861465952581753,
+      "area_adaptshrink": 0.8805992409841416,
+      "darea": -0.0055473542740337445,
+      "n_reps": 800
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "k": 10,
+      "area_reitsma": 1.3286828573971943,
+      "area_adaptshrink": 1.2022348178879978,
+      "darea": -0.12644803950919647,
+      "n_reps": 800
+    },
+    {
+      "cell": "k12_thr",
+      "strength": "none",
+      "k": 12,
+      "area_reitsma": 0.9095444425695094,
+      "area_adaptshrink": 0.9265318447840422,
+      "darea": 0.016987402214532765,
+      "n_reps": 800
+    },
+    {
+      "cell": "k12_thr",
+      "strength": "moderate",
+      "k": 12,
+      "area_reitsma": 0.7190164268494188,
+      "area_adaptshrink": 0.6911636883015525,
+      "darea": -0.027852738547866296,
+      "n_reps": 800
+    },
+    {
+      "cell": "k12_thr",
+      "strength": "strong",
+      "k": 12,
+      "area_reitsma": 1.006195182324404,
+      "area_adaptshrink": 0.9693022967013659,
+      "darea": -0.03689288562303805,
+      "n_reps": 800
+    },
+    {
+      "cell": "k16_thr",
+      "strength": "none",
+      "k": 16,
+      "area_reitsma": 0.7860515793051172,
+      "area_adaptshrink": 0.7792570768928473,
+      "darea": -0.006794502412269865,
+      "n_reps": 800
+    },
+    {
+      "cell": "k16_thr",
+      "strength": "moderate",
+      "k": 16,
+      "area_reitsma": 0.5174381097944514,
+      "area_adaptshrink": 0.5128428800522618,
+      "darea": -0.0045952297421896215,
+      "n_reps": 800
+    },
+    {
+      "cell": "k16_thr",
+      "strength": "strong",
+      "k": 16,
+      "area_reitsma": 0.7447617772072234,
+      "area_adaptshrink": 0.7090353194970526,
+      "darea": -0.0357264577101708,
+      "n_reps": 800
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "none",
+      "k": 20,
+      "area_reitsma": 0.7138098676127491,
+      "area_adaptshrink": 0.7215107401400446,
+      "darea": 0.007700872527295455,
+      "n_reps": 800
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "moderate",
+      "k": 20,
+      "area_reitsma": 0.43012650746285114,
+      "area_adaptshrink": 0.424852434558607,
+      "darea": -0.0052740729042441425,
+      "n_reps": 800
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "k": 20,
+      "area_reitsma": 0.6377080690744995,
+      "area_adaptshrink": 0.6084103897118714,
+      "darea": -0.02929767936262806,
+      "n_reps": 800
+    }
+  ],
+  "overlap_consistency": {
+    "cells": [
+      "k6_thr",
+      "k10_thr",
+      "k20_thr"
+    ],
+    "matched_rows": 14400,
+    "max_abs_dev": 0.0,
+    "bit_exact": true
+  }
+}
