@@ -56,6 +56,20 @@ MECH_DIFF_GROUP = 0.3   # different mechanism group
 BASELINE_BW = 1.0       # Gaussian bandwidth (HbA1c %) for baseline distance
 ETA = 0.5               # stand-down sharpness
 C0 = 1.0                # stand-down threshold (Q below this => no discount)
+# --- pilot-2 HARDENED stand-down (fixed a priori, before any pilot-2 scoring) --
+# pilot-1 used a SMOOTH discount delta=exp(-eta*max(0,Q-c0)) which never reaches 0,
+# leaving ~20% prior weight on a CONFIDENT-BUT-WRONG prior in the rich regime ->
+# robust harm (GLP1 dMCIW0 +0.256). The hardened rule adds a HARD conflict gate:
+# once the 1-df conflict Q exceeds Q_MAX, the prior is dropped entirely (delta=0).
+# Q ~ chi2_1 under compatibility. pilot-1's rich-regime harm sat at Q ~ 4-7 with a
+# residual delta ~ 0.20 (a heterogeneous-field prior with moderate se_p), so a
+# 3-sigma gate would have MISSED it. The pre-registered choice is a 2-sigma gate
+# Q_MAX = 4 ("if you are >=2 sigma sure the prior is wrong, do not borrow at all").
+# A truly compatible prior has Q ~ chi2_1, exceeding 4 only ~4.5% of the time, so
+# the false-drop cost is small. NOT tuned to any cell -- fixed by the structural
+# requirement of catching the Q~4-7 confident-wrong regime.
+Q_MAX = 4.0             # hard full-stand-down threshold (2-sigma prior-data conflict)
+HARDEN = True           # pilot-2 default; set False to reproduce pilot-1 smooth-only
 DEFAULT_BASELINE = 8.1  # field-typical baseline HbA1c when a trial lacks it
 
 
@@ -119,22 +133,29 @@ def borrowing_prior(target_class: str, target_baseline: float,
 
 
 def stand_down_delta(mu0: float, se0: float, mu_p: float, se_p: float,
-                     eta: float = ETA, c0: float = C0) -> tuple[float, float]:
-    """Conflict-driven discount delta in (0, 1] on the prior's influence.
+                     eta: float = ETA, c0: float = C0,
+                     harden: bool = HARDEN, q_max: float = Q_MAX) -> tuple[float, float]:
+    """Conflict-driven discount delta in [0, 1] on the prior's influence.
 
     Q = (mu0 - mu_p)^2 / (se0^2 + se_p^2) is a 1-df prior-data conflict
-    statistic. delta = exp(-eta * max(0, Q - c0)). Returns (delta, Q).
+    statistic. Smooth part: delta = exp(-eta * max(0, Q - c0)).
+    HARDENED part (pilot-2): if harden and Q > q_max, delta := 0 (full
+    stand-down) -- a confident-but-wrong prior is dropped entirely rather than
+    left at a residual ~20% weight. Returns (delta, Q).
     """
     if not (np.isfinite(mu0) and np.isfinite(mu_p) and np.isfinite(se_p)):
         return 0.0, float("inf")
     Q = (mu0 - mu_p) ** 2 / (se0 ** 2 + se_p ** 2 + 1e-12)
     delta = float(np.exp(-eta * max(0.0, Q - c0)))
+    if harden and Q > q_max:
+        delta = 0.0
     return delta, float(Q)
 
 
 def borrow_estimate(own_y: np.ndarray, own_se: np.ndarray, target_class: str,
                     target_baseline: float, sources: list[Source],
-                    alpha: float = 0.05, uniform_prior: bool = False) -> dict:
+                    alpha: float = 0.05, uniform_prior: bool = False,
+                    harden: bool = HARDEN, q_max: float = Q_MAX) -> dict:
     """Borrowing-field estimate for one target comparison.
 
     own_y, own_se : the sparse direct trial effects available for the target.
@@ -151,7 +172,7 @@ def borrow_estimate(own_y: np.ndarray, own_se: np.ndarray, target_class: str,
 
     mu_p, se_p, ess = borrowing_prior(target_class, target_baseline, sources,
                                       uniform=uniform_prior)
-    delta, Q = stand_down_delta(mu0, se0, mu_p, se_p)
+    delta, Q = stand_down_delta(mu0, se0, mu_p, se_p, harden=harden, q_max=q_max)
 
     if not np.isfinite(mu_p) or delta <= 1e-6:
         # nothing to borrow / full stand-down -> own estimate, widened minimally
