@@ -109,6 +109,19 @@ def build_grid(name: str) -> list[dict]:
             ("k6_hi",   G.DTASpec(k=6, rho=-0.4, tau1=0.8, tau2=0.8, prev=0.2)),
         ]
         strengths = ["none", "moderate", "strong"]
+    elif name == "boundary":
+        # NMA-style WIN-FRONTIER boundary map. Fix the threshold-het regime
+        # (rho=-0.6, tau=0.6, prev=0.3 -- the `*_thr` family) and sweep the two
+        # axes that govern AdaptShrink-DTA's selection win: number of studies k
+        # (small k => delta_k fires) x selection strength (Deeks => delta_sel
+        # fires). The robust win is known at k<=10 x strong; this maps WHERE it
+        # turns off as k grows. Run with the win-frontier trio only
+        # (reitsma=HC, adaptshrink_dta, reitsma_indep) -- no hsroc/reml/sep, so
+        # 18 cells x fast ML fits stay tractable at high reps.
+        specs = [(f"k{k}_thr", G.DTASpec(k=k, rho=-0.6, tau1=0.6, tau2=0.6,
+                                         prev=0.3))
+                 for k in (6, 8, 10, 12, 16, 20)]
+        strengths = ["none", "moderate", "strong"]
     elif name == "focus":
         # Headline cells for the "beats BOTH standard models + bootstrap-robust"
         # claim, run WITH hsroc at high reps. Spans small/medium k, threshold
@@ -388,7 +401,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--reps", type=int, default=300)
     ap.add_argument("--grid", default="pilot",
-                    choices=["pilot", "smallk", "full", "sparse", "focus"])
+                    choices=["pilot", "smallk", "full", "sparse", "focus",
+                             "boundary"])
     ap.add_argument("--target", type=float, default=0.95)
     ap.add_argument("--out-prefix", default="truth-recovery-dta/dta")
     ap.add_argument("--from-csv", default=None)

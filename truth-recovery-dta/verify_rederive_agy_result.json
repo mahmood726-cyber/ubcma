@@ -1,0 +1,54 @@
+{
+  "seat": "agy",
+  "cells": [
+    {
+      "cell": "k10_hi",
+      "strength": "strong",
+      "area_reitsma": 1.7881740712229688,
+      "area_adaptshrink": 1.5637528249635948,
+      "darea": -0.22442124625937399,
+      "ci_lo": -0.27709507961029817,
+      "ci_hi": -0.028222653963788705,
+      "frac_better": 0.9925,
+      "robust_win": true,
+      "n_reps": 800
+    },
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "area_reitsma": 1.9084444795035012,
+      "area_adaptshrink": 1.7751587189179345,
+      "darea": -0.13328576058556663,
+      "ci_lo": -0.26423780157941273,
+      "ci_hi": -0.01624867548111266,
+      "frac_better": 0.9845,
+      "robust_win": true,
+      "n_reps": 800
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "area_reitsma": 1.3286828573971943,
+      "area_adaptshrink": 1.202234817887998,
+      "darea": -0.12644803950919625,
+      "ci_lo": -0.18571938222987242,
+      "ci_hi": 0.024763240977061143,
+      "frac_better": 0.94,
+      "robust_win": false,
+      "n_reps": 800
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "area_reitsma": 0.6377080690744993,
+      "area_adaptshrink": 0.6084103897118714,
+      "darea": -0.029297679362627838,
+      "ci_lo": -0.07070142837230742,
+      "ci_hi": 0.012632397752162539,
+      "frac_better": 0.897,
+      "robust_win": false,
+      "n_reps": 800
+    }
+  ],
+  "imported_ubcma": false
+}

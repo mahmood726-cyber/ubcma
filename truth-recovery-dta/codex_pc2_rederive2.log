@@ -1,0 +1,975 @@
+** WARNING: connection is not using a post-quantum key exchange algorithm.
+** This session may be vulnerable to "store now, decrypt later" attacks.
+** The server may need to be upgraded. See https://openssh.com/pq.html
+Reading additional input from stdin...
+OpenAI Codex v0.142.3
+--------
+workdir: C:\Users\User\dta_verify
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: danger-full-access
+reasoning effort: high
+reasoning summaries: none
+session id: 019f1997-8063-7642-a2e3-d2d25519c0bc
+--------
+user
+Do this now, no exploration. Create file verify_rederive_codex_pc2.py that: loads dta_focus_perrep.csv with pandas; for each (cell,strength) in [(k10_hi,strong),(k6_thr,strong),(k10_thr,strong),(k20_thr,strong)]: take rows where converged is True and m1,m2 finite, intersect rep sets of method=='reitsma' and method=='adaptshrink_dta', align by rep; build error matrix E=[[m1-true_m1,m2-true_m2]]; AREA=pi*quantile(d2,0.95)*sqrt(det(W)) where W=np.cov(E,rowvar=False), d2=row-wise e@inv(W)@e; darea=AREA(adaptshrink)-AREA(reitsma); then 2000-resample paired bootstrap with np.random.default_rng(123) giving ci_lo,ci_hi (2.5/97.5 pct of adapt-reitsma area diff),frac_better=mean(diff<0),robust_win=ci_hi<0. Do NOT import ubcma. Write verify_rederive_codex_pc2_result.json {seat:codex_pc2,cells:[...],imported_ubcma:false}. Then run: python verify_rederive_codex_pc2.py and paste its stdout.
+codex
+Creating the requested script directly and then running it.
+apply patch
+patch: completed
+C:\Users\User\dta_verify\verify_rederive_codex_pc2.py
+diff --git a/verify_rederive_codex_pc2.py b/verify_rederive_codex_pc2.py
+index c406189fb3138797b0b6e284e4be588e5239d81a..49057bea582b3526bc9f31f38c8b04a1cef2c555
+--- a/verify_rederive_codex_pc2.py
++++ b/verify_rederive_codex_pc2.py
+@@ -1,140 +1,85 @@
+ import json
+-from math import pi
+-from pathlib import Path
++import math
+ 
+ import numpy as np
+ import pandas as pd
+ 
+ 
+-SEAT = "codex_pc2"
+-INPUT_CSV = Path("dta_focus_perrep.csv")
+-OUTPUT_JSON = Path(f"verify_rederive_{SEAT}_result.json")
+ TARGETS = [
+     ("k10_hi", "strong"),
+     ("k6_thr", "strong"),
+     ("k10_thr", "strong"),
+     ("k20_thr", "strong"),
+ ]
+-REF_METHOD = "reitsma"
+-TEST_METHOD = "adaptshrink_dta"
+-N_BOOT = 2000
+-BOOT_SEED = 20260630
+ 
+ 
+-def mciw_area(errors: np.ndarray) -> float:
+-    """MCIW0-2D constant-region AREA for an n x 2 error matrix."""
+-    errors = np.asarray(errors, dtype=float)
+-    if errors.ndim != 2 or errors.shape[1] != 2:
+-        raise ValueError(f"expected n x 2 errors, got shape {errors.shape}")
+-    if errors.shape[0] < 2:
+-        raise ValueError("at least two paired replicates are required")
++def finite_converged(df):
++    return df[
++        (df["converged"] == True)
++        & np.isfinite(df["m1"])
++        & np.isfinite(df["m2"])
++    ].copy()
+ 
+-    w = np.cov(errors, rowvar=False)
+-    det_w = float(np.linalg.det(w))
+-    if not np.isfinite(det_w) or det_w <= 0:
+-        raise ValueError(f"non-positive covariance determinant: {det_w}")
+ 
++def area_for(rows):
++    e = rows[["m1", "m2"]].to_numpy(dtype=float) - rows[["true_m1", "true_m2"]].to_numpy(dtype=float)
++    w = np.cov(e, rowvar=False)
+     inv_w = np.linalg.inv(w)
+-    d2 = np.einsum("ij,jk,ik->i", errors, inv_w, errors)
+-    q = float(np.quantile(d2, 0.95))
+-    return float(pi * q * np.sqrt(det_w))
+-
+-
+-def paired_errors(df: pd.DataFrame, cell: str, strength: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+-    subset = df[
+-        (df["cell"] == cell)
+-        & (df["strength"] == strength)
+-        & (df["method"].isin([REF_METHOD, TEST_METHOD]))
+-    ].copy()
++    d2 = np.einsum("ij,jk,ik->i", e, inv_w, e)
++    return math.pi * np.quantile(d2, 0.95) * math.sqrt(np.linalg.det(w))
+ 
+-    if subset.empty:
+-        raise ValueError(f"no rows found for {cell}/{strength}")
+ 
+-    finite_cols = ["true_m1", "true_m2", "m1", "m2"]
+-    subset = subset[subset["converged"].astype(bool)]
+-    subset = subset[np.isfinite(subset[finite_cols].to_numpy(dtype=float)).all(axis=1)]
++def paired_diff(reitsma, adapt):
++    return area_for(adapt) - area_for(reitsma)
+ 
+-    ref_reps = set(subset.loc[subset["method"] == REF_METHOD, "rep"])
+-    test_reps = set(subset.loc[subset["method"] == TEST_METHOD, "rep"])
+-    paired_reps = np.array(sorted(ref_reps & test_reps))
+-    if paired_reps.size == 0:
+-        raise ValueError(f"no paired replicates found for {cell}/{strength}")
+ 
+-    errors = {}
+-    for method in [REF_METHOD, TEST_METHOD]:
+-        rows = (
+-            subset[(subset["method"] == method) & (subset["rep"].isin(paired_reps))]
+-            .sort_values("rep")
+-            .drop_duplicates("rep", keep="first")
+-        )
+-        if len(rows) != len(paired_reps):
+-            raise ValueError(f"missing paired rows for {cell}/{strength}/{method}")
+-        if not np.array_equal(rows["rep"].to_numpy(), paired_reps):
+-            raise ValueError(f"replicate alignment failed for {cell}/{strength}/{method}")
+-        errors[method] = rows[["m1", "m2"]].to_numpy(dtype=float) - rows[
+-            ["true_m1", "true_m2"]
+-        ].to_numpy(dtype=float)
++def main():
++    df = pd.read_csv("dta_focus_perrep.csv")
++    rng = np.random.default_rng(123)
++    cells = []
+ 
+-    return paired_reps, errors[REF_METHOD], errors[TEST_METHOD]
+-
++    for cell, strength in TARGETS:
++        subset = finite_converged(df[(df["cell"] == cell) & (df["strength"] == strength)])
++        reitsma = subset[subset["method"] == "reitsma"].set_index("rep")
++        adapt = subset[subset["method"] == "adaptshrink_dta"].set_index("rep")
++        reps = reitsma.index.intersection(adapt.index).sort_values()
+ 
+-def summarize_cell(
+-    df: pd.DataFrame,
+-    cell: str,
+-    strength: str,
+-    rng: np.random.Generator,
+-    n_boot: int = N_BOOT,
+-) -> dict:
+-    paired_reps, ref_errors, test_errors = paired_errors(df, cell, strength)
++        reitsma = reitsma.loc[reps].reset_index()
++        adapt = adapt.loc[reps].reset_index()
+ 
+-    area_ref = mciw_area(ref_errors)
+-    area_test = mciw_area(test_errors)
+-    darea = area_test - area_ref
++        darea = paired_diff(reitsma, adapt)
++        boot = []
++        n = len(reps)
++        for _ in range(2000):
++            idx = rng.integers(0, n, size=n)
++            boot.append(paired_diff(reitsma.iloc[idx], adapt.iloc[idx]))
++        boot = np.asarray(boot)
++        ci_lo, ci_hi = np.percentile(boot, [2.5, 97.5])
+ 
+-    n_reps = len(paired_reps)
+-    boot_diffs = np.empty(n_boot, dtype=float)
+-    for b in range(n_boot):
+-        idx = rng.integers(0, n_reps, size=n_reps)
+-        boot_diffs[b] = mciw_area(test_errors[idx]) - mciw_area(ref_errors[idx])
++        cells.append(
++            {
++                "cell": cell,
++                "strength": strength,
++                "n": int(n),
++                "darea": float(darea),
++                "ci_lo": float(ci_lo),
++                "ci_hi": float(ci_hi),
++                "frac_better": float(np.mean(boot < 0)),
++                "robust_win": bool(ci_hi < 0),
++            }
++        )
+ 
+-    ci_lo, ci_hi = np.quantile(boot_diffs, [0.025, 0.975])
+-    return {
+-        "cell": cell,
+-        "strength": strength,
+-        "area_reitsma": area_ref,
+-        "area_adaptshrink": area_test,
+-        "darea": darea,
+-        "ci_lo": float(ci_lo),
+-        "ci_hi": float(ci_hi),
+-        "frac_better": float(np.mean(boot_diffs < 0)),
+-        "robust_win": bool(ci_hi < 0),
+-        "n_reps": int(n_reps),
++    result = {
++        "seat": "codex_pc2",
++        "cells": cells,
++        "imported_ubcma": False,
+     }
+ 
++    with open("verify_rederive_codex_pc2_result.json", "w", encoding="utf-8") as f:
++        json.dump(result, f, indent=2)
++        f.write("\n")
+ 
+-def main() -> None:
+-    df = pd.read_csv(INPUT_CSV)
+-    rng = np.random.default_rng(BOOT_SEED)
+-    cells = [summarize_cell(df, cell, strength, rng) for cell, strength in TARGETS]
+-
+-    result = {"seat": SEAT, "cells": cells, "imported_ubcma": False}
+-    OUTPUT_JSON.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+-
+-    table = pd.DataFrame(cells)[
+-        [
+-            "cell",
+-            "strength",
+-            "n_reps",
+-            "area_reitsma",
+-            "area_adaptshrink",
+-            "darea",
+-            "ci_lo",
+-            "ci_hi",
+-            "frac_better",
+-            "robust_win",
+-        ]
+-    ]
+-    print(table.to_string(index=False, float_format=lambda x: f"{x:.6f}"))
++    print(json.dumps(result, indent=2))
+ 
+ 
+ if __name__ == "__main__":
+
+diff --git a/verify_rederive_codex_pc2.py b/verify_rederive_codex_pc2.py
+index c406189fb3138797b0b6e284e4be588e5239d81a..49057bea582b3526bc9f31f38c8b04a1cef2c555
+--- a/verify_rederive_codex_pc2.py
++++ b/verify_rederive_codex_pc2.py
+@@ -1,140 +1,85 @@
+ import json
+-from math import pi
+-from pathlib import Path
++import math
+ 
+ import numpy as np
+ import pandas as pd
+ 
+ 
+-SEAT = "codex_pc2"
+-INPUT_CSV = Path("dta_focus_perrep.csv")
+-OUTPUT_JSON = Path(f"verify_rederive_{SEAT}_result.json")
+ TARGETS = [
+     ("k10_hi", "strong"),
+     ("k6_thr", "strong"),
+     ("k10_thr", "strong"),
+     ("k20_thr", "strong"),
+ ]
+-REF_METHOD = "reitsma"
+-TEST_METHOD = "adaptshrink_dta"
+-N_BOOT = 2000
+-BOOT_SEED = 20260630
+ 
+ 
+-def mciw_area(errors: np.ndarray) -> float:
+-    """MCIW0-2D constant-region AREA for an n x 2 error matrix."""
+-    errors = np.asarray(errors, dtype=float)
+-    if errors.ndim != 2 or errors.shape[1] != 2:
+-        raise ValueError(f"expected n x 2 errors, got shape {errors.shape}")
+-    if errors.shape[0] < 2:
+-        raise ValueError("at least two paired replicates are required")
++def finite_converged(df):
++    return df[
++        (df["converged"] == True)
++        & np.isfinite(df["m1"])
++        & np.isfinite(df["m2"])
++    ].copy()
+ 
+-    w = np.cov(errors, rowvar=False)
+-    det_w = float(np.linalg.det(w))
+-    if not np.isfinite(det_w) or det_w <= 0:
+-        raise ValueError(f"non-positive covariance determinant: {det_w}")
+ 
++def area_for(rows):
++    e = rows[["m1", "m2"]].to_numpy(dtype=float) - rows[["true_m1", "true_m2"]].to_numpy(dtype=float)
++    w = np.cov(e, rowvar=False)
+     inv_w = np.linalg.inv(w)
+-    d2 = np.einsum("ij,jk,ik->i", errors, inv_w, errors)
+-    q = float(np.quantile(d2, 0.95))
+-    return float(pi * q * np.sqrt(det_w))
+-
+-
+-def paired_errors(df: pd.DataFrame, cell: str, strength: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+-    subset = df[
+-        (df["cell"] == cell)
+-        & (df["strength"] == strength)
+-        & (df["method"].isin([REF_METHOD, TEST_METHOD]))
+-    ].copy()
++    d2 = np.einsum("ij,jk,ik->i", e, inv_w, e)
++    return math.pi * np.quantile(d2, 0.95) * math.sqrt(np.linalg.det(w))
+ 
+-    if subset.empty:
+-        raise ValueError(f"no rows found for {cell}/{strength}")
+ 
+-    finite_cols = ["true_m1", "true_m2", "m1", "m2"]
+-    subset = subset[subset["converged"].astype(bool)]
+-    subset = subset[np.isfinite(subset[finite_cols].to_numpy(dtype=float)).all(axis=1)]
++def paired_diff(reitsma, adapt):
++    return area_for(adapt) - area_for(reitsma)
+ 
+-    ref_reps = set(subset.loc[subset["method"] == REF_METHOD, "rep"])
+-    test_reps = set(subset.loc[subset["method"] == TEST_METHOD, "rep"])
+-    paired_reps = np.array(sorted(ref_reps & test_reps))
+-    if paired_reps.size == 0:
+-        raise ValueError(f"no paired replicates found for {cell}/{strength}")
+ 
+-    errors = {}
+-    for method in [REF_METHOD, TEST_METHOD]:
+-        rows = (
+-            subset[(subset["method"] == method) & (subset["rep"].isin(paired_reps))]
+-            .sort_values("rep")
+-            .drop_duplicates("rep", keep="first")
+-        )
+-        if len(rows) != len(paired_reps):
+-            raise ValueError(f"missing paired rows for {cell}/{strength}/{method}")
+-        if not np.array_equal(rows["rep"].to_numpy(), paired_reps):
+-            raise ValueError(f"replicate alignment failed for {cell}/{strength}/{method}")
+-        errors[method] = rows[["m1", "m2"]].to_numpy(dtype=float) - rows[
+-            ["true_m1", "true_m2"]
+-        ].to_numpy(dtype=float)
++def main():
++    df = pd.read_csv("dta_focus_perrep.csv")
++    rng = np.random.default_rng(123)
++    cells = []
+ 
+-    return paired_reps, errors[REF_METHOD], errors[TEST_METHOD]
+-
++    for cell, strength in TARGETS:
++        subset = finite_converged(df[(df["cell"] == cell) & (df["strength"] == strength)])
++        reitsma = subset[subset["method"] == "reitsma"].set_index("rep")
++        adapt = subset[subset["method"] == "adaptshrink_dta"].set_index("rep")
++        reps = reitsma.index.intersection(adapt.index).sort_values()
+ 
+-def summarize_cell(
+-    df: pd.DataFrame,
+-    cell: str,
+-    strength: str,
+-    rng: np.random.Generator,
+-    n_boot: int = N_BOOT,
+-) -> dict:
+-    paired_reps, ref_errors, test_errors = paired_errors(df, cell, strength)
++        reitsma = reitsma.loc[reps].reset_index()
++        adapt = adapt.loc[reps].reset_index()
+ 
+-    area_ref = mciw_area(ref_errors)
+-    area_test = mciw_area(test_errors)
+-    darea = area_test - area_ref
++        darea = paired_diff(reitsma, adapt)
++        boot = []
++        n = len(reps)
++        for _ in range(2000):
++            idx = rng.integers(0, n, size=n)
++            boot.append(paired_diff(reitsma.iloc[idx], adapt.iloc[idx]))
++        boot = np.asarray(boot)
++        ci_lo, ci_hi = np.percentile(boot, [2.5, 97.5])
+ 
+-    n_reps = len(paired_reps)
+-    boot_diffs = np.empty(n_boot, dtype=float)
+-    for b in range(n_boot):
+-        idx = rng.integers(0, n_reps, size=n_reps)
+-        boot_diffs[b] = mciw_area(test_errors[idx]) - mciw_area(ref_errors[idx])
++        cells.append(
++            {
++                "cell": cell,
++                "strength": strength,
++                "n": int(n),
++                "darea": float(darea),
++                "ci_lo": float(ci_lo),
++                "ci_hi": float(ci_hi),
++                "frac_better": float(np.mean(boot < 0)),
++                "robust_win": bool(ci_hi < 0),
++            }
++        )
+ 
+-    ci_lo, ci_hi = np.quantile(boot_diffs, [0.025, 0.975])
+-    return {
+-        "cell": cell,
+-        "strength": strength,
+-        "area_reitsma": area_ref,
+-        "area_adaptshrink": area_test,
+-        "darea": darea,
+-        "ci_lo": float(ci_lo),
+-        "ci_hi": float(ci_hi),
+-        "frac_better": float(np.mean(boot_diffs < 0)),
+-        "robust_win": bool(ci_hi < 0),
+-        "n_reps": int(n_reps),
++    result = {
++        "seat": "codex_pc2",
++        "cells": cells,
++        "imported_ubcma": False,
+     }
+ 
++    with open("verify_rederive_codex_pc2_result.json", "w", encoding="utf-8") as f:
++        json.dump(result, f, indent=2)
++        f.write("\n")
+ 
+-def main() -> None:
+-    df = pd.read_csv(INPUT_CSV)
+-    rng = np.random.default_rng(BOOT_SEED)
+-    cells = [summarize_cell(df, cell, strength, rng) for cell, strength in TARGETS]
+-
+-    result = {"seat": SEAT, "cells": cells, "imported_ubcma": False}
+-    OUTPUT_JSON.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+-
+-    table = pd.DataFrame(cells)[
+-        [
+-            "cell",
+-            "strength",
+-            "n_reps",
+-            "area_reitsma",
+-            "area_adaptshrink",
+-            "darea",
+-            "ci_lo",
+-            "ci_hi",
+-            "frac_better",
+-            "robust_win",
+-        ]
+-    ]
+-    print(table.to_string(index=False, float_format=lambda x: f"{x:.6f}"))
++    print(json.dumps(result, indent=2))
+ 
+ 
+ if __name__ == "__main__":
+
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'python verify_rederive_codex_pc2.py' in C:\Users\User\dta_verify
+ succeeded in 19341ms:
+{
+  "seat": "codex_pc2",
+  "cells": [
+    {
+      "cell": "k10_hi",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.22442124625937399,
+      "ci_lo": -0.28633404063981105,
+      "ci_hi": -0.01962355938026401,
+      "frac_better": 0.989,
+      "robust_win": true
+    },
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.13328576058556685,
+      "ci_lo": -0.2587291294670262,
+      "ci_hi": -0.024147090773126063,
+      "frac_better": 0.9905,
+      "robust_win": true
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.12644803950919603,
+      "ci_lo": -0.19600121908544743,
+      "ci_hi": 0.021884035028861194,
+      "frac_better": 0.9415,
+      "robust_win": false
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.029297679362627504,
+      "ci_lo": -0.06907558663590604,
+      "ci_hi": 0.011944207173408734,
+      "frac_better": 0.892,
+      "robust_win": false
+    }
+  ],
+  "imported_ubcma": false
+}
+
+diff --git a/verify_rederive_codex_pc2.py b/verify_rederive_codex_pc2.py
+index c406189fb3138797b0b6e284e4be588e5239d81a..49057bea582b3526bc9f31f38c8b04a1cef2c555
+--- a/verify_rederive_codex_pc2.py
++++ b/verify_rederive_codex_pc2.py
+@@ -1,140 +1,85 @@
+ import json
+-from math import pi
+-from pathlib import Path
++import math
+ 
+ import numpy as np
+ import pandas as pd
+ 
+ 
+-SEAT = "codex_pc2"
+-INPUT_CSV = Path("dta_focus_perrep.csv")
+-OUTPUT_JSON = Path(f"verify_rederive_{SEAT}_result.json")
+ TARGETS = [
+     ("k10_hi", "strong"),
+     ("k6_thr", "strong"),
+     ("k10_thr", "strong"),
+     ("k20_thr", "strong"),
+ ]
+-REF_METHOD = "reitsma"
+-TEST_METHOD = "adaptshrink_dta"
+-N_BOOT = 2000
+-BOOT_SEED = 20260630
+ 
+ 
+-def mciw_area(errors: np.ndarray) -> float:
+-    """MCIW0-2D constant-region AREA for an n x 2 error matrix."""
+-    errors = np.asarray(errors, dtype=float)
+-    if errors.ndim != 2 or errors.shape[1] != 2:
+-        raise ValueError(f"expected n x 2 errors, got shape {errors.shape}")
+-    if errors.shape[0] < 2:
+-        raise ValueError("at least two paired replicates are required")
++def finite_converged(df):
++    return df[
++        (df["converged"] == True)
++        & np.isfinite(df["m1"])
++        & np.isfinite(df["m2"])
++    ].copy()
+ 
+-    w = np.cov(errors, rowvar=False)
+-    det_w = float(np.linalg.det(w))
+-    if not np.isfinite(det_w) or det_w <= 0:
+-        raise ValueError(f"non-positive covariance determinant: {det_w}")
+ 
++def area_for(rows):
++    e = rows[["m1", "m2"]].to_numpy(dtype=float) - rows[["true_m1", "true_m2"]].to_numpy(dtype=float)
++    w = np.cov(e, rowvar=False)
+     inv_w = np.linalg.inv(w)
+-    d2 = np.einsum("ij,jk,ik->i", errors, inv_w, errors)
+-    q = float(np.quantile(d2, 0.95))
+-    return float(pi * q * np.sqrt(det_w))
+-
+-
+-def paired_errors(df: pd.DataFrame, cell: str, strength: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+-    subset = df[
+-        (df["cell"] == cell)
+-        & (df["strength"] == strength)
+-        & (df["method"].isin([REF_METHOD, TEST_METHOD]))
+-    ].copy()
++    d2 = np.einsum("ij,jk,ik->i", e, inv_w, e)
++    return math.pi * np.quantile(d2, 0.95) * math.sqrt(np.linalg.det(w))
+ 
+-    if subset.empty:
+-        raise ValueError(f"no rows found for {cell}/{strength}")
+ 
+-    finite_cols = ["true_m1", "true_m2", "m1", "m2"]
+-    subset = subset[subset["converged"].astype(bool)]
+-    subset = subset[np.isfinite(subset[finite_cols].to_numpy(dtype=float)).all(axis=1)]
++def paired_diff(reitsma, adapt):
++    return area_for(adapt) - area_for(reitsma)
+ 
+-    ref_reps = set(subset.loc[subset["method"] == REF_METHOD, "rep"])
+-    test_reps = set(subset.loc[subset["method"] == TEST_METHOD, "rep"])
+-    paired_reps = np.array(sorted(ref_reps & test_reps))
+-    if paired_reps.size == 0:
+-        raise ValueError(f"no paired replicates found for {cell}/{strength}")
+ 
+-    errors = {}
+-    for method in [REF_METHOD, TEST_METHOD]:
+-        rows = (
+-            subset[(subset["method"] == method) & (subset["rep"].isin(paired_reps))]
+-            .sort_values("rep")
+-            .drop_duplicates("rep", keep="first")
+-        )
+-        if len(rows) != len(paired_reps):
+-            raise ValueError(f"missing paired rows for {cell}/{strength}/{method}")
+-        if not np.array_equal(rows["rep"].to_numpy(), paired_reps):
+-            raise ValueError(f"replicate alignment failed for {cell}/{strength}/{method}")
+-        errors[method] = rows[["m1", "m2"]].to_numpy(dtype=float) - rows[
+-            ["true_m1", "true_m2"]
+-        ].to_numpy(dtype=float)
++def main():
++    df = pd.read_csv("dta_focus_perrep.csv")
++    rng = np.random.default_rng(123)
++    cells = []
+ 
+-    return paired_reps, errors[REF_METHOD], errors[TEST_METHOD]
+-
++    for cell, strength in TARGETS:
++        subset = finite_converged(df[(df["cell"] == cell) & (df["strength"] == strength)])
++        reitsma = subset[subset["method"] == "reitsma"].set_index("rep")
++        adapt = subset[subset["method"] == "adaptshrink_dta"].set_index("rep")
++        reps = reitsma.index.intersection(adapt.index).sort_values()
+ 
+-def summarize_cell(
+-    df: pd.DataFrame,
+-    cell: str,
+-    strength: str,
+-    rng: np.random.Generator,
+-    n_boot: int = N_BOOT,
+-) -> dict:
+-    paired_reps, ref_errors, test_errors = paired_errors(df, cell, strength)
++        reitsma = reitsma.loc[reps].reset_index()
++        adapt = adapt.loc[reps].reset_index()
+ 
+-    area_ref = mciw_area(ref_errors)
+-    area_test = mciw_area(test_errors)
+-    darea = area_test - area_ref
++        darea = paired_diff(reitsma, adapt)
++        boot = []
++        n = len(reps)
++        for _ in range(2000):
++            idx = rng.integers(0, n, size=n)
++            boot.append(paired_diff(reitsma.iloc[idx], adapt.iloc[idx]))
++        boot = np.asarray(boot)
++        ci_lo, ci_hi = np.percentile(boot, [2.5, 97.5])
+ 
+-    n_reps = len(paired_reps)
+-    boot_diffs = np.empty(n_boot, dtype=float)
+-    for b in range(n_boot):
+-        idx = rng.integers(0, n_reps, size=n_reps)
+-        boot_diffs[b] = mciw_area(test_errors[idx]) - mciw_area(ref_errors[idx])
++        cells.append(
++            {
++                "cell": cell,
++                "strength": strength,
++                "n": int(n),
++                "darea": float(darea),
++                "ci_lo": float(ci_lo),
++                "ci_hi": float(ci_hi),
++                "frac_better": float(np.mean(boot < 0)),
++                "robust_win": bool(ci_hi < 0),
++            }
++        )
+ 
+-    ci_lo, ci_hi = np.quantile(boot_diffs, [0.025, 0.975])
+-    return {
+-        "cell": cell,
+-        "strength": strength,
+-        "area_reitsma": area_ref,
+-        "area_adaptshrink": area_test,
+-        "darea": darea,
+-        "ci_lo": float(ci_lo),
+-        "ci_hi": float(ci_hi),
+-        "frac_better": float(np.mean(boot_diffs < 0)),
+-        "robust_win": bool(ci_hi < 0),
+-        "n_reps": int(n_reps),
++    result = {
++        "seat": "codex_pc2",
++        "cells": cells,
++        "imported_ubcma": False,
+     }
+ 
++    with open("verify_rederive_codex_pc2_result.json", "w", encoding="utf-8") as f:
++        json.dump(result, f, indent=2)
++        f.write("\n")
+ 
+-def main() -> None:
+-    df = pd.read_csv(INPUT_CSV)
+-    rng = np.random.default_rng(BOOT_SEED)
+-    cells = [summarize_cell(df, cell, strength, rng) for cell, strength in TARGETS]
+-
+-    result = {"seat": SEAT, "cells": cells, "imported_ubcma": False}
+-    OUTPUT_JSON.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+-
+-    table = pd.DataFrame(cells)[
+-        [
+-            "cell",
+-            "strength",
+-            "n_reps",
+-            "area_reitsma",
+-            "area_adaptshrink",
+-            "darea",
+-            "ci_lo",
+-            "ci_hi",
+-            "frac_better",
+-            "robust_win",
+-        ]
+-    ]
+-    print(table.to_string(index=False, float_format=lambda x: f"{x:.6f}"))
++    print(json.dumps(result, indent=2))
+ 
+ 
+ if __name__ == "__main__":
+
+codex
+Created `verify_rederive_codex_pc2.py`, wrote `verify_rederive_codex_pc2_result.json`, and ran it.
+
+Stdout:
+
+```json
+{
+  "seat": "codex_pc2",
+  "cells": [
+    {
+      "cell": "k10_hi",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.22442124625937399,
+      "ci_lo": -0.28633404063981105,
+      "ci_hi": -0.01962355938026401,
+      "frac_better": 0.989,
+      "robust_win": true
+    },
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.13328576058556685,
+      "ci_lo": -0.2587291294670262,
+      "ci_hi": -0.024147090773126063,
+      "frac_better": 0.9905,
+      "robust_win": true
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.12644803950919603,
+      "ci_lo": -0.19600121908544743,
+      "ci_hi": 0.021884035028861194,
+      "frac_better": 0.9415,
+      "robust_win": false
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.029297679362627504,
+      "ci_lo": -0.06907558663590604,
+      "ci_hi": 0.011944207173408734,
+      "frac_better": 0.892,
+      "robust_win": false
+    }
+  ],
+  "imported_ubcma": false
+}
+```
+diff --git a/verify_rederive_codex_pc2.py b/verify_rederive_codex_pc2.py
+index c406189fb3138797b0b6e284e4be588e5239d81a..49057bea582b3526bc9f31f38c8b04a1cef2c555
+--- a/verify_rederive_codex_pc2.py
++++ b/verify_rederive_codex_pc2.py
+@@ -1,140 +1,85 @@
+ import json
+-from math import pi
+-from pathlib import Path
++import math
+ 
+ import numpy as np
+ import pandas as pd
+ 
+ 
+-SEAT = "codex_pc2"
+-INPUT_CSV = Path("dta_focus_perrep.csv")
+-OUTPUT_JSON = Path(f"verify_rederive_{SEAT}_result.json")
+ TARGETS = [
+     ("k10_hi", "strong"),
+     ("k6_thr", "strong"),
+     ("k10_thr", "strong"),
+     ("k20_thr", "strong"),
+ ]
+-REF_METHOD = "reitsma"
+-TEST_METHOD = "adaptshrink_dta"
+-N_BOOT = 2000
+-BOOT_SEED = 20260630
+ 
+ 
+-def mciw_area(errors: np.ndarray) -> float:
+-    """MCIW0-2D constant-region AREA for an n x 2 error matrix."""
+-    errors = np.asarray(errors, dtype=float)
+-    if errors.ndim != 2 or errors.shape[1] != 2:
+-        raise ValueError(f"expected n x 2 errors, got shape {errors.shape}")
+-    if errors.shape[0] < 2:
+-        raise ValueError("at least two paired replicates are required")
++def finite_converged(df):
++    return df[
++        (df["converged"] == True)
++        & np.isfinite(df["m1"])
++        & np.isfinite(df["m2"])
++    ].copy()
+ 
+-    w = np.cov(errors, rowvar=False)
+-    det_w = float(np.linalg.det(w))
+-    if not np.isfinite(det_w) or det_w <= 0:
+-        raise ValueError(f"non-positive covariance determinant: {det_w}")
+ 
++def area_for(rows):
++    e = rows[["m1", "m2"]].to_numpy(dtype=float) - rows[["true_m1", "true_m2"]].to_numpy(dtype=float)
++    w = np.cov(e, rowvar=False)
+     inv_w = np.linalg.inv(w)
+-    d2 = np.einsum("ij,jk,ik->i", errors, inv_w, errors)
+-    q = float(np.quantile(d2, 0.95))
+-    return float(pi * q * np.sqrt(det_w))
+-
+-
+-def paired_errors(df: pd.DataFrame, cell: str, strength: str) -> tuple[np.ndarray, np.ndarray, np.ndarray]:
+-    subset = df[
+-        (df["cell"] == cell)
+-        & (df["strength"] == strength)
+-        & (df["method"].isin([REF_METHOD, TEST_METHOD]))
+-    ].copy()
++    d2 = np.einsum("ij,jk,ik->i", e, inv_w, e)
++    return math.pi * np.quantile(d2, 0.95) * math.sqrt(np.linalg.det(w))
+ 
+-    if subset.empty:
+-        raise ValueError(f"no rows found for {cell}/{strength}")
+ 
+-    finite_cols = ["true_m1", "true_m2", "m1", "m2"]
+-    subset = subset[subset["converged"].astype(bool)]
+-    subset = subset[np.isfinite(subset[finite_cols].to_numpy(dtype=float)).all(axis=1)]
++def paired_diff(reitsma, adapt):
++    return area_for(adapt) - area_for(reitsma)
+ 
+-    ref_reps = set(subset.loc[subset["method"] == REF_METHOD, "rep"])
+-    test_reps = set(subset.loc[subset["method"] == TEST_METHOD, "rep"])
+-    paired_reps = np.array(sorted(ref_reps & test_reps))
+-    if paired_reps.size == 0:
+-        raise ValueError(f"no paired replicates found for {cell}/{strength}")
+ 
+-    errors = {}
+-    for method in [REF_METHOD, TEST_METHOD]:
+-        rows = (
+-            subset[(subset["method"] == method) & (subset["rep"].isin(paired_reps))]
+-            .sort_values("rep")
+-            .drop_duplicates("rep", keep="first")
+-        )
+-        if len(rows) != len(paired_reps):
+-            raise ValueError(f"missing paired rows for {cell}/{strength}/{method}")
+-        if not np.array_equal(rows["rep"].to_numpy(), paired_reps):
+-            raise ValueError(f"replicate alignment failed for {cell}/{strength}/{method}")
+-        errors[method] = rows[["m1", "m2"]].to_numpy(dtype=float) - rows[
+-            ["true_m1", "true_m2"]
+-        ].to_numpy(dtype=float)
++def main():
++    df = pd.read_csv("dta_focus_perrep.csv")
++    rng = np.random.default_rng(123)
++    cells = []
+ 
+-    return paired_reps, errors[REF_METHOD], errors[TEST_METHOD]
+-
++    for cell, strength in TARGETS:
++        subset = finite_converged(df[(df["cell"] == cell) & (df["strength"] == strength)])
++        reitsma = subset[subset["method"] == "reitsma"].set_index("rep")
++        adapt = subset[subset["method"] == "adaptshrink_dta"].set_index("rep")
++        reps = reitsma.index.intersection(adapt.index).sort_values()
+ 
+-def summarize_cell(
+-    df: pd.DataFrame,
+-    cell: str,
+-    strength: str,
+-    rng: np.random.Generator,
+-    n_boot: int = N_BOOT,
+-) -> dict:
+-    paired_reps, ref_errors, test_errors = paired_errors(df, cell, strength)
++        reitsma = reitsma.loc[reps].reset_index()
++        adapt = adapt.loc[reps].reset_index()
+ 
+-    area_ref = mciw_area(ref_errors)
+-    area_test = mciw_area(test_errors)
+-    darea = area_test - area_ref
++        darea = paired_diff(reitsma, adapt)
++        boot = []
++        n = len(reps)
++        for _ in range(2000):
++            idx = rng.integers(0, n, size=n)
++            boot.append(paired_diff(reitsma.iloc[idx], adapt.iloc[idx]))
++        boot = np.asarray(boot)
++        ci_lo, ci_hi = np.percentile(boot, [2.5, 97.5])
+ 
+-    n_reps = len(paired_reps)
+-    boot_diffs = np.empty(n_boot, dtype=float)
+-    for b in range(n_boot):
+-        idx = rng.integers(0, n_reps, size=n_reps)
+-        boot_diffs[b] = mciw_area(test_errors[idx]) - mciw_area(ref_errors[idx])
++        cells.append(
++            {
++                "cell": cell,
++                "strength": strength,
++                "n": int(n),
++                "darea": float(darea),
++                "ci_lo": float(ci_lo),
++                "ci_hi": float(ci_hi),
++                "frac_better": float(np.mean(boot < 0)),
++                "robust_win": bool(ci_hi < 0),
++            }
++        )
+ 
+-    ci_lo, ci_hi = np.quantile(boot_diffs, [0.025, 0.975])
+-    return {
+-        "cell": cell,
+-        "strength": strength,
+-        "area_reitsma": area_ref,
+-        "area_adaptshrink": area_test,
+-        "darea": darea,
+-        "ci_lo": float(ci_lo),
+-        "ci_hi": float(ci_hi),
+-        "frac_better": float(np.mean(boot_diffs < 0)),
+-        "robust_win": bool(ci_hi < 0),
+-        "n_reps": int(n_reps),
++    result = {
++        "seat": "codex_pc2",
++        "cells": cells,
++        "imported_ubcma": False,
+     }
+ 
++    with open("verify_rederive_codex_pc2_result.json", "w", encoding="utf-8") as f:
++        json.dump(result, f, indent=2)
++        f.write("\n")
+ 
+-def main() -> None:
+-    df = pd.read_csv(INPUT_CSV)
+-    rng = np.random.default_rng(BOOT_SEED)
+-    cells = [summarize_cell(df, cell, strength, rng) for cell, strength in TARGETS]
+-
+-    result = {"seat": SEAT, "cells": cells, "imported_ubcma": False}
+-    OUTPUT_JSON.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+-
+-    table = pd.DataFrame(cells)[
+-        [
+-            "cell",
+-            "strength",
+-            "n_reps",
+-            "area_reitsma",
+-            "area_adaptshrink",
+-            "darea",
+-            "ci_lo",
+-            "ci_hi",
+-            "frac_better",
+-            "robust_win",
+-        ]
+-    ]
+-    print(table.to_string(index=False, float_format=lambda x: f"{x:.6f}"))
++    print(json.dumps(result, indent=2))
+ 
+ 
+ if __name__ == "__main__":
+
+Created `verify_rederive_codex_pc2.py`, wrote `verify_rederive_codex_pc2_result.json`, and ran it.
+
+Stdout:
+
+```json
+{
+  "seat": "codex_pc2",
+  "cells": [
+    {
+      "cell": "k10_hi",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.22442124625937399,
+      "ci_lo": -0.28633404063981105,
+      "ci_hi": -0.01962355938026401,
+      "frac_better": 0.989,
+      "robust_win": true
+    },
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.13328576058556685,
+      "ci_lo": -0.2587291294670262,
+      "ci_hi": -0.024147090773126063,
+      "frac_better": 0.9905,
+      "robust_win": true
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.12644803950919603,
+      "ci_lo": -0.19600121908544743,
+      "ci_hi": 0.021884035028861194,
+      "frac_better": 0.9415,
+      "robust_win": false
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.029297679362627504,
+      "ci_lo": -0.06907558663590604,
+      "ci_hi": 0.011944207173408734,
+      "frac_better": 0.892,
+      "robust_win": false
+    }
+  ],
+  "imported_ubcma": false
+}
+tokens used```
+
+18,552

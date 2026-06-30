@@ -1,0 +1,46 @@
+{
+  "seat": "codex_pc2",
+  "cells": [
+    {
+      "cell": "k10_hi",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.22442124625937399,
+      "ci_lo": -0.28633404063981105,
+      "ci_hi": -0.01962355938026401,
+      "frac_better": 0.989,
+      "robust_win": true
+    },
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.13328576058556685,
+      "ci_lo": -0.2587291294670262,
+      "ci_hi": -0.024147090773126063,
+      "frac_better": 0.9905,
+      "robust_win": true
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.12644803950919603,
+      "ci_lo": -0.19600121908544743,
+      "ci_hi": 0.021884035028861194,
+      "frac_better": 0.9415,
+      "robust_win": false
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "n": 800,
+      "darea": -0.029297679362627504,
+      "ci_lo": -0.06907558663590604,
+      "ci_hi": 0.011944207173408734,
+      "frac_better": 0.892,
+      "robust_win": false
+    }
+  ],
+  "imported_ubcma": false
+}

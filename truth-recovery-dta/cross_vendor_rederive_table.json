@@ -1,0 +1,60 @@
+{
+  "source": "dta_focus_perrep.csv",
+  "metric": "MCIW0-2D dArea (adaptshrink_dta - reitsma)",
+  "seeds": {
+    "ubcma": 7,
+    "agy": 42,
+    "codex_pc2": 123
+  },
+  "cells": [
+    {
+      "cell": "k10_hi",
+      "strength": "strong",
+      "darea_ubcma": -0.2244,
+      "darea_agy": -0.224421,
+      "darea_codex_pc2": -0.224421,
+      "max_abs_dev": 2.1246259373997045e-05,
+      "robust_ubcma": true,
+      "robust_agy": true,
+      "robust_codex_pc2": true,
+      "all_agree": true
+    },
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.1333,
+      "darea_agy": -0.133286,
+      "darea_codex_pc2": -0.133286,
+      "max_abs_dev": 1.423941443337573e-05,
+      "robust_ubcma": true,
+      "robust_agy": true,
+      "robust_codex_pc2": true,
+      "all_agree": true
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.1264,
+      "darea_agy": -0.126448,
+      "darea_codex_pc2": -0.126448,
+      "max_abs_dev": 4.803950919624045e-05,
+      "robust_ubcma": false,
+      "robust_agy": false,
+      "robust_codex_pc2": false,
+      "all_agree": true
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.0293,
+      "darea_agy": -0.029298,
+      "darea_codex_pc2": -0.029298,
+      "max_abs_dev": 2.32063737249516e-06,
+      "robust_ubcma": false,
+      "robust_agy": false,
+      "robust_codex_pc2": false,
+      "all_agree": true
+    }
+  ],
+  "all_4dp_and_verdict_agree": true
+}
