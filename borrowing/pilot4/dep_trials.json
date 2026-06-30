@@ -1,0 +1,1116 @@
+[
+ {
+  "nct_id": "NCT01360645",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -3.28,
+  "se": 0.3979673054552134,
+  "countries": [
+   "United States",
+   "Canada",
+   "France",
+   "Poland",
+   "Slovakia"
+  ],
+  "n_countries": 5,
+  "pop_ob": 26.119999999999997,
+  "pop_loggdp": 10.762461466464877,
+  "pop_mort": 5.279999999999999,
+  "pop_sdi": 0.8448035810000001,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00735709",
+  "active": "atypical",
+  "scale": "HAMD",
+  "y": -4.12,
+  "se": 1.0433886405845016,
+  "countries": [
+   "Australia",
+   "Czechia",
+   "France",
+   "Germany",
+   "Latvia",
+   "Lithuania",
+   "Malaysia",
+   "Netherlands",
+   "Poland",
+   "Russia",
+   "South Africa",
+   "South Korea",
+   "Taiwan",
+   "Ukraine",
+   "United Kingdom"
+  ],
+  "n_countries": 15,
+  "pop_ob": 22.364285714285717,
+  "pop_loggdp": 10.425584376221344,
+  "pop_mort": 6.557142857142857,
+  "pop_sdi": 0.8268442500000001,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01372150",
+  "active": "SSRI",
+  "scale": "other",
+  "y": 1.71,
+  "se": 1.4132941488601811,
+  "countries": [
+   "United States",
+   "Mexico"
+  ],
+  "n_countries": 2,
+  "pop_ob": 32.4,
+  "pop_loggdp": 10.806893855589472,
+  "pop_mort": 9.5,
+  "pop_sdi": 0.7702723335,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00672620",
+  "active": "atypical",
+  "scale": "HAMD",
+  "y": -0.58,
+  "se": 1.0382864956427684,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT03738215",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -2.5,
+  "se": 0.8367517704442947,
+  "countries": [
+   "United States",
+   "Bulgaria",
+   "Estonia",
+   "Germany",
+   "Hungary",
+   "Ukraine",
+   "United Kingdom"
+  ],
+  "n_countries": 7,
+  "pop_ob": 26.071428571428573,
+  "pop_loggdp": 10.566139856336278,
+  "pop_mort": 4.971428571428571,
+  "pop_sdi": 0.8202832897142857,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00384033",
+  "active": "SNRI",
+  "scale": "MADRS",
+  "y": 0.06,
+  "se": 0.17092185554807243,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01256177",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -0.22,
+  "se": 0.07908324659686933,
+  "countries": [
+   "China"
+  ],
+  "n_countries": 1,
+  "pop_ob": 6.2,
+  "pop_loggdp": 9.495755989537383,
+  "pop_mort": 6.2,
+  "pop_sdi": 0.696344483,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT03739203",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -0.4,
+  "se": 0.8852221473907632,
+  "countries": [
+   "United States",
+   "Canada",
+   "Czechia",
+   "Finland",
+   "Poland",
+   "Puerto Rico",
+   "Serbia",
+   "Slovakia"
+  ],
+  "n_countries": 8,
+  "pop_ob": 25.50714285714286,
+  "pop_loggdp": 10.62696615855951,
+  "pop_mort": 4.6000000000000005,
+  "pop_sdi": 0.83482105175,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01153009",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -2.8,
+  "se": 1.2092083511908407,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01473381",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -2.57,
+  "se": 0.8826710749198964,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00672958",
+  "active": "atypical",
+  "scale": "HAMD",
+  "y": 0.07,
+  "se": 0.5280720014694178,
+  "countries": [
+   "United States",
+   "Canada",
+   "Mexico"
+  ],
+  "n_countries": 3,
+  "pop_ob": 31.399999999999995,
+  "pop_loggdp": 10.839974100616402,
+  "pop_mort": 8.033333333333333,
+  "pop_sdi": 0.8069925210000001,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02932943",
+  "active": "glutamate",
+  "scale": "MADRS",
+  "y": -0.4,
+  "se": 0.6326659727749546,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01179516",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -0.79,
+  "se": 1.49237739545705,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00811252",
+  "active": "atypical",
+  "scale": "HAMD",
+  "y": -0.42,
+  "se": 0.5484805812363518,
+  "countries": [],
+  "n_countries": 0,
+  "pop_ob": null,
+  "pop_loggdp": null,
+  "pop_mort": null,
+  "pop_sdi": null,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT03569475",
+  "active": "SNRI",
+  "scale": "other",
+  "y": -1.7,
+  "se": 1.4107430763893143,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01163266",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -2.19,
+  "se": 1.155635829302639,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT02943577",
+  "active": "glutamate",
+  "scale": "MADRS",
+  "y": 0.4,
+  "se": 0.6938917120757566,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01360632",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -1.06,
+  "se": 0.4081715953386804,
+  "countries": [
+   "United States",
+   "Canada",
+   "Germany",
+   "Hungary",
+   "Romania",
+   "Russia",
+   "Ukraine"
+  ],
+  "n_countries": 7,
+  "pop_ob": 26.17142857142857,
+  "pop_loggdp": 10.517240306594317,
+  "pop_mort": 5.471428571428571,
+  "pop_sdi": 0.8162940311428571,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01422213",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": 0.12,
+  "se": 0.0586746668299353,
+  "countries": [],
+  "n_countries": 0,
+  "pop_ob": null,
+  "pop_loggdp": null,
+  "pop_mort": null,
+  "pop_sdi": null,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01052077",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -1.31,
+  "se": 0.545929508765485,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01070329",
+  "active": "SNRI",
+  "scale": "MADRS",
+  "y": -2.07,
+  "se": 0.5663380885324191,
+  "countries": [
+   "United States",
+   "Puerto Rico"
+  ],
+  "n_countries": 2,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.851758903,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01808612",
+  "active": "SSRI",
+  "scale": "HAMD",
+  "y": 0.73,
+  "se": 0.6505234800710218,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00839423",
+  "active": "SNRI",
+  "scale": "MADRS",
+  "y": 0.54,
+  "se": 0.6683809873670892,
+  "countries": [],
+  "n_countries": 0,
+  "pop_ob": null,
+  "pop_loggdp": null,
+  "pop_mort": null,
+  "pop_sdi": null,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02371980",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -1.23,
+  "se": 0.5892977407702198,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00420641",
+  "active": "SSRI",
+  "scale": "HAMD17",
+  "y": -0.39,
+  "se": 0.1246276369384157,
+  "countries": [
+   "Bulgaria",
+   "Canada",
+   "Chile",
+   "Costa Rica",
+   "Croatia",
+   "France",
+   "Germany",
+   "India",
+   "Italy",
+   "Poland"
+  ],
+  "n_countries": 10,
+  "pop_ob": 22.279999999999998,
+  "pop_loggdp": 10.31451817363611,
+  "pop_mort": 7.640000000000001,
+  "pop_sdi": 0.7811950054000001,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02709655",
+  "active": "atypical",
+  "scale": "other",
+  "y": -2.09,
+  "se": 1.250025510724709,
+  "countries": [
+   "United States",
+   "Bulgaria",
+   "Canada",
+   "Colombia",
+   "Estonia",
+   "France",
+   "Germany",
+   "Hungary",
+   "Israel",
+   "Italy",
+   "Latvia",
+   "Mexico",
+   "Poland",
+   "Russia",
+   "Serbia",
+   "South Africa",
+   "South Korea",
+   "Spain",
+   "Ukraine"
+  ],
+  "n_countries": 19,
+  "pop_ob": 23.592105263157894,
+  "pop_loggdp": 10.344062138825212,
+  "pop_mort": 6.742105263157894,
+  "pop_sdi": 0.7997692192105262,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02431806",
+  "active": "SNRI",
+  "scale": "other",
+  "y": -0.38,
+  "se": 1.5433988448743854,
+  "countries": [
+   "United States",
+   "Puerto Rico"
+  ],
+  "n_countries": 2,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.851758903,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01140906",
+  "active": "SNRI",
+  "scale": "MADRS",
+  "y": -9.45,
+  "se": 1.0714504377640364,
+  "countries": [],
+  "n_countries": 0,
+  "pop_ob": null,
+  "pop_loggdp": null,
+  "pop_mort": null,
+  "pop_sdi": null,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01441440",
+  "active": "SNRI",
+  "scale": "HAMD",
+  "y": 1.06,
+  "se": 0.40051837792608014,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00635219",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -1.38,
+  "se": 1.1250229596522379,
+  "countries": [],
+  "n_countries": 0,
+  "pop_ob": null,
+  "pop_loggdp": null,
+  "pop_mort": null,
+  "pop_sdi": null,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02670538",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -2.5,
+  "se": 1.071450437764036,
+  "countries": [
+   "United States",
+   "Bulgaria",
+   "Croatia",
+   "Puerto Rico",
+   "Romania",
+   "Serbia",
+   "Slovakia",
+   "Ukraine"
+  ],
+  "n_countries": 8,
+  "pop_ob": 24.814285714285713,
+  "pop_loggdp": 10.215803327263686,
+  "pop_mort": 6.171428571428571,
+  "pop_sdi": 0.788030958125,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00969709",
+  "active": "SNRI",
+  "scale": "MADRS",
+  "y": -3.23,
+  "se": 1.372476989326313,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT02389816",
+  "active": "atypical",
+  "scale": "HAMD17",
+  "y": -1.81,
+  "se": 0.7546072368823854,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00510146",
+  "active": "adjunct_AAP",
+  "scale": "HAMD17",
+  "y": -2.21,
+  "se": 0.7143002918426906,
+  "countries": [
+   "China",
+   "Japan",
+   "South Korea"
+  ],
+  "n_countries": 3,
+  "pop_ob": 5.016666666666667,
+  "pop_loggdp": 10.216214198406686,
+  "pop_mort": 3.8000000000000003,
+  "pop_sdi": 0.8139596013333333,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00876343",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -3.1,
+  "se": 0.7908324659686932,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00969150",
+  "active": "SNRI",
+  "scale": "MADRS",
+  "y": -1.49,
+  "se": 1.2933937427294433,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00596817",
+  "active": "atypical",
+  "scale": "HAMD17",
+  "y": -1.31,
+  "se": 0.5484805812363519,
+  "countries": [],
+  "n_countries": 0,
+  "pop_ob": null,
+  "pop_loggdp": null,
+  "pop_mort": null,
+  "pop_sdi": null,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00812812",
+  "active": "SSRI",
+  "scale": "other",
+  "y": -4.6,
+  "se": 3.6225229086307884,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT03697603",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -1.7,
+  "se": 0.6632788424253556,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01000805",
+  "active": "SNRI",
+  "scale": "MADRS",
+  "y": -2.19,
+  "se": 0.6658299148962223,
+  "countries": [
+   "United States",
+   "France",
+   "Germany",
+   "Puerto Rico",
+   "Romania",
+   "Sweden"
+  ],
+  "n_countries": 6,
+  "pop_ob": 24.64,
+  "pop_loggdp": 10.874033694701401,
+  "pop_mort": 4.720000000000001,
+  "pop_sdi": 0.8450352856666666,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02709746",
+  "active": "atypical",
+  "scale": "other",
+  "y": 0.21,
+  "se": 1.3342109022633117,
+  "countries": [
+   "United States",
+   "Bulgaria",
+   "Canada",
+   "Colombia",
+   "Estonia",
+   "France",
+   "Germany",
+   "Hungary",
+   "Italy",
+   "Latvia",
+   "Mexico",
+   "Poland",
+   "Russia",
+   "Serbia",
+   "South Africa",
+   "South Korea",
+   "Spain",
+   "Ukraine",
+   "United Kingdom"
+  ],
+  "n_countries": 19,
+  "pop_ob": 23.681578947368422,
+  "pop_loggdp": 10.342485070251707,
+  "pop_mort": 6.8,
+  "pop_sdi": 0.8021926011052631,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02943564",
+  "active": "glutamate",
+  "scale": "MADRS",
+  "y": -0.1,
+  "se": 0.7066470744300904,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT02196506",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -2.3,
+  "se": 0.8546092777403621,
+  "countries": [
+   "United States",
+   "Germany",
+   "Hungary",
+   "Poland",
+   "Slovakia"
+  ],
+  "n_countries": 5,
+  "pop_ob": 25.669999999999998,
+  "pop_loggdp": 10.6690778988103,
+  "pop_mort": 4.9,
+  "pop_sdi": 0.8288427772,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01725282",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": 1.3,
+  "se": 1.709218555480724,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00110461",
+  "active": "adjunct_AAP",
+  "scale": "other",
+  "y": -1.19,
+  "se": 1.278087307904243,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT03538691",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -0.12,
+  "se": 0.8214453356190943,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT04103892",
+  "active": "glutamate",
+  "scale": "MADRS",
+  "y": -1.26,
+  "se": 1.7066674830098574,
+  "countries": [
+   "United States",
+   "Puerto Rico"
+  ],
+  "n_countries": 2,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.851758903,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00369343",
+  "active": "SNRI",
+  "scale": "HAMD17",
+  "y": 4.32,
+  "se": 0.9132839445702975,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT03315793",
+  "active": "SNRI",
+  "scale": "other",
+  "y": 1.39,
+  "se": 2.3929059776730135,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01715805",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -0.2,
+  "se": 0.7143002918426906,
+  "countries": [
+   "United States",
+   "Puerto Rico"
+  ],
+  "n_countries": 2,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.851758903,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02422186",
+  "active": "glutamate",
+  "scale": "MADRS",
+  "y": -3.6,
+  "se": 1.8189146717279945,
+  "countries": [
+   "United States",
+   "Belgium",
+   "Brazil",
+   "Bulgaria",
+   "Finland",
+   "France",
+   "Lithuania",
+   "Poland",
+   "South Africa",
+   "Spain",
+   "Sweden",
+   "United Kingdom"
+  ],
+  "n_countries": 12,
+  "pop_ob": 24.77916666666667,
+  "pop_loggdp": 10.585644185512704,
+  "pop_mort": 7.483333333333333,
+  "pop_sdi": 0.8170601880833334,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00866294",
+  "active": "SSRI",
+  "scale": "HAMD17",
+  "y": -2.4,
+  "se": 0.6887895671340231,
+  "countries": [
+   "Japan",
+   "South Korea"
+  ],
+  "n_countries": 2,
+  "pop_ob": 4.425,
+  "pop_loggdp": 10.44473157567938,
+  "pop_mort": 2.5999999999999996,
+  "pop_sdi": 0.8727671605,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01396447",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -4.0,
+  "se": 1.1990040613073736,
+  "countries": [
+   "United States",
+   "Bulgaria",
+   "Canada",
+   "Colombia",
+   "Russia",
+   "Ukraine"
+  ],
+  "n_countries": 6,
+  "pop_ob": 26.5,
+  "pop_loggdp": 10.33455600441181,
+  "pop_mort": 7.05,
+  "pop_sdi": 0.7902024621666667,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01469377",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -0.9,
+  "se": 0.7653217412600257,
+  "countries": [
+   "United States",
+   "Estonia",
+   "Finland",
+   "Slovakia",
+   "Sweden",
+   "Ukraine"
+  ],
+  "n_countries": 6,
+  "pop_ob": 24.058333333333334,
+  "pop_loggdp": 10.667449604557964,
+  "pop_mort": 4.6,
+  "pop_sdi": 0.840684742,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01255787",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -1.82,
+  "se": 1.3342109022633117,
+  "countries": [
+   "Croatia",
+   "Finland",
+   "Germany",
+   "Hong Kong",
+   "India",
+   "Japan",
+   "Latvia",
+   "Malaysia",
+   "Philippines",
+   "Poland",
+   "Romania",
+   "Russia",
+   "Serbia",
+   "South Korea",
+   "Taiwan",
+   "Ukraine"
+  ],
+  "n_countries": 16,
+  "pop_ob": 17.135714285714286,
+  "pop_loggdp": 10.132504235682473,
+  "pop_mort": 7.878571428571428,
+  "pop_sdi": 0.7839719611875,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT01473394",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -5.117,
+  "se": 0.9028245474397437,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00296517",
+  "active": "atypical",
+  "scale": "HAMD17",
+  "y": 0.2,
+  "se": 0.9183860895120309,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00105196",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -3.73,
+  "se": 0.8724667850364295,
+  "countries": [
+   "United States"
+  ],
+  "n_countries": 1,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.866052275,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01355081",
+  "active": "atypical",
+  "scale": "MADRS",
+  "y": -1.04,
+  "se": 1.2367599338762016,
+  "countries": [
+   "Japan"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.25,
+  "pop_loggdp": 10.388597683244114,
+  "pop_mort": 2.4,
+  "pop_sdi": 0.866532715,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01377194",
+  "active": "SNRI",
+  "scale": "MADRS",
+  "y": -3.141,
+  "se": 1.098236698708137,
+  "countries": [
+   "United States",
+   "Canada"
+  ],
+  "n_countries": 2,
+  "pop_ob": 32.825,
+  "pop_loggdp": 11.148177943179695,
+  "pop_mort": 5.8,
+  "pop_sdi": 0.8732425855,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02670551",
+  "active": "adjunct_AAP",
+  "scale": "MADRS",
+  "y": -3.0,
+  "se": 1.071450437764036,
+  "countries": [
+   "United States",
+   "Bulgaria",
+   "Estonia",
+   "Lithuania",
+   "Poland",
+   "Puerto Rico"
+  ],
+  "n_countries": 6,
+  "pop_ob": 26.23,
+  "pop_loggdp": 10.535003967288961,
+  "pop_mort": 4.5,
+  "pop_sdi": 0.82705933,
+  "single_country": false
+ }
+]
