@@ -246,8 +246,106 @@ AdaptShrink-DTA never robustly beats HC (Reitsma ML) in any sparse cell (0/18). 
 
 **Summary statement.** AdaptShrink-DTA occupies a distinct niche: it robustly wins when selection is present and studies are of moderate size (HSROC's blind spot), stays at parity under no selection (the adaptive design target), and loses to HSROC when cells are sparse and selection is absent (HSROC's home turf via exact-binomial likelihood). The method is not a universal improvement — it trades the sparse/no-selection regime for the selection/moderate-n regime. Both wins and losses are quantified and bootstrap-verified.
 
+## 7. Phase 3 — win-frontier boundary map + 3-vendor headline re-derivation
+
+This phase brings DTA to the standard the NMA thread reached: a crisp
+**win-frontier boundary map** over a clean two-axis sweep, plus **independent
+cross-vendor re-derivation of the headline bake-off numbers from the raw
+per-replicate CSV** (the Phase-1/2 cross-vendor work validated the *estimator*;
+this validates the *bake-off result*).
+
+### 7.1 Boundary map — where the selection win turns on and off
+
+Fix the threshold-het regime (`ρ=−0.6, τ1=τ2=0.6, prev=0.3` — the `*_thr`
+family) and sweep the two axes that govern AdaptShrink-DTA's win: **number of
+studies `k`** (small `k` ⇒ `δ_k` fires) × **selection strength** (Deeks ⇒
+`δ_selection` fires). 800 reps/cell, win-frontier trio only (`reitsma`=HC,
+`adaptshrink_dta`, `reitsma_indep`). Cell = paired-bootstrap `dArea` (ours−HC;
+negative = ours smaller/better); `*` = bootstrap-robust (97.5% CI < 0). Source:
+`dta_boundary_{perrep,table}.csv`, `dta_boundary_truthgate.json`,
+`make_boundary_map.py`.
+
+| k \ sel | none | moderate | strong |
+|---|---|---|---|
+| k=6  | +0.0561 (P0.11) | −0.0868 (P0.92) | **−0.1333\*** (P0.99) |
+| k=8  | +0.0338 (P0.17) | −0.0003 (P0.62) | −0.0826 (P0.98) ‡ |
+| k=10 | +0.0321 (P0.20) | −0.0055 (P0.38) | −0.1264 (P0.95) |
+| k=12 | +0.0170 (P0.21) | −0.0279 (P0.81) | −0.0369 (P0.84) |
+| k=16 | −0.0068 (P0.43) | −0.0046 (P0.64) | −0.0357 (P0.94) |
+| k=20 | +0.0077 (P0.27) | −0.0053 (P0.67) | −0.0293 (P0.90) |
+
+**Frontier (honest).** The robust selection win is concentrated at the
+**smallest `k`**: **k=6×strong is a solid, vendor-unanimous robust win**; **k=8
+is the knife-edge** (‡ — see §7.3: ubcma's seed calls it robust by a hair,
+two independent seeds call it non-robust; `ci_hi≈0`); by **k≥10 the advantage is
+no longer bootstrap-robust** under any seed, though `dArea` stays negative
+(the directional advantage persists and shrinks with `k`). Under **no
+selection** the method is at parity at every `k` (`dArea≈0`, never robustly
+better and — critically — never robustly worse); under **moderate** selection it
+is directionally better but never robust. This is the bivariate echo of the
+univariate arc: the payoff lives exactly where `Σ̂` is least identified (small
+`k`) *and* the selection gate fires (strong Deeks asymmetry).
+
+### 7.2 Internal consistency — bit-exact reproduction of the focus overlap
+
+The boundary grid's `k6_thr / k10_thr / k20_thr × {none,moderate,strong}` cells
+share the spec **and seed** of the Phase-2 focus grid. Every overlapping
+per-replicate fit reproduces focus to **0.00e+00** (`max|Δm1| = max|Δm2| =
+max|Δarea_raw| = 0` over all 800 reps × both methods × 3 strengths × 3 cells),
+confirming the DGP/seed pipeline is fully deterministic and the boundary grid is
+a faithful extension, not a re-tuned re-run.
+
+### 7.3 Cross-vendor re-derivation of the headline (NMA-style)
+
+Two independent vendors re-implemented the matched-coverage MCIW0-2D **area +
+paired bootstrap from scratch**, reading only the committed per-rep CSV (**no
+`ubcma` import**, different code paths — row-wise dot vs `einsum`), each with its
+own bootstrap seed. The deterministic point `dArea` is the headline cross-check
+(seed-independent); the robustness verdict is each vendor's own bootstrap.
+
+**Focus-grid headline** (`dta_focus_perrep.csv`; `cross_vendor_rederive_table.json`):
+
+| cell×strong | ubcma (s7) | agy (s42) | codex_pc2 (s123) | max dev | robust ub/agy/cdx |
+|---|---|---|---|---|---|
+| k10_hi  | −0.2244 | −0.2244 | −0.2244 | 2.1e-5 | **T / T / T** |
+| k6_thr  | −0.1333 | −0.1333 | −0.1333 | 1.4e-5 | **T / T / T** |
+| k10_thr | −0.1264 | −0.1264 | −0.1264 | 4.8e-5 | F / F / F |
+| k20_thr | −0.0293 | −0.0293 | −0.0293 | 2.3e-6 | F / F / F |
+
+**Boundary-map strong column** (`dta_boundary_perrep.csv`; `cross_vendor_boundary_table.json`):
+
+| cell×strong | ubcma | agy | codex_pc2 | max dev | robust (ci_hi ub/agy/cdx) |
+|---|---|---|---|---|---|
+| k6_thr  | −0.1333 | −0.1333 | −0.1333 | 1.4e-5 | **T/T/T** (−0.022/−0.021/−0.013) |
+| k8_thr  | −0.0826 | −0.0826 | −0.0826 | 2.9e-5 | T/F/F (−0.001/+0.006/+0.001) ‡ |
+| k10_thr | −0.1264 | −0.1264 | −0.1264 | 4.8e-5 | F/F/F |
+| k12_thr | −0.0369 | −0.0369 | −0.0369 | 7.1e-6 | F/F/F |
+| k16_thr | −0.0357 | −0.0357 | −0.0357 | 2.6e-5 | F/F/F |
+| k20_thr | −0.0293 | −0.0293 | −0.0293 | 2.3e-6 | F/F/F |
+
+The **deterministic `dArea` agrees across all three vendors to ≤5e-5 on every
+cell** (10/10 cells). Robustness verdicts are **unanimous everywhere except the
+k8 knife-edge** (all three `ci_hi` within ±0.006 of zero — 2/3 call it
+non-robust). The `noreen` Codex seat remains infra-blocked (unauthed) and was
+not used; agreement is therefore 2 external vendors + ubcma, all independent.
+
+### 7.4 Phase-3 verdict
+
+- **The robust selection win is real but narrow.** Vendor-unanimous and
+  bootstrap-robust only at **k=6×strong** in the threshold-het regime; k=8 sits
+  on the robustness boundary; by k≥10 the win is directional but not robust.
+  The earlier focus-grid k10_hi×strong robust win (a *different*, higher-τ spec)
+  stands and is 3-vendor confirmed — so the robust region is "small k **and**
+  (high τ **or** strong Deeks asymmetry)", not small k alone.
+- **The adaptive design target holds across the whole sweep:** at no selection,
+  `dArea≈0` and never robustly worse at any k (k=6→20). The method does not pay
+  a penalty where shrinkage is not needed.
+- **The headline numbers are reproducible to 4 dp by two independent external
+  re-implementations** that never touch the project code — the bake-off result,
+  not just the estimator, is now cross-vendor confirmed.
+
 ## Files
-`src/ubcma/dta.py` (estimators + regions) · `tests/test_dta.py` (12 tests) ·
+`src/ubcma/dta.py` (estimators + regions) · `tests/test_dta.py` (16 tests) ·
 `dta_sim.py` (2×2 DGP) · `dta_bakeoff.py` (scorer + truth-gate) ·
 `dta_pilot_{perrep,table}.csv`, `dta_pilot_truthgate.json` ·
 `dta_full_{perrep,table}.csv`, `dta_full_truthgate.json` (full grid, 108 cells) ·
@@ -255,4 +353,11 @@ AdaptShrink-DTA never robustly beats HC (Reitsma ML) in any sparse cell (0/18). 
 `dta_phase2_scoreboard.{csv,txt}` (method×regime×metric synthesis) ·
 `dta_sparse_{perrep,table}.csv`, `dta_sparse_truthgate.json` (HSROC-tail, 600 reps) ·
 `dta_phase2_hsroc_tail.txt` (HSROC-tail characterisation) ·
+`dta_boundary_{perrep,table}.csv`, `dta_boundary_truthgate.json` (Phase-3
+win-frontier map, 800 reps) · `make_boundary_map.py` (frontier renderer) ·
+`VENDOR_REDERIVE_TASK.md` + `VENDOR_REDERIVE_BOUNDARY_TASK.md` (vendor specs) ·
+`verify_rederive_{agy,codex_pc2}{.py,_result.json}` +
+`verify_boundary_{agy,codex_pc2}{.py,_result.json}` (independent vendor
+re-derivations) · `cross_vendor_rederive_table.json` +
+`cross_vendor_boundary_table.json` (3-vendor agreement) ·
 `reference_fits.json` + `validate_*` + `verify_*` (validation & cross-checks).

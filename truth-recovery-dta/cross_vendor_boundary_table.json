@@ -1,0 +1,102 @@
+{
+  "source": "dta_boundary_perrep.csv",
+  "metric": "MCIW0-2D dArea (adaptshrink_dta - reitsma), strong selection",
+  "seeds": {
+    "ubcma": 7,
+    "agy": 42,
+    "codex_pc2": 123
+  },
+  "cells": [
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.1333,
+      "darea_agy": -0.133286,
+      "darea_codex_pc2": -0.133286,
+      "max_abs_dev": 1.423941443337573e-05,
+      "robust_ubcma": true,
+      "robust_agy": true,
+      "robust_codex_pc2": true,
+      "ci_hi_ubcma": -0.0223,
+      "ci_hi_agy": -0.0207,
+      "ci_hi_codex_pc2": -0.0132,
+      "robust_unanimous": true
+    },
+    {
+      "cell": "k8_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.0826,
+      "darea_agy": -0.082629,
+      "darea_codex_pc2": -0.082629,
+      "max_abs_dev": 2.9390883281799063e-05,
+      "robust_ubcma": true,
+      "robust_agy": false,
+      "robust_codex_pc2": false,
+      "ci_hi_ubcma": -0.0011,
+      "ci_hi_agy": 0.0059,
+      "ci_hi_codex_pc2": 0.001,
+      "robust_unanimous": false
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.1264,
+      "darea_agy": -0.126448,
+      "darea_codex_pc2": -0.126448,
+      "max_abs_dev": 4.803950919624045e-05,
+      "robust_ubcma": false,
+      "robust_agy": false,
+      "robust_codex_pc2": false,
+      "ci_hi_ubcma": 0.018,
+      "ci_hi_agy": 0.0141,
+      "ci_hi_codex_pc2": 0.0219,
+      "robust_unanimous": true
+    },
+    {
+      "cell": "k12_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.0369,
+      "darea_agy": -0.036893,
+      "darea_codex_pc2": -0.036893,
+      "max_abs_dev": 7.114376962061297e-06,
+      "robust_ubcma": false,
+      "robust_agy": false,
+      "robust_codex_pc2": false,
+      "ci_hi_ubcma": 0.0224,
+      "ci_hi_agy": 0.0204,
+      "ci_hi_codex_pc2": 0.0204,
+      "robust_unanimous": true
+    },
+    {
+      "cell": "k16_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.0357,
+      "darea_agy": -0.035726,
+      "darea_codex_pc2": -0.035726,
+      "max_abs_dev": 2.645771017157489e-05,
+      "robust_ubcma": false,
+      "robust_agy": false,
+      "robust_codex_pc2": false,
+      "ci_hi_ubcma": 0.0059,
+      "ci_hi_agy": 0.0063,
+      "ci_hi_codex_pc2": 0.0084,
+      "robust_unanimous": true
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "darea_ubcma": -0.0293,
+      "darea_agy": -0.029298,
+      "darea_codex_pc2": -0.029298,
+      "max_abs_dev": 2.32063737249516e-06,
+      "robust_ubcma": false,
+      "robust_agy": false,
+      "robust_codex_pc2": false,
+      "ci_hi_ubcma": 0.0121,
+      "ci_hi_agy": 0.0138,
+      "ci_hi_codex_pc2": 0.0103,
+      "robust_unanimous": true
+    }
+  ],
+  "deterministic_darea_all_4dp": true
+}

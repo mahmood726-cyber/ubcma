@@ -1,0 +1,73 @@
+{
+  "seat": "codex_pc2",
+  "input": "dta_boundary_perrep.csv",
+  "cells": [
+    {
+      "cell": "k6_thr",
+      "n": 800,
+      "area_reitsma": 1.9084444795035014,
+      "area_adaptshrink_dta": 1.7751587189179345,
+      "darea": -0.13328576058556685,
+      "ci_lo": -0.25677523985815354,
+      "ci_hi": -0.013164808752783036,
+      "frac_better": 0.9845,
+      "robust_win": true
+    },
+    {
+      "cell": "k8_thr",
+      "n": 800,
+      "area_reitsma": 1.5256532308993878,
+      "area_adaptshrink_dta": 1.443023840016106,
+      "darea": -0.0826293908832818,
+      "ci_lo": -0.2106111597546891,
+      "ci_hi": 0.000958018584140352,
+      "frac_better": 0.9725,
+      "robust_win": false
+    },
+    {
+      "cell": "k10_thr",
+      "n": 800,
+      "area_reitsma": 1.3286828573971938,
+      "area_adaptshrink_dta": 1.2022348178879978,
+      "darea": -0.12644803950919603,
+      "ci_lo": -0.1960012190854481,
+      "ci_hi": 0.02188403502885992,
+      "frac_better": 0.9415,
+      "robust_win": false
+    },
+    {
+      "cell": "k12_thr",
+      "n": 800,
+      "area_reitsma": 1.0061951823244042,
+      "area_adaptshrink_dta": 0.9693022967013659,
+      "darea": -0.036892885623038274,
+      "ci_lo": -0.08608259472487327,
+      "ci_hi": 0.02040845914430794,
+      "frac_better": 0.8425,
+      "robust_win": false
+    },
+    {
+      "cell": "k16_thr",
+      "n": 800,
+      "area_reitsma": 0.7447617772072238,
+      "area_adaptshrink_dta": 0.7090353194970522,
+      "darea": -0.03572645771017158,
+      "ci_lo": -0.07948755533305402,
+      "ci_hi": 0.008413399139265185,
+      "frac_better": 0.9415,
+      "robust_win": false
+    },
+    {
+      "cell": "k20_thr",
+      "n": 800,
+      "area_reitsma": 0.6377080690744991,
+      "area_adaptshrink_dta": 0.6084103897118716,
+      "darea": -0.029297679362627504,
+      "ci_lo": -0.07123331354727812,
+      "ci_hi": 0.010329971052608172,
+      "frac_better": 0.908,
+      "robust_win": false
+    }
+  ],
+  "imported_ubcma": false
+}

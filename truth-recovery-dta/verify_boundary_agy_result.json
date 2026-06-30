@@ -1,0 +1,79 @@
+{
+  "seat": "agy",
+  "input": "dta_boundary_perrep.csv",
+  "cells": [
+    {
+      "cell": "k6_thr",
+      "strength": "strong",
+      "area_reitsma": 1.9084444795035012,
+      "area_adaptshrink": 1.7751587189179345,
+      "darea": -0.13328576058556663,
+      "ci_lo": -0.26112524179665036,
+      "ci_hi": -0.02069963375885185,
+      "frac_better": 0.9885,
+      "robust_win": true,
+      "n_reps": 800
+    },
+    {
+      "cell": "k8_thr",
+      "strength": "strong",
+      "area_reitsma": 1.5256532308993878,
+      "area_adaptshrink": 1.4430238400161064,
+      "darea": -0.08262939088328136,
+      "ci_lo": -0.2032178600851599,
+      "ci_hi": 0.005902915479673738,
+      "frac_better": 0.9685,
+      "robust_win": false,
+      "n_reps": 800
+    },
+    {
+      "cell": "k10_thr",
+      "strength": "strong",
+      "area_reitsma": 1.3286828573971943,
+      "area_adaptshrink": 1.202234817887998,
+      "darea": -0.12644803950919625,
+      "ci_lo": -0.18879942651339282,
+      "ci_hi": 0.014118483911838158,
+      "frac_better": 0.951,
+      "robust_win": false,
+      "n_reps": 800
+    },
+    {
+      "cell": "k12_thr",
+      "strength": "strong",
+      "area_reitsma": 1.006195182324404,
+      "area_adaptshrink": 0.969302296701366,
+      "darea": -0.03689288562303794,
+      "ci_lo": -0.08585523470527934,
+      "ci_hi": 0.02040849970251766,
+      "frac_better": 0.84,
+      "robust_win": false,
+      "n_reps": 800
+    },
+    {
+      "cell": "k16_thr",
+      "strength": "strong",
+      "area_reitsma": 0.7447617772072231,
+      "area_adaptshrink": 0.7090353194970525,
+      "darea": -0.03572645771017069,
+      "ci_lo": -0.07834795915295013,
+      "ci_hi": 0.006306817448209647,
+      "frac_better": 0.9425,
+      "robust_win": false,
+      "n_reps": 800
+    },
+    {
+      "cell": "k20_thr",
+      "strength": "strong",
+      "area_reitsma": 0.6377080690744993,
+      "area_adaptshrink": 0.6084103897118714,
+      "darea": -0.029297679362627838,
+      "ci_lo": -0.07336721626825395,
+      "ci_hi": 0.013801745144909755,
+      "frac_better": 0.9005,
+      "robust_win": false,
+      "n_reps": 800
+    }
+  ],
+  "imported_ubcma": false
+}
