@@ -83,7 +83,15 @@ def _node(ma, family, yi, vi, year=np.nan):
                 yi=float(yi), se=float(np.sqrt(vi)), year=float(year))
 
 
-def load_corpus():
+def load_corpus(include_new=True):
+    """Harmonise the metadat corpus into study nodes.
+
+    include_new=True appends `corpus_nodes_new.csv` (14 additional real MAs
+    harmonised via metafor::escalc in R -- 12 raw-2x2 -> log-OR and 2 raw
+    correlations -> Fisher-z; see harmonize_new.R). This expands the LOR family
+    from 3 to 15 meta-analyses (56 -> 409 nodes), the strongest test of whether
+    the learned-kernel win holds as registry coverage grows.
+    """
     nodes = []
 
     def add_precomputed(ma, family, yr_col=None):
@@ -179,7 +187,13 @@ def load_corpus():
         if np.isfinite(lor) and np.isfinite(v):
             nodes.append(_node("linde2015", "LOR", lor, v, r.get("year", np.nan)))
 
-    return pd.DataFrame(nodes)
+    df = pd.DataFrame(nodes)
+    if include_new:
+        newf = Path(__file__).resolve().parent / "corpus_nodes_new.csv"
+        if newf.exists():
+            extra = pd.read_csv(newf)[["ma", "family", "specialty", "yi", "se", "year"]]
+            df = pd.concat([df, extra], ignore_index=True)
+    return df
 
 
 if __name__ == "__main__":

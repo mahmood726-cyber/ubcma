@@ -270,43 +270,146 @@ or mildly harmful elsewhere (Konstantopoulos −0.022, Li −0.040). This mirror
 per-slice BCG finding (§5.6 of the manuscript): transport earns its keep in
 proportion to modifier strength, and nothing more.
 
+## 8bis. PROMOTION — the learned-kernel + conformal field as the PRIMARY estimator (hardened, expanded corpus)
+
+The §8.1 result is promoted from a benchmark line to **the method**. This section
+documents the hardening and re-validates the headline on a **larger corpus**.
+
+**Hardened implementation (`borrowing/field_scale/field_learned.py`, tested by
+`test_field_learned.py`, reproduced by `benchmark_learned.py`).** The learned kernel
+is re-implemented as a **compact grouped-ARD Gaussian process** with an **analytic
+marginal-likelihood gradient** (Rasmussen–Williams 2006 eq. 5.8–5.9): one signal
+variance, an RBF length scale each for standardised **year** and **log-precision**,
+and a match/no-match length scale each for **specialty** and **meta-analysis** — four
+learned length scales that *are* the data-driven gravity (replacing the ~23 one-hot
+ARD scales of the sklearn prototype, which railed to their bounds). Per-study
+sampling variance enters the noise diagonal. The **default evaluation is the honest
+k-fold refit** (hyper-parameters re-optimised on each training fold; 10 folds, 5
+seeds averaged); closed-form LOO is retained only for reference. Conflict-aware
+borrowing (adaptive power prior) and a **CV+/split-conformal** coverage layer are in
+the same module. 8/8 unit tests pass (leakage-free features; k-fold beats a
+no-structure global on learnable synthetic structure; closed-form LOO matches
+brute-force; adaptive `a0` monotone in conflict; conformal reaches nominal coverage;
+scrambled kernel loses).
+
+**Expanded corpus.** The registry was grown from 779 nodes / 16 MAs to **1177 nodes
+/ 28 MAs** by harmonising 12 additional real metadat meta-analyses via
+`metafor::escalc` in R (`harmonize_new.R`; authoritative, not hand-rolled): 10 raw
+2×2 MAs → log-OR and 2 raw correlation MAs → Fisher-z. This grows the **LOR family
+from 3 to 12 meta-analyses** (56 → 380 nodes) — the strongest available test of
+whether the learned-kernel win survives more coverage. Two trial-overlap duplicates
+were excluded truth-first (`colditz1994` ≡ the existing `bcg`; `egger2001`
+IV-magnesium-in-MI shares trials with the existing `li2007`). Family split now
+SMD 445 / LOR 380 / COR 352.
+
+### 8bis.1 The win reproduces and broadens (1177 nodes, honest 10-fold, 5-seed)
+
+Truth-gated held-out reconstruction; paired bootstrap vs within-MA
+(`benchmark_learned_results.json`):
+
+| method | held-out MAE | vs within-MA [95% CI] | verdict |
+|---|--:|---|---|
+| **learned-kernel field** | **0.3325** | **−0.0230 [−0.0340, −0.0117]** | **BEATS within-MA** |
+| robust-MAP (Schmidli 2014) | 0.3531 | −0.0024 [−0.0091, +0.0043] | ties within-MA |
+| hierarchical cross-MA Bayes | 0.3523 | −0.0032 [−0.0091, +0.0027] | ties within-MA |
+| within-MA (per-slice) | 0.3555 | — | reference |
+| **hand field (AdaptShrink)** | 0.3749 | +0.0195 [+0.0112, +0.0279] | **worse than within-MA** |
+| g-modeling / NPMLE EB | 0.4171 | +0.0616 | worse |
+| no-borrow (global) | 0.4185 | +0.0630 | worse |
+| learned-kernel **scrambled** | 0.3850 | +0.0295 [+0.0153, +0.0435] | worse (control) |
+
+Absolute MAE is higher than on the 779-corpus because the added LOR mass is a
+noisier scale — the truth-gated quantity is the **paired contrast**, and the
+learned-kernel win of **−0.0230** cleanly reproduces the earlier **−0.025**. Two
+things sharpen as coverage grows: (i) the **learned kernel is now the *only* method
+that beats within-MA** — robust-MAP and hierarchical cross-MA Bayes drop to a tie;
+(ii) the **hand AdaptShrink field is decisively worse than within-MA** (+0.0195),
+confirming it as the weak starting instantiation.
+
+### 8bis.2 Per-regime — the win is broad, not a sparse-frontier artifact
+
+learned-kernel − within-MA by home-MA sibling count (paired bootstrap):
+
+| regime | n | learned | within | Δ [95% CI] | verdict |
+|---|--:|--:|--:|---|---|
+| sparse (k ≤ 8) | 14 | 0.560 | 0.500 | +0.060 [−0.002, +0.117] | n.s. (underpowered, n=14) |
+| **mid (9–40)** | 350 | 0.486 | 0.515 | **−0.029 [−0.055, −0.004]** | **learned WINS** |
+| **rich (k > 40)** | 813 | 0.263 | 0.285 | **−0.022 [−0.034, −0.010]** | **learned WINS** |
+
+Unlike the *hand* field (which helped only at a single sibling and harmed for k ≥ 2),
+the **learned** kernel beats within-MA across both the mid- and rich-home-MA regimes.
+The only place it does not win is the 14-study ultra-sparse tail, which is
+underpowered (CI includes 0).
+
+### 8bis.3 Conformal calibration — nominal coverage at controlled width
+
+CV+/split-conformal per family, target 90% (`benchmark_learned_results.json`):
+
+| method | model cover / width | conformal cover / width |
+|---|--:|--:|
+| learned-kernel field | 0.806 / 1.30 | **0.899 / 1.55** |
+| within-MA | 0.943 / 1.83 | 0.899 / 1.70 |
+| hand field | 0.946 / 1.84 | 0.899 / 1.77 |
+| robust-MAP | 0.999 / 7.01 | 0.899 / 1.63 |
+| hierarchical cross-MA | 0.777 / 1.30 | 0.899 / 1.61 |
+
+The learned kernel's model-based interval under-covers (0.806); **conformal repairs
+every method to exactly nominal 0.899**, and the conformal learned-kernel interval is
+the **tightest of any borrowing method** (1.55). Conformal is therefore adopted as
+the reported coverage layer of the primary estimator.
+
+### 8bis.4 Negative controls (expanded corpus) — all pass
+
+- learned-kernel − learned-**scrambled** = **−0.0525 [−0.0673, −0.0373]** — true
+  (ma, specialty) topology beats permuted labels: the learned gravity is real. ✔
+- within-MA − no-borrow = −0.0630 [−0.0772, −0.0492] — within-MA borrowing is real. ✔
+- ultra-sparse regime: learned kernel does not beat within-MA (n.s.) — no
+  over-claiming where there is no signal to grip. ✔
+
 ## 9. Verdict
 
 **Is registry-scale borrowing a real improvement over within-MA borrowing? — With
 a hand-set kernel, no (except at the sparse frontier); with a modern LEARNED
-kernel, yes.**
+kernel + conformal calibration, YES — and this is now the primary method.**
 
-- The corpus field is a **real object with genuine structure**: it decisively
-  beats its own scrambled control, and its relevance topology carries signal.
-- With the **hand-set kernel**, cross-MA borrowing does not beat within-MA once
-  the home MA has ≥2 studies (§4–5), and helps only at the single-sibling frontier
-  (~11% error cut). This bound is real but **specific to the hand-set weights**.
-- With a **learned Gaussian-process kernel** (§8.1), the field **beats within-MA
-  across the whole corpus** (−0.025 [−0.041, −0.010], honest 10-fold) — the
-  data-driven relevance metric extracts cross-study signal the fixed γ-weights
-  could not. **This is the central upgrade**: the gravitational field becomes a
-  genuine improvement over within-MA once its gravity is learned, not assumed.
-- The modern frontier beats the hand field throughout: robust-MAP and hierarchical
-  cross-MA Bayes on reconstruction (§8.1); power/commensurate/SAM/robust-MAP on
-  dynamic borrowing at the sparse frontier (§8.3); conformal on calibration (§8.2).
-  Our AdaptShrink-style precision fusion is honestly the weakest borrowing rule.
-- The **a-priori stand-down** remains the key safety property (inert, no harm to
-  data-rich studies); **conformal calibration** is the right coverage layer.
+- **PRIMARY METHOD — learned kernel + conformal.** On the expanded 1177-node /
+  28-MA corpus the learned-kernel field **beats within-MA borrowing by −0.0230
+  [−0.0340, −0.0117]** (honest 10-fold, 5-seed; §8bis.1), reproducing the −0.025 of
+  the smaller corpus. It is the **only** method that beats within-MA (robust-MAP and
+  hierarchical cross-MA Bayes now merely tie it), it wins in **both the mid- and
+  rich-home-MA regimes** (§8bis.2), and **conformal calibration** repairs its
+  coverage to nominal 0.899 at the tightest borrower width (§8bis.3). This is the
+  contribution.
+- The corpus field is a **real object with genuine structure**: the learned kernel
+  decisively beats its own **scrambled control** (−0.0525 [−0.0673, −0.0373]); the
+  relevance topology carries signal.
+- **The hand-set AdaptShrink field is the weak baseline, reported honestly.** With
+  hand-set γ-weights, cross-MA borrowing does not beat within-MA (it is +0.0195
+  *worse* on the expanded corpus, §8bis.1; and on the smaller corpus helped only at
+  the single-sibling frontier, §4–5). The upgrade is entirely the **learned**
+  gravity: the data-driven relevance metric extracts cross-study signal the fixed
+  weights could not.
+- The other modern borrowers (robust-MAP, hierarchical cross-MA Bayes) beat the hand
+  field but not within-MA; on dynamic borrowing at the sparse frontier the
+  power/commensurate/SAM priors beat our AdaptShrink precision fusion (§8.3). Our
+  hand-set precision fusion is honestly the weakest borrowing rule.
 
-**Honest caveats.** (a) Corpus coverage: 16 of the 116 catalogued metadat MAs were
-staged as usable CSVs on disk; the field is block-diagonal by 3 effect families, so
-cross-family borrowing is a-priori excluded. (b) The GP LOO (R&W eq. 5.12) shares
-hyper-parameters across folds (mild optimism); the headline uses the **honest
-10-fold refit**, which still beats within-MA. (c) Full ML-NMR / doubly-robust
-transport needs IPD or aggregate covariate distributions this corpus lacks; §8.4 is
-a bounded g-computation on the one shared node-level covariate (`year`). (d) No
-MCMC engine (PyMC/Stan) is installed, so robust-MAP, commensurate, hierarchical and
-g-modeling use closed-form / EM / MoM approximations of the cited full-Bayes
-methods; `metafor` (external) cross-checks the RE pooling. (e) Pure-prior held-out
-reconstruction is demanding; a partial-pooling regime shows smaller effects both
-ways (the B2 dynamic-borrowing regime is exactly that). The result is a genuine,
-frontier-measured contribution — the field, with modern components, beats
-within-MA — not a toy and not a null from lack of power.
+**Honest caveats.** (a) Corpus coverage: 28 of the 116 catalogued metadat MAs are
+now harmonised (up from 16); the field is block-diagonal by 3 effect families, so
+cross-family borrowing is a-priori excluded rather than tested. (b) The GP LOO (R&W
+eq. 5.12) shares hyper-parameters across folds (mild optimism); the headline uses the
+**honest 10-fold refit**, which still beats within-MA. (c) Full ML-NMR /
+doubly-robust transport needs IPD or aggregate covariate distributions this corpus
+lacks; §8.4 is a bounded g-computation on the one shared node-level covariate
+(`year`). (d) No MCMC engine (PyMC/Stan) is installed, so robust-MAP, commensurate,
+hierarchical and g-modeling use closed-form / EM / MoM approximations of the cited
+full-Bayes methods; `metafor` (external) cross-checks the RE pooling. (e) Pure-prior
+held-out reconstruction is demanding; a partial-pooling regime shows smaller effects
+both ways (the B2 dynamic-borrowing regime is exactly that). (f) The ultra-sparse
+tail (k ≤ 8, n=14) is underpowered — the learned kernel does not beat within-MA
+there (n.s.), which we report rather than over-claim. The result is a genuine,
+frontier-measured contribution — the learned-kernel field, with conformal
+calibration, beats within-MA — not a toy and not a null from lack of power.
 
 ## 10. Methods and citations (modern comparators)
 
