@@ -38,6 +38,37 @@ match at machine precision; the genuinely multivariate REML (p=2 spline, with a
 non-trivial between-study covariance) matches to ~1e-9 -- well past the 1e-6
 target. (`pytest doseresponse/test_drma.py` -> 9 passed.)
 
+## Stage 1b -- one-stage RE **logistic** dose-response, second real-data anchor (`drma_binomial.py`)
+
+The two-stage GL DRMA (Stage 1) is validated on incidence-rate data (`alcohol_crc`). This
+stage adds a **second real-data anchor of a different outcome family** -- sparse binary
+**dose-toxicity** -- on `dat.ursino2021` (metadat; Ursino et al. 2021, *Stat Methods Med Res*):
+13 dose-finding studies, 2-6 dose levels each, 49 rows, **20/49 rows with zero events** and a
+zero-event *reference* dose in 12/13 studies.
+
+That sparsity makes two-stage Greenland-Longnecker **structurally inapplicable**: a zero-event
+reference arm gives log-RR = log(0) = -Inf and undefined GL covariance -- a continuity fudge
+cannot repair a structural reference-arm zero. The correct model (and the one Ursino used) is a
+**one-stage random-intercept binomial logistic dose-response fitted by EXACT binomial likelihood**,
+integrating the study random intercept out by **Liu-Pierce adaptive Gauss-Hermite quadrature**
+(the rule `lme4::glmer` uses for `nAGQ>1`). Zero cells are handled natively; no correction.
+
+| check vs `lme4::glmer` (nAGQ=15) on `dat.ursino2021` | Python `drma_binomial` | glmer gold | abs diff |
+|---|---|---|---|
+| intercept b0 | -3.552271 | -3.5522665 | **4.5e-6** |
+| dose slope b1 (logit / 100 dose-units) | +0.429314 | +0.4293139 | **1e-7** |
+| se(b0) | 0.482412 | 0.4824124 | **5e-7** |
+| se(b1) | 0.088582 | 0.0885819 | **1e-7** |
+| study RE SD sigma | 0.472493 | 0.4724973 | **4e-6** |
+
+Both engines converge by **nAGQ>=7** and are flat through 25; both show the single-node
+(Laplace) fit genuinely differs -- i.e. the adaptive quadrature is doing real work on this
+sparse data, and mine tracks glmer's. `glmer` (lme4 2.0.1) is a canonical **external** GLMM
+engine, so this is an external cross-check, not just an internal one; ~1e-6 is the appropriate
+bar for AGQ-vs-AGQ (the >=1e-9 exactness bar stays reserved for the closed-form two-stage GL).
+The recovered slope is a real, strong positive dose->toxicity gradient (z=4.85, p=1.3e-6).
+(`xverify_binomial.R`; `pytest doseresponse/test_drma_binomial.py` -> 6 passed.)
+
 ## Stage 2 -- model-based dose-response NMA (MBNMA)
 A network whose treatments are (agent, dose) nodes; each agent's nodes are
 constrained to a parametric dose-response curve f_a(dose) with f_a(0)=0 (models:
@@ -145,7 +176,9 @@ All five agree: **HONEST NULL**.
 
 ## Reproduce
 ```
-PYTHONPATH=doseresponse:src python -m pytest doseresponse/ -q          # 17 passed
+PYTHONPATH=doseresponse:src python -m pytest doseresponse/ -q          # 23 passed
+python doseresponse/drma_binomial.py                                   # one-stage logistic DR on ursino2021
+Rscript doseresponse/xverify_binomial.R                                # lme4::glmer gold standard
 PYTHONPATH=doseresponse:src python doseresponse/dr_bakeoff.py --reps 300
 PYTHONPATH=doseresponse:src python doseresponse/selfverify_dr.py
 # regenerate R gold (needs R + dosresmeta/netmeta):
