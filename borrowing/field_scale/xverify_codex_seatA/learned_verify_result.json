@@ -1,0 +1,18 @@
+{
+  "engine": "from_scratch_numpy_scipy_grouped_ard_gp_repeated_10fold_cv_3seeds",
+  "nodes": 1177,
+  "MAs": 28,
+  "learned_kernel_MAE": 0.336308807,
+  "within_MA_MAE": 0.355459495,
+  "per_family_learned_MAE": {
+    "COR": 0.2182273819,
+    "LOR": 0.5333470067,
+    "SMD": 0.2614552021
+  },
+  "learned_minus_within": {
+    "delta": -0.019150688,
+    "lo": -0.0305676227,
+    "hi": -0.0076728341,
+    "n": 1177
+  }
+}

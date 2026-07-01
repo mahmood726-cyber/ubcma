@@ -381,11 +381,34 @@ independently-written within-MA pooler.
 | within-MA MAE | 0.3555 | 0.3555 | exact |
 | learned − within-MA [95% CI] | **−0.0241 [−0.0366, −0.0116]** | −0.0230 [−0.0340, −0.0117] | MATCH; both CIs exclude 0 |
 
-The win is robust to the GP engine and the kernel parameterisation. (The external
-laptop Codex Seat A was unreachable this session — Tailscale/SSH timeout; the
-from-scratch spec is staged in `LEARNED_VERIFY_TASK.md` for when the host is up. The
-779-corpus sparse-frontier and modern-headline results were previously reproduced by
-Codex Seat A from scratch, §7.)
+The win is robust to the GP engine and the kernel parameterisation.
+
+**External vendor confirmation — Codex Seat A, gpt-5.5 (2026-07-02).** The laptop Codex
+seat (previously unreachable) now authenticates headless; it was given ONLY
+`corpus_full_1177.csv` + `LEARNED_VERIFY_TASK.md` and told to implement the whole thing
+from scratch (no shared code). It wrote a **450-line, zero-import** numpy/scipy grouped-ARD
+GP (Cholesky NLL + analytic gradient, match/no-match categorical kernels, honest 10-fold CV
+with per-fold hyper-parameter refit, 3 fold-seeds) and an independent within-MA pooler
+(`xverify_codex_seatA/learned_verify.py`, `xverify_codex_seatA/learned_verify_result.json`):
+
+| quantity | Codex Seat A (external, from scratch) | primary build | agreement |
+|---|--:|--:|---|
+| learned-kernel MAE | 0.3363 | 0.3325 | ~0.004 |
+| within-MA MAE | 0.3555 | 0.3555 | exact |
+| learned − within-MA [95% CI] | **−0.0192 [−0.0306, −0.0077]** | −0.0230 [−0.0340, −0.0117] | MATCH; both CIs exclude 0 |
+| per-family learned MAE (COR/LOR/SMD) | 0.218 / 0.533 / 0.261 | 0.218 / 0.532 / 0.250 | match |
+
+Codex's verdict verbatim: *"CONFIRMS: the learned kernel beats within-MA borrowing because
+delta is negative and the 95% CI excludes 0."* The external point estimate is slightly more
+conservative (−0.019 vs −0.023) but robustly negative with CI<0 — so the headline now stands
+on **three internal engines (primary grouped-ARD, sklearn one-hot ARD, brute-force LOO test) +
+one genuine external vendor (Codex gpt-5.5)**. Seat B (pc2) is authenticated but network-
+degraded this session (socket-buffer exhaustion, os error 10055) → not a two-vendor quorum yet.
+779-corpus results were previously reproduced by Codex Seat A from scratch (§7).
+
+A designed, data-sourced **next-step out-of-corpus generalisation test on a bounded real AACT
+LOR slice** is specified in `AACT_SLICE_NEXTSTEP.md` (deferred deliberately: coherent MA
+grouping cannot be rushed truth-first overnight without risking a meaningless slice).
 
 ## 9. Verdict
 
