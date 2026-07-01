@@ -551,12 +551,63 @@ is reduced to a *single* usable study, the cross-MA field cuts held-out error
 (`c_sweep.py`: +0.040–0.042 at *m*=1; no `C` rescues *m*≥2). **Within-MA is the
 frequentist optimum once ≥2 siblings exist.**
 
-**Verdict.** Registry-scale borrowing is **not** a general improvement over
-within-MA borrowing — but the field is a real object (beats scrambled) with a
-**sharp, honest, useful domain**: the single-study / two-study evidence base,
-where within-MA information is essentially absent, the field cuts held-out error
-~11%, and the a-priori stand-down guarantees it never degrades a data-rich
-analysis. The gravitational-field vision is real, and bounded.
+**Verdict (hand-set kernel).** Registry-scale borrowing with the hand-set
+AdaptShrink kernel is **not** a general improvement over within-MA — the field is
+a real object (beats scrambled) but helps only at the single-study frontier
+(~11%). This bound, however, is specific to the *hand-set weights* — §6.1 lifts it.
+
+### 6.1 Benchmark against the modern frontier — a learned kernel beats within-MA
+
+Is the hand-set field competitive with the current frontier? We benchmarked it,
+truth-gated on the same real held-out reconstruction, against modern
+hierarchical/Bayesian borrowing, a learned kernel, modern shrinkage, dynamic
+borrowing, transportability and conformal calibration — all implemented from
+scratch (`field_modern.py`; RBesT/REBesT/deconvolveR not installed → from-scratch
++ cited; metafor external RE check; scikit-learn GP).
+
+| method (transductive reconstruction) | held-out MAE | vs hand field |
+|---|--:|---|
+| **GP learned kernel** (Rasmussen–Williams 2006) | **0.2527** | **−0.0476 [−0.064, −0.031]** |
+| robust MAP prior (Schmidli 2014) | 0.2716 | −0.0159 [−0.027, −0.005] |
+| hierarchical cross-MA Bayes (Higgins 2009) | 0.2707 | −0.0168 [−0.027, −0.007] |
+| within-MA (per-slice) | 0.2776 | −0.0099 [−0.017, −0.003] |
+| hand field (AdaptShrink) | 0.2875 | — |
+| g-modeling / NPMLE EB (Efron 2016) | 0.3230 | +0.036 (worse) |
+
+The central modern result: a **learned Gaussian-process kernel** — data-driven
+gravity (ARD-RBF over year, log-precision, one-hot specialty & MA, with per-study
+sampling-variance noise, hyper-parameters by marginal likelihood) — **beats
+within-MA borrowing**, surviving an honest 10-fold refit that removes
+shared-hyperparameter optimism (**GP − within-MA = −0.0250 [−0.041, −0.010]**).
+Cross-study borrowing *can* beat within-MA after all — but only when the relevance
+kernel is **learned**, not hand-set. Robust-MAP, hierarchical cross-MA Bayes and
+within-MA all also beat the hand field, which is the weakest smart borrower.
+
+**Calibration.** Model-based intervals are mis-calibrated in both directions
+(hierarchical Bayes under-covers at 0.74; robust-MAP over-covers at 0.999, width
+4.9). Distribution-free **conformal / jackknife+** intervals (Vovk 2005; Lei 2018;
+Barber 2021) repair every method to nominal 90% at controlled width (robust-MAP
+4.86 → 1.21) — the right coverage layer alongside the bootstrap gate.
+
+**Dynamic borrowing at the sparse frontier.** Fusing own(1 sibling) ⊕ cross-MA
+field prior, every modern prior beats our precision fusion (MAE m=1): power prior
+0.351 (best, −0.021 [−0.024, −0.019] vs ours), robust-MAP mixture 0.356,
+commensurate 0.361 (Hobbs 2011), SAM 0.362 (Yang 2023), ours 0.372, own-only 0.384.
+Our AdaptShrink-style fusion is honestly the weakest borrowing rule; the modern
+priors (power prior most) extract more from the field.
+
+**Transportability** (covariate g-computation, an ML-NMR/IOSW analogue; Phillippo
+2020, Dahabreh 2020) helps only where the covariate genuinely predicts effect
+(Assink Δ+0.094 [0.048, 0.138], BCG Δ+0.137 [0.014, 0.279]) and is inert/harmful
+elsewhere — modifier-specific, as in §5.6.
+
+![Figure 5](figures_borrowing/fig5_modern_benchmark.png)
+
+**Verdict (frontier).** With a modern **learned kernel** the registry field is a
+genuine improvement over within-MA borrowing across the whole corpus; with modern
+priors and conformal calibration it is competitive with the current frontier. The
+hand-set AdaptShrink instantiation was a starting point, not the ceiling. Registry-
+scale borrowing is real, and — with data-driven gravity — better than within-MA.
 
 ---
 

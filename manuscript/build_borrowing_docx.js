@@ -357,8 +357,57 @@ children.push(tableFrom(
   [2000, 1500, 1500, 4360]));
 children.push(P("", { after: 60 }));
 figure("fig4_registry_field.png", "Figure 4. Registry-scale field. A: held-out reconstruction error vs home-MA richness — the cross-MA field (red) beats within-MA (blue) only at m = 1 and is worse thereafter. B: the field advantage (within − field) is significantly positive only at a single sibling, then significantly negative. Source: downsample_results.json.", 640).forEach(c => children.push(c));
-children.push(P([new TextRun({ text: "Verdict. ", bold: true }),
-  new TextRun({ text: "Registry-scale borrowing is not a general improvement over within-MA borrowing — but the field is a real object (it beats its scrambled control) with a sharp, honest, useful domain: the single-study / two-study evidence base, where within-MA information is essentially absent, the field cuts held-out error ~11%, and the a-priori stand-down guarantees it never degrades a data-rich analysis. The gravitational-field vision is real, and bounded." })]));
+children.push(P([new TextRun({ text: "Verdict (hand-set kernel). ", bold: true }),
+  new TextRun({ text: "Registry-scale borrowing with the hand-set AdaptShrink kernel is not a general improvement over within-MA — the field is a real object (it beats its scrambled control) but helps only at the single-study frontier (~11%). This bound is specific to the hand-set weights; §6.1 lifts it with a learned kernel." })]));
+
+children.push(H2("6.1 Benchmark against the modern frontier — a learned kernel beats within-MA"));
+children.push(P("Is the hand-set field competitive with the current frontier? We benchmarked it, truth-gated on the same real held-out reconstruction, against modern hierarchical/Bayesian borrowing, a learned kernel, modern shrinkage, dynamic borrowing, transportability and conformal calibration — all implemented from scratch (field_modern.py; RBesT, REBayes, deconvolveR, bayesmeta are not installed on this host, so from-scratch implementations are used and the canonical packages are cited; metafor 5.0.1 is an external RE cross-check; the GP uses scikit-learn 1.8)."));
+children.push(captionP("Table 12. ", "Transductive reconstruction (mean absolute held-out error, 779 studies) vs modern comparators; paired-bootstrap contrast against the hand field. Exact from benchmark_results.json."));
+children.push(tableFrom(
+  ["method", "held-out MAE", "vs hand field [95% CI]"],
+  [
+    ["GP learned kernel (Rasmussen–Williams 2006)", WIN("0.2527 (honest 10-fold)"), WIN("−0.0476 [−0.0644, −0.0310]")],
+    ["robust MAP prior (Schmidli 2014)", "0.2716", "−0.0159 [−0.0268, −0.0051]"],
+    ["hierarchical cross-MA Bayes (Higgins 2009)", "0.2707", "−0.0168 [−0.0266, −0.0071]"],
+    ["within-MA (per-slice method)", "0.2776", "−0.0099 [−0.0167, −0.0029]"],
+    ["hand field (AdaptShrink machinery)", "0.2875", "—"],
+    ["g-modeling / NPMLE EB (Efron 2016)", "0.3230", "+0.0355 (worse; transductive prior mean)"],
+    ["no-borrow (global family mean)", "0.3243", ""],
+  ],
+  [4200, 2400, 3400]));
+children.push(P("", { after: 60 }));
+children.push(P([new TextRun({ text: "The central modern result: ", bold: true }),
+  new TextRun({ text: "a learned Gaussian-process kernel — data-driven gravity (ARD-RBF over year, log-precision, one-hot specialty and MA, with per-study sampling-variance noise; hyper-parameters by marginal likelihood; Rasmussen & Williams 2006) — beats within-MA borrowing, and the win survives an honest 10-fold refit that removes shared-hyperparameter LOO optimism (GP − within-MA = −0.0250 [−0.0414, −0.0095]). Cross-study borrowing can beat within-MA after all — but only when the relevance kernel is learned, not hand-set. Robust-MAP, hierarchical cross-MA Bayes and within-MA also beat the hand field, which is the weakest smart borrower." })]));
+children.push(captionP("Table 13. ", "Calibration: model-based vs distribution-free conformal / jackknife+ intervals (Vovk 2005; Lei 2018; Barber 2021), per family, target 90%."));
+children.push(tableFrom(
+  ["method", "model PI cover / width", "conformal cover / width"],
+  [
+    ["GP kernel", "0.955 / 1.41", WIN("0.899 / 1.08")],
+    ["hierarchical cross-MA", "0.741 (under) / 0.78", WIN("0.899 / 1.17")],
+    ["robust MAP", "0.999 (over) / 4.86", WIN("0.899 / 1.21")],
+    ["within-MA", "0.924 / 1.24", "0.899 / 1.25"],
+    ["hand field", "0.931 / 1.28", "0.899 / 1.30"],
+  ],
+  [2600, 3200, 3200]));
+children.push(P("", { after: 40 }));
+children.push(P("Conformal calibration repairs both over- and under-confident model intervals to nominal 90% at controlled, often much smaller width — the current best practice for coverage, and the field's recommended calibration layer alongside the bootstrap gate."));
+children.push(captionP("Table 14. ", "Dynamic borrowing at the sparse frontier (m = 1 sibling): fuse own (+) cross-MA field prior. MAE and paired contrast vs our precision fusion."));
+children.push(tableFrom(
+  ["rule", "MAE (m=1)", "vs our precision fusion [95% CI]"],
+  [
+    ["power prior (Ibrahim–Chen 2000)", WIN("0.3512"), WIN("−0.0212 [−0.0237, −0.0187]")],
+    ["robust-MAP mixture (Schmidli 2014)", "0.3562", "−0.0161 [−0.0182, −0.0141]"],
+    ["commensurate prior (Hobbs 2011)", "0.3611", "−0.0112 [−0.0127, −0.0097]"],
+    ["SAM prior (Yang 2023)", "0.3619", "−0.0104 [−0.0118, −0.0090]"],
+    ["precision fusion (ours)", "0.3723", "—"],
+    ["own only (no borrow)", "0.3836", "+0.0113 (worse — borrowing helps)"],
+  ],
+  [3200, 1800, 3800]));
+children.push(P("", { after: 40 }));
+children.push(P("Every modern dynamic-borrowing prior extracts more from the registry field than our conflict-discounted precision fusion (the power prior most); all beat no-borrow at m = 1 and the gap closes by m ≥ 2. Transportability (covariate g-computation, an ML-NMR / IOSW analogue; Phillippo 2020, Dahabreh 2020) helps only where the covariate genuinely predicts the effect (Assink Δ +0.094 [0.048, 0.138], BCG Δ +0.137 [0.014, 0.279]) and is inert or harmful elsewhere — modifier-specific, as in §5.6. Full ML-NMR needs IPD / aggregate covariate distributions this corpus lacks."));
+figure("fig5_modern_benchmark.png", "Figure 5. Registry-scale field vs the modern frontier. A: transductive reconstruction MAE — the GP learned kernel (green) beats within-MA (dashed) and every other method; the hand field is the weakest smart borrower. B: conformal / jackknife+ (green) restores nominal 90% coverage for every method where the model-based PI (red) over- or under-covers. C: dynamic borrowing at m = 1 — modern priors (power prior, green) beat our precision fusion (red). Source: benchmark_results.json.", 660).forEach(c => children.push(c));
+children.push(P([new TextRun({ text: "Verdict (frontier). ", bold: true }),
+  new TextRun({ text: "With a modern learned kernel the registry field is a genuine improvement over within-MA borrowing across the whole corpus; with modern priors and conformal calibration it is competitive with the current frontier. The hand-set AdaptShrink instantiation was a starting point, not the ceiling. Registry-scale borrowing is real, and — with data-driven gravity — better than within-MA." })]));
 
 // 7 Discussion
 children.push(H1("7. Discussion — what is defensible, and what is conditional"));

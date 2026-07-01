@@ -171,35 +171,169 @@ stream). One genuine external vendor (Codex Seat A, `codex-cli 0.140.0`, gpt-5.5
 headless over SSH) alongside the internal derivation confirms the field's
 behaviour and its sharp sparse-frontier boundary. No number changed.
 
-## 8. Verdict
+A second from-scratch task (`FIELD_VERIFY2_TASK.md` → `codex_own_verify2.py`)
+independently re-derived the **modern-benchmark** headlines:
 
-**Is registry-scale borrowing a real improvement over within-MA borrowing? — No,
-not in general; yes, narrowly, at the sparse frontier.**
+| quantity | Codex (from scratch) | this build | verdict |
+|---|--:|--:|---|
+| robust-MAP transductive MAE | **0.2716** | 0.2716 | MATCH |
+| dynamic borrow *m*=1: own-only | 0.3809 | 0.3836 | MATCH (RNG) |
+| dynamic borrow *m*=1: power prior | **0.3524** | 0.3512 | MATCH |
+| dynamic borrow *m*=1: precision fusion (ours) | 0.3720 | 0.3723 | MATCH |
+| ordering power-prior < ours < own-only | **True** | True | MATCH — modern prior wins |
+
+The external vendor independently confirms both the negative (our precision fusion
+is beaten by the power prior) and the positive (borrowing beats no-borrow at the
+sparse frontier). No committed number changed.
+
+## 8. Benchmark against the modern statistical frontier
+
+The hand-set field reuses the AdaptShrink-style machinery; is it competitive with
+the *current* frontier? We benchmarked it, truth-gated on the same real held-out
+reconstruction, against modern hierarchical/Bayesian borrowing, a learned kernel,
+modern shrinkage, dynamic borrowing, transportability, and conformal calibration —
+all implemented from scratch (`field_modern.py`, `benchmark.py`; RBesT, REBayes,
+deconvolveR, bayesmeta are **not installed** on this host, so from-scratch
+implementations are used and the canonical packages are cited; `metafor` 5.0.1 is
+used as an external RE cross-check; the GP uses scikit-learn 1.8).
+
+### 8.1 Transductive reconstruction (B1) — modern methods beat the hand field
+
+| method | held-out MAE | vs hand field [95% CI] |
+|---|--:|---|
+| **GP learned kernel** (Rasmussen–Williams 2006) | **0.2527** (honest 10-fold refit) / 0.2399 (R&W-LOO) | **−0.0476 [−0.0644, −0.0310]** |
+| robust MAP prior (Schmidli 2014) | 0.2716 | −0.0159 [−0.0268, −0.0051] |
+| hierarchical cross-MA Bayes | 0.2707 | −0.0168 [−0.0266, −0.0071] |
+| within-MA (per-slice) | 0.2776 | −0.0099 [−0.0167, −0.0029] |
+| **hand field (AdaptShrink)** | 0.2875 | — |
+| g-modeling / NPMLE EB (Efron 2016) | 0.3230 | +0.0355 (worse; transductive prior mean) |
+| no-borrow (global) | 0.3243 | |
+
+**The single most important modern result:** a **learned Gaussian-process kernel**
+— data-driven "gravity" (ARD-RBF over year, log-precision, one-hot specialty & MA,
+with per-study sampling-variance noise; hyper-parameters by marginal likelihood) —
+**beats within-MA borrowing**, and the win survives an honest 10-fold refit that
+removes the shared-hyperparameter LOO optimism: **GP(10-fold) − within-MA =
+−0.0250 [−0.0414, −0.0095]**. This *refines* §5–7: cross-study borrowing **can**
+beat within-MA after all — but only when the relevance kernel is **learned from
+data**, not hand-set. The hand-set AdaptShrink field is in fact the *weakest* of
+the smart borrowers; robust-MAP, hierarchical cross-MA Bayes, and within-MA all
+beat it. g-modeling's point MAE is ≈ global (as expected — its transductive
+prediction is the prior mean; its value is a richer predictive, below).
+
+### 8.2 Calibration (conformal) — the modern way to guarantee coverage
+
+Distribution-free split-conformal / jackknife+ intervals (Vovk et al. 2005; Lei et
+al. 2018; Barber et al. 2021), scored per family, target 90%:
+
+| method | model PI cover / width | conformal cover / width |
+|---|--:|--:|
+| GP kernel | 0.955 / 1.41 | **0.899 / 1.08** |
+| hierarchical cross-MA | 0.741 (under) / 0.78 | **0.899 / 1.17** |
+| robust MAP | 0.999 (over) / 4.86 | **0.899 / 1.21** |
+| within-MA | 0.924 / 1.24 | 0.899 / 1.25 |
+| hand field | 0.931 / 1.28 | 0.899 / 1.30 |
+
+Model-based intervals are badly mis-calibrated in both directions (hierarchical
+Bayes under-covers at 0.74; robust-MAP over-covers at 0.999 with width 4.9).
+**Conformal calibration repairs every one to nominal 90% at controlled, often much
+smaller width** (robust-MAP 4.86 → 1.21). This is the current best practice for
+coverage and should be the field's calibration layer alongside the bootstrap gate.
+
+### 8.3 Dynamic borrowing at the sparse frontier (B2) — modern priors beat ours
+
+At *m*=1 sibling (where borrowing helps), fusing own ⊕ cross-MA field prior:
+
+| rule | MAE (m=1) | vs our precision-fusion [95% CI] |
+|---|--:|---|
+| **power prior** (Ibrahim–Chen 2000) | **0.3512** | **−0.0212 [−0.0237, −0.0187]** |
+| robust-MAP mixture (Schmidli 2014) | 0.3562 | −0.0161 [−0.0182, −0.0141] |
+| commensurate prior (Hobbs 2011) | 0.3611 | −0.0112 [−0.0127, −0.0097] |
+| SAM prior (Yang 2023) | 0.3619 | −0.0104 [−0.0118, −0.0090] |
+| **precision fusion (ours)** | 0.3723 | — |
+| own only (no borrow) | 0.3836 | +0.0113 (worse — borrowing helps) |
+
+**Every modern dynamic-borrowing prior extracts more from the registry field than
+our conflict-discounted precision fusion**, the power prior most (−0.021). All beat
+no-borrow at *m*=1; the gap closes by *m*≥2 (borrowing matters less). Honest
+negative for our fusion rule; honest positive for the modern frontier.
+
+### 8.4 Transportability (B3) — covariate g-computation, modifier-specific
+
+A covariate g-computation / reweighting analogue of ML-NMR (Phillippo et al. 2020)
+and IOSW transport (Dahabreh et al. 2020) — standardising donor effects to the
+target's covariate via a within-family meta-regression slope (full ML-NMR needs IPD
+/ aggregate covariate distributions this corpus lacks; `year` is the only shared
+node-level covariate). It **helps only where the covariate genuinely predicts the
+effect** — Assink Δ+0.094 [0.048, 0.138], BCG Δ+0.137 [0.014, 0.279] — and is inert
+or mildly harmful elsewhere (Konstantopoulos −0.022, Li −0.040). This mirrors the
+per-slice BCG finding (§5.6 of the manuscript): transport earns its keep in
+proportion to modifier strength, and nothing more.
+
+## 9. Verdict
+
+**Is registry-scale borrowing a real improvement over within-MA borrowing? — With
+a hand-set kernel, no (except at the sparse frontier); with a modern LEARNED
+kernel, yes.**
 
 - The corpus field is a **real object with genuine structure**: it decisively
   beats its own scrambled control, and its relevance topology carries signal.
-- But on a 779-study, 16-MA, 3-family corpus, **cross-MA borrowing does not beat
-  within-MA** whenever the home MA has ≥2 usable studies — within-MA donors are
-  same-population, same-topic, and are simply the best predictor of a held-out
-  study. Cross-MA mass, however carefully down-weighted, pulls the estimate back
-  toward the global-family mean — re-introducing exactly the bias that within-MA
-  borrowing removed.
-- The field's useful domain is **sharp and bounded**: the *single-sibling*
-  regime (a one-study or two-study evidence base), where it cuts held-out error
-  ~11%, robustly across the stand-down constant. This is precisely where a
-  meta-analyst has the least information and most needs a principled prior.
-- The **a-priori home-anchored stand-down** is the key safety property: it makes
-  the field inert (no harm) exactly where within-MA is already sufficient, so the
-  field can be deployed as a fallback that never degrades a data-rich analysis.
+- With the **hand-set kernel**, cross-MA borrowing does not beat within-MA once
+  the home MA has ≥2 studies (§4–5), and helps only at the single-sibling frontier
+  (~11% error cut). This bound is real but **specific to the hand-set weights**.
+- With a **learned Gaussian-process kernel** (§8.1), the field **beats within-MA
+  across the whole corpus** (−0.025 [−0.041, −0.010], honest 10-fold) — the
+  data-driven relevance metric extracts cross-study signal the fixed γ-weights
+  could not. **This is the central upgrade**: the gravitational field becomes a
+  genuine improvement over within-MA once its gravity is learned, not assumed.
+- The modern frontier beats the hand field throughout: robust-MAP and hierarchical
+  cross-MA Bayes on reconstruction (§8.1); power/commensurate/SAM/robust-MAP on
+  dynamic borrowing at the sparse frontier (§8.3); conformal on calibration (§8.2).
+  Our AdaptShrink-style precision fusion is honestly the weakest borrowing rule.
+- The **a-priori stand-down** remains the key safety property (inert, no harm to
+  data-rich studies); **conformal calibration** is the right coverage layer.
 
 **Honest caveats.** (a) Corpus coverage: 16 of the 116 catalogued metadat MAs were
-staged as usable CSVs on disk; the field is block-diagonal by 3 effect families,
-so cross-family borrowing was never tested (a-priori excluded). (b) The topic tags
-and a-priori kernel constants are reasonable but hand-set; a learned metric could
-shift the crossover, though the C-sweep shows within-MA optimality at m≥2 is
-robust. (c) Pure-prior held-out reconstruction is a demanding test (the target
-contributes zero own data); a partial-pooling regime (target + field) would show
-smaller effects in both directions. (d) `|error|` on the effect scale mixes three
-families; the family-stratified rows control for this and agree with the pooled
-story. The result is a genuine, defensible **bound** on the gravitational-field
-vision, not a null from lack of power (the sparse test is powered at ~19k pairs).
+staged as usable CSVs on disk; the field is block-diagonal by 3 effect families, so
+cross-family borrowing is a-priori excluded. (b) The GP LOO (R&W eq. 5.12) shares
+hyper-parameters across folds (mild optimism); the headline uses the **honest
+10-fold refit**, which still beats within-MA. (c) Full ML-NMR / doubly-robust
+transport needs IPD or aggregate covariate distributions this corpus lacks; §8.4 is
+a bounded g-computation on the one shared node-level covariate (`year`). (d) No
+MCMC engine (PyMC/Stan) is installed, so robust-MAP, commensurate, hierarchical and
+g-modeling use closed-form / EM / MoM approximations of the cited full-Bayes
+methods; `metafor` (external) cross-checks the RE pooling. (e) Pure-prior held-out
+reconstruction is demanding; a partial-pooling regime shows smaller effects both
+ways (the B2 dynamic-borrowing regime is exactly that). The result is a genuine,
+frontier-measured contribution — the field, with modern components, beats
+within-MA — not a toy and not a null from lack of power.
+
+## 10. Methods and citations (modern comparators)
+
+- **Robust MAP prior** — Schmidli H, et al. *Robust meta-analytic-predictive priors
+  in clinical trials with historical control information.* Biometrics 2014;70:1023.
+  Software: Weber S, et al. *RBesT.* J Stat Softw 2021;100(19). (not installed)
+- **Commensurate prior** — Hobbs BP, et al. *Commensurate priors for incorporating
+  historical information.* Biometrics 2011;67:1047; Bayesian Anal 2012;7:639.
+- **Power prior** — Ibrahim JG, Chen M-H. *Power prior distributions for regression
+  models.* Stat Sci 2000;15:46; Duan Y, et al. (normalized) Environmetrics 2006.
+- **SAM prior (self-adapting mixture)** — Yang P, et al. *SAM priors for dynamic
+  borrowing.* Stat Med 2023;42:2626.
+- **Gaussian-process / learned kernel** — Rasmussen CE, Williams CKI. *Gaussian
+  Processes for Machine Learning.* MIT Press 2006 (LOO eq. 5.12). scikit-learn 1.8.
+- **g-modeling / NPMLE empirical Bayes** — Efron B. *Empirical Bayes deconvolution
+  estimates.* JASA 2016;111:1131; Koenker R, Mizera I. *Convex optimization / NPMLE.*
+  JASA 2014;109:674. Software: deconvolveR, REBayes (not installed).
+- **Hierarchical random-effects predictive** — Higgins JPT, Thompson SG,
+  Spiegelhalter DJ. JRSS-A 2009;172:137; Gelman A, Hill J. *Data Analysis Using
+  Regression and Multilevel Models*, CUP 2007.
+- **Conformal prediction** — Vovk V, Gammerman A, Shafer G. *Algorithmic Learning in
+  a Random World.* Springer 2005; Lei J, et al. *Distribution-free predictive
+  inference.* JASA 2018;113:1094; Barber RF, et al. *Predictive inference with the
+  jackknife+.* Ann Stat 2021;49:486.
+- **Transportability / data fusion** — Phillippo DM, et al. *Multilevel network
+  meta-regression (ML-NMR).* JRSS-A 2020;183:1189; Dahabreh IJ, et al. *Extending
+  inferences from a randomized trial to a target population (IOSW / doubly-robust).*
+  Biometrics 2020;76:1035.
+
+See Figure `borrowing/field_scale/fig_field_modern.png` (manuscript Figure 5).
