@@ -1,0 +1,18 @@
+{
+  "engine": "sklearn one-hot ARD-RBF (independent)",
+  "nodes": 1177,
+  "MAs": 28,
+  "learned_kernel_MAE": 0.33135323537166134,
+  "within_MA_MAE": 0.3554594949984012,
+  "per_family_learned_MAE": {
+    "COR": 0.21757088429128893,
+    "LOR": 0.5321694045594568,
+    "SMD": 0.24987288321195086
+  },
+  "learned_minus_within": {
+    "delta": -0.024106259626739842,
+    "lo": -0.03663925651502735,
+    "hi": -0.011549144790124753,
+    "n": 1177
+  }
+}

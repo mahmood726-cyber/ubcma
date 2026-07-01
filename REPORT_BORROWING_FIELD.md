@@ -366,6 +366,27 @@ the reported coverage layer of the primary estimator.
 - ultra-sparse regime: learned kernel does not beat within-MA (n.s.) — no
   over-claiming where there is no signal to grip. ✔
 
+### 8bis.5 Independent-engine verification
+
+The headline was re-derived by a **second, independent GP engine** that shares no code
+with the primary estimator: `verify_learned_independent.py` reads only the exported
+`corpus_full_1177.csv`, builds a **sklearn `GaussianProcessRegressor` with a one-hot
+ARD-RBF kernel** (per-category length scales — a different parameterisation than the
+primary grouped-ARD GP), runs its own honest 10-fold, and pairs it against an
+independently-written within-MA pooler.
+
+| quantity | independent engine | primary build | agreement |
+|---|--:|--:|---|
+| learned-kernel MAE | 0.3314 | 0.3325 | ~0.001 |
+| within-MA MAE | 0.3555 | 0.3555 | exact |
+| learned − within-MA [95% CI] | **−0.0241 [−0.0366, −0.0116]** | −0.0230 [−0.0340, −0.0117] | MATCH; both CIs exclude 0 |
+
+The win is robust to the GP engine and the kernel parameterisation. (The external
+laptop Codex Seat A was unreachable this session — Tailscale/SSH timeout; the
+from-scratch spec is staged in `LEARNED_VERIFY_TASK.md` for when the host is up. The
+779-corpus sparse-frontier and modern-headline results were previously reproduced by
+Codex Seat A from scratch, §7.)
+
 ## 9. Verdict
 
 **Is registry-scale borrowing a real improvement over within-MA borrowing? — With
