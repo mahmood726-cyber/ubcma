@@ -1,0 +1,185 @@
+{
+ "n": 19,
+ "cov": "weeks",
+ "family": "SMD",
+ "spearman": -0.799968722644912,
+ "perm_p_spearman": 9.999000099990002e-05,
+ "dl_slope": -0.01652824606371145,
+ "perm_p_slope": 0.014997000599880024,
+ "tau2": 0.016850447658377853,
+ "slope_adj_year": -0.013112336701442219,
+ "slope_adj_setting": -0.011835131724117813,
+ "trials": [
+  {
+   "study": "1",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1974,
+   "weeks": 2.0,
+   "y": 0.03,
+   "se": 0.12489995996796796
+  },
+  {
+   "study": "2",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1968,
+   "weeks": 21.0,
+   "y": 0.12,
+   "se": 0.14696938456699069
+  },
+  {
+   "study": "3",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1971,
+   "weeks": 19.0,
+   "y": -0.14,
+   "se": 0.16703293088490065
+  },
+  {
+   "study": "4",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1972,
+   "weeks": 0.0,
+   "y": 1.18,
+   "se": 0.3729611239794303
+  },
+  {
+   "study": "5",
+   "setting": "group",
+   "tester": "blind",
+   "year": 1972,
+   "weeks": 0.0,
+   "y": 0.26,
+   "se": 0.36905284174491865
+  },
+  {
+   "study": "6",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1969,
+   "weeks": 3.0,
+   "y": -0.06,
+   "se": 0.10295630140987
+  },
+  {
+   "study": "7",
+   "setting": "group",
+   "tester": "blind",
+   "year": 1971,
+   "weeks": 17.0,
+   "y": -0.02,
+   "se": 0.10295630140987
+  },
+  {
+   "study": "8",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1969,
+   "weeks": 24.0,
+   "y": -0.32,
+   "se": 0.22
+  },
+  {
+   "study": "9",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1969,
+   "weeks": 0.0,
+   "y": 0.27,
+   "se": 0.16401219466856726
+  },
+  {
+   "study": "10",
+   "setting": "indiv",
+   "tester": "blind",
+   "year": 1970,
+   "weeks": 1.0,
+   "y": 0.8,
+   "se": 0.25099800796022265
+  },
+  {
+   "study": "11",
+   "setting": "group",
+   "tester": "blind",
+   "year": 1970,
+   "weeks": 0.0,
+   "y": 0.54,
+   "se": 0.30199337741083
+  },
+  {
+   "study": "12",
+   "setting": "group",
+   "tester": "blind",
+   "year": 1966,
+   "weeks": 0.0,
+   "y": 0.18,
+   "se": 0.22293496809607954
+  },
+  {
+   "study": "13",
+   "setting": "indiv",
+   "tester": "blind",
+   "year": 1970,
+   "weeks": 1.0,
+   "y": -0.02,
+   "se": 0.2889636655359978
+  },
+  {
+   "study": "14",
+   "setting": "indiv",
+   "tester": "blind",
+   "year": 1970,
+   "weeks": 2.0,
+   "y": 0.23,
+   "se": 0.29
+  },
+  {
+   "study": "15",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1972,
+   "weeks": 17.0,
+   "y": -0.18,
+   "se": 0.15905973720586866
+  },
+  {
+   "study": "16",
+   "setting": "group",
+   "tester": "blind",
+   "year": 1970,
+   "weeks": 5.0,
+   "y": -0.06,
+   "se": 0.16703293088490065
+  },
+  {
+   "study": "17",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1968,
+   "weeks": 1.0,
+   "y": 0.3,
+   "se": 0.13892443989449804
+  },
+  {
+   "study": "18",
+   "setting": "group",
+   "tester": "blind",
+   "year": 1971,
+   "weeks": 2.0,
+   "y": 0.07,
+   "se": 0.0938083151964686
+  },
+  {
+   "study": "19",
+   "setting": "group",
+   "tester": "aware",
+   "year": 1970,
+   "weeks": 7.0,
+   "y": -0.07,
+   "se": 0.17406895185529211
+  }
+ ]
+}

@@ -208,6 +208,57 @@ the central-bw pool.
 
 ---
 
+## 5. Third slice — a CROSS-DOMAIN strong-modifier test + scale-free 3-slice pool
+
+An independent public-data scout (fable sub-agent, its gate numbers re-verified here) confirmed
+**no external population/geographic gradient slice exists on disk** beyond BCG/rota — but flagged
+one dataset that decisively clears the same strong-modifier gate: **`dat.raudenbush1985`**
+(Raudenbush 1984, teacher-expectancy experiments; `borrowing/raudenbush/`). k=19 controlled
+experiments (induced-expectancy vs control), effect = SMD (Hedges g), modifier = **weeks of prior
+teacher-pupil contact** before the induction (0-24). The modifier is strong and leverage-robust
+(**Spearman ρ=−0.80, perm p=0.0001**; DL slope −0.0165/week, perm p=0.015; survives year + setting
+adjustment) — the classic finding that expectancy effects vanish once teachers already know the pupils.
+
+**Why include it, and the honest caveat.** `weeks` is an *external, study-level covariate shared
+across arms and known a-priori* for a target study — structurally exactly what the transport
+g-computation step needs, so the **method** applies unchanged. The caveat: it is a
+*procedural/contextual* moderator in **education**, not an epidemiological population gradient like
+latitude/U5MR. So it does **not** answer "does an external population gradient exist on disk" (it
+doesn't) — it tests a *different, valuable* question: **does the transport-over-relevance mechanism
+generalise beyond vaccine-epidemiology?**
+
+### raudenbush 5-way real-LOO (`run_raudenbush.py`) — it REPLICATES the BCG/rota pattern
+| bw | MAE rel/**tran** | tran−rel | controls |
+|---|---|---|---|
+| SD/2 | 0.234/**0.217** | **−0.018 [−0.031,−0.004] W** | — |
+| **SD (central)** | 0.237/**0.221** | −0.016 [−0.038,+0.010] | β=0 inert (Δ=0.0000); target=pool hurts +0.044 |
+| 1.5·SD | 0.244/**0.220** | −0.024 [−0.062,+0.018] | — |
+
+Same signature as BCG and rotavirus: **clean win at the narrow bandwidth, directional at central,
+transport MAE bandwidth-stable, β=0 collapses onto relevance exactly, target=pool hurts.** A third
+independent reproduction of the mechanism, now in a non-clinical domain on the SMD scale.
+
+### Scale-free 3-slice pool (`borrowing/agg/consolidate3_transport.py`)
+SMD cannot be pooled with logRR by mixing raw errors, so all three are combined ONLY by
+scale-invariant metrics (central bw):
+
+| scale-free metric across BCG+rota+raudenbush (k=61, 2 domains) | result |
+|---|---|
+| trials favouring transport (exact binomial sign test) | **46/61, one-sided p < 0.0001** |
+| standardised pooled mean delta (units of rel-MAE), sign-flip test | −0.102, **p = 0.008** |
+| **fractional MAE reduction, equal-weight 3 slices (stratified bootstrap)** | **−9.7% [−17.6%, −0.9%] — CI<0, WIN** |
+| per-slice fractional reduction (all same sign) | BCG −9.9%, rota −12.7%, raudenbush −6.6% |
+
+**On a scale-free basis the incremental transport step now reaches significance at k=61 across
+three strong-modifier slices in two domains.** This is a genuine strengthening of the Cycle-2
+"on-threshold" verdict. **Reported honestly, both ways:** the *domain-matched raw-logRR* central-bw
+IV pool (BCG+rota only, §2) is unchanged and still just crosses 0 (−0.069 [−0.140,+0.003]); the new
+*scale-free 3-slice* evidence is what clears significance. The sign test carries the same
+LOO-overlap independence caveat as §4 (per-trial deltas reuse overlapping donors), so the
+fractional-reduction bootstrap and the per-slice replication are the load-bearing evidence, not the
+sign p alone. Cross-domain replication (education SMD behaving like vaccine logRR) is the strongest
+qualitative signal that the mechanism is general.
+
 ## What is settled vs still open
 
 **Settled (robust, homogeneous, k=42 / 6 slices):**
@@ -218,20 +269,25 @@ the central-bw pool.
 3. The **standardisation control** behaves correctly in both transport slices (β=0 inert;
    target=pool hurts +0.17–0.19) — the gain is real-target g-computation, not generic shrinkage.
 
-**Still open:**
-- **Transport's incremental gain OVER relevance-only.** Pooled −0.07, I²=0 %, significant at 2/3
-  pre-specified bandwidths, but the **pre-registered central-bw CI just crosses 0** (+0.004) at k=42.
-  On the threshold, not settled. **Rate-limiter: a *third* independent placebo-controlled
-  gradient-spanning strong-modifier slice.** With BCG+rota homogeneous at I²=0 %, one more comparable
-  slice would very likely push the primary pooled CI below 0.
+**Transport's incremental gain OVER relevance-only — strengthened to a scale-free win, domain-matched
+still on threshold (§4, §5):**
+- **Scale-free, 3 slices, 2 domains (k=61): a WIN.** Adding the cross-domain raudenbush slice, the
+  fractional MAE reduction pools to **−9.7 % [−17.6 %, −0.9 %]** (CI<0), 46/61 trials favour transport
+  (sign p<0.0001), all three slices same sign. The mechanism reproduces in education (SMD) exactly as
+  in vaccine-epi (logRR).
+- **Domain-matched raw-logRR (BCG+rota only): still on threshold.** The pre-registered central-bw IV
+  pool is unchanged at −0.069 [−0.140, +0.003]. A third *logRR population-gradient* slice would settle
+  this one directly; the scout confirms none is on disk (see below).
 - **The scrambled-null relevance control** is more fragile than the no-relevance control (6-slice pool
   crosses 0). Worth flagging in any relevance claim.
 
-**Candidate 3rd transport slices** (for the next cycle, same gate): oral cholera vaccine efficacy by
-setting; pneumococcal/Hib conjugate vaccine by region; vitamin-A / zinc mortality trials by baseline
-under-5 mortality; IPTi/IPTp antimalarial efficacy by transmission intensity. Each needs a deposited or
-single-table per-trial 2×2 + a continuous population covariate (the rotavirus route — a verified
-deposited dataset — is the model to prefer over multi-paper transcription).
+**Data-availability finding (this cycle, fable scout + re-verified):** across the entire on-disk
+`F:\public-data\`, the ONLY dataset with a strong external gradient beyond BCG/rota is a *procedural*
+(education) modifier, not a population/geographic one. ISRCTN/OWID carry no per-trial effects; the
+other web-source dirs are empty. **A 3rd logRR population-gradient slice does not exist on disk** — it
+requires acquiring a deposited machine-readable per-arm dataset (best leads, needing a non-headless
+data session: vitamin-A / zinc child-mortality by baseline U5MR; pneumococcal/Hib by region; IPTi by
+transmission intensity — deposited CSV preferred over paper transcription, per the rotavirus route).
 
 ---
 
