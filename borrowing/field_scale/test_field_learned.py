@@ -139,8 +139,14 @@ def test_corpus_headline_regression():
     assert len(df) >= 1100 and df.ma.nunique() >= 28
     mu, sd = fl.predict_kfold_corpus(df, seeds=(0, 1))
     mae = np.abs(mu - df["yi"].to_numpy()).mean()
-    # learned kernel MAE has been ~0.24-0.27 on this corpus; guard a wide band
-    assert 0.15 <= mae <= 0.32, mae
+    # learned-kernel MAE on the expanded 1177-node (LOR-heavy) corpus is ~0.33
+    # (5-seed 0.3325; 2-seed within fold noise); guard a wide sanity band.
+    assert 0.25 <= mae <= 0.40, mae
+    # the truth-gated quantity is the paired win vs within-MA (must be < 0)
+    from field import predict as fpred
+    wm = np.array([fpred(df, i, "withinMA_rel")[0] for i in range(len(df))])
+    d = (np.abs(mu - df["yi"].to_numpy()) - np.abs(wm - df["yi"].to_numpy()))
+    assert np.nanmean(d) < 0, np.nanmean(d)
 
 
 @pytest.mark.slow
