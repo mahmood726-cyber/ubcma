@@ -1,4 +1,10 @@
-# Registry-informed relevance-weighted borrowing for meta-analysis: when it helps, when it is inert, and the transportability boundary
+# Registry-scale evidence borrowing for meta-analysis: a learned relevance kernel with conformal calibration beats within-meta-analysis borrowing, where hand-set relevance is inert
+
+> **Note.** This markdown is a secondary rendering; the authoritative, figure-embedded
+> manuscript is `Registry_Borrowing.docx`, built by `build_borrowing_docx.js` (edit the
+> JS, not this file). The central claim was reframed 2026-07-01 to the registry-scale
+> **learned-kernel + conformal** result (§6); older sections below retain the pilot-level
+> relevance-weighted framing (now the secondary, within-slice contribution).
 
 *Methods report — branch `methods-borrowing`, F:\ubcma\borrowing · 2026-06-30*
 
@@ -66,13 +72,30 @@ pooling** on real held-out log risk ratios (transport − NMA **−0.198 [−0.3
 target = wrong-population control **hurts** (+0.187 [+0.017, +0.347]), and the incremental margin
 over relevance-only is directional but *k* = 13-underpowered.
 
-**Bottom line.** Registry-informed relevance-weighted borrowing is a real, validated
+**Registry-scale headline (primary).** Scaling from within-slice to a whole registry —
+**1,177 study nodes from 28 published meta-analyses** harmonised via `metafor::escalc` into
+three effect families — resolves the central methodological question. Borrowing across
+meta-analyses with the **hand-set** relevance kernel does *not* beat borrowing **within** a
+meta-analysis (+0.020 worse); replacing the hand-set gravity with a **learned kernel** does — a
+Gaussian process whose four length scales over study covariates (year, log-precision, specialty,
+meta-analysis) are fit by marginal likelihood beats within-MA borrowing on real held-out
+reconstruction by **−0.023 MAE [−0.034, −0.012]** (paired bootstrap; honest 10-fold refit). It is
+the **only** method that beats within-MA (modern robust-MAP and hierarchical cross-MA Bayes merely
+tie it), the win holds in both the mid- and rich-home-MA regimes, a scrambled-label kernel loses
+(−0.053), and distribution-free **conformal calibration** restores nominal 90% coverage at the
+tightest interval width of any borrowing method. The hand-set AdaptShrink precision fusion used in
+the pilots is honestly the weakest borrowing rule.
+
+**Bottom line.** Registry-scale borrowing with a **learned relevance kernel and conformal
+calibration** is a real improvement over within-meta-analysis borrowing — the primary
+contribution — while the hand-set relevance field is inert-to-harmful (the weaker starting
+instantiation). At the within-slice level, relevance-weighted borrowing remains a validated
 contribution *exactly to the degree a measured covariate predicts the effect*; its inertia
 when no such covariate exists is the central honesty result, not a failure. Population
-transportability is a **correct extension**, now validated against the textbook baseline on real
-strong-modifier (BCG) data with the relevance-incremental margin bounded by *k*, and carrying a
-quantified power threshold (β ≳ 0.02) that the registry's placebo-anchored slices structurally
-fail to clear.
+transportability is a **correct extension**, validated against the textbook baseline on real
+strong-modifier (BCG) data with the relevance-incremental margin bounded by *k*. Cross-study
+borrowing earns its keep in proportion to how much relevance structure the data contain — and
+that structure is best measured by a **learned** metric, not assumed.
 
 ---
 
@@ -487,15 +510,34 @@ it and the raw-effect kernel barely beats the scrambled null. Confirmed three in
 
 ---
 
-## 6. Registry-scale field — borrowing across a 779-study corpus (the culmination)
+## 6. Registry-scale field — a learned kernel beats within-meta-analysis borrowing on a 1,177-study corpus
 
-> *Added 2026-07-01 (`REPORT_BORROWING_FIELD.md`, `borrowing/field_scale/`).*
+> *Added 2026-07-01; reframed to the learned-kernel primary result (`REPORT_BORROWING_FIELD.md` §8bis, `borrowing/field_scale/benchmark_learned_results.json`). See the docx for the full reworked §6 with tables.*
 
 Pilots 1–5 borrow *within one meta-analysis*. This section takes the method to the
-original *gravitational-field* vision: represent a **whole corpus of real
-meta-analyses as one field**, where every study exerts a relevance-weighted
-influence on every estimate, and ask the decisive question — **does borrowing
+original *gravitational-field* vision — represent a **whole corpus of real
+meta-analyses as one field** — and answers the decisive question: **does borrowing
 *across* meta-analyses beat borrowing *within* one?**
+
+**Primary result (expanded corpus).** Twenty-eight real published meta-analyses were
+harmonised via `metafor::escalc` into **1,177 study nodes** across three effect families
+(SMD 445, Fisher-z 352, log-OR 380). Two kernels are compared on the same non-circular
+held-out reconstruction test. The **hand-set** relevance kernel does *not* beat within-MA
+borrowing (**+0.0195 worse** [+0.0112, +0.0279]). A **learned kernel** — a Gaussian process
+with four grouped-ARD length scales (year, log-precision, specialty-match, MA-match) fit by
+marginal likelihood, scored by an honest 10-fold refit — **beats within-MA borrowing
+(−0.0230 [−0.0340, −0.0117])**, reproducing the −0.025 measured on the smaller 779-node
+staging. It is the **only** method that beats within-MA (robust-MAP −0.0024 and hierarchical
+cross-MA Bayes −0.0032 merely tie it), wins in both the **mid** (−0.029) and **rich** (−0.022)
+home-MA regimes, and beats its **scrambled-label control** (−0.0525 [−0.0673, −0.0373]).
+**Conformal calibration** (CV+/split-conformal; Vovk 2005, Lei 2018, Barber 2021) repairs the
+learned kernel's under-covering model interval (0.806) to nominal **0.899** at the tightest
+interval width of any borrowing method. The hand-set AdaptShrink kernel/fusion of the pilots is
+the weakest borrower and is reported as the weaker starting instantiation, not the contribution.
+
+The remainder of this section (the hand-set field's inert-to-harmful behaviour and its
+single-sibling sparse-frontier niche, and the initial-corpus modern-frontier comparison) is
+retained below as the honest baseline against which the learned kernel is the upgrade.
 
 **Corpus.** 16 real published meta-analyses staged from `metadat` (Kalaian
 SAT-coaching, Konstantopoulos, Raudenbush, Bangert-Drowns, Tanner-Smith, Gibson,
