@@ -69,6 +69,13 @@ bar for AGQ-vs-AGQ (the >=1e-9 exactness bar stays reserved for the closed-form 
 The recovered slope is a real, strong positive dose->toxicity gradient (z=4.85, p=1.3e-6).
 (`xverify_binomial.R`; `pytest doseresponse/test_drma_binomial.py` -> 6 passed.)
 
+**Independent vendor confirmation (Fable 5, 2026-07-02).** A Fable-model sub-agent re-implemented
+the whole GLMM from scratch (own adaptive-GHQ, FE-slope warm start, Powell->NM->Hessian; no repo
+code) and independently reproduced b0=-3.55227, b1=+0.42931, sigma=0.47249, se(b1)=0.08858 — all
+within <=3e-5 of the committed fit — and re-ran lme4::glmer itself as a further cross-check. It also
+independently reproduced the "start-b1=0 collapses sigma->0" optimiser gotcha. So Stage 1b stands on
+**three engines: this build + lme4::glmer (external gold) + Fable 5 (from scratch)**.
+
 ## Stage 2 -- model-based dose-response NMA (MBNMA)
 A network whose treatments are (agent, dose) nodes; each agent's nodes are
 constrained to a parametric dose-response curve f_a(dose) with f_a(0)=0 (models:
