@@ -1,0 +1,200 @@
+[
+  {
+    "target": "DPP4",
+    "regime": "rich",
+    "contrast": "borrow_vs_nma",
+    "mciw0_diff": -0.0048,
+    "ci_lo": -0.0138,
+    "ci_hi": 0.0054,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.869
+  },
+  {
+    "target": "DPP4",
+    "regime": "rich",
+    "contrast": "shrink_mean_vs_nma",
+    "mciw0_diff": 0.001,
+    "ci_lo": -0.0063,
+    "ci_hi": 0.0143,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.146
+  },
+  {
+    "target": "DPP4",
+    "regime": "rich",
+    "contrast": "borrow_vs_shrink_mean",
+    "mciw0_diff": -0.0058,
+    "ci_lo": -0.0189,
+    "ci_hi": 0.003,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.94
+  },
+  {
+    "target": "DPP4",
+    "regime": "sparse",
+    "contrast": "borrow_vs_nma",
+    "mciw0_diff": -0.0387,
+    "ci_lo": -0.0904,
+    "ci_hi": -0.0138,
+    "robust_win": true,
+    "robust_harm": false,
+    "frac_better": 1.0
+  },
+  {
+    "target": "DPP4",
+    "regime": "sparse",
+    "contrast": "shrink_mean_vs_nma",
+    "mciw0_diff": -0.0731,
+    "ci_lo": -0.1514,
+    "ci_hi": -0.0368,
+    "robust_win": true,
+    "robust_harm": false,
+    "frac_better": 1.0
+  },
+  {
+    "target": "DPP4",
+    "regime": "sparse",
+    "contrast": "borrow_vs_shrink_mean",
+    "mciw0_diff": 0.0344,
+    "ci_lo": -0.0157,
+    "ci_hi": 0.0609,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.134
+  },
+  {
+    "target": "GLP1",
+    "regime": "rich",
+    "contrast": "borrow_vs_nma",
+    "mciw0_diff": 0.2556,
+    "ci_lo": 0.1846,
+    "ci_hi": 0.3029,
+    "robust_win": false,
+    "robust_harm": true,
+    "frac_better": 0.0
+  },
+  {
+    "target": "GLP1",
+    "regime": "rich",
+    "contrast": "shrink_mean_vs_nma",
+    "mciw0_diff": 0.2855,
+    "ci_lo": 0.2071,
+    "ci_hi": 0.3295,
+    "robust_win": false,
+    "robust_harm": true,
+    "frac_better": 0.0
+  },
+  {
+    "target": "GLP1",
+    "regime": "rich",
+    "contrast": "borrow_vs_shrink_mean",
+    "mciw0_diff": -0.0299,
+    "ci_lo": -0.0358,
+    "ci_hi": -0.0173,
+    "robust_win": true,
+    "robust_harm": false,
+    "frac_better": 1.0
+  },
+  {
+    "target": "GLP1",
+    "regime": "sparse",
+    "contrast": "borrow_vs_nma",
+    "mciw0_diff": -0.0584,
+    "ci_lo": -0.1096,
+    "ci_hi": 0.0565,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.888
+  },
+  {
+    "target": "GLP1",
+    "regime": "sparse",
+    "contrast": "shrink_mean_vs_nma",
+    "mciw0_diff": -0.0674,
+    "ci_lo": -0.1237,
+    "ci_hi": 0.0428,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.914
+  },
+  {
+    "target": "GLP1",
+    "regime": "sparse",
+    "contrast": "borrow_vs_shrink_mean",
+    "mciw0_diff": 0.009,
+    "ci_lo": 0.0,
+    "ci_hi": 0.0141,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.011
+  },
+  {
+    "target": "SGLT2",
+    "regime": "rich",
+    "contrast": "borrow_vs_nma",
+    "mciw0_diff": -0.006,
+    "ci_lo": -0.0196,
+    "ci_hi": 0.0029,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.895
+  },
+  {
+    "target": "SGLT2",
+    "regime": "rich",
+    "contrast": "shrink_mean_vs_nma",
+    "mciw0_diff": 0.0027,
+    "ci_lo": -0.0109,
+    "ci_hi": 0.0112,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.375
+  },
+  {
+    "target": "SGLT2",
+    "regime": "rich",
+    "contrast": "borrow_vs_shrink_mean",
+    "mciw0_diff": -0.0087,
+    "ci_lo": -0.0092,
+    "ci_hi": -0.0082,
+    "robust_win": true,
+    "robust_harm": false,
+    "frac_better": 1.0
+  },
+  {
+    "target": "SGLT2",
+    "regime": "sparse",
+    "contrast": "borrow_vs_nma",
+    "mciw0_diff": -0.06,
+    "ci_lo": -0.1012,
+    "ci_hi": 0.0053,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.832
+  },
+  {
+    "target": "SGLT2",
+    "regime": "sparse",
+    "contrast": "shrink_mean_vs_nma",
+    "mciw0_diff": -0.0564,
+    "ci_lo": -0.0976,
+    "ci_hi": 0.035,
+    "robust_win": false,
+    "robust_harm": false,
+    "frac_better": 0.851
+  },
+  {
+    "target": "SGLT2",
+    "regime": "sparse",
+    "contrast": "borrow_vs_shrink_mean",
+    "mciw0_diff": -0.0036,
+    "ci_lo": -0.0042,
+    "ci_hi": -0.0023,
+    "robust_win": true,
+    "robust_harm": false,
+    "frac_better": 1.0
+  }
+]

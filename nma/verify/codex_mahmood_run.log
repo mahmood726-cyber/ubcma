@@ -1,0 +1,3489 @@
+Reading additional input from stdin...
+OpenAI Codex v0.135.0
+--------
+workdir: F:\ubcma
+model: gpt-5.5
+provider: openai
+approval: never
+sandbox: workspace-write [workdir, /tmp, $TMPDIR]
+reasoning effort: xhigh
+reasoning summaries: none
+session id: 019ee916-ddeb-7681-aac1-9f3653ab1dd2
+--------
+user
+Read nma/verify/VERIFY_SPEC.md and complete the verification task exactly as specified. Your name is 'codex_mahmood'. Implement nma/verify/codex_mahmood_nma.py independently (do NOT read nma/nma_core.py) and write nma/verify/codex_mahmood_RESULT.md with the max abs league-table errors vs the netmeta reference CSVs for both networks. Use python (not python3). Work autonomously to completion.
+codex
+I’ll start by doing the required session preflight, then I’ll inspect the verification spec without touching `nma/nma_core.py`. After that I’ll implement the independent verifier and run the requested comparisons with `python`.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n \"ubcma|NMA|network|VERIFY|submission|status\" F:\\ProjectIndex\\INDEX.md" in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git status --short' in F:\ubcma
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command "rg -n \"ubcma|NMA|network|VERIFY|submission|status\" F:\\E156\\rewrite-workbook.txt" in F:\ubcma
+2026-06-21T07:31:15.559666Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+2026-06-21T07:31:15.559663Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+2026-06-21T07:31:15.561633Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:31:15.580541Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:31:15.588291Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:31:15.597161Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+The first parallel preflight hit a sandbox spawn setup error before any command ran. I’m retrying the checks one at a time so I can separate an environment issue from a command issue.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -Command 'git status --short' in F:\ubcma
+2026-06-21T07:31:19.907098Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:31:19.910343Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+The shell runner is failing at process setup, not inside Git or PowerShell. I’m trying the same command with login-shell behavior disabled to rule out profile startup as the cause.
+exec
+"C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe" -NoProfile -Command 'git status --short' in F:\ubcma
+2026-06-21T07:31:24.760518Z ERROR codex_core::exec: exec error: windows sandbox: spawn setup refresh
+ exited -1 in 0ms:
+execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+2026-06-21T07:31:24.763785Z ERROR codex_core::tools::router: error=execution error: Io(Custom { kind: Other, error: "windows sandbox: spawn setup refresh" })
+codex
+That confirms the shell tool itself is unavailable in this session, so I’m switching to an alternate local execution path. I’ll use the Node-backed REPL for filesystem inspection and only fall back if it cannot access the workspace.
+codex
+I found the Node execution tool and am using it as the local runner. It can read files directly, and I’m checking whether it can invoke `python`/`git` so the verification can still be executed exactly with `python`.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+codex
+Preflight is complete. The repo already has many unrelated dirty/untracked files, including `nma/verify/`; I’ll leave unrelated work untouched and only add/update my assigned verifier/result files.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+codex
+I’ve read the verification spec. Next I’m inspecting only the committed input/reference CSVs so the implementation can match their table orientation and treatment labels without relying on `nma/nma_core.py`.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+codex
+The references show the random-effects league tables are square CSVs with row labels in the first column and treatments as headers. I’m checking the Python numerical stack now, then I’ll write a standalone script around NumPy/Pandas only.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+  ✓ Inspect verification spec and committed CSV inputs without reading nma_core.py
+  → Implement independent graph-theoretic random-effects NMA script
+  • Run verifier for smoking and senn2013, compare league TE/seTE to references
+  • Write codex_mahmood_RESULT.md with measured errors and diagnostics
+codex
+I’m going to add only `nma/verify/codex_mahmood_nma.py`. The script will derive the study-level covariance blocks from the contrast variances, add the supplied DL tau² in the multi-arm covariance structure, solve the GLS normal equations with Moore-Penrose inverses, and compare directly to the R league-table CSVs.
+apply patch
+patch: completed
+F:\ubcma\nma\verify\codex_mahmood_nma.py
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..9da1acc79c6ee22fc6fd916f2dfca232476fbfb6
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,178 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [
++        _study_covariance(block, tau2)
++        for _, block in data.groupby("studlab", sort=False)
++    ]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..9da1acc79c6ee22fc6fd916f2dfca232476fbfb6
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,178 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [
++        _study_covariance(block, tau2)
++        for _, block in data.groupby("studlab", sort=False)
++    ]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The standalone verifier is in place. I’m running it with `python` now and will use the measured output to decide whether any covariance/orientation adjustment is needed.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..9da1acc79c6ee22fc6fd916f2dfca232476fbfb6
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,178 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [
++        _study_covariance(block, tau2)
++        for _, block in data.groupby("studlab", sort=False)
++    ]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+Smoking matches the reference to floating-point CSV precision, but Senn2013 does not. I’m narrowing that down now by inspecting the Senn2013 study structure and checking whether the multi-arm rows provide complete pairwise contrast sets.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..9da1acc79c6ee22fc6fd916f2dfca232476fbfb6
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,178 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [
++        _study_covariance(block, tau2)
++        for _, block in data.groupby("studlab", sort=False)
++    ]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The Senn2013 input has one three-arm study and otherwise two-arm contrasts, so the issue is not incomplete multi-arm expansion. I’m checking the graph connectivity and per-treatment evidence now, because disconnected components or direct-only subnetworks affect how the league table is anchored.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..9da1acc79c6ee22fc6fd916f2dfca232476fbfb6
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,178 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [
++        _study_covariance(block, tau2)
++        for _, block in data.groupby("studlab", sort=False)
++    ]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+A useful pattern emerged: Sita and Vild are direct-only and should reproduce their lone direct effects, which the reference does. I’m now comparing direct random-effects means against the table to see whether the Senn discrepancy is isolated to specific study weights or to the global GLS variance treatment.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..9da1acc79c6ee22fc6fd916f2dfca232476fbfb6
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,178 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [
++        _study_covariance(block, tau2)
++        for _, block in data.groupby("studlab", sort=False)
++    ]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The debug import tripped over Python’s dataclass module because I loaded the file manually without registering the module. I’m rerunning the same check with a normal module registration; this does not alter the verifier.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..9da1acc79c6ee22fc6fd916f2dfca232476fbfb6
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,178 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [
++        _study_covariance(block, tau2)
++        for _, block in data.groupby("studlab", sort=False)
++    ]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The Senn mismatch is from row ordering, not the NMA math: the three Willms1999 contrasts are split apart in the CSV, while a block-diagonal covariance assumes each study block is contiguous. I’m changing the verifier to explicitly regroup rows by study before constructing `B`, `y`, and the covariance blocks.
+apply patch
+patch: completed
+F:\ubcma\nma\verify\codex_mahmood_nma.py
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+That ordering fix is applied. I’m rerunning the verifier with `python` against both networks.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+Both networks now meet the `< 1e-6` target. I’m writing the requested result markdown with the exact command, measured max errors, and the cells where the maxima occurred.
+apply patch
+patch: completed
+F:\ubcma\nma\verify\codex_mahmood_RESULT.md
+diff --git a/nma/verify/codex_mahmood_RESULT.md b/nma/verify/codex_mahmood_RESULT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a86437629b11429524db216b5bfc5b7d3580265
+--- /dev/null
++++ b/nma/verify/codex_mahmood_RESULT.md
+@@ -0,0 +1,20 @@
++# codex_mahmood independent NMA verification
++
++Command run from repo root:
++
++```powershell
++python nma/verify/codex_mahmood_nma.py
++```
++
++The verifier is standalone and reads only the committed CSV inputs/references in
++`nma/reference/`. It uses the netmeta DL `tau2` values from each network's
++`*_scalars.csv`, rebuilds study-level covariance blocks, solves the GLS NMA
++normal equations with Moore-Penrose inverses, and compares random-effects league
++tables to the netmeta reference CSVs.
++
++| network | tau2 | max abs TE error | TE max cell | max abs seTE error | seTE max cell | verdict |
++|---|---:|---:|---|---:|---|---|
++| smoking | 0.598875258924702 | 4.99916774643e-11 | A,B | 4.55333548643e-11 | C,D | PASS |
++| senn2013 | 0.108716923142419 | 4.78596051678e-11 | acar,rosi | 4.80432915673e-11 | acar,sulf | PASS |
++
++Both networks are below the target tolerance of `1e-6`.
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+diff --git a/nma/verify/codex_mahmood_RESULT.md b/nma/verify/codex_mahmood_RESULT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a86437629b11429524db216b5bfc5b7d3580265
+--- /dev/null
++++ b/nma/verify/codex_mahmood_RESULT.md
+@@ -0,0 +1,20 @@
++# codex_mahmood independent NMA verification
++
++Command run from repo root:
++
++```powershell
++python nma/verify/codex_mahmood_nma.py
++```
++
++The verifier is standalone and reads only the committed CSV inputs/references in
++`nma/reference/`. It uses the netmeta DL `tau2` values from each network's
++`*_scalars.csv`, rebuilds study-level covariance blocks, solves the GLS NMA
++normal equations with Moore-Penrose inverses, and compares random-effects league
++tables to the netmeta reference CSVs.
++
++| network | tau2 | max abs TE error | TE max cell | max abs seTE error | seTE max cell | verdict |
++|---|---:|---:|---|---:|---|---|
++| smoking | 0.598875258924702 | 4.99916774643e-11 | A,B | 4.55333548643e-11 | C,D | PASS |
++| senn2013 | 0.108716923142419 | 4.78596051678e-11 | acar,rosi | 4.80432915673e-11 | acar,sulf | PASS |
++
++Both networks are below the target tolerance of `1e-6`.
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The result file is written. I’m doing a final verification pass now: compile the script, rerun the comparison, and check the diff for whitespace issues in only the files I touched.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_RESULT.md b/nma/verify/codex_mahmood_RESULT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a86437629b11429524db216b5bfc5b7d3580265
+--- /dev/null
++++ b/nma/verify/codex_mahmood_RESULT.md
+@@ -0,0 +1,20 @@
++# codex_mahmood independent NMA verification
++
++Command run from repo root:
++
++```powershell
++python nma/verify/codex_mahmood_nma.py
++```
++
++The verifier is standalone and reads only the committed CSV inputs/references in
++`nma/reference/`. It uses the netmeta DL `tau2` values from each network's
++`*_scalars.csv`, rebuilds study-level covariance blocks, solves the GLS NMA
++normal equations with Moore-Penrose inverses, and compares random-effects league
++tables to the netmeta reference CSVs.
++
++| network | tau2 | max abs TE error | TE max cell | max abs seTE error | seTE max cell | verdict |
++|---|---:|---:|---|---:|---|---|
++| smoking | 0.598875258924702 | 4.99916774643e-11 | A,B | 4.55333548643e-11 | C,D | PASS |
++| senn2013 | 0.108716923142419 | 4.78596051678e-11 | acar,rosi | 4.80432915673e-11 | acar,sulf | PASS |
++
++Both networks are below the target tolerance of `1e-6`.
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The direct `py_compile` attempt failed only because Python tried to create `nma/verify/__pycache__` and the sandbox denied that new directory. I’m rerunning syntax compilation to a temp pyc outside the repo, then I’ll remove that temp artifact.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_RESULT.md b/nma/verify/codex_mahmood_RESULT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a86437629b11429524db216b5bfc5b7d3580265
+--- /dev/null
++++ b/nma/verify/codex_mahmood_RESULT.md
+@@ -0,0 +1,20 @@
++# codex_mahmood independent NMA verification
++
++Command run from repo root:
++
++```powershell
++python nma/verify/codex_mahmood_nma.py
++```
++
++The verifier is standalone and reads only the committed CSV inputs/references in
++`nma/reference/`. It uses the netmeta DL `tau2` values from each network's
++`*_scalars.csv`, rebuilds study-level covariance blocks, solves the GLS NMA
++normal equations with Moore-Penrose inverses, and compares random-effects league
++tables to the netmeta reference CSVs.
++
++| network | tau2 | max abs TE error | TE max cell | max abs seTE error | seTE max cell | verdict |
++|---|---:|---:|---|---:|---|---|
++| smoking | 0.598875258924702 | 4.99916774643e-11 | A,B | 4.55333548643e-11 | C,D | PASS |
++| senn2013 | 0.108716923142419 | 4.78596051678e-11 | acar,rosi | 4.80432915673e-11 | acar,sulf | PASS |
++
++Both networks are below the target tolerance of `1e-6`.
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+The temp-pyc route is also blocked by filesystem permissions, so I’m switching to a no-write syntax check with Python’s built-in `compile()` plus the actual verifier run, which already exercises the script end to end.
+mcp: node_repl/js started
+mcp: node_repl/js (completed)
+diff --git a/nma/verify/codex_mahmood_RESULT.md b/nma/verify/codex_mahmood_RESULT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a86437629b11429524db216b5bfc5b7d3580265
+--- /dev/null
++++ b/nma/verify/codex_mahmood_RESULT.md
+@@ -0,0 +1,20 @@
++# codex_mahmood independent NMA verification
++
++Command run from repo root:
++
++```powershell
++python nma/verify/codex_mahmood_nma.py
++```
++
++The verifier is standalone and reads only the committed CSV inputs/references in
++`nma/reference/`. It uses the netmeta DL `tau2` values from each network's
++`*_scalars.csv`, rebuilds study-level covariance blocks, solves the GLS NMA
++normal equations with Moore-Penrose inverses, and compares random-effects league
++tables to the netmeta reference CSVs.
++
++| network | tau2 | max abs TE error | TE max cell | max abs seTE error | seTE max cell | verdict |
++|---|---:|---:|---|---:|---|---|
++| smoking | 0.598875258924702 | 4.99916774643e-11 | A,B | 4.55333548643e-11 | C,D | PASS |
++| senn2013 | 0.108716923142419 | 4.78596051678e-11 | acar,rosi | 4.80432915673e-11 | acar,sulf | PASS |
++
++Both networks are below the target tolerance of `1e-6`.
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+  ✓ Inspect verification spec and committed CSV inputs without reading nma_core.py
+  ✓ Implement independent graph-theoretic random-effects NMA script
+  ✓ Run verifier for smoking and senn2013, compare league TE/seTE to references
+  ✓ Write codex_mahmood_RESULT.md with measured errors and diagnostics
+diff --git a/nma/verify/codex_mahmood_RESULT.md b/nma/verify/codex_mahmood_RESULT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a86437629b11429524db216b5bfc5b7d3580265
+--- /dev/null
++++ b/nma/verify/codex_mahmood_RESULT.md
+@@ -0,0 +1,20 @@
++# codex_mahmood independent NMA verification
++
++Command run from repo root:
++
++```powershell
++python nma/verify/codex_mahmood_nma.py
++```
++
++The verifier is standalone and reads only the committed CSV inputs/references in
++`nma/reference/`. It uses the netmeta DL `tau2` values from each network's
++`*_scalars.csv`, rebuilds study-level covariance blocks, solves the GLS NMA
++normal equations with Moore-Penrose inverses, and compares random-effects league
++tables to the netmeta reference CSVs.
++
++| network | tau2 | max abs TE error | TE max cell | max abs seTE error | seTE max cell | verdict |
++|---|---:|---:|---|---:|---|---|
++| smoking | 0.598875258924702 | 4.99916774643e-11 | A,B | 4.55333548643e-11 | C,D | PASS |
++| senn2013 | 0.108716923142419 | 4.78596051678e-11 | acar,rosi | 4.80432915673e-11 | acar,sulf | PASS |
++
++Both networks are below the target tolerance of `1e-6`.
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+codex
+Implemented the independent verifier and result report:
+
+- [nma/verify/codex_mahmood_nma.py](F:/ubcma/nma/verify/codex_mahmood_nma.py:1)
+- [nma/verify/codex_mahmood_RESULT.md](F:/ubcma/nma/verify/codex_mahmood_RESULT.md:1)
+
+I did not read or import `nma/nma_core.py`. The script uses `python`, reads the committed reference CSVs, rebuilds the random-effects GLS league tables, and compares against netmeta.
+
+Verification run:
+
+```text
+python nma/verify/codex_mahmood_nma.py
+```
+
+Results:
+
+```text
+smoking:  max abs TE = 4.99916774643e-11, max abs seTE = 4.55333548643e-11
+senn2013: max abs TE = 4.78596051678e-11, max abs seTE = 4.80432915673e-11
+```
+
+Both are below `1e-6`. A no-write Python syntax check also passed.
+diff --git a/nma/verify/codex_mahmood_RESULT.md b/nma/verify/codex_mahmood_RESULT.md
+new file mode 100644
+index 0000000000000000000000000000000000000000..8a86437629b11429524db216b5bfc5b7d3580265
+--- /dev/null
++++ b/nma/verify/codex_mahmood_RESULT.md
+@@ -0,0 +1,20 @@
++# codex_mahmood independent NMA verification
++
++Command run from repo root:
++
++```powershell
++python nma/verify/codex_mahmood_nma.py
++```
++
++The verifier is standalone and reads only the committed CSV inputs/references in
++`nma/reference/`. It uses the netmeta DL `tau2` values from each network's
++`*_scalars.csv`, rebuilds study-level covariance blocks, solves the GLS NMA
++normal equations with Moore-Penrose inverses, and compares random-effects league
++tables to the netmeta reference CSVs.
++
++| network | tau2 | max abs TE error | TE max cell | max abs seTE error | seTE max cell | verdict |
++|---|---:|---:|---|---:|---|---|
++| smoking | 0.598875258924702 | 4.99916774643e-11 | A,B | 4.55333548643e-11 | C,D | PASS |
++| senn2013 | 0.108716923142419 | 4.78596051678e-11 | acar,rosi | 4.80432915673e-11 | acar,sulf | PASS |
++
++Both networks are below the target tolerance of `1e-6`.
+diff --git a/nma/verify/codex_mahmood_nma.py b/nma/verify/codex_mahmood_nma.py
+new file mode 100644
+index 0000000000000000000000000000000000000000..6911d044c777e9a7ca80f50b6657bfba991c0c74
+--- /dev/null
++++ b/nma/verify/codex_mahmood_nma.py
+@@ -0,0 +1,177 @@
++"""Independent graph-theoretic NMA verifier.
++
++This script intentionally does not import the project NMA implementation.  It
++rebuilds the random-effects GLS engine from the committed contrast-level CSVs
++and compares the resulting league tables to the R netmeta references.
++"""
++
++from __future__ import annotations
++
++from dataclasses import dataclass
++from pathlib import Path
++
++import numpy as np
++import pandas as pd
++
++
++ROOT = Path(__file__).resolve().parents[2]
++REF = ROOT / "nma" / "reference"
++NETWORKS = ("smoking", "senn2013")
++
++
++@dataclass(frozen=True)
++class ComparisonResult:
++    network: str
++    tau2: float
++    max_abs_te: float
++    max_abs_sete: float
++    max_te_row: str
++    max_te_col: str
++    max_te_ours: float
++    max_te_ref: float
++    max_sete_row: str
++    max_sete_col: str
++    max_sete_ours: float
++    max_sete_ref: float
++
++
++def _study_covariance(block: pd.DataFrame, tau2: float) -> np.ndarray:
++    """Return the within-study random-effects covariance for one study."""
++
++    if len(block) == 1:
++        return np.array([[float(block["seTE"].iloc[0]) ** 2 + tau2]], dtype=float)
++
++    labels = sorted(set(block["treat1"]).union(block["treat2"]))
++    index = {label: i for i, label in enumerate(labels)}
++
++    incidence = np.zeros((len(block), len(labels)), dtype=float)
++    variances = np.square(block["seTE"].to_numpy(dtype=float))
++
++    for row_i, row in enumerate(block.itertuples(index=False)):
++        incidence[row_i, index[row.treat1]] = 1.0
++        incidence[row_i, index[row.treat2]] = -1.0
++
++    pair_sum = np.square(incidence)
++    arm_variances, *_ = np.linalg.lstsq(pair_sum, variances, rcond=None)
++    arm_variances = arm_variances + tau2 / 2.0
++    return incidence @ np.diag(arm_variances) @ incidence.T
++
++
++def _block_diag(blocks: list[np.ndarray]) -> np.ndarray:
++    rows = sum(block.shape[0] for block in blocks)
++    out = np.zeros((rows, rows), dtype=float)
++    cursor = 0
++    for block in blocks:
++        size = block.shape[0]
++        out[cursor : cursor + size, cursor : cursor + size] = block
++        cursor += size
++    return out
++
++
++def _random_effects_tables(
++    data: pd.DataFrame, tau2: float, treatments: list[str]
++) -> tuple[pd.DataFrame, pd.DataFrame]:
++    study_blocks = [block.copy() for _, block in data.groupby("studlab", sort=False)]
++    data = pd.concat(study_blocks, ignore_index=True)
++    treatment_index = {label: i for i, label in enumerate(treatments)}
++
++    b_matrix = np.zeros((len(data), len(treatments)), dtype=float)
++    for row_i, row in enumerate(data.itertuples(index=False)):
++        b_matrix[row_i, treatment_index[row.treat1]] = 1.0
++        b_matrix[row_i, treatment_index[row.treat2]] = -1.0
++
++    y = data["TE"].to_numpy(dtype=float)
++
++    cov_blocks = [_study_covariance(block, tau2) for block in study_blocks]
++    covariance = _block_diag(cov_blocks)
++    weight = np.linalg.pinv(covariance)
++
++    laplacian = b_matrix.T @ weight @ b_matrix
++    laplacian_pinv = np.linalg.pinv(laplacian)
++    theta = laplacian_pinv @ b_matrix.T @ weight @ y
++
++    te = theta[:, None] - theta[None, :]
++    variances = (
++        np.diag(laplacian_pinv)[:, None]
++        + np.diag(laplacian_pinv)[None, :]
++        - 2.0 * laplacian_pinv
++    )
++    variances = np.maximum(variances, 0.0)
++    sete = np.sqrt(variances)
++
++    return (
++        pd.DataFrame(te, index=treatments, columns=treatments),
++        pd.DataFrame(sete, index=treatments, columns=treatments),
++    )
++
++
++def _read_reference_table(path: Path) -> pd.DataFrame:
++    table = pd.read_csv(path, index_col=0)
++    table.index = table.index.astype(str)
++    table.columns = table.columns.astype(str)
++    return table.astype(float)
++
++
++def _max_discrepancy(
++    ours: pd.DataFrame, reference: pd.DataFrame
++) -> tuple[float, str, str, float, float]:
++    diff = (ours.loc[reference.index, reference.columns] - reference).abs()
++    row_i, col_i = np.unravel_index(np.nanargmax(diff.to_numpy()), diff.shape)
++    row = str(diff.index[row_i])
++    col = str(diff.columns[col_i])
++    return (
++        float(diff.iloc[row_i, col_i]),
++        row,
++        col,
++        float(ours.loc[row, col]),
++        float(reference.loc[row, col]),
++    )
++
++
++def run_network(network: str) -> ComparisonResult:
++    data = pd.read_csv(REF / f"{network}_input.csv")
++    te_reference = _read_reference_table(REF / f"{network}_TE_random.csv")
++    sete_reference = _read_reference_table(REF / f"{network}_seTE_random.csv")
++    scalars = pd.read_csv(REF / f"{network}_scalars.csv")
++    tau2 = float(scalars["tau2"].iloc[0])
++
++    treatments = list(te_reference.columns)
++    te, sete = _random_effects_tables(data, tau2, treatments)
++
++    max_te, te_row, te_col, te_ours, te_ref = _max_discrepancy(te, te_reference)
++    max_sete, sete_row, sete_col, sete_ours, sete_ref = _max_discrepancy(
++        sete, sete_reference
++    )
++
++    return ComparisonResult(
++        network=network,
++        tau2=tau2,
++        max_abs_te=max_te,
++        max_abs_sete=max_sete,
++        max_te_row=te_row,
++        max_te_col=te_col,
++        max_te_ours=te_ours,
++        max_te_ref=te_ref,
++        max_sete_row=sete_row,
++        max_sete_col=sete_col,
++        max_sete_ours=sete_ours,
++        max_sete_ref=sete_ref,
++    )
++
++
++def main() -> None:
++    results = [run_network(network) for network in NETWORKS]
++    print("| network | tau2 | max_abs_TE | TE cell | ours | reference | max_abs_seTE | seTE cell | ours | reference |")
++    print("|---|---:|---:|---|---:|---:|---:|---|---:|---:|")
++    for result in results:
++        print(
++            f"| {result.network} | {result.tau2:.15g} | "
++            f"{result.max_abs_te:.12g} | {result.max_te_row},{result.max_te_col} | "
++            f"{result.max_te_ours:.12g} | {result.max_te_ref:.12g} | "
++            f"{result.max_abs_sete:.12g} | {result.max_sete_row},{result.max_sete_col} | "
++            f"{result.max_sete_ours:.12g} | {result.max_sete_ref:.12g} |"
++        )
++
++
++if __name__ == "__main__":
++    main()
+
+tokens used
+85,037
+Implemented the independent verifier and result report:
+
+- [nma/verify/codex_mahmood_nma.py](F:/ubcma/nma/verify/codex_mahmood_nma.py:1)
+- [nma/verify/codex_mahmood_RESULT.md](F:/ubcma/nma/verify/codex_mahmood_RESULT.md:1)
+
+I did not read or import `nma/nma_core.py`. The script uses `python`, reads the committed reference CSVs, rebuilds the random-effects GLS league tables, and compares against netmeta.
+
+Verification run:
+
+```text
+python nma/verify/codex_mahmood_nma.py
+```
+
+Results:
+
+```text
+smoking:  max abs TE = 4.99916774643e-11, max abs seTE = 4.55333548643e-11
+senn2013: max abs TE = 4.78596051678e-11, max abs seTE = 4.80432915673e-11
+```
+
+Both are below `1e-6`. A no-write Python syntax check also passed.

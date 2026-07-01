@@ -1,0 +1,82 @@
+[matched-cov] mechanism=smooth strength=strong reps=300 ...
+F:\ubcma\src\ubcma\comparators.py:167: RuntimeWarning: overflow encountered in exp
+  tau2 = np.exp(log_tau2)
+F:\ubcma\src\ubcma\comparators.py:176: RuntimeWarning: invalid value encountered in multiply
+  adj_mean = mu + _rho * sigma * inv_mills
+F:\ubcma\src\ubcma\comparators.py:180: RuntimeWarning: invalid value encountered in divide
+  ll = -0.5 * np.sum(np.log(adj_var) + np.square(y - adj_mean) / adj_var)
+[matched-cov] mechanism=step strength=strong reps=300 ...
+F:\ubcma\src\ubcma\comparators.py:167: RuntimeWarning: overflow encountered in exp
+  tau2 = np.exp(log_tau2)
+F:\ubcma\src\ubcma\comparators.py:176: RuntimeWarning: invalid value encountered in multiply
+  adj_mean = mu + _rho * sigma * inv_mills
+[matched-cov] mechanism=copas strength=strong reps=300 ...
+
+# Matched-coverage bake-off (mu=0.2, tau=0.1, k=40, strong, reps=300, target=0.95)
+
+MCIW0 = matched-coverage width, constant-width calib (PRIMARY: point-estimator
+        efficiency, lower=better). MCIW = method's-own-width calib (secondary).
+raw_cov/raw_width = deployable (kappa=1). *_test_cov should ~= target.
+
+-- mechanism = smooth --
+method             bias    rmse  raw_cov    MCIW0  mc0_cov     MCIW  mc_cov
+trim_and_fill   -0.0275  0.0602    0.477   0.2451    0.953   0.2622   0.953  <-- narrower than HC
+adaptshrink      0.0299  0.0696    0.967   0.2526    0.967   0.3412   0.987  <-- narrower than HC
+ubcma            0.0447  0.0778    0.765   0.2852    0.953   0.3169   0.940  <-- narrower than HC
+pet_peese        0.0691  0.1053    0.313   0.3547    0.960   0.3960   0.980  <-- narrower than HC
+copas            0.1231  0.1286    0.083   0.3731    0.967   0.3810   0.927
+reml_hksj        0.1239  0.1293    0.120   0.3745    0.953   0.3944   0.927
+
+-- mechanism = step --
+method             bias    rmse  raw_cov    MCIW0  mc0_cov     MCIW  mc_cov
+trim_and_fill    0.0101  0.0389    0.600   0.1709    0.980   0.1673   0.993  <-- narrower than HC
+adaptshrink      0.0527  0.0687    0.960   0.2568    0.987   0.2761   0.973  <-- narrower than HC
+ubcma            0.0669  0.0842    0.654   0.3111    0.960   0.3077   0.960  <-- narrower than HC
+pet_peese        0.0773  0.1007    0.273   0.3496    0.953   0.3603   0.973  <-- narrower than HC
+copas            0.1456  0.1494    0.003   0.4055    0.960   0.4299   0.973
+reml_hksj        0.1467  0.1504    0.003   0.4080    0.960   0.4256   0.960
+
+-- mechanism = copas --
+method             bias    rmse  raw_cov    MCIW0  mc0_cov     MCIW  mc_cov
+ubcma            0.0206  0.0561    0.828   0.2046    0.899   0.2336   0.919  <-- narrower than HC
+adaptshrink      0.0141  0.0581    0.977   0.2194    0.920   0.2940   0.967  <-- narrower than HC
+trim_and_fill   -0.0635  0.0789    0.187   0.2736    0.927   0.2951   0.940  <-- narrower than HC
+copas            0.0989  0.1033    0.070   0.2915    0.953   0.3277   0.973
+reml_hksj        0.0993  0.1036    0.090   0.2930    0.953   0.3280   0.973
+pet_peese        0.0581  0.0852    0.407   0.3068    0.960   0.3062   0.960
+
+# TRUTH-GATE
+  G1 finite estimates ok : True
+  VERIFIED wins vs Henmi-Copas at matched coverage (MCIW0):
+    [copas] adaptshrink: MCIW0=0.2194 vs HC=0.2915 (ratio 0.753), test_cov=0.920 vs HC 0.953
+    [copas] trim_and_fill: MCIW0=0.2736 vs HC=0.2915 (ratio 0.939), test_cov=0.927 vs HC 0.953
+    [copas] ubcma: MCIW0=0.2046 vs HC=0.2915 (ratio 0.702), test_cov=0.899 vs HC 0.953
+    [smooth] adaptshrink: MCIW0=0.2526 vs HC=0.3731 (ratio 0.677), test_cov=0.967 vs HC 0.967
+    [smooth] pet_peese: MCIW0=0.3547 vs HC=0.3731 (ratio 0.951), test_cov=0.960 vs HC 0.967
+    [smooth] trim_and_fill: MCIW0=0.2451 vs HC=0.3731 (ratio 0.657), test_cov=0.953 vs HC 0.967
+    [smooth] ubcma: MCIW0=0.2852 vs HC=0.3731 (ratio 0.764), test_cov=0.953 vs HC 0.967
+    [step] adaptshrink: MCIW0=0.2568 vs HC=0.4055 (ratio 0.633), test_cov=0.987 vs HC 0.960
+    [step] pet_peese: MCIW0=0.3496 vs HC=0.4055 (ratio 0.862), test_cov=0.953 vs HC 0.960
+    [step] trim_and_fill: MCIW0=0.1709 vs HC=0.4055 (ratio 0.421), test_cov=0.980 vs HC 0.960
+    [step] ubcma: MCIW0=0.3111 vs HC=0.4055 (ratio 0.767), test_cov=0.960 vs HC 0.960
+
+  Paired-bootstrap MCIW0 advantage vs HC (robust win = 97.5% CI < 0):
+    [copas ] adaptshrink    dMCIW0=-0.0658  CI[-0.0892,-0.0423]  P(better)=1.000  ROBUST WIN
+    [copas ] pet_peese      dMCIW0=+0.0100  CI[-0.0128,+0.0473]  P(better)=0.160
+    [copas ] reml_hksj      dMCIW0=+0.0010  CI[-0.0018,+0.0022]  P(better)=0.081
+    [copas ] trim_and_fill  dMCIW0=-0.0039  CI[-0.0401,+0.0170]  P(better)=0.700
+    [copas ] ubcma          dMCIW0=-0.0780  CI[-0.0981,-0.0498]  P(better)=1.000  ROBUST WIN
+    [smooth] adaptshrink    dMCIW0=-0.1259  CI[-0.1461,-0.1005]  P(better)=1.000  ROBUST WIN
+    [smooth] pet_peese      dMCIW0=-0.0197  CI[-0.0429,+0.0183]  P(better)=0.877
+    [smooth] reml_hksj      dMCIW0=+0.0030  CI[-0.0026,+0.0047]  P(better)=0.162
+    [smooth] trim_and_fill  dMCIW0=-0.1271  CI[-0.1573,-0.0885]  P(better)=1.000  ROBUST WIN
+    [smooth] ubcma          dMCIW0=-0.0858  CI[-0.1059,-0.0475]  P(better)=1.000  ROBUST WIN
+    [step  ] adaptshrink    dMCIW0=-0.1617  CI[-0.1915,-0.1379]  P(better)=1.000  ROBUST WIN
+    [step  ] pet_peese      dMCIW0=-0.0528  CI[-0.0873,-0.0340]  P(better)=1.000  ROBUST WIN
+    [step  ] reml_hksj      dMCIW0=+0.0026  CI[-0.0008,+0.0048]  P(better)=0.060
+    [step  ] trim_and_fill  dMCIW0=-0.2420  CI[-0.2743,-0.2132]  P(better)=1.000  ROBUST WIN
+    [step  ] ubcma          dMCIW0=-0.0959  CI[-0.1341,-0.0683]  P(better)=1.000  ROBUST WIN
+
+Wrote truth-recovery/mc_strong_perrep.csv
+      truth-recovery/mc_strong_table.csv
+      truth-recovery/mc_strong_truthgate.json  (3858.9s)

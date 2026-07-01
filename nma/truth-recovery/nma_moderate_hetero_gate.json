@@ -1,0 +1,55 @@
+{
+  "cell": "moderate_hetero",
+  "spec": {
+    "geom": "full",
+    "n": 5,
+    "studies_per_comp": [
+      3,
+      5
+    ],
+    "multiarm_frac": 0.0,
+    "hetero": "heterogeneous",
+    "tau_low": 0.05,
+    "tau_high": 0.3,
+    "tau_homog": 0.15,
+    "inconsistency": 0.0,
+    "selection": "none",
+    "effect_sd": 0.5,
+    "se_range": [
+      0.1,
+      0.45
+    ]
+  },
+  "reps": 80,
+  "nu": 4.0,
+  "target": 0.95,
+  "baseline": "common_DL",
+  "n_scored_reps": 80,
+  "bootstrap_vs_baseline": [
+    {
+      "method": "comp_specific",
+      "mciw0_diff": 0.03565383826750712,
+      "mciw0_ci_lo": -0.03150005358730231,
+      "mciw0_ci_hi": 0.07947245812656867,
+      "mciw0_robust_win": false,
+      "mciw_diff": 0.06137193609217523,
+      "mciw_ci_lo": -0.01365835123772053,
+      "mciw_ci_hi": 0.13506819163686248,
+      "mciw_robust_win": false,
+      "frac_better_mciw": 0.055
+    },
+    {
+      "method": "adaptshrink",
+      "mciw0_diff": 0.013091472520597225,
+      "mciw0_ci_lo": -0.03256996993294028,
+      "mciw0_ci_hi": 0.030706604722180317,
+      "mciw0_robust_win": false,
+      "mciw_diff": 0.009213212558807748,
+      "mciw_ci_lo": -0.027857652121564828,
+      "mciw_ci_hi": 0.047029973882381504,
+      "mciw_robust_win": false,
+      "frac_better_mciw": 0.275
+    }
+  ],
+  "G1_all_finite": true
+}

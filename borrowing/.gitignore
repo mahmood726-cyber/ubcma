@@ -1,0 +1,5 @@
+eff_raw.parquet
+*_verify*.out
+__pycache__/
+*.pyc
+_*.txt

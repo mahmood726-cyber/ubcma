@@ -1,0 +1,22 @@
+
+# NMA matched-coverage bake-off  cell=select_strong_dense_n7  reps=1200  nu=4.0  (scored reps=1200)
+# spec: {'geom': 'full', 'n': 7, 'studies_per_comp': (8, 15), 'multiarm_frac': 0.0, 'hetero': 'homogeneous', 'tau_low': 0.05, 'tau_high': 0.3, 'tau_homog': 0.1, 'inconsistency': 0.0, 'selection': 'strong', 'effect_sd': 0.5, 'se_range': (0.1, 0.45)}
+# raw_cov/cov_unif = DEPLOYABLE (kappa=1); cov_unif = mean|cov-0.95| across
+#   contrasts (lower=more uniform). MCIW = own-width matched coverage (PRIMARY
+#   for a heterogeneity model: lower=narrower at nominal). MCIW0 = point eff.
+
+method            |bias|  raw_cov cov_unif     MCIW  mc_cov    MCIW0  spearmn   top1
+adaptshrink_auto  0.0477    0.879    0.071   0.4405   0.923   0.4477    0.955   0.91  0.927x
+common_DL         0.0799    0.777    0.173   0.4750   0.943   0.4659    0.950   0.90  (field)
+adaptshrink       0.0798    0.780    0.170   0.4834   0.947   0.4753    0.949   0.90  1.018x
+comp_specific     0.0784    0.765    0.185   0.4845   0.944   0.4854    0.947   0.89  1.020x
+
+# Paired-bootstrap advantage vs field default (robust win = 97.5% CI < 0):
+method              dMCIW(own)                95% CI   robust    dMCIW0
+  comp_specific      +0.0120  [+0.0018,+0.0203]   False   +0.0147
+  adaptshrink        +0.0069  [-0.0010,+0.0112]   False   +0.0056
+  adaptshrink_auto     -0.0133  [-0.0259,-0.0013]    True   -0.0281  WIN
+
+Wrote nma/truth-recovery/sweep/swp_select_strong_dense_n7_perrep.csv
+      nma/truth-recovery/sweep/swp_select_strong_dense_n7_summary.csv
+      nma/truth-recovery/sweep/swp_select_strong_dense_n7_gate.json  (250.8s)

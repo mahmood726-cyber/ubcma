@@ -3,5 +3,31 @@ __pycache__/
 *.egg-info/
 dist/
 build/
-results/
+# Scratch/checkpoint simulation outputs (top-level only). Canonical,
+# version-controlled result tables live in paper/results/ and are committed.
+/results/
 .tmp_*
+
+# truth-recovery: transient per-mechanism MC shards + run/install logs
+# (the combined realhc_<strength>_perrep.csv and *_table/_truthgate are tracked)
+truth-recovery/realhc_*_smooth_perrep.csv
+truth-recovery/realhc_*_step_perrep.csv
+truth-recovery/realhc_*_copas_perrep.csv
+truth-recovery/realhc_*.log
+truth-recovery/r_*install.log
+
+# field-wide bake-off: transient per-shard CSVs + run logs (combined
+# field_<tag>_perrep.csv + _scores/_pairwise/_domination/_summary are tracked)
+truth-recovery/field_*_shard*.csv
+truth-recovery/field_*_shard*.log
+truth-recovery/codex_modern_run.log
+truth-recovery/agy_derivation.log
+truth-recovery/field2_*_shard*.csv
+truth-recovery/field2_*_shard*.log
+
+# NMA Phase-4 grid: large regenerable per-rep CSVs (reproduce via dump_grid_cells.py, matched seed) + run logs
+nma/verify/grid/*.csv
+nma/truth-recovery/tausel_grid_run.log
+nma/verify/agy_grid_gen.log
+nma/verify/codex_pc2_grid.log
+nma/verify/laptop_watch.log

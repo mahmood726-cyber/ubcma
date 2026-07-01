@@ -130,6 +130,37 @@ def _run_method(
         if method == "quality_effects":
             r = quality_effects(y, se, quality_score)
             return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"], "converged": True}
+        if method == "henmi_copas":
+            from .robust_methods import henmi_copas
+            r = henmi_copas(y, se)
+            return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"],
+                    "converged": bool(np.isfinite(r["ci_low"]) and np.isfinite(r["ci_high"]))}
+        if method == "adaptshrink_solo":
+            from .robust_methods import adaptshrink_conformal
+            r = adaptshrink_conformal(y, se)
+            return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"],
+                    "converged": bool(np.isfinite(r["ci_low"]) and np.isfinite(r["ci_high"]))}
+        if method in ("p_curve", "p_uniform_star", "vevea_hedges"):
+            from .modern_comparators import p_curve, p_uniform_star, vevea_hedges_step
+            fn = {"p_curve": p_curve, "p_uniform_star": p_uniform_star,
+                  "vevea_hedges": vevea_hedges_step}[method]
+            r = fn(y, se)
+            return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"],
+                    "converged": bool(r["converged"])}
+        if method == "adaptshrink":
+            from .adaptshrink import AS_Z975, adaptshrink_estimator
+            precomp: dict[str, tuple[float, float]] = {}
+            # The expensive UBCMA member is supplied (never refit inside
+            # AdaptShrink); pet_peese/trim_and_fill are computed there cheaply.
+            if data is not None:
+                ub = _run_method("ubcma", y, se, quality_score, data)
+                if ub["converged"] and np.isfinite(ub["mu_hat"]):
+                    hw = (ub["ci_high"] - ub["ci_low"]) / 2.0
+                    if np.isfinite(hw) and hw > 0:
+                        precomp["ubcma"] = (ub["mu_hat"], hw / AS_Z975)
+            r = adaptshrink_estimator(y, se, quality_score, precomputed=precomp)
+            return {"mu_hat": r["mu"], "ci_low": r["ci_low"], "ci_high": r["ci_high"],
+                    "converged": r["converged"]}
         if method == "ubcma":
             if data is None:
                 return {"mu_hat": float("nan"), "ci_low": float("nan"), "ci_high": float("nan"), "converged": False}

@@ -1,0 +1,94 @@
+{
+ "all": {
+  "pop_loggdp": {
+   "label": "log GDPpc",
+   "n": 55,
+   "marg": -0.136,
+   "marg_p": 0.5721,
+   "scaleadj": -0.159,
+   "scaleadj_p": 0.7121,
+   "classscaleadj": -0.492,
+   "classscaleadj_p": 0.4541,
+   "y_sd": 1.74
+  },
+  "pop_sdi": {
+   "label": "SDI",
+   "n": 55,
+   "marg": -0.118,
+   "marg_p": 0.6418,
+   "scaleadj": -0.156,
+   "scaleadj_p": 0.7156,
+   "classscaleadj": -0.382,
+   "classscaleadj_p": 0.5576,
+   "y_sd": 1.74
+  },
+  "pop_mort": {
+   "label": "under-5 mort",
+   "n": 55,
+   "marg": 0.204,
+   "marg_p": 0.3902,
+   "scaleadj": 0.357,
+   "scaleadj_p": 0.3542,
+   "classscaleadj": 0.925,
+   "classscaleadj_p": 0.0092,
+   "y_sd": 1.74
+  },
+  "pop_ob": {
+   "label": "obesity %",
+   "n": 55,
+   "marg": -0.186,
+   "marg_p": 0.4256,
+   "scaleadj": -0.193,
+   "scaleadj_p": 0.6546,
+   "classscaleadj": -0.558,
+   "classscaleadj_p": 0.3234,
+   "y_sd": 1.74
+  }
+ },
+ "madrs": {
+  "pop_loggdp": {
+   "label": "log GDPpc",
+   "n": 36,
+   "marg": -0.177,
+   "marg_p": 0.7193,
+   "scaleadj": -0.177,
+   "scaleadj_p": 0.7193,
+   "classscaleadj": -0.513,
+   "classscaleadj_p": 0.5146,
+   "y_sd": 1.41
+  },
+  "pop_sdi": {
+   "label": "SDI",
+   "n": 36,
+   "marg": -0.164,
+   "marg_p": 0.7768,
+   "scaleadj": -0.164,
+   "scaleadj_p": 0.7768,
+   "classscaleadj": -0.373,
+   "classscaleadj_p": 0.6063,
+   "y_sd": 1.41
+  },
+  "pop_mort": {
+   "label": "under-5 mort",
+   "n": 36,
+   "marg": 0.744,
+   "marg_p": 0.0897,
+   "scaleadj": 0.744,
+   "scaleadj_p": 0.0897,
+   "classscaleadj": 0.788,
+   "classscaleadj_p": 0.0935,
+   "y_sd": 1.41
+  },
+  "pop_ob": {
+   "label": "obesity %",
+   "n": 36,
+   "marg": -0.215,
+   "marg_p": 0.6868,
+   "scaleadj": -0.215,
+   "scaleadj_p": 0.6868,
+   "classscaleadj": -0.588,
+   "classscaleadj_p": 0.3277,
+   "y_sd": 1.41
+  }
+ }
+}

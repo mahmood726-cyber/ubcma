@@ -1,0 +1,133 @@
+[
+ {
+  "nct_id": "NCT00696436",
+  "active": "ARB",
+  "y": -13.16,
+  "se": 1.1479826118900387,
+  "countries": [
+   "United States",
+   "Argentina",
+   "Brazil",
+   "Mexico",
+   "Peru",
+   "Puerto Rico"
+  ],
+  "n_countries": 6,
+  "pop_ob": 26.919999999999998,
+  "pop_loggdp": 10.176963135627997,
+  "pop_mort": 11.76,
+  "pop_sdi": 0.7438307335,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00696241",
+  "active": "ARB",
+  "y": -13.21,
+  "se": 1.2270658584869076,
+  "countries": [
+   "United States",
+   "Argentina",
+   "Mexico"
+  ],
+  "n_countries": 3,
+  "pop_ob": 30.98333333333333,
+  "pop_loggdp": 10.533780177020954,
+  "pop_mort": 9.533333333333333,
+  "pop_sdi": 0.7625768026666666,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT02203916",
+  "active": "ARB",
+  "y": -14.955,
+  "se": 2.456427682197596,
+  "countries": [
+   "South Korea"
+  ],
+  "n_countries": 1,
+  "pop_ob": 4.6,
+  "pop_loggdp": 10.497881229328884,
+  "pop_mort": 2.8,
+  "pop_sdi": 0.879001606,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT00696384",
+  "active": "ARB",
+  "y": -12.38,
+  "se": 1.5765627869956533,
+  "countries": [
+   "United States",
+   "Argentina",
+   "Mexico"
+  ],
+  "n_countries": 3,
+  "pop_ob": 30.98333333333333,
+  "pop_loggdp": 10.533780177020954,
+  "pop_mort": 9.533333333333333,
+  "pop_sdi": 0.7625768026666666,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00362115",
+  "active": "ARB",
+  "y": -8.5,
+  "se": 2.040857976693402,
+  "countries": [
+   "United States",
+   "Argentina",
+   "Mexico",
+   "Peru"
+  ],
+  "n_countries": 4,
+  "pop_ob": 28.162499999999998,
+  "pop_loggdp": 10.318424142048446,
+  "pop_mort": 11.1,
+  "pop_sdi": 0.7393335845,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00591253",
+  "active": "ARB",
+  "y": -7.78,
+  "se": 1.4872752505153164,
+  "countries": [
+   "United States",
+   "Puerto Rico"
+  ],
+  "n_countries": 2,
+  "pop_ob": 36.25,
+  "pop_loggdp": 11.34490958173981,
+  "pop_mort": 6.5,
+  "pop_sdi": 0.851758903,
+  "single_country": false
+ },
+ {
+  "nct_id": "NCT00810732",
+  "active": "CCB",
+  "y": -2.16,
+  "se": 1.1403293944774384,
+  "countries": [
+   "United Kingdom"
+  ],
+  "n_countries": 1,
+  "pop_ob": 27.75,
+  "pop_loggdp": 10.882684867433,
+  "pop_mort": 4.5,
+  "pop_sdi": 0.870413511,
+  "single_country": true
+ },
+ {
+  "nct_id": "NCT01130168",
+  "active": "CCB",
+  "y": -6.3,
+  "se": 2.8316904426620946,
+  "countries": [],
+  "n_countries": 0,
+  "pop_ob": null,
+  "pop_loggdp": null,
+  "pop_mort": null,
+  "pop_sdi": null,
+  "single_country": false
+ }
+]

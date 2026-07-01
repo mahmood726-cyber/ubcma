@@ -1,0 +1,146 @@
+{
+  "none_dense_n8": {
+    "adaptshrink_auto": {
+      "n_paired_reps": 1200,
+      "mciw0_calib_test": {
+        "method": 0.15416751770575554,
+        "baseline": 0.14995583750419295,
+        "method_coverage": 0.9533333333333334,
+        "baseline_coverage": 0.9557142857142857
+      },
+      "mciw0_all": {
+        "method": 0.15326404222872828,
+        "baseline": 0.1481606612569423
+      },
+      "dMCIW0_point": 0.005103380971785976,
+      "ci_lower": 0.002065145973945314,
+      "ci_upper": 0.00778721752849635,
+      "robust_win": false
+    },
+    "adaptshrink": {
+      "n_paired_reps": 1200,
+      "mciw0_calib_test": {
+        "method": 0.15023962699823046,
+        "baseline": 0.14995583750419295,
+        "method_coverage": 0.9528571428571428,
+        "baseline_coverage": 0.9557142857142857
+      },
+      "mciw0_all": {
+        "method": 0.14924639686952296,
+        "baseline": 0.1481606612569423
+      },
+      "dMCIW0_point": 0.0010857356125806572,
+      "ci_lower": -0.001194312737761448,
+      "ci_upper": 0.0033887193154948096,
+      "robust_win": false
+    }
+  },
+  "moderate_dense_n8": {
+    "adaptshrink_auto": {
+      "n_paired_reps": 1200,
+      "mciw0_calib_test": {
+        "method": 0.2375076785951733,
+        "baseline": 0.23873139304192606,
+        "method_coverage": 0.9564285714285714,
+        "baseline_coverage": 0.9557142857142857
+      },
+      "mciw0_all": {
+        "method": 0.23301297593899056,
+        "baseline": 0.23565308180422972
+      },
+      "dMCIW0_point": -0.002640105865239162,
+      "ci_lower": -0.007723485450720388,
+      "ci_upper": 0.0020944676419543964,
+      "robust_win": false
+    },
+    "adaptshrink": {
+      "n_paired_reps": 1200,
+      "mciw0_calib_test": {
+        "method": 0.24274350608035508,
+        "baseline": 0.23873139304192606,
+        "method_coverage": 0.955,
+        "baseline_coverage": 0.9557142857142857
+      },
+      "mciw0_all": {
+        "method": 0.23921575842851595,
+        "baseline": 0.23565308180422972
+      },
+      "dMCIW0_point": 0.0035626766242862207,
+      "ci_lower": 0.0008386017201317722,
+      "ci_upper": 0.006755509474942026,
+      "robust_win": false
+    }
+  },
+  "strong_dense_n8_hitau": {
+    "adaptshrink_auto": {
+      "n_paired_reps": 1200,
+      "mciw0_calib_test": {
+        "method": 0.7405834910096382,
+        "baseline": 0.8215409122237471,
+        "method_coverage": 0.9466666666666667,
+        "baseline_coverage": 0.9383333333333334
+      },
+      "mciw0_all": {
+        "method": 0.7445955002308732,
+        "baseline": 0.835527939954378
+      },
+      "dMCIW0_point": -0.09093243972350484,
+      "ci_lower": -0.10948833438667865,
+      "ci_upper": -0.0691072949469534,
+      "robust_win": true
+    },
+    "adaptshrink": {
+      "n_paired_reps": 1200,
+      "mciw0_calib_test": {
+        "method": 0.8353846074642771,
+        "baseline": 0.8215409122237471,
+        "method_coverage": 0.9430952380952381,
+        "baseline_coverage": 0.9383333333333334
+      },
+      "mciw0_all": {
+        "method": 0.842173710363826,
+        "baseline": 0.835527939954378
+      },
+      "dMCIW0_point": 0.006645770409448026,
+      "ci_lower": -0.001522945881931234,
+      "ci_upper": 0.016805251302132333,
+      "robust_win": false
+    }
+  },
+  "strong_dense_n10": {
+    "adaptshrink_auto": {
+      "n_paired_reps": 1000,
+      "mciw0_calib_test": {
+        "method": 0.3482824240007439,
+        "baseline": 0.40628070487725976,
+        "method_coverage": 0.9557777777777777,
+        "baseline_coverage": 0.9451111111111111
+      },
+      "mciw0_all": {
+        "method": 0.34413960033923374,
+        "baseline": 0.4111504867515703
+      },
+      "dMCIW0_point": -0.06701088641233655,
+      "ci_lower": -0.07835251866899702,
+      "ci_upper": -0.054320609653906095,
+      "robust_win": true
+    },
+    "adaptshrink": {
+      "n_paired_reps": 1000,
+      "mciw0_calib_test": {
+        "method": 0.4071111049126762,
+        "baseline": 0.40628070487725976,
+        "method_coverage": 0.944,
+        "baseline_coverage": 0.9451111111111111
+      },
+      "mciw0_all": {
+        "method": 0.411287331690933,
+        "baseline": 0.4111504867515703
+      },
+      "dMCIW0_point": 0.00013684493936272357,
+      "ci_lower": -0.0028509736788438363,
+      "ci_upper": 0.006468889752239892,
+      "robust_win": false
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "target": 0.95,
+  "cov_tol": 0.06,
+  "baseline": "two_stage_reml",
+  "notes": [],
+  "G1_finite_point_ok": true,
+  "verified_wins_vs_baseline": [
+    {
+      "strength": "none",
+      "method": "one_stage",
+      "mciw0": 0.03034,
+      "base_mciw0": 0.03057,
+      "ratio": 0.992,
+      "test_cov": 0.973
+    },
+    {
+      "strength": "none",
+      "method": "two_stage_fixed",
+      "mciw0": 0.03034,
+      "base_mciw0": 0.03057,
+      "ratio": 0.992,
+      "test_cov": 0.973
+    }
+  ],
+  "bootstrap_mciw0_vs_baseline": [
+    {
+      "strength": "moderate",
+      "method": "adaptshrink",
+      "mciw0_diff": 0.001,
+      "ci_lo": 0.00026,
+      "ci_hi": 0.00312,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "moderate",
+      "method": "one_stage",
+      "mciw0_diff": 0.0016,
+      "ci_lo": 0.00046,
+      "ci_hi": 0.00322,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "moderate",
+      "method": "trend_peese",
+      "mciw0_diff": 0.19733,
+      "ci_lo": 0.17899,
+      "ci_hi": 0.21504,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "moderate",
+      "method": "trend_pet",
+      "mciw0_diff": 0.41554,
+      "ci_lo": 0.37638,
+      "ci_hi": 0.45779,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "moderate",
+      "method": "two_stage_fixed",
+      "mciw0_diff": 0.0016,
+      "ci_lo": 0.00046,
+      "ci_hi": 0.00322,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "none",
+      "method": "adaptshrink",
+      "mciw0_diff": -0.0003,
+      "ci_lo": -0.00329,
+      "ci_hi": 0.00156,
+      "robust_win": false,
+      "frac_better": 0.742
+    },
+    {
+      "strength": "none",
+      "method": "one_stage",
+      "mciw0_diff": -0.00043,
+      "ci_lo": -0.00325,
+      "ci_hi": 0.00164,
+      "robust_win": false,
+      "frac_better": 0.781
+    },
+    {
+      "strength": "none",
+      "method": "trend_peese",
+      "mciw0_diff": 0.20066,
+      "ci_lo": 0.1916,
+      "ci_hi": 0.21292,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "none",
+      "method": "trend_pet",
+      "mciw0_diff": 0.44629,
+      "ci_lo": 0.40671,
+      "ci_hi": 0.47519,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "none",
+      "method": "two_stage_fixed",
+      "mciw0_diff": -0.00043,
+      "ci_lo": -0.00325,
+      "ci_hi": 0.00164,
+      "robust_win": false,
+      "frac_better": 0.781
+    },
+    {
+      "strength": "strong",
+      "method": "adaptshrink",
+      "mciw0_diff": 0.00053,
+      "ci_lo": -0.0,
+      "ci_hi": 0.00214,
+      "robust_win": false,
+      "frac_better": 0.027
+    },
+    {
+      "strength": "strong",
+      "method": "one_stage",
+      "mciw0_diff": 0.00086,
+      "ci_lo": 0.0,
+      "ci_hi": 0.00245,
+      "robust_win": false,
+      "frac_better": 0.006
+    },
+    {
+      "strength": "strong",
+      "method": "trend_peese",
+      "mciw0_diff": 0.17132,
+      "ci_lo": 0.15906,
+      "ci_hi": 0.19835,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "strong",
+      "method": "trend_pet",
+      "mciw0_diff": 0.36359,
+      "ci_lo": 0.34433,
+      "ci_hi": 0.42229,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "strength": "strong",
+      "method": "two_stage_fixed",
+      "mciw0_diff": 0.00086,
+      "ci_lo": 0.0,
+      "ci_hi": 0.00245,
+      "robust_win": false,
+      "frac_better": 0.006
+    }
+  ],
+  "robust_wins_vs_baseline": []
+}
