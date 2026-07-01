@@ -3,17 +3,20 @@
 *Methods report — branch `methods-borrowing`, F:\ubcma\borrowing · 2026-06-30*
 
 > **Build status.** §4.6 (replication), §4.7 (cross-specialty replication) and §5.6
-> (BCG transportability) — all added 2026-06-30 — are in this markdown but **not yet in
-> `Registry_Borrowing.docx`**; rebuild via `manuscript/build_borrowing_docx.js` before
-> submission. Artifacts: `REPORT_BORROWING_REPLICATION.md`, `REPORT_BORROWING_MULTISPECIALTY.md`
+> (BCG transportability) — plus the pilot-4 structural registry finding (summarised in
+> §5.6 here; broken out as its own §5.5 in the docx) — are all integrated into
+> `Registry_Borrowing.docx` (rebuilt 2026-07-01 via `manuscript/build_borrowing_docx.js`,
+> 9 tables, 3 figures, OOXML-validated). Artifacts: `REPORT_BORROWING_PILOT4.md`,
+> `REPORT_BORROWING_REPLICATION.md`, `REPORT_BORROWING_MULTISPECIALTY.md`
 > (`borrowing/replication/`), `REPORT_BORROWING_BCG.md` (`borrowing/bcg/`).
 
-> **Provenance.** Every quantitative claim below is transcribed from one of three
-> committed pilot reports (`REPORT_BORROWING_PILOT.md`, `…PILOT2.md`, `…PILOT3.md`)
-> and the result artifacts they were built from (`pilot_bootstrap.json`,
+> **Provenance.** Every quantitative claim below is transcribed from a committed
+> report (`REPORT_BORROWING_PILOT{,2,3,4}.md`, `…REPLICATION.md`, `…MULTISPECIALTY.md`,
+> `…BCG.md`) and the result artifacts they were built from (`pilot_bootstrap.json`,
 > `pilot_scramble_bootstrap.json`, `sim_gate_results.json`, `real_glp1_summary.json`,
 > `pilot3_loo_summary.json`, `sim_transport_results.json`, `probe_transport_summary.json`,
-> `class_lambda.json`, `trials.json`, `probe_trials.json`). Numbers that exist only as
+> `class_lambda.json`, `trials.json`, `probe_trials.json`, `replication/loo_results_v2.json`,
+> `replication/multispecialty_loo.json`, `bcg/bcg_loo.json`, `bcg/bcg_trials.json`). Numbers that exist only as
 > summary statistics inside a committed report narrative (not in a machine-readable
 > artifact) are explicitly marked **[report table]**; all others are exact from the
 > named JSON/CSV. No number here is computed fresh for this document.
@@ -52,11 +55,24 @@ A calibrated simulation with the *same real trial structure* but a tunable modif
 transport machinery is correct — inert at β = 0 and when target = donor pool, reproducing the
 real null at the real β = 0.006, and beating relevance-only **monotonically once β ≳ 0.02**.
 
+**Replication and extension.** The relevance win reproduces on a second independent GLP1-class
+slice (a different outcome and a different modifier type) and, pooling **five clean qualifiers
+across three specialties** (endocrine/metabolic, education, oncology), tightens to a robustly
+significant scale-free MAE reduction of **−10.9 % [−20.2 %, −1.5 %]** vs the no-relevance null and
+**−12.4 % [−22.8 %, −2.0 %]** vs scrambled. On **dat.bcg** — 13 placebo-controlled BCG-vaccine
+trials where absolute latitude is a genuinely strong modifier (metafor REML permutation *p* =
+0.0052) — the full transportability-standardised method **robustly beats textbook random-effects
+pooling** on real held-out log risk ratios (transport − NMA **−0.198 [−0.344, −0.041]**), a
+target = wrong-population control **hurts** (+0.187 [+0.017, +0.347]), and the incremental margin
+over relevance-only is directional but *k* = 13-underpowered.
+
 **Bottom line.** Registry-informed relevance-weighted borrowing is a real, validated
 contribution *exactly to the degree a measured covariate predicts the effect*; its inertia
 when no such covariate exists is the central honesty result, not a failure. Population
-transportability is a **correct, conditional extension** with a quantified power threshold
-(β ≳ 0.02), not yet a demonstrated win on registry data.
+transportability is a **correct extension**, now validated against the textbook baseline on real
+strong-modifier (BCG) data with the relevance-incremental margin bounded by *k*, and carrying a
+quantified power threshold (β ≳ 0.02) that the registry's placebo-anchored slices structurally
+fail to clear.
 
 ---
 
@@ -515,16 +531,27 @@ the corrected fusion — does not harm above it.
 - **Dose encodes potency.** GLP1 "mg" is partly a drug-identity proxy, not a clean pharmacological
   dose axis (§4.1). The covariate is a valid *statistical* effect modifier; the causal reading is
   weaker.
-- **Single therapeutic area / outcome.** All three pilots are T2DM HbA1c-vs-placebo from one AACT
-  snapshot. Generality to other indications, outcome types (binary, time-to-event), and registries is
-  untested.
-- **Transportability is unconfirmed on real data.** Its correctness is established only in calibrated
-  simulation with known truth; the one real test sat in the inert corner.
-- **Internal confirmation only.** Both requested external vendors (Codex, agy) were down on this host
-  for all three pilots (`401 token_invalidated`; empty/hung `--print`). Each headline was instead
-  re-derived **≥3 independent internal ways**, including a from-scratch scorer with no shared code and
-  a methodologically-independent known-truth simulation, agreeing to the decimal. External-vendor
-  confirmation remains open; it would not change the sign of any headline (modifier |z| > 5; LOO
+- **Single-covariate / single-outcome slices.** The validated relevance wins are one-covariate slices
+  (GLP1 dose, baseline weight, latitude, one dose axis per specialty). Multi-covariate relevance and
+  outcome types beyond continuous MD / log-RR (time-to-event, composite) are untested; the registry
+  pilots are all T2DM HbA1c-vs-placebo from one AACT snapshot.
+- **Transportability validated vs baseline, not decisively over relevance.** On real strong-modifier
+  data (BCG, §5.6) the standardised transport method robustly beats textbook RE pooling (transport −
+  NMA −0.198 [−0.344, −0.041]) and the `target = pool` control confirms specificity, but its
+  incremental margin *over relevance-only* is only directional at k = 13. On registry data it stays in
+  the inert corner for a structural reason (pilots 3–4). A decisive transport-beats-relevance result
+  awaits a larger placebo-controlled, gradient-spanning slice (IPD / global-health data).
+- **Registry data substrate.** The registry pilots rely on AACT reported mean-difference CIs from one
+  2026-04-12 snapshot, which limits which therapeutic areas are reachable at the active-vs-placebo MD
+  level (statins, antihypertensives, ADHD/Alzheimer were data-starved) and drives the pilot-4
+  gradient-compression finding.
+- **Internal + external confirmation; requested vendors down.** Both requested external vendors (Codex,
+  agy) were down on this host for every pilot and experiment (`401 token_invalidated`; SSH
+  publickey-denied; empty/hung `--print`). Each headline was instead re-derived **≥3 independent
+  internal ways**, including a from-scratch scorer with no shared code and a methodologically-independent
+  known-truth simulation; the BCG and cross-specialty modifier slopes were additionally confirmed by
+  **external metafor** (REML permutation). Numbers agree to the decimal; external-vendor confirmation of
+  the LOO scores remains open but would not change the sign of any headline (modifier |z| > 4; LOO
   advantage CIs exclude 0).
 - **Selection-integrity λ is a coarse proxy.** Results-posted ÷ registered per class is a blunt
   trustworthiness signal; it did not drive any result here and its value is untested where it would
@@ -569,6 +596,14 @@ python sim_gate.py; python stand_down_control.py
 # Pilot 3
 python prep_transport.py; python probe_transport.py
 python run_pilot3.py; python sim_transport.py; python selfverify3.py
+# Pilot 4 (structural registry finding)
+cd pilot4; python hunt_gradient.py; python hunt_dep.py; python prep_madrs.py
+python run_pilot4.py; python sim_madrs.py; python selfverify4.py; cd ..
+# Replication (§4.6) + cross-specialty (§4.7)
+cd replication; python screen_v2.py; python run_slice.py; python aggregate.py; python selfverify_replication.py
+python multispecialty.py; python aggregate_multispecialty.py; python selfverify_multispecialty.py; cd ..
+# BCG transportability (§5.6)
+cd bcg; python prep_bcg.py; python run_bcg.py; python selfverify_bcg.py; python xverify3_epan_jack.py; cd ..
 # Figures for this report
 cd F:\ubcma; python manuscript/make_borrowing_figures.py
 ```
