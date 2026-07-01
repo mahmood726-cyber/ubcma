@@ -144,6 +144,70 @@ vs not using the modifier at all* — stands across 6 clean slices in 3 specialt
 
 ---
 
+## 4. Cycle-2 consolidation — maximal inference from the real k=42 (`borrowing/agg/consolidate_transport.py`)
+
+This cycle set out to add a **third** deposited placebo-controlled gradient-spanning strong-modifier
+slice. **None qualified under the truth-first bar** (documented search log below). Rather than force a
+low-quality slice, `consolidate_transport.py` extracts the maximum honest inference from the real 42
+held-out trials with methods that need **no new data**, and an **independent base-R engine**
+(`verify_consolidate.R`, distinct language, re-implements the whole 5-way LOO from the raw JSON)
+re-derives every headline. Findings at the pre-registered central bandwidth (SD):
+
+- **Distribution-free per-trial evidence is significant.** Pooling all 42 paired LOO deltas
+  `d_i = |μ_tran,i − y_i| − |μ_rel,i − y_i|` (equal weight per trial): pooled mean **−0.091**,
+  **33/42 trials favour transport**. Sign-flip permutation (exact null: d symmetric about 0)
+  **one-sided p = 0.022**; Wilcoxon signed-rank **p = 0.0003**; exact binomial sign test **p = 0.0001**.
+  R engine reproduces: 33/42, sign-flip p = 0.022, Wilcoxon p = 0.0003 (per-slice means match to
+  ≤0.0013; the tiny gap is purely numpy population-SD vs R sample-SD in the bandwidth — the result is
+  robust to it).
+  **Honest caveat:** the 42 deltas are LOO estimates over *overlapping* donor sets, so they are not
+  fully independent — these per-trial tests are the **less-conservative** bound.
+- **The conservative 2-slice inverse-variance pool remains on the threshold.** Between-slice IV pool
+  **−0.069 [−0.140, +0.003]** (central bw); RE(DL) pool identical (τ²=0, I²=0); the k=2 prediction
+  interval [−0.53, +0.39] is essentially uninformative and reported only for transparency. This is
+  the number we do **not** claim as a win.
+- **The central-bw miss is a narrow local dip, not a general failure.** A fine bandwidth sweep
+  (0.4–1.6 × SD) gives a pooled 95 % CI **< 0 at 11 of 13 widths**; only **1.0 and 1.1 × SD cross 0**.
+  The pre-registered primary (1.0) happens to land in the one dip. We keep the pre-registered
+  "on-threshold" verdict, but the surrounding bandwidth stability materially strengthens the read.
+- **Neither slice alone carries it** (leave-one-slice-out: BCG-only −0.049 [−0.136,+0.038]; rota-only
+  −0.110 [−0.235,+0.015] — both cross 0 at reduced k, both same sign), and both point the same way.
+- **Quantified rate-limiter.** Under the observed homogeneity (I²=0) and effect (−0.069), a precision
+  projection says **≈ 1 additional comparable slice** (same effect, same mean per-slice precision)
+  would push the conservative central-bw 95 % CI below 0. This is a precision projection, **not** a
+  claim that such a slice was found.
+
+**Net:** the weight of evidence for the incremental transport step has strengthened (distribution-free
+tests significant; CI<0 across almost the whole bandwidth range), but the pre-registered conservative
+between-slice pool at the central bandwidth still just crosses 0. **Verdict unchanged and honest:
+still directional / on-threshold at k=42.**
+
+### Deposited-data search log (why no 3rd slice this cycle)
+Truth-first requires a *deposited or single-table* per-trial 2×2 + a continuous **external** population
+covariate; the program explicitly forbids multi-paper hand transcription (the rota deposited-CSV route
+is the model). Checked this cycle:
+- **metadat (116-dataset manifest).** Only `dat.bcg` / `dat.colditz1994` carry a latitude/U5MR-type
+  external gradient — and `dat.colditz1994 ≡ dat.bcg` (already the primary slice; would double-count).
+  No other on-disk or fetchable metadat set has a clean external population gradient.
+- **Oral cholera vaccine** (HopkinsIDD/kOCV-review deposit; Lancet GH 2025). Only **~2–3
+  placebo-controlled RCTs**, and the modifiers (age <5 vs ≥5, endemicity) are categorical/within-class,
+  not a continuous external population gradient. k too small; no clean gradient. **Rejected.**
+- **RTS,S malaria vaccine by transmission intensity** (White 2013 phase-2 pooled; a genuine strong
+  gradient, VE 60 %→4 % by PrP2-10). Raw data is **GSK-private**; the site table gives **no per-arm
+  case counts** and no per-site efficacy — cannot build the 2×2 without an IPD data request. **Rejected.**
+- **Vitamin-A / deworming child-mortality by baseline mortality** (the textbook baseline-risk gradient).
+  Exists only as **paper-table transcriptions** (Beaton 1993 / Fawzi 1993 / Imdad Cochrane); no
+  machine-readable per-arm deposit located. Transcription is forbidden by the program. **Deferred to a
+  future data-acquisition (non-headless) session** as the most promising lead.
+
+**Conclusion:** clean deposited transport slices are *structurally rare* exactly as pilot-4 predicted;
+the rate-limiter is **data acquisition, not analysis**. The single highest-value next action is to
+obtain one more machine-readable deposited per-arm dataset with a continuous external gradient
+(vitamin-A baseline-mortality is the best lead) — the I²=0 projection says one such slice likely settles
+the central-bw pool.
+
+---
+
 ## What is settled vs still open
 
 **Settled (robust, homogeneous, k=42 / 6 slices):**
