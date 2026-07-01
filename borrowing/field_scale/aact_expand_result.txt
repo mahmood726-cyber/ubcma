@@ -1,0 +1,19 @@
+base corpus: 1177 nodes / 28 MAs
+AACT add-on: 28 nodes / 3 MAs (specialties ['clinical_behavioral', 'clinical_medicine', 'infectious_disease'])
+expanded corpus: 1205 nodes / 31 MAs ; AACT rows = 28
+building predictions on the expanded corpus (learned = honest k-fold)...
+
+(A) held-out AACT rows only (EXPLORATORY, underpowered n=28):
+  [AACT] learned_kernel MAE=0.5104 within=0.4854  delta=+0.0250 [-0.0146,+0.0644] n=28 n.s.
+  [AACT] robust_map     MAE=0.4839 within=0.4854  delta=-0.0015 [-0.0221,+0.0191] n=28 n.s.
+  [AACT] hier_bayes     MAE=0.5323 within=0.4854  delta=+0.0469 [-0.0356,+0.1282] n=28 n.s.
+
+(B) whole expanded corpus (does the headline survive adding real AACT MAs?):
+  [ALL] learned_kernel MAE=0.3357 within=0.3588  delta=-0.0231 [-0.0343,-0.0115] n=1205 WINS
+  [ALL] robust_map     MAE=0.3561 within=0.3588  delta=-0.0027 [-0.0090,+0.0037] n=1205 n.s.
+  [ALL] hier_bayes     MAE=0.3565 within=0.3588  delta=-0.0023 [-0.0083,+0.0038] n=1205 n.s.
+
+(C) learned-kernel raw 90% interval coverage on the AACT subset:
+  coverage = 0.500 on n=28 (nominal 0.90; conformal calibration is corpus-level)
+
+HONEST NOTE: n=28 AACT nodes / 3 MAs is underpowered; treat (A) as exploratory.

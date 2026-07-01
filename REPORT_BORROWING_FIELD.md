@@ -406,9 +406,32 @@ one genuine external vendor (Codex gpt-5.5)**. Seat B (pc2) is authenticated but
 degraded this session (socket-buffer exhaustion, os error 10055) → not a two-vendor quorum yet.
 779-corpus results were previously reproduced by Codex Seat A from scratch (§7).
 
-A designed, data-sourced **next-step out-of-corpus generalisation test on a bounded real AACT
-LOR slice** is specified in `AACT_SLICE_NEXTSTEP.md` (deferred deliberately: coherent MA
-grouping cannot be rushed truth-first overnight without risking a meaningless slice).
+### 8bis.6 Real-AACT corpus-expansion robustness + a scope boundary
+
+A bounded real-AACT LOR slice was extracted truth-first (`aact_lor_expand.py`): sponsors' own
+reported Odds-Ratio estimates + 2-sided 95% CIs from `outcome_analyses` (no arm re-derivation),
+pre-specified outcomes only, one median-logOR effect per trial, CI round-trip verified, grouped into
+coherent (MeSH condition × intervention) meta-analyses. **A data-availability finding in itself:**
+once that quality bar is applied, AACT yields only **3 coherent OR meta-analyses (28 trials)** at
+k>=8 — the diabetes/oncology candidates collapse because most of their ORs are secondary or lack a
+clean 2-sided 95% CI. AACT is structurally thin for clean OR-synthesis (consistent with pilot-4).
+
+Appending those 3 real AACT MAs to the corpus and re-running the field unchanged
+(`aact_expand_test.py`, `aact_expand_result.txt`):
+
+| test | learned − within-MA | reading |
+|---|---|---|
+| **(B) whole expanded corpus (1205 nodes / 31 MAs)** | **−0.0231 [−0.0343, −0.0115] WIN** | headline **survives** adding real AACT MAs — essentially unchanged from −0.0230 |
+| (A) held-out AACT rows only (n=28, EXPLORATORY) | +0.025 [−0.015, +0.064] n.s. | on a **cold** new MA with no corpus siblings the learned kernel does **not** transfer |
+| (C) raw 90% interval coverage on AACT subset | 0.50 | conformal is corpus-level; cold-MA intervals under-cover |
+
+**Two honest conclusions:** (1) the learned-kernel-beats-within-MA headline is **robust to expanding
+the corpus with genuinely new real meta-analyses from a different data source** (ClinicalTrials.gov),
+not a metadat artefact. (2) A precise **scope boundary**: the advantage comes from cross-MA structure
+*within* the training corpus and does **not** automatically extend to a cold new MA that has no
+siblings in training (A, n.s./underpowered) — so the method is for reconstruction *inside* a
+populated field, and cold-MA use would need the target regime represented in calibration. Recipe +
+deferral rationale in `AACT_SLICE_NEXTSTEP.md`.
 
 ## 9. Verdict
 
