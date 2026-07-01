@@ -545,14 +545,18 @@ the corrected fusion — does not harm above it.
   2026-04-12 snapshot, which limits which therapeutic areas are reachable at the active-vs-placebo MD
   level (statins, antihypertensives, ADHD/Alzheimer were data-starved) and drives the pilot-4
   gradient-compression finding.
-- **Internal + external confirmation; requested vendors down.** Both requested external vendors (Codex,
-  agy) were down on this host for every pilot and experiment (`401 token_invalidated`; SSH
-  publickey-denied; empty/hung `--print`). Each headline was instead re-derived **≥3 independent
-  internal ways**, including a from-scratch scorer with no shared code and a methodologically-independent
-  known-truth simulation; the BCG and cross-specialty modifier slopes were additionally confirmed by
-  **external metafor** (REML permutation). Numbers agree to the decimal; external-vendor confirmation of
-  the LOO scores remains open but would not change the sign of any headline (modifier |z| > 4; LOO
-  advantage CIs exclude 0).
+- **Internal + external confirmation (one external vendor).** During the pilots/experiments both
+  requested external vendors (Codex, agy) were down on this host (`401 token_invalidated`; SSH
+  publickey-denied; empty/hung `--print`), so each headline was re-derived **≥3 independent internal
+  ways** — a from-scratch scorer with no shared code and a methodologically-independent known-truth
+  simulation — with the BCG and cross-specialty modifier slopes additionally confirmed by **external
+  metafor** (REML permutation). On **2026-07-01** the laptop Codex Seat A began authenticating headless
+  (`codex exec`, real gpt-5.5 over SSH) and **independently re-derived the two headline LOO numbers from
+  scratch**: BCG transport − NMA **−0.198** and the `target = pool` control **+0.187** (both exact to 3
+  dp), and the cross-specialty pooled relevance − uniform **−10.9 % [−20.2 %, −1.5 %]** and − scrambled
+  **−12.4 % [−22.8 %, −2.0 %]** (both exact, τ² matching). This is **one genuine external vendor** (Codex
+  gpt-5.5) alongside the internal paths + metafor, **not a two-vendor quorum** — Seat B (`.codex-noreen`)
+  remains `401`; re-authenticating it would add a second. No committed number changed.
 - **Selection-integrity λ is a coarse proxy.** Results-posted ÷ registered per class is a blunt
   trustworthiness signal; it did not drive any result here and its value is untested where it would
   bind.

@@ -102,6 +102,33 @@ standing rule the headline is confirmed:
 4. `xverify_metafor.R` — **external engine (metafor)**: confirms the per-trial logRR/SE and the
    latitude meta-regression (slope −0.0291, REML permutest p=0.0052, R²=75.6 %).
 
+## External cross-vendor confirmation (2026-07-01) — Codex Seat A, gpt-5.5
+The laptop Codex Seat A now authenticates headless (verified: `codex exec` returns real gpt-5.5
+completions over SSH, default `CODEX_HOME`). It was given the raw 13-trial 2×2 cells + the exact
+estimand and told to **re-implement the whole LOO transport from scratch, no shared code, its own
+DL/REML meta-regression slope**. Its independent result:
+
+| quantity | committed | Codex Seat A (independent) | agreement |
+|---|---|---|---|
+| bw = latitude SD | 13.876 | 13.876 | exact |
+| MAE_nma | 0.643 | 0.644 | ≤0.001 |
+| MAE_rel | 0.494 | 0.494 | exact |
+| MAE_tran | 0.445 | 0.445 | exact |
+| **tran − nma (headline)** | **−0.198 [−0.344, −0.041]** | **−0.198 [−0.341, −0.035]** | **point exact (3 dp); CI matches (own bootstrap seed)** |
+| **target = pool control** | **+0.187 [+0.017, +0.347]** | **+0.187** | **exact (3 dp)** |
+
+This is **one genuine external vendor** (Codex gpt-5.5) alongside the ≥3 internal paths + metafor —
+**not** a full two-vendor quorum. Seat B (`.codex-noreen`) is `401 token_invalidated` and agy returns
+empty; running `codex login` in `.codex-noreen` on the laptop would add a second external vendor.
+
+Exact invocation (prompt with embedded data piped on stdin; codex-cli 0.140.0, model gpt-5.5,
+approval=never, sandbox=danger-full-access, reasoning=xhigh):
+```
+ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+  "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+   -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+```
+
 ## Files
 `prep_bcg.py`, `bcg_trials.json`, `run_bcg.py`, `bcg_loo.json`, `selfverify_bcg.py`,
 `xverify3_epan_jack.py`, `xverify_metafor.R`.

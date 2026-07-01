@@ -94,6 +94,28 @@ Codex seats publickey-denied (laptop/pc2) in this non-interactive session; pc1 a
 - `xverify_exp2.R` — **external metafor** confirms the raudenbush (permp 0.017) and kalaian
   (permp 0.020) modifier slopes.
 
+### External cross-vendor confirmation (2026-07-01) — Codex Seat A, gpt-5.5
+The laptop Codex Seat A now authenticates headless. It was given the 5 clean slices' committed
+per-slice `(mae, d_rel, ci)` for both the uniform and scrambled comparisons + the exact estimand
+(scale-free fractional MAE reduction `frac = d_rel/mae`, `se = CI-width/(2·1.96)/mae`, DL
+random-effects pool) and told to **re-implement the pooling from scratch, no shared code**. Its
+independent result:
+
+| pooled comparison | committed | Codex Seat A (independent) | agreement |
+|---|---|---|---|
+| **relevance − uniform** | **−10.9 % [−20.2 %, −1.5 %]** τ²=0.0078 | **−10.9 % [−20.2 %, −1.5 %]** τ²=0.007808 | **exact** |
+| **relevance − scrambled** | **−12.4 % [−22.8 %, −2.0 %]** τ²=0.0094 | **−12.4 % [−22.8 %, −2.0 %]** τ²=0.009396 | **exact** |
+
+This is **one genuine external vendor** (Codex gpt-5.5) alongside the internal from-scratch path +
+external metafor — **not** a two-vendor quorum (Seat B `.codex-noreen` is `401 token_invalidated`;
+`codex login` there would add a second). Exact invocation (prompt piped on stdin; codex-cli 0.140.0,
+gpt-5.5, approval=never, sandbox=danger-full-access):
+```
+ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+  "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+   -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+```
+
 ## Files
 `multispecialty.py`, `multispecialty_loo.json`, `aggregate_multispecialty.py`,
 `selfverify_multispecialty.py`, `xverify_exp2.R`.
