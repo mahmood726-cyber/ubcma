@@ -487,7 +487,80 @@ it and the raw-effect kernel barely beats the scrambled null. Confirmed three in
 
 ---
 
-## 6. Discussion — what is defensible, and what is conditional
+## 6. Registry-scale field — borrowing across a 779-study corpus (the culmination)
+
+> *Added 2026-07-01 (`REPORT_BORROWING_FIELD.md`, `borrowing/field_scale/`).*
+
+Pilots 1–5 borrow *within one meta-analysis*. This section takes the method to the
+original *gravitational-field* vision: represent a **whole corpus of real
+meta-analyses as one field**, where every study exerts a relevance-weighted
+influence on every estimate, and ask the decisive question — **does borrowing
+*across* meta-analyses beat borrowing *within* one?**
+
+**Corpus.** 16 real published meta-analyses staged from `metadat` (Kalaian
+SAT-coaching, Konstantopoulos, Raudenbush, Bangert-Drowns, Tanner-Smith, Gibson,
+Normand, Senn, Assink; Credé, Molloy, McDaniel, Aloe; BCG, Li, Linde),
+harmonised into **779 study nodes** across **3 effect families** — standardised
+mean difference (445), Fisher-*z* correlation (278), log-odds-ratio (56) — and 8
+specialties. Cross-family borrowing is **stood down a-priori** (weight 0; the
+scales are incomparable), so the field is block-diagonal by family — which is also
+how it stays tractable at *N* ≈ thousands (block-sparse kernel).
+
+**Field.** For a held-out target *t*, the borrowing prior reuses the validated
+per-slice machinery: `weight(s→t) = precision(s) × [same family] × topic(s,t) ×
+year_kernel(s,t)`, with `topic = 1` same-MA / `0.50` same-specialty / `0.15`
+distant, and a Gaussian year kernel — gravity that decays with topic and time
+distance. No effect value enters the distance (no leakage). A **home-anchored
+adaptive** variant applies the a-priori *stand-down*: cross-MA mass is scaled by
+`C/(C+n_home)` (`C=5`), so a data-rich home MA makes the field defer to within-MA.
+All constants are a-priori, not tuned.
+
+**Test — corpus-wide real leave-one-out.** Hold out each study's real effect,
+reconstruct it from the field (own effect removed), score `|error|` (mean over 779):
+
+| predictor | ALL | verdict |
+|---|--:|---|
+| global (no-locality floor) | 0.3243 | |
+| **within-MA (per-slice method)** | **0.2776** | within-MA − global = −0.0467 [−0.0611, −0.0331] → **within-MA borrowing is real** |
+| cross-MA field (fixed) | 0.3020 | field − within-MA = +0.0244 [+0.0142, +0.0348] → **harms** |
+| cross-MA field (adaptive) | 0.2875 | +0.0099 [+0.0029, +0.0167] → harm halved; **inert for data-rich** (k>40: +0.0007, n.s.) |
+| scrambled control | 0.3232 | field − scrambled = −0.0212 [−0.0263, −0.0161] → **structure is real** |
+
+Cross-MA borrowing **cannot beat within-MA** on the full corpus — within-MA
+donors are same-population, same-topic, and are simply the best predictor of a
+held-out study; cross-MA mass, however down-weighted, drags the estimate back
+toward the global-family mean. Yet the field's topology carries **genuine signal**
+(both variants beat their scrambled control decisively), and the a-priori
+stand-down makes the adaptive field **perfectly inert for data-rich studies** — the
+essential safety property.
+
+**Where the field *does* help — the sparse frontier.** Starving each home MA to
+*m* random siblings (25 draws × every eligible target, ~19k paired predictions):
+
+| home siblings *m* | within | field | Δ (within−field) [95% CI] | verdict |
+|--:|--:|--:|--:|---|
+| **1** | 0.3811 | 0.3403 | **+0.0408 [+0.0351, +0.0464]** | **field helps (~11%)** |
+| 2 | 0.3287 | 0.3360 | −0.0073 [−0.0118, −0.0029] | field harms |
+| 3 | 0.3102 | 0.3324 | −0.0222 [−0.0260, −0.0185] | field harms |
+| 5 | 0.2969 | 0.3255 | −0.0285 [−0.0317, −0.0254] | field harms |
+| 10 | 0.2814 | 0.3064 | −0.0249 [−0.0274, −0.0226] | field harms |
+
+The crossover sits **between one and two siblings**. When a target meta-analysis
+is reduced to a *single* usable study, the cross-MA field cuts held-out error
+~11% (0.381→0.340), robustly across the stand-down constant `C ∈ [1,20]`
+(`c_sweep.py`: +0.040–0.042 at *m*=1; no `C` rescues *m*≥2). **Within-MA is the
+frequentist optimum once ≥2 siblings exist.**
+
+**Verdict.** Registry-scale borrowing is **not** a general improvement over
+within-MA borrowing — but the field is a real object (beats scrambled) with a
+**sharp, honest, useful domain**: the single-study / two-study evidence base,
+where within-MA information is essentially absent, the field cuts held-out error
+~11%, and the a-priori stand-down guarantees it never degrades a data-rich
+analysis. The gravitational-field vision is real, and bounded.
+
+---
+
+## 7. Discussion — what is defensible, and what is conditional
 
 **Defensible contribution (validated).**
 

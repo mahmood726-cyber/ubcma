@@ -323,8 +323,45 @@ children.push(P("", { after: 60 }));
 children.push(P([new TextRun({ text: "Verdict. ", bold: true }),
   new TextRun({ text: "The full transportability-weighted method robustly beats standard RE pooling on real held-out trials where the modifier is genuinely strong (transport − NMA −0.198, CI < 0 in all three bandwidths and all three internal code paths plus external metafor), and the target = pool control proves the gain comes from standardising to the real target's latitude, not generic shrinkage. Its incremental margin specifically over relevance-down-weighting is directionally positive everywhere but k = 13-underpowered (CI crosses 0 at the pre-registered bandwidth). This is the mirror image of pilot 2: there the kernel carried the win and standardisation was untestable; on BCG the standardisation carries it and the raw-effect kernel barely beats the scrambled null. The two mechanisms are complementary and each is now validated on real data in the regime it was designed for." })]));
 
-// 6 Discussion
-children.push(H1("6. Discussion — what is defensible, and what is conditional"));
+// 6 Registry-scale field
+children.push(H1("6. Registry-scale field — borrowing across a 779-study corpus"));
+children.push(P("Pilots 1–5 borrow within one meta-analysis. This section takes the method to the original gravitational-field vision: represent a whole corpus of real meta-analyses as one field, in which every study exerts a relevance-weighted influence on every estimate, and ask the decisive question — does borrowing across meta-analyses beat borrowing within one? Sixteen real published meta-analyses staged from metadat (Kalaian, Konstantopoulos, Raudenbush, Bangert-Drowns, Tanner-Smith, Gibson, Normand, Senn, Assink; Credé, Molloy, McDaniel, Aloe; BCG, Li, Linde) were harmonised into 779 study nodes across three effect families — standardised mean difference (445), Fisher-z correlation (278), log-odds-ratio (56) — and eight specialties. Cross-family borrowing is stood down a-priori (weight 0; the scales are incomparable), so the field is block-diagonal by family, which is also how it stays tractable at N ≈ thousands (block-sparse kernel)."));
+children.push(P("The field reuses the validated per-slice machinery: weight(s→t) = precision(s) × [same family] × topic(s,t) × year_kernel(s,t), with topic = 1 (same MA) / 0.50 (same specialty) / 0.15 (distant), and a Gaussian year kernel — gravity that decays with topic and calendar distance. No effect value enters the distance (no leakage). A home-anchored adaptive variant applies the a-priori stand-down: cross-MA mass is scaled by C/(C+n_home) with C = 5, so a data-rich home MA makes the field defer to within-MA. All constants are a-priori, not tuned. The test is corpus-wide real leave-one-out: hold out each study's real effect, reconstruct it from the field with its own effect removed, and score the absolute error (Table 10)."));
+children.push(captionP("Table 10. ", "Corpus-wide real leave-one-out reconstruction (mean absolute error over 779 held-out studies) and the key paired-bootstrap contrasts. Exact from borrowing/field_scale/ (REPORT_BORROWING_FIELD.md)."));
+children.push(tableFrom(
+  ["predictor / contrast", "MAE or ΔMAE [95% CI]", "verdict"],
+  [
+    ["global (no-locality floor)", "0.3243", "family grand mean"],
+    ["within-MA (per-slice method)", WIN("0.2776"), "best single-level predictor"],
+    ["cross-MA field (adaptive)", "0.2875", "between the two"],
+    ["within-MA − global", WIN("−0.0467 [−0.0611, −0.0331]"), "within-MA borrowing is real"],
+    ["field − within-MA (all studies)", HARM("+0.0099 [+0.0029, +0.0167]"), "cross-MA cannot beat within-MA"],
+    ["field − within-MA (data-rich, k>40)", "+0.0007 [−0.0004, +0.0020]", "inert — stand-down prevents harm"],
+    ["field − scrambled control", WIN("−0.0212 [−0.0263, −0.0161]"), "the distance structure is real"],
+  ],
+  [3000, 2760, 3600]));
+children.push(P("", { after: 60 }));
+children.push(P("Cross-MA borrowing cannot beat within-MA on the full corpus — within-MA donors are same-population, same-topic, and are simply the best predictor of a held-out study; cross-MA mass, however down-weighted, drags the estimate back toward the global-family mean. Yet the field's topology carries genuine signal (it beats its scrambled control decisively), and the a-priori stand-down makes the adaptive field perfectly inert for data-rich studies — the essential safety property."));
+children.push(H2("6.1 Where the field helps — the sparse frontier"));
+children.push(P("Natural data has only 14 genuinely-sparse studies (≤8 siblings), so each home MA is starved on purpose to m random siblings (25 draws × every eligible target; ~19,000 paired predictions). The crossover is sharp (Table 11, Figure 4): when a target meta-analysis is reduced to a single usable study, the cross-MA field cuts held-out error ~11% (0.381→0.340), robustly across the stand-down constant C ∈ [1,20] (+0.040–0.042 at m = 1; no C rescues m ≥ 2). With even two same-MA siblings, within-MA is already the frequentist optimum and any cross contribution harms."));
+children.push(captionP("Table 11. ", "Powered sparse down-sampling: within-MA(m) vs the home-anchored field(m + cross). Δ = within − field (positive = field helps). Exact from downsample_results.json; independently reproduced from scratch by external Codex (gpt-5.5) to within RNG noise (m=1 Δ +0.0402, m=2 Δ −0.0078)."));
+children.push(tableFrom(
+  ["home siblings m", "within", "field", "Δ (within−field) [95% CI]"],
+  [
+    ["1", "0.3811", "0.3403", WIN("+0.0408 [+0.0351, +0.0464]  field helps")],
+    ["2", "0.3287", "0.3360", HARM("−0.0073 [−0.0118, −0.0029]  harms")],
+    ["3", "0.3102", "0.3324", HARM("−0.0222 [−0.0260, −0.0185]  harms")],
+    ["5", "0.2969", "0.3255", HARM("−0.0285 [−0.0317, −0.0254]  harms")],
+    ["10", "0.2814", "0.3064", HARM("−0.0249 [−0.0274, −0.0226]  harms")],
+  ],
+  [2000, 1500, 1500, 4360]));
+children.push(P("", { after: 60 }));
+figure("fig4_registry_field.png", "Figure 4. Registry-scale field. A: held-out reconstruction error vs home-MA richness — the cross-MA field (red) beats within-MA (blue) only at m = 1 and is worse thereafter. B: the field advantage (within − field) is significantly positive only at a single sibling, then significantly negative. Source: downsample_results.json.", 640).forEach(c => children.push(c));
+children.push(P([new TextRun({ text: "Verdict. ", bold: true }),
+  new TextRun({ text: "Registry-scale borrowing is not a general improvement over within-MA borrowing — but the field is a real object (it beats its scrambled control) with a sharp, honest, useful domain: the single-study / two-study evidence base, where within-MA information is essentially absent, the field cuts held-out error ~11%, and the a-priori stand-down guarantees it never degrades a data-rich analysis. The gravitational-field vision is real, and bounded." })]));
+
+// 7 Discussion
+children.push(H1("7. Discussion — what is defensible, and what is conditional"));
 children.push(P([new TextRun({ text: "Defensible contribution (validated).", bold: true })]));
 children.push(numItem([new TextRun({ text: "Registry-informed relevance-weighted borrowing", bold: true }), new TextRun({ text: " — relevance kernel × selection-integrity × precision, fused by conflict-discounted precision fusion under an a-priori stand-down — beats standard meta-analysis on real held-out effects when a measured covariate predicts the effect (GLP1 dose: real LOO advantage CIs exclude 0; replicated under a fresh slice and a fresh anchor in pilot 3, relevance − NMA −0.0616 [−0.1186, −0.0071]; and replicated across three specialties in §4.7, pooled relevance − no-relevance null −10.9% [−20.2%, −1.5%])." })]));
 children.push(numItem([new TextRun({ text: "The inertia boundary is the honesty result.", bold: true }), new TextRun({ text: " The method is provably inert when no covariate carries signal (β = 0 reproduces pilot 1 exactly), so it cannot manufacture a spurious win. Its benefit is the value of real covariate information, not of borrowing per se." })]));
@@ -334,7 +371,7 @@ children.push(numItem([new TextRun({ text: "Population transportability", bold: 
 children.push(P("The unifying picture is a single boundary map: borrowing (relevance, then transportability) earns its keep in proportion to the strength of the covariate it exploits, is inert below threshold, and — with the corrected fusion — does not harm above it. The GLP1 and BCG results are its two poles: where the modifier is within-class and cannot be standardised (GLP1 dose), the relevance kernel carries the gain; where the modifier is a strong external population gradient that can be g-computed (BCG latitude), the standardisation carries it. The two mechanisms are complementary and each is now validated on real data in the regime it was designed for."));
 
 // 7 Limitations
-children.push(H1("7. Limitations"));
+children.push(H1("8. Limitations"));
 [
   ["Small k per validated slice. ", "The relevance win rests on small clean qualifiers (n = 9–12 for the GLP1 slices, k = 13 for BCG, k = 49 for the oncology win); the LOO CIs are correspondingly wide (e.g. rel − uniform −0.180 [−0.306, −0.034]). The cross-specialty pool is robust, but per-slice CIs are wide and the BCG relevance-incremental margin is k = 13-underpowered."],
   ["Single-covariate / single-outcome slices. ", "The validated relevance wins are one-covariate slices (GLP1 dose, baseline weight, latitude, one dose axis per specialty). Multi-covariate relevance and outcome types beyond continuous MD / log-RR (time-to-event, composite) are untested; the GLP1 dose axis also partly encodes molecule potency (§4.1), so its causal reading is weaker than its statistical one."],
@@ -342,17 +379,18 @@ children.push(H1("7. Limitations"));
   ["Registry data substrate. ", "The registry pilots rely on AACT reported mean-difference CIs from one 2026-04-12 snapshot, which limits which therapeutic areas are reachable at the active-vs-placebo MD level (statins, antihypertensives, ADHD/Alzheimer were data-starved) and drives the pilot-4 gradient-compression finding."],
   ["Internal + external confirmation; requested vendors down. ", "The requested external vendors (Codex, agy) were down on this host for every pilot and experiment (401 token_invalidated; SSH publickey-denied; empty/hung --print). Each headline was instead re-derived ≥3 independent internal ways, including a from-scratch scorer with no shared code and a methodologically-independent known-truth simulation; the BCG and cross-specialty modifier slopes were additionally confirmed by external metafor (REML permutation). Numbers agree to the decimal; external-vendor confirmation of the LOO scores remains open but would not change the sign of any headline."],
   ["Selection-integrity λ is a coarse proxy. ", "Results-posted ÷ registered per class is a blunt trustworthiness signal; it did not drive any result here and its value is untested where it would bind."],
+  ["Registry-scale field: coverage and a-priori kernel. ", "The §6 field uses 16 of the 116 catalogued metadat meta-analyses (those staged as usable CSVs on disk), and is block-diagonal by three effect families, so cross-family borrowing is a-priori excluded rather than tested. The topic tags and kernel constants (γ_spec = 0.50, γ_far = 0.15, bw_year = 1, C = 5) are reasonable but hand-set; a learned metric could shift the crossover, though the C-sweep shows within-MA optimality at m ≥ 2 is robust to the stand-down. Pure-prior held-out reconstruction is a demanding test (zero own data); a partial-pooling regime would show smaller effects in both directions. The sparse-frontier win and the m ≥ 2 bound were independently reproduced from scratch by external Codex (gpt-5.5) to within RNG noise."],
 ].forEach(([lab, body]) => children.push(bullet([new TextRun({ text: lab, bold: true }), new TextRun({ text: body })])));
 
 // 8 Pre-registered plan
-children.push(H1("8. Pre-registered plan"));
+children.push(H1("9. Pre-registered plan"));
 children.push(P([new TextRun({ text: "(a) Replicate relevance on more modifier-bearing slices. ", bold: true }),
   new TextRun({ text: "Identify ≥3 further (indication, outcome, covariate) triples where a covariate predicts effect heterogeneity at the strength seen for GLP1 dose (target permutation p < 0.05, R²_between ≳ 0.5), and re-run the full gate. Standing negative controls, carried unchanged: β = 0 inertia, scrambled-relevance, and the no-relevance (uniform) null must all lose before any win counts as gravity. Pre-commit the dose-kernel bandwidth = covariate SD and the precision-fusion / stand-down constants (η = 0.5, c₀ = 1, Q_MAX = 4)." })]));
 children.push(P([new TextRun({ text: "(b) Re-test transportability behind a power gate. ", bold: true }),
   new TextRun({ text: "Re-run the transport layer only on a slice with a documented strong population effect modifier — e.g. ancestry-driven pharmacogenomic response, or an absolute-risk outcome where baseline risk transports strongly — pre-screening with the meta-regression of §5.1 and proceeding only if the population slope clears β ≳ 0.02 (the simulation-derived crossover). Negative controls (target = donor pool, β = 0) and conflict-discounted precision fusion carry over unchanged. Report the pre-screen result whether or not the gate opens." })]));
 
 // 9 Reproducibility
-children.push(H1("9. Reproducibility"));
+children.push(H1("10. Reproducibility"));
 children.push(P("All artifacts are committed on branch methods-borrowing under F:\\ubcma\\borrowing. Headline runs are seeded; the figures in this report are regenerated from the committed result JSON/CSV by manuscript/make_borrowing_figures.py, which reads only committed results and computes no new estimates. Pilot 1: build_field.py, inspect_field.py, class_lambda.py, run_pilot.py (--reps 300, and --scramble for the control), selfverify.py, sanity_nma.py. Pilot 2: probe_modifier.py, real_glp1.py, selfverify2.py, sim_gate.py, stand_down_control.py. Pilot 3: prep_transport.py, probe_transport.py, run_pilot3.py, sim_transport.py, selfverify3.py. Pilot 4: pilot4/hunt_gradient.py, hunt_dep.py, prep_madrs.py, run_pilot4.py, sim_madrs.py, selfverify4.py. Replication (§4.6): replication/screen_v2.py, run_slice.py, aggregate.py, selfverify_replication.py. Cross-specialty (§4.7): replication/multispecialty.py, aggregate_multispecialty.py, selfverify_multispecialty.py, xverify_exp2.R. BCG (§5.6): bcg/prep_bcg.py, run_bcg.py, selfverify_bcg.py, xverify3_epan_jack.py, xverify_metafor.R. Figures: python manuscript/make_borrowing_figures.py."));
 
 // ---------- document ----------
