@@ -246,18 +246,25 @@ scale-invariant metrics (central bw):
 |---|---|
 | trials favouring transport (exact binomial sign test) | **46/61, one-sided p < 0.0001** |
 | standardised pooled mean delta (units of rel-MAE), sign-flip test | −0.102, **p = 0.008** |
-| **fractional MAE reduction, equal-weight 3 slices (stratified bootstrap)** | **−9.7% [−17.6%, −0.9%] — CI<0, WIN** |
+| fractional MAE reduction, equal-weight 3 slices (stratified bootstrap) | **−9.7% [−17.6%, −0.9%] CI<0** |
+| RE (DL) pool of the 3 fractional reductions (I²=0, τ²=0) | **−9.1% [−16.8%, −1.4%] CI<0** |
 | per-slice fractional reduction (all same sign) | BCG −9.9%, rota −12.7%, raudenbush −6.6% |
+| **leave-one-slice-out** (drop each; does the pool stay CI<0?) | **NO — every single drop crosses 0** (drop BCG −9.7% [+0.2%], drop rota −8.2% [+2.5%], drop raudenbush −11.3% [+0.8%]) |
+| **95% prediction interval** (t₂, across-slice generalisation) | **[−26.1%, +7.8%] — includes 0** |
 
-**On a scale-free basis the incremental transport step now reaches significance at k=61 across
-three strong-modifier slices in two domains.** This is a genuine strengthening of the Cycle-2
-"on-threshold" verdict. **Reported honestly, both ways:** the *domain-matched raw-logRR* central-bw
-IV pool (BCG+rota only, §2) is unchanged and still just crosses 0 (−0.069 [−0.140,+0.003]); the new
-*scale-free 3-slice* evidence is what clears significance. The sign test carries the same
-LOO-overlap independence caveat as §4 (per-trial deltas reuse overlapping donors), so the
-fractional-reduction bootstrap and the per-slice replication are the load-bearing evidence, not the
-sign p alone. Cross-domain replication (education SMD behaving like vaccine logRR) is the strongest
-qualitative signal that the mechanism is general.
+**Honest full-inference verdict (`consolidate3_transport.py`, all five tests):** beyond k=13 the
+scale-free evidence for transport-over-relevance is **materially strengthened but still DIRECTIONAL,
+not decisively settled.** The pooled point estimate is a stable **−9 to −10 %**, both the equal-weight
+and random-effects pooled CIs exclude 0, the sign test is strong (p<0.0001), and all three slices agree
+across two domains — *but* the pooled win does **not survive leave-one-slice-out** (removing any single
+slice pushes the CI across 0), and the **95 % prediction interval includes 0** (with only 3 slices a 4th
+could fall either side). So: consistent, cross-domain, pooled-significant, yet fragile to any one slice.
+The sign test also carries the §4 LOO-overlap independence caveat, so the fractional/RE bootstrap + LOSO
+are the load-bearing tests, not the sign p. **Reported both ways:** the *domain-matched raw-logRR*
+central-bw IV pool (BCG+rota, §2) is unchanged and on-threshold (−0.069 [−0.140,+0.003]). The strongest
+qualitative signal remains that the mechanism *reproduces* in education SMD exactly as in vaccine logRR
+(clean narrow-bw win, β=0 inert, target=pool hurts) — evidence it is general, pending a 4th slice to
+harden the pooled inference.
 
 ## What is settled vs still open
 
@@ -271,10 +278,12 @@ qualitative signal that the mechanism is general.
 
 **Transport's incremental gain OVER relevance-only — strengthened to a scale-free win, domain-matched
 still on threshold (§4, §5):**
-- **Scale-free, 3 slices, 2 domains (k=61): a WIN.** Adding the cross-domain raudenbush slice, the
-  fractional MAE reduction pools to **−9.7 % [−17.6 %, −0.9 %]** (CI<0), 46/61 trials favour transport
-  (sign p<0.0001), all three slices same sign. The mechanism reproduces in education (SMD) exactly as
-  in vaccine-epi (logRR).
+- **Scale-free, 3 slices, 2 domains (k=61): DIRECTIONAL, materially strengthened, not decisively
+  settled.** Pooled fractional reduction −9.7 % [−17.6 %, −0.9 %] and RE −9.1 % [−16.8 %, −1.4 %] both
+  exclude 0; 46/61 trials favour transport (sign p<0.0001); mechanism reproduces in education (SMD)
+  exactly as in vaccine-epi (logRR). BUT the pooled win does **not survive leave-one-slice-out** (any
+  single drop crosses 0) and the **95 % prediction interval includes 0** — so it is consistent and
+  pooled-significant yet fragile at k=3 slices. A **4th** strong-modifier slice is needed to harden it.
 - **Domain-matched raw-logRR (BCG+rota only): still on threshold.** The pre-registered central-bw IV
   pool is unchanged at −0.069 [−0.140, +0.003]. A third *logRR population-gradient* slice would settle
   this one directly; the scout confirms none is on disk (see below).

@@ -96,10 +96,52 @@ def main():
           f"{'  <-- WIN (CI<0)' if hi < 0 else ''}")
     print(f"    per-slice fractions: " + ", ".join(f"{p['name'].split(' (')[0]} {p['frac']:+.1%}" for p in per))
 
-    # heterogeneity of the fractional reductions
-    Q = float(((fracs - fracs.mean()) ** 2).sum() / (fracs.var(ddof=1) + 1e-12))
     print(f"    fractional reductions range [{fracs.min():+.1%},{fracs.max():+.1%}] "
           f"(all same sign = {'yes' if (fracs < 0).all() else 'no'})")
+
+    # (4) LEAVE-ONE-SLICE-OUT on the fractional pool (does any single slice carry it?)
+    print("\n[4] LEAVE-ONE-SLICE-OUT (fractional pool, does any slice alone drive the win?)")
+    loso_ok = True
+    for drop in range(len(per)):
+        keep = [j for j in range(len(per)) if j != drop]
+        bk = np.empty(8000)
+        for b in range(8000):
+            fs = []
+            for j in keep:
+                p = per[j]; idx = rng.integers(0, p["n"], p["n"])
+                fs.append((p["et"][idx].mean() - p["er"][idx].mean()) / p["er"][idx].mean())
+            bk[b] = np.mean(fs)
+        klo, khi = np.quantile(bk, [.025, .975]); kmu = np.mean([per[j]["frac"] for j in keep])
+        w = khi < 0
+        loso_ok = loso_ok and w
+        print(f"    drop {per[drop]['name'].split(' (')[0]:12} -> pool {kmu:+.1%} [{klo:+.1%},{khi:+.1%}]"
+              f"{'  still WIN' if w else '  crosses 0'}")
+
+    # (5) RANDOM-EFFECTS (DL) pool + 95% PREDICTION INTERVAL on the per-slice fractional reductions
+    print("\n[5] RANDOM-EFFECTS (DL) pool + 95% prediction interval on per-slice fractional reductions")
+    # per-slice SE of the fractional reduction via within-slice bootstrap
+    fr_se = []
+    for p in per:
+        bb = np.empty(4000)
+        for b in range(4000):
+            idx = rng.integers(0, p["n"], p["n"])
+            bb[b] = (p["et"][idx].mean() - p["er"][idx].mean()) / p["er"][idx].mean()
+        fr_se.append(float(bb.std(ddof=1)))
+    fr = fracs; v = np.array(fr_se) ** 2; k = len(fr); w_ = 1.0 / v
+    mu_fe = (w_ * fr).sum() / w_.sum()
+    Q = float((w_ * (fr - mu_fe) ** 2).sum()); C = w_.sum() - (w_ ** 2).sum() / w_.sum()
+    tau2 = max(0.0, (Q - (k - 1)) / C) if C > 0 else 0.0
+    ws = 1.0 / (v + tau2); mu_re = float((ws * fr).sum() / ws.sum()); se_re = float(np.sqrt(1.0 / ws.sum()))
+    I2 = max(0.0, (Q - (k - 1)) / Q) * 100 if Q > 0 else 0.0
+    tcrit = float(stats.t.ppf(0.975, k - 1))
+    pi_lo, pi_hi = mu_re - tcrit * np.sqrt(tau2 + se_re ** 2), mu_re + tcrit * np.sqrt(tau2 + se_re ** 2)
+    ci_lo, ci_hi = mu_re - 1.96 * se_re, mu_re + 1.96 * se_re
+    print(f"    RE mean {mu_re:+.1%} [{ci_lo:+.1%},{ci_hi:+.1%}]  tau2={tau2:.5f} I2={I2:.0f}%  Q={Q:.2f}(df={k-1})")
+    print(f"    95% PREDICTION INTERVAL (t_{k-1}): [{pi_lo:+.1%},{pi_hi:+.1%}]"
+          f"  {'excludes 0' if pi_hi < 0 else 'includes 0'}")
+
+    # heterogeneity note retained
+    hetero = f"I2={I2:.0f}%"
 
     out = dict(
         per_slice=[dict(name=p["name"], scale=p["scale"], n=p["n"],
@@ -107,19 +149,34 @@ def main():
         sign=[nneg, ntot, p_sign],
         std_signflip=[obs, p_flip],
         frac_pool=[float(fracs.mean()), float(lo), float(hi)],
+        re_pool=dict(mu=mu_re, ci=[ci_lo, ci_hi], pi=[pi_lo, pi_hi], tau2=tau2, I2=I2),
+        loso_all_win=bool(loso_ok),
     )
     json.dump(out, open(HERE / "consolidate3_results.json", "w"), indent=1)
 
+    frac_win = hi < 0
+    re_win = ci_hi < 0
     print("\n" + "=" * 78)
-    print("VERDICT (3 slices, 2 domains, scale-free):")
-    print(f"  {nneg}/{ntot} trials favour transport (sign p={p_sign:.3f}); pooled fractional MAE")
-    print(f"  reduction {fracs.mean():+.1%} [{lo:+.1%},{hi:+.1%}]; all three slices same sign.")
-    all_win = hi < 0 and p_sign < 0.05
-    print(f"  => {'SETTLED scale-free: transport beats relevance-only across 3 strong-modifier' if all_win else 'still directional'}")
-    if all_win:
-        print("     slices in 2 domains (vaccine-epi logRR + education SMD). Note: the per-slice")
-        print("     logRR central-bw IV pool (BCG+rota) still individually on-threshold; the")
-        print("     scale-free 3-slice evidence is what crosses. Reported honestly, both ways.")
+    print("FINAL VERDICT (full inference layer, 3 slices / 2 domains / k=61):")
+    print(f"  sign test        : {nneg}/{ntot} favour transport, p={p_sign:.4f}")
+    print(f"  fractional pool  : {fracs.mean():+.1%} [{lo:+.1%},{hi:+.1%}] {'WIN' if frac_win else 'n.s.'}")
+    print(f"  leave-one-slice  : {'every drop still CI<0' if loso_ok else 'a drop crosses 0'}")
+    print(f"  RE pool          : {mu_re:+.1%} [{ci_lo:+.1%},{ci_hi:+.1%}] {'WIN' if re_win else 'n.s.'};"
+          f"  95% PI [{pi_lo:+.1%},{pi_hi:+.1%}] {'excl 0' if pi_hi < 0 else 'incl 0'}")
+    settled = frac_win and re_win and loso_ok and p_sign < 0.05
+    print("-" * 78)
+    if settled:
+        print("  => BEYOND k=13: on a SCALE-FREE basis transport BEATS relevance-only -- pooled CI<0,")
+        print("     robust to leave-one-slice-out, RE mean CI<0, consistent across 3 strong-modifier")
+        print("     slices in 2 domains. The 95% PREDICTION INTERVAL " +
+              ("also excludes 0 (a new comparable slice is expected to keep the sign)."
+               if pi_hi < 0 else "still includes 0 (only 3 slices; a 4th could fall either side)."))
+    else:
+        print("  => still directional (not all scale-free tests clear).")
+    print("  HONEST COUNTERPART: the DOMAIN-MATCHED raw-logRR central-bw IV pool (BCG+rota only) is")
+    print("  UNCHANGED at -0.069 [-0.140,+0.003] -- on-threshold. A 3rd logRR population-gradient")
+    print("  slice (none on disk) would settle that specific pool directly. Sign test carries the")
+    print("  LOO-overlap independence caveat; fractional pool + LOSO + RE-PI are the load-bearing tests.")
     print("=" * 78)
 
 
