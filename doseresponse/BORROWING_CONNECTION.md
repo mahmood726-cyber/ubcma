@@ -66,3 +66,24 @@ over-smooths) but **not significant at n=12 -- a statistical TIE** (central-bw -
 The two threads are the *same dose-borrowing mechanism*: when the true dose-response is ~linear (GLP1)
 the correctly-specified parametric model is at-least-as-good, while the kernel buys robustness to
 functional-form misspecification at a small efficiency cost. Result JSON `borrowing/stage4_doselink_result.json`.
+
+## FIRM-UP (2026-07-02) -- generalised across clean-modifier slices (`borrowing/stage4_multi.py`)
+Ran the same parametric-MODEL vs relevance-KERNEL vs no-covariate-null head-to-head on every real slice in
+`replication/all_slices_trials.json`, gated truth-first on the pre-registered modifier test (perm p<0.05).
+Only **2 of 8 candidate slices pass the gate** -- GLP1 dose (p=0.010) and Obesity baseline-weight (p=0.002);
+the other 6 (obesity dose, tirzepatide dose, depression×2, schizophrenia) have a non-significant modifier and
+are correctly SKIPPED (borrowing cannot help without a real modifier -- the program's inertia boundary,
+intact). On both gated slices:
+
+| gated slice | k | metareg / kernel / null MAE | metareg − kernel [95% CI] | kernel − null |
+|---|---|---|---|---|
+| GLP1 dose | 12 | 0.204 / 0.269 / 0.449 | −0.064 [−0.155, +0.025] **tie** | −0.180 [−0.305, −0.036] **kernel WINS null** |
+| Obesity baseline-weight | 9 | 2.313 / 3.190 / 3.688 | −0.878 [−1.527, −0.319] **metareg WINS** | −0.497 [−1.055, −0.099] **kernel WINS null** |
+
+**Firmed verdict (honest):** dose/covariate borrowing pays on BOTH gated slices — the kernel robustly beats
+the no-covariate null in 2/2 (the Stage-4 hypothesis holds beyond GLP1). Head-to-head, the parametric model
+is a tie on GLP1 and a **significant win on obesity-baseline** (where the linear covariate signal is strong
+and the n=9 kernel over-smooths): so the parametric dose/covariate MODEL is at-least-as-good and sometimes
+strictly better than the nonparametric kernel — refining the earlier "tie" to "parametric ≥ kernel on
+well-specified linear modifiers." (Only 2 slices clear the gate, so a pooled cross-slice CI is not claimed;
+per-slice results are reported. Result JSON `borrowing/stage4_multi_result.json`.)
