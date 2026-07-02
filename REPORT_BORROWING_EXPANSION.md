@@ -293,10 +293,26 @@ still on threshold (§4, §5):**
 **Data-availability finding (this cycle, fable scout + re-verified):** across the entire on-disk
 `F:\public-data\`, the ONLY dataset with a strong external gradient beyond BCG/rota is a *procedural*
 (education) modifier, not a population/geographic one. ISRCTN/OWID carry no per-trial effects; the
-other web-source dirs are empty. **A 3rd logRR population-gradient slice does not exist on disk** — it
-requires acquiring a deposited machine-readable per-arm dataset (best leads, needing a non-headless
-data session: vitamin-A / zinc child-mortality by baseline U5MR; pneumococcal/Hib by region; IPTi by
-transmission intensity — deposited CSV preferred over paper transcription, per the rotavirus route).
+other web-source dirs are empty. **A 3rd logRR population-gradient slice does not exist on disk.**
+
+**4th-slice reachability (dedicated fable check over `F:\public-data\` + the full AACT snapshot
+`F:\AACT-storage\AACT\2026-04-12`) — genuine NO for all three candidate families, needs a
+non-headless deposited fetch (NOT forced):**
+- **vitamin-A / zinc → child mortality by baseline U5MR:** U5MR covariate is on-disk (`owid/u5mr.csv`),
+  but the gradient-spanning child-mortality trials (Nepal/Ghana/Sudan/Indonesia, 1980s–90s) *predate*
+  ClinicalTrials.gov; the ≤13 AACT vitamin-A mortality trials are high-income cancer/ICU/transplant
+  survival, no child-mortality gradient. Needs a deposited/published-table fetch.
+- **pneumococcal / Hib / pertussis efficacy by region/latitude:** placebo-controlled trials with a
+  *disease-efficacy* outcome + posted results number **4 / 0 / 0** (all <8), and the pneumo ones are
+  multi-country (no clean per-trial latitude).
+- **IPTi / IPTp / antimalarial by transmission intensity:** of 49 placebo+efficacy malaria trials with
+  results, only 18 single-country; of those only 3 African LMIC (all Uganda → zero gradient), the rest
+  US/EU controlled-human-malaria-infection challenge studies; transmission intensity is not on-disk
+  (needs Malaria Atlas). AACT structurally compresses the geographic gradient for all three families.
+
+So the domain-matched logRR pool cannot be hardened from on-disk data; a 4th slice requires a deposited
+web fetch (child-mortality tables / regional vaccine-efficacy publications / transmission atlas + IPTp
+extraction) — deferred to a non-headless data session, per the truth-first rule against forcing it.
 
 ---
 
