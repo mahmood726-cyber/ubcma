@@ -139,6 +139,24 @@ shrinkage target genuinely improves matched-coverage width in a bounded region;
 for the dose-response *slope under selection* no such region exists, and the
 reason is identifiable (no valid corrector).
 
+### Stage 3b -- the predicted-effect-at-target-dose estimand (`dr_target_dose.py`)
+The documented next-step was to re-run Stage 3 for the *predicted effect at a target dose*,
+where a shrinkage-win region seemed more plausible than for the slope. **Settled exactly for
+the linear model, by proof + empirical confirmation.** Under the linear dose-response each
+method reports a pooled slope mu (truth beta); the predicted log-RR at a target dose d* is
+mu*d*, its CI is [lo*d*, hi*d*], and the truth is beta*d*. Because d* is a positive constant,
+every per-replicate absolute error and every half-width scale by the SAME d*, so (i) coverage
+is invariant and (ii) the matched-coverage MCIW0 difference `2*(q_method - q_baseline)` of
+error quantiles scales by d* -- hence the **robust-win verdict is identical to the slope
+estimand**. Empirical confirmation (300 reps x {moderate, strong}): q95(|error|) is exactly
+scale-equivariant (target = d* x slope to <=1e-9), every robust-win flag matches the slope
+bake-off, and **0 estimators beat two-stage REML at the target dose -- the same HONEST NULL**.
+
+So the target-dose null is not a new fact but a *rescaling* of the slope null; a genuine
+shrinkage-win region, if any exists, requires a **NONLINEAR (Emax/spline) truth** where the
+prediction is not a slope-rescaling and per-study curvature/shrinkage can differ. That is the
+properly-scoped next experiment (the linear-model question is now closed).
+
 ## Cross-vendor confirmation (vendors unreachable -> 4-way internal)
 Per the vendor routing: pc1 Codex is 401 and agy returns empty; **pc2
 (100.127.107.46) is reachable at the network layer but SSH auth fails (publickey
@@ -157,6 +175,17 @@ stream, not importing the bake-off scorer):
 
 All five agree: **HONEST NULL**.
 
+### Live-R + Fable-vendor reconfirmation (2026-07-02)
+A Fable-model sub-agent re-validated the whole build against **live** R packages actually
+installed this session (not the committed gold files): `dosresmeta` 2.2.0 independently
+regenerated every two-stage number on the real `alcohol_crc` slice — linear REML slope
+(Python vs gold absdiff **2.6e-18**), GL covariance (**4.16e-16**), RCS-spline multivariate
+REML coef (**1.25e-9**) — and `netmeta` 3.6.1 reproduced the saturated-MBNMA reduction (TE
+**9.74e-15**, SE **4.86e-16**). Full existing suites re-run green (test_drma 9/9, test_mbnma
+5/5). A separate full-portfolio regression sweep (Fable) was **ALL GREEN — 88 passed** (NMA 32,
+dose-response 23, truth-recovery 23, borrowing-field 10), so nothing already-validated broke
+while this thread advanced.
+
 ## Honest caveats
 - **No JAGS** -> no exact Bayesian `MBNMAdose` comparison; netmeta reduction is the
   anchor instead. Documented next step.
@@ -168,8 +197,9 @@ All five agree: **HONEST NULL**.
 - The PET/PEESE structural-invalidity finding is specific to ratio/count effect
   measures where effect and SE share denominators (the classic Egger-on-log-ratios
   pathology); it is not a claim about PET/PEESE for mean-difference outcomes.
-- External vendor cross-vendor (Codex/agy) was **not** obtained; the four internal
-  confirmations + from-scratch re-derivation stand in for it, as the brief allows.
+- External cross-vendor is now obtained: **Fable 5** re-derived the Stage-1b logistic GLMM
+  from scratch (matches to <=3e-5, §Stage 1b) and re-validated the two-stage/MBNMA build against
+  live dosresmeta/netmeta (§Live-R). The slope null's four internal confirmations still stand.
 
 ## Next steps
 1. Install JAGS and cross-validate `mbnma.py` (linear/Emax) against `MBNMAdose`'s
@@ -178,14 +208,19 @@ All five agree: **HONEST NULL**.
    binary class-relevance in `borrowing/class_lambda.py` with a dose-distance
    kernel and rerun the pilot-2 held-out matched-coverage test on the real
    GLP1-dose slice (where pilot-2 already established dose as a real modifier).
-3. Re-run Stage 3 for the **predicted-effect-at-target-dose** estimand, where a
-   shrinkage win region is more plausible than for the slope.
+3. ~~Re-run Stage 3 for the predicted-effect-at-target-dose estimand~~ **DONE (Stage 3b):**
+   proven + confirmed to reduce EXACTLY to the slope null under the linear model. The open
+   variant is a **NONLINEAR (Emax/spline) truth**, where the target-dose prediction is not a
+   slope-rescaling and per-study curvature/shrinkage can differ — the only setting where a
+   shrinkage-win region could appear. Scoped for a future cycle (needs a per-study Emax/spline
+   fit stable under sparse counts).
 
 ## Reproduce
 ```
 PYTHONPATH=doseresponse:src python -m pytest doseresponse/ -q          # 23 passed
 python doseresponse/drma_binomial.py                                   # one-stage logistic DR on ursino2021
 Rscript doseresponse/xverify_binomial.R                                # lme4::glmer gold standard
+PYTHONPATH=doseresponse:src python doseresponse/dr_target_dose.py      # Stage 3b: target-dose reduction proof
 PYTHONPATH=doseresponse:src python doseresponse/dr_bakeoff.py --reps 300
 PYTHONPATH=doseresponse:src python doseresponse/selfverify_dr.py
 # regenerate R gold (needs R + dosresmeta/netmeta):

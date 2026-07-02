@@ -1,0 +1,28 @@
+Predicted-effect-at-target-dose bake-off (linear model, d*=8.0)
+proof: prediction = slope * d*  => matched-coverage verdict invariant to d*.
+
+strength  method           | slope MCIW0diff target MCIW0diff  ratio/d*  win match
+moderate  adaptshrink      |         0.00100          0.00804     8.040       True
+moderate  one_stage        |         0.00160          0.01278     7.987       True
+moderate  trend_peese      |         0.19733          1.57865     8.000       True
+moderate  trend_pet        |         0.41554          3.32430     8.000       True
+moderate  two_stage_fixed  |         0.00160          0.01278     7.987       True
+strong    adaptshrink      |         0.00053          0.00425     8.019       True
+strong    one_stage        |         0.00086          0.00686     7.977       True
+strong    trend_peese      |         0.17132          1.37054     8.000       True
+strong    trend_pet        |         0.36359          2.90869     8.000       True
+strong    two_stage_fixed  |         0.00086          0.00686     7.977       True
+
+  DIRECT proof: q95(|err|) scale-equivariant, target = d* x slope to <=1e-9: True
+  (bootstrap ratio column deviates from 8 only by 5-dp display rounding of
+   near-zero diffs; the direct check above is the exact, rounding-free confirmation.)
+  every robust-win verdict identical to the slope bake-off:      True
+  robust wins over two-stage REML at the target dose:            0 (same as slope)
+
+VERDICT: the predicted-effect-at-target-dose estimand under the LINEAR model is an exact
+rescaling of the slope estimand, so it inherits the Stage-3 HONEST NULL exactly -- no
+estimator beats two-stage REML at matched coverage. A shrinkage-win region, if it exists,
+requires a NONLINEAR (Emax/spline) truth where the prediction is not a slope-rescaling
+and per-study curvature/shrinkage can differ; that is the scoped next experiment.
+
+[assert passed] reduction confirmed to machine precision (exact q95 scale-equivariance).
