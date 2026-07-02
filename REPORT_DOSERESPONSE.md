@@ -154,8 +154,25 @@ bake-off, and **0 estimators beat two-stage REML at the target dose -- the same 
 
 So the target-dose null is not a new fact but a *rescaling* of the slope null; a genuine
 shrinkage-win region, if any exists, requires a **NONLINEAR (Emax/spline) truth** where the
-prediction is not a slope-rescaling and per-study curvature/shrinkage can differ. That is the
-properly-scoped next experiment (the linear-model question is now closed).
+prediction is not a slope-rescaling and per-study curvature/shrinkage can differ.
+
+### Stage 3c -- the NONLINEAR (Emax) predicted-dose bake-off (`dr_emax_bakeoff.py`)
+Built and ran the nonlinear experiment (the only setting where a shrinkage win was plausible).
+TRUTH = per-study Emax curves logRR_s(d)=Emax_s·d/(ED50+d), Emax_s~N(0.7,0.15^2), ED50=2, Poisson
+counts, one-sided selection on the estimated trend; estimand = unselected pop-mean logRR at an
+interior target dose d*=2 (=ED50, max curvature). Methods predict at d* via the **validated RCS-spline
+DRMA** (two-stage REML [baseline], two-stage fixed, one-stage pooled) plus the AdaptShrink aggregate.
+300 reps × {moderate, strong}, 100 % convergence, scored with the same matched-coverage truth-gate.
+
+**Verdict: HONEST NULL even under the nonlinear truth.** No estimator robustly beats two-stage REML at
+matched coverage — every paired-bootstrap MCIW0 CI crosses 0. Under *strong* selection the tighter
+partial-pool/shrinkage estimators are **directionally** better (one_stage dMCIW0 −0.0059
+[−0.0082,+0.0023], frac_better 0.70; adaptshrink −0.0030 [−0.0072,+0.0028]) — the hypothesised
+direction — but not significantly, and two-stage REML retains the best raw coverage (0.96–0.97). So
+the two-stage spline field is not robustly improved on by shrinkage/partial-pooling even when the truth
+is nonlinear and selection is strong. (Scope: one Emax DGP at an interior d*; a robust win might still
+emerge under heavier between-study heterogeneity or an extrapolated d* — a bounded future variant. The
+*directional* strong-selection signal is disclosed, not promoted.) `dr_emax_bakeoff_result.txt`.
 
 ## Cross-vendor confirmation (vendors unreachable -> 4-way internal)
 Per the vendor routing: pc1 Codex is 401 and agy returns empty; **pc2
@@ -208,12 +225,11 @@ while this thread advanced.
    binary class-relevance in `borrowing/class_lambda.py` with a dose-distance
    kernel and rerun the pilot-2 held-out matched-coverage test on the real
    GLP1-dose slice (where pilot-2 already established dose as a real modifier).
-3. ~~Re-run Stage 3 for the predicted-effect-at-target-dose estimand~~ **DONE (Stage 3b):**
-   proven + confirmed to reduce EXACTLY to the slope null under the linear model. The open
-   variant is a **NONLINEAR (Emax/spline) truth**, where the target-dose prediction is not a
-   slope-rescaling and per-study curvature/shrinkage can differ — the only setting where a
-   shrinkage-win region could appear. Scoped for a future cycle (needs a per-study Emax/spline
-   fit stable under sparse counts).
+3. ~~Re-run Stage 3 for the predicted-effect-at-target-dose estimand~~ **DONE (Stage 3b + 3c):**
+   3b — proven + confirmed to reduce EXACTLY to the slope null under the linear model; 3c — the
+   NONLINEAR (Emax) truth also returns an HONEST NULL at matched coverage (directional-only under
+   strong selection). Remaining bounded variant: heavier between-study heterogeneity or an
+   *extrapolated* d* (beyond the observed dose range), where prediction variance is amplified.
 
 ## Reproduce
 ```
@@ -221,6 +237,8 @@ PYTHONPATH=doseresponse:src python -m pytest doseresponse/ -q          # 23 pass
 python doseresponse/drma_binomial.py                                   # one-stage logistic DR on ursino2021
 Rscript doseresponse/xverify_binomial.R                                # lme4::glmer gold standard
 PYTHONPATH=doseresponse:src python doseresponse/dr_target_dose.py      # Stage 3b: target-dose reduction proof
+PYTHONPATH=doseresponse:src python doseresponse/dr_emax_bakeoff.py     # Stage 3c: nonlinear Emax bake-off (honest null)
+cd borrowing && python stage4_doselink.py                              # Stage 4: dose-link on real GLP1 (tie)
 PYTHONPATH=doseresponse:src python doseresponse/dr_bakeoff.py --reps 300
 PYTHONPATH=doseresponse:src python doseresponse/selfverify_dr.py
 # regenerate R gold (needs R + dosresmeta/netmeta):

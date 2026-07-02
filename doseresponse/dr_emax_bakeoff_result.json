@@ -1,0 +1,65 @@
+{
+ "boot": [
+  {
+   "strength": "moderate",
+   "method": "adaptshrink",
+   "mciw0_diff": 0.00013,
+   "ci_lo": -0.00606,
+   "ci_hi": 0.00115,
+   "robust_win": false,
+   "frac_better": 0.654
+  },
+  {
+   "strength": "moderate",
+   "method": "one_stage",
+   "mciw0_diff": 0.00018,
+   "ci_lo": -0.00815,
+   "ci_hi": 0.00167,
+   "robust_win": false,
+   "frac_better": 0.658
+  },
+  {
+   "strength": "moderate",
+   "method": "two_stage_fixed",
+   "mciw0_diff": 0.00018,
+   "ci_lo": -0.00815,
+   "ci_hi": 0.00167,
+   "robust_win": false,
+   "frac_better": 0.658
+  },
+  {
+   "strength": "strong",
+   "method": "adaptshrink",
+   "mciw0_diff": -0.00303,
+   "ci_lo": -0.00717,
+   "ci_hi": 0.00284,
+   "robust_win": false,
+   "frac_better": 0.722
+  },
+  {
+   "strength": "strong",
+   "method": "one_stage",
+   "mciw0_diff": -0.00588,
+   "ci_lo": -0.00815,
+   "ci_hi": 0.00233,
+   "robust_win": false,
+   "frac_better": 0.702
+  },
+  {
+   "strength": "strong",
+   "method": "two_stage_fixed",
+   "mciw0_diff": -0.00588,
+   "ci_lo": -0.00815,
+   "ci_hi": 0.00233,
+   "robust_win": false,
+   "frac_better": 0.702
+  }
+ ],
+ "truth": 0.35,
+ "params": {
+  "Emax": 0.7,
+  "ED50": 2.0,
+  "tau": 0.15,
+  "dstar": 2.0
+ }
+}
