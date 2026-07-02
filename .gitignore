@@ -31,3 +31,11 @@ nma/truth-recovery/tausel_grid_run.log
 nma/verify/agy_grid_gen.log
 nma/verify/codex_pc2_grid.log
 nma/verify/laptop_watch.log
+
+# node deps for the manuscript docx build (manuscript/build_docx.js uses the `docx` package)
+node_modules/
+
+# transient run logs (field-scale borrowing benchmark, DTA pilot, truth-recovery reruns)
+borrowing/field_scale/*.log
+truth-recovery-dta/*.log
+truth-recovery/run_*.log
