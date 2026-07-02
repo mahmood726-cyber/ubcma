@@ -6,101 +6,74 @@
 <title>UBCMA: Unified Bias-Calibrated Meta-Analysis via Joint Heterogeneity-Selection Modeling — Dashboard</title>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Georgia,'Times New Roman',serif;background:#FDFCFA;color:#1a1a1a;line-height:1.7;-webkit-font-smoothing:antialiased}
-.page{max-width:680px;margin:0 auto;padding:2.5rem 1.5rem 3rem}
-h1{font-size:1.6rem;font-weight:700;line-height:1.3;margin-bottom:.5rem}
-.byline{font-family:system-ui,sans-serif;font-size:.82rem;color:#777;margin-bottom:2rem;padding-bottom:1rem;border-bottom:3px double #E5E0D6}
-.section-label{font-family:system-ui,sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#8B6914;margin-bottom:.8rem;padding-bottom:.4rem;border-bottom:1px solid #E5E0D6}
-.metrics{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:2rem}
-.chart-area{margin-bottom:2rem;text-align:center}
-.body-text{font-size:1.05rem;line-height:1.9;text-align:justify;margin-bottom:2rem;padding:1.2rem 1.5rem;background:#F5F3EE;border-radius:8px;border-left:3px solid #8B6914}
-.notes{font-family:system-ui,sans-serif;font-size:.82rem;color:#555;display:grid;grid-template-columns:auto 1fr;gap:.3rem .8rem;margin-bottom:1.5rem}
-.notes dt{font-weight:600;color:#333}.notes dd a{color:#2E6B8A;text-decoration:none}
-.footer{font-family:system-ui,sans-serif;font-size:.7rem;color:#aaa;padding-top:1rem;border-top:1px solid #E5E0D6;text-align:center}
-@media(max-width:600px){.metrics{flex-direction:column}.page{padding:1.5rem 1rem}h1{font-size:1.3rem}}
+body{font-family:Georgia,'Times New Roman',serif;background:#FDFCFA;color:#1a1a1a;line-height:1.7}
+.page{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 3rem}
+h1{font-size:1.5rem;font-weight:700;line-height:1.3;margin-bottom:.4rem}
+.byline{font-family:system-ui,sans-serif;font-size:.82rem;color:#777;margin-bottom:1.8rem;padding-bottom:1rem;border-bottom:3px double #E5E0D6}
+.section-label{font-family:system-ui,sans-serif;font-size:.65rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#7A5A10;margin:1.6rem 0 .8rem;padding-bottom:.4rem;border-bottom:1px solid #E5E0D6}
+.metrics{display:flex;gap:12px;flex-wrap:wrap}
+.metric{flex:1;min-width:120px;background:#fff;border:1px solid #E5E0D6;border-top:3px solid #7A5A10;border-radius:6px;padding:14px;text-align:center}
+.metric .k{font-family:system-ui,sans-serif;font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#767676;margin-bottom:6px}
+.metric .v{font-family:Georgia,serif;font-size:24px;font-weight:700;color:#1a1a1a;line-height:1.1}
+.metric .s{font-family:system-ui,sans-serif;font-size:10px;color:#aaa;margin-top:3px}
+.pipeline{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-family:system-ui,sans-serif}
+.step{flex:1;min-width:120px;background:rgba(122,90,16,.08);border:1px solid #7A5A10;border-radius:6px;padding:9px 6px;text-align:center;font-size:11px;font-weight:600;color:#6d5210}
+.arrow{color:#ccc;font-size:15px}
+.fig img{width:100%;height:auto;border:1px solid #E5E0D6;border-radius:8px;display:block}
+.body-text{font-size:1.02rem;line-height:1.9;text-align:justify;padding:1.1rem 1.4rem;background:#F5F3EE;border-radius:8px;border-left:3px solid #7A5A10}
+.notes{font-family:system-ui,sans-serif;font-size:.82rem;color:#555;display:grid;grid-template-columns:auto 1fr;gap:.3rem .8rem}
+.notes dt{font-weight:600;color:#333}.notes dd a{color:#2E6B8A;text-decoration:none;word-break:break-all}
+.refs{font-family:system-ui,sans-serif;font-size:.78rem;color:#555;padding-left:1.1rem;line-height:1.7}
+.footer{font-family:system-ui,sans-serif;font-size:.7rem;color:#aaa;padding-top:1rem;margin-top:1.6rem;border-top:1px solid #E5E0D6;text-align:center}
+@media(max-width:600px){.metrics,.pipeline{flex-direction:column}.page{padding:1.5rem 1rem}h1{font-size:1.25rem}}
 @media print{body{background:#fff}.page{max-width:100%}}
 </style>
 </head>
 <body>
 <div class="page">
-  <div style="font-family:system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#8B6914;margin-bottom:1rem">E156 Project Dashboard</div>
+  <div style="font-family:system-ui,sans-serif;font-size:.6rem;font-weight:700;letter-spacing:.25em;text-transform:uppercase;color:#7A5A10;margin-bottom:1rem">Insight &middot; E156 Project Dashboard</div>
   <h1>UBCMA: Unified Bias-Calibrated Meta-Analysis via Joint Heterogeneity-Selection Modeling</h1>
-  <div class="byline">Mahmood Ahmad &middot; 2026-03-26 &middot; Methods</div>
+  <div class="byline">Mahmood Ahmad &middot; Tahir Heart Institute &middot; 2026-03-26 &middot; Methods</div>
 
   <div class="section-label">Key Metrics</div>
-  <div class="metrics"><div style="flex:1;min-width:140px;background:#fff;border:1px solid #E5E0D6;border-top:3px solid #8B6914;border-radius:6px;padding:16px;text-align:center">
-      <div style="font-family:system-ui,sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:#767676;margin-bottom:8px">Type</div>
-      <div style="font-family:Georgia,serif;font-size:28px;font-weight:700;color:#1a1a1a;line-height:1.1">Methods</div>
-      <div style="font-family:system-ui,sans-serif;font-size:11px;color:#aaa;margin-top:4px">Study design</div>
-    </div><div style="flex:1;min-width:140px;background:#fff;border:1px solid #E5E0D6;border-top:3px solid #8B6914;border-radius:6px;padding:16px;text-align:center">
-      <div style="font-family:system-ui,sans-serif;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:#767676;margin-bottom:8px">Words</div>
-      <div style="font-family:Georgia,serif;font-size:28px;font-weight:700;color:#1a1a1a;line-height:1.1">156</div>
-      <div style="font-family:system-ui,sans-serif;font-size:11px;color:#aaa;margin-top:4px">E156 body length</div>
-    </div></div>
+  <div class="metrics">
+    <div class="metric"><div class="k">Coverage</div><div class="v">88.8%</div><div class="s">95% CI, 12 scenarios</div></div>
+    <div class="metric"><div class="k">RMSE</div><div class="v">0.070</div><div class="s">pooled effect</div></div>
+    <div class="metric"><div class="k">Comparators</div><div class="v">8</div><div class="s">benchmarked methods</div></div>
+    <div class="metric"><div class="k">Body</div><div class="v">156</div><div class="s">E156 words</div></div>
+  </div>
 
-  <div class="section-label">Method Pipeline</div>
-  <div class="chart-area"><svg viewBox="0 0 560 90" style="width:100%;max-width:560px;height:auto">
-  <rect x="0" y="0" width="560" height="90" fill="#FDFCFA" rx="8"/>
-  <text x="280" y="20" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#767676" letter-spacing="0.1em">METHOD PIPELINE</text>
-  <rect x="20" y="35" width="120" height="40" fill="#8B6914" opacity="0.1" rx="6" stroke="#8B6914" stroke-width="1.5"/>
-  <text x="80" y="59" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#6d5210">Prior Specification</text>
-  <text x="148" y="58" font-family="system-ui,sans-serif" font-size="16" fill="#ccc">→</text><rect x="155" y="35" width="120" height="40" fill="#8B6914" opacity="0.1" rx="6" stroke="#8B6914" stroke-width="1.5"/>
-  <text x="215" y="59" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#6d5210">Likelihood Construction</text>
-  <text x="283" y="58" font-family="system-ui,sans-serif" font-size="16" fill="#ccc">→</text><rect x="290" y="35" width="120" height="40" fill="#8B6914" opacity="0.1" rx="6" stroke="#8B6914" stroke-width="1.5"/>
-  <text x="350" y="59" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#6d5210">Posterior Sampling</text>
-  <text x="418" y="58" font-family="system-ui,sans-serif" font-size="16" fill="#ccc">→</text><rect x="425" y="35" width="120" height="40" fill="#8B6914" opacity="0.1" rx="6" stroke="#8B6914" stroke-width="1.5"/>
-  <text x="485" y="59" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" font-weight="600" fill="#6d5210">Model Comparison</text>
-</svg></div>
+  <div class="section-label">UBCMA Estimation Pipeline</div>
+  <div class="pipeline">
+    <div class="step">Two-component mixture likelihood</div><span class="arrow">&rarr;</span>
+    <div class="step">Logistic selection + quality shifts</div><span class="arrow">&rarr;</span>
+    <div class="step">Multi-start L-BFGS-B</div><span class="arrow">&rarr;</span>
+    <div class="step">Profile-likelihood CI</div>
+  </div>
 
-  
+  <div class="section-label">Visual Abstract</div>
+  <div class="fig"><img src="visual_abstract.png" alt="UBCMA visual abstract: coverage comparison and aspirin result"></div>
 
-  <div class="section-label">Sentence Structure</div>
-  <div class="chart-area"><svg viewBox="0 0 560 300" style="width:100%;max-width:560px;height:auto">
-  <rect x="0" y="0" width="560" height="300" fill="#FDFCFA" rx="8"/>
-  <text x="280" y="18" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#767676" letter-spacing="0.1em">7-SENTENCE STRUCTURE</text>
-  <rect x="130" y="30" width="152" height="26" fill="#2E86C1" opacity="0.15" rx="4"/>
-  <rect x="130" y="30" width="4" height="26" fill="#2E86C1" rx="2"/>
-  <text x="20" y="47" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#2E86C1" letter-spacing="0.05em">QUESTION</text>
-  <text x="142" y="47" font-family="Georgia,serif" font-size="11" fill="#333">Can a unified model jointly correct for heterogeneity, ...</text>
-<rect x="130" y="68" width="192" height="26" fill="#28B463" opacity="0.15" rx="4"/>
-  <rect x="130" y="68" width="4" height="26" fill="#28B463" rx="2"/>
-  <text x="20" y="85" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#28B463" letter-spacing="0.05em">DATASET</text>
-  <text x="142" y="85" font-family="Georgia,serif" font-size="11" fill="#333">We built a mixture normal likelihood with a logistic se...</text>
-<rect x="130" y="106" width="136" height="26" fill="#7D3C98" opacity="0.15" rx="4"/>
-  <rect x="130" y="106" width="4" height="26" fill="#7D3C98" rx="2"/>
-  <text x="20" y="123" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#7D3C98" letter-spacing="0.05em">METHOD</text>
-  <text x="142" y="123" font-family="Georgia,serif" font-size="11" fill="#333">Estimation used multi-start L-BFGS-B, profile likelihoo...</text>
-<rect x="130" y="144" width="248" height="26" fill="#CB4335" opacity="0.15" rx="4"/>
-  <rect x="130" y="144" width="4" height="26" fill="#CB4335" rx="2"/>
-  <text x="20" y="161" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#CB4335" letter-spacing="0.05em">PRIMARY RESULT</text>
-  <text x="142" y="161" font-family="Georgia,serif" font-size="11" fill="#333">Across twelve simulation scenarios (50 replicates, k=30...</text>
-<rect x="130" y="182" width="192" height="26" fill="#D68910" opacity="0.15" rx="4"/>
-  <rect x="130" y="182" width="4" height="26" fill="#D68910" rx="2"/>
-  <text x="20" y="199" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#D68910" letter-spacing="0.05em">ROBUSTNESS</text>
-  <text x="142" y="199" font-family="Georgia,serif" font-size="11" fill="#333">When both selection and quality bias were present, cove...</text>
-<rect x="130" y="220" width="160" height="26" fill="#148F77" opacity="0.15" rx="4"/>
-  <rect x="130" y="220" width="4" height="26" fill="#148F77" rx="2"/>
-  <text x="20" y="237" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#148F77" letter-spacing="0.05em">INTERPRETATION</text>
-  <text x="142" y="237" font-family="Georgia,serif" font-size="11" fill="#333">Joint modeling of heterogeneity and selection bias yiel...</text>
-<rect x="130" y="258" width="168" height="26" fill="#85929E" opacity="0.15" rx="4"/>
-  <rect x="130" y="258" width="4" height="26" fill="#85929E" rx="2"/>
-  <text x="20" y="275" font-family="system-ui,sans-serif" font-size="10" font-weight="700" fill="#85929E" letter-spacing="0.05em">BOUNDARY</text>
-  <text x="142" y="275" font-family="Georgia,serif" font-size="11" fill="#333">However, the model is limited by its parametric selecti...</text>
-
-</svg></div>
+  <div class="section-label">Empirical Illustration &mdash; Aspirin (k=6)</div>
+  <div class="fig"><img src="fig1_aspirin_forest.png" alt="Forest plot of the six-trial aspirin dataset, UBCMA vs DerSimonian-Laird"></div>
 
   <div class="section-label">Paper Body (156 Words)</div>
-  <div class="body-text">Can a unified model jointly correct for heterogeneity, publication selection, and study quality bias within a single meta-analytic framework? We built a mixture normal likelihood with a logistic selection function and quality bias-shift covariates, compared against eight comparators on simulated and empirical data. Estimation used multi-start L-BFGS-B, profile likelihood confidence intervals, and BCa bootstrap, with optional Bayesian inference via PyMC. Across twelve simulation scenarios (50 replicates, k=30), the unified model attained the highest interval coverage (88.8%) at low RMSE (0.070), versus 59.7% for DerSimonian-Laird, 63.8% for REML-HKSJ, and 39.0% for trim-and-fill. When both selection and quality bias were present, coverage held at 90.3% versus 31.3% for DerSimonian-Laird, while AIC, BIC, and leave-one-out diagnostics confirmed stability. Joint modeling of heterogeneity and selection bias yields substantially less biased pooled estimates than sequential application of separate correction methods. However, the model is limited by its parametric selection function, which may not capture all publication bias mechanisms in complex reviews.</div>
+  <div class="body-text">Can a single meta-analytic model jointly correct heterogeneity, publication selection, and study-quality bias, rather than applying separate sequential corrections? We tested a unified mixture-normal selection likelihood against eight comparators on twelve simulated scenarios and a real six-trial aspirin secondary-prevention dataset. Estimation used multi-start L-BFGS-B optimisation with profile-likelihood confidence intervals and BCa bootstrap, optionally with Bayesian inference via PyMC. Across twelve scenarios (50 replicates, k=30) the unified model attained the highest coverage, 88.8% at RMSE 0.070, versus 59.7% (DerSimonian-Laird), 63.8% (REML-HKSJ), and 39.0% (trim-and-fill). With selection and quality bias combined, coverage held at 90.3% versus 31.3% for DerSimonian-Laird; on the aspirin data the model gave a pooled log-odds-ratio of +0.01 (95% CI -0.12 to 0.12), versus -0.07 uncorrected. Jointly modelling heterogeneity and selection bias yields less biased, better-calibrated pooled estimates than applying separate corrections sequentially. The parametric logistic selection function may not capture every publication-bias mechanism, and the model is unsuited to small reviews (k below five).</div>
 
   <div class="section-label">Outside Notes</div>
   <dl class="notes">
     <dt>App</dt><dd>UBCMA v0.3.0</dd>
-    <dt>Data</dt><dd>Simulated and empirical meta-analysis datasets</dd>
+    <dt>Data</dt><dd>12 simulated scenarios (k=30) + real 6-trial aspirin dataset (Verde 2021)</dd>
     <dt>Code</dt><dd><a href='https://github.com/mahmood726-cyber/ubcma' target='_blank' rel='noopener noreferrer'>https://github.com/mahmood726-cyber/ubcma</a></dd>
     <dt>Estimand</dt><dd>Pooled-effect RMSE and CI coverage</dd>
+    <dt>DOI</dt><dd>not yet registered</dd>
+    <dt>Validation</dt><dd>FINAL</dd>
   </dl>
 
-  <div class="footer">E156 Micro-Paper Dashboard &middot; Generated 2026-03-26</div>
+  <div class="section-label">References</div>
+  <ol class="refs"><li>DerSimonian R, Laird N. Meta-analysis in clinical trials. Control Clin Trials. 1986;7(3):177-188.</li><li>Verde PE. A bias-corrected meta-analysis model for combining studies of different types and quality. Biom J. 2021;63(2):406-422.</li><li>Copas JB, Shi JQ. A sensitivity analysis for publication bias in systematic reviews. Stat Methods Med Res. 2001;10(4):251-265.</li><li>Doi SAR, Thalib L. A quality-effects model for meta-analysis. Epidemiology. 2008;19(1):94-100.</li><li>Rover C, Knapp G, Friede T. Hartung-Knapp-Sidik-Jonkman approach and its modification for random-effects meta-analysis with few studies. BMC Med Res Methodol. 2015;15:99.</li></ol>
+
+  <div class="footer">Insight &middot; E156 Micro-Paper Dashboard</div>
 </div>
 </body>
 </html>

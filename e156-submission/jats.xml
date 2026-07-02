@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE article PUBLIC "-//NLM//DTD JATS (Z39.96) Journal Publishing DTD v1.3 20210610//EN" "https://jats.nlm.nih.gov/publishing/1.3/JATS-journalpublishing1-3.dtd">
+<article xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:mml="http://www.w3.org/1998/Math/MathML" dtd-version="1.3" article-type="research-article" xml:lang="en">
+  <front>
+    <journal-meta>
+      <journal-id journal-id-type="publisher">insight</journal-id>
+      <journal-title-group>
+        <journal-title>Insight</journal-title>
+      </journal-title-group>
+      <issn pub-type="epub">0000-0000</issn>
+      <publisher><publisher-name>Synthesis Medicine</publisher-name></publisher>
+    </journal-meta>
+    <article-meta>
+      <!-- DOI not yet registered; DOIs are suppressed site-wide. -->
+      <title-group>
+        <article-title>UBCMA: Unified Bias-Calibrated Meta-Analysis via Joint Heterogeneity-Selection Modeling</article-title>
+      </title-group>
+      <contrib-group>
+        <contrib contrib-type="author">
+          <contrib-id contrib-id-type="orcid">https://orcid.org/0009-0003-7781-4478</contrib-id>
+          <name>
+            <surname>Ahmad</surname>
+            <given-names>Mahmood</given-names>
+          </name>
+          <xref ref-type="aff" rid="aff1"/>
+          <email>mahmood.ahmad2@nhs.net</email>
+        </contrib>
+      </contrib-group>
+      <aff id="aff1">Tahir Heart Institute</aff>
+      <pub-date publication-format="electronic" date-type="pub">
+        <day>26</day><month>03</month><year>2026</year>
+      </pub-date>
+      <permissions>
+        <license license-type="open-access" xlink:href="https://creativecommons.org/licenses/by/4.0/">
+          <license-p>This is an open-access article distributed under the terms of the Creative Commons Attribution 4.0 License.</license-p>
+        </license>
+      </permissions>
+      <abstract>
+        <p>Standard meta-analytic methods treat heterogeneity, publication selection, and study-quality bias as separate problems, so sequential corrections can leave residual confounding when these biases co-occur. Unified Bias-Calibrated Meta-Analysis (UBCMA) estimates a pooled effect while jointly modelling heterogeneity (two-component normal mixture), publication selection (logistic selection function), and quality-dependent bias (risk-of-bias covariate shifts) in a single likelihood, with profile-likelihood confidence intervals. Across 12 simulated scenarios (50 replicates, k=30) UBCMA attained the highest interval coverage (88.8%) at low RMSE (0.070) against eight comparators, and held 90.3% coverage when selection and quality bias co-occurred (versus 31.3% for DerSimonian-Laird). On a real six-trial aspirin secondary-prevention dataset it returned a near-null bias-corrected pooled log-odds-ratio of +0.01 (95% CI -0.12 to 0.12), versus -0.07 uncorrected. Joint modelling yields less biased, better-calibrated estimates than separate sequential corrections.</p>
+      </abstract>
+      <kwd-group>
+        <kwd>meta-analysis</kwd>
+        <kwd>publication bias</kwd>
+        <kwd>selection model</kwd>
+        <kwd>risk of bias</kwd>
+        <kwd>heterogeneity</kwd>
+        <kwd>quality-adjusted pooling</kwd>
+      </kwd-group>
+    </article-meta>
+  </front>
+  <body>
+    <sec id="s1">
+      <title>Structured summary</title>
+      <p><bold>Question.</bold> Can a single meta-analytic model jointly correct heterogeneity, publication selection, and study-quality bias, rather than applying separate sequential corrections?</p>
+      <p><bold>Dataset.</bold> We tested a unified mixture-normal selection likelihood against eight comparators on twelve simulated scenarios and a real six-trial aspirin secondary-prevention dataset.</p>
+      <p><bold>Method.</bold> Estimation used multi-start L-BFGS-B optimisation with profile-likelihood confidence intervals and BCa bootstrap, optionally with Bayesian inference via PyMC.</p>
+      <p><bold>Primary result.</bold> Across twelve scenarios (50 replicates, k=30) the unified model attained the highest coverage, 88.8% at RMSE 0.070, versus 59.7% (DerSimonian-Laird), 63.8% (REML-HKSJ), and 39.0% (trim-and-fill).</p>
+      <p><bold>Robustness.</bold> With selection and quality bias combined, coverage held at 90.3% versus 31.3% for DerSimonian-Laird; on the aspirin data the model gave a pooled log-odds-ratio of +0.01 (95% CI -0.12 to 0.12), versus -0.07 uncorrected.</p>
+      <p><bold>Interpretation.</bold> Jointly modelling heterogeneity and selection bias yields less biased, better-calibrated pooled estimates than applying separate corrections sequentially.</p>
+      <p><bold>Boundary.</bold> The parametric logistic selection function may not capture every publication-bias mechanism, and the model is unsuited to small reviews (k below five).</p>
+    </sec>
+    <sec id="s2">
+      <title>Figure</title>
+      <fig id="fig1" position="float">
+        <label>Figure 1</label>
+        <caption><title>Visual abstract.</title><p>UBCMA jointly models heterogeneity, publication selection, and study-quality bias in one likelihood; it attains the highest 95% CI coverage (88.8%) across 12 simulated scenarios and gives a near-null bias-corrected pooled estimate on the aspirin data.</p></caption>
+        <graphic xlink:href="assets/visual_abstract.png" mimetype="image" mime-subtype="png"/>
+      </fig>
+    </sec>
+    <sec id="s3">
+      <title>Empirical illustration</title>
+      <table-wrap id="tbl1" position="float">
+        <label>Table 1</label>
+        <caption><title>Aspirin secondary-prevention dataset (k=6): method comparison.</title><p>Pooled effect on the log-odds-ratio scale with 95% confidence interval. The classic six-trial aspirin dataset (CDP, AMIS, ISIS-2, UK-TIA, SALT, ESPS-2) referenced by Verde (2021).</p></caption>
+        <table frame="hsides" rules="groups">
+          <thead>
+            <tr><th>Method</th><th>Pooled estimate</th><th>95% CI</th><th>Significant?</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>DerSimonian-Laird</td><td>-0.067</td><td>-0.195 to 0.061</td><td>No</td></tr>
+            <tr><td>REML-HKSJ</td><td>-0.072</td><td>-0.208 to 0.064</td><td>No</td></tr>
+            <tr><td>Trim-and-fill</td><td>-0.251</td><td>-0.288 to -0.214</td><td>Yes</td></tr>
+            <tr><td>PET-PEESE</td><td>-0.227</td><td>-0.285 to -0.168</td><td>Yes</td></tr>
+            <tr><td>Copas</td><td>-0.074</td><td>-0.171 to 0.023</td><td>No</td></tr>
+            <tr><td>Quality-effects</td><td>-0.156</td><td>-0.200 to -0.111</td><td>Yes</td></tr>
+            <tr><td>UBCMA (profile)</td><td>+0.011</td><td>-0.125 to 0.117</td><td>No</td></tr>
+          </tbody>
+        </table>
+      </table-wrap>
+    </sec>
+  </body>
+  <back>
+    <ref-list>
+      <title>References</title>
+      <ref id="r1">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name><surname>DerSimonian</surname><given-names>R</given-names></name>
+            <name><surname>Laird</surname><given-names>N</given-names></name>
+          </person-group>
+          <article-title>Meta-analysis in clinical trials</article-title>
+          <source>Controlled Clinical Trials</source>
+          <year>1986</year>
+          <volume>7</volume>
+          <issue>3</issue>
+          <fpage>177</fpage>
+          <lpage>188</lpage>
+        </element-citation>
+      </ref>
+      <ref id="r2">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name><surname>Verde</surname><given-names>PE</given-names></name>
+          </person-group>
+          <article-title>A bias-corrected meta-analysis model for combining studies of different types and quality</article-title>
+          <source>Biometrical Journal</source>
+          <year>2021</year>
+          <volume>63</volume>
+          <issue>2</issue>
+          <fpage>406</fpage>
+          <lpage>422</lpage>
+        </element-citation>
+      </ref>
+      <ref id="r3">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name><surname>Copas</surname><given-names>JB</given-names></name>
+            <name><surname>Shi</surname><given-names>JQ</given-names></name>
+          </person-group>
+          <article-title>A sensitivity analysis for publication bias in systematic reviews</article-title>
+          <source>Statistical Methods in Medical Research</source>
+          <year>2001</year>
+          <volume>10</volume>
+          <issue>4</issue>
+          <fpage>251</fpage>
+          <lpage>265</lpage>
+        </element-citation>
+      </ref>
+      <ref id="r4">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name><surname>Doi</surname><given-names>SAR</given-names></name>
+            <name><surname>Thalib</surname><given-names>L</given-names></name>
+          </person-group>
+          <article-title>A quality-effects model for meta-analysis</article-title>
+          <source>Epidemiology</source>
+          <year>2008</year>
+          <volume>19</volume>
+          <issue>1</issue>
+          <fpage>94</fpage>
+          <lpage>100</lpage>
+        </element-citation>
+      </ref>
+      <ref id="r5">
+        <element-citation publication-type="journal">
+          <person-group person-group-type="author">
+            <name><surname>Rover</surname><given-names>C</given-names></name>
+            <name><surname>Knapp</surname><given-names>G</given-names></name>
+            <name><surname>Friede</surname><given-names>T</given-names></name>
+          </person-group>
+          <article-title>Hartung-Knapp-Sidik-Jonkman approach and its modification for random-effects meta-analysis with few studies</article-title>
+          <source>BMC Medical Research Methodology</source>
+          <year>2015</year>
+          <volume>15</volume>
+          <fpage>99</fpage>
+        </element-citation>
+      </ref>
+    </ref-list>
+  </back>
+</article>

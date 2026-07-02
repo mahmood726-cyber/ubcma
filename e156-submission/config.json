@@ -6,53 +6,55 @@
   "path": "..",
   "type": "methods",
   "primary_estimand": "Pooled-effect RMSE and CI coverage",
-  "summary": "A unified model jointly correcting heterogeneity, selection bias, and quality bias attains the highest CI coverage (88.8%) at low RMSE (0.070) against eight comparators across 12 simulation scenarios.",
-  "body": "Can a unified model jointly correct for heterogeneity, publication selection, and study quality bias within a single meta-analytic framework? We built a mixture normal likelihood with a logistic selection function and quality bias-shift covariates, compared against eight comparators on simulated and empirical data. Estimation used multi-start L-BFGS-B, profile likelihood confidence intervals, and BCa bootstrap, with optional Bayesian inference via PyMC. Across twelve simulation scenarios (50 replicates, k=30), the unified model attained the highest interval coverage (88.8%) at low RMSE (0.070), versus 59.7% for DerSimonian-Laird, 63.8% for REML-HKSJ, and 39.0% for trim-and-fill. When both selection and quality bias were present, coverage held at 90.3% versus 31.3% for DerSimonian-Laird, while AIC, BIC, and leave-one-out diagnostics confirmed stability. Joint modeling of heterogeneity and selection bias yields substantially less biased pooled estimates than sequential application of separate correction methods. However, the model is limited by its parametric selection function, which may not capture all publication bias mechanisms in complex reviews.",
+  "summary": "A single likelihood that jointly corrects heterogeneity, publication selection, and study-quality bias attains the highest CI coverage (88.8%) at low RMSE (0.070) against eight comparators across 12 simulated scenarios, and gives a near-null bias-corrected pooled estimate (+0.01, 95% CI -0.12 to 0.12) on a real six-trial aspirin dataset.",
+  "body": "Can a single meta-analytic model jointly correct heterogeneity, publication selection, and study-quality bias, rather than applying separate sequential corrections? We tested a unified mixture-normal selection likelihood against eight comparators on twelve simulated scenarios and a real six-trial aspirin secondary-prevention dataset. Estimation used multi-start L-BFGS-B optimisation with profile-likelihood confidence intervals and BCa bootstrap, optionally with Bayesian inference via PyMC. Across twelve scenarios (50 replicates, k=30) the unified model attained the highest coverage, 88.8% at RMSE 0.070, versus 59.7% (DerSimonian-Laird), 63.8% (REML-HKSJ), and 39.0% (trim-and-fill). With selection and quality bias combined, coverage held at 90.3% versus 31.3% for DerSimonian-Laird; on the aspirin data the model gave a pooled log-odds-ratio of +0.01 (95% CI -0.12 to 0.12), versus -0.07 uncorrected. Jointly modelling heterogeneity and selection bias yields less biased, better-calibrated pooled estimates than applying separate corrections sequentially. The parametric logistic selection function may not capture every publication-bias mechanism, and the model is unsuited to small reviews (k below five).",
   "sentences": [
     {
       "role": "Question",
-      "text": "Can a unified model jointly correct for heterogeneity, publication selection, and study quality bias within a single meta-analytic framework?"
+      "text": "Can a single meta-analytic model jointly correct heterogeneity, publication selection, and study-quality bias, rather than applying separate sequential corrections?"
     },
     {
       "role": "Dataset",
-      "text": "We built a mixture normal likelihood with a logistic selection function and quality bias-shift covariates, compared against eight comparators on simulated and empirical data."
+      "text": "We tested a unified mixture-normal selection likelihood against eight comparators on twelve simulated scenarios and a real six-trial aspirin secondary-prevention dataset."
     },
     {
       "role": "Method",
-      "text": "Estimation used multi-start L-BFGS-B, profile likelihood confidence intervals, and BCa bootstrap, with optional Bayesian inference via PyMC."
+      "text": "Estimation used multi-start L-BFGS-B optimisation with profile-likelihood confidence intervals and BCa bootstrap, optionally with Bayesian inference via PyMC."
     },
     {
       "role": "Primary result",
-      "text": "Across twelve simulation scenarios (50 replicates, k=30), the unified model attained the highest interval coverage (88.8%) at low RMSE (0.070), versus 59.7% for DerSimonian-Laird, 63.8% for REML-HKSJ, and 39.0% for trim-and-fill."
+      "text": "Across twelve scenarios (50 replicates, k=30) the unified model attained the highest coverage, 88.8% at RMSE 0.070, versus 59.7% (DerSimonian-Laird), 63.8% (REML-HKSJ), and 39.0% (trim-and-fill)."
     },
     {
       "role": "Robustness",
-      "text": "When both selection and quality bias were present, coverage held at 90.3% versus 31.3% for DerSimonian-Laird, while AIC, BIC, and leave-one-out diagnostics confirmed stability."
+      "text": "With selection and quality bias combined, coverage held at 90.3% versus 31.3% for DerSimonian-Laird; on the aspirin data the model gave a pooled log-odds-ratio of +0.01 (95% CI -0.12 to 0.12), versus -0.07 uncorrected."
     },
     {
       "role": "Interpretation",
-      "text": "Joint modeling of heterogeneity and selection bias yields substantially less biased pooled estimates than sequential application of separate correction methods."
+      "text": "Jointly modelling heterogeneity and selection bias yields less biased, better-calibrated pooled estimates than applying separate corrections sequentially."
     },
     {
       "role": "Boundary",
-      "text": "However, the model is limited by its parametric selection function, which may not capture all publication bias mechanisms in complex reviews."
+      "text": "The parametric logistic selection function may not capture every publication-bias mechanism, and the model is unsuited to small reviews (k below five)."
     }
   ],
   "notes": {
     "app": "UBCMA v0.3.0",
-    "data": "Simulated and empirical meta-analysis datasets",
+    "data": "12 simulated scenarios (k=30) + real 6-trial aspirin dataset (Verde 2021)",
     "code": "https://github.com/mahmood726-cyber/ubcma",
     "doi": "",
     "version": "0.3.0",
     "date": "2026-03-26",
-    "validation": "DRAFT"
+    "validation": "FINAL"
   },
   "affiliation": "Tahir Heart Institute",
   "email": "mahmood.ahmad2@nhs.net",
   "references": [
-    "Roever C. Bayesian random-effects meta-analysis using the bayesmeta R package. J Stat Softw. 2020;93(6):1-51.",
-    "Higgins JPT, Thompson SG, Spiegelhalter DJ. A re-evaluation of random-effects meta-analysis. J R Stat Soc Ser A. 2009;172(1):137-159.",
-    "Borenstein M, Hedges LV, Higgins JPT, Rothstein HR. Introduction to Meta-Analysis. 2nd ed. Wiley; 2021."
+    "DerSimonian R, Laird N. Meta-analysis in clinical trials. Control Clin Trials. 1986;7(3):177-188.",
+    "Verde PE. A bias-corrected meta-analysis model for combining studies of different types and quality. Biom J. 2021;63(2):406-422.",
+    "Copas JB, Shi JQ. A sensitivity analysis for publication bias in systematic reviews. Stat Methods Med Res. 2001;10(4):251-265.",
+    "Doi SAR, Thalib L. A quality-effects model for meta-analysis. Epidemiology. 2008;19(1):94-100.",
+    "Rover C, Knapp G, Friede T. Hartung-Knapp-Sidik-Jonkman approach and its modification for random-effects meta-analysis with few studies. BMC Med Res Methodol. 2015;15:99."
   ],
   "submitted": false
 }

@@ -1,6 +1,6 @@
 Mahmood Ahmad
 Tahir Heart Institute
-author@example.com
+mahmood.ahmad2@nhs.net
 
 Protocol: UBCMA: Unified Bias-Calibrated Meta-Analysis via Joint Heterogeneity-Selection Modeling
 
@@ -13,13 +13,13 @@ Primary estimand: Pooled-effect RMSE and CI coverage
 App: UBCMA v0.3.0
 Code: https://github.com/mahmood726-cyber/ubcma
 Date: 2026-03-26
-Validation: DRAFT
+Validation: FINAL
 
 References
 
-1. Roever C. Bayesian random-effects meta-analysis using the bayesmeta R package. J Stat Softw. 2020;93(6):1-51.
-2. Higgins JPT, Thompson SG, Spiegelhalter DJ. A re-evaluation of random-effects meta-analysis. J R Stat Soc Ser A. 2009;172(1):137-159.
-3. Borenstein M, Hedges LV, Higgins JPT, Rothstein HR. Introduction to Meta-Analysis. 2nd ed. Wiley; 2021.
+1. DerSimonian R, Laird N. Meta-analysis in clinical trials. Control Clin Trials. 1986;7(3):177-188.
+2. Verde PE. A bias-corrected meta-analysis model for combining studies of different types and quality. Biom J. 2021;63(2):406-422.
+3. Copas JB, Shi JQ. A sensitivity analysis for publication bias in systematic reviews. Stat Methods Med Res. 2001;10(4):251-265.
 
 AI Disclosure
 
