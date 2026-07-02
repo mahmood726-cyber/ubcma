@@ -13,9 +13,9 @@
 
 **Background:** Standard meta-analytic methods treat heterogeneity, publication selection bias, and study quality-dependent bias as separate problems. Sequential application of separate corrections can leave residual confounding when these biases co-occur, as they typically do in practice.
 
-**Methods:** We propose Unified Bias-Calibrated Meta-Analysis (UBCMA), a model that jointly estimates a pooled effect while simultaneously correcting for heterogeneity (via a two-component normal mixture), publication selection (via a logistic selection function), and quality-dependent bias (via risk-of-bias covariate shifts). Estimation uses multi-start L-BFGS-B optimization with Latin hypercube sampling. Confidence intervals are obtained from profile likelihood inversion, which does not require the Knapp-Hartung correction because it directly inverts the observed likelihood rather than relying on normal approximation. We compare UBCMA against eight existing methods (DerSimonian-Laird, REML, DL-HKSJ, REML-HKSJ, trim-and-fill, PET-PEESE, Copas selection model, and quality-effects model) in a factorial simulation study and two empirical illustrations.
+**Methods:** We propose Unified Bias-Calibrated Meta-Analysis (UBCMA), a model that jointly estimates a pooled effect while simultaneously correcting for heterogeneity (via a two-component normal mixture), publication selection (via a logistic selection function), and quality-dependent bias (via risk-of-bias covariate shifts). Estimation uses multi-start L-BFGS-B optimization with Latin hypercube sampling. Confidence intervals are obtained from profile likelihood inversion, which does not require the Knapp-Hartung correction because it directly inverts the observed likelihood rather than relying on normal approximation. We compare UBCMA against eight existing methods (DerSimonian-Laird, REML, DL-HKSJ, REML-HKSJ, trim-and-fill, PET-PEESE, Copas selection model, and quality-effects model) in a factorial simulation study and a real empirical illustration.
 
-**Results:** Across 12 simulation scenarios (3 selection strengths x 2 quality bias levels x 2 heterogeneity levels, 50 replicates each, k=30), UBCMA achieved the highest confidence interval coverage (88.8%) at a low root mean squared error (0.070), compared with coverage of 59.7% for DerSimonian-Laird, 63.8% for REML-HKSJ, and 39.0% for trim-and-fill. The advantage was most pronounced when both selection and quality bias were present: UBCMA maintained 90.3% coverage versus 31.3% for DerSimonian-Laird. In empirical illustrations using an aspirin cardiovascular prevention dataset (k=6) and a media violence dataset (k=10), UBCMA provided bias-calibrated estimates that were more conservative than uncorrected methods but more stable than trim-and-fill or PET-PEESE.
+**Results:** Across 12 simulation scenarios (3 selection strengths x 2 quality bias levels x 2 heterogeneity levels, 50 replicates each, k=30), UBCMA achieved the highest confidence interval coverage (88.8%) at a low root mean squared error (0.070), compared with coverage of 59.7% for DerSimonian-Laird, 63.8% for REML-HKSJ, and 39.0% for trim-and-fill. The advantage was most pronounced when both selection and quality bias were present: UBCMA maintained 90.3% coverage versus 31.3% for DerSimonian-Laird. In an empirical illustration using a real six-trial aspirin cardiovascular prevention dataset (k=6), UBCMA provided a near-null bias-calibrated estimate (pooled log-odds-ratio +0.01, 95% CI -0.12 to 0.12) that was more conservative than uncorrected pooling (-0.07) but more stable than trim-and-fill or PET-PEESE.
 
 **Conclusion:** Joint modeling of heterogeneity, publication selection, and quality-dependent bias yields substantially less biased and better-calibrated pooled estimates than sequential application of separate correction methods. UBCMA is available as an open-source Python package.
 
@@ -33,7 +33,7 @@ The critical limitation of these approaches is that they operate independently. 
 
 We propose Unified Bias-Calibrated Meta-Analysis (UBCMA), a single likelihood framework that jointly estimates the target effect while simultaneously modeling heterogeneity (as a two-component normal mixture), publication selection (as a logistic function of significance, precision, direction, and quality), and quality-dependent bias (as additive shifts indexed by risk-of-bias domain scores). The key identifying advantage is that study-level quality indicators — now routinely collected as part of Cochrane and GRADE assessments — break the symmetry that makes pure selection models difficult to fit. This means UBCMA can separate "this study is biased because of poor methodology" from "this study is missing because of selective publication," a distinction that no existing method can make within a single model.
 
-In this paper, we describe the model and its estimation, evaluate it against eight existing methods in a factorial simulation study, and illustrate its application to two empirical datasets with suspected publication and quality bias.
+In this paper, we describe the model and its estimation, evaluate it against eight existing methods in a factorial simulation study, and illustrate its application to a real empirical dataset with suspected publication and quality bias.
 
 ---
 
@@ -254,23 +254,7 @@ The selection function estimated a moderate negative direction preference (gamma
 | Quality-effects | -0.156 | [-0.200, -0.111] | Yes |
 | UBCMA (profile) | +0.011 | [-0.125, 0.117] | No |
 
-#### 3.2.2 Media Violence and Aggression
-
-We applied UBCMA to 10 studies examining the effect of media violence on aggression,^13 a domain with known concerns about publication bias. Quality scores ranged from 0.0 (no identified bias) to 0.5, with a mean of 0.21.
-
-Standard methods (DL, REML) estimated a pooled effect of 0.508 with zero estimated heterogeneity. Trim-and-fill adjusted this substantially downward to 0.318 by imputing missing studies, while PET-PEESE estimated a negative effect (-0.314) with a wide confidence interval spanning zero. UBCMA estimated 0.472 (95% profile CI: 0.310 to 0.629) with near-zero heterogeneity (tau_1 = 0.001, tau_2 = 0.004) and a selection function showing moderate significance preference (gamma_1 = 0.905). This represents a modest downward adjustment from the naive estimate, consistent with mild publication bias, but substantially more conservative than PET-PEESE's implausible sign reversal.
-
-**Table 5. Media violence dataset: method comparison (k = 10)**
-
-| Method | Pooled Estimate | 95% CI |
-|--------|----------------|--------|
-| DL | 0.508 | [0.367, 0.648] |
-| DL-HKSJ | 0.508 | [0.346, 0.670] |
-| REML-HKSJ | 0.508 | [0.346, 0.670] |
-| Trim-and-fill | 0.318 | [0.211, 0.425] |
-| PET-PEESE | -0.314 | [-1.077, 0.450] |
-| Quality-effects | 0.482 | [0.329, 0.636] |
-| UBCMA (profile) | 0.472 | [0.310, 0.629] |
+These empirical values reproduce exactly from the committed dataset via `ubcma fit examples/verde_2021_aspirin.csv --quality rob_selection,rob_measurement,rob_reporting --study-id study_id --n-restarts 20 --profile-ci`. The DerSimonian-Laird pooled estimate (-0.067, 95% CI -0.195 to 0.061) was independently cross-checked by hand in R and by an independent agent, both agreeing to four decimal places.
 
 ---
 
@@ -280,11 +264,11 @@ Standard methods (DL, REML) estimated a pooled effect of 0.508 with zero estimat
 
 UBCMA achieved the highest confidence interval coverage across all simulation scenarios at a competitively low RMSE, with the advantage being most pronounced when both publication selection and quality-dependent bias were present. In that combined condition — which arguably best reflects real-world evidence synthesis — DerSimonian-Laird coverage dropped below 35% while UBCMA maintained over 90%. The profile likelihood confidence intervals provided correct calibration without requiring the HKSJ correction.
 
-In two empirical datasets, UBCMA provided estimates that were more conservative than naive pooling but more stable than trim-and-fill or PET-PEESE. The aspirin example demonstrated UBCMA's ability to identify outlier studies via the mixture heterogeneity component and to estimate quality-dependent bias shifts, resulting in a near-null pooled effect. The media violence example showed a modest selection-adjusted reduction in the pooled effect with appropriate uncertainty.
+In the empirical dataset, UBCMA provided an estimate that was more conservative than naive pooling but more stable than trim-and-fill or PET-PEESE. The aspirin example demonstrated UBCMA's ability to identify outlier studies via the mixture heterogeneity component and to estimate quality-dependent bias shifts, resulting in a near-null pooled effect.
 
 ### 4.2 Relationship to Existing Methods
 
-UBCMA can be viewed as a synthesis of three modeling traditions. The two-component normal mixture for heterogeneity extends the standard normal random-effects model^1 in the direction of robust meta-analysis.^14 The logistic selection function is conceptually related to the Copas model^6 but uses observed study-level characteristics (significance, precision, direction, quality) rather than latent selection variables, which aids identifiability. The quality-shift parametrization is related to the quality-effects model^7 but operates additively on the mean rather than multiplicatively on the weights, enabling direct estimation of the bias magnitude.
+UBCMA can be viewed as a synthesis of three modeling traditions. The two-component normal mixture for heterogeneity extends the standard normal random-effects model^1 in the direction of robust meta-analysis.^13 The logistic selection function is conceptually related to the Copas model^6 but uses observed study-level characteristics (significance, precision, direction, quality) rather than latent selection variables, which aids identifiability. The quality-shift parametrization is related to the quality-effects model^7 but operates additively on the mean rather than multiplicatively on the weights, enabling direct estimation of the bias magnitude.
 
 The critical advantage of unification is identifiability. The Copas model is notoriously difficult to fit because the selection function and the random-effects distribution are confounded without external information.^8 In UBCMA, risk-of-bias indicators serve as auxiliary information that breaks this confounding: a study can be biased because of poor methodology (captured by lambda) or missing because of selective publication (captured by gamma), and the quality indicators distinguish these two mechanisms.
 
@@ -340,9 +324,7 @@ Unified Bias-Calibrated Meta-Analysis addresses a fundamental gap in evidence sy
 
 12. Verde PE. A bias-corrected meta-analysis model for combining studies of different types and quality. *Biometrical Journal*. 2021;63(2):406-422.
 
-13. Anderson CA, Bushman BJ. Effects of violent video games on aggressive behavior, aggressive cognition, aggressive affect, physiological arousal, and prosocial behavior: a meta-analytic review. *Psychological Science*. 2001;12(5):353-359.
-
-14. Bartos F, Maier M, Wagenmakers EJ, Doucouliagos H, Stanley TD. Robust Bayesian meta-analysis: model-averaging across complementary publication bias adjustment methods. *Research Synthesis Methods*. 2023;14(1):99-116.
+13. Bartos F, Maier M, Wagenmakers EJ, Doucouliagos H, Stanley TD. Robust Bayesian meta-analysis: model-averaging across complementary publication bias adjustment methods. *Research Synthesis Methods*. 2023;14(1):99-116.
 
 ---
 
@@ -354,4 +336,4 @@ This work represents a computational methods paper with AI assistance in code de
 
 ## Data Availability Statement
 
-All code, data, and simulation scripts are available at https://github.com/mahmood726-cyber/ubcma under an MIT licence. The aspirin dataset is from Verde (2021). The media violence dataset is adapted from Anderson and Bushman (2001). Simulation results can be reproduced using `ubcma study --tier pilot --seed 42`.
+All code, data, and simulation scripts are available at https://github.com/mahmood726-cyber/ubcma under an MIT licence. The aspirin dataset is the classic six-trial secondary-prevention set (CDP, AMIS, ISIS-2, UK-TIA, SALT, ESPS-2) referenced by Verde (2021), committed at `examples/verde_2021_aspirin.csv`. Simulation results can be reproduced using `ubcma study --tier pilot --seed 42`; the aspirin estimate using `ubcma fit examples/verde_2021_aspirin.csv --quality rob_selection,rob_measurement,rob_reporting --study-id study_id --n-restarts 20 --profile-ci`.
