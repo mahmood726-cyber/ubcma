@@ -170,9 +170,18 @@ partial-pool/shrinkage estimators are **directionally** better (one_stage dMCIW0
 [−0.0082,+0.0023], frac_better 0.70; adaptshrink −0.0030 [−0.0072,+0.0028]) — the hypothesised
 direction — but not significantly, and two-stage REML retains the best raw coverage (0.96–0.97). So
 the two-stage spline field is not robustly improved on by shrinkage/partial-pooling even when the truth
-is nonlinear and selection is strong. (Scope: one Emax DGP at an interior d*; a robust win might still
-emerge under heavier between-study heterogeneity or an extrapolated d* — a bounded future variant. The
-*directional* strong-selection signal is disclosed, not promoted.) `dr_emax_bakeoff_result.txt`.
+is nonlinear and selection is strong.
+
+**Scoped-region grid (`dr_emax_grid.py`) — the null holds, and shrinkage HARMS at extrapolation.**
+The one region where a win seemed plausible (heavier τ and/or an extrapolated target dose) was tested
+(strong selection, 200 reps/cell): tau=0.15,d*=2 no win (adaptshrink dMCIW0 +0.001); **tau=0.50,d*=8
+no win (adaptshrink HARMS +0.100 [+0.043,+0.138]); tau=0.50,d*=16 (extrapolated) no win (adaptshrink
+HARMS +0.158 [+0.072,+0.291])**. So beyond the interior null, at heavy heterogeneity and extrapolated
+doses shrinkage/partial-pooling is actively *worse* than two-stage REML (which extrapolates the spline
+more robustly). **Verdict: the dose-response predicted-effect shrinkage story is a robust HONEST NULL
+across all tested regimes — linear (3b), interior-nonlinear (3c), and heavy-τ/extrapolated (this grid).**
+The two-stage REML spline field is the right estimator throughout. `dr_emax_bakeoff_result.txt`,
+`dr_emax_grid_result.txt`.
 
 ## Cross-vendor confirmation (vendors unreachable -> 4-way internal)
 Per the vendor routing: pc1 Codex is 401 and agy returns empty; **pc2
