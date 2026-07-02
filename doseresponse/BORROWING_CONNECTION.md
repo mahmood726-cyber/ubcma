@@ -45,3 +45,24 @@ about the *point estimate under selection*; the borrowing link is about
 Reuse `borrowing/class_lambda.py` + `borrowing/real_glp1.py`; replace the binary
 class relevance with a dose-distance kernel; rerun the pilot-2 matched-coverage
 held-out test with the same truth-gate. Honest null or win region either way.
+
+## DONE (2026-07-02) -- head-to-head on the real GLP1 slice (`borrowing/stage4_doselink.py`)
+Executed as a head-to-head (pilot-2 already uses the dose-distance kernel): on the real GLP1 field
+(n=12, dose 1.1-14 mg, HbA1c; modifier real, slope -0.092 %/mg, R2=0.94) a leave-one-trial-out test
+(truth = real held-out effect) pits **the dose-response MODEL** (linear DRMA/MBNMA = RE meta-regression
+predicting a+b*dose at the held-out dose) against **the borrowing-field dose-distance kernel**
+(`borrowing_field2.covariate_prior`, identical code) and the no-dose null:
+
+| method | LOO MAE | cover | vs no-dose null |
+|---|---|---|---|
+| dose_metareg (linear DRMA/MBNMA) | **0.204** | 0.83 | -0.244 [-0.443,-0.027] **WIN** |
+| kernel relevance (central bw) | 0.269 | 1.00 | -0.180 [-0.306,-0.035] **WIN** |
+| uniform (no dose borrowing) | 0.449 | 1.00 | -- |
+
+**Verdict (honest):** BOTH real dose-borrowing methods robustly beat the no-dose null (Stage-4
+hypothesis -- dose-borrowing pays -- confirmed on real data). Head-to-head, the parametric model is
+**directionally more accurate** at every bandwidth (metareg-kernel -0.041/-0.064/-0.136 as the kernel
+over-smooths) but **not significant at n=12 -- a statistical TIE** (central-bw -0.064 [-0.155,+0.023]).
+The two threads are the *same dose-borrowing mechanism*: when the true dose-response is ~linear (GLP1)
+the correctly-specified parametric model is at-least-as-good, while the kernel buys robustness to
+functional-form misspecification at a small efficiency cost. Result JSON `borrowing/stage4_doselink_result.json`.
