@@ -1,0 +1,30 @@
+AACT slice by family:
+  LHR: 384 nodes / 34 MAs
+  LOR: 28 nodes / 3 MAs
+
+==========================================================================
+(A) AACT-ONLY self-contained field (learned vs within-MA)
+==========================================================================
+  [AACT-only ALL             ] learned MAE=0.2944  within MAE=0.3011  delta=-0.0067 [-0.0163,+0.0032] n=412  -> n.s. (tie)
+  [AACT-only LOR             ] learned MAE=0.5283  within MAE=0.4783  delta=+0.0500 [-0.0256,+0.1354] n=28  -> n.s. (tie)
+  [AACT-only LHR             ] learned MAE=0.2773  within MAE=0.2882  delta=-0.0109 [-0.0192,-0.0027] n=384  -> LEARNED WINS
+  coverage@90 raw=0.680 (w=0.716)  conformal=0.898 (w=1.223)
+
+==========================================================================
+(B) CORPUS + AACT expanded (headline survival + cold-AACT prediction)
+==========================================================================
+  base corpus: 1177 nodes / 28 MAs / families ['COR', 'LOR', 'SMD']
+  expanded: 1589 nodes / 65 MAs / families ['COR', 'LHR', 'LOR', 'SMD'] ; AACT rows=412
+  [expanded ALL (headline)   ] learned MAE=0.3216  within MAE=0.3417  delta=-0.0202 [-0.0292,-0.0110] n=1589  -> LEARNED WINS
+  [corpus-only rows          ] learned MAE=0.3315  within MAE=0.3558  delta=-0.0243 [-0.0361,-0.0126] n=1177  -> LEARNED WINS
+  [held-out AACT rows        ] learned MAE=0.2932  within MAE=0.3016  delta=-0.0084 [-0.0168,-0.0001] n=412  -> LEARNED WINS
+  [AACT LOR rows             ] learned MAE=0.5104  within MAE=0.4854  delta=+0.0250 [-0.0146,+0.0644] n=28  -> n.s. (tie)
+  [AACT LHR rows             ] learned MAE=0.2773  within MAE=0.2882  delta=-0.0109 [-0.0192,-0.0027] n=384  -> LEARNED WINS
+
+==========================================================================
+(3) Learned-kernel 90% coverage on AACT rows: RAW vs CONFORMAL
+==========================================================================
+  AACT rows (n=412):  raw cover=0.672 (width=0.703)  ->  conformal cover=0.903 (width=1.256)   [nominal 0.90]
+    LOR: raw=0.500 -> conformal=0.964 (n=28)
+    LHR: raw=0.685 -> conformal=0.898 (n=384)
+  whole-corpus conformal cover=0.899 (nominal 0.90)

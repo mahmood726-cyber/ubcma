@@ -453,6 +453,34 @@ siblings in training (A, n.s./underpowered) — so the method is for reconstruct
 populated field, and cold-MA use would need the target regime represented in calibration. Recipe +
 deferral rationale in `AACT_SLICE_NEXTSTEP.md`.
 
+### 8bis.7 Bounded real-AACT field + conformal — the "every record exerts influence" demonstration
+The AACT extractor was extended truth-first (`aact_expand.py`, `aact_run.py`; verified by an independent
+re-run — numbers below are exact) to **two log-effect families** at k≥6: log-odds (LOR) and a new
+**log-hazard-ratio (LHR)** family from sponsor-reported HRs + 2-sided 95% CIs (same self-verifying
+contract: pre-specified outcomes, one median effect/trial, CI round-trip, explicit specialty map). This
+yields a bounded real field of **37 meta-analyses / 412 trials** — LOR 3 MAs/28 nodes (structurally thin,
+as before) and **LHR 34 MAs/384 nodes** (oncology-rich: survival HRs of monoclonal antibodies, taxoids,
+kinase inhibitors, etc.). (A real slug-collision bug that had silently merged distinct condition×intervention
+MAs was found and fixed; distinct MAs now stay distinct.)
+
+| test (learned-kernel field, honest 10-fold, vs within-MA) | learned − within [95% CI] | verdict |
+|---|---|---|
+| **AACT-only LHR field (n=384)** | **−0.0109 [−0.0192, −0.0027]** | **learned WINS** on the real oncology-HR field |
+| AACT-only LOR field (n=28) | +0.050 [−0.026, +0.135] | tie (thin, underpowered) |
+| AACT-only ALL (n=412) | −0.0067 [−0.0163, +0.0032] | n.s. (LOR dilutes) |
+| corpus+AACT, **corpus-only rows (n=1177)** | **−0.0243 [−0.0361, −0.0126]** | metadat headline **SURVIVES** expansion |
+| corpus+AACT, held-out AACT rows (n=412) | −0.0084 [−0.0168, −0.0001] | marginal win (upper CI on boundary) |
+| **conformal coverage on AACT rows** | raw **0.672 → conformal 0.903** (nominal 0.90) | **conformal REPAIRS** the real-AACT coverage failure |
+
+**Verdict (bounded, honest):** on bounded real ClinicalTrials.gov data the learned-kernel "every-record-
+influence" field is a genuine win on the large oncology hazard-ratio family (−0.0109, n=384) and marginal
+on the pooled held-out AACT rows; the committed metadat headline is unchanged under expansion
+(corpus-only −0.0243); the 28-node LOR slice is an underpowered tie; and split-conformal calibration
+that includes AACT-regime residuals repairs the raw GP under-coverage (0.67) to nominal (0.90). Because
+the base corpus has no LHR family, the LHR win is identical AACT-only and in the expanded field — an
+internal consistency check (LHR gets no corpus donors). Not a 500k run — a defensible bounded
+demonstration on real registry data, verified by independent re-run.
+
 ## 9. Verdict
 
 **Is registry-scale borrowing a real improvement over within-MA borrowing? — With
