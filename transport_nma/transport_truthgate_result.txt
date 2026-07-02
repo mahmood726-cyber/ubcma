@@ -1,0 +1,56 @@
+============================================================================================
+REAL COVARIATE: WB WDI SH.STA.DIAB.ZS (Diabetes prevalence %, 2024); crosswalk-aligned
+============================================================================================
+  iso3name                   ihme_id   wb   diab%
+  FRA France                      80  FRA     6.5
+  ZAF South Africa               196  ZAF     7.2
+  GBR United Kingdom              95  GBR     7.4
+  AUS Australia                   71  AUS     7.4
+  CAN Canada                     101  CAN     7.7
+  DEU Germany                     81  DEU     7.8
+  JPN Japan                       67  JPN     8.1
+  KOR Republic of Korea           68  KOR     9.6
+  THA Thailand                    18  THA    10.2
+  IND India                      163  IND    10.5
+  BRA Brazil                     135  BRA    10.6
+  CHN China                        6  CHN    11.9
+  USA United States              102  USA    13.7
+  MEX Mexico                     130  MEX    16.4
+  EGY Egypt                      141  EGY    22.4
+  SAU Saudi Arabia               152  SAU    23.1
+  PAK Pakistan                   165  PAK    31.4
+
+  senn2013 network: 10 treatments, 26 studies, tau=0.330, I2=1%
+  assigned trial X spread: min=6.5 max=31.4 X_ref(mean)=10.92
+  targets: POOL X*=10.92 (inert control) | FAR X*=31.4 (Pakistan)
+  fitted base placebo-relative effects d_t0 (MD HbA1c):
+    rosiglitazone -1.233
+    pioglitazone  -1.129
+    metformin     -1.127
+    miglitol      -0.950
+    acarbose      -0.842
+    benfluorex    -0.731
+    vildagliptin  -0.700
+    sitagliptin   -0.570
+    sulfonylurea  -0.417
+
+============================================================================================
+TRUTH-GATE: transport-standardised vs unstandardised NMA at matched coverage (MCIW0)
+  d_t^target = d_hat_t + beta_hat*(X* - X_ref);  MCIW0=2*q95(|pred-true|); paired-boot 95% CI
+============================================================================================
+
+  --- target = POOL (X*=10.92) ---
+   beta  un MCIW0  tr MCIW0  d(tr-un)              95% CI    verdict  | oracle d           oracle CI       ver
+   0.00    0.4360    0.4360   +0.0000  [+0.0000,+0.0000]  inert/tie  |   +0.0000  [+0.0000,+0.0000] inert/tie
+   0.02    0.5025    0.5025   +0.0000  [+0.0000,+0.0000]  inert/tie  |   +0.0000  [+0.0000,+0.0000] inert/tie
+   0.05    0.7102    0.7102   +0.0000  [+0.0000,+0.0000]  inert/tie  |   +0.0000  [+0.0000,+0.0000] inert/tie
+   0.10    1.1291    1.1291   +0.0000  [+0.0000,+0.0000]  inert/tie  |   +0.0000  [+0.0000,+0.0000] inert/tie
+   0.20    2.0193    2.0193   +0.0000  [+0.0000,+0.0000]  inert/tie  |   +0.0000  [+0.0000,+0.0000] inert/tie
+
+  --- target = FAR  (X*=31.40) ---
+   beta  un MCIW0  tr MCIW0  d(tr-un)              95% CI    verdict  | oracle d           oracle CI       ver
+   0.00    0.4360    0.6918   +0.2558  [+0.2377,+0.2746]      HARMS  |   +0.0000  [+0.0000,+0.0000] inert/tie
+   0.02    1.2292    0.7155   -0.5136  [-0.5408,-0.4983]       WINS  |   -0.7267  [-0.7496,-0.7114]      WINS
+   0.05    2.6635    0.8812   -1.7823  [-1.8019,-1.7598]       WINS  |   -1.9533  [-1.9764,-1.9296]      WINS
+   0.10    5.0614    1.2354   -3.8260  [-3.8477,-3.7964]       WINS  |   -3.9323  [-3.9559,-3.8958]      WINS
+   0.20    9.8702    2.0389   -7.8313  [-7.8853,-7.7891]       WINS  |   -7.8509  [-7.9103,-7.7914]      WINS

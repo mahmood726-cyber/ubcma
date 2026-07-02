@@ -43,16 +43,32 @@ the gate working as intended.)
 funnel asymmetry (the NMA analogue of the univariate PET/AdaptShrink t-statistic), gated on evidence
 of asymmetry — turning this from an oracle demonstration into a deployable estimator.
 
-## Transportability layer (scoped, not asserted on real data)
-Standardising the network to a defined target population needs a per-trial population covariate to
-g-compute over. `dat.senn2013` (like the AACT T2DM slice in pilot-4) does **not** carry per-trial
-population covariates, and the registry structurally compresses the population gradient for clean
-placebo-anchored effects (the pilot-4 finding). The IHME (`C:\Projects\ihme-data-lakehouse`), WHO
-(`F:\Projects\who-data-lakehouse`, `crosswalk.py`), and World Bank (`F:\WorldBankData`) lakehouses +
-the iso3↔ihme↔wb crosswalk are staged and provide target-population covariates (e.g. diabetes
-prevalence by country); the transport layer will be validated on a calibrated known-truth sim
-(pilot-3 discipline: inert at β=0, corrects under a known gradient) once a network with real per-trial
-country/covariate metadata is assembled. Reported honestly as the next increment, not claimed here.
+## Transportability layer — BUILT + truth-gated (`transport_truthgate.py`; verified by writer re-run)
+Standardising the network to a target population uses a **real** country covariate: World Bank WDI
+**diabetes prevalence** (`SH.STA.DIAB.ZS`, 2024; `F:\WorldBankData\...\SH_STA_DIAB_ZS.csv`), aligned
+via the WHO `crosswalk.py` (iso2→iso3→ihme/wb), spanning 6.5 % (France) → 31.4 % (Pakistan). Each
+treatment's placebo-relative effect is modelled `d_t(X) = d_t0 + β·(X − X_ref)`; to a target with
+covariate X*, `d_t^target = d̂_t + β̂·(X* − X_ref)` (β̂ data-driven per rep by precision-weighted
+meta-regression; an oracle-β variant separates machinery from estimation noise). Because `dat.senn2013`
+has no real per-trial covariate (the pilot-4 wall), studies are assigned real countries across the
+gradient and the layer is validated on a **calibrated known-truth sim** — no real-data transport claim.
+
+Truth-gate (matched-coverage MCIW0, paired-bootstrap 95 % CI; writer re-run reproduces exactly):
+
+| condition | β | transport − unstandardised MCIW0 | verdict |
+|---|---|---|---|
+| **target = pool (X\*=X_ref)** | any | **+0.000 [0,0]** | **exactly inert** (the required boundary) |
+| target = far (Pakistan 31.4%) | 0.000 | +0.256 [+0.238,+0.275] (oracle +0.000 inert) | data-driven β̂ **HARMS** (noise × 20.5-pt lever) |
+| target = far | 0.008 | ≈ 0 | **threshold** |
+| target = far | 0.02 / 0.05 / 0.20 | −0.51 / −1.78 / −7.83 (oracle-confirmed) | **WINS** (unstd error blows up) |
+
+**Honest verdict.** The transport-standardisation machinery is correct: **exactly inert at target=pool
+for all β** and inert at β=0 under the oracle (no spurious win), and it recovers the target-population
+truth far better than the unstandardised NMA once a real population modifier exists and the target is
+far (β ≥ ~0.01). The honest failure mode: with a *data-driven* β̂ and **no** true modifier (β=0) at a
+far target, transport HARMS — the estimation noise is amplified by the large covariate lever — so, like
+the registry-pub-bias correction and pilot-3, the transport layer must be **GATED on evidence of a real
+modifier** (β̂ significantly ≠ 0). This is the same boundary-map discipline throughout the program.
 
 ## Files
 `tnma.py` (real NMA + registry-λ correction + truth-gate), `tnma_result.{txt,json}`. Reuses
