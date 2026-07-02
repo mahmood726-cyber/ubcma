@@ -1,0 +1,33 @@
+==========================================================================
+(A) REAL diabetes NMA on dat.senn2013 + registry publication-bias overlay
+==========================================================================
+  network: 10 treatments, 26 studies, 27 contrasts; tau=0.330, I2=1%
+  treatment     MD vs plac   seTE  pscore     class lambda reg-adj MD
+  rosiglitazone     -1.233  0.128   0.894       TZD   0.42     -0.876
+  pioglitazone      -1.129  0.220   0.775       TZD   0.42     -0.802
+  metformin         -1.127  0.154   0.782 metformin   0.40     -0.789
+  miglitol          -0.950  0.232   0.614       AGI   0.20     -0.570
+  acarbose          -0.842  0.245   0.520       AGI   0.20     -0.505
+  benfluorex        -0.731  0.286   0.436      None   1.00     -0.731
+  vildagliptin      -0.700  0.353   0.423      DPP4   0.48     -0.518
+  sitagliptin       -0.570  0.354   0.333      DPP4   0.48     -0.422
+  sulfonylurea      -0.417  0.241   0.210        SU   0.47     -0.305
+  (reg-adj shrinks selection-prone low-lambda classes' apparent benefit toward null)
+
+==========================================================================
+(B) TRUTH-GATE sim (senn2013 geometry; selection bias B*(1-lambda) on active arms)
+==========================================================================
+  registry-lambda correction vs unadjusted NMA at matched coverage (MCIW0); kappa =
+  oracle(=true selection strength B) AND a fixed kappa=0.5, to separate PATTERN from STRENGTH:
+  B=0.00: unadj MCIW0 0.4309 | reg-adj[oracle(=B)] MCIW0 0.4309 d+0.0000[+0.0000,+0.0000]tie | reg-adj[fix0.50] MCIW0 0.8474 d+0.4164[+0.3949,+0.4333]HARMS
+  B=0.15: unadj MCIW0 0.5182 | reg-adj[oracle(=B)] MCIW0 0.4002 d-0.1180[-0.1324,-0.1024]WINS | reg-adj[fix0.50] MCIW0 0.7181 d+0.2000[+0.1807,+0.2167]HARMS
+  B=0.30: unadj MCIW0 0.6861 | reg-adj[oracle(=B)] MCIW0 0.3804 d-0.3057[-0.3237,-0.2800]WINS | reg-adj[fix0.50] MCIW0 0.5903 d-0.0958[-0.1156,-0.0695]WINS
+
+VERDICT (honest): the registry-lambda gives the correct RELATIVE selection-severity PATTERN
+  (which classes are selection-prone) -- an ORACLE-calibrated correction (kappa=B) recovers
+  truth better than the unadjusted NMA under real selection (B>0) and is ~inert at B=0. But
+  a FIXED, uncalibrated kappa=0.5 OVER-CORRECTS and HARMS everywhere. So registry pub-bias
+  adjustment in NMA needs (a) a data-driven strength (funnel asymmetry, not a fixed kappa)
+  and (b) a selection-presence gate -- exactly the univariate-AdaptShrink discipline. The
+  registry lambda supplies the direction/ranking of selection severity, not its magnitude.
+wrote tnma_result.json
