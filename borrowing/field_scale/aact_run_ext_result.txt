@@ -1,0 +1,34 @@
+AACT slice by family:
+  LOR: 28 nodes / 3 MAs
+  LHR: 430 nodes / 38 MAs
+  LRR: 0 nodes / 0 MAs
+
+==========================================================================
+(A) AACT-ONLY self-contained field (learned vs within-MA)
+==========================================================================
+  [AACT-only ALL             ] learned MAE=0.2850  within MAE=0.2912  delta=-0.0062 [-0.0148,+0.0028] n=458  -> n.s. (tie)
+  [AACT-only LOR             ] learned MAE=0.5283  within MAE=0.4783  delta=+0.0500 [-0.0256,+0.1354] n=28  -> n.s. (tie)
+  [AACT-only LHR             ] learned MAE=0.2691  within MAE=0.2790  delta=-0.0099 [-0.0177,-0.0025] n=430  -> LEARNED WINS
+  [AACT-only LRR             ] n=0  -> (empty/NULL family, skipped)
+  coverage@90 raw=0.690 (w=0.709)  conformal=0.900 (w=1.213)
+
+==========================================================================
+(B) CORPUS + AACT expanded (headline survival + cold-AACT prediction)
+==========================================================================
+  base corpus: 1177 nodes / 28 MAs / families ['COR', 'LOR', 'SMD']
+  expanded: 1635 nodes / 69 MAs / families ['COR', 'LHR', 'LOR', 'SMD'] ; AACT rows=458
+  [expanded ALL (headline)   ] learned MAE=0.3182  within MAE=0.3378  delta=-0.0196 [-0.0282,-0.0110] n=1635  -> LEARNED WINS
+  [corpus-only rows          ] learned MAE=0.3315  within MAE=0.3558  delta=-0.0243 [-0.0361,-0.0126] n=1177  -> LEARNED WINS
+  [held-out AACT rows        ] learned MAE=0.2839  within MAE=0.2916  delta=-0.0077 [-0.0152,-0.0000] n=458  -> LEARNED WINS
+  [AACT LOR rows             ] learned MAE=0.5104  within MAE=0.4854  delta=+0.0250 [-0.0146,+0.0644] n=28  -> n.s. (tie)
+  [AACT LHR rows             ] learned MAE=0.2691  within MAE=0.2790  delta=-0.0099 [-0.0177,-0.0025] n=430  -> LEARNED WINS
+  [AACT LRR rows             ] n=0  -> (empty/NULL family, skipped)
+
+==========================================================================
+(3) Learned-kernel 90% coverage on AACT rows: RAW vs CONFORMAL
+==========================================================================
+  AACT rows (n=458):  raw cover=0.683 (width=0.697)  ->  conformal cover=0.904 (width=1.243)   [nominal 0.90]
+    LOR: raw=0.500 -> conformal=0.964 (n=28)
+    LHR: raw=0.695 -> conformal=0.900 (n=430)
+    LRR: (empty family, no AACT rows)
+  whole-corpus conformal cover=0.899 (nominal 0.90)

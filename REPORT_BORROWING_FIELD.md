@@ -481,6 +481,21 @@ the base corpus has no LHR family, the LHR win is identical AACT-only and in the
 internal consistency check (LHR gets no corpus donors). Not a 500k run — a defensible bounded
 demonstration on real registry data, verified by independent re-run.
 
+**Extension to 3 families / a larger slice (`aact_expand_ext.py`, `aact_run_ext.py`; independently
+re-verified — numbers exact).** Added a Risk-Ratio family and folded same-estimand hazard-ratio
+synonyms (`Cox Proportional Hazard`, adjusted/stratified HR, …; all ratio-scale, log-scale variants
+rejected by the CI round-trip) to enlarge the held-out slice truth-first:
+- **LRR (Risk Ratio): a genuine structural NULL** — under the strict (MeSH condition × intervention)
+  k≥6 bar the largest RR group is only k=5 (thrombosis × LMWH), so 0 MAs qualify. The bar was NOT
+  loosened to manufacture N (condition-only grouping would admit ~4 but is a bar change we refused).
+- **LHR grows 34→38 MAs / 384→430 nodes** and the win **reproduces on the larger slice**:
+  learned − within **−0.0099 [−0.0177, −0.0025]** (was −0.0109), corpus-only headline **byte-identical
+  −0.0243 [−0.0361, −0.0126]** (no regression), held-out AACT −0.0077 [−0.0152, −0.0000], conformal
+  repairs 0.683→0.904. **Honest caveat:** the enlarged LHR family folds adjusted/stratified/Cox hazard
+  ratios together — same ratio scale, but a mild mixed-adjustment-estimand set within some MAs; the win
+  is unchanged by the folding (−0.0099 vs −0.0109), so it is robust to this choice, but the family is
+  best read as "the trial's reported hazard ratio" rather than a single homogeneous estimand.
+
 ## 9. Verdict
 
 **Is registry-scale borrowing a real improvement over within-MA borrowing? — With
