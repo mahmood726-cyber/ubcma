@@ -399,12 +399,32 @@ with per-fold hyper-parameter refit, 3 fold-seeds) and an independent within-MA 
 | per-family learned MAE (COR/LOR/SMD) | 0.218 / 0.533 / 0.261 | 0.218 / 0.532 / 0.250 | match |
 
 Codex's verdict verbatim: *"CONFIRMS: the learned kernel beats within-MA borrowing because
-delta is negative and the 95% CI excludes 0."* The external point estimate is slightly more
-conservative (−0.019 vs −0.023) but robustly negative with CI<0 — so the headline now stands
-on **three internal engines (primary grouped-ARD, sklearn one-hot ARD, brute-force LOO test) +
-one genuine external vendor (Codex gpt-5.5)**. Seat B (pc2) is authenticated but network-
-degraded this session (socket-buffer exhaustion, os error 10055) → not a two-vendor quorum yet.
-779-corpus results were previously reproduced by Codex Seat A from scratch (§7).
+delta is negative and the 95% CI excludes 0."*
+
+**Second external vendor — Fable 5, from scratch (2026-07-02).** A Fable-model sub-agent, given the
+same two files and the no-shared-code rule, wrote its OWN zero-import numpy/scipy grouped-ARD GP
+(`xverify_fable/fable_verify_learned.py`: `cho_factor`/`cho_solve` log-marginal-likelihood,
+L-BFGS-B hyper-parameter fit, 10-fold CV × 5 seeds, own within-MA pooler) and independently reported
+(`xverify_fable/fable_learned_result.json`): learned-kernel MAE 0.3361, within-MA 0.3575,
+**learned − within = −0.0214 [−0.0332, −0.0096]** — negative, CI excludes 0. per-family COR/LOR/SMD
+0.219 / 0.534 / 0.260.
+
+**Two-vendor quorum reached.** All four independent engines agree the learned kernel beats within-MA
+borrowing, every CI excluding 0:
+
+| engine | learned MAE | within-MA | learned − within [95% CI] |
+|---|--:|--:|--|
+| primary build (grouped-ARD) | 0.3325 | 0.3555 | −0.0230 [−0.0340, −0.0117] |
+| internal sklearn (one-hot ARD) | 0.3314 | 0.3555 | −0.0241 [−0.0366, −0.0116] |
+| **Codex gpt-5.5 (external, scratch)** | 0.3363 | 0.3555 | −0.0192 [−0.0306, −0.0077] |
+| **Fable 5 (external, scratch)** | 0.3361 | 0.3575 | −0.0214 [−0.0332, −0.0096] |
+
+**Verdict: CONFIRMED by a two-vendor quorum** (Codex gpt-5.5 + Fable 5), each a from-scratch
+zero-import re-implementation, alongside three internal engines — not a split, not inconclusive. The
+external estimates are marginally more conservative (−0.019 to −0.021 vs −0.023) but all robustly
+negative with CI<0. Seat B (pc2) is authenticated but was network-degraded this session (socket-buffer
+exhaustion, os error 10055) and was not needed. 779-corpus results were previously reproduced by Codex
+Seat A from scratch (§7).
 
 ### 8bis.6 Real-AACT corpus-expansion robustness + a scope boundary
 

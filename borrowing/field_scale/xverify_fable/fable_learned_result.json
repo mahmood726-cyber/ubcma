@@ -1,0 +1,18 @@
+{
+  "engine": "fable5_from_scratch_numpy_gp_groupedARD",
+  "nodes": 1177,
+  "MAs": 28,
+  "learned_kernel_MAE": 0.3361362019218657,
+  "within_MA_MAE": 0.3575072349445965,
+  "per_family_learned_MAE": {
+    "SMD": 0.2596,
+    "COR": 0.2193,
+    "LOR": 0.534
+  },
+  "learned_minus_within": {
+    "delta": -0.02137103302273082,
+    "lo": -0.03321154947447102,
+    "hi": -0.009647269175398347,
+    "n": 1177
+  }
+}
