@@ -374,3 +374,13 @@ all 18 cells + bit-exact overlap, no project import) ·
 `cross_vendor_rederive_table.json` +
 `cross_vendor_boundary_table.json` (3-vendor agreement) ·
 `reference_fits.json` + `validate_*` + `verify_*` (validation & cross-checks).
+
+## Phase-B reconfirmation (2026-07-02, methods-borrowing overnight session)
+Independent re-run this session (separate writer, worktree `F:/ubcma-dta`):
+- **Engine parity re-passes:** `validate_python.py` — bivariate Σ-shrinkage DTA vs `mada::reitsma`
+  across 5 real datasets (AuditC k=14, smoking k=51, Dementia k=33, skin_tests k=10, SAQ k=31):
+  worst abs disagreement **9.02e-07** (PASS < 0.001); m1/m2/sens/spec match to ≥6 dp.
+- **Boundary-map headline intact:** the committed `dta_boundary_truthgate.json` retains its
+  paired-bootstrap robust matched-coverage wins vs Henmi–Copas (CI<0), e.g. −0.28 [−0.42,−0.13]
+  in the strong-selection small-k cells — 8 robust-win cells, already 3-vendor + from-scratch verified.
+DTA thread remains FINALIZED; no numbers changed.
