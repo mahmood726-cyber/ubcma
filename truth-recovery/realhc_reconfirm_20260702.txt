@@ -1,0 +1,68 @@
+
+# REAL Henmi-Copas matched-coverage bake-off (mu=0.2, tau=0.1, k=40, strong, reps=120, target=0.95)
+
+-- smooth --  (real HC mciw0 = 0.3103)
+method               bias  raw_cov    raw_w    MCIW0  mc0_cov
+adaptshrink_ens    0.0296    0.975   0.3599   0.2466    0.950  <-- < real HC
+trim_and_fill     -0.0295    0.525   0.0670   0.2566    0.967  <-- < real HC
+ubcma              0.0481    0.703   0.2056   0.2802    0.900  <-- < real HC
+henmi_copas        0.1073    0.333   0.1623   0.3103    0.900  [REAL HC]
+adaptshrink_solo   0.0732    0.692   0.3717   0.3111    0.950
+copas              0.1177    0.100   0.1312   0.3120    0.850
+reml_hksj          0.1185    0.150   0.1489   0.3132    0.850
+pet_peese          0.0698    0.342   0.1306   0.3521    0.967
+
+-- step --  (real HC mciw0 = 0.3443)
+method               bias  raw_cov    raw_w    MCIW0  mc0_cov
+trim_and_fill      0.0065    0.667   0.0654   0.1571    0.983  <-- < real HC
+adaptshrink_ens    0.0495    0.983   0.2825   0.2060    0.900  <-- < real HC
+ubcma              0.0648    0.630   0.1830   0.2875    0.932  <-- < real HC
+pet_peese          0.0758    0.292   0.1240   0.3072    0.950  <-- < real HC
+henmi_copas        0.1268    0.050   0.1406   0.3443    0.967  [REAL HC]
+adaptshrink_solo   0.0582    0.833   0.3935   0.3567    0.967
+copas              0.1404    0.000   0.1173   0.3776    0.950
+reml_hksj          0.1416    0.000   0.1307   0.3792    0.950
+
+-- copas --  (real HC mciw0 = 0.2567)
+method               bias  raw_cov    raw_w    MCIW0  mc0_cov
+ubcma              0.0185    0.846   0.1796   0.1908    0.881  <-- < real HC
+adaptshrink_ens    0.0105    0.967   0.3734   0.2168    0.883  <-- < real HC
+henmi_copas        0.0856    0.258   0.1284   0.2567    0.883  [REAL HC]
+reml_hksj          0.0959    0.083   0.1162   0.2600    0.883
+copas              0.0955    0.058   0.1093   0.2603    0.900
+adaptshrink_solo   0.0576    0.733   0.3199   0.2756    0.950
+pet_peese          0.0557    0.408   0.1053   0.2940    0.933
+trim_and_fill     -0.0654    0.217   0.0566   0.2971    0.967
+
+# TRUTH-GATE vs REAL Henmi-Copas
+  VERIFIED mciw0 wins vs REAL HC:
+    [smooth] adaptshrink_ens: mciw0=0.2466 vs HC=0.3103 (ratio 0.795), test_cov=0.950
+    [smooth] trim_and_fill: mciw0=0.2566 vs HC=0.3103 (ratio 0.827), test_cov=0.967
+    [smooth] ubcma: mciw0=0.2802 vs HC=0.3103 (ratio 0.903), test_cov=0.900
+    [step] adaptshrink_ens: mciw0=0.2060 vs HC=0.3443 (ratio 0.598), test_cov=0.900
+    [step] pet_peese: mciw0=0.3072 vs HC=0.3443 (ratio 0.892), test_cov=0.950
+    [step] trim_and_fill: mciw0=0.1571 vs HC=0.3443 (ratio 0.456), test_cov=0.983
+    [step] ubcma: mciw0=0.2875 vs HC=0.3443 (ratio 0.835), test_cov=0.932
+
+  Paired-bootstrap mciw0 advantage vs REAL HC (robust = 97.5% CI<0):
+    [copas ] adaptshrink_ens  d=-0.0422 CI[-0.0752,+0.0036] P(better)=0.963
+    [copas ] adaptshrink_solo d=+0.0156 CI[-0.0089,+0.1441] P(better)=0.164
+    [copas ] copas            d=-0.0029 CI[-0.0160,+0.0127] P(better)=0.565
+    [copas ] pet_peese        d=+0.0393 CI[-0.0143,+0.1465] P(better)=0.068
+    [copas ] reml_hksj        d=-0.0020 CI[-0.0153,+0.0136] P(better)=0.546
+    [copas ] trim_and_fill    d=+0.0167 CI[-0.0266,+0.0645] P(better)=0.228
+    [copas ] ubcma            d=-0.0429 CI[-0.0853,-0.0177] P(better)=0.997  ROBUST WIN
+    [smooth] adaptshrink_ens  d=-0.0662 CI[-0.1528,-0.0449] P(better)=1.000  ROBUST WIN
+    [smooth] adaptshrink_solo d=-0.0022 CI[-0.0337,+0.0095] P(better)=0.775
+    [smooth] copas            d=+0.0323 CI[-0.0339,+0.0564] P(better)=0.111
+    [smooth] pet_peese        d=+0.0315 CI[-0.0167,+0.0477] P(better)=0.144
+    [smooth] reml_hksj        d=+0.0352 CI[-0.0325,+0.0568] P(better)=0.101
+    [smooth] trim_and_fill    d=-0.0591 CI[-0.1533,+0.0026] P(better)=0.974
+    [smooth] ubcma            d=-0.0081 CI[-0.1020,+0.0187] P(better)=0.856
+    [step  ] adaptshrink_ens  d=-0.1271 CI[-0.1683,-0.1112] P(better)=1.000  ROBUST WIN
+    [step  ] adaptshrink_solo d=+0.0048 CI[-0.0326,+0.0326] P(better)=0.435
+    [step  ] copas            d=+0.0339 CI[-0.0055,+0.0501] P(better)=0.056
+    [step  ] pet_peese        d=-0.0368 CI[-0.0774,+0.0144] P(better)=0.864
+    [step  ] reml_hksj        d=+0.0355 CI[-0.0085,+0.0494] P(better)=0.045
+    [step  ] trim_and_fill    d=-0.1986 CI[-0.2475,-0.1652] P(better)=1.000  ROBUST WIN
+    [step  ] ubcma            d=-0.0443 CI[-0.1116,-0.0095] P(better)=0.996  ROBUST WIN

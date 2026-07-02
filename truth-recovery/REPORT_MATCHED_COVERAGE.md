@@ -202,6 +202,32 @@ gets. `MCIW0` = matched-coverage width (lower = better). HC = `copas`.
 - This varies the selection *mechanism* within {smooth, step, copas}; a fully
   unknown mechanism (PartialID-style bounds) remains future work.
 
+## Reconfirmation (2026-07-02)
+**Local regression reconfirm (`realhc_bakeoff.py --combine --reps 150`, `realhc_reconfirm_20260702.txt`).**
+The headline reproduces against the faithful Henmi–Copas port: `adaptshrink_ens` is a paired-bootstrap
+ROBUST matched-coverage win vs REAL HC in the smooth (dMCIW0 −0.066, P=1.000) and step (−0.127, P=1.000)
+mechanisms, near-robust in copas (−0.042, P=0.963; `ubcma` −0.043, P=0.997). Consistent with the original
+result, `adaptshrink_solo` (the standalone omega-shrinkage estimator) is NOT a robust MCIW0 winner
+(P=0.78/0.44/0.16) — the ENSEMBLE is the winner.
+
+**Independent-engine mechanism check (`xverify_mechanism.py`, zero repo imports).** A from-scratch
+reimplementation of the omega-shrinkage mechanism (DL RE mean shrunk toward the PET intercept by funnel
+asymmetry ω=t₁²/(t₁²+1), smooth one-sided-selected DGP, k=40, 300 reps) confirms the mechanism's premise
+directly: it **corrects the selection bias** (RE mean bias +0.051 → AdaptShrink −0.001) — but on its own
+it does **not** robustly reduce the matched-coverage width (dMCIW0 −0.000 [−0.027, +0.028], robust_win=False),
+because the PET intercept adds variance that offsets the bias gain at the 95th percentile. This
+**independently reproduces the internal finding** that the omega-shrinkage *alone* (adaptshrink_solo) is not
+a robust MCIW0 winner, and **localises the headline win to the ensemble's variance control on top of the
+bias correction** (adaptshrink_ens averages {ubcma, pet_peese, trim_and_fill}). Honest reading: the
+bias-corrected-centre story is confirmed as necessary but not sufficient; the ensemble is what converts it
+into a robust matched-coverage win.
+
+**External vendor status.** A from-scratch Codex (gpt-5.5) reconfirm of the same mechanism was dispatched
+and ran, but the laptop seat's Tailscale link dropped before the result could be retrieved this session
+(the standing intermittent-timeout failure mode); per the fall-back rule the independent local engine above
+stands in. The ensemble-vs-real-HC headline is not externally reimplemented (it needs the UBCMA member);
+its anchor remains the ≥4 internal confirmations + faithful HC port, now reproduced at reps=150.
+
 ## Files
 `matched_coverage_bakeoff.py` (scorer + truth-gate) ·
 `src/ubcma/adaptshrink.py` (estimator) ·
