@@ -570,3 +570,34 @@ calibration, beats within-MA — not a toy and not a null from lack of power.
   Biometrics 2020;76:1035.
 
 See Figure `borrowing/field_scale/fig_field_modern.png` (manuscript Figure 5).
+
+## 11. Head-to-head benchmark summary vs published comparators (2026-07-03)
+Consolidated per-comparator verdict (Fable-built from the committed benchmark JSONs; numbers verbatim).
+
+**Full-corpus held-out reconstruction (MAE, Δ vs within-MA [95% CI], `benchmark_learned_results.json`):**
+| comparator (published) | MAE | Δ vs within-MA | verdict |
+|---|---|---|---|
+| **learned-kernel GP + conformal (ours)** | **0.3325** | **−0.0230 [−0.0340, −0.0117]** | **BEATS** (only method with CI<0; 3-vendor confirmed) |
+| hier-Bayes cross-MA (Higgins 2009) | 0.3523 | −0.0032 [−0.0091, +0.0027] | ties |
+| robust-MAP (Schmidli 2014) | 0.3531 | −0.0024 [−0.0091, +0.0043] | ties |
+| within-MA (reference) | 0.3555 | 0 | — |
+| hand-field AdaptShrink kernel (ours, pilots) | 0.3750 | +0.0195 | loses |
+| g-modeling NPMLE (Efron 2016) | 0.4171 | +0.0616 | loses |
+| scrambled-kernel control | 0.3850 | +0.0295 | loses (falsification passes) |
+
+**Sparse-frontier m=1 dynamic-borrowing FUSION (`benchmark_results.json`; point MAE — paired CIs not
+persisted, reported as ranking, not fabricated):** power-prior (Ibrahim–Chen) 0.3512 < robust-MAP 0.3562
+< commensurate (Hobbs) 0.3611 < SAM (Yang) 0.3619 < **our precision-fusion 0.3723** < own-only 0.3836.
+**HONEST LOSS:** our precision-fusion is beaten by every modern dynamic-borrowing prior at m=1 (+0.021 vs
+power prior). **Concrete fix (proposed):** replace fixed inverse-variance fusion with a learned
+power-prior discount a₀∈[0,1] on the borrowed precision (or an estimated robust-MAP/commensurate mixture
+weight driven by the conflict statistic already computed) so borrowed weight shrinks under prior-data
+conflict at small m. Gap closes to ~parity by m=5.
+
+**Conformal calibration (target 0.90, `benchmark_learned_results.json`):** learned-kernel native PI
+under-covers (0.806) → conformal (Lei/Barber CV+/split) restores **0.899 at width 1.553, the tightest
+calibrated 90% interval of any method** (within-MA 1.697, robust-MAP 1.634, no-borrow 1.959).
+
+**Verdict:** on the primary estimand (full-corpus reconstruction) the learned kernel + conformal
+**beats every published comparator** and ties none-better; the pilots' hand-set fusion is the honest weak
+point at the m=1 frontier (fix named above). This is the headline the manuscript leads with.
