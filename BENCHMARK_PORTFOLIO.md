@@ -91,11 +91,24 @@ by a matched-coverage / held-out truth-gate and (for the headlines) cross-vendor
   vs the gold standards.
 - **Region-bounded wins (honest boundary):** AdaptShrink-NMA (dense small-network × strong selection) and
   AdaptShrink-DTA (small-k × strong selection).
-- **Honest non-dominances, each with a named fix:** (a) sparse-frontier m=1 fusion loses to the power
-  prior → learn a power-prior discount into the fusion; (b) trim-and-fill has narrower matched-*width* than
-  AdaptShrink in smooth/step (but broken deployable coverage) → add a Vevea–Hedges ensemble member;
-  (c) fixed-κ registry pub-bias correction harms at B=0 → network-pooled data-driven κ̂ with a gate;
-  (d) dose-response predicted-effect shrinkage is a genuine null → two-stage REML stays the estimator.
+- **Honest non-dominances — outcomes after implementing the named fixes (2026-07-03):**
+  - (a) *sparse-frontier m=1 fusion lost to the power prior* → **FIXED / deficit closed** (`2928636`): our
+    DEPLOYED fusion `conflict_aware_fuse` is byte-identical to the power prior and **ties it exactly** on
+    the corpus m=1 (the loss was the pilots benchmarking the *naive* `precision_fuse`). A strict m=1 win
+    comes from a better *prior* (the learned kernel — already the full-corpus headline), not the fusion rule.
+  - (b) *trim-and-fill narrower matched-width than AdaptShrink in smooth/step* → **CLARIFIED as illusory**
+    (`f3fec75`): trim-fill's narrow width sits at over-coverage (test_cov 0.99) with broken deployable
+    coverage (raw_cov 0.19–0.66); on the metric that matters (robust matched-coverage vs HC **with**
+    deployable calibration, raw_cov 0.96–0.98) AdaptShrink already dominates. The tried Vevea–Hedges member
+    is an **honest negative** — too high-variance at k=40, it hurt the ensemble, so it is not adopted.
+  - (c) *fixed-κ registry pub-bias correction harms at B=0* → the data-driven internal κ̂ is an **honest
+    negative** (`52233ac`): it also harms (γ too noisy on the sparse network). The real fix is an **external**
+    magnitude — estimate κ from the AACT registered-vs-published effect gap per class, not the in-network
+    funnel. (The oracle-direction win + inert-at-B=0 boundary stand.)
+  - (d) *dose-response predicted-effect shrinkage is a genuine null* (linear + Emax, incl. heavy-τ/
+    extrapolated) → two-stage REML stays the estimator (no fix warranted).
 
-These are the demonstrable head-to-head results the manuscripts lead with; the non-dominances are stated,
-not hidden, and each carries a concrete, implementable improvement.
+These are the demonstrable head-to-head results the manuscripts lead with. Fix outcomes reported
+truth-first: **(a) closed; (b) the gap was a coverage artefact — AdaptShrink already dominates deployably,
+V-H not adopted; (c) internal fix fails, external-magnitude fix named; (d) genuine null.** No win was
+manufactured where the numbers did not support it.
