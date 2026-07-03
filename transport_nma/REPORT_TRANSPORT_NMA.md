@@ -106,3 +106,20 @@ ungated fixed κ still harms at B=0 (though it still beats PET everywhere). **Co
 next increment):** estimate a single network-pooled κ̂ by regressing the whole network's residual
 small-study effects on (1−λ_t)·SE — λ fixes the per-class direction, the network pools strength for a
 stable data-driven magnitude, and it collapses to ≈0 under funnel symmetry (the selection-presence gate).
+
+## FIX3 attempt — data-driven κ̂ to replace the oracle: HONEST NEGATIVE (2026-07-03)
+The head-to-head above used an ORACLE magnitude (κ=B). To make the correction deployable we built a
+data-driven, GATED estimator (`fix3_pooled_kappa.py`): a network-pooled small-study regression
+`y_i = d_{t(i)} + γ·(1−λ_{t(i)})·se_i` over all direct placebo-relative studies (one shared slope γ,
+pooling strength across the network instead of PET's noisy per-treatment funnel), applied only when γ
+is significant (|t_γ|≥2), correcting each treatment's network estimate by the estimated bias.
+
+**Verdict: HONEST NEGATIVE — the internal data-driven κ̂ does NOT recover the oracle win; it HARMS**
+(ΔMCIW0 +0.03 to +0.10 vs unadjusted, both funnel-visible and funnel-invisible regimes, and in both the
+replace-intercept and subtract-bias formulations). The γ-gate fires only 6–30% of reps and when it does,
+γ̂ is too imprecise on this sparse network (~4–6 direct studies/treatment, ~9 treatments) to correct
+usefully. So the registry λ genuinely supplies the *direction/ranking* of selection severity (the oracle
+correction wins), but the *magnitude* cannot be recovered from the sparse network's own funnel — the
+honest limit. **The real fix is an EXTERNAL magnitude**: estimate the per-class effect-inflation κ
+directly from AACT (the registered-vs-published effect-distribution gap per drug class), not from the
+in-network funnel. That is the concrete next increment; the internal-funnel route is closed (negative).

@@ -1,0 +1,19 @@
+FIX3: DATA-DRIVEN network-pooled registry-κ̂ (gated) vs oracle vs per-treatment PET
+  senn2013 sim; MCIW0 recovering true basic contrasts; paired-boot ΔMCIW0 vs unadjusted
+
+--- Regime A funnel-INVISIBLE (SE-orthogonal registry non-reporting) ---
+  B=0.00 (unadj 0.4377, γ-gate fires 6% of reps): pooled-κ̂ +0.0692[0.05043531662709771, 0.09510054479818461]HARMS | oracle +0.0000tie | PET +0.6648HARMS
+  B=0.15 (unadj 0.5215, γ-gate fires 6% of reps): pooled-κ̂ +0.0463[0.02582003132163124, 0.06356415132245706]HARMS | oracle -0.1144WINS | PET +0.6583HARMS
+  B=0.30 (unadj 0.6886, γ-gate fires 6% of reps): pooled-κ̂ +0.0370[0.020467697197738468, 0.06063218474322127]HARMS | oracle -0.3088WINS | PET +0.5736HARMS
+--- Regime B funnel-VISIBLE (small-study effect) ---
+  B=0.00 (unadj 0.4377, γ-gate fires 6% of reps): pooled-κ̂ +0.0692[0.05043531662709771, 0.09510054479818461]HARMS | oracle +0.0000tie | PET +0.6648HARMS
+  B=0.15 (unadj 0.5076, γ-gate fires 12% of reps): pooled-κ̂ +0.0751[0.053185053600941654, 0.10027473037252367]HARMS | oracle -0.0951WINS | PET +0.5894HARMS
+  B=0.30 (unadj 0.6322, γ-gate fires 30% of reps): pooled-κ̂ +0.1015[0.0634106797213679, 0.15928313558549045]HARMS | oracle -0.2190WINS | PET +0.4754HARMS
+
+VERDICT (HONEST NEGATIVE): the data-driven internal pooled-κ̂ does NOT recover the oracle's
+win -- it HARMS in both regimes (+0.03..+0.10). The γ-gate fires only 6-30% of reps and when
+it does, γ̂ is too noisy on this sparse network (~4-6 direct studies/treatment, ~9 treatments)
+to correct usefully; both the replace-intercept and subtract-bias forms harm. So registry-λ
+supplies the DIRECTION (oracle wins) but the MAGNITUDE cannot be recovered internally from a
+sparse network's funnel. THE REAL FIX = EXTERNAL magnitude: estimate the effect-inflation κ
+directly from AACT (registered-vs-published effect-distribution gap per class), not the funnel.
