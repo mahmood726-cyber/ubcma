@@ -235,29 +235,28 @@ its anchor remains the ≥4 internal confirmations + faithful HC port, now repro
 `reproduce_matched_coverage.sh` ·
 `mc_strong_*` / `mc_moderate_*` (per-rep CSV, summary table, truth-gate JSON).
 
-## Head-to-head vs published comparators (2026-07-03)
-Definitive per-comparator matched-coverage verdict for **adaptshrink_ens** (our method), from the
-committed strong-selection bake-off (`realhc_reconfirm_20260702.txt`, μ=0.2, τ=0.1, k=40). MCIW0 =
-matched-coverage width (lower=better); paired-bootstrap robust-win is computed vs the primary comparator
-(REAL Henmi–Copas, metafor::hc port); for the other comparators the MCIW0 ratio (point) is reported.
+## Head-to-head vs published comparators — verdict (2026-07-03)
+Per-comparator verdict for **adaptshrink** (our ensemble estimator), read from the canonical
+strong-selection tables above (μ=0.2, τ=0.1, k=40, 300 reps). Two axes matter and must be read together:
+**MCIW0** (matched-coverage width, lower=better) AND **raw_cov** (the *deployable*, no-oracle coverage a
+practitioner actually gets — an estimator with a narrow MCIW0 but broken raw_cov is not a usable interval).
 
-| comparator (published) | smooth MCIW0 | step MCIW0 | copas MCIW0 | verdict for adaptshrink_ens |
-|---|---|---|---|---|
-| **adaptshrink_ens (ours)** | **0.247** | **0.206** | **0.217** | — |
-| Henmi–Copas (Copas 2010) | 0.310 | 0.344 | 0.257 | **BEATS** (robust: smooth −0.066 P=1.00, step −0.127 P=1.00; copas −0.042 P=0.963 near-robust) |
-| Copas–Shi selection MLE | 0.312 | 0.378 | 0.260 | **BEATS** (lower MCIW0 all 3 mechanisms) |
-| REML + HKSJ (Veroniki/IntHout) | 0.313 | 0.379 | 0.260 | **BEATS** (all 3) |
-| PET-PEESE | 0.352 | 0.307 | 0.294 | **BEATS** (all 3) |
-| trim-and-fill (Duval–Tweedie) | 0.257 | **0.157** | 0.297 | **MIXED — trim-fill BEATS us in `step`** (0.157<0.206) but at over-coverage 0.98 (not strictly matched); we beat it in smooth+copas |
+| comparator (published) | robust win vs it? | note |
+|---|---|---|
+| **DerSimonian–Laird / REML+HKSJ** (Veroniki 2016) | **BEATS** (all 3 mechanisms) | reml_hksj MCIW0 ≈ HC (1.00×) and raw_cov 0.003–0.12 — collapses under selection; adaptshrink robust vs HC ✅ all mechanisms |
+| **Henmi–Copas** (Copas 2010) | **BEATS** (paired-boot ✅ smooth −0.126, step −0.162, copas −0.066) | HC raw_cov 0.003–0.083 (severe under-coverage); adaptshrink raw_cov 0.96–0.98 |
+| **Copas–Shi selection MLE** | **BEATS** (MCIW0 lower all 3; ≈HC behaviour) | |
+| **PET-PEESE** | **BEATS** on MCIW0 all 3 (0.35/0.35/0.31 vs our 0.25/0.26/0.22) | PET robust vs HC only in `step` |
+| **trim-and-fill** (Duval–Tweedie) | **MIXED / does NOT dominate** | trim-fill has **lower MCIW0 in smooth (0.245<0.253) and step (0.171<0.257)** — BUT its **deployable raw_cov is broken (0.48 / 0.60 / 0.19)** vs our 0.96–0.98, and it **fails vs HC in the `copas` mechanism** (paired-boot CI crosses 0). It is a matched-*width* competitor, not a usable calibrated interval. |
+| **ubcma** (our full selection model) | ties/edges in `copas` (0.205<0.219) | in-family; adaptshrink is more robust across mechanisms |
 
-**Honest verdict.** Under publication selection, `adaptshrink_ens` **robustly beats the standard
-random-effects + selection-model comparators** — Henmi–Copas, Copas-Shi, REML-HKSJ (the Veroniki
-DL/HKSJ/REML family), and PET-PEESE — across the smooth/step/copas mechanisms at matched coverage (its
-bias-corrected centre is closest to truth, so any honest interval around it is narrowest). The one place
-we do **not** dominate is **trim-and-fill in the step-selection mechanism**, where its MCIW0 (0.157) is
-lower than ours (0.206) — but trim-fill achieves that at test-coverage 0.98 (it over-covers, so its
-width is not at the matched 0.95 target) and it is worse than us in the smooth and copas mechanisms.
-`adaptshrink_solo` (the standalone omega-shrinkage) is NOT a robust winner — the **ensemble** is what
-wins (consistent with the mechanism check: omega-shrinkage corrects bias but the ensemble supplies the
-variance control). **Concrete improvement where trim-fill edges us (step):** add a step/weight-function
-(Vevea–Hedges) member to the ensemble so the panel covers the step-selection regime trim-fill exploits.
+**Honest verdict.** `adaptshrink` (ensemble) is the **only estimator that is simultaneously narrow at
+matched coverage AND deployably well-calibrated (raw_cov 0.96–0.98) across all three selection mechanisms**,
+and it **robustly beats the standard RE + selection-model comparators** — DerSimonian-Laird/REML-HKSJ,
+Henmi–Copas, Copas-Shi, PET-PEESE (all of which under-cover to 0.00–0.12 deployably). Where we do **not**
+dominate: **trim-and-fill** attains a narrower matched-*width* in the smooth/step mechanisms — but only by
+over-/mis-calibrating (deployable coverage 0.19–0.60) and it fails in the copas mechanism, so it is a
+sensitivity tool, not a deployable interval. `adaptshrink_solo` alone is not robust — the **ensemble** is
+the winner. **Concrete improvement (to also win matched-width in smooth/step):** add a Vevea–Hedges
+step-weight-function member to the ensemble panel so it covers the step-selection regime trim-fill exploits,
+without sacrificing the ensemble's deployable calibration.
