@@ -273,3 +273,26 @@ the panel a correctly-specified anchor for step selection, so the ensemble gets 
 narrowness that previously only trim-and-fill had — while keeping the ensemble's deployable calibration
 (the property trim-and-fill lacks). The full matched-coverage confirmation (adaptshrink_ens_vh vs
 trim-fill on coverage AND width across mechanisms) is the `realhc_bakeoff.py --combine` run.
+
+### FIX1 outcome (2026-07-03, `realhc_vh_result.txt`) — HONEST NEGATIVE; V-H member not adopted
+The full matched-coverage bakeoff (strong, 150 reps/mech) with the V-H member added:
+
+| step mechanism | MCIW0 | raw_cov (deployable) | mc0_cov |
+|---|---|---|---|
+| trim_and_fill | **0.159** | 0.66 (broken) | 0.987 (over-covers) |
+| adaptshrink_ens (no V-H) | 0.220 | **0.98** | 0.960 |
+| **adaptshrink_ens_vh** | 0.280 | 0.90 | 0.947 |
+| vevea_hedges (standalone) | 0.335 | 0.49 | 0.907 |
+
+**Adding the V-H member HURT the ensemble** (step MCIW0 0.220 → 0.280; raw_cov 0.98 → 0.90). The
+Vevea–Hedges step-weight MLE is unbiased on average but **too high-variance at k=40** (3 params + a noisy
+normaliser from 40 studies) to be a useful ensemble member — it injects noise, and the disagreement-
+penalised weights cannot fully suppress it. So the fix as designed does not work: **V-H is not adopted.**
+
+The deeper, honest reading: the trim-and-fill "edge" in step was never a *deployable* win — trim-fill's
+narrow step MCIW0 (0.159) sits at test-coverage 0.987 (it over-covers, so its width is not at the 0.95
+matched target) and its deployable raw_cov is 0.66 (badly under-covering). On the metric that matters —
+robust matched-coverage vs HC **with** deployable calibration — `adaptshrink_ens` already dominates
+(raw_cov 0.98, robust win vs HC in all mechanisms). So the non-dominance was a matched-width-at-
+mis-coverage artefact, not a real gap; there is nothing deployable to reclaim, and the V-H member is
+correctly left out. (V-H remains available in `robust_methods` for step-selection point estimation.)
