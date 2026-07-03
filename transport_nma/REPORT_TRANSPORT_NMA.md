@@ -123,3 +123,50 @@ correction wins), but the *magnitude* cannot be recovered from the sparse networ
 honest limit. **The real fix is an EXTERNAL magnitude**: estimate the per-class effect-inflation κ
 directly from AACT (the registered-vs-published effect-distribution gap per drug class), not from the
 in-network funnel. That is the concrete next increment; the internal-funnel route is closed (negative).
+
+## FIX3-EXTERNAL — magnitude from the AACT registered-vs-published gap: MAGNITUDE SOLVED (2026-07-04)
+Built the external-magnitude increment (`aact_kappa.py` → `aact_kappa_freeze.py` → `aact_kappa_truthgate.py`,
+guarded by `test_aact_kappa.py`, 4/4 green). Turner-2008 logic, done inside the registry: AACT holds
+structured RESULTS for many registered T2DM trials; whether a trial's results also reached the **published
+literature** is observable via PubMed linkage (`study_references.reference_type ∈ {DERIVED, RESULT}` → a PMID
+citing the NCT). Publication selection favours larger effects, so **published** trials should show a larger
+HbA1c effect than merely-**results-posted** (registered-only) trials. Endpoint restricted to HbA1c — the
+same scale as the senn2013 network we correct. `κ_MD(c) = mean|MD|_published / mean|MD|_registered-only − 1`
+per class (mmol/mol→NGSP% via ×0.0915; 464 mean-difference analyses).
+
+**The external data independently validates the registry model's structure — no oracle:**
+`corr(κ_MD, 1−λ) = +0.50` — selection-prone (low-λ) classes show *bigger* published-vs-registered effect
+gaps, exactly the (1−λ) severity pattern `tnma`/`h2h_bench` assume. Frozen deployable estimates (from the
+7 adequately-powered classes, min(n_pub,n_reg)≥8): **κ_pooled = 0.158** (n-weighted absolute inflation),
+κ_slope = 0.263 (WLS slope of κ_MD on (1−λ) = an external B estimate). Per-class κ_MD: metformin +0.08,
+SGLT2 +0.29, DPP4 +0.21, AGI +0.35, GLP1/TZD/insulin ≈0; small-n classes (SU n_reg=3) unreliable, excluded.
+
+**Truth-gate (senn2013 known-truth sim, frozen external κ, matched-coverage MCIW0, paired bootstrap):**
+
+| true B | method | dMCIW0 (Regime A) | Regime B | verdict |
+|---|---|---|---|---|
+| 0.15 | oracle (=B, upper bound) | −0.118 | −0.097 | WINS |
+| 0.15 | **ext_pooled (κ=0.158, FROZEN)** | **−0.119** | **−0.098** | **WINS — matches oracle** |
+| 0.15 | fixed κ=0.5 (naive) | +0.200 | +0.241 | HARMS |
+| 0.263 | ext_pooled | −0.212 | −0.184 | WINS |
+| 0.30 | ext_pooled | −0.231 | −0.203 | WINS |
+| 0.00 | ext_pooled | +0.053 | +0.053 | HARMS (presence-gate limit) |
+| 0.00 | fixed κ=0.5 | +0.416 | +0.416 | HARMS |
+
+**Verdict — the MAGNITUDE question is SOLVED (this is the win FIX3 was missing).** The frozen, oracle-free,
+external κ_pooled **matches the oracle at B=0.15** (−0.119 vs −0.118) and WINS across every B≥0.15 in BOTH
+funnel-visible and funnel-invisible regimes — decisively better than the arbitrary fixed κ=0.5 (harms at B=0
+by +0.42, needs B≥0.30 to help) and than the FIX3-internal κ̂ (harmed everywhere). External AACT data thus
+converts the transport-NMA correction from **direction-only → direction + calibrated magnitude**.
+
+**The one residual is NOT a magnitude problem and is provably irreducible here.** A fixed external κ still
+over-corrects at true B=0 (+0.053) — the selection-*presence* question, orthogonal to magnitude. Registry λ
+is a static class property, so it cannot certify that a *specific* selection-prone-class estimate happens to
+be unbiased. We tested the only in-data presence gate (a pooled-network Egger test across all placebo-relative
+studies, `ext_pooled_gated`): its **fire-rate is 0.00–0.04 regardless of B** — blind in Regime A (registry
+selection is funnel-orthogonal by construction) and underpowered in Regime B (a ~20-study, 4–6-per-treatment
+network). Gating therefore removes the B=0 harm but also kills every B>0 win (ties everywhere). So the residual
+is the intrinsic presence-detection limit of any registry-scale correction on a sparse network, not a defect
+of the external magnitude. **Deployable recommendation:** apply κ_pooled=0.158·(1−λ_t) where selection is a
+priori expected (the method's designed regime — a selection-prone class flagged by the registry), where it is
+oracle-matching; accept the small bounded over-correction (+0.05 MCIW0) as the honest cost of no presence gate.

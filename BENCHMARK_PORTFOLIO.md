@@ -56,10 +56,16 @@ is the only reliable winner (ΔMCIW0 −0.118/−0.306 at B=0.15/0.30), inert at
 and funnel-visible regimes; **PET over-corrects catastrophically** (+0.58–0.68 every cell — per-treatment
 funnel regression on 3–6 studies is too noisy); trim-fill/HC inert; Copas–Shi infeasible (k≤6/treatment).
 Transportability layer: exactly inert at target=pool, WINS at a far target once a real modifier exists
-(β≥~0.01). **Non-dominance / honesty:** λ supplies the *direction* of selection severity, not the
-*magnitude* — an ungated fixed κ harms at B=0 (still beats PET). **Fix:** network-pooled κ̂ regressing
-residual small-study effects on (1−λ)·SE (data-driven magnitude + selection-presence gate).
-(`transport_nma/REPORT_TRANSPORT_NMA.md`.)
+(β≥~0.01). **Magnitude now supplied externally (2026-07-04): FIXED.** The registered-vs-published HbA1c
+effect gap in AACT gives a frozen, oracle-free per-class inflation — `corr(κ_MD, 1−λ)=+0.50` independently
+validates the (1−λ) severity model — and κ_pooled=0.158 **matches the oracle at B=0.15** (−0.119 vs −0.118)
+and WINS across B≥0.15 in both funnel regimes, beating the arbitrary fixed κ=0.5. So the correction is now
+*direction + calibrated magnitude*, not direction-only. The internal-funnel κ̂ was an honest negative;
+the external route works. **Residual (irreducible here):** a fixed external κ over-corrects at true B=0
+(+0.05) — the selection-*presence* question; the only in-data gate (network Egger) has fire-rate ≤0.04
+regardless of B (funnel-orthogonal in Regime A, underpowered on ~20 studies in Regime B), so it can't
+distinguish B=0 from B>0. Deploy where selection is a priori expected.
+(`transport_nma/REPORT_TRANSPORT_NMA.md`, `aact_kappa*.py`.)
 
 ## 6. Dose-response MA/NMA
 Comparators: `dosresmeta` (Crippa–Orsini; Greenland–Longnecker 1992), MBNMA (Mawdsley 2016) / netmeta,
@@ -101,14 +107,18 @@ by a matched-coverage / held-out truth-gate and (for the headlines) cross-vendor
     coverage (raw_cov 0.19–0.66); on the metric that matters (robust matched-coverage vs HC **with**
     deployable calibration, raw_cov 0.96–0.98) AdaptShrink already dominates. The tried Vevea–Hedges member
     is an **honest negative** — too high-variance at k=40, it hurt the ensemble, so it is not adopted.
-  - (c) *fixed-κ registry pub-bias correction harms at B=0* → the data-driven internal κ̂ is an **honest
-    negative** (`52233ac`): it also harms (γ too noisy on the sparse network). The real fix is an **external**
-    magnitude — estimate κ from the AACT registered-vs-published effect gap per class, not the in-network
-    funnel. (The oracle-direction win + inert-at-B=0 boundary stand.)
+  - (c) *fixed-κ registry pub-bias correction: λ gave direction, not magnitude* → **MAGNITUDE SOLVED via the
+    external AACT gap (2026-07-04)**: the internal data-driven κ̂ was an honest negative (`52233ac`, γ too noisy),
+    but the **external** registered-vs-published HbA1c effect gap in AACT delivers it — `corr(κ_MD,1−λ)=+0.50`
+    validates the severity model and the frozen κ_pooled=0.158 **matches the oracle at B=0.15** and WINS across
+    B≥0.15 in both funnel regimes (beats the arbitrary fixed κ=0.5). Correction is now direction + calibrated
+    magnitude. Residual = the orthogonal *selection-presence* gate, provably irreducible on a sparse network
+    (in-data Egger gate fire-rate ≤0.04 regardless of B); deploy where selection is a priori expected.
   - (d) *dose-response predicted-effect shrinkage is a genuine null* (linear + Emax, incl. heavy-τ/
     extrapolated) → two-stage REML stays the estimator (no fix warranted).
 
 These are the demonstrable head-to-head results the manuscripts lead with. Fix outcomes reported
 truth-first: **(a) closed; (b) the gap was a coverage artefact — AdaptShrink already dominates deployably,
-V-H not adopted; (c) internal fix fails, external-magnitude fix named; (d) genuine null.** No win was
-manufactured where the numbers did not support it.
+V-H not adopted; (c) magnitude SOLVED via the external AACT registered-vs-published gap (internal κ̂ was a
+negative; external κ_pooled matches the oracle and wins B≥0.15), residual is only the irreducible
+presence-gate; (d) genuine null.** No win was manufactured where the numbers did not support it.

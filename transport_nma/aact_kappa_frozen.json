@@ -1,0 +1,25 @@
+{
+ "kappa_pooled": 0.15759491144471874,
+ "kappa_slope": 0.263089576374888,
+ "corr_kmd_vs_1mlam": 0.5014226365552311,
+ "nmin": 8,
+ "classes_used": [
+  "metformin",
+  "SGLT2",
+  "DPP4",
+  "GLP1",
+  "TZD",
+  "insulin",
+  "AGI"
+ ],
+ "per_class_clamped": {
+  "metformin": 0.07907259078902462,
+  "SGLT2": 0.28874234573716406,
+  "DPP4": 0.21016730076920132,
+  "GLP1": 2.220446049250313e-16,
+  "SU": 0.0,
+  "TZD": 0.0,
+  "insulin": 0.0,
+  "AGI": 0.3488716417910449
+ }
+}

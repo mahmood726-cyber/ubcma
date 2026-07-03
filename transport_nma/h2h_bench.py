@@ -38,10 +38,11 @@ sys.path.insert(0, str(ROOT / "nma"))
 sys.path.insert(0, str(ROOT / "src"))
 from nma_core import Comparison, fit_nma            # noqa: E402
 from ubcma.robust_methods import pet_fit, henmi_copas  # noqa: E402
-try:
-    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-except Exception:
-    pass
+if "pytest" not in sys.modules:      # module-level stdout re-wrap kills pytest capture
+    try:
+        sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+    except Exception:
+        pass
 
 SENN = Path(r"F:\public-data\metadat\dat.senn2013.csv")
 LAMBDA = json.load(open(ROOT / "borrowing" / "class_lambda.json"))
