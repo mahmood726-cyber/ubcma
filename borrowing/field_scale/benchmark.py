@@ -124,11 +124,12 @@ def run_B2(df, MS=(1, 2, 3, 5), REPS=25):
     cross = {i: cross_block(df, i) for i in range(len(df))}
     home_idx = {ma: df.index[df.ma == ma].values for ma in df.ma.unique()}
     methods = ["own_only", "power_prior", "commensurate", "sam",
-               "robust_map", "precision_fuse"]
+               "robust_map", "precision_fuse", "conflict_aware_fuse"]
     acc = {m: {mm: [] for mm in methods} for m in MS}
 
     from field_modern import mixture_posterior_mean, robust_map as rmap
     from borrowing_transport import precision_fuse
+    from field_learned import conflict_aware_fuse   # our DEPLOYED adaptive-power-prior fusion
 
     for i in range(len(df)):
         t = df.iloc[i]
@@ -155,6 +156,7 @@ def run_B2(df, MS=(1, 2, 3, 5), REPS=25):
                     "sam": sam_fuse(y0, se0, mu_p, se_p)[0],
                     "robust_map": _rmap_fuse(mu_p, se_p, y0, se0),
                     "precision_fuse": precision_fuse(y0, se0, mu_p, se_p)[0],
+                    "conflict_aware_fuse": conflict_aware_fuse(y0, se0, mu_p, se_p)[0],
                 }
                 for mm, pv in preds.items():
                     acc[m][mm].append(abs(pv - t.yi))

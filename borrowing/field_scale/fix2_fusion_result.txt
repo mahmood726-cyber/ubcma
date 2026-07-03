@@ -1,0 +1,14 @@
+(1) conflict_aware_fuse vs power_prior_fuse: max|diff| over 1e5 random inputs = 0.00e+00  (IDENTICAL)
+
+(2) corpus m=1 MAE (lower=better):
+    own_only             0.5031
+    power_prior          0.4297
+    commensurate         0.4469
+    sam                  0.4415
+    robust_map           0.4320
+    precision_fuse       0.4499
+    conflict_aware_fuse  0.4297
+
+    conflict_aware_fuse - power_prior  = +0.0000 [+0.0000,+0.0000]  (loses)
+    conflict_aware_fuse - precision_fuse= -0.0202 [-0.0228,-0.0176]  (improves)
+    precision_fuse(old) - power_prior  = +0.0202 [+0.0176,+0.0228]  (the OLD +0.021 deficit)
