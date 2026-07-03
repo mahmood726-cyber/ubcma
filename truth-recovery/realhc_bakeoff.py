@@ -46,7 +46,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import misspec_harness as H  # noqa: E402  (committed, stable generators)
 
 from ubcma.data import MetaAnalysisDataset  # noqa: E402
-from ubcma.robust_methods import adaptshrink_conformal, henmi_copas  # noqa: E402
+from ubcma.robust_methods import adaptshrink_conformal, henmi_copas, vevea_hedges  # noqa: E402
 from ubcma.simulation_study import _run_method  # noqa: E402
 
 Z975 = 1.959963984540054
@@ -56,7 +56,8 @@ HC_REF = "henmi_copas"  # the real adversary in this harness
 BASE_METHODS = ["reml_hksj", "trim_and_fill", "pet_peese", "copas", "ubcma"]
 # Ensemble AdaptShrink panel (parallel session's design).
 AS_ENS_MEMBERS = ("ubcma", "pet_peese", "trim_and_fill")
-SCORED = BASE_METHODS + ["henmi_copas", "adaptshrink_ens", "adaptshrink_solo"]
+SCORED = BASE_METHODS + ["henmi_copas", "vevea_hedges", "adaptshrink_ens",
+                         "adaptshrink_ens_vh", "adaptshrink_solo"]
 
 OUT = Path("truth-recovery")
 
@@ -136,6 +137,20 @@ def run_replicates(mechanism: str, strength: str, spec, reps: int, seed0: int) -
         res["adaptshrink_ens"] = {"mu_hat": ens["mu"], "ci_low": ens["ci_low"],
                                   "ci_high": ens["ci_high"],
                                   "converged": ens["converged"]}
+
+        # FIX1: Vevea-Hedges step weight-function member (built for STEP selection),
+        # scored standalone AND added to the ensemble panel (adaptshrink_ens_vh).
+        vh = vevea_hedges(y, se)
+        vh_ok = np.isfinite(vh["mu"]) and np.isfinite(vh["se"]) and vh["se"] > 0
+        res["vevea_hedges"] = {"mu_hat": vh["mu"], "ci_low": vh["mu"] - Z975 * vh["se"],
+                               "ci_high": vh["mu"] + Z975 * vh["se"], "converged": vh_ok}
+        precomp_vh = dict(precomp)
+        if vh_ok:
+            precomp_vh["vevea_hedges"] = (vh["mu"], vh["se"])
+        ens_vh = _adaptshrink_ens(precomp_vh)
+        res["adaptshrink_ens_vh"] = {"mu_hat": ens_vh["mu"], "ci_low": ens_vh["ci_low"],
+                                     "ci_high": ens_vh["ci_high"],
+                                     "converged": ens_vh["converged"]}
 
         for m in SCORED:
             rr = res[m]

@@ -33,7 +33,7 @@ from typing import Any, Callable
 
 import numpy as np
 from scipy.integrate import quad
-from scipy.optimize import brentq
+from scipy.optimize import brentq, minimize
 from scipy.stats import gamma as gamma_dist
 from scipy.stats import norm
 from scipy.stats import t as t_dist
@@ -106,6 +106,63 @@ def pet_fit(y: np.ndarray, se: np.ndarray) -> dict[str, float]:
     t1 = b1 / se_b1 if se_b1 > 0 else 0.0
     return {"b0": b0, "b1": b1, "t1": float(t1), "se_b0": se_b0, "se_b1": se_b1,
             "dof": dof}
+
+
+def vevea_hedges(y: np.ndarray, se: np.ndarray, cut: float = 0.025) -> dict[str, float]:
+    """Vevea & Hedges (1995) step weight-function selection model (2-interval).
+
+    Models publication probability as a step function of the one-sided p-value
+    p_i = 1 - Phi(y_i/se_i):  a significant study (p <= `cut`) has selection weight
+    1; a non-significant study has weight omega in (0, 1].  The published density is
+    g_i(y) = w(y) f_i(y) / A_i(mu, tau2, omega), where f_i = N(mu, se_i^2 + tau2) and
+    A_i = P(sig | f_i) + omega * P(not sig | f_i) is the per-study normalising
+    constant that makes the selection model proper.  We maximise the resulting
+    weighted log-likelihood over (mu, tau2 >= 0, omega in (0,1]) -- the classic
+    weight-function selection-model bias correction, purpose-built for STEP
+    selection (Vevea-Hedges is the data-generating model of the 'step' mechanism).
+
+    Returns mu (selection-corrected mean), its se (numerical-Hessian), tau2, omega.
+    """
+    y = np.asarray(y, float); se = np.asarray(se, float)
+    k = len(y)
+    zc = norm.ppf(1.0 - cut)                        # one-sided sig cutoff on y/se
+    sig = (y / se) > zc                             # published-as-significant mask
+    y0 = float(np.sum(y / se**2) / np.sum(1.0 / se**2))   # FE start
+
+    def negll(theta):
+        mu = theta[0]; tau2 = np.exp(theta[1]); omega = 1.0 / (1.0 + np.exp(-theta[2]))
+        v = se**2 + tau2; sd = np.sqrt(v)
+        # marginal density of each observed y_i under N(mu, v)
+        logf = -0.5 * np.log(2 * np.pi * v) - 0.5 * (y - mu)**2 / v
+        # P(significant | f_i) = P(y > zc*se) under N(mu, v)
+        p_sig = 1.0 - norm.cdf((zc * se - mu) / sd)
+        A = p_sig + omega * (1.0 - p_sig)           # per-study normaliser in (0,1]
+        A = np.clip(A, 1e-12, None)
+        logw = np.where(sig, 0.0, np.log(max(omega, 1e-12)))
+        ll = np.sum(logw + logf - np.log(A))
+        return -ll if np.isfinite(ll) else 1e12
+
+    best = None
+    for t2_0 in (-4.0, -1.0, 1.0):                  # multistart over tau2
+        for w0 in (0.0, -1.5):                      # omega ~ 0.5, ~0.18
+            try:
+                r = minimize(negll, np.array([y0, t2_0, w0]), method="Nelder-Mead",
+                             options=dict(xatol=1e-7, fatol=1e-7, maxiter=4000))
+                if best is None or r.fun < best.fun:
+                    best = r
+            except Exception:
+                continue
+    if best is None:
+        return {"mu": y0, "se": float(np.sqrt(1.0 / np.sum(1.0 / se**2))), "tau2": 0.0, "omega": 1.0}
+    mu = float(best.x[0]); tau2 = float(np.exp(best.x[1])); omega = float(1.0 / (1.0 + np.exp(-best.x[2])))
+    # SE of mu from the numerical second derivative of the profile in mu
+    h = 1e-4
+    f0 = negll(best.x)
+    xp = best.x.copy(); xp[0] += h; fp = negll(xp)
+    xm = best.x.copy(); xm[0] -= h; fm = negll(xm)
+    curv = (fp - 2 * f0 + fm) / h**2
+    se_mu = float(np.sqrt(1.0 / curv)) if curv > 1e-9 else float(np.sqrt(1.0 / np.sum(1.0 / se**2)))
+    return {"mu": mu, "se": se_mu, "tau2": tau2, "omega": omega}
 
 
 # ---------------------------------------------------------------------------

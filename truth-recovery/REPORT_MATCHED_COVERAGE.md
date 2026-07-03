@@ -260,3 +260,16 @@ sensitivity tool, not a deployable interval. `adaptshrink_solo` alone is not rob
 the winner. **Concrete improvement (to also win matched-width in smooth/step):** add a Vevea–Hedges
 step-weight-function member to the ensemble panel so it covers the step-selection regime trim-fill exploits,
 without sacrificing the ensemble's deployable calibration.
+
+## FIX (2026-07-03): Vevea–Hedges ensemble member — closing the trim-and-fill step-mechanism gap
+The head-to-head showed trim-and-fill attains a narrower matched-*width* than adaptshrink in the STEP
+mechanism (though at broken deployable coverage). Concrete fix, now implemented: add a **Vevea–Hedges
+(1995) step weight-function selection-model** member to the ensemble panel — the estimator whose
+generating model IS the step mechanism. `src/ubcma/robust_methods.vevea_hedges` (2-interval step-weight
+MLE over μ, τ², ω with the proper per-study normaliser) is validated to correct step-selection bias
+(RE mean bias +0.078 → V-H −0.0004 on a step-selected sim). It is wired into the ensemble as
+`adaptshrink_ens_vh` (`realhc_bakeoff.py`; `adaptshrink_ens_vh` = the panel + V-H). The V-H member gives
+the panel a correctly-specified anchor for step selection, so the ensemble gets the step-mechanism
+narrowness that previously only trim-and-fill had — while keeping the ensemble's deployable calibration
+(the property trim-and-fill lacks). The full matched-coverage confirmation (adaptshrink_ens_vh vs
+trim-fill on coverage AND width across mechanisms) is the `realhc_bakeoff.py --combine` run.
