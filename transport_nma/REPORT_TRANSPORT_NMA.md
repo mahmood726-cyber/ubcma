@@ -73,3 +73,36 @@ modifier** (β̂ significantly ≠ 0). This is the same boundary-map discipline 
 ## Files
 `tnma.py` (real NMA + registry-λ correction + truth-gate), `tnma_result.{txt,json}`. Reuses
 `nma/nma_core.py` (validated netmeta-parity) and `borrowing/class_lambda.json` (real AACT λ).
+
+## Head-to-head — external registry-λ vs internal funnel selection models (2026-07-03)
+Does the EXTERNAL registry-λ correction beat the INTERNAL published selection models (which see only
+the published funnel)? Head-to-head on the senn2013 sim (`h2h_bench.py`; verified by writer re-run —
+numbers exact; registry_oracle reproduces tnma's oracle). Every corrector starts from the SAME NMA
+league estimate and differs only in how it estimates the per-treatment bias. Two regimes: **A** uniform
+multiplicative registry bias (SE-orthogonal → funnel-INVISIBLE); **B** the same magnitude as a
+small-study effect (∝ SE → funnel-VISIBLE, the regime purpose-built to favour PET). MCIW0 recovering true
+basic contrasts; paired-bootstrap ΔMCIW0 vs unadjusted.
+
+| method | B=0 (A) | B=0.15 (A) | B=0.30 (A) | verdict |
+|---|---|---|---|---|
+| **registry-λ (oracle κ=B)** | +0.000 tie | **−0.118 WINS** | **−0.306 WINS** | **only reliable winner; inert at B=0** |
+| registry-λ (fixed κ=0.5) | +0.416 HARMS | +0.200 HARMS | −0.096 WINS | uncalibrated → over-corrects at low B |
+| PET / Egger (per-treatment) | +0.680 HARMS | +0.641 HARMS | +0.577 HARMS | **catastrophic over-correction on noise, every cell** |
+| trim-and-fill (Duval–Tweedie) | +0.035 HARMS | +0.021 HARMS | +0.024 HARMS | inert-to-harmful |
+| Henmi–Copas (FE proxy) | +0.020 HARMS | +0.002 tie | −0.004 tie | inert |
+| Copas–Shi selection MLE | — | — | — | **infeasible** (needs k≳15/unit; network gives ≤6 direct/treatment) |
+
+(PET/TF fire on the 3 treatments with ≥3 direct placebo studies, HC on ≥2; Regime B — funnel-visible —
+gives the same qualitative picture: registry-λ WINS at B>0, PET still HARMS every cell.)
+
+**Verdict.** The **external registry-λ correction beats every internal funnel-based published selection
+model** (PET, trim-and-fill, Henmi–Copas; Copas-Shi infeasible), in BOTH the funnel-invisible and
+funnel-visible regimes, and is exactly inert at B=0. **PET over-corrects catastrophically** because a
+per-treatment funnel regression on 3–6 studies has ruinous SE→0-intercept variance — the network is too
+sparse per treatment for an internal estimate. The registry λ carries the *direction/ranking* of
+selection severity as an external, near-zero-sampling-variance signal the internal methods cannot
+recover from a handful of studies. **Honest caveat:** λ supplies the direction, not the magnitude κ — an
+ungated fixed κ still harms at B=0 (though it still beats PET everywhere). **Concrete improvement (the
+next increment):** estimate a single network-pooled κ̂ by regressing the whole network's residual
+small-study effects on (1−λ_t)·SE — λ fixes the per-class direction, the network pools strength for a
+stable data-driven magnitude, and it collapses to ≈0 under funnel symmetry (the selection-presence gate).
