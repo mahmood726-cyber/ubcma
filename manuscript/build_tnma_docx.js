@@ -169,11 +169,13 @@ children.push(tableFrom(
   ["method", "B = 0", "B = 0.15", "B = 0.30"],
   [
     [{ t: "registry-λ (oracle κ)", bold: true }, "+0.000 (tie)", { t: "−0.118 (WINS)", bold: true }, { t: "−0.306 (WINS)", bold: true }],
+    [{ t: "registry-λ (external κ=0.158, deployable)", bold: true }, "+0.053 (HARMS)", { t: "−0.119 (WINS)", bold: true }, { t: "−0.231 (WINS)", bold: true }],
     ["PET-PEESE", "+0.680 (HARMS)", "+0.641 (HARMS)", "+0.577 (HARMS)"],
     ["trim-and-fill", "+0.035 (HARMS)", "+0.021 (HARMS)", "+0.024 (HARMS)"],
     ["Henmi–Copas", "+0.020 (HARMS)", "+0.002 (tie)", "−0.004 (tie)"],
     ["Copas–Shi", { t: "infeasible (needs k ≫ 6/treatment)", }, "—", "—"],
-  ], [2600, 2260, 2260, 2260]));
+  ], [3200, 2000, 2080, 2080]));
+children.push(P([new TextRun({ text: "The deployable external κ (frozen 0.158, no oracle) is shown alongside the oracle: at B = 0.15 it matches the oracle (−0.119) and at B = 0.30 wins (−0.231), beating every internal funnel model; its only cost is the B = 0 over-correction (+0.053). The head-to-head win therefore holds for the method a user can actually run.", size: 18 })], { after: 60 }));
 children.push(P("", { after: 120 }));
 children.push(...figure("fig2_headtohead.png", "Figure 2. Head-to-head ΔMCIW0 (95% paired-bootstrap CI) of the external registry-λ correction vs PET-PEESE, trim-and-fill, and Henmi–Copas at B = 0.15 and B = 0.30 (Regime A). Negative wins; PET-PEESE is off-scale harmful."));
 

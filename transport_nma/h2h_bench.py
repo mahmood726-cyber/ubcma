@@ -46,6 +46,11 @@ if "pytest" not in sys.modules:      # module-level stdout re-wrap kills pytest 
 
 SENN = Path(r"F:\public-data\metadat\dat.senn2013.csv")
 LAMBDA = json.load(open(ROOT / "borrowing" / "class_lambda.json"))
+# frozen deployable external magnitude (AACT registered-vs-published gap; aact_kappa_frozen.json)
+try:
+    K_POOL_EXT = float(json.load(open(Path(__file__).resolve().parent / "aact_kappa_frozen.json"))["kappa_pooled"])
+except Exception:
+    K_POOL_EXT = 0.158
 TREAT_CLASS = {
     "metformin": "metformin", "sitagliptin": "DPP4", "vildagliptin": "DPP4",
     "sulfonylurea": "SU", "pioglitazone": "TZD", "rosiglitazone": "TZD",
@@ -199,7 +204,7 @@ def run_sim(comps, B, regime, reps=400, seed=1, boot=3000):
         return true_d.get(t, 0.0) * B * (1.0 - lam(t)) * (se_i / sbar.get(t, 1.0))
 
     rng = np.random.default_rng(seed)
-    methods = ["registry_oracle", "registry_fix0.5", "PET", "TF", "HC"]
+    methods = ["registry_oracle", "registry_ext0.158", "registry_fix0.5", "PET", "TF", "HC"]
     err = {m: [] for m in methods}
     err_un = []
     applied = {m: [0, 0] for m in ["PET", "TF", "HC"]}   # [applied, total]
@@ -226,6 +231,9 @@ def run_sim(comps, B, regime, reps=400, seed=1, boot=3000):
             err_un.append(abs(md - tru))
             # registry (external) corrections
             err["registry_oracle"].append(abs(md * (1.0 - B * (1.0 - lam(t))) - tru))
+            # DEPLOYABLE frozen external magnitude from the AACT registered-vs-published gap
+            # (aact_kappa_frozen.json kappa_pooled=0.158) -- no oracle, no in-network funnel:
+            err["registry_ext0.158"].append(abs(md * (1.0 - K_POOL_EXT * (1.0 - lam(t))) - tru))
             err["registry_fix0.5"].append(abs(md * (1.0 - 0.5 * (1.0 - lam(t))) - tru))
             # internal funnel corrections: subtract estimated bias from SAME md
             yd = np.array([sim[i].te for i in direct[t]])
@@ -256,7 +264,7 @@ def fmt(res):
     print(f"\n  Sim {res['regime']}  B={res['B']:.2f}   (unadjusted MCIW0 = {res['mciw0_un']:.4f}, "
           f"{res['n_cells']} cells)")
     print(f"  {'method':18}{'MCIW0':>9}{'dMCIW0':>10}{'  95% CI on dMCIW0':>22}{'verdict':>9}")
-    order = ["unadjusted", "registry_oracle", "registry_fix0.5", "PET", "TF", "HC"]
+    order = ["unadjusted", "registry_oracle", "registry_ext0.158", "registry_fix0.5", "PET", "TF", "HC"]
     for m in order:
         r = res["rows"][m]
         ci = f"[{r['ci'][0]:+.4f},{r['ci'][1]:+.4f}]"

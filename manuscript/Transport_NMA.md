@@ -83,7 +83,7 @@ Across 464 HbA1c mean-difference analyses, published trials report a larger abso
 
 ### 3.3 Head-to-head: external registry-λ beats every internal funnel model
 
-On the simulation, each internal corrector is applied network-consistently — it estimates a per-treatment bias from that treatment's direct placebo-relative studies and subtracts it from the *same* league estimate the registry method adjusts, so methods differ only in how they estimate the bias (Table 3). The registry-λ correction (oracle magnitude) is the only reliable winner: ΔMCIW0 −0.118 (B = 0.15) and −0.306 (B = 0.30) in Regime A, and −0.097 / −0.222 in Regime B, exactly inert at B = 0. **PET-PEESE over-corrects catastrophically** (+0.58 to +0.68 in every cell, both regimes), because a per-treatment funnel regression on three-to-six studies has enormous intercept variance — even in Regime B where it is correctly specified. Trim-and-fill and Henmi–Copas are inert-to-harmful; Copas–Shi is infeasible on the network (≤ 6 direct studies per treatment against a k ≫ 15 requirement). The registry λ is an external, near-zero-sampling-variance direction-of-selection signal the internal methods cannot recover from a handful of studies.
+On the simulation, each internal corrector is applied network-consistently — it estimates a per-treatment bias from that treatment's direct placebo-relative studies and subtracts it from the *same* league estimate the registry method adjusts, so methods differ only in how they estimate the bias (Table 3). The registry-λ correction (oracle magnitude) is the only reliable winner: ΔMCIW0 −0.118 (B = 0.15) and −0.306 (B = 0.30) in Regime A, and −0.097 / −0.222 in Regime B, exactly inert at B = 0. **PET-PEESE over-corrects catastrophically** (+0.58 to +0.68 in every cell, both regimes), because a per-treatment funnel regression on three-to-six studies has enormous intercept variance — even in Regime B where it is correctly specified. Trim-and-fill and Henmi–Copas are inert-to-harmful; Copas–Shi is infeasible on the network (≤ 6 direct studies per treatment against a k ≫ 15 requirement). Crucially the *deployable* frozen external κ (0.158, no oracle) also beats every internal model at B ≥ 0.15 (Table 3), so the head-to-head advantage is not an oracle artefact. The registry λ is an external, near-zero-sampling-variance direction-of-selection signal the internal methods cannot recover from a handful of studies.
 
 ### 3.4 The external magnitude recovers the correction strength
 
@@ -149,10 +149,13 @@ Frozen external estimates: κ_pooled = 0.158, κ_slope = 0.263, corr(κ_MD, 1−
 | method | B = 0 | B = 0.15 | B = 0.30 |
 |---|---|---|---|
 | registry-λ (oracle κ) | +0.000 (tie) | **−0.118 (WINS)** | **−0.306 (WINS)** |
+| **registry-λ (external κ=0.158, deployable)** | +0.053 (HARMS) | **−0.119 (WINS)** | **−0.231 (WINS)** |
 | PET-PEESE | +0.680 (HARMS) | +0.641 (HARMS) | +0.577 (HARMS) |
 | trim-and-fill | +0.035 (HARMS) | +0.021 (HARMS) | +0.024 (HARMS) |
 | Henmi–Copas | +0.020 (HARMS) | +0.002 (tie) | −0.004 (tie) |
 | Copas–Shi | — infeasible (needs k ≫ 6/treatment) | — | — |
+
+The **deployable** external κ (§2.5, frozen at 0.158, no oracle) is included alongside the oracle: at B = 0.15 it matches the oracle (−0.119) and at B = 0.30 wins (−0.231), beating every internal funnel model; its only cost is the B = 0 over-correction (+0.053, §3.5). So the head-to-head win holds for the method a user can actually run, not just the oracle.
 
 **Table 4.** External-κ truth-gate (frozen AACT magnitude; matched-coverage ΔMCIW0 vs unadjusted NMA; paired-bootstrap verdict). Egger-gate fire-rate is the fraction of replicates in which the pooled-network presence gate fires. Source: `aact_kappa_truthgate_result.json`.
 
