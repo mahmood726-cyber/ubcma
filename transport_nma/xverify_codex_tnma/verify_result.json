@@ -1,0 +1,197 @@
+{
+  "kappa_pooled": 0.15759491144471893,
+  "corr": 0.5014226365552304,
+  "classes_used": [
+    "AGI",
+    "DPP4",
+    "GLP1",
+    "SGLT2",
+    "TZD",
+    "insulin",
+    "metformin"
+  ],
+  "claim1_by_class": [
+    {
+      "drug_class": "AGI",
+      "n_published": 10,
+      "n_registered_only": 48,
+      "weight": 10,
+      "mean_published_abs_md_pct": 0.4707,
+      "mean_registered_only_abs_md_pct": 0.3489583333333333,
+      "kappa_MD": 0.3488716417910449,
+      "lambda": 0.2,
+      "selection_severity": 0.8
+    },
+    {
+      "drug_class": "DPP4",
+      "n_published": 98,
+      "n_registered_only": 79,
+      "weight": 79,
+      "mean_published_abs_md_pct": 0.46450510204081635,
+      "mean_registered_only_abs_md_pct": 0.3838354430379746,
+      "kappa_MD": 0.21016730076920154,
+      "lambda": 0.4813953488372093,
+      "selection_severity": 0.5186046511627906
+    },
+    {
+      "drug_class": "GLP1",
+      "n_published": 135,
+      "n_registered_only": 18,
+      "weight": 18,
+      "mean_published_abs_md_pct": 0.8711111111111111,
+      "mean_registered_only_abs_md_pct": 0.8711111111111111,
+      "kappa_MD": 0.0,
+      "lambda": 0.36,
+      "selection_severity": 0.64
+    },
+    {
+      "drug_class": "SGLT2",
+      "n_published": 66,
+      "n_registered_only": 24,
+      "weight": 24,
+      "mean_published_abs_md_pct": 0.6218181818181819,
+      "mean_registered_only_abs_md_pct": 0.48249999999999993,
+      "kappa_MD": 0.28874234573716473,
+      "lambda": 0.3380281690140845,
+      "selection_severity": 0.6619718309859155
+    },
+    {
+      "drug_class": "TZD",
+      "n_published": 34,
+      "n_registered_only": 16,
+      "weight": 16,
+      "mean_published_abs_md_pct": 0.5273529411764706,
+      "mean_registered_only_abs_md_pct": 0.5316875,
+      "kappa_MD": -0.008152455763073996,
+      "lambda": 0.42105263157894735,
+      "selection_severity": 0.5789473684210527
+    },
+    {
+      "drug_class": "insulin",
+      "n_published": 69,
+      "n_registered_only": 14,
+      "weight": 14,
+      "mean_published_abs_md_pct": 0.389,
+      "mean_registered_only_abs_md_pct": 0.39052142857142863,
+      "kappa_MD": -0.0038958901102922328,
+      "lambda": 0.36246786632390743,
+      "selection_severity": 0.6375321336760926
+    },
+    {
+      "drug_class": "metformin",
+      "n_published": 101,
+      "n_registered_only": 21,
+      "weight": 21,
+      "mean_published_abs_md_pct": 0.4530049504950495,
+      "mean_registered_only_abs_md_pct": 0.41980952380952374,
+      "kappa_MD": 0.07907259078902462,
+      "lambda": 0.4004739336492891,
+      "selection_severity": 0.5995260663507109
+    }
+  ],
+  "nma": {
+    "method": "standalone contrast-level graph/WLS NMA with DerSimonian-Laird tau^2",
+    "reference": "placebo",
+    "tau2": 0.10940636862445038,
+    "q_fe": 97.03438679350116,
+    "q_re": 16.307727642471683,
+    "df": 18,
+    "n_contrasts": 27,
+    "n_active_treatments": 9,
+    "effects": {
+      "placebo": 0.0,
+      "acarbose": -0.8416870421340407,
+      "benfluorex": -0.7306955657154472,
+      "metformin": -1.1348984614770068,
+      "miglitol": -0.949689934783144,
+      "pioglitazone": -1.1326891537679122,
+      "rosiglitazone": -1.2355478521347834,
+      "sitagliptin": -0.5700000000000001,
+      "sulfonylurea": -0.4200027001361731,
+      "vildagliptin": -0.7
+    },
+    "effect_se": {
+      "acarbose": 0.25403363477802526,
+      "benfluorex": 0.28672574521880795,
+      "metformin": 0.1554918614968682,
+      "miglitol": 0.23226248136336533,
+      "pioglitazone": 0.22026420688389667,
+      "rosiglitazone": 0.12794178876318593,
+      "sitagliptin": 0.3550747340175839,
+      "sulfonylurea": 0.24017456174860166,
+      "vildagliptin": 0.3544094176106457
+    }
+  },
+  "truthgate": {
+    "0.0": {
+      "unadjusted_mciw0": 0.43324907215607017,
+      "oracle": {
+        "dMCIW0": 0.0,
+        "ci95": [
+          0.0,
+          0.0
+        ],
+        "mciw0": 0.43324907215607017
+      },
+      "external": {
+        "dMCIW0": 0.05528900591058172,
+        "ci95": [
+          0.04038322926944132,
+          0.06909299061406361
+        ],
+        "mciw0": 0.4885380780666519
+      }
+    },
+    "0.15": {
+      "unadjusted_mciw0": 0.4916310577092608,
+      "oracle": {
+        "dMCIW0": -0.10181225668283711,
+        "ci95": [
+          -0.12103018972572738,
+          -0.09045873556027567
+        ],
+        "mciw0": 0.3898188010264237
+      },
+      "external": {
+        "dMCIW0": -0.1020306878887175,
+        "ci95": [
+          -0.12156399896875734,
+          -0.08963894839745395
+        ],
+        "mciw0": 0.3896003698205433
+      }
+    },
+    "0.30": {
+      "unadjusted_mciw0": 0.6806738872499778,
+      "oracle": {
+        "dMCIW0": -0.3047753547800023,
+        "ci95": [
+          -0.3302581156774995,
+          -0.2837849722624504
+        ],
+        "mciw0": 0.3758985324699755
+      },
+      "external": {
+        "dMCIW0": -0.24787802425987582,
+        "ci95": [
+          -0.26485611135441617,
+          -0.2310009025073919
+        ],
+        "mciw0": 0.432795862990102
+      }
+    }
+  },
+  "verdict": "CONFIRMS",
+  "notes": "Claim 1 thresholds pass and the frozen external correction tracks the oracle at B=0.15.",
+  "config": {
+    "n_reps": 400,
+    "n_bootstrap": 5000,
+    "seed": 20260704,
+    "external_bias": 0.158,
+    "bias_grid": [
+      0.0,
+      0.15,
+      0.3
+    ]
+  }
+}
