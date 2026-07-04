@@ -71,3 +71,19 @@ def test_truthgate_headline_low_rep():
     r0 = tg.run(comps, B=0.0, regime="A", reps=120, seed=7, boot=1500)
     assert r0["rows"]["ext_pooled"]["dmciw0"] > 0
     assert r0["gate_fire_rate"] < 0.15
+
+
+def test_second_network_generalises_low_rep():
+    # method reproduces on a 2nd real network (linde2015 depression, response log-OR)
+    sys.path.insert(0, str(HERE))
+    import linde_nma as ln
+    comps = ln.linde_contrasts()
+    assert len(comps) >= 60          # 66-study depression network
+    treats = {t for c in comps for t in (c.t1, c.t2)}
+    assert "Placebo" in treats and "SSRI" in treats and "TCA" in treats
+    r = ln.truthgate(comps, B=0.15, reps=100, seed=5, boot=1200)
+    # under selection the registry (oracle) correction wins; PET is catastrophic on this sparse net
+    assert r["rows"]["registry_oracle"]["verdict"] == "WINS", r["rows"]["registry_oracle"]
+    assert r["rows"]["PET"]["dmciw0"] > 0.3, r["rows"]["PET"]
+    # the diabetes-frozen external kappa transfers (helps, not harms) on the depression network
+    assert r["rows"]["registry_extdiab0.158"]["dmciw0"] < 0
