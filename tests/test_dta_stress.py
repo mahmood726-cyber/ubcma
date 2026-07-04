@@ -321,3 +321,36 @@ def test_reml_region_not_smaller_than_ml_in_majority():
             ge += 1
     assert total >= 8
     assert ge / total >= 0.6, f"REML region >= ML in only {ge}/{total} samples"
+
+
+# --- end-to-end: real bake-off DGP -> estimator -> finite region ----------
+@pytest.mark.slow
+def test_bakeoff_dgp_pipeline_strong_selection():
+    """The shipped simulation DGP (dta_sim) under strong Deeks selection must
+    feed every estimator a table they fit to a finite point + PD region. Guards
+    the sim<->estimator contract, not just synthetic in-test data."""
+    import importlib.util
+    sim_path = REPO / "truth-recovery-dta" / "dta_sim.py"
+    if not sim_path.exists():
+        pytest.skip("dta_sim.py not present")
+    import sys
+    spec = importlib.util.spec_from_file_location("dta_sim", sim_path)
+    S = importlib.util.module_from_spec(spec)
+    sys.modules[spec.name] = S  # dataclass needs the module registered to resolve
+    spec.loader.exec_module(S)
+    dspec = S.DTASpec(k=6, tau1=0.8, tau2=0.8, rho=-0.8)  # small-k, strong thr het
+    ok = 0
+    for seed in range(3):
+        tp, fp, fn, tn, trueM = S.generate(dspec, "strong", seed=1000 + seed)
+        st = from_counts(tp, fp, fn, tn)
+        assert st.k >= 4
+        for est in (reitsma, reitsma_indep, adaptshrink_dta):
+            r = est(st)
+            if not r["converged"]:
+                continue
+            ok += 1
+            assert np.isfinite(r["M1"]) and np.isfinite(r["M2"])
+            assert np.isfinite(r["region_area"]) and r["region_area"] > 0
+            V = np.array(r["V"])
+            assert np.all(np.linalg.eigvalsh(V) > 0)  # region is a real ellipse
+    assert ok >= 6  # the pipeline produced usable fits across seeds/methods
