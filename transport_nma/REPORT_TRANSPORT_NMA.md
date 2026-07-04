@@ -153,6 +153,15 @@ SGLT2 +0.29, DPP4 +0.21, AGI +0.35, GLP1/TZD/insulin ≈0; small-n classes (SU n
 | 0.00 | ext_pooled | +0.053 | +0.053 | HARMS (presence-gate limit) |
 | 0.00 | fixed κ=0.5 | +0.416 | +0.416 | HARMS |
 
+**EXTERNAL CROSS-VENDOR WITNESS (2026-07-04, Codex Seat A gpt-5.5, `xverify_codex_tnma/`): CONFIRMS.**
+Given only a self-contained bundle (per-analysis records + senn2013 + λ + spec) and told to import no ubcma
+code, Codex wrote its own aggregation + own graph/WLS RE-NMA + own bootstrap and reproduced: κ_pooled
+0.15759 (=0.1576, exact 4dp), corr +0.50142 (=0.501, exact), identical 7 classes + per-class κ_MD; its own
+NMA gives senn2013 τ²=0.1094; truth-gate external κ TRACKS oracle at B=0.15 (−0.1020 vs −0.1018, within
+0.0002, both win), over-corrects B=0 (+0.055), under-corrects B=0.30. Absolute levels differ slightly
+(−0.102 vs our −0.119) only via the independent NMA engine/RNG; conclusion identical. One genuine external
+vendor alongside the internal engine + tests. See `xverify_codex_tnma/WITNESS.md`.
+
 **Verdict — the MAGNITUDE question is SOLVED (this is the win FIX3 was missing).** The frozen, oracle-free,
 external κ_pooled **matches the oracle at B=0.15** (−0.119 vs −0.118) and WINS across every B≥0.15 in BOTH
 funnel-visible and funnel-invisible regimes — decisively better than the arbitrary fixed κ=0.5 (harms at B=0
