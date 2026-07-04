@@ -44,6 +44,27 @@ auto-gate not being perfectly inert on a chain with no triangulation. So the cor
 across topologies **under sufficient selection**, with a topology-dependent threshold and a small no-selection
 cost — a tightened, honestly-bounded extension of the Phase-3 dense characterisation, not an unconditional one.
 
+## Studies-per-edge (m) axis — the win holds at the sparsest, most realistic per-edge counts (2026-07-04)
+`msweep.py` / `msweep_result.json` maps the third sparsity dimension (after network size in Phase-3 and
+topology above): m = direct studies per contrast, dense n=8, strong selection B=1.0, reps=400. Real NMAs
+frequently have 1–2 studies per direct comparison — exactly where the common-DL per-contrast estimate is
+most unstable.
+
+| m/edge | #studies | MCIW0 DL | MCIW0 auto | ΔMCIW0 | 95% CI | verdict |
+|---|---|---|---|---|---|---|
+| 1 | 28 | 0.953 | 0.671 | **−0.282** | [−0.320, −0.253] | WINS |
+| 2 | 56 | 0.827 | 0.499 | −0.328 | [−0.349, −0.302] | WINS |
+| 3 | 84 | 0.760 | 0.433 | −0.327 | [−0.352, −0.312] | WINS |
+| 4 | 112 | 0.735 | 0.402 | −0.333 | [−0.352, −0.318] | WINS |
+| 8 | 224 | 0.674 | 0.330 | −0.344 | [−0.353, −0.333] | WINS |
+
+**The win is robust across the entire m range, including m = 1** — a single study per direct comparison, the
+hardest and most common real-world sparsity. It is slightly stronger at larger m but never disappears; at
+m = 1 the common-DL baseline is most unstable (MCIW0 0.95) and the correction delivers its clearest
+deployment-relevant benefit. **Combined sparsity picture:** under sufficient selection the AdaptShrink-NMA
+matched-coverage win is robust across all three orthogonal sparsity axes — network size (Phase-3), topology
+(dense/star/ladder), and studies-per-edge (m = 1…8) — which is the regime real evidence networks occupy.
+
 **Honest caveats.** (i) Fresh internally-consistent harness — relative topology comparison, not the Phase-3
 absolutes. (ii) The win requires a *real* small-study effect: an earlier run with a near-negligible selection
 magnitude gave a **tie** on dense (ΔMCIW0 −0.001), consistent with the Phase-3 no-selection inertia (the
