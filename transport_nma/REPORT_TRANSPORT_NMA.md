@@ -138,9 +138,13 @@ HbA1c effect than merely-**results-posted** (registered-only) trials. Endpoint r
 same scale as the senn2013 network we correct. `κ_MD(c) = mean|MD|_published / mean|MD|_registered-only − 1`
 per class (mmol/mol→NGSP% via ×0.0915; 464 mean-difference analyses).
 
-**The external data independently validates the registry model's structure — no oracle:**
+**The external data supports the registry model's structure — no oracle (honest inference caveat):**
 `corr(κ_MD, 1−λ) = +0.50` — selection-prone (low-λ) classes show *bigger* published-vs-registered effect
-gaps, exactly the (1−λ) severity pattern `tnma`/`h2h_bench` assume. Frozen deployable estimates (from the
+gaps, the (1−λ) severity pattern `tnma`/`h2h_bench` assume. **But at 7 classes this class-level correlation is
+DESCRIPTIVE/suggestive, NOT significant on its own** (`aact_kappa_corr_ci.py`: permutation p = 0.15, bootstrap
+95% CI [−0.92, +0.96], 81% > 0). The robust support is (i) the *trial-level* per-class gaps (bootstrap CIs
+excluding 0 for metformin/SGLT2/DPP4) and (ii) the scrambled-λ truth-gate falsification (perm-p 0.025→0.000,
+powered) — not the 7-point correlation, which is a descriptive summary of the same signal. Frozen deployable estimates (from the
 7 adequately-powered classes, min(n_pub,n_reg)≥8): **κ_pooled = 0.158** (n-weighted absolute inflation),
 κ_slope = 0.263 (WLS slope of κ_MD on (1−λ) = an external B estimate). Per-class κ_MD: metformin +0.08,
 SGLT2 +0.29, DPP4 +0.21, AGI +0.35, GLP1/TZD/insulin ≈0; small-n classes (SU n_reg=3) unreliable, excluded.
