@@ -1,0 +1,49 @@
+{
+ "SSRI": {
+  "lam": 0.32122370936902483,
+  "n_pub": 14,
+  "n_reg": 23,
+  "mean_pub": 1.5642857142857145,
+  "mean_reg": 0.34478260869565214,
+  "kappa_md": 3.537020356692489
+ },
+ "SNRI": {
+  "lam": 0.4349593495934959,
+  "n_pub": 76,
+  "n_reg": 9,
+  "mean_pub": 1.4669736842105265,
+  "mean_reg": 1.948888888888889,
+  "kappa_md": -0.24727690091820187
+ },
+ "TCA": {
+  "lam": 0.2857142857142857,
+  "n_pub": 0,
+  "n_reg": 0,
+  "mean_pub": null,
+  "mean_reg": null,
+  "kappa_md": null
+ },
+ "atypical": {
+  "lam": 0.38095238095238093,
+  "n_pub": 40,
+  "n_reg": 23,
+  "mean_pub": 2.33075,
+  "mean_reg": 0.21956521739130438,
+  "kappa_md": 9.615297029702969
+ },
+ "MAOI": {
+  "lam": 0.2857142857142857,
+  "n_pub": 0,
+  "n_reg": 1,
+  "mean_pub": null,
+  "mean_reg": 11.56,
+  "kappa_md": null
+ },
+ "_summary": {
+  "corr": 0.35327761455635426,
+  "slope": 9.331764742704316,
+  "kappa_pooled": 5.884132971236155,
+  "n_classes": 3,
+  "verdict": "REPRODUCES (positive corr, external gap grows with severity)"
+ }
+}

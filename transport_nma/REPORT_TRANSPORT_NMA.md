@@ -170,3 +170,25 @@ is the intrinsic presence-detection limit of any registry-scale correction on a 
 of the external magnitude. **Deployable recommendation:** apply κ_pooled=0.158·(1−λ_t) where selection is a
 priori expected (the method's designed regime — a selection-prone class flagged by the registry), where it is
 oracle-matching; accept the small bounded over-correction (+0.05 MCIW0) as the honest cost of no presence gate.
+
+## Second-domain replication attempt — antidepressants / HAM-D: HONEST BOUNDARY (2026-07-04)
+To test the manuscript's #1 limitation ("single network/endpoint"), we re-ran the exact external-magnitude
+machinery (`aact_kappa_depression.py`) in Turner-2008's own domain: major-depression trials, five
+antidepressant classes (SSRI/SNRI/TCA/atypical/MAOI), endpoint = HAM-D change, split published (PubMed-linked)
+vs registered-only, κ_MD = |MD|_pub/|MD|_reg − 1, plus a per-class λ from AACT depression trials.
+
+**Outcome — does NOT cleanly replicate, and the reason is instructive (not a refutation).** The sign is
+positive (corr(κ_MD, 1−λ) = +0.35 over the 3 adequately-powered classes) but the magnitudes are not
+credible: κ_MD = +3.5 (SSRI), +9.6 (atypical), with registered-only |MD| means of 0.22–0.35 HAM-D points.
+A HAM-D treatment difference of 0.22 points is not a real effect — and indeed **41 % of AACT HAM-D
+"mean difference" analyses have |MD| < 0.5** (quantiles 0/0.12/0.70/1.67/2.92 at 10/25/50/75/90 %). Raw
+AACT HAM-D mean differences are heterogeneous — they mix 17- vs 21- vs 24-item HAM-D versions, within-arm
+change vs between-arm, LS-means vs raw, and multiple timepoints — with no unit normalisation, so the
+published-vs-registered *ratio* is dominated by scale/analysis heterogeneity rather than selection.
+
+**Honest boundary (sharpens the manuscript, not a win manufactured).** The external-magnitude construction
+requires a **single, standardised endpoint** (HbA1c is one lab value on one scale — hence the clean +0.50
+diabetes signal). It does **not** transfer to a raw multi-version rating scale; a proper antidepressant
+replication would need standardised effect sizes (Hedges's g from FDA reviews) — exactly what Turner (2008)
+used and what AACT does not store. This bounds the method to standardised-measurement endpoints and is
+recorded as such (`aact_kappa_depression.json`); no positive replication is claimed.
