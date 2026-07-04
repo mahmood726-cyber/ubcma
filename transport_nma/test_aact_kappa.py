@@ -87,3 +87,24 @@ def test_second_network_generalises_low_rep():
     assert r["rows"]["PET"]["dmciw0"] > 0.3, r["rows"]["PET"]
     # the diabetes-frozen external kappa transfers (helps, not harms) on the depression network
     assert r["rows"]["registry_extdiab0.158"]["dmciw0"] < 0
+
+
+def test_trial_level_gap_robust_for_well_powered_class():
+    # the ROBUST inferential basis (not the 7-class corr): a well-powered class's published-vs-registered
+    # gap has a bootstrap CI excluding 0. Guards the claim the manuscript now rests on.
+    import csv, numpy as np
+    from collections import defaultdict
+    rows = list(csv.DictReader(open(HERE / "aact_hba1c_records.csv")))
+    per = defaultdict(lambda: {"1": [], "0": []})
+    for r in rows:
+        per[r["drug_class"]][r["published"]].append(float(r["abs_md_pct"]))
+    # SGLT2 is the one diabetes class whose individual gap CI excludes 0 (verified 2026-07-04);
+    # DPP4/metformin/etc. include 0 at n=7-class resolution -- the robust cross-domain evidence is the
+    # scrambled-lambda falsification + antidepressant/lipid gaps, NOT the individual diabetes gaps.
+    p = np.array(per["SGLT2"]["1"]); q = np.array(per["SGLT2"]["0"])
+    assert len(p) >= 8 and len(q) >= 8
+    rng = np.random.default_rng(1)
+    ks = [p[rng.integers(0, len(p), len(p))].mean() / q[rng.integers(0, len(q), len(q))].mean() - 1.0
+          for _ in range(6000)]
+    lo = float(np.quantile(ks, 0.025))
+    assert lo > 0, lo          # SGLT2 published effects robustly larger than registered-only

@@ -142,9 +142,11 @@ per class (mmol/mol→NGSP% via ×0.0915; 464 mean-difference analyses).
 `corr(κ_MD, 1−λ) = +0.50` — selection-prone (low-λ) classes show *bigger* published-vs-registered effect
 gaps, the (1−λ) severity pattern `tnma`/`h2h_bench` assume. **But at 7 classes this class-level correlation is
 DESCRIPTIVE/suggestive, NOT significant on its own** (`aact_kappa_corr_ci.py`: permutation p = 0.15, bootstrap
-95% CI [−0.92, +0.96], 81% > 0). The robust support is (i) the *trial-level* per-class gaps (bootstrap CIs
-excluding 0 for metformin/SGLT2/DPP4) and (ii) the scrambled-λ truth-gate falsification (perm-p 0.025→0.000,
-powered) — not the 7-point correlation, which is a descriptive summary of the same signal. Frozen deployable estimates (from the
+95% CI [−0.92, +0.96], 81% > 0). The robust support is (i) the scrambled-λ truth-gate
+falsification (perm-p 0.025→0.000, powered) and (ii) the individually-significant trial-level gaps in the
+OTHER domains (antidepressant SSRI/atypical, lipid statin/ezetimibe) — not the 7-point correlation. Within
+diabetes itself, only SGLT2's individual gap CI excludes 0 (+0.289 [+0.02,+0.65]); DPP4 +0.21 barely includes
+0 [−0.008,+0.48], metformin/GLP1/insulin/TZD/AGI include 0 (verified `aact_kappa_corr_ci.py` + per-class boot). Frozen deployable estimates (from the
 7 adequately-powered classes, min(n_pub,n_reg)≥8): **κ_pooled = 0.158** (n-weighted absolute inflation),
 κ_slope = 0.263 (WLS slope of κ_MD on (1−λ) = an external B estimate). Per-class κ_MD: metformin +0.08,
 SGLT2 +0.29, DPP4 +0.21, AGI +0.35, GLP1/TZD/insulin ≈0; small-n classes (SU n_reg=3) unreliable, excluded.
