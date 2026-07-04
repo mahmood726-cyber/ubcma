@@ -312,6 +312,7 @@ truth-gate. Honest two-part decomposition:
 under a scrambled λ) plus a **statistically significant registry-ordering component** that grows with
 selection strength. Reported truth-first: the registry signal is doing real, ordering-specific work, but it
 is not the sole driver — an honest decomposition, not an over-claim. Artifacts `aact_kappa_scramble_result.json`.
+**Seed-stable:** the permutation-p at B=0.15 is **0.017 across three independent seeds** (n_perm=60, reps=200) — the ordering-matters conclusion (the paper's decisive significance evidence) is not a seed artefact.
 
 ## Robustness to the 'published' definition — honest sensitivity (2026-07-04)
 The external magnitude rests on splitting trials into published vs registered-only via PubMed linkage.
