@@ -1,0 +1,70 @@
+F:\ubcma\src\ubcma\comparators.py:167: RuntimeWarning: overflow encountered in exp
+  tau2 = np.exp(log_tau2)
+F:\ubcma\src\ubcma\comparators.py:176: RuntimeWarning: invalid value encountered in multiply
+  adj_mean = mu + _rho * sigma * inv_mills
+F:\ubcma\src\ubcma\comparators.py:180: RuntimeWarning: invalid value encountered in divide
+  ll = -0.5 * np.sum(np.log(adj_var) + np.square(y - adj_mean) / adj_var)
+F:\ubcma\src\ubcma\comparators.py:167: RuntimeWarning: overflow encountered in exp
+  tau2 = np.exp(log_tau2)
+F:\ubcma\src\ubcma\comparators.py:180: RuntimeWarning: invalid value encountered in divide
+  ll = -0.5 * np.sum(np.log(adj_var) + np.square(y - adj_mean) / adj_var)
+F:\ubcma\src\ubcma\comparators.py:176: RuntimeWarning: invalid value encountered in multiply
+  adj_mean = mu + _rho * sigma * inv_mills
+F:\ubcma\src\ubcma\comparators.py:167: RuntimeWarning: overflow encountered in exp
+  tau2 = np.exp(log_tau2)
+F:\ubcma\src\ubcma\comparators.py:176: RuntimeWarning: invalid value encountered in multiply
+  adj_mean = mu + _rho * sigma * inv_mills
+F:\ubcma\src\ubcma\comparators.py:180: RuntimeWarning: invalid value encountered in divide
+  ll = -0.5 * np.sum(np.log(adj_var) + np.square(y - adj_mean) / adj_var)
+F:\ubcma\src\ubcma\comparators.py:167: RuntimeWarning: overflow encountered in exp
+  tau2 = np.exp(log_tau2)
+F:\ubcma\src\ubcma\comparators.py:180: RuntimeWarning: invalid value encountered in divide
+  ll = -0.5 * np.sum(np.log(adj_var) + np.square(y - adj_mean) / adj_var)
+F:\ubcma\src\ubcma\comparators.py:176: RuntimeWarning: invalid value encountered in multiply
+  adj_mean = mu + _rho * sigma * inv_mills
+F:\ubcma\src\ubcma\comparators.py:167: RuntimeWarning: overflow encountered in exp
+  tau2 = np.exp(log_tau2)
+F:\ubcma\src\ubcma\comparators.py:180: RuntimeWarning: invalid value encountered in divide
+  ll = -0.5 * np.sum(np.log(adj_var) + np.square(y - adj_mean) / adj_var)
+F:\ubcma\src\ubcma\comparators.py:176: RuntimeWarning: invalid value encountered in multiply
+  adj_mean = mu + _rho * sigma * inv_mills
+F:\ubcma\src\ubcma\comparators.py:167: RuntimeWarning: overflow encountered in exp
+  tau2 = np.exp(log_tau2)
+F:\ubcma\src\ubcma\comparators.py:180: RuntimeWarning: invalid value encountered in divide
+  ll = -0.5 * np.sum(np.log(adj_var) + np.square(y - adj_mean) / adj_var)
+F:\ubcma\src\ubcma\comparators.py:176: RuntimeWarning: invalid value encountered in multiply
+  adj_mean = mu + _rho * sigma * inv_mills
+Running pilot tier (seed=42); this takes roughly 30-60 minutes...
+  [pilot] scenario 1/12: mu=0.2 tau=0.0 sel=none bias=none k=30
+  [pilot] scenario 2/12: mu=0.2 tau=0.1 sel=none bias=none k=30
+  [pilot] scenario 3/12: mu=0.2 tau=0.0 sel=none bias=moderate k=30
+  [pilot] scenario 4/12: mu=0.2 tau=0.1 sel=none bias=moderate k=30
+  [pilot] scenario 5/12: mu=0.2 tau=0.0 sel=moderate bias=none k=30
+  [pilot] scenario 6/12: mu=0.2 tau=0.1 sel=moderate bias=none k=30
+  [pilot] scenario 7/12: mu=0.2 tau=0.0 sel=moderate bias=moderate k=30
+  [pilot] scenario 8/12: mu=0.2 tau=0.1 sel=moderate bias=moderate k=30
+  [pilot] scenario 9/12: mu=0.2 tau=0.0 sel=strong bias=none k=30
+  [pilot] scenario 10/12: mu=0.2 tau=0.1 sel=strong bias=none k=30
+  [pilot] scenario 11/12: mu=0.2 tau=0.0 sel=strong bias=moderate k=30
+  [pilot] scenario 12/12: mu=0.2 tau=0.1 sel=strong bias=moderate k=30
+
+seed = 42
+replicates per scenario = 50, scenarios = 12, total replicates = 600
+
+=== Reproduced vs published ===
+quantity                      reproduced   published     delta
+ubcma_rmse                        0.0696      0.0700   -0.0004
+ubcma_coverage                    0.8883      0.8880   +0.0003
+dl_coverage                       0.5967      0.5970   -0.0003
+reml_hksj_coverage                0.6383      0.6380   +0.0003
+trim_and_fill_coverage            0.3900      0.3900   +0.0000
+ubcma_worstcase_coverage          0.9033      0.9030   +0.0003
+dl_worstcase_coverage             0.3133      0.3130   +0.0003
+
+largest absolute delta: 0.0004
+verdict @ tol 0.02: MATCH (paper stands)
+
+Canonical artifacts written to:
+  F:\ubcma\paper\results\pilot_summary.csv
+  F:\ubcma\paper\results\pilot_by_quality_bias.csv
+  F:\ubcma\paper\results\pilot_simulation_study.csv

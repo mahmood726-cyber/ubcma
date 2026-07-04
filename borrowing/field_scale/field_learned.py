@@ -134,10 +134,16 @@ def _obj(theta, comps, y, alpha):
     return nlml, g
 
 
-def gp_fit(sub, n_restarts=1):
+def gp_fit(sub, n_restarts=1, X=None):
     """Fit the grouped-ARD GP on one family block by marginal likelihood.
-    Returns a dict with the fitted state used by predict_loo / cross-prediction."""
-    X = build_features(sub)
+    Returns a dict with the fitted state used by predict_loo / cross-prediction.
+
+    ``X`` may be a PRE-COMPUTED feature matrix (rows aligned to ``sub``) so that a
+    FROZEN feature transform -- standardisation stats and category->code mapping
+    fitted once on the full block -- is shared across k-fold train/test splits.
+    When ``X`` is None the transform is (re)fitted on ``sub`` itself."""
+    if X is None:
+        X = build_features(sub)
     y = sub["yi"].to_numpy(float)
     alpha = sub["se"].to_numpy(float) ** 2
     ymean = float(y.mean())
@@ -180,6 +186,13 @@ def predict_kfold(sub, n_folds=10, seed=0):
     """HONEST held-out prediction: re-optimise hyper-parameters on each training
     fold, predict the held-out fold. This is the DEFAULT evaluation. Returns
     index-aligned (mu, sd)."""
+    # FROZEN transform: fit the feature embedding ONCE on the full block, then
+    # slice its rows for every fold. This guarantees the standardisation stats and
+    # the category->code mapping are IDENTICAL for the training rows (st["X"]) and
+    # the held-out rows (X[te]) that the cross-kernel compares -- previously each
+    # fold re-fitted build_features on its own subset, so the same specialty/MA
+    # could receive different integer codes in train vs test and the two
+    # continuous columns were mis-standardised across folds.
     X = build_features(sub)
     y = sub["yi"].to_numpy(float)
     alpha = sub["se"].to_numpy(float) ** 2
@@ -194,7 +207,7 @@ def predict_kfold(sub, n_folds=10, seed=0):
         if len(tr) < 2:
             continue
         sub_tr = sub.iloc[tr]
-        st = gp_fit(sub_tr)
+        st = gp_fit(sub_tr, X=X[tr])
         theta, ymean = st["theta"], st["ymean"]
         # cross-covariance train(rows) x test(cols) under fitted theta
         ctr_te = _dist_cross(st["X"], X[te])

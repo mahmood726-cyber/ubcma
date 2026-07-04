@@ -187,12 +187,12 @@ UBCMA's convergence rate was 97.7%, with the 2.3% of non-converged replicates ha
 | REML-HKSJ | +0.058 | 0.081 | 63.8 | 0.162 | 100 |
 | Trim-and-fill | -0.056 | 0.094 | 39.0 | 0.086 | 100 |
 | PET-PEESE | +0.023 | 0.094 | 64.5 | 0.187 | 100 |
-| Copas | +0.057 | 0.080 | 58.0 | 0.137 | 100 |
+| Copas | +0.056 | 0.079 | 58.7 | 0.137 | 100 |
 | Quality-effects | +0.045 | 0.067 | 62.2 | 0.129 | 100 |
 
 #### 3.1.2 Performance by Selection Strength
 
-The advantage of UBCMA was most apparent under strong publication selection (Table 2). When no selection was present, all methods except trim-and-fill performed adequately (DL coverage: 76.5%; UBCMA: 91.5%). Under strong selection, DL coverage dropped to 42.0% and Copas to 40.0%, while UBCMA maintained 85.5% coverage. Trim-and-fill overcorrected in all conditions, with coverage declining from 29.5% (no selection) to 47.0% (strong selection) — the paradoxical improvement under strong selection reflecting the accidental partial correction of a real asymmetry.
+The advantage of UBCMA was most apparent under strong publication selection (Table 2). When no selection was present, all methods except trim-and-fill performed adequately (DL coverage: 76.5%; UBCMA: 91.5%). Under strong selection, DL coverage dropped to 42.0% and Copas to 41.0%, while UBCMA maintained 85.5% coverage. Trim-and-fill overcorrected in all conditions, with coverage declining from 29.5% (no selection) to 47.0% (strong selection) — the paradoxical improvement under strong selection reflecting the accidental partial correction of a real asymmetry.
 
 PET-PEESE performed well under strong selection (bias = 0.008) but poorly under no selection (bias = 0.027 with high variance), consistent with its known sensitivity to model misspecification when the funnel is truly symmetric.
 
@@ -234,7 +234,7 @@ The quality-effects model showed partial correction (coverage improving from 83.
 
 We applied all methods to a dataset of 6 randomized controlled trials examining aspirin for cardiovascular disease prevention,^12 with risk-of-bias assessments for selection, measurement, and reporting domains (Table 4). The ISIS-2 trial reported a much larger effect (y = -0.251, SE = 0.029) than the remaining studies, and one trial (UK-TIA) had elevated measurement bias risk.
 
-Standard methods estimated pooled effects between -0.067 (DL) and -0.072 (REML), with confidence intervals spanning zero. Trim-and-fill gave an extreme estimate of -0.251, essentially collapsing to the ISIS-2 result, while PET-PEESE estimated -0.227. The Copas model gave -0.074, similar to REML.
+Standard methods estimated pooled effects between -0.067 (DL) and -0.072 (REML), with confidence intervals spanning zero. Trim-and-fill gave an extreme estimate of -0.251, essentially collapsing to the ISIS-2 result, while PET-PEESE estimated -0.227. The Copas model gave -0.085, similar to REML.
 
 UBCMA estimated mu = 0.011 (95% profile CI: -0.125 to 0.117), a near-null effect suggesting that after jointly accounting for selection patterns and quality-dependent bias, there is no residual evidence of aspirin benefit in this dataset. The model identified a two-component heterogeneity structure: 77% of studies in a low-variance component (tau_1 = 0.002) and 23% in a high-variance component (tau_2 = 0.211), consistent with ISIS-2 being a distributional outlier. The quality-shift parameter for measurement bias was lambda_2 = -0.033, indicating that the trial with elevated measurement risk (UK-TIA) received a small downward bias correction.
 
@@ -250,7 +250,7 @@ The selection function estimated a moderate negative direction preference (gamma
 | REML-HKSJ | -0.072 | [-0.208, 0.064] | No |
 | Trim-and-fill | -0.251 | [-0.288, -0.214] | Yes |
 | PET-PEESE | -0.227 | [-0.285, -0.168] | Yes |
-| Copas | -0.074 | [-0.171, 0.023] | No |
+| Copas | -0.085 | [-0.182, 0.012] | No |
 | Quality-effects | -0.156 | [-0.200, -0.111] | Yes |
 | UBCMA (profile) | +0.011 | [-0.125, 0.117] | No |
 

@@ -1,0 +1,42 @@
+corpus: 1177 nodes | 28 MAs | families ['COR', 'LOR', 'SMD']
+building predictions (learned kernel = honest 10-fold, 5-seed avg)...
+
+========================================================================
+(1) MAE vs modern baselines  (paired bootstrap vs within-MA)
+========================================================================
+  learned_kernel     MAE=0.3325  vs_within=-0.0230 [-0.0340,-0.0117] WINS vs within
+  robust_map         MAE=0.3531  vs_within=-0.0024 [-0.0091,+0.0043] n.s.
+  hier_bayes         MAE=0.3523  vs_within=-0.0032 [-0.0091,+0.0027] n.s.
+  within_MA          MAE=0.3555  vs_within=+0.0000 [+0.0000,+0.0000]
+  hand_field         MAE=0.3749  vs_within=+0.0195 [+0.0112,+0.0279] worse
+  g_model            MAE=0.4171  vs_within=+0.0616 [+0.0478,+0.0760] worse
+  no_borrow          MAE=0.4185  vs_within=+0.0630 [+0.0492,+0.0772] worse
+  learned_scrambled  MAE=0.3850  vs_within=+0.0295 [+0.0153,+0.0435] worse
+
+========================================================================
+(2) Per-regime: learned_kernel - within_MA (negative = learned better)
+========================================================================
+  sparse k<=8    n=   14  learned=0.5595 within=0.5000  delta=+0.0595 [-0.0018,+0.1171] n.s.
+  mid 9-40       n=  350  learned=0.4855 within=0.5145  delta=-0.0289 [-0.0546,-0.0035] learned WINS
+  rich k>40      n=  813  learned=0.2627 within=0.2845  delta=-0.0218 [-0.0338,-0.0104] learned WINS
+
+========================================================================
+(3) Negative controls
+========================================================================
+  learned_kernel - learned_SCRAMBLED = -0.0525 [-0.0673,-0.0373]  structure REAL (true beats scrambled)
+  within_MA - no_borrow             = -0.0630 [-0.0772,-0.0492]  within-MA borrowing REAL
+
+========================================================================
+(4) Conformal calibration (target 90%)
+========================================================================
+  method             modelCov   modelW  confCov    confW
+  no_borrow             0.904    1.904    0.899    1.959
+  within_MA             0.943    1.826    0.899    1.697
+  hand_field            0.946    1.837    0.899    1.774
+  robust_map            0.999    7.006    0.899    1.634
+  hier_bayes            0.777    1.298    0.899    1.612
+  g_model               0.934    2.297    0.899    1.987
+  learned_kernel        0.806    1.302    0.899    1.553
+  learned_scrambled     0.811    1.446    0.899    1.780
+
+wrote benchmark_learned_results.json

@@ -192,9 +192,12 @@ def copas_selection(
             )
             mu_adj = float(res.x[0])
             tau_adj = float(np.sqrt(max(np.exp(res.x[1]), 0.0)))
+            # profile log-likelihood at this rho (= -min NLL); NaN if it blew up
+            nll_adj = float(res.fun) if (res.success or np.isfinite(res.fun)) else float("nan")
         except Exception:
             mu_adj = float("nan")
             tau_adj = float("nan")
+            nll_adj = float("nan")
 
         w_adj = 1.0 / (s2 + max(tau_adj ** 2, 0.0)) if np.isfinite(tau_adj) else 1.0 / s2
         se_adj = float(np.sqrt(1.0 / np.sum(w_adj)))
@@ -204,17 +207,31 @@ def copas_selection(
             "mu": mu_adj,
             "se": se_adj,
             "tau": tau_adj,
+            "nll": nll_adj,
         })
 
+    # Select the selection-corrected estimate by MAXIMISING the profile
+    # log-likelihood over the rho grid (i.e. minimising the stored NLL), rather
+    # than returning the rho=0 (naive, uncorrected) fit. This is the Copas & Shi
+    # (2000) MLE over the correlation grid: at rho=0 the selection term decouples
+    # and mu collapses to the ordinary random-effects pool, so picking valid[0]
+    # returned the naive pool mislabelled as Copas-corrected.
     valid = [r for r in results if np.isfinite(r["mu"])]
     mus = [r["mu"] for r in valid] if valid else [float("nan")]
     z = norm.ppf(0.975)
-    best = valid[0] if valid else {"mu": float("nan"), "se": float("nan")}
+    scored = [r for r in valid if np.isfinite(r["nll"])]
+    if scored:
+        best = min(scored, key=lambda r: r["nll"])
+    elif valid:
+        best = valid[0]
+    else:
+        best = {"mu": float("nan"), "se": float("nan"), "rho": float("nan")}
     return {
         "mu": best["mu"],
         "se": best["se"],
         "ci_low": best["mu"] - z * best["se"],
         "ci_high": best["mu"] + z * best["se"],
+        "rho_selected": best.get("rho", float("nan")),
         "sensitivity_range": (min(mus), max(mus)),
         "rho_grid_results": results,
     }
