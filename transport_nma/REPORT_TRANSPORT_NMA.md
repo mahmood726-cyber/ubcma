@@ -257,3 +257,28 @@ interventions → comparator + sign, de-duplicating dose-subgroup analyses, and 
 free-text `groups_description` — the "coherent grouping can't be rushed" hazard. The two clean real
 networks (senn2013 continuous, linde2015 log-OR) stand; a third is left for a careful non-rushed
 extraction rather than shipping a fragile network.*
+
+## Fourth domain — antihypertensives / systolic BP: HONEST NEGATIVE (does NOT reproduce, 2026-07-04)
+`aact_kappa_bp.py` applies the machinery to antihypertensive therapy (systolic-BP change in mmHg — a
+standardised single-unit endpoint, chosen because the domain has 6–8 drug classes, to fix the lipid
+"too few classes" limitation). **It does not reproduce**, and we report it plainly:
+
+- The per-class registered-vs-published |SBP-MD| gaps are **mostly ≤ 0** — ARB −0.13 [−0.24, 0.00],
+  diuretic −0.27 [−0.38, −0.15] (CI excludes 0 in the *wrong* direction), CCB +0.17 [−0.07, +0.48];
+  the scale-invariant z-gap is similar (ARB +0.17, diuretic +0.07, CCB +0.58*, others negative). This is
+  the opposite of the positive inflation seen in diabetes / antidepressants / lipids.
+- Only 3 classes clear min(n) ≥ 8 (ARB, CCB, diuretic) and their severities are near-tied (1−λ ≈
+  0.71–0.76), so the class-level corr(κ, 1−λ) is **uninformative**: +0.52 (MD) / +0.40 (z) but with a
+  bootstrap CI spanning the whole [−1, +1] — noise on three near-collinear points, not a reproduction.
+
+**Verdict — honest non-reproduction; the external-validation is real but NOT universal.** The
+"published effects are inflated" signal holds cleanly in diabetes (7 classes, +0.50), antidepressants
+(scale-invariant, +0.64) and lipids (statin/ezetimibe robustly positive), but **not** in antihypertensive
+SBP, where the gaps are mostly null-to-negative. We do **not** over-diagnose the cause: a check of
+comparator type (fraction of analyses explicitly naming placebo) did not cleanly separate BP (12%) from
+diabetes (15%), so the tidy "active-comparator contamination" story is not supported by the data and is
+not claimed. The honest statement is that the registered-vs-published gap is a **real but
+domain-dependent** phenomenon — consistent with the reporting-bias literature, where some fields show
+strong selective-reporting inflation and others little — and antihypertensive SBP is a field where it
+does not appear on this snapshot. Bounds the external-validation claim to the domains where it is
+demonstrated. Artifacts `aact_kappa_bp.json`.
