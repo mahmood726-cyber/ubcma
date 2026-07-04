@@ -246,3 +246,10 @@ established in diabetes (7 classes, +0.50), suggestive in antidepressants (3 cla
 **not testable in lipids** for lack of registered-only spread across classes — an honest data limitation
 (publication-saturated domains cannot supply the contrast), not a negative result. Artifacts
 `aact_kappa_lipid.json`.
+
+*A lipid LDL star-network truth-gate (a third real NETWORK, continuous scale) was scoped but DEFERRED
+truth-first: a clean placebo-anchored class-vs-placebo network requires resolving each trial's arms →
+interventions → comparator + sign, de-duplicating dose-subgroup analyses, and unit QC from AACT's sparse
+free-text `groups_description` — the "coherent grouping can't be rushed" hazard. The two clean real
+networks (senn2013 continuous, linde2015 log-OR) stand; a third is left for a careful non-rushed
+extraction rather than shipping a fragile network.*
