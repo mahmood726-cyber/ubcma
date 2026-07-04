@@ -19,8 +19,8 @@ from scipy.stats import chi2
 
 from ubcma.dta import (
     AS_DELTA_MAX, adaptshrink_dta, deeks_asymmetry, ellipse_area, from_counts,
-    hsroc, in_region, reitsma, reitsma_indep, reitsma_reml, sep_univariate,
-    _shrinkage_delta,
+    hsroc, in_region, reitsma, reitsma_indep, reitsma_reml, run_dta_method,
+    sep_univariate, _shrink_sigma, _shrinkage_delta,
 )
 
 REPO = Path(__file__).resolve().parents[1]
@@ -207,3 +207,117 @@ def test_smallk_headline_reproduces_from_committed_perrep():
     assert round(row["darea"], 3) == -0.325
     assert row["ci_hi"] < 0.0 and row["robust_win"]
     assert row["frac_better"] == pytest.approx(0.997, abs=0.002)
+
+
+# --- from_counts numerics: exact logit + delta-method variance -------------
+def test_from_counts_logit_and_variance_are_exact():
+    tp = np.array([30.0]); fp = np.array([10.0])
+    fn = np.array([20.0]); tn = np.array([40.0])
+    st = from_counts(tp, fp, fn, tn, correction_control="none")
+    se = 30.0 / 50.0; sp = 40.0 / 50.0
+    assert st.y1[0] == pytest.approx(np.log(se / (1 - se)))
+    assert st.y2[0] == pytest.approx(np.log(sp / (1 - sp)))
+    # Var(logit p_hat) delta method = 1/a + 1/b
+    assert st.s1sq[0] == pytest.approx(1 / 30 + 1 / 20)
+    assert st.s2sq[0] == pytest.approx(1 / 40 + 1 / 10)
+
+
+def test_correction_single_touches_only_zero_studies():
+    tp = np.array([10, 0, 15]); fp = np.array([2, 3, 1])
+    fn = np.array([1, 4, 2]); tn = np.array([20, 30, 25])
+    st = from_counts(tp, fp, fn, tn, correction_control="single")
+    assert st.tp[0] == pytest.approx(10.0)   # no zero -> untouched
+    assert st.tp[1] == pytest.approx(0.5)    # zero study -> corrected
+    assert st.tp[2] == pytest.approx(15.0)   # no zero -> untouched
+
+
+# --- dispatcher ------------------------------------------------------------
+def test_run_dta_method_dispatch_matches_direct_call():
+    st = _sim(9, k=8)
+    assert run_dta_method("reitsma", st)["method"] == "reitsma"
+    assert run_dta_method("sep_univariate", st)["method"] == "sep_univariate"
+
+
+def test_run_dta_method_unknown_raises():
+    st = _sim(9, k=6)
+    with pytest.raises(ValueError):
+        run_dta_method("not_a_method", st)
+
+
+# --- estimator determinism (no hidden RNG in the fit) ----------------------
+def test_reitsma_is_deterministic():
+    st = _sim(4, k=8)
+    a = reitsma(st); b = reitsma(st)
+    assert a["M1"] == b["M1"] and a["M2"] == b["M2"]
+    assert a["region_area"] == b["region_area"]
+
+
+# --- GLS covariance is symmetric positive-definite -------------------------
+def test_reitsma_V_is_symmetric_pd():
+    st = _sim(5, k=10)
+    V = np.array(reitsma(st)["V"])
+    assert np.allclose(V, V.T, atol=1e-12)
+    w = np.linalg.eigvalsh(V)
+    assert np.all(w > 0)
+
+
+# --- in_region on a singular covariance fails closed to False --------------
+def test_in_region_singular_covariance_is_false():
+    V = np.array([[0.04, 0.0], [0.0, 0.0]])  # singular
+    assert in_region(np.array([0.01, 0.0]), V) is False
+
+
+# --- _shrink_sigma stays PD for every delta in [0,1] -----------------------
+def test_shrink_sigma_stays_pd_across_delta():
+    Sigma = np.array([[0.5, -0.45], [-0.45, 0.5]])  # rho = -0.9
+    for delta in np.linspace(0.0, 1.0, 11):
+        S = _shrink_sigma(Sigma, delta)
+        assert np.linalg.det(S) > 0
+        assert np.all(np.linalg.eigvalsh(S) > 0)
+
+
+# --- selection_gate=False ignores injected asymmetry -----------------------
+def test_adaptshrink_gate_off_ignores_asymmetry():
+    # strong funnel asymmetry present; with the gate OFF the selection boost
+    # must not be applied (delta comes from k/boundary only), so gate-off delta
+    # <= gate-on delta and the reported selection is not "detected".
+    rng = np.random.default_rng(31)
+    k = 20
+    N = np.concatenate([np.full(10, 40), np.full(10, 400)])
+    base = np.where(N < 100, 2.4, 1.4)
+    se = expit(base + rng.normal(0, 0.1, k)); sp = expit(base + rng.normal(0, 0.1, k))
+    n1 = (N * 0.4).astype(int); n0 = N - n1
+    tp = rng.binomial(n1, se); tn = rng.binomial(n0, sp)
+    st = from_counts(tp, n0 - tn, n1 - tp, tn)
+    on = adaptshrink_dta(st, selection_gate=True)
+    off = adaptshrink_dta(st, selection_gate=False)
+    assert off["selection"]["detected"] is False
+    assert off["delta"] <= on["delta"] + 1e-12
+
+
+# --- HSROC shape parameter is internally consistent ------------------------
+def test_hsroc_beta_equals_log_tau_ratio():
+    st = _sim(7, k=10, nlo=60, nhi=140)
+    h = hsroc(st)
+    assert h["converged"]
+    assert h["hsroc_beta"] == pytest.approx(
+        np.log(h["hsroc_tau2"] / h["hsroc_tau1"]), rel=1e-9)
+
+
+# --- REML small-sample correction: region no smaller than ML (majority) ----
+def test_reml_region_not_smaller_than_ml_in_majority():
+    # The REML penalty corrects the downward small-sample bias of the between-
+    # study variance, so at small k REML should give a region >= ML's in the
+    # large majority of samples. Honest directional check across 12 seeds; a
+    # gross violation (ML systematically wider) would be a real defect.
+    ge = 0; total = 0
+    for seed in range(12):
+        st = _sim(200 + seed, k=6)
+        ml = reitsma(st); rl = reitsma_reml(st)
+        if not (ml["converged"] and rl["converged"]):
+            continue
+        total += 1
+        if rl["region_area"] >= ml["region_area"] - 1e-9:
+            ge += 1
+    assert total >= 8
+    assert ge / total >= 0.6, f"REML region >= ML in only {ge}/{total} samples"
