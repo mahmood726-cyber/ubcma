@@ -140,6 +140,25 @@ The boundary is therefore a smooth frontier, not a cliff: moderate selection rea
 
 The grid was preceded by a focused, higher-replication network-size sweep that first established the monotone-in-n mechanism as a falsifiable prediction (Table 4). Holding τ = 0.10, strong selection, dense full networks, at **1,200 matched-seed replicates each**, the dMCIW0 over n = 5, 6, 7, 8 was +0.016, −0.021, −0.028, −0.036, with the bootstrap CI upper bound moving monotonically below zero (+0.031, −0.003, −0.017, −0.025): the robust win emerges at n = 6 and strengthens through n = 8, with no win at n = 5. The external vendor "agy" independently reproduced these four dMCIW0 values to 4 decimal places (+0.0159, −0.0205, −0.0281, −0.0360) and the monotone-strengthening verdict. The 60-cell grid (600 replicates/cell) then extended this prediction across the full τ × selection × n plane and confirmed it, including the n = 10 and n = 12 extension and the no-selection and moderate-selection controls. (Source: `REPORT_NMA_PHASE3.md`; `nma/verify/result_agy_sweep.json`.) Note that the precursor sweep and the grid are *separate runs at different replicate counts*; the small numerical differences between, e.g., the precursor's n = 6 dMCIW0 (−0.021, 1,200 reps) and the grid's `t10_strong_n6` (−0.023, 600 reps) reflect that, and both are reported as run.
 
+### 4.5 Robustness across network sparsity (topology and studies-per-edge)
+
+The 60-cell grid holds geometry fixed at dense full networks with 8–15 studies per edge. Because real
+networks are usually sparser, we probed the two held-fixed sparsity dimensions with a **separate,
+internally-consistent harness** (`nma/topology_stress.py`, `topology_sweep.py`, `msweep.py`; n = 8, strong
+pre-declared small-study effect, `adaptshrink_nma_auto` vs common-DL, matched-coverage MCIW0 + paired
+bootstrap). This is a complementary relative comparison — it deliberately does not reproduce the grid's
+absolute numbers — and it returns a consistent picture. **Topology:** under strong selection the matched-
+coverage win is robust in all three topologies — dense (ΔMCIW0 −0.334), sparse **ladder**/chain (−0.385,
+the largest gain, because a chain has no triangulating indirect evidence so common-DL is most unstable),
+and **star** (−0.118). A B × topology region map refines this: the win *threshold* is topology-dependent —
+dense wins from moderate selection (B ≥ 0.5), while sparse ladder/star need strong selection (B = 1.0) — and
+at zero selection there is a small over-correction cost (largest on the ladder), consistent with the grid's
+no-selection control. **Studies-per-edge:** sweeping m = 1…8 (dense, strong selection) the win holds at
+*every* count including the hardest realistic case of a **single study per direct comparison** (m = 1:
+ΔMCIW0 −0.282 [−0.320, −0.253]), where common-DL is most unstable. So under sufficient selection the win is
+robust across all three orthogonal sparsity axes — network size (§4.1, §4.4), topology, and studies-per-edge
+— which is the regime real evidence networks occupy. (`nma/REPORT_NMA_TOPOLOGY.md`.)
+
 ## 5. Validation and reproducibility
 
 **Matched seeds.** Every cell uses the identical `BASE_SEED = 20260621`, so cross-cell trends are not seed noise; the per-replicate, per-contrast outputs are committed.
@@ -161,7 +180,7 @@ We restate the honest negatives in full; they bound the claim.
 - **Two boundary cells flip on the bootstrap RNG convention.** `t10_strong_n6` and `t05_moderate_n12` are flagged robust by the grid gate (which draws one shared `default_rng(7)` sequence across methods, with `auto` the third consumer) but not robust under the spec's per-method fresh-RNG convention used by the external vendors. They are reported transparently and excluded from the 18 unambiguous wins.
 - **Two point-dMCIW0 conventions** (calibration-split versus all-replicates bootstrap centre) differ by ≈0.004–0.01; the robust verdict is invariant to the choice, but the point number quoted depends on it.
 - **No-selection coverage dips slightly at high τ.** In the control cells, `adaptshrink_auto`'s deployable coverage runs ≈1–2 points *below* the field default at τ ≥ 0.20 (e.g. `t30_none_n8`: 0.930 vs 0.949) — both still near nominal, and since dMCIW0 is *positive* there (wider intervals) this is GLS calibration under heterogeneity, not a narrowing artifact. It warrants a footnote in any deployment.
-- **Single geometry and density.** The whole grid is dense full networks (8–15 studies/edge). Sparser or non-full geometries are out of scope here.
+- **Single geometry and density (grid); partially addressed in §4.5.** The 60-cell grid itself is dense full networks (8–15 studies/edge). A separate complementary harness (§4.5) shows the win survives sparse star/ladder topologies and studies-per-edge down to m = 1 under strong selection — but with a topology-dependent selection threshold and a fresh-harness (relative) rather than grid-identical protocol; a unified sparse-grid run remains future work.
 - **Single estimand family and metric focus.** The boundary is mapped for the basic contrasts under one effect-generating process and the MCIW0 point-efficiency metric; the own-width interval metric (MCIW) is reported in the committed gates but is a weaker, separate story at high τ. A fuller study would broaden geometry, density, effect metric (e.g. log-OR networks), and selection mechanism, and would re-run the grid gate with a per-method fresh RNG so the 60-cell flags are convention-invariant (reclassifying the two borderline cells as not robust, for an 18/60 unambiguous map).
 
 ## 7. Discussion
