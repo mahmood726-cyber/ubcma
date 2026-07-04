@@ -31,3 +31,10 @@ from this file as an empirical finding. If a media-violence illustration is want
 extract the real Anderson/Bartoš RoBMA dataset first.
 
 ## `simulated.csv`, `toy_studies.csv` — SYNTHETIC, for demos/tests only.
+
+## li2007_magnesium.csv
+Li J, Zhang Q, Zhang M, Egger M (2007), via `metadat::dat.li2007`. 22 RCTs of intravenous magnesium
+for acute myocardial infarction; binary 30-day mortality (ai/n1i magnesium, ci/n2i control). The
+classic publication-bias case: small early trials showed benefit, the ISIS-4 (N=58,050) and MAGIC
+(N=6,213) mega-trials showed no effect. Used in `truth-recovery/magnesium_realtest.py` as a real
+ground-truth-anchored external-validity test (mega-trials = truth). Public data, no auth.

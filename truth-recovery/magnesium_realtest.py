@@ -22,7 +22,9 @@ try:
 except Exception:
     pass
 
-LI = Path(r"F:\public-data\metadat\dat.li2007.csv")
+# prefer the committed in-repo copy (reproducible); fall back to the public-data staging dir
+_REPO = Path(__file__).resolve().parent.parent / "examples" / "li2007_magnesium.csv"
+LI = _REPO if _REPO.exists() else Path(r"F:\public-data\metadat\dat.li2007.csv")
 MEGA = {"ISIS-4", "MAGIC"}
 
 
