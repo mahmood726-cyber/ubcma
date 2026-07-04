@@ -356,6 +356,7 @@ independent code paths.
 
 ## Files
 `src/ubcma/dta.py` (estimators + regions) · `tests/test_dta.py` (16 tests) ·
+`tests/test_dta_stress.py` (20 edge-case/stress tests + shipped-headline guard) ·
 `dta_sim.py` (2×2 DGP) · `dta_bakeoff.py` (scorer + truth-gate) ·
 `dta_pilot_{perrep,table}.csv`, `dta_pilot_truthgate.json` ·
 `dta_full_{perrep,table}.csv`, `dta_full_truthgate.json` (full grid, 108 cells) ·
@@ -384,3 +385,30 @@ Independent re-run this session (separate writer, worktree `F:/ubcma-dta`):
   paired-bootstrap robust matched-coverage wins vs Henmi–Copas (CI<0), e.g. −0.28 [−0.42,−0.13]
   in the strong-selection small-k cells — 8 robust-win cells, already 3-vendor + from-scratch verified.
 DTA thread remains FINALIZED; no numbers changed.
+
+## Phase-C hardening (2026-07-04, single-writer DTA session)
+No-regression hardening pass; no shipped number moved.
+- **Full suite green:** `python -m pytest` → **166 passed, 6 skipped** (the 6 are
+  reference-file `skipif` gates outside DTA). DTA module alone: `pytest tests/test_dta.py`
+  → 16 passed.
+- **Shipped headline re-derived from committed raw data + committed code** (not
+  memory): reran `dta_bakeoff._bootstrap_mciw0` (seed 7) on the committed
+  `dta_smallk_perrep.csv`. The ROBUST headline reproduces **exactly** to reported
+  precision — k6_hi/strong AdaptShrink dArea = **−0.3252** (report −0.325),
+  CI **[−0.4446, −0.0708]** (report [−0.445, −0.071]), **P=0.997**; k6_thr/strong
+  −0.1333 (−0.133), k10_thr/strong −0.1264 (−0.126), and the honest robustly-WORSE
+  control k10_thr/none reitsma_indep +0.1064 (+0.106) all match to 3 dp. No drift.
+- **New `tests/test_dta_stress.py` (20 tests, all green):** k<2 fail-closed for
+  all six estimators; zero-cell/sparse-table convergence (all estimators finite,
+  region PD); HSROC on near-perfect-Se sparse tables (exact-binomial regime);
+  `from_counts` correction semantics (`none` keeps zeros, invalid control raises);
+  Deeks degenerate inputs (k<4, constant ESS) → NaN not crash; shrinkage-gate
+  invariants (δ clips at `AS_DELTA_MAX`; AdaptShrink never amplifies |ρ| and
+  preserves marginal between-study variances; `reitsma_indep` ρ≡0); region
+  geometry (area ∝ √det V scaling, χ²₂ threshold semantics, `in_region` scale
+  monotonicity); `sep_univariate` DL τ² floor on homogeneous data; and a
+  `@pytest.mark.slow` **regression guard** that re-derives the k6_hi headline from
+  the committed per-rep cloud so future code drift on the shipped number fails CI.
+- **Repro:** `python -m pytest tests/ -q` (fast, ~30 s for DTA stress with
+  `-m "not slow"`); `python -m pytest tests/test_dta_stress.py::test_smallk_headline_reproduces_from_committed_perrep`
+  runs the headline guard (bootstrap, ~1 min on one cell).
