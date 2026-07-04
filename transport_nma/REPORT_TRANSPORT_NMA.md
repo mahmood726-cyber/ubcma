@@ -222,3 +222,27 @@ second, independent therapeutic domain (Turner's own), robustly at the trial lev
 correlation is *suggestive*, not inferential; the robust evidence is the per-class trial-level gaps (SSRI,
 atypical). Diabetes (7 classes, +0.50) remains the primary validation; this is a corroborating second domain.
 Artifacts `aact_kappa_depression_std.json`.
+
+## Third domain — lipid-lowering / LDL-C: inflation REPRODUCES, severity-corr untestable (2026-07-04)
+`aact_kappa_lipid.py` applies the same machinery to lipid-lowering therapy (LDL-C change; classes statin
+/ ezetimibe / PCSK9 / fibrate / bile-acid / niacin), scale-invariant z-gap primary + a unit-clean
+percent-change |MD| secondary. Two honest findings:
+
+- **The published-vs-registered inflation reproduces robustly at the trial level.** In the two
+  adequately-powered classes, published trials report much larger LDL effects than registered-only —
+  z-gap **statin +1.23 [+0.81, +1.75]**, **ezetimibe +1.33 [+0.88, +1.89]**; percent-change |MD|
+  **statin +0.50 [+0.23, +0.85]**, **ezetimibe +0.45 [+0.20, +0.75]** — all four bootstrap CIs exclude 0.
+  A clean third-domain confirmation of the core "published effects are inflated" signal.
+- **The severity-tracking correlation corr(κ, 1−λ) is not testable here.** Only 2 classes clear the
+  min(n_pub, n_reg) ≥ 8 bar: lipid trials are largely *publication-saturated*, so the registered-only arm
+  is thin (PCSK9 268 published vs 6 registered-only; fibrate / bile-acid / niacin have **zero**
+  registered-only LDL analyses). Directionally the three classes with any data rank as the model predicts
+  (statin 1−λ = 0.73 → high κ, ezetimibe 0.62 → high κ, PCSK9 0.38 → κ ≈ 0.24 low), but PCSK9's n_reg = 6
+  is too thin to include, so no formal correlation is claimed.
+
+**Verdict.** The "published > registered" half of the registry model now reproduces across **three**
+domains (diabetes, antidepressants, lipids). The "gap grows with selection severity" correlation is
+established in diabetes (7 classes, +0.50), suggestive in antidepressants (3 classes, +0.64), and
+**not testable in lipids** for lack of registered-only spread across classes — an honest data limitation
+(publication-saturated domains cannot supply the contrast), not a negative result. Artifacts
+`aact_kappa_lipid.json`.
