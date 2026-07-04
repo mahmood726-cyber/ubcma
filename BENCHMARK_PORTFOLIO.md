@@ -24,6 +24,12 @@ Comparator: netmeta common-effect / common-DL baseline (Rücker; engine matches 
 matched-coverage win over common-DL at strong selection in the dense small-network regime (n6, reps=800:
 ΔMCIW0 −0.021 [−0.035, −0.001]); the win grows with network size (−0.021→−0.067, n6→n10) and is absent in
 consistency-only cells (where point estimators coincide — honest boundary). 32 tests green.
+**Topology stress test (2026-07-04):** the win GENERALISES beyond dense to sparse **star** and **ladder**
+networks under sufficient selection — but the region map (B×topology) shows the **selection threshold is
+topology-dependent**: dense wins from moderate selection (B≥0.5), sparse ladder/star need strong (B=1.0);
+largest gain on the sparse ladder (common-DL most unstable, MCIW0 3.33, no triangulation); a small
+over-correction cost at B=0 (mild, largest on ladder). Self-corrected a single-B over-claim truth-first.
+(`nma/REPORT_NMA_TOPOLOGY.md`, `topology_stress.py`/`topology_sweep.py`, tests green.)
 (`nma/REPORT_NMA_BAKEOFF.md`, committed gates.)
 
 ## 3. AdaptShrink-DTA — bivariate Se/Sp matched-coverage under selection
@@ -71,7 +77,16 @@ here):** a fixed external κ over-corrects at true B=0 (+0.05) — the selection
 in-data gate (network Egger) has fire-rate ≤0.04 regardless of B (funnel-orthogonal in Regime A, underpowered
 on ~20 studies in Regime B), so it can't distinguish B=0 from B>0. Deploy where selection is a priori expected.
 Dedicated manuscript `manuscript/Transport_NMA.{docx,md}` (14/14 citations verified).
-(`transport_nma/REPORT_TRANSPORT_NMA.md`, `aact_kappa*.py`.)
+**Hardened 2026-07-04:** (a) external cross-vendor **witness** — Codex gpt-5.5, zero-import, reproduced
+κ_pooled/corr to 4 dp + truth-gate relationship on its own NMA (CONFIRMS); (b) **4-domain external
+validation** of the registry-severity model — reproduces in diabetes (7 classes, +0.50, formal),
+antidepressants (scale-invariant +0.64), lipids (statin/ezetimibe robust) but **NOT** antihypertensive SBP
+(honest null → the gap is *real but domain-dependent*); (c) **scrambled-λ falsification** — decomposes the
+gain into a generic-shrinkage floor + a **significant registry-ordering component** (perm-p 0.025→0.000,
+grows with selection); (d) **published-definition sensitivity** — robust to the substantive split
+(DERIVED-only stronger, +0.73), flips under the RESULT-only poor proxy (reported, not tuned away);
+(e) honest **single-cell HC hedge** (negligible −0.008 HC win in the most extreme cell). Two real networks
+(senn2013, linde2015). (`transport_nma/REPORT_TRANSPORT_NMA.md`, `aact_kappa*.py`.)
 
 ## 6. Dose-response MA/NMA
 Comparators: `dosresmeta` (Crippa–Orsini; Greenland–Longnecker 1992), MBNMA (Mawdsley 2016) / netmeta,
