@@ -61,10 +61,16 @@ effect gap in AACT gives a frozen, oracle-free per-class inflation — `corr(κ_
 validates the (1−λ) severity model — and κ_pooled=0.158 **matches the oracle at B=0.15** (−0.119 vs −0.118)
 and WINS across B≥0.15 in both funnel regimes, beating the arbitrary fixed κ=0.5. So the correction is now
 *direction + calibrated magnitude*, not direction-only. The internal-funnel κ̂ was an honest negative;
-the external route works. **Residual (irreducible here):** a fixed external κ over-corrects at true B=0
-(+0.05) — the selection-*presence* question; the only in-data gate (network Egger) has fire-rate ≤0.04
-regardless of B (funnel-orthogonal in Regime A, underpowered on ~20 studies in Regime B), so it can't
-distinguish B=0 from B>0. Deploy where selection is a priori expected.
+the external route works. The **deployable** κ=0.158 (not the oracle) is in the same head-to-head and
+matches the oracle at B=0.15 (−0.119) / wins B=0.30 (−0.231), beating PET/TF/HC — so the win holds for
+the runnable method, not an oracle. **External validation replicates in a 2nd domain:** antidepressants
+(Turner's own), scale-invariant z-gap `corr(κ_z,1−λ)=+0.64` over 3 classes; published trials robustly
+larger std effects in the 2 best-powered classes (SSRI +0.69[+0.23,+1.29], atypical +1.18[+0.73,+1.86]),
+lowest-severity SNRI null — severity-consistent (raw HAM-D fails = scale artefact). **Residual (irreducible
+here):** a fixed external κ over-corrects at true B=0 (+0.05) — the selection-*presence* question; the only
+in-data gate (network Egger) has fire-rate ≤0.04 regardless of B (funnel-orthogonal in Regime A, underpowered
+on ~20 studies in Regime B), so it can't distinguish B=0 from B>0. Deploy where selection is a priori expected.
+Dedicated manuscript `manuscript/Transport_NMA.{docx,md}` (14/14 citations verified).
 (`transport_nma/REPORT_TRANSPORT_NMA.md`, `aact_kappa*.py`.)
 
 ## 6. Dose-response MA/NMA
