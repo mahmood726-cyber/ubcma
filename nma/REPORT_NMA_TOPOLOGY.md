@@ -19,12 +19,30 @@ bootstrap 97.5% CI on ΔMCIW0. 500 reps/topology.
 | ladder (chain) | 7 | 3.329 | 2.943 | **−0.385** | [−0.503, −0.272] | WINS |
 | star (all-vs-ref) | 7 | 0.914 | 0.796 | **−0.118** | [−0.138, −0.085] | WINS |
 
-**Verdict — the win GENERALISES across topology (tightens the boundary map).** Under a strong small-study
-effect the AdaptShrink-NMA matched-coverage win over common-DL is robust in **all three** topologies, not just
-dense. The gain is *largest* on the sparse **ladder**, where the common-DL baseline is most unstable (MCIW0
-3.33 — a chain has no triangulating indirect evidence, so DL's per-contrast estimates are wild and the
-shrinkage/small-study correction helps most), and smallest but still robust on the **star**. This extends the
-Phase-3 dense-only characterisation: topology is not a boundary of the win when real selection is present.
+**Verdict — the win GENERALISES across topology at STRONG selection.** Under a strong small-study effect the
+AdaptShrink-NMA matched-coverage win over common-DL is robust in **all three** topologies, not just dense. The
+gain is *largest* on the sparse **ladder**, where the common-DL baseline is most unstable (MCIW0 3.33 — a chain
+has no triangulating indirect evidence, so DL's per-contrast estimates are wild and the shrinkage/small-study
+correction helps most), and smallest but still robust on the **star**.
+
+**Region map — the selection THRESHOLD for the win IS topology-dependent (`topology_sweep.py`,
+`topology_sweep_result.json`, reps=300).** Sweeping B ∈ {0, 0.25, 0.5, 1.0} refines the single-B claim above
+and — truth-first — corrects a mild over-statement (it is not that "topology is never a boundary"; rather the
+*threshold* moves with topology):
+
+| topology | B=0 | B=0.25 | B=0.5 | B=1.0 |
+|---|---|---|---|---|
+| dense | +0.014 HARM | −0.004 tie | **−0.100 WIN** | −0.342 WIN |
+| ladder | +0.076 HARM | +0.032 HARM | −0.052 tie | −0.316 WIN |
+| star | +0.017 HARM | +0.028 HARM | +0.010 tie | −0.063 WIN |
+
+Reading: (i) the win emerges from **moderate** selection on **dense** networks (B ≥ 0.5) but requires **strong**
+selection on sparse **ladder/star** (B = 1.0) — dense is the most favourable topology, sparse the least, so
+topology sets *where the win kicks in*, not *whether* it eventually appears. (ii) At **B = 0** there is a
+**small over-correction cost** (mild HARM, +0.01 to +0.08), largest on the ladder — the honest price of the
+auto-gate not being perfectly inert on a chain with no triangulation. So the correct claim is: the win holds
+across topologies **under sufficient selection**, with a topology-dependent threshold and a small no-selection
+cost — a tightened, honestly-bounded extension of the Phase-3 dense characterisation, not an unconditional one.
 
 **Honest caveats.** (i) Fresh internally-consistent harness — relative topology comparison, not the Phase-3
 absolutes. (ii) The win requires a *real* small-study effect: an earlier run with a near-negligible selection
