@@ -306,3 +306,24 @@ truth-gate. Honest two-part decomposition:
 under a scrambled λ) plus a **statistically significant registry-ordering component** that grows with
 selection strength. Reported truth-first: the registry signal is doing real, ordering-specific work, but it
 is not the sole driver — an honest decomposition, not an over-claim. Artifacts `aact_kappa_scramble_result.json`.
+
+## Robustness to the 'published' definition — honest sensitivity (2026-07-04)
+The external magnitude rests on splitting trials into published vs registered-only via PubMed linkage.
+`aact_kappa_sensitivity.py` recomputes κ_pooled and corr(κ_MD, 1−λ) under three definitions:
+
+| 'published' = | κ_pooled | corr | classes |
+|---|---|---|---|
+| DERIVED or RESULT (main, pre-specified) | 0.158 | **+0.50** | 7 |
+| DERIVED only (NLM auto-linkage) | 0.118 | **+0.73** | 7 |
+| RESULT only (sponsor-added citations) | 0.347 | **−0.33** | 6 |
+
+**Honest reading.** The result is **robust to the substantive definition and, under DERIVED-only, stronger**:
+DERIVED linkage means a publication genuinely cites the trial's NCT — the closest available "reached the
+literature" signal — and it gives corr +0.73 (vs +0.50 for the union). It is **sensitive to RESULT-only**,
+which flips to −0.33. That flip is the *expected behaviour of a poor proxy*, not a contradiction: sponsor-
+added RESULT citations are a sparse, idiosyncratic subset, so under RESULT-only the "registered-only" arm is
+heavily contaminated by trials that ARE published (captured by DERIVED but lacking a sponsor citation),
+destroying the contrast. This is precisely why the pre-specified definition uses the DERIVED-or-RESULT union
+(dominated by the substantive DERIVED signal). We report the RESULT-only divergence rather than hide it, and
+do not switch the primary to the stronger DERIVED-only (that would be tuning to the best result); the
+pre-specified union stands, and the substantive signal is robust. Artifacts `aact_kappa_sensitivity_result.json`.

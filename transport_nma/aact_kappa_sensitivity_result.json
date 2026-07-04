@@ -1,0 +1,17 @@
+{
+ "both (main: DERIVED or RESULT)": {
+  "kappa_pooled": 0.15759491144471893,
+  "corr": 0.5014226365552306,
+  "n_classes": 7
+ },
+ "RESULT only (stricter)": {
+  "kappa_pooled": 0.34677637903486896,
+  "corr": -0.3320042270117334,
+  "n_classes": 6
+ },
+ "DERIVED only (NLM auto)": {
+  "kappa_pooled": 0.11791608879447231,
+  "corr": 0.7308364680835817,
+  "n_classes": 7
+ }
+}
