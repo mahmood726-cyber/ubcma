@@ -97,7 +97,11 @@ gives the same qualitative picture: registry-λ WINS at B>0, PET still HARMS eve
 
 **Verdict.** The **external registry-λ correction beats every internal funnel-based published selection
 model** (PET, trim-and-fill, Henmi–Copas; Copas-Shi infeasible), in BOTH the funnel-invisible and
-funnel-visible regimes, and is exactly inert at B=0. **PET over-corrects catastrophically** because a
+funnel-visible regimes, and is exactly inert at B=0. **Honest single-cell exception (cross-vendor flagged):**
+Henmi–Copas posts a *negligible* formal win (ΔMCIW0 −0.008 [−0.023,−0.001]) in the single most extreme cell
+(B=0.30, Regime B) — within Monte-Carlo noise and an order of magnitude below the registry correction's
+margin there — so the blanket phrase "no internal model ever wins" is strictly over-broad; HC is still not a
+deployable alternative (inert-to-harmful in every other cell). **PET over-corrects catastrophically** because a
 per-treatment funnel regression on 3–6 studies has ruinous SE→0-intercept variance — the network is too
 sparse per treatment for an internal estimate. The registry λ carries the *direction/ranking* of
 selection severity as an external, near-zero-sampling-variance signal the internal methods cannot
