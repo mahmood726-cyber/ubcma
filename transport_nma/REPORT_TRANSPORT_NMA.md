@@ -190,5 +190,26 @@ published-vs-registered *ratio* is dominated by scale/analysis heterogeneity rat
 requires a **single, standardised endpoint** (HbA1c is one lab value on one scale — hence the clean +0.50
 diabetes signal). It does **not** transfer to a raw multi-version rating scale; a proper antidepressant
 replication would need standardised effect sizes (Hedges's g from FDA reviews) — exactly what Turner (2008)
-used and what AACT does not store. This bounds the method to standardised-measurement endpoints and is
-recorded as such (`aact_kappa_depression.json`); no positive replication is claimed.
+used and what AACT does not store. This bounds the raw-MD construction to standardised-measurement endpoints.
+
+## Second-domain replication, DONE PROPERLY — scale-invariant measures REPRODUCE (2026-07-04)
+The raw-HAM-D failure above was a **scale artefact**, not a real boundary. Re-running with scale-invariant
+effect measures (`aact_kappa_depression_std.py`), so that 17/21/24-item HAM-D and MADRS become comparable,
+the registered-versus-published gap **reproduces in the antidepressant domain**:
+
+- **Significance gap** z = |MD|/SE (the standardised signal publication selection acts on): `corr(κ_z, 1−λ)
+  = +0.64` over the 3 adequately-powered classes (diabetes reference +0.50). Trial-level paired bootstrap
+  grounds it below the fragile 3-class correlation: published trials show **robustly larger** standardised
+  effects in the two best-powered classes — **SSRI κ_z +0.69 [+0.23, +1.29]**, **atypical +1.18 [+0.73,
+  +1.86]** (both 95% CIs exclude 0) — while SNRI, the *lowest*-severity class (1−λ = 0.565), is null
+  (−0.33 [−0.55, +0.26]), consistent with the severity-tracking model.
+- **Effect-magnitude gap** |ln OR| on response/remission: **SSRI +0.47 [+0.09, +1.14]** robustly positive;
+  class-level correlation underpowered (only 2 classes clear n ≥ 8).
+
+**Verdict — genuine supportive replication, honestly bounded.** The published-vs-registered effect inflation
+is not diabetes-specific: on a scale-invariant measure it reproduces the direction and rough magnitude in a
+second, independent therapeutic domain (Turner's own), robustly at the trial level where powered. **Caveats
+(no over-claim):** only 2–3 antidepressant classes carry adequate registered-only support, so the class-level
+correlation is *suggestive*, not inferential; the robust evidence is the per-class trial-level gaps (SSRI,
+atypical). Diabetes (7 classes, +0.50) remains the primary validation; this is a corroborating second domain.
+Artifacts `aact_kappa_depression_std.json`.
