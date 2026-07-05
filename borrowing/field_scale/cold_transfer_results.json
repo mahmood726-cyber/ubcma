@@ -1,0 +1,214 @@
+{
+  "setup": {
+    "block_nodes": 524,
+    "corpus_lor": 380,
+    "aact_nodes": 144,
+    "aact_mas": [
+      "aact_carcinoma_antibodies",
+      "aact_carcinoma_guanine",
+      "aact_carcinoma_taxoids",
+      "aact_depressive_piperazine",
+      "aact_diabetesme_glucagon-l",
+      "aact_diabetesme_insulin",
+      "aact_diabetesme_purines",
+      "aact_diabetesme_thiophenes",
+      "aact_diabetesme_triazoles",
+      "aact_hepatitisc_ribonucleo",
+      "aact_intestinal_antibodies",
+      "aact_neoplasmsb_antibodies",
+      "aact_spondylart_secukinuma"
+    ]
+  },
+  "COLD LOMO (all AACT)": {
+    "learned_mae": 0.778330876033396,
+    "within_mae": 0.6267987876843217,
+    "delta": 0.15153208834907447,
+    "lo": 0.0500599220751229,
+    "hi": 0.26343302344859976,
+    "n": 144,
+    "verdict": "within better"
+  },
+  "COLD clinical_medicine": {
+    "learned_mae": 0.9762476104939898,
+    "within_mae": 0.7093245845113852,
+    "delta": 0.26692302598260464,
+    "lo": 0.08626787946039918,
+    "hi": 0.4648166720575202,
+    "n": 77,
+    "verdict": "within better"
+  },
+  "COLD infectious_disease": {
+    "learned_mae": 0.7131554683153789,
+    "within_mae": 0.5049811432814478,
+    "delta": 0.20817432503393096,
+    "lo": -0.020159860039655253,
+    "hi": 0.39997281474282265,
+    "n": 10,
+    "verdict": "n.s. (tie)"
+  },
+  "COLD oncology": {
+    "learned_mae": 0.5238627953810463,
+    "within_mae": 0.5427024877715867,
+    "delta": -0.01883969239054042,
+    "lo": -0.05574165564107533,
+    "hi": 0.019877263210511618,
+    "n": 49,
+    "verdict": "n.s. (tie)"
+  },
+  "COLD psychiatry": {
+    "learned_mae": 0.5134685604933441,
+    "within_mae": 0.49984988569292765,
+    "delta": 0.013618674800416466,
+    "lo": -0.16560773242048593,
+    "hi": 0.1943437843513098,
+    "n": 8,
+    "verdict": "n.s. (tie)"
+  },
+  "COLD corpus-only (all AACT)": {
+    "learned_mae": 1.291009205349749,
+    "within_mae": 0.6267987876843217,
+    "delta": 0.6642104176654272,
+    "lo": 0.495384494417804,
+    "hi": 0.8382771773627093,
+    "n": 144,
+    "verdict": "within better"
+  },
+  "WARM kfold (all AACT)": {
+    "learned_mae": 0.5779752127149571,
+    "within_mae": 0.6267987876843217,
+    "delta": -0.04882357496936455,
+    "lo": -0.10015510025422672,
+    "hi": 0.0027701518888774723,
+    "n": 144,
+    "verdict": "n.s. (tie)"
+  },
+  "SCRAMBLED cold (all AACT)": {
+    "learned_mae": 0.8871389513000049,
+    "within_mae": 0.6267987876843217,
+    "delta": 0.2603401636156833,
+    "lo": 0.13562741992023525,
+    "hi": 0.39081226762383225,
+    "n": 144,
+    "verdict": "within better"
+  },
+  "cold_vs_scrambled": {
+    "delta": -0.10880807526660886,
+    "lo": -0.18705497491943449,
+    "hi": -0.030044695572052724,
+    "n": 144,
+    "verdict": "real beats scrambled"
+  },
+  "per_ma": [
+    {
+      "ma": "aact_carcinoma_antibodies",
+      "specialty": "oncology",
+      "k": 9,
+      "learned": 0.5529237127368529,
+      "within": 0.6138637818757817,
+      "delta": -0.0609400691389288
+    },
+    {
+      "ma": "aact_carcinoma_guanine",
+      "specialty": "oncology",
+      "k": 10,
+      "learned": 0.4449082777447858,
+      "within": 0.47280231895134917,
+      "delta": -0.027894041206563358
+    },
+    {
+      "ma": "aact_carcinoma_taxoids",
+      "specialty": "oncology",
+      "k": 10,
+      "learned": 0.6467748762256578,
+      "within": 0.6072078703792451,
+      "delta": 0.039567005846412706
+    },
+    {
+      "ma": "aact_depressive_piperazine",
+      "specialty": "psychiatry",
+      "k": 8,
+      "learned": 0.5134685604933441,
+      "within": 0.49984988569292765,
+      "delta": 0.013618674800416453
+    },
+    {
+      "ma": "aact_diabetesme_glucagon-l",
+      "specialty": "clinical_medicine",
+      "k": 12,
+      "learned": 2.4765255184434607,
+      "within": 0.8586116027653897,
+      "delta": 1.6179139156780709
+    },
+    {
+      "ma": "aact_diabetesme_insulin",
+      "specialty": "clinical_medicine",
+      "k": 19,
+      "learned": 0.8938606991164011,
+      "within": 0.5988435082653448,
+      "delta": 0.29501719085105627
+    },
+    {
+      "ma": "aact_diabetesme_purines",
+      "specialty": "clinical_medicine",
+      "k": 20,
+      "learned": 0.6111503578453789,
+      "within": 0.9216065101438715,
+      "delta": -0.31045615229849266
+    },
+    {
+      "ma": "aact_diabetesme_thiophenes",
+      "specialty": "clinical_medicine",
+      "k": 8,
+      "learned": 0.8121142188209385,
+      "within": 0.4814082118981483,
+      "delta": 0.3307060069227902
+    },
+    {
+      "ma": "aact_diabetesme_triazoles",
+      "specialty": "clinical_medicine",
+      "k": 8,
+      "learned": 0.48205631750988065,
+      "within": 0.5800449327094607,
+      "delta": -0.09798861519958002
+    },
+    {
+      "ma": "aact_hepatitisc_ribonucleo",
+      "specialty": "infectious_disease",
+      "k": 10,
+      "learned": 0.7131554683153789,
+      "within": 0.5049811432814478,
+      "delta": 0.20817432503393107
+    },
+    {
+      "ma": "aact_intestinal_antibodies",
+      "specialty": "oncology",
+      "k": 10,
+      "learned": 0.4238557699882256,
+      "within": 0.4432856779022322,
+      "delta": -0.019429907914006617
+    },
+    {
+      "ma": "aact_neoplasmsb_antibodies",
+      "specialty": "oncology",
+      "k": 10,
+      "learned": 0.5537574319452899,
+      "within": 0.583468919159745,
+      "delta": -0.029711487214455046
+    },
+    {
+      "ma": "aact_spondylart_secukinuma",
+      "specialty": "clinical_medicine",
+      "k": 10,
+      "learned": 0.5893035055949953,
+      "within": 0.6012871757412133,
+      "delta": -0.011983670146217928
+    }
+  ],
+  "coverage": {
+    "raw_cover": 0.8333333333333334,
+    "raw_width": 2.6500223988676854,
+    "conf_cover": 0.8958333333333334,
+    "conf_width": 3.36554769277034,
+    "n": 144
+  }
+}

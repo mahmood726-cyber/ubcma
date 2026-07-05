@@ -1,0 +1,158 @@
+ma,family,specialty,yi,se,year,nct,condition,intervention,prespecified,corpus_specialty
+aact_diabetesme_purines,LOR,clinical_medicine,1.4648744612427478,0.34027136152057574,2009,NCT00954447,diabetes mellitus,purines,1,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.0780693874367804,0.3668451495818325,2009,NCT00996658,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,0.9270328284060573,0.26826026262389296,2010,NCT01214239,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.0539635369992277,0.3059238677425737,2008,NCT00621140,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,-0.4246479275249383,0.14320400675787032,2008,NCT00622284,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.4019216170055897,0.42568323908538747,2010,NCT01194830,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.3397267253035559,0.3326423764903993,2008,NCT00602472,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.4804675311371402,0.30649503888085783,2008,NCT00601250,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,-0.2033409240180301,1.5120958733326912,2008,NCT00800683,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.6034198401085373,0.6449401538983166,2010,NCT01215097,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.0399232923194301,0.2663606516276617,2012,NCT01708902,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.0299764962779716,0.36344237881924546,2008,NCT00740051,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.2587450401729154,0.3574936417845367,2008,NCT00798161,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.2513333756857736,0.3056624477954735,2011,NCT01422876,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.634130525024472,0.3181914343654321,2008,NCT00819091,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,2.118542055301751,0.468494402111276,2010,NCT01084005,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,2.921816590603823,1.0511627248133282,2006,NCT00309608,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,1.3166762942390207,0.2464201730737978,2014,NCT02240680,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,0.5838901946229957,0.5001241123062866,2016,NCT02897349,diabetes mellitus,purines,0,1
+aact_diabetesme_purines,LOR,clinical_medicine,0.009950330853168092,0.08069978089071674,2010,NCT01243424,diabetes mellitus,purines,0,1
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,0.09531017980432493,0.42058390832479337,2008,NCT00749944,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,0.5709795465857378,0.21048211347519077,2008,NCT00717093,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,1.1600209167967532,0.24662991798504078,2006,NCT00282984,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,0.1823215567939546,0.19229225851138998,2012,NCT01553084,health behavior,benzazepines,1,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,1.5216989981260935,0.13592202068187487,2011,NCT01370356,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,1.9572739077056285,0.24970129466057192,2010,NCT01244061,health behavior,benzazepines,1,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,1.6094379124341003,0.20943766276972944,2008,NCT00594204,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,1.5912739418064292,0.25775260749519713,2008,NCT00691483,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,1.556037135706985,0.7784411701777653,2008,NCT00644969,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,0.37843643572024505,0.3606426818194206,2011,NCT01312909,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,1.3962446919730587,0.3268413720261522,2006,NCT00285012,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,0.8586616190375187,0.2665379545023424,2010,NCT01078298,health behavior,benzazepines,0,0
+aact_healthbeha_benzazepin,LOR,clinical_behavioral,0.7654678421395714,0.08503410842520237,2011,NCT01456936,health behavior,benzazepines,0,0
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,3.779405480813307,0.32936652678044637,2019,NCT04093752,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,3.8057732055854356,0.33938612345793506,2019,NCT03861052,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,2.222459048514761,0.19383340705743843,2018,NCT03730662,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,3.4326960487215263,0.6377462306324125,2023,NCT05963022,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,4.034948352265444,0.9137962583747405,2017,NCT03311724,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,1.1085626195212777,0.21964227714870604,2019,NCT03987919,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,3.393837027255863,0.24715674753229752,2019,NCT03882970,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,2.73046379593911,0.6166339484607541,2022,NCT05564039,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,3.5319332036512097,0.26673835728894363,2021,NCT04657003,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,3.6958550678503617,0.8416797355374992,2019,NCT03954834,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,2.8273136219290276,0.19902369729836014,2020,NCT04537923,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_diabetesme_glucagon-l,LOR,clinical_medicine,3.6315151367243654,0.463485818277335,2019,NCT04039503,diabetes mellitus,glucagon-like peptide-1 receptor,0,1
+aact_carcinoma_taxoids,LOR,oncology,2.0844290831908747,0.3931883809027752,2017,NCT03358875,"carcinoma, bronchogenic",taxoids,0,1
+aact_carcinoma_taxoids,LOR,oncology,-0.3011050927839216,0.37961846931055754,2014,NCT02038647,"carcinoma, bronchogenic",taxoids,0,1
+aact_carcinoma_taxoids,LOR,oncology,1.5432981099295553,0.30793752874633784,2021,NCT04685135,"carcinoma, bronchogenic",taxoids,0,1
+aact_carcinoma_taxoids,LOR,oncology,0.5158131652770298,0.19103866027152688,2004,NCT00112294,"carcinoma, bronchogenic",taxoids,0,1
+aact_carcinoma_taxoids,LOR,oncology,-0.31471074483970024,0.3571717884348742,2016,NCT02654587,"carcinoma, bronchogenic",taxoids,0,1
+aact_carcinoma_taxoids,LOR,oncology,0.5653138090500605,0.24843838748500507,2015,NCT02395172,"carcinoma, bronchogenic",taxoids,0,1
+aact_carcinoma_taxoids,LOR,oncology,-0.2613647641344075,0.31255038909912713,2023,NCT05775289,"carcinoma, bronchogenic",taxoids,1,1
+aact_carcinoma_taxoids,LOR,oncology,0.4762341789963717,0.24571224914600517,2013,NCT01933932,"carcinoma, bronchogenic",taxoids,0,1
+aact_carcinoma_taxoids,LOR,oncology,0.494696241836107,0.11424002162017917,2008,NCT00805194,"carcinoma, bronchogenic",taxoids,0,1
+aact_carcinoma_taxoids,LOR,oncology,-0.12783337150988489,0.3172513905628069,2020,NCT04471428,"carcinoma, bronchogenic",taxoids,0,1
+aact_neoplasmsb_antibodies,LOR,oncology,-0.843970070294529,0.2430295616550808,2008,NCT00600340,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,1.1346227261911428,0.345032341617752,2019,NCT04109066,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,-0.4462871026284195,0.355638295539674,2016,NCT02823574,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,1.0581374561023913,0.2206523059265413,2004,NCT00122460,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,0.23901690047049992,0.46850232390887986,2004,NCT00091832,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,0.5822156198526637,0.1788431740575006,2008,NCT00567190,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,-0.616186139423817,0.230732881155314,2006,NCT00556374,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,0.28517894223366247,0.12932241925659332,2008,NCT00703326,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,0.24529635595534308,0.5669806631130229,2007,NCT00547157,neoplasms by site,"antibodies, monoclonal, humanized",0,1
+aact_neoplasmsb_antibodies,LOR,oncology,0.7542422799197561,0.49315052195252423,2007,NCT00463788,neoplasms by site,"antibodies, monoclonal, humanized",1,1
+aact_diabetesme_insulin,LOR,clinical_medicine,1.7227665977411035,0.2760553453621088,2014,NCT02152371,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,0.6729444732424258,0.24117074309323286,2007,NCT00418522,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.040821994520255166,0.1562573218159353,2014,NCT02229227,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.8255363686056909,0.47659496766523296,2009,NCT00911625,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,0.9516578757114463,0.1893410652959811,2022,NCT05413369,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,0.5877866649021191,0.2126718842462608,2015,NCT02551874,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,0.058268908123975824,0.2245854336080277,2007,NCT00548808,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.3285040669720361,0.1149042787324815,2003,NCT00069784,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,2.0268315914075385,0.2932689802750135,2020,NCT04591626,diabetes mellitus,"insulin, long-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,0.9321640810304452,0.24550129919192396,2010,NCT01075282,diabetes mellitus,"insulin, long-acting",0,1
+aact_carcinoma_guanine,LOR,oncology,1.5690324977990613,0.2652347273219752,2009,NCT00949650,"carcinoma, bronchogenic",guanine,0,1
+aact_carcinoma_guanine,LOR,oncology,1.8562979903656263,0.691356674570329,2015,NCT02337530,"carcinoma, bronchogenic",guanine,1,1
+aact_carcinoma_guanine,LOR,oncology,0.5364933705145685,0.31122335800437395,2007,NCT00520676,"carcinoma, bronchogenic",guanine,0,1
+aact_carcinoma_guanine,LOR,oncology,0.25464221837358075,0.1558470173793361,2008,NCT00806819,"carcinoma, bronchogenic",guanine,0,1
+aact_carcinoma_guanine,LOR,oncology,0.9162907318741551,0.6083402717749319,2006,NCT00391274,"carcinoma, bronchogenic",guanine,0,1
+aact_carcinoma_guanine,LOR,oncology,0.4762341789963717,0.2126899110793575,2019,NCT04035486,"carcinoma, bronchogenic",guanine,0,1
+aact_carcinoma_guanine,LOR,oncology,-0.040821994520255166,0.17304708150899753,2009,NCT00982111,"carcinoma, bronchogenic",guanine,0,1
+aact_carcinoma_guanine,LOR,oncology,0.29266961396282004,0.3175555287405722,2005,NCT00095199,"carcinoma, bronchogenic",guanine,0,1
+aact_carcinoma_guanine,LOR,oncology,0.5068176023684519,0.3306548677295619,2007,NCT00550173,"carcinoma, bronchogenic",guanine,0,1
+aact_carcinoma_guanine,LOR,oncology,0.20701416938432612,0.2658873735278267,2015,NCT02576574,"carcinoma, bronchogenic",guanine,0,1
+aact_intestinal_antibodies,LOR,oncology,1.673351238177753,0.2514054528274414,2006,NCT00339183,intestinal neoplasms,"antibodies, monoclonal, humanized",0,1
+aact_intestinal_antibodies,LOR,oncology,0.13976194237515863,0.16422608535366512,2010,NCT01001377,intestinal neoplasms,"antibodies, monoclonal, humanized",0,1
+aact_intestinal_antibodies,LOR,oncology,-0.8915981192837836,0.38518777105013957,2009,NCT00911170,intestinal neoplasms,"antibodies, monoclonal, humanized",1,1
+aact_intestinal_antibodies,LOR,oncology,0.5709795465857378,0.17479377588449918,2019,NCT04008030,intestinal neoplasms,"antibodies, monoclonal, humanized",0,1
+aact_intestinal_antibodies,LOR,oncology,0.2758118998812936,0.2496193637791438,2009,NCT00778830,intestinal neoplasms,"antibodies, monoclonal, humanized",1,1
+aact_intestinal_antibodies,LOR,oncology,0.62057648772511,0.3817602795752987,2007,NCT00508404,intestinal neoplasms,"antibodies, monoclonal, humanized",0,1
+aact_intestinal_antibodies,LOR,oncology,0.7371640659767196,0.3969331170767023,2012,NCT01622543,intestinal neoplasms,"antibodies, monoclonal, humanized",0,1
+aact_intestinal_antibodies,LOR,oncology,0.3364722366212129,0.1167498139987842,2004,NCT00154102,intestinal neoplasms,"antibodies, monoclonal, humanized",0,1
+aact_intestinal_antibodies,LOR,oncology,0.0769610411361284,0.3442035415146089,2009,NCT00819780,intestinal neoplasms,"antibodies, monoclonal, humanized",0,1
+aact_intestinal_antibodies,LOR,oncology,0.30010459245033816,0.1648349518870484,2006,NCT00364013,intestinal neoplasms,"antibodies, monoclonal, humanized",0,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,0.494696241836107,0.14276175285607304,2004,NCT00192647,hepatitis c,ribonucleosides,0,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,0.0769610411361284,0.09380906563229822,2004,NCT00081770,hepatitis c,ribonucleosides,1,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,0.5359084041334539,0.32174174768107394,2006,NCT00372385,hepatitis c,ribonucleosides,1,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,-0.3856624808119846,0.2954657317701049,2008,NCT00623428,hepatitis c,ribonucleosides,0,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,0.13976194237515863,0.26612287061325335,2006,NCT00353418,hepatitis c,ribonucleosides,1,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,0.6931471805599453,0.25672100041585133,2003,NCT00087646,hepatitis c,ribonucleosides,1,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,0.03825871211709027,0.1313929264004309,2007,NCT00394277,hepatitis c,ribonucleosides,0,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,-0.4307829160924542,0.11619487201692441,2003,NCT00077636,hepatitis c,ribonucleosides,0,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,1.3937663759585917,0.6216572163472163,2011,NCT01447420,hepatitis c,ribonucleosides,0,1
+aact_hepatitisc_ribonucleo,LOR,infectious_disease,0.9501122803496657,0.3389079914251393,2006,NCT00336479,hepatitis c,ribonucleosides,0,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,1.1755733298042381,0.311595806858942,2015,NCT02294227,spondylarthropathies,secukinumab,1,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,2.2669579153508947,0.45957244390412516,2016,NCT02662985,spondylarthropathies,secukinumab,0,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,1.5496879080283263,0.29025660490225735,2016,NCT02721966,spondylarthropathies,secukinumab,0,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,1.7101878155342434,0.2395831957520882,2011,NCT01392326,spondylarthropathies,secukinumab,1,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,1.5216989981260935,0.18904244732151265,2015,NCT02404350,spondylarthropathies,secukinumab,1,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,0.7701082216960737,0.24419635508663445,2016,NCT02696031,spondylarthropathies,secukinumab,0,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,0.9042181506398859,0.20532294891347747,2016,NCT02896127,spondylarthropathies,secukinumab,1,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,-0.5108256237659907,0.5186119597299667,2016,NCT02798211,spondylarthropathies,secukinumab,0,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,0.4885800148186709,0.322503799633762,2016,NCT02771210,spondylarthropathies,secukinumab,1,1
+aact_spondylart_secukinuma,LOR,clinical_medicine,1.0681530811834012,0.47355410737336706,2013,NCT01752634,spondylarthropathies,secukinumab,0,1
+aact_carcinoma_antibodies,LOR,oncology,1.7404661748405046,0.3004342991588618,2017,NCT02998528,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",0,1
+aact_carcinoma_antibodies,LOR,oncology,0.26236426446749106,0.5937042016949513,2018,NCT03382912,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",0,1
+aact_carcinoma_antibodies,LOR,oncology,-0.21072103131565253,0.28934287637866374,2013,NCT01951586,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",0,1
+aact_carcinoma_antibodies,LOR,oncology,0.4382549309311553,0.17101517107352376,2017,NCT03117049,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",0,1
+aact_carcinoma_antibodies,LOR,oncology,0.23901690047049992,0.26984942133926176,2017,NCT02864251,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",0,1
+aact_carcinoma_antibodies,LOR,oncology,0.14842000511827322,0.35475025408326916,2008,NCT00700180,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",1,1
+aact_carcinoma_antibodies,LOR,oncology,-0.35667494393873245,0.21296250956847929,2014,NCT02041533,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",0,1
+aact_carcinoma_antibodies,LOR,oncology,0.009950330853168092,0.23054299895193472,2016,NCT02810457,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",0,1
+aact_carcinoma_antibodies,LOR,oncology,1.8931119634883424,0.3415531043598306,2019,NCT04025879,"carcinoma, bronchogenic","antibodies, monoclonal, humanized",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.21072103131565253,0.28206626872041035,2019,NCT03952130,diabetes mellitus,"insulin, short-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.2231435513142097,0.32812105546540027,2019,NCT03740919,diabetes mellitus,"insulin, short-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,0.10436001532424286,0.16057217661618067,2022,NCT05462756,diabetes mellitus,"insulin, short-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.6296091597559575,0.2604481653049365,2011,NCT01445951,diabetes mellitus,"insulin, short-acting",1,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.07257069283483537,0.31958826243160654,2010,NCT01109316,diabetes mellitus,"insulin, short-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.10536051565782628,0.2229711692353831,2010,NCT01215955,diabetes mellitus,"insulin, short-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,0.01980262729617973,0.20147666550983942,2019,NCT03952143,diabetes mellitus,"insulin, short-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.2231435513142097,0.3648507232679429,2010,NCT01134107,diabetes mellitus,"insulin, short-acting",0,1
+aact_diabetesme_insulin,LOR,clinical_medicine,-0.8603830999358592,0.16273334976979467,2006,NCT00309244,diabetes mellitus,"insulin, short-acting",0,1
+aact_diabetesme_triazoles,LOR,clinical_medicine,1.3862943611198906,0.19941707706553408,2008,NCT00734474,diabetes mellitus,triazoles,0,1
+aact_diabetesme_triazoles,LOR,clinical_medicine,1.2809338454620642,0.3284937461503308,2006,NCT00395343,diabetes mellitus,triazoles,0,1
+aact_diabetesme_triazoles,LOR,clinical_medicine,-0.40047756659712525,0.17952607686707744,2008,NCT00701090,diabetes mellitus,triazoles,0,1
+aact_diabetesme_triazoles,LOR,clinical_medicine,2.0001277349601105,0.4631524029241681,2014,NCT02226003,diabetes mellitus,triazoles,0,1
+aact_diabetesme_triazoles,LOR,clinical_medicine,0.6931471805599453,0.19573195190464668,2008,NCT00532935,diabetes mellitus,triazoles,0,1
+aact_diabetesme_triazoles,LOR,clinical_medicine,1.0818051703517284,0.21954531634302565,2014,NCT02099110,diabetes mellitus,triazoles,0,1
+aact_diabetesme_triazoles,LOR,clinical_medicine,0.5877866649021191,0.16477198071090376,2010,NCT01137812,diabetes mellitus,triazoles,0,1
+aact_diabetesme_triazoles,LOR,clinical_medicine,0.7466879474879751,0.13156404873919714,2007,NCT00482729,diabetes mellitus,triazoles,1,1
+aact_depressive_piperazine,LOR,psychiatry,-0.7550225842780328,0.28648581061957745,2009,NCT00811252,depressive disorder,piperazines,0,1
+aact_depressive_piperazine,LOR,psychiatry,0.22314355131420976,0.202791959735024,2012,NCT01571453,depressive disorder,piperazines,0,1
+aact_depressive_piperazine,LOR,psychiatry,0.5810976767513224,0.22847507219139418,2015,NCT02389816,depressive disorder,piperazines,0,1
+aact_depressive_piperazine,LOR,psychiatry,0.29266961396282004,0.2331509725154898,2008,NCT00635219,depressive disorder,piperazines,0,1
+aact_depressive_piperazine,LOR,psychiatry,0.6043159668533296,0.18965856640707854,2012,NCT01488071,depressive disorder,piperazines,0,1
+aact_depressive_piperazine,LOR,psychiatry,1.1410330045520618,0.2417367408305628,2011,NCT01422213,depressive disorder,piperazines,0,1
+aact_depressive_piperazine,LOR,psychiatry,1.2119409739751128,0.23904179815151708,2010,NCT01140906,depressive disorder,piperazines,0,1
+aact_depressive_piperazine,LOR,psychiatry,0.208638865111328,0.24586318398305815,2010,NCT01179516,depressive disorder,piperazines,0,1
+aact_diabetesme_thiophenes,LOR,clinical_medicine,1.2178757094949273,0.35704695029758365,2011,NCT01340664,diabetes mellitus,thiophenes,0,1
+aact_diabetesme_thiophenes,LOR,clinical_medicine,1.4996230464268938,0.22385236779192147,2010,NCT01106651,diabetes mellitus,thiophenes,0,1
+aact_diabetesme_thiophenes,LOR,clinical_medicine,2.174751721484161,0.30317403806716847,2010,NCT01106625,diabetes mellitus,thiophenes,0,1
+aact_diabetesme_thiophenes,LOR,clinical_medicine,1.682688374173693,0.34606564269074974,2010,NCT01106690,diabetes mellitus,thiophenes,0,1
+aact_diabetesme_thiophenes,LOR,clinical_medicine,1.1908875647772805,0.285190974626441,2011,NCT01381900,diabetes mellitus,thiophenes,0,1
+aact_diabetesme_thiophenes,LOR,clinical_medicine,2.681706225762608,0.29869829707558476,2010,NCT01081834,diabetes mellitus,thiophenes,0,1
+aact_diabetesme_thiophenes,LOR,clinical_medicine,1.47932922708708,0.22071377317850494,2010,NCT01106677,diabetes mellitus,thiophenes,0,1
+aact_diabetesme_thiophenes,LOR,clinical_medicine,0.9895411936137477,0.41440830485578956,2010,NCT01064414,diabetes mellitus,thiophenes,0,1
