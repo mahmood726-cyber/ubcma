@@ -1,0 +1,171 @@
+{
+  "arms": {
+    "A_nodonor": {
+      "label": "A cold_nodonor (== committed cold)",
+      "learned_mae": 0.7746460142496229,
+      "within_mae": 0.6662948576687574,
+      "delta": 0.10835115658086554,
+      "lo": -0.030183286238441562,
+      "hi": 0.25741855477775083,
+      "n": 71,
+      "verdict": "n.s. (tie)"
+    },
+    "B_sibling": {
+      "label": "B cold_sibling (level donor, spec/prec/yr routing)",
+      "learned_mae": 0.7185761025010243,
+      "within_mae": 0.6662948576687574,
+      "delta": 0.05228124483226706,
+      "lo": -0.08470403148994528,
+      "hi": 0.194232841415206,
+      "n": 71,
+      "verdict": "n.s. (tie)"
+    },
+    "C_warm": {
+      "label": "C warm_sibling (ma-term fires; upper bound)",
+      "learned_mae": 0.6218863310298557,
+      "within_mae": 0.6662948576687574,
+      "delta": -0.044408526638901616,
+      "lo": -0.1262286278643121,
+      "hi": 0.03470582349686059,
+      "n": 71,
+      "verdict": "n.s. (tie)"
+    },
+    "D_scrambled": {
+      "label": "D cold_sibling_SCRAMBLED (neg control)",
+      "learned_mae": 0.801901354003385,
+      "within_mae": 0.6662948576687574,
+      "delta": 0.1356064963346278,
+      "lo": -0.001042522981307537,
+      "hi": 0.2731298800101737,
+      "n": 71,
+      "verdict": "n.s. (tie)"
+    }
+  },
+  "recovery_fraction": 0.36704653064731557,
+  "sibling_vs_nodonor": {
+    "delta": -0.05606991174859847,
+    "lo": -0.10479345536462545,
+    "hi": -0.007876010436537215,
+    "n": 71,
+    "verdict": "B beats A_nodonor"
+  },
+  "sibling_vs_scrambled": {
+    "delta": -0.08332525150236073,
+    "lo": -0.1551783649607537,
+    "hi": -0.009788341222339398,
+    "n": 71,
+    "verdict": "B beats D_scrambled"
+  },
+  "glp1": {
+    "A_nodonor": {
+      "post_mean": 0.7493469687972812,
+      "mae": 2.146491216717415
+    },
+    "B_sibling": {
+      "post_mean": 1.1174986696022378,
+      "mae": 1.7783395159124584
+    },
+    "C_warm": {
+      "post_mean": 3.113096546267306,
+      "mae": 0.7382486788942485
+    },
+    "D_scrambled": {
+      "post_mean": 0.9385948597871843,
+      "mae": 1.9572433257275115
+    },
+    "within_mae": 0.9681119912468538
+  },
+  "per_ma": [
+    {
+      "ma": "aact_carcinoma_antibodies",
+      "n": 4,
+      "a": 0.22282495483928796,
+      "b": 0.3213484129396122,
+      "within": 0.23587488615879598
+    },
+    {
+      "ma": "aact_carcinoma_guanine",
+      "n": 5,
+      "a": 0.1232513971772438,
+      "b": 0.14603830394186135,
+      "within": 0.24290707314243315
+    },
+    {
+      "ma": "aact_carcinoma_taxoids",
+      "n": 5,
+      "a": 0.6874577507782333,
+      "b": 0.7117921962484157,
+      "within": 0.6468876691973089
+    },
+    {
+      "ma": "aact_depressive_piperazine",
+      "n": 4,
+      "a": 0.6418599534749998,
+      "b": 0.607374432037044,
+      "within": 0.6119012233528855
+    },
+    {
+      "ma": "aact_diabetesme_glucagon-l",
+      "n": 6,
+      "a": 2.146491216717415,
+      "b": 1.7783395159124584,
+      "within": 0.9681119912468538
+    },
+    {
+      "ma": "aact_diabetesme_insulin",
+      "n": 9,
+      "a": 0.8757276987113392,
+      "b": 0.9597314790699559,
+      "within": 0.6445059823449419
+    },
+    {
+      "ma": "aact_diabetesme_purines",
+      "n": 10,
+      "a": 0.6998724432937423,
+      "b": 0.6000367979307408,
+      "within": 1.0278464896757495
+    },
+    {
+      "ma": "aact_diabetesme_thiophenes",
+      "n": 4,
+      "a": 0.6906880427657802,
+      "b": 0.4036683596960898,
+      "within": 0.2160532032972512
+    },
+    {
+      "ma": "aact_diabetesme_triazoles",
+      "n": 4,
+      "a": 0.6077346539877989,
+      "b": 0.5720599152107892,
+      "within": 0.7053605084929812
+    },
+    {
+      "ma": "aact_hepatitisc_ribonucleo",
+      "n": 5,
+      "a": 0.7602912721831897,
+      "b": 0.6837929120911325,
+      "within": 0.6306039285064793
+    },
+    {
+      "ma": "aact_intestinal_antibodies",
+      "n": 5,
+      "a": 0.6561647120402039,
+      "b": 0.684877623908441,
+      "within": 0.6720174005040069
+    },
+    {
+      "ma": "aact_neoplasmsb_antibodies",
+      "n": 5,
+      "a": 0.7982166109051313,
+      "b": 0.8285976218742238,
+      "within": 0.8720461790102794
+    },
+    {
+      "ma": "aact_spondylart_secukinuma",
+      "n": 5,
+      "a": 0.6922613708775568,
+      "b": 0.5635234242612916,
+      "within": 0.6040347344256963
+    }
+  ]
+}

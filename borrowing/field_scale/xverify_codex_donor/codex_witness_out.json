@@ -1,0 +1,8 @@
+{
+  "A_delta": 0.13497108575264927,
+  "B_delta": 0.08432628883646431,
+  "glp1_true": 2.895838185514696,
+  "glp1_A_post": 1.0036046021240266,
+  "glp1_B_post": 1.3108172008546282,
+  "verdict": "No: adding the relabeled GLP1 donor (mean 3.47) shifts the GLP1 test mean prediction from 1.00 to 1.31, still far below the true 2.90, so specialty/year/precision proximity only partially routes the donor level."
+}

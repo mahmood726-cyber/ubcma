@@ -1,0 +1,55 @@
+combined LOR block: 524 nodes / 26 MAs; 13 AACT cold MAs; test-half rows n=71 (donor-half n=73)
+
+per-MA donor/test half balance (mean yi):
+  aact_carcinoma_antibodies          donor(n= 5) mean=+0.69   test(n= 4) mean=+0.18
+  aact_carcinoma_guanine             donor(n= 5) mean=+1.07   test(n= 5) mean=+0.24
+  aact_carcinoma_taxoids             donor(n= 5) mean=+0.38   test(n= 5) mean=+0.55
+  aact_depressive_piperazine         donor(n= 4) mean=+0.56   test(n= 4) mean=+0.32
+  aact_diabetesme_glucagon-l         donor(n= 6) mean=+3.47   test(n= 6) mean=+2.90
+  aact_diabetesme_insulin            donor(n=10) mean=+0.22   test(n= 9) mean=+0.15
+  aact_diabetesme_purines            donor(n=10) mean=+0.94   test(n=10) mean=+1.35
+  aact_diabetesme_thiophenes         donor(n= 4) mean=+1.76   test(n= 4) mean=+1.47
+  aact_diabetesme_triazoles          donor(n= 4) mean=+1.11   test(n= 4) mean=+0.73
+  aact_hepatitisc_ribonucleo         donor(n= 5) mean=+0.42   test(n= 5) mean=+0.28
+  aact_intestinal_antibodies         donor(n= 5) mean=+0.43   test(n= 5) mean=+0.34
+  aact_neoplasmsb_antibodies         donor(n= 5) mean=+0.48   test(n= 5) mean=-0.00
+  aact_spondylart_secukinuma         donor(n= 5) mean=+0.63   test(n= 5) mean=+1.56
+
+==================================================================================
+DONOR-CEILING decomposition on the SAME test-half rows (Delta vs within-MA; +=loss)
+==================================================================================
+  [A cold_nodonor (== committed cold)                  ] learnMAE=0.775 withinMAE=0.666 Delta=+0.1084 [-0.0302,+0.2574] -> n.s. (tie)
+  [B cold_sibling (level donor, spec/prec/yr routing)  ] learnMAE=0.719 withinMAE=0.666 Delta=+0.0523 [-0.0847,+0.1942] -> n.s. (tie)
+  [C warm_sibling (ma-term fires; upper bound)         ] learnMAE=0.622 withinMAE=0.666 Delta=-0.0444 [-0.1262,+0.0347] -> n.s. (tie)
+  [D cold_sibling_SCRAMBLED (neg control)              ] learnMAE=0.802 withinMAE=0.666 Delta=+0.1356 [-0.0010,+0.2731] -> n.s. (tie)
+
+  recovery fraction (dA-dB)/(dA-dC) = (+0.1084-+0.0523)/(+0.1084--0.0444) = 0.37
+  [sibling_vs_nodonor      ] (B_err - A_nodonor_err) mean=-0.0561 [-0.1048,-0.0079] -> B beats A_nodonor
+  [sibling_vs_scrambled    ] (B_err - D_scrambled_err) mean=-0.0833 [-0.1552,-0.0098] -> B beats D_scrambled
+
+==================================================================================
+GLP1 focus (aact_diabetesme_glucagon-l, mean logOR +3.18 -- the pooled-loss driver)
+==================================================================================
+  test-half rows n=6, true mean level=+2.90
+  A_nodonor      field posterior mean=+0.75  MAE=2.146
+  B_sibling      field posterior mean=+1.12  MAE=1.778
+  C_warm         field posterior mean=+3.11  MAE=0.738
+  D_scrambled    field posterior mean=+0.94  MAE=1.957
+  within-MA reference MAE=0.968  (within posterior mean=+2.81)
+
+per-MA cold MAE  A_nodonor -> B_sibling (test-half rows):
+  aact_carcinoma_antibodies          n= 4 A=0.223 B=0.321 within=0.236 dAB=+0.099
+  aact_carcinoma_guanine             n= 5 A=0.123 B=0.146 within=0.243 dAB=+0.023
+  aact_carcinoma_taxoids             n= 5 A=0.687 B=0.712 within=0.647 dAB=+0.024
+  aact_depressive_piperazine         n= 4 A=0.642 B=0.607 within=0.612 dAB=-0.034
+  aact_diabetesme_glucagon-l         n= 6 A=2.146 B=1.778 within=0.968 dAB=-0.368
+  aact_diabetesme_insulin            n= 9 A=0.876 B=0.960 within=0.645 dAB=+0.084
+  aact_diabetesme_purines            n=10 A=0.700 B=0.600 within=1.028 dAB=-0.100
+  aact_diabetesme_thiophenes         n= 4 A=0.691 B=0.404 within=0.216 dAB=-0.287
+  aact_diabetesme_triazoles          n= 4 A=0.608 B=0.572 within=0.705 dAB=-0.036
+  aact_hepatitisc_ribonucleo         n= 5 A=0.760 B=0.684 within=0.631 dAB=-0.076
+  aact_intestinal_antibodies         n= 5 A=0.656 B=0.685 within=0.672 dAB=+0.029
+  aact_neoplasmsb_antibodies         n= 5 A=0.798 B=0.829 within=0.872 dAB=+0.030
+  aact_spondylart_secukinuma         n= 5 A=0.692 B=0.564 within=0.604 dAB=-0.129
+
+wrote F:\ubcma-codex-mb\borrowing\field_scale\donor_ceiling_results.json
