@@ -86,6 +86,22 @@ def test_predict_logrr_defaults_to_fit_ref_dose():
     assert abs(float(np.ravel(yhat0)[0]) - 1.5) < 1e-9, yhat0
 
 
+def test_gl_reconstruct_fails_closed_on_zero_cases():
+    """Regression (P1-5): GL covariance divides by case counts, so a zero case
+    silently produced NaN adjusted counts. It must fail closed with guidance
+    (use the one-stage binomial model for zero-cell dose data) instead."""
+    y = np.array([0.0, 0.5, 0.8])
+    v = np.array([0.0, 0.04, 0.05])
+    n = np.array([100.0, 100.0, 100.0])
+    with pytest.raises(ValueError):
+        drma.gl_reconstruct(y, v, np.array([10.0, 0.0, 8.0]), n, "cc")   # zero case
+    with pytest.raises(ValueError):
+        drma.gl_reconstruct(y, v, np.array([10.0, 100.0, 8.0]), n, "cc")  # cases==n
+    # positive-cell data still reconstructs finite counts
+    A, nn = drma.gl_reconstruct(y, v, np.array([10.0, 20.0, 30.0]), n, "cc")
+    assert np.all(np.isfinite(A))
+
+
 def test_rcs_basis_validates_knots():
     """Regression (P1-6): rcs_basis must reject non-finite, duplicate, or
     unsorted knots. Duplicates make denom=0 (nan basis); an unsorted sequence

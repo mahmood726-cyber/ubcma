@@ -22,7 +22,10 @@ Design (matches the per-slice gate; vendor-independent from-scratch pooler):
 import json, io, sys
 import numpy as np
 from pathlib import Path
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# Force UTF-8 stdout only when run as a script; reassigning sys.stdout at IMPORT
+# time breaks pytest's output capture for any test that imports this module.
+if __name__ == "__main__":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent  # borrowing/
@@ -35,6 +38,12 @@ SLICES = [
 
 def mp_reml(y, s):
     y = np.asarray(y, float); v = np.asarray(s, float) ** 2
+    # Floor the within-study variance so a zero-SE study yields a large-but-
+    # finite inverse-variance weight (it dominates, as intended) instead of an
+    # infinite weight that makes the pooled mean/SE NaN. Mirrors re_slope's
+    # np.maximum guard below; a no-op for any real (v > 1e-12) variance, so R
+    # parity on well-conditioned data is unchanged.
+    v = np.maximum(v, 1e-12)
     if len(y) == 1:
         return float(y[0]), float(np.sqrt(v[0]))
     tau2 = 0.0

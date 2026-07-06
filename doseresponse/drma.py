@@ -76,6 +76,20 @@ def gl_reconstruct(y, v, cases, n, type_, tol=1e-5, max_iter=500):
     if ref.sum() != 1:
         raise ValueError("exactly one reference category (v==0) required per study")
     is_ir = str(type_) == "ir"
+    # GL reconstruction divides by the case counts (cx = 1/Ax [+ 1/(n-Ax)]), so a
+    # zero case in ANY category (including the reference) makes the covariance
+    # non-finite -- and it did so SILENTLY (NaN adjusted counts). Fail closed with
+    # guidance: sparse/zero-cell dose data needs the one-stage exact-binomial
+    # model (drma_binomial.fit_logistic_dr), not the two-stage GL path.
+    if np.any(cases <= 0):
+        raise ValueError(
+            "gl_reconstruct requires positive case counts in every category "
+            "(a zero case makes the GL covariance non-finite); use the one-stage "
+            "binomial model for zero-cell dose data")
+    if not is_ir and np.any((n - cases) <= 0):
+        raise ValueError(
+            "gl_reconstruct (cc/cumulative) requires cases < n in every category "
+            "(a full-count cell makes 1/(n-cases) non-finite)")
     total_cases = cases.sum()
     Ax = cases.astype(float).copy()
     m = int(nz.sum())
