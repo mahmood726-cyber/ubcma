@@ -51,6 +51,16 @@ def test_precomputed_zero_se_member_dominates_not_dropped():
     assert r["weights"]["exact"] > r["weights"]["noisy"], r["weights"]
 
 
+def test_k1_computed_members_do_not_fabricate_a_panel():
+    """Regression (P1-4): with a single study and no precomputed members, the
+    pub-bias corrections (PET-PEESE, trim-and-fill) are NOT estimable, so the
+    panel must be empty (fail closed) — not a fabricated converged panel. The
+    >=2-valid-studies compute gate enforces this."""
+    r = adaptshrink_estimator(np.array([1.0]), np.array([0.1]))
+    assert r["converged"] is False, r
+    assert r["n_members"] == 0, r
+
+
 def test_degenerate_input_se_fails_closed_not_crash(recwarn):
     """Regression (P0-2): a study with se=0 in the input data must not crash the
     computed-member path (PET-PEESE weighted regression -> LinAlgError 'SVD did

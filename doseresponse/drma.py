@@ -155,6 +155,14 @@ def rcs_basis(x, knots):
     k = len(t)
     if k < 3:
         raise ValueError("rcs needs >=3 knots")
+    # Validate the knot sequence: the Harrell basis assumes finite, strictly
+    # increasing (hence unique) knots. Duplicates make denom = t[k-1]-t[k-2] = 0
+    # (-> nan basis); an unsorted sequence silently builds the WRONG basis
+    # (wrong boundary knots). Fail closed rather than emit nan / a wrong design.
+    if not np.all(np.isfinite(t)):
+        raise ValueError("rcs knots must be finite")
+    if np.any(np.diff(t) <= 0):
+        raise ValueError("rcs knots must be strictly increasing and unique")
     X = np.zeros((x.shape[0], k - 1))
     X[:, 0] = x
     denom = t[k - 1] - t[k - 2]
@@ -379,8 +387,16 @@ def drma_two_stage(df, *, id_col="id", dose_col="dose", y_col="logrr",
                    ref_dose=float(np.median(ref_doses)), loglik=ll)
 
 
-def predict_logrr(fit: DRMAFit, dose, ref_dose=0.0):
-    """Pooled predicted log-RR (and SE) at given dose(s) vs ref_dose."""
+def predict_logrr(fit: DRMAFit, dose, ref_dose=None):
+    """Pooled predicted log-RR (and SE) at given dose(s) vs ref_dose.
+
+    ref_dose defaults to the fit's own reference dose (``fit.ref_dose``), NOT 0.
+    Defaulting to 0 predicts log-RR relative to a zero dose that is generally not
+    the modelled reference, silently mislabelling the estimand; pass ref_dose
+    explicitly to override.
+    """
+    if ref_dose is None:
+        ref_dose = fit.ref_dose
     X = design(np.atleast_1d(dose), ref_dose, fit.transform, fit.knots)
     yhat = X @ fit.coef
     se = np.sqrt(np.einsum("ij,jk,ik->i", X, fit.vcov, X))

@@ -70,6 +70,38 @@ def test_linear_reml():
     assert float(fit.Psi[0, 0]) < 1e-6
 
 
+def test_predict_logrr_defaults_to_fit_ref_dose():
+    """Regression (P1-3): predict_logrr must default ref_dose to the fit's own
+    reference dose, not 0. Built here with a NONZERO ref (the canonical
+    alcohol_crc reference dose happens to be 0, which masked the bug)."""
+    fit = drma.DRMAFit(
+        coef=np.array([0.5]), vcov=np.array([[0.01]]), Psi=np.array([[0.0]]),
+        method="fixed", bi=np.array([[0.5]]), Sigma_list=[np.array([[0.01]])],
+        knots=None, transform="linear", ref_dose=3.0, loglik=float("nan"))
+    # default ref_dose -> uses fit.ref_dose=3.0, so logRR(3 vs 3) == 0
+    yhat, _ = drma.predict_logrr(fit, 3.0)
+    assert abs(float(np.ravel(yhat)[0])) < 1e-9, yhat
+    # the OLD default (0.0) would predict logRR(3 vs 0) = 3*0.5 = 1.5 != 0
+    yhat0, _ = drma.predict_logrr(fit, 3.0, ref_dose=0.0)
+    assert abs(float(np.ravel(yhat0)[0]) - 1.5) < 1e-9, yhat0
+
+
+def test_rcs_basis_validates_knots():
+    """Regression (P1-6): rcs_basis must reject non-finite, duplicate, or
+    unsorted knots. Duplicates make denom=0 (nan basis); an unsorted sequence
+    silently builds the wrong basis. Fail closed instead."""
+    x = np.array([1.0, 2.0, 3.0])
+    for bad in ([1.0, 2.0, 2.0],          # duplicate -> denom 0 -> nan
+                [4.0, 1.0, 2.0],          # unsorted  -> wrong boundary knots
+                [1.0, float("nan"), 3.0],  # non-finite
+                [1.0, 2.0, float("inf")]):
+        with pytest.raises(ValueError):
+            drma.rcs_basis(x, bad)
+    # a valid strictly-increasing knot vector still works and is finite
+    B = drma.rcs_basis(x, [1.0, 2.0, 3.0])
+    assert np.all(np.isfinite(B))
+
+
 def test_mvmeta_k1_reduces_to_fixed_effect():
     """Regression (P0-2): REML cannot identify between-study covariance from a
     SINGLE study — the REML profile is flat in Psi at k=1 (log|S+Psi| and
