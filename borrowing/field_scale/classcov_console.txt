@@ -1,0 +1,27 @@
+combined LOR block: 524 nodes / 26 MAs; 13 AACT cold MAs; test-half n=71
+  grain=cond multi-MA classes: {'carcinoma': ['antibodies', 'guanine', 'taxoids'], 'diabetesme': ['glucagon-l', 'insulin', 'purines', 'thiophenes', 'triazoles']}
+  grain=drug multi-MA classes: {'antibodies': ['antibodies', 'antibodies', 'antibodies']}
+
+============================================================================================
+recovery of the cold gap by kernel (Delta vs within-MA on test halves; rec=(dA-dB)/(dA-dC))
+============================================================================================
+kernel      dA(cold)   dB(sib)  dC(warm)   dD(scr)    rec  GLP1 B-post GLP1 C-post
+none         +0.1084   +0.0523   -0.0444   +0.1356   0.37        +1.12       +3.11
+cond         +0.1395   +0.0740   -0.0611   +0.1454   0.33        +1.23       +3.06
+drug         +0.1165   -0.0631   -0.0611   +0.1325   1.01        +2.98       +3.14
+
+GLP1 test-half: true level=+2.90, within-MA posterior=+2.81 (MAE 0.968), A_nodonor posterior=+0.75
+
+============================================================================================
+CORPUS REGRESSION CHECK (committed 4-group vs +class; honest 10-fold, 3-seed avg)
+============================================================================================
+  committed MAE = 0.3343
+  +class[cond] MAE = 0.3343  (+0.00%  OK)
+  +class[drug] MAE = 0.3343  (+0.00%  OK)
+
+PRE-DECLARED VERDICT:
+  H1 drug-class covariate recovers cold level : True (rec 0.37->1.01, GLP1 B-post +1.12->+2.98)
+  H2 grain matters (drug >> cond)             : True (rec_cond 0.33 vs rec_drug 1.01)
+  guard: scrambled donor does NOT recover     : True (dD +0.1325 vs dA +0.1165)
+
+wrote F:\ubcma-mb-classcov\borrowing\field_scale\donor_ceiling_classcov_results.json
