@@ -32,6 +32,37 @@ def test_ci_ordering_and_weights():
     assert r["mu"] <= max(m["mu"] for m in r["members"].values())
 
 
+def test_precomputed_zero_se_member_dominates_not_dropped():
+    """Regression (P0-3): a precomputed member with se=0 (a claimed-exact
+    estimate) must NOT be silently dropped. Inverse-variance logic says a more
+    precise member gets MORE weight, so a near-exact member should DOMINATE the
+    aggregate — not vanish, leaving only the noisy member (mu=0.0). The old code
+    filtered `sem > 0`, discarding it and reporting converged with n_members=1.
+    """
+    r = adaptshrink_estimator(
+        np.array([0.2, 0.3]), np.array([0.1, 0.1]),
+        members=("exact", "noisy"),
+        precomputed={"exact": (1.0, 0.0), "noisy": (0.0, 1.0)})
+    assert r["converged"], r
+    assert r["n_members"] == 2, r          # both members participate
+    # The (near-)exact member dominates -> aggregate pulled strongly toward its
+    # value (~0.83 for this 2-member panel), NOT the buggy 0.0 (noisy-only).
+    assert r["mu"] > 0.75, r
+    assert r["weights"]["exact"] > r["weights"]["noisy"], r["weights"]
+
+
+def test_degenerate_input_se_fails_closed_not_crash(recwarn):
+    """Regression (P0-2): a study with se=0 in the input data must not crash the
+    computed-member path (PET-PEESE weighted regression -> LinAlgError 'SVD did
+    not converge'). The estimator must fail closed (NaN result) or drop the
+    degenerate member, never raise."""
+    # No precomputed members -> members are computed from (y, se); se has a zero.
+    r = adaptshrink_estimator(np.array([0.2, 0.3]), np.array([0.0, 0.1]))
+    # Must return a dict, not raise. Either a fail-closed NaN result, or a valid
+    # aggregate from whatever members survived the degenerate input.
+    assert isinstance(r, dict) and "mu" in r and "converged" in r, r
+
+
 def test_disagreement_downweights_outlier():
     # An outlying member with the same SE must receive less weight than a member
     # that agrees with the consensus.

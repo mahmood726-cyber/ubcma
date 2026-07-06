@@ -59,6 +59,13 @@ DEFAULT_MEMBERS = ("ubcma", "pet_peese", "trim_and_fill")
 
 _EPS = 1e-9
 
+# Floor for a member's reported se. A member claiming se=0 (a "certain"
+# estimate) must not be dropped by a `sem > 0` filter — that discards it
+# entirely, leaving the aggregate to the noisy members. Flooring instead lets
+# inverse-variance weighting give a near-exact member the dominant weight it
+# deserves, while keeping every weight finite.
+_SE_FLOOR = 1e-6
+
 
 def _member_estimates(
     names: Sequence[str],
@@ -76,28 +83,49 @@ def _member_estimates(
     precomputed, must be supplied -- we never refit UBCMA inside AdaptShrink
     because it is the expensive member and the harness already has it.
     """
+    # Sanitize the study inputs used to compute any non-precomputed member. A
+    # non-finite or non-positive se makes the weighted comparators (pet_peese,
+    # reml, trim_and_fill) divide by ~0 -> LinAlgError ("SVD did not converge").
+    # Drop those studies EXPLICITLY (fail closed, not a swallowed crash) and only
+    # compute members when >= 2 valid studies remain — the comparators
+    # (regression slope, heterogeneity) are undefined below that.
+    y = np.asarray(y, dtype=float)
+    se = np.asarray(se, dtype=float)
+    valid = np.isfinite(y) & np.isfinite(se) & (se > 0)
+    y_c, se_c = y[valid], se[valid]
+    can_compute = y_c.size >= 2
+
+    _COMPUTED = {"reml", "reml_hksj", "pet_peese", "trim_and_fill", "copas"}
     out: list[tuple[str, float, float]] = []
     for name in names:
         if precomputed and name in precomputed:
             mu, sem = precomputed[name]
-        elif name == "reml" or name == "reml_hksj":
-            r = reml_estimator(y, se, hksj=(name == "reml_hksj"))
-            mu, sem = r["mu"], r["se"]
-        elif name == "pet_peese":
-            r = pet_peese(y, se)
-            mu, sem = r["mu"], r["se"]
-        elif name == "trim_and_fill":
-            r = trim_and_fill(y, se)
-            mu, sem = r["mu"], r["se"]
-        elif name == "copas":
-            r = copas_selection(y, se)
+        elif name in _COMPUTED:
+            if not can_compute:
+                continue  # too few valid studies to estimate this member
+            try:
+                if name in ("reml", "reml_hksj"):
+                    r = reml_estimator(y_c, se_c, hksj=(name == "reml_hksj"))
+                elif name == "pet_peese":
+                    r = pet_peese(y_c, se_c)
+                elif name == "trim_and_fill":
+                    r = trim_and_fill(y_c, se_c)
+                else:
+                    r = copas_selection(y_c, se_c)
+            except np.linalg.LinAlgError:
+                # Defense in depth: a member that fails numerically on otherwise-
+                # valid data is simply unavailable (reflected in n_members), not
+                # a crash. Not a blanket except — only the numerical failure.
+                continue
             mu, sem = r["mu"], r["se"]
         else:
             # ubcma or any unknown member with no precomputed value: skip rather
             # than refit (caller is responsible for supplying it).
             continue
-        if np.isfinite(mu) and np.isfinite(sem) and sem > 0:
-            out.append((name, float(mu), float(sem)))
+        if np.isfinite(mu) and np.isfinite(sem):
+            # Floor (don't drop) so a claimed-exact member dominates via inverse
+            # variance rather than silently vanishing.
+            out.append((name, float(mu), float(max(sem, _SE_FLOOR))))
     return out
 
 

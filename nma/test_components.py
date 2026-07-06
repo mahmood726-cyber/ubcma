@@ -12,13 +12,35 @@ import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 sys.path.insert(0, str(Path(__file__).resolve().parent / "truth-recovery"))
 
-from nma_core import fit_nma, p_score  # noqa: E402
+from nma_core import Comparison, fit_nma, p_score  # noqa: E402
 from smallstudy_nma import network_smallstudy_league, network_asymmetry  # noqa: E402
 from inconsistency_nma import q_decomposition, inconsistency_factor  # noqa: E402
-from adaptshrink_nma import adaptshrink_nma_auto  # noqa: E402
+from adaptshrink_nma import (  # noqa: E402
+    adaptshrink_nma_auto, _direct_by_type, _dl_univariate,
+)
 import nma_sim as S  # noqa: E402
 
 Z975 = 1.959963984540054
+
+
+# ------------------------------------------------- Component A: direct tau^2
+def test_direct_tau2_is_orientation_invariant():
+    """Regression (P0-1): direct-heterogeneity tau^2 must not depend on how each
+    study's contrast is ORIENTED. The engine uses signed incidence (t1=+1,
+    t2=-1), so recording a pair as (A,B, te=+1) vs (B,A, te=-1) is the SAME
+    evidence. Grouping by frozenset with the RAW te (no re-orientation) made
+    those look maximally conflicting -> tau^2_direct ~ 1.99 instead of 0."""
+    # Two studies, same pair {A,B}, identical effect, opposite orientation.
+    mixed = [Comparison("s1", "A", "B", +1.0, 0.1),
+             Comparison("s2", "B", "A", -1.0, 0.1)]
+    canonical = [Comparison("s1", "A", "B", +1.0, 0.1),
+                 Comparison("s2", "A", "B", +1.0, 0.1)]
+    for comps in (mixed, canonical):
+        direct = _direct_by_type(comps)
+        (obs,) = direct.values()
+        y = np.array([o[0] for o in obs])
+        v = np.array([o[1] for o in obs])
+        assert _dl_univariate(y, v) < 1e-9, (comps, y)
 
 
 # ---------------------------------------------------------------- Component B

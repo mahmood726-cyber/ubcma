@@ -68,10 +68,20 @@ def _direct_by_type(comps: Sequence[Comparison]) -> dict[frozenset, list[tuple[f
 
     Each pairwise row (including those from multi-arm studies) is direct evidence
     for its own treatment pair.
+
+    Orientation is canonicalized: the engine uses signed incidence
+    (te = effect(t1) - effect(t2)), so the SAME pair recorded in opposite
+    directions -- (A,B, te=+1) vs (B,A, te=-1) -- is identical evidence. Grouping
+    by frozenset with the RAW te would treat those as maximally conflicting and
+    spuriously inflate the direct tau^2 (e.g. 0 -> ~1.99). We re-express every
+    observation in the sorted-label orientation (lo vs hi), negating te when the
+    stored order is reversed, so direct heterogeneity is orientation-invariant.
     """
     out: dict[frozenset, list[tuple[float, float]]] = {}
     for c in comps:
-        out.setdefault(frozenset((c.t1, c.t2)), []).append((c.te, c.se ** 2))
+        lo, hi = sorted((c.t1, c.t2))
+        te = c.te if (c.t1, c.t2) == (lo, hi) else -c.te
+        out.setdefault(frozenset((c.t1, c.t2)), []).append((te, c.se ** 2))
     return out
 
 
