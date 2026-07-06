@@ -51,7 +51,11 @@ sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
 from nma_core import Comparison, fit_nma  # noqa: E402
 from who_data_lakehouse.crosswalk import iso3_to_ihme, iso3_to_wb, iso3_to_name  # noqa: E402
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# Force UTF-8 stdout only when run as a script; doing this at IMPORT time
+# reassigns sys.stdout and breaks pytest's output capture ("I/O operation on
+# closed file") for any test that imports this module.
+if __name__ == "__main__":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 SENN = Path(r"F:\public-data\metadat\dat.senn2013.csv")
 WB_DIAB = Path(r"F:\WorldBankData\api_data\source_2_World Development Indicators\SH_STA_DIAB_ZS.csv")
@@ -118,29 +122,45 @@ def true_base_effects(comps):
 
 
 def estimate_beta(sim, Xstudy, Xref):
-    """Data-driven beta_hat: precision-weighted regression of observed placebo-anchored
-    (active - placebo) contrasts on (X_study - X_ref). Slope through the weighted structure."""
-    xs, ys, ws = [], [], []
+    """Data-driven beta_hat: precision-weighted WITHIN-TREATMENT regression of
+    observed placebo-anchored (active - placebo) contrasts on (X_study - X_ref).
+
+    The effect-modification slope must be estimated WITHIN each active treatment
+    (absorbing that treatment's own placebo-relative baseline d0[t]). A single
+    pooled regression across all treatments confounds between-treatment effect
+    differences with the covariate slope: two treatments with different d0 that
+    happen to sit at low- vs high-X studies manufacture a large beta_hat even
+    when the true modifier is 0 (e.g. d0=[-2,0] over dX=1 -> beta_hat=2). The
+    fixed-effects (within) estimator demeans (x, y) by each treatment's own
+    precision-weighted means before pooling the cross-products, so d0[t] cancels.
+    """
+    by_t: dict[str, list[tuple[float, float, float]]] = {}
     for c in sim:
         # orient as active - placebo
         if c.t2 == "placebo" and c.t1 != "placebo":
-            te = c.te
+            t, te = c.t1, c.te
         elif c.t1 == "placebo" and c.t2 != "placebo":
-            te = -c.te
+            t, te = c.t2, -c.te
         else:
             continue
-        xs.append(Xstudy[c.studlab] - Xref)
-        ys.append(te)
-        ws.append(1.0 / c.se ** 2)
-    if len(xs) < 3:
+        by_t.setdefault(t, []).append(
+            (Xstudy[c.studlab] - Xref, te, 1.0 / c.se ** 2))
+    num = 0.0
+    den = 0.0
+    for rows in by_t.values():
+        if len(rows) < 2:
+            continue  # no within-treatment X spread -> this treatment can't
+            # inform the slope (its d0 would otherwise leak into it)
+        x = np.array([r[0] for r in rows])
+        y = np.array([r[1] for r in rows])
+        w = np.array([r[2] for r in rows])
+        xm = np.sum(w * x) / np.sum(w)
+        ym = np.sum(w * y) / np.sum(w)   # absorbs this treatment's baseline d0[t]
+        num += float(np.sum(w * (x - xm) * (y - ym)))
+        den += float(np.sum(w * (x - xm) ** 2))
+    if den < 1e-9:
         return 0.0
-    x = np.array(xs); y = np.array(ys); w = np.array(ws)
-    xm = np.sum(w * x) / np.sum(w)
-    ym = np.sum(w * y) / np.sum(w)
-    denom = np.sum(w * (x - xm) ** 2)
-    if denom < 1e-9:
-        return 0.0
-    return float(np.sum(w * (x - xm) * (y - ym)) / denom)
+    return float(num / den)
 
 
 def mciw0(errs):

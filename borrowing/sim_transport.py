@@ -22,13 +22,27 @@ import json
 import numpy as np
 from borrowing_transport import transport_prior, within_class_obslope, Z975
 
-R = [r for r in json.load(open("trials_transport.json")) if r["pop_ob"] is not None]
-OB = np.array([r["pop_ob"] for r in R]); OB_SD = float(OB.std()); OB_MED = float(np.median(OB))
-OB_REF = float(OB.mean())
 BASE_SD = 0.27
 CLASS_EFF = {"GLP1": -1.3, "SGLT2": -0.6, "DPP4": -0.7, "TZD": -0.7, "insulin": -1.0}
 TAU = 0.18                     # residual heterogeneity (~ real within-class)
-SINGLE_IDX = [i for i, r in enumerate(R) if r["single_country"]]
+
+# The data-dependent globals (R, OB*, SINGLE_IDX) are loaded in the __main__
+# block below, NOT at import time, so this module is importable for tests
+# without the data file present and without running the whole simulation.
+
+
+def _covered(mu_p, se_p, truth):
+    """1.0 iff *truth* lies inside the ESTIMATE's 95% CI (mu_p +/- z*se_p).
+
+    The earlier inline check compared truth to an interval centred on truth
+    itself (``truth - half <= truth <= truth + half``) OR the real check -- but
+    the first clause is a tautology (always True), so ``float(True) or ...``
+    short-circuited to 1.0 and coverage was reported as 1.0 for EVERY method,
+    invalidating the matched-coverage comparison. Coverage is whether the
+    interval around the *estimate* captures the truth.
+    """
+    half = Z975 * se_p
+    return float(mu_p - half <= truth <= mu_p + half)
 
 
 def gen(beta, rng):
@@ -65,9 +79,7 @@ def sweep(beta, reps=400, seed=100):
                 if not np.isfinite(mu_p):
                     continue
                 err[m].append(abs(mu_p - truth[ti]))
-                half = Z975 * se_p
-                cov[m].append(float(truth[ti] - half <= truth[ti] <= truth[ti] + half) or
-                              float(mu_p - half <= truth[ti] <= mu_p + half))
+                cov[m].append(_covered(mu_p, se_p, truth[ti]))
     return {m: (np.mean(err[m]), np.mean(cov[m])) for m in err}, err
 
 
@@ -81,21 +93,29 @@ def boot_diff(ea, eb, n=4000, seed=3):
     return float(d.mean()), float(lo), float(hi)
 
 
-print(f"DGP: real classes+obesity+SE, tau={TAU}, ob_ref={OB_REF:.1f}, targets={len(SINGLE_IDX)} (all low/high-far)")
-print(f"{'beta':>7}{'MAE_nma':>9}{'MAE_rel':>9}{'MAE_trn':>9}{'transp-relevance [95% CI]':>30}")
-out = {}
-for beta in [0.0, 0.006, 0.02, 0.05, 0.10]:
-    stats, err = sweep(beta)
-    d, lo, hi = boot_diff(err["transport"], err["relevance"])
-    flag = "TRANSPORT WINS" if hi < 0 else ("rel wins" if lo > 0 else "n.s.")
-    print(f"{beta:>7.3f}{stats['nma'][0]:>9.3f}{stats['relevance'][0]:>9.3f}"
-          f"{stats['transport'][0]:>9.3f}   {d:+.3f} [{lo:+.3f},{hi:+.3f}]  {flag}")
-    out[beta] = dict(mae={m: stats[m][0] for m in stats},
-                     cov={m: stats[m][1] for m in stats},
-                     transport_vs_relevance=[d, lo, hi, bool(hi < 0)])
+if __name__ == "__main__":
+    # Data-dependent globals (referenced by gen/sweep as module globals) are
+    # loaded here, keeping import side-effect-free for tests.
+    R = [r for r in json.load(open("trials_transport.json")) if r["pop_ob"] is not None]
+    OB = np.array([r["pop_ob"] for r in R]); OB_SD = float(OB.std()); OB_MED = float(np.median(OB))
+    OB_REF = float(OB.mean())
+    SINGLE_IDX = [i for i, r in enumerate(R) if r["single_country"]]
 
-json.dump({"tau": TAU, "ob_ref": OB_REF, "real_beta": 0.006, "sweep": {str(k): v for k, v in out.items()}},
-          open("sim_transport_results.json", "w"), indent=2)
-print("\nwrote sim_transport_results.json")
-print("Reading: at the REAL beta (0.006) transport ~ relevance (inert) -> reproduces the")
-print("real-data null; transport only wins once beta is ~10x the real value.")
+    print(f"DGP: real classes+obesity+SE, tau={TAU}, ob_ref={OB_REF:.1f}, targets={len(SINGLE_IDX)} (all low/high-far)")
+    print(f"{'beta':>7}{'MAE_nma':>9}{'MAE_rel':>9}{'MAE_trn':>9}{'transp-relevance [95% CI]':>30}")
+    out = {}
+    for beta in [0.0, 0.006, 0.02, 0.05, 0.10]:
+        stats, err = sweep(beta)
+        d, lo, hi = boot_diff(err["transport"], err["relevance"])
+        flag = "TRANSPORT WINS" if hi < 0 else ("rel wins" if lo > 0 else "n.s.")
+        print(f"{beta:>7.3f}{stats['nma'][0]:>9.3f}{stats['relevance'][0]:>9.3f}"
+              f"{stats['transport'][0]:>9.3f}   {d:+.3f} [{lo:+.3f},{hi:+.3f}]  {flag}")
+        out[beta] = dict(mae={m: stats[m][0] for m in stats},
+                         cov={m: stats[m][1] for m in stats},
+                         transport_vs_relevance=[d, lo, hi, bool(hi < 0)])
+
+    json.dump({"tau": TAU, "ob_ref": OB_REF, "real_beta": 0.006, "sweep": {str(k): v for k, v in out.items()}},
+              open("sim_transport_results.json", "w"), indent=2)
+    print("\nwrote sim_transport_results.json")
+    print("Reading: at the REAL beta (0.006) transport ~ relevance (inert) -> reproduces the")
+    print("real-data null; transport only wins once beta is ~10x the real value.")
