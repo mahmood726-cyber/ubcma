@@ -70,6 +70,17 @@ class TrimAndFillTests(unittest.TestCase):
         r = trim_and_fill(Y_HET, SE_HET)
         self.assertGreaterEqual(r["k_total"], len(Y_HET))
 
+    def test_symmetric_funnel_imputes_near_zero(self) -> None:
+        # Duval-Tweedie L0 on a SYMMETRIC funnel (no publication bias) must impute
+        # ~0 studies. The prior k(k+1)/2 constant over-imputed ~k/4 phantom studies
+        # even here, biasing the estimate. Averaged over symmetric draws the mean
+        # imputation must be small, not ~k/4 (buggy ~5.4 at k=20; correct ~0.3).
+        rng = np.random.default_rng(0)
+        k = 20
+        imputed = [trim_and_fill(rng.normal(0.0, 1.0, k), np.full(k, 0.5))["k_imputed"]
+                   for _ in range(200)]
+        self.assertLess(float(np.mean(imputed)), 1.5)
+
 
 class PETPEESETests(unittest.TestCase):
     def test_returns_required_keys(self) -> None:

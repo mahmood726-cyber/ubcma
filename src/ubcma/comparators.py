@@ -79,7 +79,13 @@ def trim_and_fill(
         else:
             s_n = np.sum(ranks[deviations < 0])
 
-        k0 = max(0, int(round((4 * s_n - k * (k + 1) / 2) / (2 * k - 1))))
+        # Duval & Tweedie (2000) L0 estimator: L0 = (4*T_n - k(k+1)) / (2k-1),
+        # where T_n (=s_n) is the sum of ranks of the studies on the trimmed side.
+        # The second term is k(k+1), NOT k(k+1)/2 -- under a symmetric funnel
+        # T_n ~ k(k+1)/4 so 4*T_n ~ k(k+1) and L0 ~ 0 (no spurious imputation).
+        # The previous k(k+1)/2 left a residual ~ k/4, over-imputing phantom
+        # studies even with NO asymmetry (verified: ~k/4 fills on symmetric data).
+        k0 = max(0, int(round((4 * s_n - k * (k + 1)) / (2 * k - 1))))
 
         if k0 == 0:
             break
