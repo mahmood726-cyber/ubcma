@@ -93,26 +93,39 @@ def _predict_at_dstar(fit):
 
 def fit_all_emax(df):
     out = {}
-    try:
-        f_reml = drma.drma_two_stage(df, n_col="peryears", transform="rcs", knots=KNOTS, method="reml")
-        mu_r, se_r = _predict_at_dstar(f_reml)
-        out["two_stage_reml"] = (mu_r, mu_r - Z975 * se_r, mu_r + Z975 * se_r, True)
-        f_fix = drma.drma_two_stage(df, n_col="peryears", transform="rcs", knots=KNOTS, method="fixed")
-        mu_f, se_f = _predict_at_dstar(f_fix)
-        out["two_stage_fixed"] = (mu_f, mu_f - Z975 * se_f, mu_f + Z975 * se_f, True)
-        f_one = drma.drma_one_stage(df, n_col="peryears", transform="rcs", knots=KNOTS)
-        mu_o, se_o = _predict_at_dstar(f_one)
-        out["one_stage"] = (mu_o, mu_o - Z975 * se_o, mu_o + Z975 * se_o, True)
-        pre = {"two_stage_reml": (mu_r, se_r), "two_stage_fixed": (mu_f, se_f),
-               "one_stage": (mu_o, se_o)}
-        as_res = adaptshrink_estimator(np.zeros(1), np.ones(1),
-                                       members=("two_stage_reml", "two_stage_fixed", "one_stage"),
-                                       precomputed=pre, kappa=1.0)
-        out["adaptshrink"] = (as_res["mu"], as_res["ci_low"], as_res["ci_high"],
-                              bool(as_res["converged"]))
-    except Exception:
-        for m in METHODS:
-            out.setdefault(m, (float("nan"), float("nan"), float("nan"), False))
+    pre = {}
+
+    # Fit each base estimator in ISOLATION. The old single try/except around all
+    # of them marked EVERY method non-converged for the replicate whenever any
+    # one raised, silently shrinking each method's analyzed sample. Per-estimator
+    # isolation records each method's own convergence honestly, so the bakeoff
+    # compares like with like and per-method failure rates stay visible.
+    def _fit_predict(name, make_fit):
+        try:
+            mu, se = _predict_at_dstar(make_fit())
+        except Exception:
+            return  # left to the NaN/non-converged default below
+        out[name] = (mu, mu - Z975 * se, mu + Z975 * se, True)
+        pre[name] = (mu, se)
+
+    _fit_predict("two_stage_reml", lambda: drma.drma_two_stage(
+        df, n_col="peryears", transform="rcs", knots=KNOTS, method="reml"))
+    _fit_predict("two_stage_fixed", lambda: drma.drma_two_stage(
+        df, n_col="peryears", transform="rcs", knots=KNOTS, method="fixed"))
+    _fit_predict("one_stage", lambda: drma.drma_one_stage(
+        df, n_col="peryears", transform="rcs", knots=KNOTS))
+
+    # AdaptShrink over ONLY the base members that actually fit this replicate.
+    if pre:
+        try:
+            as_res = adaptshrink_estimator(np.zeros(1), np.ones(1),
+                                           members=tuple(pre.keys()),
+                                           precomputed=pre, kappa=1.0)
+            out["adaptshrink"] = (as_res["mu"], as_res["ci_low"], as_res["ci_high"],
+                                  bool(as_res["converged"]))
+        except Exception:
+            pass
+
     for m in METHODS:
         out.setdefault(m, (float("nan"), float("nan"), float("nan"), False))
     return out
