@@ -97,7 +97,14 @@ def _member_estimates(
 
     _COMPUTED = {"reml", "reml_hksj", "pet_peese", "trim_and_fill", "copas"}
     out: list[tuple[str, float, float]] = []
+    seen: set[str] = set()
     for name in names:
+        # A duplicate member name would be counted twice in the weighted math
+        # but collapse to one entry in the weights/members dicts, so n_members
+        # and len(weights) would disagree (and the member gets double weight).
+        if name in seen:
+            continue
+        seen.add(name)
         if precomputed and name in precomputed:
             mu, sem = precomputed[name]
         elif name in _COMPUTED:

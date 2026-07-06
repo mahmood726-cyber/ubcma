@@ -51,6 +51,18 @@ def test_precomputed_zero_se_member_dominates_not_dropped():
     assert r["weights"]["exact"] > r["weights"]["noisy"], r["weights"]
 
 
+def test_duplicate_member_names_deduped():
+    """Regression (P2-7): a duplicate member name must be counted once, so
+    n_members equals the number of distinct members and the weights dict length
+    agrees (no double-weighting / no n_members-vs-weights mismatch)."""
+    pc = {"ubcma": (0.22, 0.035), "pet_peese": (0.26, 0.045)}
+    r = adaptshrink_estimator(np.array([0.2]), np.array([0.1]),
+                              members=("ubcma", "ubcma", "pet_peese"),
+                              precomputed=pc)
+    assert r["n_members"] == 2, r
+    assert len(r["weights"]) == r["n_members"], r["weights"]
+
+
 def test_k1_computed_members_do_not_fabricate_a_panel():
     """Regression (P1-4): with a single study and no precomputed members, the
     pub-bias corrections (PET-PEESE, trim-and-fill) are NOT estimable, so the
