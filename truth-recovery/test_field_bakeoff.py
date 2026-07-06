@@ -96,6 +96,54 @@ def test_field2_logor_generator_no_crash_on_fallback():
             assert set(["yi", "sei", "quality_score", "study_id"]).issubset(df.columns)
 
 
+def _artifact_cell(n=40, seed=0):
+    """One cell: headline + a reliable comparator both converge on all n reps;
+    a LOW-convergence comparator (p_uniform_star-like) converges on only ~8 reps.
+    Under global dropna the shared set collapses below 16 and the WHOLE cell is
+    deleted, even though the headline vs the reliable comparator is well-defined."""
+    rng = np.random.default_rng(seed)
+    cell = {"mu": 0.0, "tau": 0.1, "k": 5, "mechanism": "step", "strength": "strong"}
+    rows = []
+    for r in range(n):
+        for method, sd, hw, conv in (("adaptshrink_ens", 0.03, 0.10, True),
+                                     ("reml_hksj", 0.09, 0.18, True),
+                                     ("p_uniform_star", 0.05, 0.12, r < 8)):
+            if conv:
+                mu = 0.0 + rng.normal(0.0, sd)
+                rows.append({**cell, "rep": r, "method": method, "true_mu": 0.0,
+                             "mu_hat": mu, "ci_low": mu - hw, "ci_high": mu + hw,
+                             "converged": True})
+            else:  # non-converged rep: NaN estimate, converged=False
+                rows.append({**cell, "rep": r, "method": method, "true_mu": 0.0,
+                             "mu_hat": np.nan, "ci_low": np.nan, "ci_high": np.nan,
+                             "converged": False})
+    return pd.DataFrame(rows)
+
+
+def test_dropna_selection_artifact():
+    """Regression for the AdaptShrink dropna selection artifact (2026-07-06).
+
+    A low-convergence comparator that ``field_domination`` later EXCLUDES via
+    min_conv must NOT be able to delete the whole cell from the paired-bootstrap
+    denominator. The legacy 'global' mode drops the cell (dropna intersection < 16);
+    the corrected 'pairwise' mode keeps it and still judges the reliable comparator.
+    """
+    df = _artifact_cell()
+    # LEGACY global aggregation: the cell is deleted (empty result).
+    legacy = F.bootstrap_pairwise(df, "adaptshrink_ens", n_boot=500,
+                                  aggregation="global")
+    assert len(legacy) == 0, "global dropna should delete the low-conv cell"
+    # CORRECTED pairwise aggregation: the cell survives; reml_hksj is judged.
+    fixed = F.bootstrap_pairwise(df, "adaptshrink_ens", n_boot=500,
+                                 aggregation="pairwise")
+    assert "reml_hksj" in set(fixed["comparator"]), "reliable comparator must survive"
+    # the low-conv comparator only shares 8 reps (< 16) -> not judged in either mode
+    assert "p_uniform_star" not in set(fixed["comparator"])
+    # default aggregation is the corrected one
+    default = F.bootstrap_pairwise(df, "adaptshrink_ens", n_boot=500)
+    assert set(default["comparator"]) == set(fixed["comparator"])
+
+
 def test_field2_auto_selector_and_grids():
     import field_bakeoff2 as F2
     # tau-aware selector picks ens_calib at low tau_hat, petgate at high.

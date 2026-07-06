@@ -183,45 +183,95 @@ def score_tables(df, target=0.95):
 
 
 def bootstrap_pairwise(df, headline, target=0.95, n_boot=2000, seed=11,
-                       min_conv=0.8):
+                       min_conv=0.8, aggregation="pairwise"):
     """Per cell: paired-bootstrap mciw0(headline) - mciw0(comparator).
 
     Verdict: 'as_win' if 97.5% CI < 0; 'as_loss' if 2.5% CI > 0; else 'tie'.
-    Only comparators with conv_rate>=min_conv in the cell are judged (valid set).
+    The valid-comparator filter (conv_rate>=min_conv) is applied downstream in
+    ``field_domination``.
+
+    ``aggregation`` controls how the paired rep set for each comparison is formed:
+
+    "pairwise" (default, CORRECTED): each headline-vs-comparator paired bootstrap
+        uses the reps on which BOTH the headline and THAT comparator converged. A
+        comparator is judged if it shares >= 16 paired reps with the headline. No
+        third method can delete a comparison, and low-convergence methods (which
+        ``field_domination`` excludes anyway via ``min_conv``) cannot delete a whole
+        cell from the denominator.
+
+    "global" (LEGACY, retained for reproducibility): the paired rep set is the
+        intersection over ALL methods (``pivot_table(...).dropna()``) -- a rep is
+        used only if EVERY method converged on it, and the whole cell is skipped if
+        that intersection has < 16 reps. This deletes reps, and can delete entire
+        cells, because of low-convergence comparators (e.g. p_uniform_star / p_curve
+        on null cells) that are later EXCLUDED by ``min_conv`` -- a selection
+        artifact that biases the domination numerator/denominator. Selecting this
+        mode reproduces the original v1/v2 headline (see
+        test_field_bakeoff.py::test_dropna_selection_artifact).
     """
+    if aggregation not in ("pairwise", "global"):
+        raise ValueError(f"unknown aggregation {aggregation!r}")
     rng = np.random.default_rng(seed)
+
+    def _emit(cell, headline, method, conv_rate, h, mv, common_n, bidx=None):
+        # In "global" mode one bootstrap index is shared across all comparators in
+        # a cell (drawn once, passed in) -- this exactly reproduces the legacy RNG
+        # stream. In "pairwise" mode each comparator has its own common rep set, so
+        # a fresh index is drawn per comparison.
+        if bidx is None:
+            bidx = rng.integers(0, common_n, size=(n_boot, common_n))
+        h_q = np.quantile(h[bidx], target, axis=1)
+        m_q = np.quantile(mv[bidx], target, axis=1)
+        diff = 2.0 * (h_q - m_q)  # headline - comparator; negative = headline narrower
+        lo, hi = np.quantile(diff, [0.025, 0.975])
+        point = 2.0 * (np.quantile(h, target) - np.quantile(mv, target))
+        verdict = "as_win" if hi < 0 else ("as_loss" if lo > 0 else "tie")
+        return {**cell, "headline": headline, "comparator": method,
+                "comp_conv": round(float(conv_rate.get(method, 0)), 3),
+                "d_mciw0": round(float(point), 4),
+                "ci_lo": round(float(lo), 4), "ci_hi": round(float(hi), 4),
+                "verdict": verdict}
+
     out = []
     for keys, g in df.groupby(CELL_KEYS):
         cell = dict(zip(CELL_KEYS, keys))
         gg = g[g["converged"] & np.isfinite(g["mu_hat"])].copy()
         gg["abserr"] = np.abs(gg["mu_hat"] - gg["true_mu"])
-        wide = gg.pivot_table(index="rep", columns="method", values="abserr").dropna()
-        if headline not in wide.columns or len(wide) < 16:
-            continue
         # conv rate per method in this cell (over all reps attempted)
         attempted = g.groupby("method")["rep"].nunique()
         conv = g[g["converged"] & np.isfinite(g["mu_hat"])
                  & np.isfinite(g["ci_low"]) & np.isfinite(g["ci_high"])]
         conv_rate = (conv.groupby("method")["rep"].nunique()
                      / attempted).to_dict()
-        reps = wide.index.to_numpy()
-        bidx = rng.integers(0, len(reps), size=(n_boot, len(reps)))
-        h = wide[headline].to_numpy()
-        h_q = np.quantile(h[bidx], target, axis=1)
-        for method in wide.columns:
-            if method == headline:
+
+        if aggregation == "global":
+            wide = gg.pivot_table(index="rep", columns="method",
+                                  values="abserr").dropna()
+            if headline not in wide.columns or len(wide) < 16:
                 continue
-            mv = wide[method].to_numpy()
-            m_q = np.quantile(mv[bidx], target, axis=1)
-            diff = 2.0 * (h_q - m_q)  # headline - comparator; negative = headline narrower
-            lo, hi = np.quantile(diff, [0.025, 0.975])
-            point = 2.0 * (np.quantile(h, target) - np.quantile(mv, target))
-            verdict = "as_win" if hi < 0 else ("as_loss" if lo > 0 else "tie")
-            out.append({**cell, "headline": headline, "comparator": method,
-                        "comp_conv": round(float(conv_rate.get(method, 0)), 3),
-                        "d_mciw0": round(float(point), 4),
-                        "ci_lo": round(float(lo), 4), "ci_hi": round(float(hi), 4),
-                        "verdict": verdict})
+            h = wide[headline].to_numpy()
+            bidx = rng.integers(0, len(wide), size=(n_boot, len(wide)))  # shared/cell
+            for method in wide.columns:
+                if method == headline:
+                    continue
+                out.append(_emit(cell, headline, method, conv_rate,
+                                 h, wide[method].to_numpy(), len(wide), bidx=bidx))
+        else:  # "pairwise" -- per-comparator common (both-converged) rep set
+            hg = gg[gg["method"] == headline]
+            if len(hg) < 16:
+                continue
+            h_series = hg.set_index("rep")["abserr"]
+            h_reps = set(h_series.index)
+            for method in gg["method"].unique():
+                if method == headline:
+                    continue
+                m_series = gg[gg["method"] == method].set_index("rep")["abserr"]
+                common = sorted(h_reps & set(m_series.index))
+                if len(common) < 16:
+                    continue
+                out.append(_emit(cell, headline, method, conv_rate,
+                                 h_series.loc[common].to_numpy(),
+                                 m_series.loc[common].to_numpy(), len(common)))
     return pd.DataFrame(out)
 
 
