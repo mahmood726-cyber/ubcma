@@ -12,7 +12,7 @@ sys.path.insert(0, str(_HERE))
 sys.path.insert(0, str(_HERE.parent / "nma"))
 
 from nma_core import Comparison            # noqa: E402
-from transport_truthgate import estimate_beta  # noqa: E402
+from transport_truthgate import estimate_beta, _verdict  # noqa: E402
 
 
 def test_beta_not_confounded_by_treatment_baseline():
@@ -54,3 +54,14 @@ def test_beta_zero_when_no_covariate_spread():
     sim = [Comparison(f"s{i}", "A", "placebo", -1.0, 0.1) for i in range(4)]
     Xstudy = {f"s{i}": 0.7 for i in range(4)}
     assert estimate_beta(sim, Xstudy, Xref=0.5) == 0.0
+
+
+def test_verdict_fails_closed_on_nan_ci():
+    """Regression (P1-5): a non-finite CI must NOT be reported as the benign
+    'inert/tie' (fail-OPEN) — it is 'undefined'. Finite CIs keep their
+    directional verdicts."""
+    assert _verdict(float("nan"), float("nan")) == "undefined"
+    assert _verdict(0.1, float("nan")) == "undefined"
+    assert _verdict(-0.2, -0.1) == "WINS"       # CI entirely below 0
+    assert _verdict(0.1, 0.2) == "HARMS"        # CI entirely above 0
+    assert _verdict(-0.1, 0.1) == "inert/tie"   # CI straddles 0

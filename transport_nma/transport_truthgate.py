@@ -167,6 +167,18 @@ def mciw0(errs):
     return 2.0 * float(np.quantile(np.asarray(errs), 0.95))
 
 
+def _verdict(lo, hi):
+    """Directional verdict from a paired-difference CI, failing CLOSED on a
+    non-finite interval. A NaN CI (e.g. a degenerate bootstrap) used to fall
+    through both `hi < 0` and `lo > 0` and be reported as the benign
+    'inert/tie' — a fail-OPEN that hides a broken computation as 'no effect'.
+    An undefined interval is 'undefined', not evidence of inertness.
+    """
+    if not (np.isfinite(lo) and np.isfinite(hi)):
+        return "undefined"
+    return "WINS" if hi < 0 else ("HARMS" if lo > 0 else "inert/tie")
+
+
 def truthgate(comps, d0, Xstudy, Xref, cov, beta, Xstar, reps=500, seed=1):
     """One (beta, Xstar) cell. Returns unstd/transport/oracle MCIW0 and paired-bootstrap CI
     of (transport - unstd) and (oracle - unstd)."""
@@ -208,13 +220,12 @@ def truthgate(comps, d0, Xstudy, Xref, cov, beta, Xstar, reps=500, seed=1):
 
     lo_t, hi_t = paired_ci(e_tr)
     lo_o, hi_o = paired_ci(e_or)
-    verdict = lambda lo, hi: "WINS" if hi < 0 else ("HARMS" if lo > 0 else "inert/tie")
     return dict(
         beta=beta, Xstar=Xstar, mciw0_un=mciw0(e_un),
         mciw0_tr=mciw0(e_tr), d_tr=mciw0(e_tr) - mciw0(e_un), ci_tr=(float(lo_t), float(hi_t)),
-        verdict_tr=verdict(lo_t, hi_t),
+        verdict_tr=_verdict(lo_t, hi_t),
         mciw0_or=mciw0(e_or), d_or=mciw0(e_or) - mciw0(e_un), ci_or=(float(lo_o), float(hi_o)),
-        verdict_or=verdict(lo_o, hi_o),
+        verdict_or=_verdict(lo_o, hi_o),
     )
 
 
