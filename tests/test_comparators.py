@@ -7,11 +7,27 @@ import numpy as np
 
 from ubcma.comparators import (
     copas_selection,
+    knapp_hartung_adjustment,
     pet_peese,
     quality_effects,
     reml_estimator,
     trim_and_fill,
 )
+
+
+def test_hksj_guards_k_below_2():
+    """Regression (P2-6): HKSJ is undefined for k<2 (df=k-1=0 -> t-quantile NaN,
+    and the q-statistic divides by k-1). It must fall back to the unadjusted
+    normal CI, not return NaN."""
+    r = knapp_hartung_adjustment(np.array([0.5]), np.array([0.1]), mu=0.5,
+                                 tau2=0.0)
+    assert np.isfinite(r["ci_low"]) and np.isfinite(r["ci_high"]), r
+    assert r["ci_low"] < r["mu"] < r["ci_high"], r
+    assert r["df"] == 0
+    # k>=2 still uses the t-based adjustment (df = k-1)
+    r2 = knapp_hartung_adjustment(np.array([0.4, 0.6, 0.5]),
+                                  np.array([0.1, 0.1, 0.1]), mu=0.5, tau2=0.0)
+    assert r2["df"] == 2 and np.isfinite(r2["ci_low"])
 
 # Homogeneous dataset (tau~0)
 Y_HOMO = np.array([0.20, 0.22, 0.18, 0.21, 0.19, 0.23, 0.20, 0.17, 0.24, 0.21])

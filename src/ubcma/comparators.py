@@ -277,6 +277,17 @@ def knapp_hartung_adjustment(
     w = 1.0 / (s2 + tau2)
     se_mu = float(np.sqrt(1.0 / np.sum(w)))
 
+    if k < 2:
+        # HKSJ is undefined for k<2: df = k-1 = 0 makes the t-quantile NaN, and
+        # the q-statistic divides by k-1. Fall back to the unadjusted normal CI
+        # (there is no heterogeneity adjustment to make from a single study).
+        z = float(norm.ppf(1.0 - alpha / 2.0))
+        return {
+            "mu": mu, "se_adjusted": se_mu,
+            "ci_low": mu - z * se_mu, "ci_high": mu + z * se_mu,
+            "q_hksj": 1.0, "df": 0,
+        }
+
     q_hksj = float(np.sum(w * np.square(y - mu)) / (k - 1))
     q_hksj = max(q_hksj, 1.0)  # floor per Rover et al. 2015
     se_adj = se_mu * np.sqrt(q_hksj)
