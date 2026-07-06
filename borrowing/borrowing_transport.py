@@ -105,7 +105,11 @@ def transport_prior(target, donors, bw_ob, mode="transport",
         yeff = ys + b * (target["pop_ob"] - obeff)   # standardise to target population
 
     wsum = float(w.sum())
-    if wsum <= 0:
+    # Fail closed on a non-positive OR non-finite weight sum. A zero bandwidth or
+    # a missing/at-target covariate makes a kernel weight NaN (0/0), and `wsum
+    # <= 0` is False for NaN — so the guard was bypassed and the prior proceeded
+    # with NaN weights. `not (wsum > 0)` catches NaN, 0, and negatives.
+    if not (wsum > 0):
         return float("nan"), float("inf"), 0.0
     mu_p = float((w * yeff).sum() / wsum)
     within = float((w ** 2 * ses ** 2).sum() / wsum ** 2)
