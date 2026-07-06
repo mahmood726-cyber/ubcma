@@ -1,0 +1,14 @@
+method,dominated_global,dominated_pairwise,cells_total,mean_deployable_cov
+adaptshrink_ens,31,32,54,0.899
+ubcma,19,18,54,0.81
+adaptshrink_fast,13,12,54,0.813
+dl_hksj,3,3,54,0.44
+henmi_copas,3,2,54,0.505
+reml_hksj,3,3,54,0.436
+p_uniform_star,2,1,54,0.62
+adaptshrink_solo,1,1,54,0.748
+vevea_hedges,1,0,54,0.602
+copas,0,0,54,0.347
+p_curve,0,0,54,0.421
+pet_peese,0,0,54,0.485
+trim_and_fill,0,0,54,0.288

@@ -3,21 +3,22 @@
   "target": 0.95,
   "n_cells": 54,
   "reps": 80,
+  "aggregation": "pairwise",
   "headlines": {
     "adaptshrink_ens": {
-      "cells_dominated": 31,
+      "cells_dominated": 32,
       "cells_total": 54,
-      "cells_with_loss": 18
+      "cells_with_loss": 17
     },
     "adaptshrink_fast": {
-      "cells_dominated": 13,
+      "cells_dominated": 12,
       "cells_total": 54,
-      "cells_with_loss": 34
+      "cells_with_loss": 37
     },
     "adaptshrink_solo": {
       "cells_dominated": 1,
       "cells_total": 54,
-      "cells_with_loss": 52
+      "cells_with_loss": 51
     }
   }
 }
