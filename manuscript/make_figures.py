@@ -36,7 +36,7 @@ variants = ["adaptshrink_ens", "adaptshrink_ens_calib", "adaptshrink_petgate", "
 labels = ["ens", "ens_calib", "petgate", "auto (τ-aware)"]
 cont = [int(dom("c2", v)["dominates_field"].sum()) for v in variants]
 binr = [int(dom("l2", v)["dominates_field"].sum()) for v in variants]
-cont_tot, bin_tot = 51, 30
+cont_tot, bin_tot = 54, 36
 fig, axes = plt.subplots(1, 2, figsize=(9.2, 3.8))
 for ax, vals, tot, title in [(axes[0], cont, cont_tot, "Continuous (SMD) grid"),
                              (axes[1], binr, bin_tot, "Binary / log-OR grid")]:
@@ -72,11 +72,11 @@ for i, (lab, col) in enumerate(zip(labels, cols)):
         ax.text(b.get_x() + b.get_width() / 2, s + 0.2, str(s), ha="center", va="bottom", fontsize=8)
 ax.set_xticks(x); ax.set_xticklabels([f"τ = {t}\n(of {series['auto (τ-aware)'][i][1]} cells)" for i, t in enumerate(taus)])
 ax.set_ylabel("cells dominated")
-ax.set_title("Moving the no-free-lunch boundary: the high-τ corner (0 → 7/17 at τ = 0.5)", fontsize=11, fontweight="bold")
+ax.set_title("Moving the no-free-lunch boundary: the high-τ corner (0 → 8/18 at τ = 0.5)", fontsize=11, fontweight="bold")
 ax.legend(frameon=False, ncol=4, loc="upper center", bbox_to_anchor=(0.5, -0.12))
-ax.annotate("ens: 0/17", xy=(2 - 1.5 * w, 0.3), xytext=(1.55, 4.5),
+ax.annotate("ens: 0/18", xy=(2 - 1.5 * w, 0.3), xytext=(1.55, 4.5),
             fontsize=8, color=C_LOSS, arrowprops=dict(arrowstyle="->", color=C_LOSS))
-ax.annotate("auto: 7/17", xy=(2 + 1.5 * w, 7), xytext=(2.0, 9),
+ax.annotate("auto: 8/18", xy=(2 + 1.5 * w, 8), xytext=(2.0, 9),
             fontsize=8, color=C_AUTO, fontweight="bold", arrowprops=dict(arrowstyle="->", color=C_AUTO))
 fig.tight_layout()
 fig.savefig(FIG / "fig2_tau_frontier.png", bbox_inches="tight")

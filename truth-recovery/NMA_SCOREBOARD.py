@@ -174,14 +174,16 @@ if __name__ == "__main__":
               "",
               "| track | adaptshrink_auto dominates | loss cells | comparators beaten |",
               "|---|---|---|---|"]
-    for tag, path, desc in [
-        ("c2", OUT / "field2_c2_summary.json", "continuous hard (51 scoreable cells)"),
-        ("l2", OUT / "field2_l2_summary.json", "log-OR binary (30 scoreable cells)"),
+    for tag, path, label in [
+        ("c2", OUT / "field2_c2_summary.json", "continuous hard"),
+        ("l2", OUT / "field2_l2_summary.json", "log-OR binary"),
     ]:
         with open(path) as f:
             d = json.load(f)
         if "adaptshrink_auto" in d["headlines"]:
             h = d["headlines"]["adaptshrink_auto"]
+            # cell count derived from the summary JSON so the label never goes stale
+            desc = f"{label} ({h['total']} scoreable cells)"
             lines.append(f"| {desc} | {h['dominates']}/{h['total']} | "
                          f"{h['loss_cells']}/{h['total']} | 11 comparators |")
 

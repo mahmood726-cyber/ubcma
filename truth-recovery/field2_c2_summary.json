@@ -4,29 +4,29 @@
   "reps": 40,
   "headlines": {
     "adaptshrink_ens": {
-      "dominates": 16,
-      "total": 51,
-      "loss_cells": 20
+      "dominates": 18,
+      "total": 54,
+      "loss_cells": 17
     },
     "adaptshrink_ens_calib": {
-      "dominates": 19,
-      "total": 51,
-      "loss_cells": 20
+      "dominates": 25,
+      "total": 54,
+      "loss_cells": 17
     },
     "adaptshrink_fast": {
       "dominates": 6,
-      "total": 51,
-      "loss_cells": 34
+      "total": 54,
+      "loss_cells": 38
     },
     "adaptshrink_petgate": {
-      "dominates": 18,
-      "total": 51,
+      "dominates": 20,
+      "total": 54,
       "loss_cells": 11
     },
     "adaptshrink_auto": {
-      "dominates": 31,
-      "total": 51,
-      "loss_cells": 6
+      "dominates": 36,
+      "total": 54,
+      "loss_cells": 4
     }
   }
 }

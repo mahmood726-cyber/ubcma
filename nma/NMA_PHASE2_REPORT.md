@@ -128,15 +128,17 @@ Verification scripts: `nma/verify/agy_phase2_nma.py`, `nma/verify/claude_phase2_
 | l2 MCIW0 (grand mean) | **0.888** | 0.986 | 0.990 |
 | c2 bias | **0.107** | 0.163 | 0.143 |
 | c2 raw_cov | **0.843** | 0.582 | 0.648 |
-| domination (c2, 51 cells) | **31/51** | — | — |
-| domination (l2, 30 cells) | **20/30** | — | — |
-| honest loss cells (c2) | 6/51 (step-sel) | — | — |
+| domination (c2, 54 cells) | **36/54** | — | — |
+| domination (l2, 36 cells) | **23/36** | — | — |
+| honest loss cells (c2) | 4/54 (3 step-sel, 1 null) | — | — |
 
 The `adaptshrink_auto` estimator leads the 16-method field on MCIW0 (efficiency
 at matched coverage) across both continuous and log-OR outcome grids, with
-substantial gains at τ=0.1−0.3 and large k. The residual losses occur in
+substantial gains at τ=0.1−0.3 and large k. The residual losses occur mostly in
 step-selection cells at high τ where `trim_and_fill` wins a metric artifact
-(its raw coverage is ~0.29 — not deployable).
+(its raw coverage is ~0.29 — not deployable), plus one no-selection cell where the
+efficient estimators are optimal. (Counts use pairwise-complete bootstrap
+aggregation, not the global all-methods intersection.)
 
 ---
 

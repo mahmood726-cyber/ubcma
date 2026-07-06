@@ -114,8 +114,8 @@ Source: committed `field2_*_summary.json` (paired bootstrap + coverage truth-gat
 
 | track | adaptshrink_auto dominates | loss cells | comparators beaten |
 |---|---|---|---|
-| continuous hard (51 scoreable cells) | 31/51 | 6/51 | 11 comparators |
-| log-OR binary (30 scoreable cells) | 20/30 | 9/30 | 11 comparators |
+| continuous hard (54 scoreable cells) | 36/54 | 4/54 | 11 comparators |
+| log-OR binary (36 scoreable cells) | 23/36 | 12/36 | 11 comparators |
 ## Part B — NMA small-study meta-regression (PET / PEESE)
 
 Applied to real NMA datasets (smoking, senn2013) as per verification task.
@@ -181,6 +181,6 @@ node-splitting or design-by-treatment models are appropriate sensitivity analyse
 | c2 bias | **0.107** | 0.163 | −34% (lower) |
 | c2 raw_cov (deployment) | **0.843** | 0.582 | +26 pp (better calibrated) |
 | c2 τ=0.1 k=40 raw_cov | **0.986** | 0.189 | standard RE severe under-coverage |
-| domination (c2, 51 cells) | **31/51** | — | auto wins 31/51, loses 6/51 |
-| domination (l2, 30 cells) | **20/30** | — | auto wins 20/30, loses 9/30 |
+| domination (c2, 54 cells) | **36/54** | — | auto wins 36/54, loses 4/54 |
+| domination (l2, 36 cells) | **23/36** | — | auto wins 23/36, loses 12/36 |
 | inconsistency Q: match netmeta | machine precision | — | verified B+C |

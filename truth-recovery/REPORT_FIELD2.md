@@ -21,24 +21,26 @@
     when the DerSimonian-Laird tau_hat < 0.2 (bias-correction pays off), else
     `adaptshrink_petgate` (high heterogeneity -> lean efficient).
 
-## (c) result -- continuous HARD grid (c2: tau>=0.1, k in {5,40}, 51 scored cells)
+## (c) result -- continuous HARD grid (c2: tau>=0.1, k in {5,40}, 54 scored cells)
 
 Cells dominated (narrower-or-tied vs every valid comparator at matched coverage
-AND near-nominal deployable coverage):
+AND near-nominal deployable coverage). Counts use pairwise-complete paired-bootstrap
+aggregation (each headline-vs-comparator verdict on the reps where both converged),
+not the global all-methods intersection that previously dropped whole null cells:
 
 | method | dominated | loss-cells | tau=0.1 | tau=0.3 | tau=0.5 |
 |---|---|---|---|---|---|
-| adaptshrink_ens | 16 / 51 | 20 | 13/16 | 3/18 | 0/17 |
-| adaptshrink_ens_calib | 19 / 51 | 20 | 14/16 | 5/18 | 0/17 |
-| adaptshrink_petgate | 18 / 51 | 11 | 6/16 | 7/18 | 5/17 |
-| **adaptshrink_auto** | **31 / 51** | **6** | **15/16** | **9/18** | **7/17** |
-| adaptshrink_fast | 6 / 51 | 34 | - | - | - |
+| adaptshrink_ens | 18 / 54 | 17 | 15/18 | 3/18 | 0/18 |
+| adaptshrink_ens_calib | 25 / 54 | 17 | 18/18 | 6/18 | 1/18 |
+| adaptshrink_petgate | 20 / 54 | 11 | 7/18 | 7/18 | 6/18 |
+| **adaptshrink_auto** | **36 / 54** | **4** | **18/18** | **10/18** | **8/18** |
+| adaptshrink_fast | 6 / 54 | 38 | - | - | - |
 
-**The tau-aware `adaptshrink_auto` nearly DOUBLES plain ens (16 -> 31) and cuts
-outright losses 20 -> 6 on this hard grid**, by combining ens_calib's low-tau
+**The tau-aware `adaptshrink_auto` DOUBLES plain ens (18 -> 36) and cuts
+outright losses 17 -> 4 on this hard grid**, by combining ens_calib's low-tau
 strength with petgate's high-tau strength. It essentially realizes the oracle
 upper bound (a perfect per-cell selector between ens_calib and petgate would get
-32/51). Crucially the per-replicate switching did NOT inject the noise that
+37/54). Crucially the per-replicate switching did NOT inject the noise that
 sank iteration-2's gate -- because it switches between two GOOD estimators on a
 STABLE signal (tau_hat), not toward a biased estimator on a noisy one.
 
@@ -47,45 +49,48 @@ Iteration-2 gated on `|mu_ens - mu_re|`, which is inflated by heterogeneity, so 
 misfired at high tau. petgate gates on the funnel-asymmetry t-statistic, whose
 expectation is ~0 under no selection regardless of tau -- a genuinely tau-robust
 selection detector. That is what lets `auto` recover the tau=0.5 corner
-(0 -> 7/17) that no earlier variant could touch.
+(0 -> 8/18) that no earlier variant could touch.
 
 ### Honest residual weaknesses of `adaptshrink_auto` (not hidden)
-- The 6 remaining losses are **all step-selection cells**: 3 to `trim_and_fill`
-  (the undeployable metric artifact -- its raw coverage is ~0.29) and 3 high-tau
-  step k=40 cells to selection-MLEs / adaptshrink_fast where auto's deployable
-  coverage is poor (0.20-0.53).
+- The 4 remaining losses are three high-tau, k=40 **step-selection cells** (to
+  `trim_and_fill` -- the undeployable metric artifact, raw coverage ~0.29 -- the
+  fast ensemble, or the selection-MLEs, where auto's deployable coverage is poor
+  0.20-0.53) plus one no-selection cell (mu=0.2, tau=0.5, k=5) lost to the
+  efficient estimators (copas, DL/REML-HKSJ) in the high-tau corner.
 - **Deployable coverage cost:** auto's mean raw coverage is **0.843** (vs
-  ens_calib 0.90+), because at high tau it uses petgate, which reverts to
+  ens_calib ~0.88), because at high tau it uses petgate, which reverts to
   RE-style intervals that under-cover under residual selection, and because of
   the step-selection centre bias. So `auto` buys matched-coverage domination at
   some cost in out-of-the-box calibration -- a real tradeoff, logged.
 
-## (b) result -- log-OR / binary outcome (l2: 2x2 tables, 30 scored cells)
+## (b) result -- log-OR / binary outcome (l2: 2x2 tables, 36 scored cells)
 
 mu{0,0.4,0.8} x tau{0.15,0.4} x k{10,40} x mech{none,step,copas}.
 
 | method | dominated | loss-cells | tau=0.15 | tau=0.4 | mean deployable cov |
 |---|---|---|---|---|---|
-| adaptshrink_ens | 14 / 30 | 15 | 6/12 | 8/18 | 0.960 |
-| adaptshrink_ens_calib | 15 / 30 | 15 | - | - | - |
-| adaptshrink_fast | 15 / 30 | 14 | - | - | - |
-| adaptshrink_petgate | 13 / 30 | 8 | 7/12 | 6/18 | 0.797 |
-| **adaptshrink_auto** | **20 / 30** | 9 | **10/12** | **10/18** | **0.938** |
+| adaptshrink_ens | 17 / 36 | 18 | 10/18 | 7/18 | 0.960 |
+| adaptshrink_ens_calib | 18 / 36 | 18 | - | - | - |
+| adaptshrink_fast | 16 / 36 | 19 | - | - | - |
+| adaptshrink_petgate | 15 / 36 | 11 | 9/18 | 6/18 | 0.797 |
+| **adaptshrink_auto** | **23 / 36** | 12 | **12/18** | **11/18** | **0.938** |
 
-**`adaptshrink_auto` is the best variant on binary/log-OR outcomes too** (20/30 vs
-14 for plain ens), and here it keeps strong deployable coverage (0.938). So the
+**`adaptshrink_auto` is the best variant on binary/log-OR outcomes too** (23/36 vs
+17 for plain ens), and here it keeps strong deployable coverage (0.938). So the
 tau-aware design transfers from continuous (SMD-like) to log-OR effect sizes --
-the win is not an artifact of one effect metric. Its 9 remaining losses are again
-dominated by the `trim_and_fill` metric artifact (5 copas-mechanism cells; tf is
-undeployable) plus a couple of selection-MLE / fast-ensemble step cells.
+the win is not an artifact of one effect metric. Its 12 remaining losses are: the
+`trim_and_fill` metric artifact (all 5 copas-mechanism cells; tf is undeployable),
+six low-heterogeneity no-selection cells where the efficient RE/selection
+estimators or petgate are legitimately tighter, and one step cell to the fast
+ensemble / Vevea-Hedges.
 
 ## Bottom line so far
 
 Avenue (c) is a **genuine, demonstrated improvement in the high-heterogeneity
 regime, confirmed on two effect metrics**:
-- continuous hard grid (tau>=0.1, k in {5,40}): `adaptshrink_auto` **31/51** vs 16
-  for the plain ensemble (6 losses vs 20);
-- log-OR / binary outcome: `adaptshrink_auto` **20/30** vs 14 (deployable coverage
+- continuous hard grid (tau>=0.1, k in {5,40}): `adaptshrink_auto` **36/54** vs 18
+  for the plain ensemble (4 losses vs 17);
+- log-OR / binary outcome: `adaptshrink_auto` **23/36** vs 17 (deployable coverage
   0.938).
 
 It wins the tau=0.3-0.5 corner that the v1 honest-ceiling flagged as out of reach
