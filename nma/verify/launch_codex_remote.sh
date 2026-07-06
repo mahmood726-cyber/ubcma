@@ -12,7 +12,7 @@
 # present in nma/verify/grid (CSVs) and nma/verify (spec).
 set -u
 HOST="$1"; USER="$2"; WORKDIR="$3"; NODE="$4"; MODE="${5:-sync}"
-KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+KEY="${KEY:-${HOME:-$USERPROFILE}/.ssh/node2_ed25519}"
 SEATS="${SEATS:-A:C:\\Users\\mahmo\\.codex}"
 MODEL="${MODEL:-gpt-5.5}"
 GRID="F:/ubcma/nma/verify/grid"

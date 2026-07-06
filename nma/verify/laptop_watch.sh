@@ -4,7 +4,9 @@
 # Burns both laptop seats per Mahmood's directive; survives the node's flapping by
 # polling. Logs everything; writes result_codex_laptop_{A,B}_grid.json on success.
 set -u
-KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+# Portable default: honor a caller-supplied KEY, else resolve the ssh key under
+# the invoking user's home (no hardcoded C:/Users/<name>/ path).
+KEY="${KEY:-${HOME:-$USERPROFILE}/.ssh/node2_ed25519}"
 HOST="100.80.183.43"; USER="mahmo"; WORKDIR="C:\\Users\\mahmo\\nma_verify"
 MAXMIN="${MAXMIN:-45}"
 PROBE="ssh -n -o ConnectTimeout=12 -o BatchMode=yes -o ServerAliveInterval=5 -i $KEY $USER@$HOST"

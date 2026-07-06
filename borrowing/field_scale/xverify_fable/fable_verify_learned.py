@@ -1,10 +1,16 @@
+import os
 import numpy as np, pandas as pd, json
+from pathlib import Path
 from scipy.optimize import minimize
 from scipy.linalg import cho_factor, cho_solve
 
 RNG_MASTER = 12345
-CSV = r"F:\ubcma\borrowing\field_scale\corpus_full_1177.csv"
-OUT = r"C:\Users\mahmo\AppData\Local\Temp\claude\F--ubcma\79a11b39-006d-4fab-8171-19f6311944df\scratchpad\fable_learned_result.json"
+# Portable paths: the corpus lives one dir up from this script; the result is
+# written alongside the script by default, or to FABLE_OUT if the caller sets it.
+# (No hardcoded F:\ubcma or C:\Users\<name>\... machine-specific paths.)
+_HERE = Path(__file__).resolve().parent
+CSV = os.environ.get("FABLE_CSV") or str(_HERE.parent / "corpus_full_1177.csv")
+OUT = os.environ.get("FABLE_OUT") or str(_HERE / "fable_learned_result.json")
 
 df = pd.read_csv(CSV)
 
