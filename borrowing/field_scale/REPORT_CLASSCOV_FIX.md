@@ -89,6 +89,48 @@ cross-MA generalisation of `l_cls` is under-identified from this slice and shoul
 larger AACT expansion with several real same-drug-class MA pairs before any promotion. **This
 prototype does NOT modify the shipped estimator and is NOT a promotion.**
 
+## ADVERSARIAL REVIEW + genuine-generalization test — the deployment claim is NOT_PROVEN here
+
+An independent adversarial review (agy Claude/GPT pool) correctly sharpened the caveat above into a
+concrete defect in the HEADLINE reading:
+
+> The drug-class label is a deterministic function of the MA identity. For GLP1, `glucagon-l` tags
+> ONLY that one MA — a **singleton** class — so the class-match term is *operationally identical* to
+> the held-out MA-identity term (an aliased index). The donor half IS the held-out MA; relabelling its
+> code blocks the identity kernel but the singleton class kernel does the same job — "within-MA
+> interpolation dressed as cross-MA transfer." The scrambled control shows the *signal* matters, not
+> that the *mechanism* is generalisation rather than self-recognition under an alias. A genuine test
+> needs a non-singleton class held out ENTIRELY, predicted from chemically-distinct same-class donors.
+
+This is correct. The donor-injection result (rec 0.37→1.01, GLP1 +2.98) is therefore a **mechanism
+check** — it shows the GP *can* route level through a leakage-free class term — but for the singleton
+GLP1 cell it is **near-tautological** and does NOT establish cross-MA generalisation.
+
+**Genuine cross-MA test** (`classcov_generalize.py`): the ONLY non-singleton drug class in this corpus
+is `antibodies` (carcinoma / intestinal / neoplasmsb — 3 distinct condition-MAs). TRUE leave-one-MA-out
+(no split, no alias, zero same-MA rows in training), none-kernel vs drug-kernel:
+
+| held-out antibodies MA | true | none-post | drug-post | none MAE | drug MAE |
+|---|---|---|---|---|---|
+| carcinoma | +0.46 | +0.31 | +0.32 | 0.553 | 0.546 |
+| intestinal | +0.38 | +0.29 | +0.27 | 0.424 | 0.430 |
+| neoplasmsb | +0.24 | +0.34 | +0.42 | 0.554 | 0.548 |
+| **mean cold MAE** | | | | **0.510** | **0.508 (Δ −0.002)** |
+
+The drug-class term adds **essentially nothing beyond specialty** (Δ −0.002). Reason (disclosed): all
+3 antibodies MAs are `specialty=oncology` with similar levels (+0.24…+0.46), so the committed
+specialty-match term ALREADY groups them — the class term is redundant on this (confounded) slice.
+
+### Honest verdict (truth-first, supersedes the headline framing)
+- **CONFIRMED (mechanism):** the grouped-ARD GP can mechanically route a held-out MA's level through a
+  leakage-free class-match term with its own learned length scale; it is inert on the standard corpus
+  (regression Δ +0.00%). The original cold ceiling was the ABSENCE of a level-informative covariate,
+  not a GP-structural inability — that much stands.
+- **NOT_PROVEN (deployment):** that a leakage-free drug-class covariate delivers genuine cross-MA level
+  transfer *beyond what specialty already captures*. The singleton-class recovery is tautology-adjacent;
+  the one non-singleton class is specialty-confounded and shows no benefit. **This corpus cannot settle
+  the deployment claim.** Do not promote on the strength of the donor-injection number.
+
 ## Suggested next step (for owner + witness)
 If the GP confirms H1/H2 and the regression gate passes, the promotable form is a leakage-free
 drug-class / ATC-5 / mechanism embedding added to `field_learned.build_features` (a real registry

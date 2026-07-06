@@ -1,0 +1,13 @@
+TRUE leave-one-MA-out on the non-singleton 'antibodies' class (zero same-MA rows in train):
+held-out MA                        n   true none-post drug-post  within noneMAE drugMAE withinMAE
+aact_carcinoma_antibodies          9  +0.46     +0.31     +0.32   +0.35   0.553   0.546     0.614
+aact_intestinal_antibodies        10  +0.38     +0.29     +0.27   +0.39   0.424   0.430     0.443
+aact_neoplasmsb_antibodies        10  +0.24     +0.34     +0.42   +0.23   0.554   0.548     0.583
+
+  mean cold MAE  none=0.510  drug-class=0.508  (delta drug-none = -0.002)
+  interpretation: all 3 antibodies MAs are specialty='oncology' -> specialty term already
+  groups them; the drug-class term is redundant here. A |delta|~0 => class adds nothing
+  BEYOND specialty on this (confounded) slice => cross-MA drug-class generalization is
+  NOT_PROVEN on this corpus; needs same-class MAs spanning DIFFERENT specialties.
+
+  wrote F:\ubcma-mb-classcov\borrowing\field_scale\classcov_generalize_results.json
