@@ -35,7 +35,10 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 import drma  # noqa: E402
 import dr_bakeoff as B  # noqa: E402
 from ubcma.adaptshrink import adaptshrink_estimator  # noqa: E402
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+# Force UTF-8 stdout only when run as a script; reassigning sys.stdout at IMPORT
+# time breaks pytest's output capture for any test that imports this module.
+if __name__ == "__main__":
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
 
 DOSES = np.array([0.0, 1.0, 2.0, 4.0, 8.0])
 KNOTS = np.array([1.0, 2.0, 4.0])       # RCS knots (3 -> 2 spline params; stable from 4 non-ref pts)
