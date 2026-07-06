@@ -70,6 +70,22 @@ def test_linear_reml():
     assert float(fit.Psi[0, 0]) < 1e-6
 
 
+def test_mvmeta_k1_reduces_to_fixed_effect():
+    """Regression (P0-2): REML cannot identify between-study covariance from a
+    SINGLE study — the REML profile is flat in Psi at k=1 (log|S+Psi| and
+    log|A| = -log|S+Psi| cancel, quad=0), so the optimizer returned an arbitrary
+    start-dependent Psi (~avg_within/2) that spuriously inflated the SE (0.026 vs
+    the correct fixed 0.021). k=1 must reduce to the fixed-effect (Psi=0) limit."""
+    bi = np.array([[0.5]])
+    Slist = [np.array([[0.021 ** 2]])]
+    beta, Vbeta, Psi, ll = drma.mvmeta(bi, Slist, method="reml")
+    assert float(np.ravel(Psi)[0]) == 0.0, Psi                 # no between-study var
+    assert abs(float(np.sqrt(np.ravel(Vbeta)[0])) - 0.021) < 1e-9
+    # matches the fixed-effect fit exactly
+    b_f, V_f, P_f, _ = drma.mvmeta(bi, Slist, method="fixed")
+    assert abs(float(np.ravel(Vbeta)[0]) - float(np.ravel(V_f)[0])) < 1e-12
+
+
 # --- spline (multivariate p=2) -------------------------------------------- #
 def _spline_fit(method):
     ref = _load("ref_spline.json")

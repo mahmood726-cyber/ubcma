@@ -309,6 +309,16 @@ def mvmeta(bi, Slist, method="reml", max_restarts=4):
     if method != "reml":
         raise ValueError("method must be 'fixed' or 'reml'")
 
+    # REML cannot identify between-study covariance from a single study: at k=1
+    # the REML profile is flat in Psi (log|S+Psi| and log|A| = -log|S+Psi|
+    # cancel, quad=0), so the optimizer returns an arbitrary start-dependent Psi
+    # (~avg_within/2) and spuriously inflates Vbeta. Reduce to the fixed-effect
+    # (Psi=0) limit, the correct k=1 answer. (tau^2 is undefined for k<2.)
+    if k < 2:
+        Wlist = [np.linalg.inv(S) for S in Slist]
+        beta, Vbeta = _gls_mean(bi, Wlist)
+        return beta, Vbeta, np.zeros((p, p)), float("nan")
+
     n_par = p * (p + 1) // 2
     # Starting value: method-of-moments-ish (half the average within-var, on diag)
     avg_within = np.mean([np.diag(S) for S in Slist], axis=0)

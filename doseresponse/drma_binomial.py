@@ -33,7 +33,7 @@ from scipy.special import roots_hermite
 @dataclass
 class BinomialDRFit:
     b0: float            # intercept (logit)
-    b1: float            # dose slope (logit per dose-unit)
+    b1: float            # dose slope (logit per SCALED dose-unit, i.e. per dose/dose_scale)
     sigma: float         # study random-intercept SD
     se_b0: float
     se_b1: float
@@ -41,9 +41,13 @@ class BinomialDRFit:
     loglik: float
     nAGQ: int
     n_studies: int
+    dose_scale: float = 1.0   # the divisor the fit used; predict_logit re-applies it
 
     def predict_logit(self, dose):
-        return self.b0 + self.b1 * np.asarray(dose, float)
+        # b1 is on the SCALED dose (dose/dose_scale), so a RAW dose argument must
+        # be scaled the same way before applying the slope. Ignoring dose_scale
+        # here made predictions wrong by a factor of dose_scale.
+        return self.b0 + self.b1 * (np.asarray(dose, float) / self.dose_scale)
 
 
 def _study_loglik(u, y, n, eta_fixed):
@@ -142,7 +146,7 @@ def fit_logistic_dr(df, *, dose_col="dose", events_col="events", total_col="tota
     return BinomialDRFit(b0=float(b0), b1=float(b1), sigma=float(np.exp(logsigma)),
                          se_b0=float(se[0]), se_b1=float(se[1]), se_logsigma=float(se[2]),
                          loglik=float(-_neg_marginal_loglik(theta, studies, gh_x, gh_w)),
-                         nAGQ=nAGQ, n_studies=len(studies))
+                         nAGQ=nAGQ, n_studies=len(studies), dose_scale=float(dose_scale))
 
 
 def _pooled_logistic(studies, iters=50):

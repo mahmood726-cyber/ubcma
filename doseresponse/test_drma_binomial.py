@@ -42,6 +42,25 @@ def fit():
     return DB.fit_logistic_dr(df, nAGQ=15, dose_scale=100.0)
 
 
+def test_predict_logit_respects_dose_scale():
+    """Regression (P0-1): the slope b1 is fit on the SCALED dose (dose/dose_scale),
+    so predict_logit must scale its RAW-dose argument by dose_scale before
+    applying b1. The old predict_logit ignored dose_scale entirely (the field
+    didn't even exist), making a scaled-dose fit's prediction off by a factor of
+    dose_scale — e.g. predict_logit(100) returned ~+39 instead of ~-3.12."""
+    # ursino2021 glmer gold values, fit with dose/100.
+    f = DB.BinomialDRFit(b0=GLMER["b0"], b1=GLMER["b1"], sigma=GLMER["sigma"],
+                         se_b0=0.0, se_b1=0.0, se_logsigma=0.0, loglik=0.0,
+                         nAGQ=15, n_studies=5, dose_scale=100.0)
+    # raw dose 100 -> scaled 1.0 -> logit = b0 + b1
+    got = float(f.predict_logit(100.0))
+    assert abs(got - (f.b0 + f.b1)) < 1e-9, got
+    assert got < 0.0, got                      # ~ -3.12, NOT the buggy +39
+    # array + scaling consistency at raw dose 200 -> scaled 2.0
+    import numpy as _np
+    assert abs(float(f.predict_logit(200.0)) - (f.b0 + 2.0 * f.b1)) < 1e-9
+
+
 def test_matches_glmer_fixed_effects(fit):
     assert abs(fit.b0 - GLMER["b0"]) < 1e-4
     assert abs(fit.b1 - GLMER["b1"]) < 1e-4
