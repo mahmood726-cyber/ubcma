@@ -1,0 +1,30 @@
+{
+  "pmid": "_synthetic_exact2",
+  "nct": null,
+  "trial": "SYNTH-EXP-2 (seeded IPD sim, seed=99)",
+  "endpoint": "Overall survival (exponential ground-truth, HR=0.78)",
+  "figure": "data-driven KM from a seeded exponential simulation (not a real figure)",
+  "source_citation": "synthetic ground-truth: exponential, lam_c=0.045, HR=0.78, N=550/arm",
+  "digitization": {
+    "method": "seeded_simulation_exact",
+    "quality": "high",
+    "note": "second confirmed case to exercise the REML+HKSJ pooling path"
+  },
+  "tx": {
+    "label": "Treatment",
+    "n0": 550,
+    "coords": "0,1.0\n2,0.9327\n4,0.8709\n6,0.8091\n9,0.7197\n12,0.633\n15,0.5604\n18,0.5029\n21,0.4627\n24,0.404\n27,0.3571\n30,0.3337",
+    "at_risk": "0,550\n2,513\n4,479\n6,445\n9,387\n12,314\n15,248\n18,195\n21,161\n24,122\n27,97\n30,78"
+  },
+  "ctrl": {
+    "label": "Control",
+    "n0": 550,
+    "coords": "0,1.0\n2,0.9109\n4,0.8218\n6,0.7491\n9,0.6245\n12,0.5697\n15,0.4809\n18,0.4106\n21,0.3467\n24,0.2997\n27,0.2527\n30,0.2149",
+    "at_risk": "0,550\n2,501\n4,452\n6,412\n9,332\n12,280\n15,210\n18,162\n21,124\n24,94\n27,64\n30,47"
+  },
+  "reported": {
+    "hr": 0.749,
+    "ci_lo": 0.644,
+    "ci_hi": 0.871
+  }
+}

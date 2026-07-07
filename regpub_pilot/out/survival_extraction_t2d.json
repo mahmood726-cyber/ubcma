@@ -1,0 +1,673 @@
+{
+ "area": "t2d",
+ "n_docs_processed": 70,
+ "rct_extractor": {
+  "tool": "rct-extractor-v2",
+  "docs_with_effects": 5,
+  "total_effect_datapoints": 12,
+  "survival_datapoints": 0,
+  "by_tier": {
+   "A": 10,
+   "B": 0,
+   "C": 2
+  }
+ },
+ "km_reconstruction": {
+  "tool": "KMDigitizer (Guyot 2012)",
+  "drops_loaded": 4,
+  "reconstructions": 4,
+  "confirmed": 2,
+  "flagged": 2,
+  "ungated": 0,
+  "pooled_confirmed": {
+   "k": 2,
+   "hr": 0.772,
+   "ci": [
+    0.379,
+    1.57
+   ],
+   "tau2": 0.0034,
+   "I2": 31.7
+  }
+ },
+ "gaps": {
+  "km_present_not_digitized": [
+   "33480855",
+   "35710254",
+   "41160422"
+  ],
+  "km_present_not_digitized_n": 3,
+  "no_survival_signal_n": 67
+ },
+ "discrepancies": [
+  {
+   "pmid": "31535829",
+   "nct": "NCT03036124",
+   "type": "reconstructed_vs_reported_hr_mismatch",
+   "recon_hr": 0.649,
+   "reported_hr": 0.74,
+   "detail": {
+    "verdict": "FLAGGED",
+    "reason": "reported_hr_outside_recon_ci",
+    "pct_gap": 0.123,
+    "reported_in_recon_ci": false,
+    "pct_tol": 0.2
+   }
+  },
+  {
+   "pmid": "27718847",
+   "nct": "NCT02142738",
+   "type": "reconstructed_vs_reported_hr_mismatch",
+   "recon_hr": 0.609,
+   "reported_hr": 0.5,
+   "detail": {
+    "verdict": "FLAGGED",
+    "reason": "pct_gap_22%_gt_20%",
+    "pct_gap": 0.218,
+    "reported_in_recon_ci": true,
+    "pct_tol": 0.2
+   }
+  }
+ ],
+ "reconstructions": [
+  {
+   "pmid": "31535829",
+   "nct": "NCT03036124",
+   "endpoint": "Composite: CV death or worsening HF",
+   "measure": "HR",
+   "family": "ratio",
+   "reconstructed_from_figure": true,
+   "recon_hr": 0.649,
+   "recon_ci": [
+    0.576,
+    0.732
+   ],
+   "recon_p": 0.0,
+   "recon_log_hr": -0.4318574043902284,
+   "recon_se_log_hr": 0.061131728329886004,
+   "recon_n": 3045,
+   "recon_events": 1262,
+   "median_tx": "NR",
+   "median_ctrl": "NR",
+   "reported_hr": 0.74,
+   "reported_ci": [
+    0.65,
+    0.85
+   ],
+   "trust_gate": {
+    "verdict": "FLAGGED",
+    "reason": "reported_hr_outside_recon_ci",
+    "pct_gap": 0.123,
+    "reported_in_recon_ci": false,
+    "pct_tol": 0.2
+   },
+   "confidence_tier": "reconstructed_discrepancy",
+   "poolable": false,
+   "provenance": {
+    "source_doc": "PMID:31535829",
+    "figure": "Fig 1A (primary composite outcome KM)",
+    "digitization": {
+     "method": "stylized_from_KMDigitizer_examples",
+     "quality": "low",
+     "note": "coordinates are stylized approximations bundled with KMDigitizer, NOT pixel-accurate; included to exercise the trust gate on a real published HR"
+    },
+    "at_risk_source": "drop",
+    "tool": "KMDigitizer (Guyot 2012)"
+   },
+   "cross_check": null,
+   "in_oa_corpus": false
+  },
+  {
+   "pmid": "27718847",
+   "nct": "NCT02142738",
+   "endpoint": "Progression-free survival (NSCLC, PD-L1>=50%)",
+   "measure": "HR",
+   "family": "ratio",
+   "reconstructed_from_figure": true,
+   "recon_hr": 0.609,
+   "recon_ci": [
+    0.444,
+    0.834
+   ],
+   "recon_p": 0.002,
+   "recon_log_hr": -0.4964624251572753,
+   "recon_se_log_hr": 0.1607790226333994,
+   "recon_n": 249,
+   "recon_events": 218,
+   "median_tx": 10.0,
+   "median_ctrl": 4.3,
+   "reported_hr": 0.5,
+   "reported_ci": [
+    0.37,
+    0.68
+   ],
+   "trust_gate": {
+    "verdict": "FLAGGED",
+    "reason": "pct_gap_22%_gt_20%",
+    "pct_gap": 0.218,
+    "reported_in_recon_ci": true,
+    "pct_tol": 0.2
+   },
+   "confidence_tier": "reconstructed_discrepancy",
+   "poolable": false,
+   "provenance": {
+    "source_doc": "PMID:27718847",
+    "figure": "Fig 2A (PFS KM)",
+    "digitization": {
+     "method": "stylized_from_KMDigitizer_examples",
+     "quality": "low",
+     "note": "stylized approximations bundled with KMDigitizer, NOT pixel-accurate; small-N trial with wide reconstructed CI"
+    },
+    "at_risk_source": "drop",
+    "tool": "KMDigitizer (Guyot 2012)"
+   },
+   "cross_check": null,
+   "in_oa_corpus": false
+  },
+  {
+   "pmid": "_synthetic_exact",
+   "nct": null,
+   "endpoint": "Overall survival (exponential ground-truth, HR=0.65)",
+   "measure": "HR",
+   "family": "ratio",
+   "reconstructed_from_figure": true,
+   "recon_hr": 0.716,
+   "recon_ci": [
+    0.603,
+    0.85
+   ],
+   "recon_p": 0.0001,
+   "recon_log_hr": -0.33413950900760153,
+   "recon_se_log_hr": 0.08726220162164867,
+   "recon_n": 1035,
+   "recon_events": 626,
+   "median_tx": 21.6,
+   "median_ctrl": 14.3,
+   "reported_hr": 0.65,
+   "reported_ci": [
+    0.557,
+    0.768
+   ],
+   "trust_gate": {
+    "verdict": "CONFIRMED",
+    "reason": null,
+    "pct_gap": 0.1015,
+    "reported_in_recon_ci": true,
+    "pct_tol": 0.2
+   },
+   "confidence_tier": "reconstructed_verified_hi",
+   "poolable": true,
+   "provenance": {
+    "source_doc": "PMID:_synthetic_exact",
+    "figure": "data-driven KM from a seeded exponential simulation (not a real figure)",
+    "digitization": {
+     "method": "seeded_simulation_exact",
+     "quality": "high",
+     "note": "coords/at-risk built directly from a seeded cohort (no pixel digitization) so the Guyot inversion is isolated from digitization error; should PASS the trust gate"
+    },
+    "at_risk_source": "drop",
+    "tool": "KMDigitizer (Guyot 2012)"
+   },
+   "cross_check": null,
+   "in_oa_corpus": false
+  },
+  {
+   "pmid": "_synthetic_exact2",
+   "nct": null,
+   "endpoint": "Overall survival (exponential ground-truth, HR=0.78)",
+   "measure": "HR",
+   "family": "ratio",
+   "reconstructed_from_figure": true,
+   "recon_hr": 0.829,
+   "recon_ci": [
+    0.703,
+    0.977
+   ],
+   "recon_p": 0.0249,
+   "recon_log_hr": -0.1878167951736631,
+   "recon_se_log_hr": 0.08373106030352939,
+   "recon_n": 975,
+   "recon_events": 696,
+   "median_tx": 18.2,
+   "median_ctrl": 14.4,
+   "reported_hr": 0.749,
+   "reported_ci": [
+    0.644,
+    0.871
+   ],
+   "trust_gate": {
+    "verdict": "CONFIRMED",
+    "reason": null,
+    "pct_gap": 0.1068,
+    "reported_in_recon_ci": true,
+    "pct_tol": 0.2
+   },
+   "confidence_tier": "reconstructed_verified_hi",
+   "poolable": true,
+   "provenance": {
+    "source_doc": "PMID:_synthetic_exact2",
+    "figure": "data-driven KM from a seeded exponential simulation (not a real figure)",
+    "digitization": {
+     "method": "seeded_simulation_exact",
+     "quality": "high",
+     "note": "second confirmed case to exercise the REML+HKSJ pooling path"
+    },
+    "at_risk_source": "drop",
+    "tool": "KMDigitizer (Guyot 2012)"
+   },
+   "cross_check": null,
+   "in_oa_corpus": false
+  }
+ ],
+ "rct_records": [
+  {
+   "pmid": "26270946",
+   "specialty": "diabetes",
+   "subspecialty": "glycemic",
+   "datapoints": [
+    {
+     "measure": "MD",
+     "family": "diff",
+     "point": 1.8,
+     "ci_lo": 1.4,
+     "ci_hi": 2.0,
+     "p_value": null,
+     "se": 0.15306122448979595,
+     "se_method": "calculated_linear_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:26270946",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "1.8% (95% CI 1.4 to 2",
+      "char_start": 1299,
+      "char_end": 1320,
+      "tool": "rct-extractor-v2"
+     }
+    }
+   ],
+   "arm_level": {
+    "proportions": [],
+    "tables_2x2": [],
+    "poolable_2x2": [],
+    "continuous": [
+     {
+      "endpoint": "HBA1C_REDUCTION",
+      "arm": null,
+      "n": null,
+      "char_start": 1119,
+      "char_end": 1133,
+      "source_text": ".4) at study end to 37.4 (SD 30.8), a c",
+      "stat": "mean_sd",
+      "mean": 37.4,
+      "sd": 30.8,
+      "poolable": true,
+      "pooling_note": null
+     }
+    ]
+   },
+   "meta": {
+    "status": "ok",
+    "section_used": "results",
+    "n_effects": 1,
+    "n_survival": 0
+   }
+  },
+  {
+   "pmid": "32328953",
+   "specialty": "diabetes",
+   "subspecialty": "glycemic",
+   "datapoints": [
+    {
+     "measure": "OR",
+     "family": "ratio",
+     "point": 2.84,
+     "ci_lo": 1.87,
+     "ci_hi": 4.32,
+     "p_value": null,
+     "se": 0.21360126821161315,
+     "se_method": "calculated_log_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:32328953",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "odds ratio 2.84, 95% CI 1.87-4.32",
+      "char_start": 3349,
+      "char_end": 3382,
+      "tool": "rct-extractor-v2"
+     }
+    },
+    {
+     "measure": "OR",
+     "family": "ratio",
+     "point": 2.28,
+     "ci_lo": 1.54,
+     "ci_hi": 3.4,
+     "p_value": null,
+     "se": 0.2020390344889229,
+     "se_method": "calculated_log_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:32328953",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "OR 2.28; 95% CI 1.54-3.40",
+      "char_start": 3473,
+      "char_end": 3498,
+      "tool": "rct-extractor-v2"
+     }
+    },
+    {
+     "measure": "OR",
+     "family": "ratio",
+     "point": 2.54,
+     "ci_lo": 1.52,
+     "ci_hi": 4.27,
+     "p_value": null,
+     "se": 0.2634957888730479,
+     "se_method": "calculated_log_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:32328953",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "OR 2.54; 95% CI 1.52-4.27",
+      "char_start": 6460,
+      "char_end": 6485,
+      "tool": "rct-extractor-v2"
+     }
+    },
+    {
+     "measure": "OR",
+     "family": "ratio",
+     "point": 2.1,
+     "ci_lo": 1.27,
+     "ci_hi": 3.48,
+     "p_value": null,
+     "se": 0.25714678400915386,
+     "se_method": "calculated_log_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:32328953",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "OR 2.10; 95% CI 1.27-3.48",
+      "char_start": 6522,
+      "char_end": 6547,
+      "tool": "rct-extractor-v2"
+     }
+    },
+    {
+     "measure": "OR",
+     "family": "ratio",
+     "point": 3.17,
+     "ci_lo": 2.05,
+     "ci_hi": 4.91,
+     "p_value": null,
+     "se": 0.22281483384084502,
+     "se_method": "calculated_log_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:32328953",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "OR 3.17; 95% CI 2.05-4.91",
+      "char_start": 7117,
+      "char_end": 7142,
+      "tool": "rct-extractor-v2"
+     }
+    },
+    {
+     "measure": "OR",
+     "family": "ratio",
+     "point": 2.1,
+     "ci_lo": 1.36,
+     "ci_hi": 3.23,
+     "p_value": null,
+     "se": 0.22066261160372558,
+     "se_method": "calculated_log_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:32328953",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "OR 2.10; 95% CI 1.36-3.23",
+      "char_start": 7179,
+      "char_end": 7204,
+      "tool": "rct-extractor-v2"
+     }
+    }
+   ],
+   "arm_level": {
+    "proportions": [],
+    "tables_2x2": [],
+    "poolable_2x2": [],
+    "continuous": []
+   },
+   "meta": {
+    "status": "ok",
+    "section_used": "results",
+    "n_effects": 6,
+    "n_survival": 0
+   }
+  },
+  {
+   "pmid": "34518159",
+   "specialty": "dyslipidaemia",
+   "subspecialty": "lipid_lowering",
+   "datapoints": [
+    {
+     "measure": "MD",
+     "family": "diff",
+     "point": 4.0,
+     "ci_lo": 3.0,
+     "ci_hi": 5.0,
+     "p_value": null,
+     "se": 0.5102040816326531,
+     "se_method": "calculated_linear_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:34518159",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "4% (95% CI 3 to 5",
+      "char_start": 3307,
+      "char_end": 3324,
+      "tool": "rct-extractor-v2"
+     }
+    },
+    {
+     "measure": "MD",
+     "family": "diff",
+     "point": 54.0,
+     "ci_lo": 44.0,
+     "ci_hi": 64.0,
+     "p_value": null,
+     "se": 5.1020408163265305,
+     "se_method": "calculated_linear_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:34518159",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "54% (95% CI 44 to 64",
+      "char_start": 3427,
+      "char_end": 3447,
+      "tool": "rct-extractor-v2"
+     }
+    },
+    {
+     "measure": "MD",
+     "family": "diff",
+     "point": 93.0,
+     "ci_lo": 82.0,
+     "ci_hi": 98.0,
+     "p_value": null,
+     "se": 4.081632653061225,
+     "se_method": "calculated_linear_scale",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "A",
+     "extractor_confidence": 0.99,
+     "needs_review": false,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:34518159",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "93% (95% CI 82 to 98",
+      "char_start": 3543,
+      "char_end": 3563,
+      "tool": "rct-extractor-v2"
+     }
+    }
+   ],
+   "arm_level": {
+    "proportions": [],
+    "tables_2x2": [],
+    "poolable_2x2": [],
+    "continuous": []
+   },
+   "meta": {
+    "status": "ok",
+    "section_used": "results",
+    "n_effects": 3,
+    "n_survival": 0
+   }
+  },
+  {
+   "pmid": "38773662",
+   "specialty": "diabetes",
+   "subspecialty": "glycemic",
+   "datapoints": [
+    {
+     "measure": "MD",
+     "family": "diff",
+     "point": 0.05,
+     "ci_lo": null,
+     "ci_hi": null,
+     "p_value": null,
+     "se": null,
+     "se_method": "unavailable",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "C",
+     "extractor_confidence": 0.47135000000000005,
+     "needs_review": true,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:38773662",
+      "channel": "epmc_jats",
+      "section": "full_text",
+      "source_span": "beta = 0.05",
+      "char_start": 20598,
+      "char_end": 20609,
+      "tool": "rct-extractor-v2"
+     }
+    }
+   ],
+   "arm_level": {
+    "proportions": [],
+    "tables_2x2": [],
+    "poolable_2x2": [],
+    "continuous": []
+   },
+   "meta": {
+    "status": "ok",
+    "section_used": "full_text",
+    "n_effects": 1,
+    "n_survival": 0
+   }
+  },
+  {
+   "pmid": "42014686",
+   "specialty": "diabetes",
+   "subspecialty": "glycemic",
+   "datapoints": [
+    {
+     "measure": "MD",
+     "family": "diff",
+     "point": 16.0,
+     "ci_lo": null,
+     "ci_hi": null,
+     "p_value": null,
+     "se": null,
+     "se_method": "unavailable",
+     "endpoint": null,
+     "is_survival": false,
+     "confidence_tier": "C",
+     "extractor_confidence": 0.47135000000000005,
+     "needs_review": true,
+     "reconstructed_from_figure": false,
+     "provenance": {
+      "source_doc": "PMID:42014686",
+      "channel": "epmc_jats",
+      "section": "results",
+      "source_span": "b =16",
+      "char_start": 3902,
+      "char_end": 3907,
+      "tool": "rct-extractor-v2"
+     }
+    }
+   ],
+   "arm_level": {
+    "proportions": [],
+    "tables_2x2": [],
+    "poolable_2x2": [],
+    "continuous": []
+   },
+   "meta": {
+    "status": "ok",
+    "section_used": "results",
+    "n_effects": 1,
+    "n_survival": 0
+   }
+  }
+ ]
+}

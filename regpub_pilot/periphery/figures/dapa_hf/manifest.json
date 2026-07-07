@@ -1,0 +1,17 @@
+{
+  "pmid": "31535829",
+  "nct": "NCT03036124",
+  "trial": "DAPA-HF",
+  "endpoint": "Composite: CV death or worsening HF",
+  "figure": "Fig 1A (primary composite outcome KM)",
+  "source_citation": "McMurray et al. NEJM 2019",
+  "digitization": {"method": "stylized_from_KMDigitizer_examples", "quality": "low",
+                   "note": "coordinates are stylized approximations bundled with KMDigitizer, NOT pixel-accurate; included to exercise the trust gate on a real published HR"},
+  "tx":   {"label": "Dapagliflozin", "n0": 2373,
+           "coords": "0,1.00\n3,0.95\n6,0.91\n9,0.88\n12,0.85\n15,0.83\n18,0.81\n21,0.80\n24,0.78",
+           "at_risk": "0,2373\n6,2106\n12,1918\n18,1530\n24,890"},
+  "ctrl": {"label": "Placebo", "n0": 2371,
+           "coords": "0,1.00\n3,0.92\n6,0.86\n9,0.82\n12,0.78\n15,0.75\n18,0.72\n21,0.70\n24,0.67",
+           "at_risk": "0,2371\n6,2050\n12,1834\n18,1424\n24,820"},
+  "reported": {"hr": 0.74, "ci_lo": 0.65, "ci_hi": 0.85}
+}

@@ -1,0 +1,17 @@
+{
+  "pmid": "27718847",
+  "nct": "NCT02142738",
+  "trial": "KEYNOTE-024",
+  "endpoint": "Progression-free survival (NSCLC, PD-L1>=50%)",
+  "figure": "Fig 2A (PFS KM)",
+  "source_citation": "Reck et al. NEJM 2016",
+  "digitization": {"method": "stylized_from_KMDigitizer_examples", "quality": "low",
+                   "note": "stylized approximations bundled with KMDigitizer, NOT pixel-accurate; small-N trial with wide reconstructed CI"},
+  "tx":   {"label": "Pembrolizumab", "n0": 154,
+           "coords": "0,1.00\n2,0.82\n4,0.70\n6,0.62\n8,0.55\n10,0.50\n12,0.48\n14,0.45\n16,0.42\n18,0.40",
+           "at_risk": "0,154\n6,90\n12,65\n18,42"},
+  "ctrl": {"label": "Chemotherapy", "n0": 151,
+           "coords": "0,1.00\n2,0.72\n4,0.52\n6,0.38\n8,0.30\n10,0.25\n12,0.22\n14,0.18\n16,0.15\n18,0.12",
+           "at_risk": "0,151\n6,55\n12,28\n18,14"},
+  "reported": {"hr": 0.50, "ci_lo": 0.37, "ci_hi": 0.68}
+}

@@ -1,0 +1,30 @@
+{
+  "pmid": "_synthetic_exact",
+  "nct": null,
+  "trial": "SYNTH-EXP (seeded IPD sim, seed=20260707)",
+  "endpoint": "Overall survival (exponential ground-truth, HR=0.65)",
+  "figure": "data-driven KM from a seeded exponential simulation (not a real figure)",
+  "source_citation": "synthetic ground-truth: exponential, lam_c=0.05, HR=0.65, admin+random censoring, N=600/arm",
+  "digitization": {
+    "method": "seeded_simulation_exact",
+    "quality": "high",
+    "note": "coords/at-risk built directly from a seeded cohort (no pixel digitization) so the Guyot inversion is isolated from digitization error; should PASS the trust gate"
+  },
+  "tx": {
+    "label": "Treatment",
+    "n0": 600,
+    "coords": "0,1.0\n1.5,0.9417\n3,0.8883\n4.5,0.845\n6,0.8117\n8,0.7602\n10,0.731\n12,0.6912\n15,0.6279\n18,0.5745\n21,0.5093\n24,0.4654",
+    "at_risk": "0,600\n1.5,565\n3,533\n4.5,507\n6,487\n8,422\n10,383\n12,335\n15,268\n18,209\n21,162\n24,108"
+  },
+  "ctrl": {
+    "label": "Control",
+    "n0": 600,
+    "coords": "0,1.0\n1.5,0.9267\n3,0.865\n4.5,0.8067\n6,0.745\n8,0.6608\n10,0.6018\n12,0.5488\n15,0.4863\n18,0.4148\n21,0.3518\n24,0.3085",
+    "at_risk": "0,600\n1.5,556\n3,519\n4.5,484\n6,447\n8,360\n10,309\n12,255\n15,190\n18,136\n21,94\n24,57"
+  },
+  "reported": {
+    "hr": 0.65,
+    "ci_lo": 0.557,
+    "ci_hi": 0.768
+  }
+}
