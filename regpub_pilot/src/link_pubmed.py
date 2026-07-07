@@ -15,7 +15,7 @@ from __future__ import annotations
 import json, urllib.parse
 import xml.etree.ElementTree as ET
 from common import (EUTILS, PM_DIR, DATA, CT_DIR, http_get, cache_path,
-                    load_json, save_json)
+                    load_json, save_json, index_path, links_path)
 
 PER_TRIAL_CAP = 6  # bound abstract fetches per trial (reported honestly in metrics)
 
@@ -88,7 +88,7 @@ def rank_pmids(result, derived, si):
     return ordered
 
 def main():
-    idx = load_json(f"{DATA}/ctgov_index.json")
+    idx = load_json(index_path())
     ncts = idx["ncts"]
     print(f"[link] linking {len(ncts)} NCTs ...")
     links = {}
@@ -110,7 +110,7 @@ def main():
         }
         if i % 50 == 0:
             print(f"  ... {i}/{len(ncts)}")
-    save_json(f"{DATA}/links.json", links)
+    save_json(links_path(), links)
     n_withpub = sum(1 for v in links.values() if v["union"])
     print(f"[link] done. {n_withpub}/{len(ncts)} trials have >=1 linked PMID. links.json written.")
 

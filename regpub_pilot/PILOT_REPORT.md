@@ -130,6 +130,60 @@ small-sample uncertainty.
 **beat on transparency 3/3 and on method 2/3 (1 nuanced); tied on completeness 3/3** (did not
 beat these exemplary MAs). Detail: `out/reconstruct_scorecard.json`, `out/reconstruct_assessment.json`.
 
+## 1d. ONCOLOGY GENERALIZATION (added 2026-07-07) — does TTE/HR break the pattern?
+
+Full fresh cycle on **350 completed interventional cancer trials** (registry + abstracts,
+same rules). Answers the four questions truth-first. **Every finding generalizes; several
+are stronger in oncology.**
+
+| Metric | T2D | Oncology | Note |
+|---|---:|---:|---|
+| Registry usability (of results-posted) | 94.8% | **66.3%** | TTE primaries often logged as median/KM/percent-died, not a structured HR |
+| Abstract usability — deterministic | 28.5% | 13.5% | median-heavy reporting crushes the regex (`median_no_dispersion` 4.7%→**31%**) |
+| Abstract usability — **+ LLM layer** | 39.6% | **24.0%** | lift **+10.5 pts / +78% relative** (vs +39% in T2D) |
+| Poolable (fusion) vs abstract-alone | 33.7% vs 11% | **21.1% vs 4%** | fusion advantage ~**5×** (vs ~3× in T2D) |
+| Non-publication raw rate | 55% | **62.6%** | still the ONE real discrepancy signal |
+| Numeric discrepancy classes (dir/sig) | ~0 TP | **0 TP** | same artifact modes (substudy-N, wording) |
+| Emitted datapoints source-linked | 100% | **100%** (25/25) | transparency invariant holds |
+
+**Q1 — extraction lift generalizes? YES, more strongly.** The deterministic regex is hit
+hardest exactly where oncology differs (medians), and the LLM recovers the HR that *is* in
+the abstract → the relative lift is *larger* than T2D (+78% vs +39%).
+**Q2 — fusion still beats abstract-alone? YES, by a larger margin (~5×).** Registry
+structured-results are markedly *less* machine-usable for survival endpoints, so the
+abstract+LLM layer is *more* necessary, not less.
+**Q3 — non-publication stays the one signal? YES (62.6%).** Plus a new TTE-specific
+registry-vs-published discrepancy: several oncology registry **primaries are subgroup HRs**,
+not the ITT the paper reports (KEYNOTE-010 registry 0.54 = PD-L1≥50% vs ITT 0.71; VELIA
+registry 0.435 = BRCA vs ITT 0.68) — a genuine population/endpoint mismatch fusion surfaces.
+
+### Q4 — reconstruct-and-beat scorecard (oncology, TTE/HR)
+
+| Meta-analysis | Published | Ours (REML+HKSJ+PI) | naïve-DL check |
+|---|---|---|---|
+| Anti-PD-(L)1 2L NSCLC OS (PMID 34542660, k=5) | 0.71 [0.64–0.79] | **0.706** [0.615–0.811] | 0.706 [0.640–0.779] |
+| CDK4/6i+AI 1L breast PFS (k=3) | 0.55 [0.51–0.59] | **0.559** [0.415–0.753] | 0.559 [0.486–0.643] |
+| PARP maint. ovarian PFS (PMID 32654312, k=4) | 0.53 [0.40–0.71] | **0.529** [0.296–0.944] | 0.531 [0.395–0.715] |
+
+| Axis | IO-NSCLC | CDK4/6 | PARP | Tally |
+|---|:--:|:--:|:--:|---|
+| Reproduced point est? | ✓ | ✓ | ✓ | **3/3** |
+| METHOD more advanced | ✓ | ~ nuanced | ✓✓ strong | 2/3 win, 1 nuanced |
+| DATA COMPLETENESS beat | tie | tie | tie | **0/3 tie** |
+| TRANSPARENCY beat | ✓ | ✓ | ✓ | **3/3 win** |
+
+- **PARP is a strong METHOD win:** I²=87% genuine heterogeneity (SOLO1 0.30 vs VELIA 0.68);
+  our HKSJ CI [0.296–0.944] and prediction interval [0.156–1.794] **honestly** show the
+  pooled benefit is uncertain and could vanish in a new setting — the published RE-CI
+  [0.40–0.71] under-represents this (no PI; DL anti-conservative at high I²/k=4).
+- **Completeness tie — but fusion was ESSENTIAL:** 4/14 oncology trial effects came from the
+  abstract because the registry primary was a **subgroup or absent** (vs 2/14 in T2D).
+  Registry-alone reconstruction would have been **wrong** for oncology. This is the sharpest
+  TTE-specific result: the abstract+LLM fusion layer is not a convenience, it is *required*.
+
+**Detail:** `out/onc_assessment.json`, `out/reconstruct_scorecard_onc.json`,
+`out/metrics_onc.json`, `out/enriched_onc.jsonl`, `out/llm_metrics_onc.json`.
+
 ## 2. Data & pipeline
 
 ```

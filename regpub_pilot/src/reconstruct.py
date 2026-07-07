@@ -9,16 +9,19 @@ where we do NOT beat, we say so.
 """
 from __future__ import annotations
 import sys, io, json, math
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 from common import (CTGOV_BASE, EUTILS, CT_DIR, PM_DIR, OUT, http_get, cache_path,
-                    load_json, save_json)
+                    load_json, save_json, AREA, CONDITION)
 from extract import extract_registry, classify_abstract
 from link_pubmed import fetch_abstract
 from pool import pool, _qnorm
 
 Z = 1.959963985
 
-TARGETS = [
+TARGETS_T2D = [
   {"key":"sglt2_cvot","label":"SGLT2 inhibitors — 3-point MACE (CV outcome trials)",
    "benchmark":{"cite":"Zelniker 2019 Lancet (PMID 30424892)","measure":"HR","est":0.89,
                 "ci_lo":0.83,"ci_hi":0.96,"k":3,"method":"random-effects (DL)"},
@@ -49,6 +52,43 @@ TARGETS = [
              ("TECOS","NCT00790205",None),
              ("CARMELINA","NCT01897532",None)]},           # CAROLINA excluded (active comparator)
 ]
+
+# Oncology reconstruct targets (TTE/HR endpoints). NOTE the TTE-specific fusion need:
+# several registry primaries are SUBGROUP HRs (KEYNOTE-010 PD-L1>=50%, VELIA BRCA) or
+# absent (OAK, PAOLA-1), so the ITT effect comes from the abstract (verified span).
+TARGETS_ONC = [
+  {"key":"io_nsclc_os","label":"Anti-PD-(L)1 vs docetaxel — 2nd-line NSCLC, overall survival",
+   "benchmark":{"cite":"Pooled MA PMID 34542660 (2022)","measure":"HR","est":0.71,
+                "ci_lo":0.64,"ci_hi":0.79,"k":5,"method":"random-effects"},
+   "trials":[("CheckMate-017","NCT01642004",None),   # registry ITT OS HR
+             ("CheckMate-057","NCT01673867",None),
+             ("KEYNOTE-010","NCT01905657",           # registry primary = PD-L1>=50% subgroup
+              {"pmid":"26712084","hr":0.71,"ci_lo":0.58,"ci_hi":0.88,
+               "span":"Overall survival was significantly longer for pembrolizumab 2 mg/kg versus docetaxel (hazard ratio [HR] 0.71, 95% CI 0.58-0.88"}),
+             ("OAK","NCT02008227",                    # registry has no HR (percentage died)
+              {"pmid":"27979383","hr":0.73,"ci_lo":0.62,"ci_hi":0.87,
+               "span":"In the ITT population, overall survival was improved with atezolizumab compared with docetaxel ... hazard ratio [HR] 0.73 [95% CI 0.62-0.87]"}),
+             ("POPLAR","NCT01903993",None)]},
+  {"key":"cdk46_pfs","label":"CDK4/6 inhibitor + aromatase inhibitor — 1st-line HR+ ABC, PFS",
+   "benchmark":{"cite":"Established class pooled HR (e.g. PMID 34864350)","measure":"HR","est":0.55,
+                "ci_lo":0.51,"ci_hi":0.59,"k":3,"method":"pooled (I2=0)"},
+   "trials":[("PALOMA-2","NCT01740427",None),         # all three registry-clean PFS HRs
+             ("MONALEESA-2","NCT01958021",None),
+             ("MONARCH-3","NCT02246621",None)]},
+  {"key":"parp_ovarian_pfs","label":"PARP inhibitor maintenance — newly-dx advanced ovarian, PFS",
+   "benchmark":{"cite":"Pooled MA PMID 32654312 (2021)","measure":"HR","est":0.53,
+                "ci_lo":0.40,"ci_hi":0.71,"k":4,"method":"random-effects"},
+   "trials":[("SOLO1","NCT01844986",None),            # registry PFS HR
+             ("PRIMA","NCT02655016",None),
+             ("PAOLA-1","NCT02477644",              # registry: no results posted
+              {"pmid":"31851799","hr":0.59,"ci_lo":0.49,"ci_hi":0.72,
+               "span":"hazard ratio for disease progression or death, 0.59; 95% confidence interval [CI], 0.49 to 0.72"}),
+             ("VELIA","NCT02470585",                 # registry primary = BRCA subgroup
+              {"pmid":"31562800","hr":0.68,"ci_lo":0.56,"ci_hi":0.83,
+               "span":"in the intention-to-treat population ... hazard ratio, 0.68; 95% confidence interval, 0.56 to 0.83"})]},
+]
+
+TARGETS = TARGETS_T2D if AREA == "t2d" else TARGETS_ONC
 
 def fetch_full(nct):
     p = cache_path(CT_DIR, nct)
@@ -119,7 +159,7 @@ def scan_registry_completeness(cls_terms):
     """DATA-COMPLETENESS probe: how many completed CV-outcome trials of this class does
     the registry hold (results posted)? Compared to the published MA's k."""
     import urllib.parse
-    params = {"query.cond": "type 2 diabetes", "query.term": cls_terms,
+    params = {"query.cond": CONDITION, "query.term": cls_terms,
               "filter.overallStatus": "COMPLETED", "aggFilters": "results:with,studyType:int",
               "fields": "NCTId", "pageSize": "100", "countTotal": "true"}
     url = f"{CTGOV_BASE}/studies?" + urllib.parse.urlencode(params)
@@ -151,7 +191,7 @@ def main():
                "n_source_linked": sum(1 for s in good if s.get("provenance")),
                "n_studies": len(good)}
         results.append(res)
-    save_json(f"{OUT}/reconstruct_scorecard.json", results)
+    save_json(f"{OUT}/reconstruct_scorecard_{AREA}.json", results)
     # print summary
     for r in results:
         b = r["benchmark"]

@@ -12,8 +12,9 @@ import json, collections, os
 from common import OUT, DATA, load_json, save_json
 
 def load_rows():
+    from common import trials_out
     rows = []
-    with open(f"{OUT}/trials.jsonl", encoding="utf-8") as f:
+    with open(trials_out(), encoding="utf-8") as f:
         for line in f:
             rows.append(json.loads(line))
     return rows
@@ -127,12 +128,13 @@ def validation_sample(rows, per_bucket=8):
     return sample
 
 def main():
+    from common import AREA, metrics_out
     rows = load_rows()
     m = compute(rows)
-    save_json(f"{OUT}/metrics.json", m)
-    save_json(f"{OUT}/validation_sample.json", validation_sample(rows))
+    save_json(metrics_out(), m)
+    save_json(f"{OUT}/validation_sample_{AREA}.json", validation_sample(rows))
     print(json.dumps(m, indent=2))
-    print("\n[metrics] -> out/metrics.json, out/validation_sample.json")
+    print(f"\n[metrics] -> {metrics_out()}")
 
 if __name__ == "__main__":
     main()

@@ -71,7 +71,22 @@ def save_json(path, obj):
         json.dump(obj, f, ensure_ascii=False)
     os.replace(tmp, path)
 
-# Cardiometabolic first-cut scope: type 2 diabetes anchor (densest CT.gov results
-# coverage). Broadenable via CONDITIONS list; kept narrow for tractable
-# endpoint-matching in the pilot.
-CONDITION = "type 2 diabetes"
+# ---- therapeutic-area parameterization ----------------------------------------
+# AREA selects the working set. Caches (ctgov/, pubmed/) are hash-keyed by NCT/PMID
+# so they are shared safely across areas; index/links/outputs are area-suffixed so a
+# second area (oncology) never clobbers the first (t2d).
+AREA = os.environ.get("PILOT_AREA", "t2d")
+_CONDITIONS = {"t2d": "type 2 diabetes", "onc": "cancer"}
+CONDITION = os.environ.get("PILOT_CONDITION", _CONDITIONS.get(AREA, "type 2 diabetes"))
+
+def index_path(area=None):
+    return os.path.join(DATA, f"ctgov_index_{area or AREA}.json")
+
+def links_path(area=None):
+    return os.path.join(DATA, f"links_{area or AREA}.json")
+
+def trials_out(area=None):
+    return os.path.join(OUT, f"trials_{area or AREA}.jsonl")
+
+def metrics_out(area=None):
+    return os.path.join(OUT, f"metrics_{area or AREA}.json")

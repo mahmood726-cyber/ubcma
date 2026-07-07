@@ -17,8 +17,11 @@ Flow:
 """
 from __future__ import annotations
 import sys, os, io, json, re, glob, html
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
-from common import DATA, OUT, CT_DIR, PM_DIR, cache_path, load_json, save_json
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+from common import DATA, OUT, CT_DIR, PM_DIR, cache_path, load_json, save_json, index_path, links_path
 from extract import extract_registry, classify_abstract, _sig_from
 from diff import pick_index_abstract
 
@@ -73,8 +76,8 @@ def build_items(ncts, links):
     return items
 
 def make_batches(size=15, area="t2d"):
-    idx = load_json(f"{DATA}/ctgov_index.json")
-    links = load_json(f"{DATA}/links.json")
+    idx = load_json(index_path(area))
+    links = load_json(links_path(area))
     items = build_items(idx["ncts"], links)
     batches = [items[i:i+size] for i in range(0, len(items), size)]
     manifest = []
@@ -208,8 +211,8 @@ def _emit_datapoint(llm_verified, llm_item, det, rec, pmid):
     return None
 
 def fuse(area="t2d"):
-    idx = load_json(f"{DATA}/ctgov_index.json")
-    links = load_json(f"{DATA}/links.json")
+    idx = load_json(index_path(area))
+    links = load_json(links_path(area))
     items = build_items(idx["ncts"], links)          # the confirmed-index denom
     raw = load_raw(area)
     rows, USABLE_DET = [], {"effect_with_ci", "means_sd", "effect_with_p"}

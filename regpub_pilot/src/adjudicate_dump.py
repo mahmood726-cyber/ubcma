@@ -7,7 +7,10 @@ Usage: python adjudicate_dump.py [class:status]   # optional filter, else all bu
 from __future__ import annotations
 import sys, io, json
 # Windows cp1252 console/redirect trap (lessons.md): force UTF-8 stdout.
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 from common import OUT, CT_DIR, PM_DIR, cache_path, load_json
 from extract import extract_registry, classify_abstract
 from diff import diff_trial

@@ -224,17 +224,18 @@ def diff_trial(nct, links):
             "n_linked": n_linked, "n_reporting": n_reporting, "flags": flags}
 
 def main():
-    idx = load_json(f"{DATA}/ctgov_index.json")
-    links = load_json(f"{DATA}/links.json")
+    from common import index_path, links_path, trials_out
+    idx = load_json(index_path())
+    links = load_json(links_path())
     if links is None:
-        raise SystemExit("links.json missing — run link_pubmed.py first")
+        raise SystemExit("links file missing — run link_pubmed.py first")
     rows = []
     for nct in idx["ncts"]:
         rows.append(diff_trial(nct, links.get(nct, {})))
-    with open(f"{OUT}/trials.jsonl", "w", encoding="utf-8") as f:
+    with open(trials_out(), "w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
-    print(f"[diff] wrote {len(rows)} trial diffs -> out/trials.jsonl")
+    print(f"[diff] wrote {len(rows)} trial diffs -> {trials_out()}")
 
 if __name__ == "__main__":
     main()

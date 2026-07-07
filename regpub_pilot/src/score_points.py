@@ -10,7 +10,10 @@ surface as mismatches and are inspected in the hand-validation (report caveat).
 """
 from __future__ import annotations
 import sys, io, json, math
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 from common import OUT, CT_DIR, cache_path, load_json
 from extract import extract_registry, classify_abstract
 from common import PM_DIR
@@ -25,7 +28,8 @@ def close(fam, a, b):
     return abs(a - b) <= max(0.1, 0.05 * abs(b))
 
 def main():
-    rows = [json.loads(l) for l in open(f"{OUT}/enriched_t2d.jsonl", encoding="utf-8")]
+    area = sys.argv[1] if len(sys.argv) > 1 else "t2d"
+    rows = [json.loads(l) for l in open(f"{OUT}/enriched_{area}.jsonl", encoding="utf-8")]
     det_tot = det_ok = llm_tot = llm_ok = 0
     mism = []
     for r in rows:
@@ -65,7 +69,7 @@ def main():
             "llm_precision_pct": round(100*llm_ok/llm_tot,1) if llm_tot else None,
             "mismatches": [{"nct": m[0], "pmid": m[1], "family": m[2], "reg": m[4], "llm": m[6], "span": m[7]} for m in mism]}
     from common import save_json
-    save_json(f"{OUT}/point_precision_t2d.json", save)
+    save_json(f"{OUT}/point_precision_{area}.json", save)
 
 if __name__ == "__main__":
     main()

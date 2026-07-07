@@ -7,7 +7,10 @@ candidate hits so a human can adjudicate whether a genuine results publication e
 """
 from __future__ import annotations
 import sys, io, json, urllib.parse
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
 from common import EUTILS, CT_DIR, OUT, cache_path, load_json, http_get
 
 def esearch(term, retmax=5):

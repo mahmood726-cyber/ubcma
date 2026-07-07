@@ -9,7 +9,8 @@ Usage: python fetch_ctgov.py [TARGET]
 """
 from __future__ import annotations
 import sys, json, urllib.parse
-from common import CTGOV_BASE, CT_DIR, DATA, http_get, cache_path, load_json, save_json, CONDITION
+from common import (CTGOV_BASE, CT_DIR, DATA, http_get, cache_path, load_json,
+                    save_json, CONDITION, AREA, index_path)
 
 def page_ncts(target):
     """Return up to `target` NCT ids for completed interventional trials."""
@@ -61,8 +62,8 @@ def main():
         idx.append(nct)
         if i % 50 == 0:
             print(f"  ... {i}/{len(ncts)}")
-    save_json(f"{DATA}/ctgov_index.json", {"condition": CONDITION, "ncts": idx})
-    print(f"[ctgov] cached {len(idx)} full records -> data/ctgov/, index -> data/ctgov_index.json")
+    save_json(index_path(), {"condition": CONDITION, "area": AREA, "ncts": idx})
+    print(f"[ctgov] cached {len(idx)} full records -> data/ctgov/, index -> {index_path()}")
 
 if __name__ == "__main__":
     main()
