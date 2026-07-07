@@ -1,0 +1,116 @@
+{
+ "coverage": {
+  "denominator_paywalled_pocket": 108,
+  "by_area": {
+   "onc": 38,
+   "t2d": 70
+  },
+  "channel_A_epmc_supp": {
+   "candidates_have_pmcid": 31,
+   "epmc_HOLDS_supp_bundle(hasSuppl=Y)": 10,
+   "genuinely_open_and_served": 0,
+   "all_refused_reason": "every in-PMC paper is isOpenAccess=N (author-manuscript, NOT OA-subset) -> EPMC refuses",
+   "coverage_pct": 0.0
+  },
+  "channel_B_ncbi_oa": {
+   "candidates_have_pmcid": 31,
+   "genuinely_open_and_served": 0,
+   "coverage_pct": 0.0
+  },
+  "channel_C_publisher_repo_openlicense": {
+   "open_license_candidates": 13,
+   "cleanly_retrieved_200": 2,
+   "blocked_or_absent(recorded_not_routed)": 11,
+   "coverage_pct_of_pocket": 1.9,
+   "candidate_pmids": [
+    "22420843",
+    "24552155",
+    "25186922",
+    "29320312",
+    "30481287",
+    "34737187",
+    "36346956",
+    "36514847",
+    "38280531",
+    "38978184",
+    "39368488",
+    "41891171",
+    "42169191"
+   ]
+  },
+  "channel_D_preprint": {
+   "candidates": 0,
+   "note": "no bioRxiv/medRxiv preprint surfaced (OpenAlex green locations are figshare/inst-repos/journal PDFs, not preprint servers)"
+  },
+  "context_no_open_route": {
+   "in_PMC_but_gated(author-MS,non-OA-subset)": 31,
+   "truly_closed_no_OA": 44,
+   "bronze_free-read_not_redistributable": 20
+  }
+ },
+ "content_yield_of_retrieved": {
+  "n_retrieved": 2,
+  "counts": {
+   "structured_tables": 2,
+   "km_plus_atrisk": 0,
+   "narrative_only": 0
+  },
+  "detail": [
+   {
+    "pmid": "24552155",
+    "oa_status": "green",
+    "journal": "Current medical research and opinion",
+    "yield": [
+     "structured_tables"
+    ],
+    "kind": "figshare"
+   },
+   {
+    "pmid": "25186922",
+    "oa_status": "diamond",
+    "journal": "Circulation journal : official journal of the Japanese Circulation Society",
+    "yield": [
+     "structured_tables"
+    ],
+    "kind": "jstage_diamond"
+   }
+  ]
+ },
+ "recoveries": {
+  "true_open_supplement_of_paywalled_article": [
+   {
+    "pmid": "24552155",
+    "channel": "C/green-figshare(CC BY 4.0)",
+    "article_access": "subscription (Curr Med Res Opin)",
+    "supplement": "icmo_a_896327_sm0001.pdf",
+    "content": "Supplemental table 1: HbA1c change from baseline wk16 by dose x prior therapy (LS mean diff vs placebo + 95% CI)",
+    "poolable": true,
+    "km": false
+   }
+  ],
+  "open_license_article_tooling_gap_not_paywall": [
+   {
+    "pmid": "25186922",
+    "channel": "C/diamond-J-STAGE",
+    "note": "diamond OA (free) main-text PDF; was in pocket only for lack of a PDF parser, not a paywall",
+    "content": "structured result tables",
+    "poolable": true,
+    "km": false
+   }
+  ],
+  "km_plus_atrisk_reconstructions": [],
+  "pivotal_survival_HRs_newly_recovered": 0
+ },
+ "recovery_rate_estimate": {
+  "genuine_open_supplement_recovery_of_poolable_data": {
+   "n": 1,
+   "rate_of_pocket_pct": 0.9
+  },
+  "incl_open_license_article_recoverable_with_pdf_parser": {
+   "n": 2,
+   "rate_of_pocket_pct": 1.9
+  },
+  "pivotal_survival_HRs_newly_recovered": 0,
+  "km_reconstruction_candidates_in_open_supplements": 0
+ }
+}

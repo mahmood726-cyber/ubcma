@@ -1,0 +1,6 @@
+# fetched open-access binaries & metadata caches — reproducible from scripts, not committed
+cache/
+supp/
+out/_figshare_table_text.txt
+__pycache__/
+*.pyc

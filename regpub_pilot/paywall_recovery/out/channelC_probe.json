@@ -1,0 +1,44 @@
+[
+ {
+  "pmid": "24552155",
+  "kind": "figshare",
+  "note": "albiglutide T2D RCT (already recovered)",
+  "status": "prefetched_open",
+  "parse": "ok",
+  "pages": 4,
+  "chars": 13254,
+  "table_signal": 57,
+  "at_risk_row": false,
+  "survival_vocab": false,
+  "yield": [
+   "structured_tables"
+  ]
+ },
+ {
+  "pmid": "29320312",
+  "kind": "ucl_repo_green",
+  "note": "",
+  "status": "BLOCKED:http_404"
+ },
+ {
+  "pmid": "25186922",
+  "kind": "jstage_diamond",
+  "note": "",
+  "status": "open_200",
+  "parse": "ok",
+  "pages": 4,
+  "chars": 19708,
+  "table_signal": 31,
+  "at_risk_row": false,
+  "survival_vocab": true,
+  "yield": [
+   "structured_tables"
+  ]
+ },
+ {
+  "pmid": "34737187",
+  "kind": "diabetesjournals_green",
+  "note": "",
+  "status": "BLOCKED:http_403"
+ }
+]
