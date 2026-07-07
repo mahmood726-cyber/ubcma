@@ -1,0 +1,33 @@
+{
+  "tag": "cm",
+  "strength": "moderate",
+  "n_cells": 36,
+  "reps": 40,
+  "headlines": {
+    "adaptshrink_ens": {
+      "dominates": 14,
+      "total": 36,
+      "loss_cells": 10
+    },
+    "adaptshrink_ens_calib": {
+      "dominates": 18,
+      "total": 36,
+      "loss_cells": 10
+    },
+    "adaptshrink_fast": {
+      "dominates": 4,
+      "total": 36,
+      "loss_cells": 20
+    },
+    "adaptshrink_petgate": {
+      "dominates": 14,
+      "total": 36,
+      "loss_cells": 5
+    },
+    "adaptshrink_auto": {
+      "dominates": 21,
+      "total": 36,
+      "loss_cells": 1
+    }
+  }
+}

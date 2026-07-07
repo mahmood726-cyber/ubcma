@@ -106,3 +106,49 @@ and the step-selection / trim_and_fill artifact remains.
 ens_calib's low-tau dominance and petgate's high-tau dominance via an observable
 tau_hat switch, and leads the entire 12-method field on both continuous and binary
 outcomes across the broadened grid.
+
+## (d) Selection-strength boundary -- is the domination a *strong*-selection artifact?
+
+The (b)/(c) grids above fix `strength = "strong"`. The single most central open
+question for a *bias-corrector* is whether its field-domination survives *weaker*
+selection: under moderate selection the induced bias is smaller (less for the
+corrector to recover) while the corrector's efficiency cost is unchanged, so
+domination could plausibly erode. If the win only appears under strong selection
+it is an artifact, not a property.
+
+Numbers from `field_bakeoff2_modsel.py` (reuses `run_cell` + scoring from
+`field_bakeoff2.py` verbatim; distinct `cm`/`lm` tags, `strength="moderate"` on the
+two strength-dependent mechanisms {step, copas}; the `none` mechanism is
+strength-invariant so it is excluded). The honest comparison denominator is the
+*strong* grid restricted to the **same** step+copas selection cells: continuous
+20/36, log-OR 17/24 for `adaptshrink_auto`. Same seeds, reps=40.
+
+| grid (step+copas cells) | strong selection | moderate selection | Δ loss-cells |
+|---|---|---|---|
+| continuous (`cm`, 36 cells) | 20/36, **3** loss | **21/36, 1** loss | −2 |
+| log-OR (`lm`, 24 cells) | 17/24, **6** loss | **20/24, 0** loss | −6 |
+
+**The domination is not a strong-selection artifact -- it survives, and slightly
+sharpens, as selection weakens.** Two facts make this concrete:
+
+1. **No external comparator beats `auto` under moderate selection on either metric.**
+   - Continuous: the *sole* moderate non-domination (mu=0.2, tau=0.3, k=40, step)
+     loses only to the sibling variant `adaptshrink_ens_calib` -- against the full
+     *external* published field (DL/REML-HKSJ, Copas, Henmi-Copas, trim_and_fill,
+     PET/PEESE, p-curve, p_uniform_star, Vevea-Hedges) `auto` dominates **36/36**.
+   - Log-OR: **0** loss cells -- `auto` dominates-or-ties **all 24** moderate cells.
+2. **Deployable coverage holds or improves** under moderate selection (log-OR raw
+   coverage 0.944 vs 0.921 strong; continuous unchanged in-band) -- the corrector
+   is *standing down* gracefully as the signal weakens rather than over-correcting,
+   which is the correct direction for a well-calibrated selection adjustment.
+
+Cell-flip detail: 3 continuous cells flip (two small-k=5 step cells recovered,
+one k=5 copas cell traded to a tie) and 5 log-OR cells flip (four copas cells
+recovered, one high-tau step cell traded to a tie -- not a loss). Regression guard:
+`test_field_modsel.py` (5 asserts on the committed `cm`/`lm` domination CSVs --
+auto leads every variant, no external comparator beats auto, moderate >= strong).
+
+Bottom line for (d): the tau-aware `adaptshrink_auto` win is a **property of the
+estimator, not of the strong-selection stress** -- the boundary the honest ceiling
+flagged is a *strong-selection, high-tau, step* corner, and everywhere milder than
+that `auto` leads the external field outright.
