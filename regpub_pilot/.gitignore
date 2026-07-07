@@ -1,6 +1,14 @@
 # Raw external API caches — reproducible from scripts (see README), large, offline.
 data/ctgov/
 data/pubmed/
+# Full-text caches — reproducible from src/fetch_fulltext.py (Europe PMC + OA), large.
+data/fulltext/
+data/fulltext_parsed/
+# Rendered per-batch prompts — regenerable from data/ft_batches/ via fulltext_extract.py
+data/ft_prompts/
+# agy second-vendor cross-check working artifacts (prompts + raw). The RESULT is
+# committed as out/agy_crosscheck.json; these are regenerable tooling artifacts.
+data/agy_xcheck/
 # Session checkpoint (may contain local paths / internal state)
 PROGRESS.md
 __pycache__/

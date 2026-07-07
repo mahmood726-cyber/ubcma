@@ -1,0 +1,8 @@
+[
+{"pmid": "33813736", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "28835229", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "38651744", "abstain": false, "effect_type": "group_means", "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": [{"arm":"HEC14028","mean":58.2291,"sd":9.9509,"n":35},{"arm":"dulaglutide","mean":53.0998,"sd":13.9581,"n":33}], "evidence_quote": "C max (ng/mL) n 35 33 Mean ± SD [CV%] 58.2291 ± 9.9509 [17.09] 53.0998 ± 13.9581 [26.29]", "confidence": "medium", "reason_if_abstain": null},
+{"pmid": "38773662", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "41199408", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "median_only"},
+{"pmid": "27842539", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"}
+]

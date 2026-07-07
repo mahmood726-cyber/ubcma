@@ -1,0 +1,3198 @@
+{
+  "t2d": {
+    "11333990": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "11832527": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "15367925": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "15462130": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "15983336": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "16414426": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "16801564": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17101640": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17109671": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17130195": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17217576": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17300593": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17346218": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17468348": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17557769": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17563345": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17595249": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17682120": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17924873": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17987126": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "18075285": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "18292985": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "18776118": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "18931095": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "18957505": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "19033418": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "19037628": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "19094067": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "19120432": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "19125778": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "19129749": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "19210140": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "19279300": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "19509014": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "19515743": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "19564295": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "19650754": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "19691426": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "19910942": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20003568": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20084363": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20138357": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20199136": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "20332588": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20350322": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "20457158": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20480132": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20518805": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20547525": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20722676": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "21060157": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "21159786": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "21299393": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "21411512": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "21457567": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "21464685": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "21550951": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "21700723": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "21781152": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "21796411": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "22002336": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "22018074": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "22114787": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "22124605": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "22234149": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "22382187": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "22419108": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "22672586": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "22686415": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "22844471": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23020253": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23248197": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23273975": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23305037": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23393217": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23421331": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23430192": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23522121": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23561637": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23669880": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "23759410": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "23782502": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23799677": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23811853": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "23812875": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23940010": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24016490": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24074269": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "24249434": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24296715": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "24361242": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24373998": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "24552155": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "24596656": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "24604395": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "24712564": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "24823599": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24843486": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "24843649": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "24929429": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25005331": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "25010793": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25015735": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25098565": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25166023": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25180608": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25186534": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25186922": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "diamond",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25193531": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25344620": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25352655": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25387217": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25560330": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25622970": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25724569": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "25728612": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25789112": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "25813411": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25998421": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "26068865": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "26154338": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "26184986": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26197707": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26239562": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "26253730": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26268910": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "26270946": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "26277548": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "26324220": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "26537183": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26578409": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "26630143": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26681713": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "26695864": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26894924": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "26934259": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "27322798": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "27392483": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "27491280": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "27559041": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "27586249": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "27600862": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "27733180": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "27743903": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "27837162": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "27842539": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28003248": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28035868": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "28067472": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "28137708": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28205322": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28246291": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "28344112": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "28357772": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28545493": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28550195": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "28587667": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28736944": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "28742225": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28810024": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "28835229": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28847910": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28923291": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28970202": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "29032139": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29110384": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29129018": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29138226": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "29149912": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29219149": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "29351961": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "29359575": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29369493": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29440005": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29505512": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29626933": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29680319": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "29735394": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "29888547": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "30571593": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "30576013": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "30773500": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "30781431": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "30888989": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "31006684": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "31034184": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "31189978": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31318902": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31332029": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "31383366": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "31468106": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31562608": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31646727": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31760599": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31796986": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32037285": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32324082": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32328953": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "32340841": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "32410463": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32425457": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32433277": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32449201": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32516291": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "32537238": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "32659272": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "32665479": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32670418": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "32694214": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32955964": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "32994381": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "33125674": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "33184979": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33432547": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33480855": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33588808": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33728428": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "33813736": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33870714": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "34021020": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34033212": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34120651": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34174848": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34213819": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34250817": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34305809": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34518159": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34545662": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "34551779": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34605142": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34737187": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34920733": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35044568": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35235659": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "35264353": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35390172": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "35410197": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35422766": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35424379": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35460915": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "35710254": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35761271": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35762390": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35817022": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "35914543": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "36178534": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36346956": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36443769": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36514847": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36779911": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "37102010": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "37311722": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "37354562": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "37793679": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38066113": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38280531": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38546821": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38651744": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38668142": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38769692": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38770818": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "38773662": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38777393": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38849829": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38978184": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38992713": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "39166322": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "39350270": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "39368488": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "39593091": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "39632119": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "39896314": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "39943692": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "39961992": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "40199888": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "40313359": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "40332936": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "40433181": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "40548996": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "41093600": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41094396": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41160422": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41199408": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41361416": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41410037": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41551204": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41647680": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41703423": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "41891171": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "gold",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41911162": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "42014686": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "42102257": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "42169191": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "gold",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "42251702": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "42259339": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "42259343": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "6365801": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "9236412": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "9498536": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "9506190": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "9742976": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "9951949": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    }
+  },
+  "onc": {
+    "10640968": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "11600602": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "12356141": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "12525514": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "12834689": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "1325539": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "15234047": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "15361643": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "15860857": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "15911238": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "16135463": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "16966688": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17005631": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17136402": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17318068": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "17468348": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "17822748": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "18463792": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "18782306": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "18834631": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "18942073": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "18974373": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "19577865": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "19737424": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "20406930": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20595516": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20625118": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "20958972": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "21239698": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "21292168": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "21497773": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "21561347": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "21802835": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "21834960": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "22118442": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "22188832": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "22371427": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "22403963": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "22420843": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "22555974": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "2260540": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23033982": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23217054": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23228446": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23354923": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23382117": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "23552462": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "23578144": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "23811853": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "24241962": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24556041": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24636395": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "24670841": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24696320": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24747642": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "24821883": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "24903197": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "24912489": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25278714": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "25355844": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "25361995": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "25452122": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "25460355": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "25473312": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25668012": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "25818407": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26264378": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26550945": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "26712227": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "26942463": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "27102200": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "27112319": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "27154915": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "27622453": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "28268064": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "28334439": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "28370201": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "28434660": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "28826699": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "28881904": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "28939558": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "29320312": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "green",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "29411314": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "29685521": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "29773661": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "30060083": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "30383140": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "30481287": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "30544421": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "30570744": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "30586136": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "30859608": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "31101977": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31165541": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "31470902": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31562758": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31576173": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31821549": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "31891135": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "31919132": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32469183": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32517329": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "32534646": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "32535341": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "32657611": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "bronze",
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "32737717": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "32812824": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "33017497": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33021871": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "33089874": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33191408": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33196758": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "33211063": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "33383646": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33718228": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33754187": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33847150": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "33852121": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "33952557": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34019661": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "34152395": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "34253577": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34559362": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "34991431": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "diamond",
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36009108": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36151773": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36463104": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36534365": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36639814": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36754451": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "36855214": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "37018649": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "37080222": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "37145174": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "37166817": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "37171721": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "37223968": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "37350968": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "37840530": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38229357": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "38320088": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38598511": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "38634292": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "39230757": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "39245060": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "39284329": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": false
+    },
+    "39381542": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "39820749": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "40569207": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41123400": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "41691173": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "41848105": {
+      "inEPMC": true,
+      "oa_elsewhere": false,
+      "oa_status": null,
+      "any_fulltext": true,
+      "redistributable": true
+    },
+    "7635767": {
+      "inEPMC": false,
+      "oa_elsewhere": false,
+      "oa_status": "closed",
+      "any_fulltext": false,
+      "redistributable": false
+    },
+    "9768951": {
+      "inEPMC": false,
+      "oa_elsewhere": true,
+      "oa_status": "hybrid",
+      "any_fulltext": true,
+      "redistributable": true
+    }
+  }
+}

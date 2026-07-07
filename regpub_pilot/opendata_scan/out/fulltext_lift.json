@@ -1,0 +1,66 @@
+{
+  "t2d": {
+    "denomA_databank_confirmed": {
+      "n_denom": 235,
+      "usable_now": 67,
+      "pct_usable_now": 28.5,
+      "not_usable": 168,
+      "addressable_inEPMC": 96,
+      "addressable_OA_subset": 79,
+      "usable_now_also_have_fulltext": 39,
+      "proj_usable_conv70": 134.2,
+      "proj_pct_conv70": 57.1,
+      "proj_usable_conv80": 143.8,
+      "proj_pct_conv80": 61.2,
+      "proj_usable_conv90": 153.4,
+      "proj_pct_conv90": 65.3
+    },
+    "denomB_any_index_abstract": {
+      "n_denom": 296,
+      "usable_now": 89,
+      "pct_usable_now": 30.1,
+      "not_usable": 207,
+      "addressable_inEPMC": 115,
+      "addressable_OA_subset": 91,
+      "usable_now_also_have_fulltext": 45,
+      "proj_usable_conv70": 169.5,
+      "proj_pct_conv70": 57.3,
+      "proj_usable_conv80": 181.0,
+      "proj_pct_conv80": 61.1,
+      "proj_usable_conv90": 192.5,
+      "proj_pct_conv90": 65.0
+    }
+  },
+  "onc": {
+    "denomA_databank_confirmed": {
+      "n_denom": 104,
+      "usable_now": 14,
+      "pct_usable_now": 13.5,
+      "not_usable": 90,
+      "addressable_inEPMC": 60,
+      "addressable_OA_subset": 41,
+      "usable_now_also_have_fulltext": 10,
+      "proj_usable_conv70": 56.0,
+      "proj_pct_conv70": 53.8,
+      "proj_usable_conv80": 62.0,
+      "proj_pct_conv80": 59.6,
+      "proj_usable_conv90": 68.0,
+      "proj_pct_conv90": 65.4
+    },
+    "denomB_any_index_abstract": {
+      "n_denom": 151,
+      "usable_now": 22,
+      "pct_usable_now": 14.6,
+      "not_usable": 129,
+      "addressable_inEPMC": 72,
+      "addressable_OA_subset": 45,
+      "usable_now_also_have_fulltext": 12,
+      "proj_usable_conv70": 72.4,
+      "proj_pct_conv70": 47.9,
+      "proj_usable_conv80": 79.6,
+      "proj_pct_conv80": 52.7,
+      "proj_usable_conv90": 86.8,
+      "proj_pct_conv90": 57.5
+    }
+  }
+}

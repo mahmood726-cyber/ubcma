@@ -1,0 +1,15 @@
+Independent measurement task (no shared code — write your own).
+
+For each of these 40 PubMed IDs, query the Europe PMC REST search API
+(https://www.ebi.ac.uk/europepmc/webservices/rest/search) with resultType=core,
+querying by EXT_ID and SRC:MED. For each PMID record the fields isOpenAccess and inEPMC.
+
+PMIDs:
+17101640,17109671,17300593,17563345,17595249,17682120,17987126,18292985,18776118,18931095,18957505,19037628,19094067,19279300,19509014,19650754,19691426,19910942,20084363,20199136,20350322,20457158,20480132,20547525,21159786,21299393,21411512,21457567,21550951,21781152,22002336,22018074,22114787,22124605,22234149,22672586,22686415,22844471,23020253,23273975
+
+Report ONLY:
+1. Count with isOpenAccess == "Y" and the percentage of 40.
+2. Count with inEPMC == "Y" and the percentage of 40.
+3. The list of PMIDs not found in Europe PMC MED, if any.
+
+Do not read any files from the ubcma repo. This is an independent replication.

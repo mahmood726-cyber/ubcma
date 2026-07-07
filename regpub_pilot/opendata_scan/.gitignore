@@ -1,0 +1,7 @@
+# API response caches — reproducible from the measure_*.py scripts, offline.
+cache/
+cache_upw/
+__pycache__/
+*.pyc
+# agy second-vendor attempt logs (tooling artifacts, not results)
+out/agy_crosscheck_result*.txt

@@ -1,0 +1,78 @@
+{
+  "t2d": {
+    "index": {
+      "n": 302,
+      "found_in_MED": 302,
+      "inEPMC_fulltext": 160,
+      "pct_inEPMC": 53.0,
+      "isOpenAccess_subset": 127,
+      "pct_OA": 42.1,
+      "inPMC": 160,
+      "pct_inPMC": 53.0,
+      "license_of_inEPMC": {
+        "null": 39,
+        "cc by": 64,
+        "cc by-nc-nd": 23,
+        "cc by-nc": 31,
+        "cc by-nc-sa": 1,
+        "cc by-nd": 2
+      }
+    },
+    "union": {
+      "n": 1104,
+      "found_in_MED": 1102,
+      "inEPMC_fulltext": 495,
+      "pct_inEPMC": 44.8,
+      "isOpenAccess_subset": 352,
+      "pct_OA": 31.9,
+      "inPMC": 495,
+      "pct_inPMC": 44.8,
+      "license_of_inEPMC": {
+        "null": 157,
+        "cc by": 165,
+        "cc by-nc-nd": 69,
+        "cc by-nc": 96,
+        "cc by-nc-sa": 6,
+        "cc by-nd": 2
+      }
+    }
+  },
+  "onc": {
+    "index": {
+      "n": 154,
+      "found_in_MED": 154,
+      "inEPMC_fulltext": 84,
+      "pct_inEPMC": 54.5,
+      "isOpenAccess_subset": 51,
+      "pct_OA": 33.1,
+      "inPMC": 84,
+      "pct_inPMC": 54.5,
+      "license_of_inEPMC": {
+        "null": 32,
+        "cc by": 35,
+        "cc by-nc-nd": 6,
+        "cc by-nc": 9,
+        "cc by-nc-sa": 1,
+        "cc0": 1
+      }
+    },
+    "union": {
+      "n": 470,
+      "found_in_MED": 470,
+      "inEPMC_fulltext": 188,
+      "pct_inEPMC": 40.0,
+      "isOpenAccess_subset": 101,
+      "pct_OA": 21.5,
+      "inPMC": 188,
+      "pct_inPMC": 40.0,
+      "license_of_inEPMC": {
+        "null": 84,
+        "cc by-nc": 24,
+        "cc by": 64,
+        "cc by-nc-nd": 14,
+        "cc by-nc-sa": 1,
+        "cc0": 1
+      }
+    }
+  }
+}

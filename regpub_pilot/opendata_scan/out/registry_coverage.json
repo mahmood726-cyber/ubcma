@@ -1,0 +1,103 @@
+{
+  "t2d": {
+    "area": "t2d",
+    "n_total_ncts": 600,
+    "n_cached_records": 600,
+    "secondary_registry": {
+      "n_trials_any_secondary_registry": 79,
+      "pct_any_secondary_registry": 13.2,
+      "n_trials_any_nonUS_registry": 79,
+      "pct_any_nonUS_registry": 13.2,
+      "by_registry": {
+        "EudraCT/EU-CTR": 57,
+        "WHO UTN": 39,
+        "CTRI (India)": 4,
+        "JPRN (Japan)": 4
+      }
+    },
+    "countries": {
+      "n_with_location_data": 553,
+      "n_us_any": 227,
+      "n_us_only": 169,
+      "pct_us_only": 30.6,
+      "n_nonUS_any_site": 384,
+      "pct_nonUS_any_site": 69.4,
+      "n_no_US_site_at_all": 326,
+      "pct_no_US_site": 59.0,
+      "n_with_africa_site": 32,
+      "n_with_asia_site": 151,
+      "top_countries": {
+        "United States": 3664,
+        "China": 479,
+        "Canada": 472,
+        "Japan": 429,
+        "Germany": 422,
+        "Russia": 356,
+        "India": 300,
+        "United Kingdom": 280,
+        "Poland": 251,
+        "Mexico": 250,
+        "South Korea": 237,
+        "Spain": 212,
+        "Argentina": 180,
+        "Brazil": 168,
+        "Romania": 160,
+        "Italy": 159,
+        "Hungary": 141,
+        "France": 131,
+        "South Africa": 126,
+        "Australia": 125
+      }
+    }
+  },
+  "onc": {
+    "area": "onc",
+    "n_total_ncts": 350,
+    "n_cached_records": 350,
+    "secondary_registry": {
+      "n_trials_any_secondary_registry": 28,
+      "pct_any_secondary_registry": 8.0,
+      "n_trials_any_nonUS_registry": 28,
+      "pct_any_nonUS_registry": 8.0,
+      "by_registry": {
+        "EudraCT/EU-CTR": 27,
+        "WHO UTN": 2,
+        "JPRN (Japan)": 1
+      }
+    },
+    "countries": {
+      "n_with_location_data": 335,
+      "n_us_any": 180,
+      "n_us_only": 151,
+      "pct_us_only": 45.1,
+      "n_nonUS_any_site": 184,
+      "pct_nonUS_any_site": 54.9,
+      "n_no_US_site_at_all": 155,
+      "pct_no_US_site": 46.3,
+      "n_with_africa_site": 12,
+      "n_with_asia_site": 59,
+      "top_countries": {
+        "United States": 3490,
+        "France": 199,
+        "China": 194,
+        "Spain": 152,
+        "Germany": 149,
+        "Italy": 143,
+        "Canada": 133,
+        "United Kingdom": 91,
+        "Australia": 69,
+        "Japan": 61,
+        "South Korea": 57,
+        "Belgium": 56,
+        "Poland": 38,
+        "Israel": 31,
+        "Russia": 30,
+        "Brazil": 28,
+        "Switzerland": 28,
+        "Taiwan": 22,
+        "Sweden": 22,
+        "Netherlands": 21
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+[
+{"pmid":"21457567","abstain":true,"effect_type":null,"point":null,"ci_lo":null,"ci_hi":null,"pvalue":null,"n_analyzed":null,"group_means":null,"evidence_quote":null,"confidence":"high","reason_if_abstain":"no_primary_number"},
+{"pmid":"33432547","abstain":true,"effect_type":null,"point":null,"ci_lo":null,"ci_hi":null,"pvalue":null,"n_analyzed":null,"group_means":null,"evidence_quote":null,"confidence":"high","reason_if_abstain":"subgroup_only"},
+{"pmid":"41551204","abstain":false,"effect_type":"mean_difference","point":-0.717,"ci_lo":-1.081,"ci_hi":-0.353,"pvalue":"P < .001","n_analyzed":null,"group_means":null,"evidence_quote":"Control group (SMBG) -0.717 0.184 -1.081 to -0.353 P < .001","confidence":"medium","reason_if_abstain":null},
+{"pmid":"35817022","abstain":true,"effect_type":null,"point":null,"ci_lo":null,"ci_hi":null,"pvalue":null,"n_analyzed":null,"group_means":null,"evidence_quote":null,"confidence":"medium","reason_if_abstain":"no_primary_number"},
+{"pmid":"35044568","abstain":true,"effect_type":null,"point":null,"ci_lo":null,"ci_hi":null,"pvalue":null,"n_analyzed":null,"group_means":null,"evidence_quote":null,"confidence":"high","reason_if_abstain":"no_primary_number"},
+{"pmid":"25344620","abstain":true,"effect_type":null,"point":null,"ci_lo":null,"ci_hi":null,"pvalue":null,"n_analyzed":null,"group_means":null,"evidence_quote":null,"confidence":"high","reason_if_abstain":"relative_only"},
+{"pmid":"22844471","abstain":true,"effect_type":null,"point":null,"ci_lo":null,"ci_hi":null,"pvalue":null,"n_analyzed":null,"group_means":null,"evidence_quote":null,"confidence":"high","reason_if_abstain":"narrative"},
+{"pmid":"32659272","abstain":true,"effect_type":null,"point":null,"ci_lo":null,"ci_hi":null,"pvalue":null,"n_analyzed":null,"group_means":null,"evidence_quote":null,"confidence":"high","reason_if_abstain":"no_primary_number"}
+]

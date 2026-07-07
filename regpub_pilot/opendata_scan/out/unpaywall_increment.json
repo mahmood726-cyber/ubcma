@@ -1,0 +1,39 @@
+{
+  "t2d": {
+    "n_index": 302,
+    "inEPMC": 160,
+    "pct_inEPMC": 53.0,
+    "remainder_not_inEPMC": 142,
+    "remainder_with_DOI": 139,
+    "remainder_OA_via_openalex": 56,
+    "pct_remainder_recovered": 39.4,
+    "by_oa_status": {
+      "bronze": 39,
+      "hybrid": 7,
+      "green": 7,
+      "diamond": 1,
+      "gold": 2
+    },
+    "COMBINED_fulltext_available": 216,
+    "pct_COMBINED": 71.5,
+    "incremental_pts_over_EPMC": 18.5
+  },
+  "onc": {
+    "n_index": 154,
+    "inEPMC": 84,
+    "pct_inEPMC": 54.5,
+    "remainder_not_inEPMC": 70,
+    "remainder_with_DOI": 69,
+    "remainder_OA_via_openalex": 24,
+    "pct_remainder_recovered": 34.3,
+    "by_oa_status": {
+      "green": 4,
+      "bronze": 16,
+      "hybrid": 3,
+      "diamond": 1
+    },
+    "COMBINED_fulltext_available": 108,
+    "pct_COMBINED": 70.1,
+    "incremental_pts_over_EPMC": 15.6
+  }
+}

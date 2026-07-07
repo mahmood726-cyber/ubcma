@@ -1,0 +1,249 @@
+{
+  "n": 12,
+  "agree": 8,
+  "disagree": 1,
+  "agy_abstained": 2,
+  "no_output": 0,
+  "results": [
+    {
+      "id": "t2d_42014686",
+      "area": "t2d",
+      "pmid": "42014686",
+      "claude": {
+        "effect_type": null,
+        "point": 98.43,
+        "ci_lo": 84.07,
+        "ci_hi": 115.25
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "mean_difference",
+        "point": 98.43,
+        "ci_lo": 84.07,
+        "ci_hi": 115.25,
+        "evidence_quote": "The geomean ratio (GMR) for empagliflozin (combination/monotherapy) were 98.43% (90% CI, 84.07%, 115.25%) for C max"
+      },
+      "verdict": "AGREE"
+    },
+    {
+      "id": "t2d_29626933",
+      "area": "t2d",
+      "pmid": "29626933",
+      "claude": {
+        "effect_type": "group_means",
+        "point": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "agy": {
+        "abstain": true,
+        "effect_type": null,
+        "point": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "evidence_quote": null
+      },
+      "verdict": "agy_abstained"
+    },
+    {
+      "id": "t2d_38651744",
+      "area": "t2d",
+      "pmid": "38651744",
+      "claude": {
+        "effect_type": "group_means",
+        "point": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "mean_difference",
+        "point": 106.5,
+        "ci_lo": 97.1,
+        "ci_hi": 116.9,
+        "evidence_quote": "HEC14028 35 6898.7 6351.7, 7492.7 106.5 97.1, 116.9"
+      },
+      "verdict": "partial"
+    },
+    {
+      "id": "t2d_26270946",
+      "area": "t2d",
+      "pmid": "26270946",
+      "claude": {
+        "effect_type": "mean_difference",
+        "point": 1.8,
+        "ci_lo": 1.4,
+        "ci_hi": 2
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "mean_difference",
+        "point": -1.8,
+        "ci_lo": -2.0,
+        "ci_hi": -1.4,
+        "evidence_quote": "HbA1c was reduced from 9.1% (SD 1) at baseline to 7.3% (SD 0.9) at 26 weeks, a change of 1.8% (95% CI 1.4 to 2, p<0.001)"
+      },
+      "verdict": "DISAGREE"
+    },
+    {
+      "id": "t2d_32328953",
+      "area": "t2d",
+      "pmid": "32328953",
+      "claude": {
+        "effect_type": "mean_difference",
+        "point": -0.53,
+        "ci_lo": -0.69,
+        "ci_hi": -0.37
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "mean_difference",
+        "point": -0.53,
+        "ci_lo": -0.69,
+        "ci_hi": -0.37,
+        "evidence_quote": "HbA1c, % – 1.14 (0.06) – 1.67 (0.06) – 0.53 (– 0.69, – 0.37) < 0.0001"
+      },
+      "verdict": "AGREE"
+    },
+    {
+      "id": "t2d_34518159",
+      "area": "t2d",
+      "pmid": "34518159",
+      "claude": {
+        "effect_type": "mean_difference",
+        "point": -2.8,
+        "ci_lo": -9.5,
+        "ci_hi": 3.9
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "mean_difference",
+        "point": -2.8,
+        "ci_lo": -9.5,
+        "ci_hi": 3.9,
+        "evidence_quote": "Adjusted mean difference in HbA1c change scores between intervention and control was −2.8 (95% CI −9.5 to 3.9) mmol/mol"
+      },
+      "verdict": "AGREE"
+    },
+    {
+      "id": "onc_20958972",
+      "area": "onc",
+      "pmid": "20958972",
+      "claude": {
+        "effect_type": "group_means",
+        "point": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "group_means",
+        "point": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "evidence_quote": "The mean change score for the intervention group was 0.6 (SD 2.10) and 0.8 (SD 2.67) for the control group without a statistically significant difference after adjusting for baseline Borg scores (t = 0.13, p = 0.90)"
+      },
+      "verdict": "AGREE(means)"
+    },
+    {
+      "id": "onc_33191408",
+      "area": "onc",
+      "pmid": "33191408",
+      "claude": {
+        "effect_type": "group_means",
+        "point": null,
+        "ci_lo": null,
+        "ci_hi": null
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "proportion",
+        "point": null,
+        "ci_lo": -0.0195,
+        "ci_hi": 0.2651,
+        "evidence_quote": "belotecan vs. topotecan: 33% vs. 21%, 95% confidence interval [CI] −0.0195 to 0.2651"
+      },
+      "verdict": "AGREE(means)"
+    },
+    {
+      "id": "onc_33847150",
+      "area": "onc",
+      "pmid": "33847150",
+      "claude": {
+        "effect_type": "mean_difference",
+        "point": -1.93,
+        "ci_lo": -5.31,
+        "ci_hi": 1.46
+      },
+      "agy": {
+        "abstain": true,
+        "effect_type": null,
+        "point": null,
+        "ci_lo": null,
+        "ci_hi": null,
+        "evidence_quote": null
+      },
+      "verdict": "agy_abstained"
+    },
+    {
+      "id": "onc_36855214",
+      "area": "onc",
+      "pmid": "36855214",
+      "claude": {
+        "effect_type": "mean_difference",
+        "point": 13.01,
+        "ci_lo": 3.33,
+        "ci_hi": 22.69
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "mean_difference",
+        "point": 13.01,
+        "ci_lo": 3.33,
+        "ci_hi": 22.69,
+        "evidence_quote": "Average time of MVPA per week (minutes per day) 24.19 16.25 33.18 21.17 0.24 33.46 19.97 29.74 17.73 −3.71 13.01 3.33 22.69"
+      },
+      "verdict": "AGREE"
+    },
+    {
+      "id": "onc_40569207",
+      "area": "onc",
+      "pmid": "40569207",
+      "claude": {
+        "effect_type": "mean_difference",
+        "point": -0.582,
+        "ci_lo": -1.346,
+        "ci_hi": -0.183
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "mean_difference",
+        "point": -0.582,
+        "ci_lo": -1.346,
+        "ci_hi": -0.183,
+        "evidence_quote": "Difference from placebo (95% CI), cm 1.819 (0.610, 3.028) −0.582 (−1.346, −0.183) 1.906 (0.696, 3.116) −0.97 (−1.730, −0.211)"
+      },
+      "verdict": "AGREE"
+    },
+    {
+      "id": "onc_30570744",
+      "area": "onc",
+      "pmid": "30570744",
+      "claude": {
+        "effect_type": "proportion",
+        "point": 11,
+        "ci_lo": 0.3,
+        "ci_hi": 48
+      },
+      "agy": {
+        "abstain": false,
+        "effect_type": "proportion",
+        "point": 11,
+        "ci_lo": 0.3,
+        "ci_hi": 48,
+        "evidence_quote": "The ORR of 11% (95% confidence interval [95% CI], 0.3%‐48%)"
+      },
+      "verdict": "AGREE"
+    }
+  ]
+}

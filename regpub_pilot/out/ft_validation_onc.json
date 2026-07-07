@@ -1,0 +1,182 @@
+[
+  {
+    "nct": "NCT01123902",
+    "pmid": "20958972",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:20958972(fulltext:EuropePMC-JATS)",
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": "p = 0.90",
+    "confidence": "high",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "The mean change score for the intervention group was 0.6 (SD 2.10) and 0.8 (SD 2.67) for the control group without a statistically significant difference after adjusting for baseline Borg scores (t = 0.13, p = 0.90)."
+  },
+  {
+    "nct": "NCT02236195",
+    "pmid": "30570744",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:30570744(fulltext:EuropePMC-JATS)",
+    "effect_type": "proportion",
+    "point": 11,
+    "ci_lo": 0.3,
+    "ci_hi": 48,
+    "pvalue": "1.00",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "The ORR of 11% (95% confidence interval [95% CI], 0.3%‐48%) was not statistically significant (null hypothesis of ≤15% could not be rejected; P =1.00)."
+  },
+  {
+    "nct": "NCT01497873",
+    "pmid": "33191408",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:33191408(fulltext:EuropePMC-JATS)",
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": "p = 0.09",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "the between-group difference in ORR (primary endpoint; belotecan vs. topotecan: 33% vs. 21%, 95% confidence interval [CI] −0.0195 to 0.2651), but the between-group difference did not reach statistical significance (Chi-square test , p = 0.09)"
+  },
+  {
+    "nct": "NCT02977845",
+    "pmid": "33847150",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:33847150(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -1.93,
+    "ci_lo": -5.31,
+    "ci_hi": 1.46,
+    "pvalue": ".264",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Symptom cluster i Baseline 41.36 (1.11) 40.61 (0.90) 6 wk 37.58 (1.06) 38.76 (0.97) −1.93 −5.31; 1.46 .264"
+  },
+  {
+    "nct": "NCT03332173",
+    "pmid": "34253577",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:34253577(fulltext:EuropePMC-JATS)",
+    "effect_type": "proportion",
+    "point": 69.8,
+    "ci_lo": 53.87,
+    "ci_hi": 82.82,
+    "pvalue": null,
+    "confidence": "high",
+    "registry_primary_effect": {
+      "family": "other",
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": "Major Response Rate (MRR) as Assessed by the Independent Review Committee"
+    },
+    "source_span": "MRR (PR or better), n (%); (95% CI) b 30 (69.8);(53.87–82.82)"
+  },
+  {
+    "nct": "NCT03403075",
+    "pmid": "36534365",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:36534365(fulltext:EuropePMC-JATS)",
+    "effect_type": "proportion",
+    "point": 90,
+    "ci_lo": 84,
+    "ci_hi": 94,
+    "pvalue": null,
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "adherence to the TEPA intervention reached 90% of the 160 planned sessions (95% CI: 84%—94%)"
+  },
+  {
+    "nct": "NCT05252780",
+    "pmid": "36855214",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:36855214(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": 13.01,
+    "ci_lo": 3.33,
+    "ci_hi": 22.69,
+    "pvalue": null,
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Average time of MVPA per week (minutes per day) 24.19 16.25 33.18 21.17 0.24 33.46 19.97 29.74 17.73 −3.71 13.01 3.33 22.69"
+  },
+  {
+    "nct": "NCT02981342",
+    "pmid": "37840530",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:37840530(fulltext:EuropePMC-JATS)",
+    "effect_type": "proportion",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": "other",
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": "Stage 1: Disease Control Rate (DCR): Percentage of Participants With a Best Overall Response of Complete Response (CR), Partial Response (PR) or Stable Disease (SD)"
+    },
+    "source_span": "Disease control rate (CR/PR/SD), n (%) 5 (15.2) 4 (12.1) 12 (36.4)"
+  },
+  {
+    "nct": "NCT06219902",
+    "pmid": "40569207",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:40569207(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -0.582,
+    "ci_lo": -1.346,
+    "ci_hi": -0.183,
+    "pvalue": "< 0.0001",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Difference from placebo (95% CI), cm 1.819 (0.610, 3.028) −0.582 (−1.346, −0.183)"
+  }
+]

@@ -1,0 +1,10 @@
+[
+{"pmid": "37350968", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "33017497", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "30060083", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "36639814", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "30570744", "abstain": false, "effect_type": "proportion", "point": 11, "ci_lo": 0.3, "ci_hi": 48, "pvalue": "1.00", "n_analyzed": 9, "group_means": null, "evidence_quote": "The ORR of 11% (95% confidence interval [95% CI], 0.3%‐48%) was not statistically significant (null hypothesis of ≤15% could not be rejected; P =1.00).", "confidence": "medium", "reason_if_abstain": null},
+{"pmid": "38598511", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "medium", "reason_if_abstain": "no_primary_number"},
+{"pmid": "31470902", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "36151773", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"}
+]

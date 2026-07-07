@@ -1,0 +1,140 @@
+[
+  {
+    "pmid": "24074269",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "31760599",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "medium",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "29505512",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "32537238",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "37102010",
+    "abstain": false,
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": "<0.001",
+    "n_analyzed": null,
+    "group_means": [
+      {
+        "arm": "LLLT",
+        "mean": 960.0,
+        "sd": 22.71,
+        "n": null
+      },
+      {
+        "arm": "Control",
+        "mean": 888.25,
+        "sd": 92.64,
+        "n": null
+      }
+    ],
+    "evidence_quote": "Post six months 960.0±22.71 a 888.25±92.64 c <0.001",
+    "confidence": "high",
+    "reason_if_abstain": null
+  },
+  {
+    "pmid": "29369493",
+    "abstain": false,
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": 299,
+    "group_means": [
+      {
+        "arm": "DV3316",
+        "mean": 97.0,
+        "sd": null,
+        "n": 149
+      },
+      {
+        "arm": "FlexPen",
+        "mean": 99.7,
+        "sd": null,
+        "n": 150
+      }
+    ],
+    "evidence_quote": "a success rate of 97.0% with DV3316 (1424 successful injections out of 1468 attempts, N = 149) and 99.7% (1493 successful injections out of 1497 attempts, N = 150) with FlexPen",
+    "confidence": "medium",
+    "reason_if_abstain": null
+  },
+  {
+    "pmid": "34250817",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "medium",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "26270946",
+    "abstain": false,
+    "effect_type": "mean_difference",
+    "point": 1.8,
+    "ci_lo": 1.4,
+    "ci_hi": 2,
+    "pvalue": "p<0.001",
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": "HbA1c was reduced from 9.1% (SD 1) at baseline to 7.3% (SD 0.9) at 26 weeks, a change of 1.8% (95% CI 1.4 to 2, p<0.001)",
+    "confidence": "high",
+    "reason_if_abstain": null
+  }
+]

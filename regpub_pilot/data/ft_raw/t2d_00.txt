@@ -1,0 +1,10 @@
+[
+{"pmid": "35410197", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "18931095", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "37793679", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "32670418", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "medium", "reason_if_abstain": "no_primary_number"},
+{"pmid": "23522121", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "35264353", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "35710254", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "no_primary_number"},
+{"pmid": "27600862", "abstain": true, "effect_type": null, "point": null, "ci_lo": null, "ci_hi": null, "pvalue": null, "n_analyzed": null, "group_means": null, "evidence_quote": null, "confidence": "high", "reason_if_abstain": "subgroup_only"}
+]

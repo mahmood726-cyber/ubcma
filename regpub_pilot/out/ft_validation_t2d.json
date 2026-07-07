@@ -1,0 +1,302 @@
+[
+  {
+    "nct": "NCT01335763",
+    "pmid": "26270946",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:26270946(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": 1.8,
+    "ci_lo": 1.4,
+    "ci_hi": 2,
+    "pvalue": "p<0.001",
+    "confidence": "high",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "HbA1c was reduced from 9.1% (SD 1) at baseline to 7.3% (SD 0.9) at 26 weeks, a change of 1.8% (95% CI 1.4 to 2, p<0.001)"
+  },
+  {
+    "nct": "NCT02603510",
+    "pmid": "29359575",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:29359575(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": 7.9,
+    "ci_lo": -1.9,
+    "ci_hi": 17.73,
+    "pvalue": null,
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Risk difference versus Ly-Lis b 7.9% 95% CI −1.90 to 17.73"
+  },
+  {
+    "nct": "NCT02627287",
+    "pmid": "29369493",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:29369493(fulltext:EuropePMC-JATS)",
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "a success rate of 97.0% with DV3316 (1424 successful injections out of 1468 attempts, N = 149) and 99.7% (1493 successful injections out of 1497 attempts, N = 150) with FlexPen"
+  },
+  {
+    "nct": "NCT02520050",
+    "pmid": "29626933",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:29626933(fulltext:EuropePMC-JATS)",
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": "< 0.001",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "HbA1c (%) 0.06 (−0.28 to 0.41) − 0.66 (− 1.03 to − 0.30) *** −0.61 (− 1.0 to − 0.23) ** < 0.001"
+  },
+  {
+    "nct": "NCT01708902",
+    "pmid": "32328953",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:32328953(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -0.53,
+    "ci_lo": -0.69,
+    "ci_hi": -0.37,
+    "pvalue": "< 0.0001",
+    "confidence": "high",
+    "registry_primary_effect": {
+      "family": "diff",
+      "point": -0.22,
+      "ci_lo": -0.45,
+      "ci_hi": 0.01,
+      "measure": "The Change From Baseline in HbA1c After 24 Weeks of Treatment in Main Group"
+    },
+    "source_span": "HbA1c, % – 1.14 (0.06) – 1.67 (0.06) – 0.53 (– 0.69, – 0.37) < 0.0001"
+  },
+  {
+    "nct": "NCT02564211",
+    "pmid": "34033212",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:34033212(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -15.0,
+    "ci_lo": -30.5,
+    "ci_hi": 1.2,
+    "pvalue": null,
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": "other",
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": "Percentage of Participants Who Experienced at Least 1 Adverse Event (AE)"
+    },
+    "source_span": "With one or more AEs 37 (50.7) 46 (65.7) −15.0 (−30.5, 1.2)"
+  },
+  {
+    "nct": "NCT03531177",
+    "pmid": "34518159",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:34518159(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -2.8,
+    "ci_lo": -9.5,
+    "ci_hi": 3.9,
+    "pvalue": null,
+    "confidence": "high",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Adjusted mean difference in HbA1c change scores between intervention and control was −2.8 (95% CI −9.5 to 3.9) mmol/mol."
+  },
+  {
+    "nct": "NCT05279911",
+    "pmid": "37102010",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:37102010(fulltext:EuropePMC-JATS)",
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": "<0.001",
+    "confidence": "high",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Post six months 960.0±22.71 a 888.25±92.64 c <0.001"
+  },
+  {
+    "nct": "NCT03555994",
+    "pmid": "38066113",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:38066113(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -129.68,
+    "ci_lo": -213.72,
+    "ci_hi": -45.63,
+    "pvalue": "P = 0.016",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": "diff",
+      "point": -105.7,
+      "ci_lo": -178.8,
+      "ci_hi": -32.6,
+      "measure": "Change in Hepatic Glycogen Concentration Adjusted for Liver Volume as Measured by MRS at T = 4 Hours Post Standardised Morning Meal From Baseline (Day -1) to the End of 28 Days of Treatment (Part A Only)"
+    },
+    "source_span": "−94.87 (−154.35 to −35.39) 34.81 (−18.41 to 88.02) −129.68 (−213.72 to −45.63) P = 0.016"
+  },
+  {
+    "nct": "NCT05459285",
+    "pmid": "38651744",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:38651744(fulltext:EuropePMC-JATS)",
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "C max (ng/mL) n 35 33 Mean ± SD [CV%] 58.2291 ± 9.9509 [17.09] 53.0998 ± 13.9581 [26.29]"
+  },
+  {
+    "nct": "NCT03782259",
+    "pmid": "38849829",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:38849829(fulltext:EuropePMC-JATS)",
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": "0.20",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": "other",
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": "Extracellular Volume Fraction (ECV)"
+    },
+    "source_span": "ECV 27.7 (2.9) 28.4 (2.0) 0.20 28.5 (2.1) 28.7 (2.3) 0.56 0.71 (2.75) ( n = 26) 0.24 (2.16) ( n = 28) 0.20"
+  },
+  {
+    "nct": "NCT04403789",
+    "pmid": "41094396",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:41094396(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -5.9,
+    "ci_lo": -14.8,
+    "ci_hi": 3.1,
+    "pvalue": "0.19",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Difference at 12 weeks −3.6 (− 6.7 to − 0.42) −0.4 (− 3.9 to 3.0) −5.9 (− 14.8 to 3.1) 0.19"
+  },
+  {
+    "nct": "NCT07089979",
+    "pmid": "41551204",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:41551204(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -0.717,
+    "ci_lo": -1.081,
+    "ci_hi": -0.353,
+    "pvalue": "P < .001",
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Control group (SMBG) -0.717 0.184 -1.081 to -0.353 P < .001"
+  },
+  {
+    "nct": "NCT07195188",
+    "pmid": "41911162",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:41911162(fulltext:EuropePMC-JATS)",
+    "effect_type": "mean_difference",
+    "point": -22.94,
+    "ci_lo": -28.61,
+    "ci_hi": -17.27,
+    "pvalue": "< 0.001",
+    "confidence": "high",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "Total Compliance Score (Primary outcome) 82.50 ± 13.16 59.56 ± 10.70 −22.94 [−28.61, −17.27]"
+  },
+  {
+    "nct": "NCT03790787",
+    "pmid": "42014686",
+    "channel": "epmc_jats",
+    "source_doc": "PMID:42014686(fulltext:EuropePMC-JATS)",
+    "effect_type": null,
+    "point": 98.43,
+    "ci_lo": 84.07,
+    "ci_hi": 115.25,
+    "pvalue": null,
+    "confidence": "medium",
+    "registry_primary_effect": {
+      "family": null,
+      "point": null,
+      "ci_lo": null,
+      "ci_hi": null,
+      "measure": null
+    },
+    "source_span": "The geomean ratio (GMR) for empagliflozin (combination/monotherapy) were 98.43% (90% CI, 84.07%, 115.25%) for C max"
+  }
+]
