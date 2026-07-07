@@ -1,0 +1,256 @@
+[
+  {
+    "pmid": "41160422",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "32328953",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "38066113",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "28205322",
+    "abstain": false,
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": "P = .02",
+    "n_analyzed": null,
+    "group_means": [
+      {
+        "arm": "exenatide QWS-AI",
+        "mean": -1.13,
+        "sd": null,
+        "n": null
+      },
+      {
+        "arm": "sitagliptin",
+        "mean": -0.75,
+        "sd": null,
+        "n": null
+      },
+      {
+        "arm": "placebo",
+        "mean": -0.4,
+        "sd": null,
+        "n": null
+      }
+    ],
+    "evidence_quote": "compared to sitagliptin (-1.13% vs -0.75% [baseline values, 8.42% and 8.50%, respectively]; P  = .02) and placebo (-0.40% [baseline value, 8.50%]; P = .001).",
+    "confidence": "medium",
+    "reason_if_abstain": null
+  },
+  {
+    "pmid": "26068865",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "19650754",
+    "abstain": false,
+    "effect_type": "group_means",
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": "p < 0.0001",
+    "n_analyzed": 401,
+    "group_means": [
+      {
+        "arm": "saxagliptin 2.5mg",
+        "mean": -0.43,
+        "sd": null,
+        "n": null
+      },
+      {
+        "arm": "saxagliptin 5mg",
+        "mean": -0.46,
+        "sd": null,
+        "n": null
+      },
+      {
+        "arm": "saxagliptin 10mg",
+        "mean": -0.54,
+        "sd": null,
+        "n": null
+      },
+      {
+        "arm": "placebo",
+        "mean": 0.19,
+        "sd": null,
+        "n": null
+      }
+    ],
+    "evidence_quote": "saxagliptin demonstrated statistically significant decreases in adjusted mean HbA(1c) changes from baseline (mean, 7.9%) to week 24 (-0.43%, -0.46%, -0.54%) for saxagliptin 2.5, 5, and 10 mg, respectively, vs. +0.19% for placebo (all p < 0.0001).",
+    "confidence": "medium",
+    "reason_if_abstain": null
+  },
+  {
+    "pmid": "29888547",
+    "abstain": false,
+    "effect_type": "mean_difference",
+    "point": -0.34,
+    "ci_lo": -0.53,
+    "ci_hi": -0.15,
+    "pvalue": "P < 0.001",
+    "n_analyzed": 321,
+    "group_means": null,
+    "evidence_quote": "dapagliflozin significantly decreased HbA1c (difference [95% CI], -0.34% [-0.53, -0.15]; P < 0.001)",
+    "confidence": "high",
+    "reason_if_abstain": null
+  },
+  {
+    "pmid": "22002336",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "medium",
+    "reason_if_abstain": "narrative"
+  },
+  {
+    "pmid": "28344112",
+    "abstain": false,
+    "effect_type": "mean_difference",
+    "point": -0.38,
+    "ci_lo": -0.52,
+    "ci_hi": -0.24,
+    "pvalue": "p<0·0001",
+    "n_analyzed": 362,
+    "group_means": null,
+    "evidence_quote": "estimated treatment difference versus insulin glargine -0·38% (95% CI -0·52 to -0·24) with 0·5 mg semaglutide and -0·81% (-0·96 to -0·67) with 1·0 mg semaglutide (both p<0·0001)",
+    "confidence": "high",
+    "reason_if_abstain": null
+  },
+  {
+    "pmid": "23759410",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "narrative"
+  },
+  {
+    "pmid": "41911162",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "high",
+    "reason_if_abstain": "narrative"
+  },
+  {
+    "pmid": "28810024",
+    "abstain": false,
+    "effect_type": "mean_difference",
+    "point": -0.26,
+    "ci_lo": -0.52,
+    "ci_hi": -0.01,
+    "pvalue": "P = .15",
+    "n_analyzed": 93,
+    "group_means": null,
+    "evidence_quote": "mean between-group difference in change of -0.26% [95% CI, -0.52% to -0.01%]",
+    "confidence": "high",
+    "reason_if_abstain": null
+  },
+  {
+    "pmid": "33184979",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "medium",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "29440005",
+    "abstain": true,
+    "effect_type": null,
+    "point": null,
+    "ci_lo": null,
+    "ci_hi": null,
+    "pvalue": null,
+    "n_analyzed": null,
+    "group_means": null,
+    "evidence_quote": null,
+    "confidence": "medium",
+    "reason_if_abstain": "no_primary_number"
+  },
+  {
+    "pmid": "26253730",
+    "abstain": false,
+    "effect_type": "mean_difference",
+    "point": -0.4,
+    "ci_lo": -0.57,
+    "ci_hi": -0.23,
+    "pvalue": "P < 0.0001",
+    "n_analyzed": 353,
+    "group_means": null,
+    "evidence_quote": "treatment difference -0.4% [95% CI -0.57, -0.23]; P < 0.0001",
+    "confidence": "high",
+    "reason_if_abstain": null
+  }
+]

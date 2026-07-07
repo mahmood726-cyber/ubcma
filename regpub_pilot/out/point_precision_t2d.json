@@ -1,0 +1,1 @@
+{"det_ok": 4, "det_tot": 5, "det_precision_pct": 80.0, "llm_ok": 17, "llm_tot": 18, "llm_precision_pct": 94.4, "mismatches": [{"nct": "NCT02128932", "pmid": "28344112", "family": "diff", "reg": -0.81, "llm": -0.38, "span": "estimated treatment difference versus insulin glargine -0·38% (95% CI -0·52 to -"}]}

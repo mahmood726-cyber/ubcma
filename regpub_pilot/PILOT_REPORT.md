@@ -29,7 +29,7 @@ output, no model in the classification path.
 
 | Deliverable | Result |
 |---|---|
-| **Abstract-extraction usability rate** | **28.5%** (67 / 235 trials with a retrievable index abstract yield machine-usable primary data) |
+| **Abstract-extraction usability rate** | **28.5%** deterministic → **39.6%** with the LLM-assisted layer (§1b); 100% of emitted datapoints source-linked |
 | **Registry-results coverage** | **28.8%** of completed trials post results; **94.8%** of *those* are usable → **27.3%** of all completed trials have usable registry results |
 | **Combined poolable yield (the "better at scale" core)** | **33.7%** (202 / 600) poolable when registry **and** abstract are fused, vs **11.2%** (67/600) from abstracts alone — abstracts add **38** trials registry misses; registry adds **135** abstracts miss |
 | **Only discrepancy class with genuine signal** | **Non-publication**: 55% raw flag rate, hand-adjudicated precision **≈0.67** → bias-corrected true non-publication **≈35–40%** |
@@ -41,6 +41,42 @@ detection** — that provably needs the full-text methods section the mission's 
 constraint forbids.
 
 ---
+
+## 1b. LLM-assisted extraction layer (added 2026-07-07) — before/after
+
+An **optional enrichment stage OUTSIDE the deterministic core**. The LLM (Claude
+subagents under the £180 subscription — never API-key Claude) only **proposes** an
+extraction plus a **verbatim `evidence_quote`**; the **verification is model-free**
+(this stays in the deterministic core): a datapoint is emitted only if its quote is a
+literal substring of the abstract **and** its point lies inside its CI. Otherwise the
+layer **abstains** (calibrated abstention — a wrong number is worse than none).
+
+Run over the same **235** databank-confirmed T2D index abstracts (16 batches, 234
+processed):
+
+| Metric | Deterministic core | + LLM layer (fused) | Δ |
+|---|---:|---:|---:|
+| **Abstract usability rate** | 28.5% (67/235) | **39.6% (93/235)** | **+11.1 pts (+39% rel)** |
+| **Point-extraction precision** (registry-anchored, same-family) | 80.0% (4/5)\* | **94.4% (17/18)** | +14 pts **at 3.6× coverage** |
+| Emitted datapoints with a **source span** | — | **100% (93/93)** | transparency invariant holds |
+| Abstracts where the layer **abstained** | — | 170/234 | calibrated |
+
+\* The deterministic point precision is 80% only *after* the point-in-CI self-consistency
+guard (§3) — but that guard buys reliability by shrinking confident ratio/diff output to
+just **5** trials. The LLM extracts a verified point for **18** and is more accurate on
+each. (The earlier "~17%" figure was pre-guard.)
+
+**Transparency confirmed: 100% of emitted datapoints retain a source-span link**
+(`provenance.source_doc` = PMID, `provenance.source_span` = the verbatim abstract
+sentence, `provenance.confidence` = tier). A human verifies any number in seconds by
+reading the attached span; the LLM never becomes an opaque oracle. The single
+registry-mismatch (NCT02128932) is a faithful extraction of a *different comparator*
+("difference versus insulin glargine −0.38%"), not an error. Hand-validation: 8/8
+spot-checked datapoints match their span (7/8 CI-anchored exact; 1 point-only borderline).
+
+Artifacts: `out/enriched_t2d.jsonl` (per-trial datapoint + provenance),
+`out/llm_summary_t2d.json`, `out/point_precision_t2d.json`. Engine: `src/llm_extract.py`
+(seam-respecting), `src/score_points.py`.
 
 ## 2. Data & pipeline
 

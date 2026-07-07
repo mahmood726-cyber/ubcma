@@ -1,0 +1,257 @@
+[
+{
+"pmid": "24373998",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "high",
+"reason_if_abstain": "no_primary_number"
+},
+{
+"pmid": "39350270",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "medium",
+"reason_if_abstain": "no_primary_number"
+},
+{
+"pmid": "19094067",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "high",
+"reason_if_abstain": "narrative"
+},
+{
+"pmid": "24843486",
+"abstain": false,
+"effect_type": "group_means",
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": "P < 0.001",
+"n_analyzed": 179,
+"group_means": [
+{
+"arm": "placebo",
+"mean": -0.28,
+"sd": 0.15,
+"n": 35
+},
+{
+"arm": "exenatide 5 µg",
+"mean": -1.34,
+"sd": 0.11,
+"n": 72
+},
+{
+"arm": "exenatide 10 µg",
+"mean": -1.62,
+"sd": 0.11,
+"n": 72
+}
+],
+"evidence_quote": "Baseline to end-point (least-squares means ± standard errors) HbA1c changes (%) were -0.28 ± 0.15 (placebo), -1.34 ± 0.11 (exenatide 5 μg) and -1.62 ± 0.11 (exenatide 10 μg) (both P < 0.001, exenatide vs placebo)",
+"confidence": "medium",
+"reason_if_abstain": null
+},
+{
+"pmid": "23430192",
+"abstain": false,
+"effect_type": "group_means",
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": "p = 0.04",
+"n_analyzed": null,
+"group_means": [
+{
+"arm": "GLA",
+"mean": 671,
+"sd": 507,
+"n": 39
+},
+{
+"arm": "MET",
+"mean": 416,
+"sd": 537,
+"n": 36
+}
+],
+"evidence_quote": "overall IG (Δ AUC. 671 ± 507 vs. 416 ± 537 mmol/l min; p = 0.04)",
+"confidence": "medium",
+"reason_if_abstain": null
+},
+{
+"pmid": "32449201",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "low",
+"reason_if_abstain": "no_primary_number"
+},
+{
+"pmid": "24361242",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "high",
+"reason_if_abstain": "no_primary_number"
+},
+{
+"pmid": "28847910",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "high",
+"reason_if_abstain": "no_primary_number"
+},
+{
+"pmid": "28357772",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "high",
+"reason_if_abstain": "no_primary_number"
+},
+{
+"pmid": "19509014",
+"abstain": false,
+"effect_type": "group_means",
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": "P = 0.001",
+"n_analyzed": 182,
+"group_means": [
+{
+"arm": "PREDIAS",
+"mean": -3.8,
+"sd": 5.2,
+"n": null
+},
+{
+"arm": "control",
+"mean": -1.4,
+"sd": 4.09,
+"n": null
+}
+],
+"evidence_quote": "weight loss was significantly higher (P = 0.001) in PREDIAS than in the control group (-3.8 +/- 5.2 vs. -1.4 +/- 4.09 kg)",
+"confidence": "medium",
+"reason_if_abstain": null
+},
+{
+"pmid": "36178534",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "medium",
+"reason_if_abstain": "relative_only"
+},
+{
+"pmid": "25813411",
+"abstain": false,
+"effect_type": "mean_difference",
+"point": -0.1,
+"ci_lo": -0.33,
+"ci_hi": 0.12,
+"pvalue": "P<.001",
+"n_analyzed": 325,
+"group_means": null,
+"evidence_quote": "clinical equivalence (difference, -0.10%; 95% confidence interval, -0.33 to 0.12%; noninferiority margin, 0.4%)",
+"confidence": "high",
+"reason_if_abstain": null
+},
+{
+"pmid": "31318902",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "high",
+"reason_if_abstain": "no_primary_number"
+},
+{
+"pmid": "39368488",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "high",
+"reason_if_abstain": "no_primary_number"
+},
+{
+"pmid": "29626933",
+"abstain": true,
+"effect_type": null,
+"point": null,
+"ci_lo": null,
+"ci_hi": null,
+"pvalue": null,
+"n_analyzed": null,
+"group_means": null,
+"evidence_quote": null,
+"confidence": "medium",
+"reason_if_abstain": "no_primary_number"
+}
+]
