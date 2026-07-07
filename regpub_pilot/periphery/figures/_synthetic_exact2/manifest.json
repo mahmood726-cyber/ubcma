@@ -26,5 +26,6 @@
     "hr": 0.749,
     "ci_lo": 0.644,
     "ci_hi": 0.871
-  }
+  },
+  "synthetic": true
 }

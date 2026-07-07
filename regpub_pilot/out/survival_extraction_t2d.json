@@ -14,12 +14,36 @@
  },
  "km_reconstruction": {
   "tool": "KMDigitizer (Guyot 2012)",
-  "drops_loaded": 4,
-  "reconstructions": 4,
-  "confirmed": 2,
+  "drops_loaded": 5,
+  "reconstructions": 5,
+  "confirmed": 3,
   "flagged": 2,
   "ungated": 0,
-  "pooled_confirmed": {
+  "real_confirmed": 1,
+  "real_confirmed_datapoints": [
+   {
+    "pmid": "33191408",
+    "trial": "Belotecan vs Topotecan (randomized phase II, relapsed SCLC)",
+    "endpoint": "Overall survival",
+    "recon_hr": 0.56,
+    "recon_ci": [
+     0.388,
+     0.809
+    ],
+    "reported_hr": 0.69,
+    "reported_ci": [
+     0.48,
+     0.99
+    ],
+    "pct_gap": 0.1884,
+    "tier": "reconstructed_verified"
+   }
+  ],
+  "pooled_real_confirmed": {
+   "k": 1,
+   "note": "need >=2 confirmed HRs to pool"
+  },
+  "pooled_synthetic_confirmed_ENGINE_CHECK_ONLY": {
    "k": 2,
    "hr": 0.772,
    "ci": [
@@ -71,11 +95,63 @@
  ],
  "reconstructions": [
   {
+   "pmid": "33191408",
+   "nct": null,
+   "endpoint": "Overall survival",
+   "trial": "Belotecan vs Topotecan (randomized phase II, relapsed SCLC)",
+   "measure": "HR",
+   "family": "ratio",
+   "synthetic": false,
+   "reconstructed_from_figure": true,
+   "recon_hr": 0.56,
+   "recon_ci": [
+    0.388,
+    0.809
+   ],
+   "recon_p": 0.002,
+   "recon_log_hr": -0.5795612595664122,
+   "recon_se_log_hr": 0.18761072602738685,
+   "recon_n": 143,
+   "recon_events": 133,
+   "median_tx": 13.0,
+   "median_ctrl": 7.8,
+   "reported_hr": 0.69,
+   "reported_ci": [
+    0.48,
+    0.99
+   ],
+   "trust_gate": {
+    "verdict": "CONFIRMED",
+    "reason": null,
+    "pct_gap": 0.1884,
+    "reported_in_recon_ci": true,
+    "pct_tol": 0.2
+   },
+   "confidence_tier": "reconstructed_verified",
+   "poolable": true,
+   "provenance": {
+    "source_doc": "PMID:33191408",
+    "figure": "PMC7884704 Fig 2b (OS Kaplan-Meier)",
+    "digitization": {
+     "method": "manual_visual_trace_of_OA_figure",
+     "quality": "medium",
+     "raster_source": "Europe PMC OA supplementaryFiles zip -> 41416_2020_1055_Fig2_HTML.jpg (panel b)",
+     "note": "coordinates read by eye from the OA figure at ~1-2 mo resolution, anchored on the printed 12-mo OS (belotecan 58%, topotecan 27%) and the numbers-at-risk row; this is an acquisition/artifact step OUTSIDE the deterministic core. Reconstructed medians (13.0/7.8 mo) match the reported medians (13.2/8.2 mo), corroborating the trace."
+    },
+    "at_risk_source": "drop",
+    "tool": "KMDigitizer (Guyot 2012)"
+   },
+   "cross_check": null,
+   "in_oa_corpus": false
+  },
+  {
    "pmid": "31535829",
    "nct": "NCT03036124",
    "endpoint": "Composite: CV death or worsening HF",
+   "trial": "DAPA-HF",
    "measure": "HR",
    "family": "ratio",
+   "synthetic": false,
    "reconstructed_from_figure": true,
    "recon_hr": 0.649,
    "recon_ci": [
@@ -121,8 +197,10 @@
    "pmid": "27718847",
    "nct": "NCT02142738",
    "endpoint": "Progression-free survival (NSCLC, PD-L1>=50%)",
+   "trial": "KEYNOTE-024",
    "measure": "HR",
    "family": "ratio",
+   "synthetic": false,
    "reconstructed_from_figure": true,
    "recon_hr": 0.609,
    "recon_ci": [
@@ -168,8 +246,10 @@
    "pmid": "_synthetic_exact",
    "nct": null,
    "endpoint": "Overall survival (exponential ground-truth, HR=0.65)",
+   "trial": "SYNTH-EXP (seeded IPD sim, seed=20260707)",
    "measure": "HR",
    "family": "ratio",
+   "synthetic": true,
    "reconstructed_from_figure": true,
    "recon_hr": 0.716,
    "recon_ci": [
@@ -215,8 +295,10 @@
    "pmid": "_synthetic_exact2",
    "nct": null,
    "endpoint": "Overall survival (exponential ground-truth, HR=0.78)",
+   "trial": "SYNTH-EXP-2 (seeded IPD sim, seed=99)",
    "measure": "HR",
    "family": "ratio",
+   "synthetic": true,
    "reconstructed_from_figure": true,
    "recon_hr": 0.829,
    "recon_ci": [

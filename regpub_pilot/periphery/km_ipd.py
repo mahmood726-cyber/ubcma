@@ -124,8 +124,9 @@ def reconstruct_from_drop(drop: dict, *, pct_tol=0.20) -> dict:
     dig = drop.get("digitization", {}) or {}
     return {
         "pmid": drop.get("pmid"), "nct": drop.get("nct"),
-        "endpoint": drop.get("endpoint"),
+        "endpoint": drop.get("endpoint"), "trial": drop.get("trial"),
         "measure": "HR", "family": "ratio",
+        "synthetic": bool(drop.get("synthetic", False)),
         "reconstructed_from_figure": True,
         "recon_hr": lr.hr, "recon_ci": list(lr.ci) if lr.ci else None,
         "recon_p": lr.p,

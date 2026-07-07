@@ -1,0 +1,26 @@
+{
+  "pmid": "33191408",
+  "nct": null,
+  "trial": "Belotecan vs Topotecan (randomized phase II, relapsed SCLC)",
+  "endpoint": "Overall survival",
+  "figure": "PMC7884704 Fig 2b (OS Kaplan-Meier)",
+  "source_citation": "Br J Cancer 2021; belotecan vs topotecan, relapsed small-cell lung cancer",
+  "digitization": {
+    "method": "manual_visual_trace_of_OA_figure",
+    "quality": "medium",
+    "raster_source": "Europe PMC OA supplementaryFiles zip -> 41416_2020_1055_Fig2_HTML.jpg (panel b)",
+    "note": "coordinates read by eye from the OA figure at ~1-2 mo resolution, anchored on the printed 12-mo OS (belotecan 58%, topotecan 27%) and the numbers-at-risk row; this is an acquisition/artifact step OUTSIDE the deterministic core. Reconstructed medians (13.0/7.8 mo) match the reported medians (13.2/8.2 mo), corroborating the trace."
+  },
+  "tx": {
+    "label": "Belotecan", "n0": 72,
+    "coords": "0,1.00\n1,0.98\n3,0.92\n4,0.88\n5,0.82\n6,0.78\n8,0.73\n9,0.70\n10,0.64\n11,0.60\n12,0.57\n13,0.50\n14,0.42\n15,0.38\n16,0.33\n18,0.29\n20,0.23\n22,0.18\n24,0.15\n27,0.12\n30,0.10\n36,0.10\n48,0.09\n54,0.09",
+    "at_risk": "0,72\n12,39\n24,11\n36,6\n48,3\n60,0"
+  },
+  "ctrl": {
+    "label": "Topotecan", "n0": 76,
+    "coords": "0,1.00\n2,0.90\n3,0.82\n4,0.76\n5,0.68\n6,0.60\n7,0.54\n8,0.49\n9,0.43\n10,0.37\n11,0.31\n12,0.27\n13,0.24\n14,0.22\n16,0.20\n18,0.17\n20,0.13\n22,0.11\n24,0.10\n27,0.07\n30,0.05\n36,0.05\n42,0.05",
+    "at_risk": "0,76\n12,20\n24,6\n36,2\n48,0\n60,0"
+  },
+  "reported": {"hr": 0.69, "ci_lo": 0.48, "ci_hi": 0.99,
+               "source": "text: 'median OS 13.2 vs 8.2 months, HR = 0.69, 95% CI 0.48-0.99', log-rank p=0.018"}
+}

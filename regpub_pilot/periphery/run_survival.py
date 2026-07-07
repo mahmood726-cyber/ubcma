@@ -137,8 +137,14 @@ def run(area):
                 "recon_hr": recon["recon_hr"], "reported_hr": recon["reported_hr"],
                 "detail": recon["trust_gate"]})
 
-    # Pool the CONFIRMED reconstructed survival HRs (quantify the lift).
-    pooled = _pool_confirmed(recon_records)
+    # Pool the CONFIRMED reconstructed survival HRs (quantify the lift). REAL and
+    # SYNTHETIC drops are pooled SEPARATELY: the real pool is the clinical number;
+    # the synthetic pool only demonstrates the REML+HKSJ engine end-to-end and must
+    # never contaminate a clinical estimate.
+    real = [r for r in recon_records if not r.get("synthetic")]
+    synth = [r for r in recon_records if r.get("synthetic")]
+    pooled_real = _pool_confirmed(real)
+    pooled_synth = _pool_confirmed(synth)
 
     result = {
         "area": area,
@@ -161,7 +167,16 @@ def run(area):
                            if r["trust_gate"]["verdict"] == "FLAGGED"),
             "ungated": sum(1 for r in recon_records
                            if r["trust_gate"]["verdict"] == "UNGATED"),
-            "pooled_confirmed": pooled,
+            "real_confirmed": sum(1 for r in real
+                                  if r["trust_gate"]["verdict"] == "CONFIRMED"),
+            "real_confirmed_datapoints": [
+                {"pmid": r["pmid"], "trial": r.get("trial"), "endpoint": r.get("endpoint"),
+                 "recon_hr": r["recon_hr"], "recon_ci": r["recon_ci"],
+                 "reported_hr": r["reported_hr"], "reported_ci": r.get("reported_ci"),
+                 "pct_gap": r["trust_gate"]["pct_gap"], "tier": r["confidence_tier"]}
+                for r in real if r["trust_gate"]["verdict"] == "CONFIRMED"],
+            "pooled_real_confirmed": pooled_real,
+            "pooled_synthetic_confirmed_ENGINE_CHECK_ONLY": pooled_synth,
         },
         "gaps": {"km_present_not_digitized": gaps["km_present_not_digitized"],
                  "km_present_not_digitized_n": len(gaps["km_present_not_digitized"]),
@@ -217,8 +232,14 @@ def _print_summary(r, outp):
     k = r["km_reconstruction"]
     print(f"  KM->IPD (Guyot): {k['reconstructions']} reconstructions from "
           f"{k['drops_loaded']} drops — CONFIRMED {k['confirmed']} / "
-          f"FLAGGED {k['flagged']} / UNGATED {k['ungated']}")
-    print(f"  pooled CONFIRMED survival: {k['pooled_confirmed']}")
+          f"FLAGGED {k['flagged']} / UNGATED {k['ungated']}  "
+          f"(REAL confirmed: {k['real_confirmed']})")
+    for dp in k["real_confirmed_datapoints"]:
+        print(f"     REAL  {dp['pmid']} {dp['trial'] or ''} [{dp['endpoint']}]: "
+              f"recon HR {dp['recon_hr']} {dp['recon_ci']} vs reported {dp['reported_hr']} "
+              f"(gap {dp['pct_gap']:.0%}) tier={dp['tier']}")
+    print(f"  pooled REAL confirmed survival: {k['pooled_real_confirmed']}")
+    print(f"  pooled SYNTHETIC (engine check only): {k['pooled_synthetic_confirmed_ENGINE_CHECK_ONLY']}")
     g = r["gaps"]
     print(f"  honest gaps    : KM-present-not-digitized {g['km_present_not_digitized_n']} "
           f"| no-survival-signal {g['no_survival_signal_n']}")
