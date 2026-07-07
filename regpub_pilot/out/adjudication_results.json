@@ -1,0 +1,47 @@
+{
+  "method": "Hand-adjudication by the pilot author against CT.gov records + targeted PubMed searches (drug+design terms, not acronyms). Small samples; verdicts are illustrative feasibility estimates, not precision guarantees.",
+  "non_publication": {
+    "flagged_sample_n": 20,
+    "carefully_adjudicated_n": 9,
+    "false_positives_published_but_NCT_unindexed": [
+      {"nct": "NCT01890629", "found_pmid": "28058753", "note": "STABLE gemigliptin trial, published 2017, NCT absent from all PubMed fields"},
+      {"nct": "NCT02091362", "found_pmid": "28191913", "note": "LY2409021 ambulatory BP trial, published 2017"},
+      {"nct": "NCT00035542", "found_pmid": "12915642", "note": "Glucovance glyburide/metformin vs monotherapy, published 2003 (strong match)"}
+    ],
+    "true_positives_no_publication_found": ["NCT00858013", "NCT01388153", "NCT01689051", "NCT00976937", "NCT00308451", "NCT00729196"],
+    "precision_point_estimate": 0.67,
+    "precision_note": "6 TP / 9 adjudicated; small n -> wide CI (~0.3-0.9). Implies raw 55% non-pub rate over-estimates TRUE non-publication; bias-corrected ~35-40%, consistent with the trial-publication literature (~30-50% unpublished).",
+    "recall_note": "By construction the flag catches 100% of completed trials with no NCT-databank link; recall of TRUE non-publication is bounded by PubMed databank coverage (a published-but-unindexed trial is missed as a false NON-detection only if it HAS a databank link, which these did not)."
+  },
+  "enrollment_mismatch": {
+    "flagged_contradicts_sample_n": 8,
+    "true_positives": [],
+    "false_positives": ["NCT00467649 (PRO substudy n=56 of 112)", "NCT00558571 (pop-PK pool n=974)", "NCT00566189 (analyzed 24/36)", "NCT00577824 (subgroup 72/181)", "NCT00637273 (641 vs 514, extension/ITT)", "NCT00643851 (pooled renal analysis n=4545)", "NCT00789035 (pop-PK pool n=974)", "NCT00857870 (analyzed 39/96)"],
+    "precision_point_estimate": 0.0,
+    "note": "ALL 8 are unit-mismatches (substudy / PRO / pooled-PK / analyzed-set), NOT genuine same-trial sample-size discrepancies. The abstract N and registry enrollment routinely denote different populations. Post-fix suppression of abstract_n>registry removed the pooled cases; residual flags remain analyzed-subset FPs. Reliable detection needs randomized/ITT N semantics not available from abstract text."
+  },
+  "direction_flip": {
+    "pre_fix_contradicts": 2,
+    "post_fix_contradicts": 0,
+    "adjudication": "Both pre-fix flags were FALSE POSITIVES: NCT00069784 (ORIGIN) opposite signs 1.02 vs 0.98 with BOTH CIs crossing null (noise, and co-primary mismatch); NCT03211858 driven by a mis-extracted no-CI point. Both suppressed by the both-null and CI-anchor guards. Precision undefined (0 surviving flags); 0 genuine flips in sample."
+  },
+  "significance_flip": {
+    "pre_fix_contradicts": 1,
+    "post_fix_contradicts": 0,
+    "adjudication": "The single flag (NCT01708902) compared the registry HbA1c MEAN (non-sig) against an abstract responder ODDS RATIO (sig) — different endpoints. Removed by family-match gating. 0 genuine flips in sample."
+  },
+  "primary_endpoint_switch": {
+    "flagged_switch_candidate_sample_n": 8,
+    "true_switches": [],
+    "false_positives_all": ["NCT00097786 (index = NAVIGATOR ambulatory-activity ancillary, not primary)", "NCT00108004 (index = narrative review)", "NCT00270439 (primary IS reported, wording differs)", "NCT00285896 (primary reported, verbose reg name)", "NCT00318461 (reports 'A1C', reg says 'Glycosylated A1c')", "NCT00400036 (primary reported)", "NCT00467649 (index = PRO substudy)", "NCT00318461 dup"],
+    "precision_point_estimate": 0.0,
+    "note": "The term-overlap heuristic detects 'index abstract does not lexically match the registry primary', dominated by (a) multi-publication trials where the picked index is a secondary/ancillary/review paper and (b) verbose registry endpoint names. It does NOT detect true primary-endpoint switching, which requires the publication's DECLARED primary (methods section / full text), unavailable from the abstract. GAP."
+  },
+  "usability_classification": {
+    "usable_control_sample_n": 8,
+    "usability_label_correct": 8,
+    "usability_label_precision": 1.0,
+    "point_extraction_correct_of_asserted": "~1 of 6 (pre CI-guard)",
+    "point_extraction_note": "Usability SCREENING (is poolable primary data present?) is accurate. But the auto-extracted POINT estimate is unreliable: regex grabs dose numbers ('1.8 mg'->OR 1.8) and HbA1c thresholds ('<=7.0%'->OR 7.0). The point-in-CI self-consistency guard corrects 3/14 CI-anchored points; point-only (no-CI) extractions remain weak. means+-SD extraction is the most reliable path."
+  }
+}

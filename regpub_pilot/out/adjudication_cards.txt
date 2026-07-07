@@ -1,0 +1,1114 @@
+
+##############################################################################
+# BUCKET: non_publication:contradicts  (n=8)
+##############################################################################
+==============================================================================
+NCT00035542  | state=NEITHER | idx_pmid=None confirmed=False
+  REG start=2001 enroll=None results=False usable=False
+  REG primary endpoint(s): []
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (0 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00046501  | state=NEITHER | idx_pmid=None confirmed=False
+  REG start=2002 enroll=None results=False usable=False
+  REG primary endpoint(s): ['to measure change in glycemic control as measured by hemoglobin A1c (A1c).']
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (0 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00065676  | state=NEITHER | idx_pmid=9951949 confirmed=False
+  REG start=2010 enroll=24 results=False usable=False
+  REG primary endpoint(s): ['Does quercetin effect glucose absorption']
+  ABS usable=False reason=narrative_only n=None effect=None
+  ABS title: Drug therapy of postprandial hyperglycaemia.
+  ABS results: It is widely accepted that the most challenging goal in the management of patients with diabetes mellitus is to achieve blood glucose levels as close to normal as possible. In general, normalising postprandial blood glucose levels is more difficult than normalising fasting hyperglycaemia. In addition, some epidemiological studies suggest that postprandial hyperglycaemia (PPHG) or hyperinsulinaemia are independent risk factors for the development of macrovascular complications of diabetes mellitus. Recently, several drugs with differing pharmacodynamic profiles have been developed which target PPHG. These include insulin lispro, amylin analogues, alpha-glucosidase inhibitors and meglitinide a
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (3 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00123643  | state=ONE | idx_pmid=None confirmed=False
+  REG start=2003 enroll=36 results=True usable=True
+  REG primary endpoint(s): ['Flow Mediated Dilation']
+  REG primary result: 'Flow Mediated Dilation'
+     family=other point=None CI=(None,None) p=None sig=None
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=True, 0 reporting publications (0 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00151762  | state=NEITHER | idx_pmid=None confirmed=False
+  REG start=2004 enroll=None results=False usable=False
+  REG primary endpoint(s): ['To evaluate safety and tolerability of colesevelam hydrochloride as add-on therapy']
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (0 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00162240  | state=NEITHER | idx_pmid=None confirmed=False
+  REG start=2003 enroll=None results=False usable=False
+  REG primary endpoint(s): ['compare change from baseline in HbA1c after 24 weeks of treatment with muraglitazar + metformin vs placebo + metformin']
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (0 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00202033  | state=NEITHER | idx_pmid=None confirmed=False
+  REG start=2004 enroll=150 results=False usable=False
+  REG primary endpoint(s): ['HbA1c']
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (0 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00207233  | state=NEITHER | idx_pmid=11832527 confirmed=False
+  REG start=2004 enroll=None results=False usable=False
+  REG primary endpoint(s): ['Weight change', 'Waist circumference change', 'Glycemic control', 'Change in expression of selected adipocyte metabolic genes']
+  ABS usable=False reason=numbers_no_estimate n=3234 effect=None
+  ABS title: Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin.
+  ABS results: The average follow-up was 2.8 years. The incidence of diabetes was 11.0, 7.8, and 4.8 cases per 100 person-years in the placebo, metformin, and lifestyle groups, respectively. The lifestyle intervention reduced the incidence by 58 percent (95 percent confidence interval, 48 to 66 percent) and metformin by 31 percent (95 percent confidence interval, 17 to 43 percent), as compared with placebo; the lifestyle intervention was significantly more effective than metformin. To prevent one case of diabetes during a period of three years, 6.9 persons would have to participate in the lifestyle-intervention program, and 13.9 would have to receive metformin.
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (11 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+
+##############################################################################
+# BUCKET: abstract_unusable:narrative_only  (n=7)
+##############################################################################
+==============================================================================
+NCT00065676  | state=NEITHER | idx_pmid=9951949 confirmed=False
+  REG start=2010 enroll=24 results=False usable=False
+  REG primary endpoint(s): ['Does quercetin effect glucose absorption']
+  ABS usable=False reason=narrative_only n=None effect=None
+  ABS title: Drug therapy of postprandial hyperglycaemia.
+  ABS results: It is widely accepted that the most challenging goal in the management of patients with diabetes mellitus is to achieve blood glucose levels as close to normal as possible. In general, normalising postprandial blood glucose levels is more difficult than normalising fasting hyperglycaemia. In addition, some epidemiological studies suggest that postprandial hyperglycaemia (PPHG) or hyperinsulinaemia are independent risk factors for the development of macrovascular complications of diabetes mellitus. Recently, several drugs with differing pharmacodynamic profiles have been developed which target PPHG. These include insulin lispro, amylin analogues, alpha-glucosidase inhibitors and meglitinide a
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (3 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00467649  | state=ONE | idx_pmid=20199136 confirmed=True
+  REG start=2007 enroll=112 results=True usable=True
+  REG primary endpoint(s): ['The Percentage of Patients Achieving HbA1c <=7% at Week 24 With no Gain in Body Weight From Baseline and no Incidence of Severe Hypoglycemia']
+  REG primary result: 'The Percentage of Patients Achieving HbA1c <=7% at Week 24 With no Gain in Body '
+     family=other point=None CI=(None,None) p=0.0180 sig=True
+  ABS usable=False reason=narrative_only n=56 effect=None
+  ABS title: Patient reported outcomes in adults with type 2 diabetes on basal insulin randomized to ad
+  ABS results: PRAM patients experienced significant improvement in total diabetes distress, while RAIA patients did not; both groups experienced significant improvement in regimen-related distress and physician-related distress. Between-group differences in DDS measures were not significant. PRAM patients experienced significant improvement in sleep latency and daytime dysfunction, while RAIA patients did not; the difference between groups was significant for daytime dysfunction. Both treatment groups experienced significant improvement in most individual DTSQ items and total diabetes treatment satisfaction, while only PRAM patients experienced significant improvement in perceived hypoglycemia. Between-gr
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: contradicts — registry=112 vs abstract_n=56 (rel 0.50); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.43 (3/7); adjudicate
+==============================================================================
+NCT01826409  | state=NEITHER | idx_pmid=25015735 confirmed=True
+  REG start=2008 enroll=42 results=False usable=False
+  REG primary endpoint(s): ['Glucose profiles during meal tolerance test']
+  ABS usable=False reason=narrative_only n=None effect=None
+  ABS title: Postprandial glucose-lowering effects of fermented red ginseng in subjects with impaired f
+  ABS results: FRG supplementation led to a significant reduction in postprandial glucose levels and led to an increase in postprandial insulin levels compared to the placebo group. There was a consistently significant improvement in the glucose area under the curve (AUC) in the FRG group. However, fasting glucose, insulin, and lipid profiles were not different from the placebo group.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=42 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 1.00 (5/5)
+==============================================================================
+NCT04946188  | state=NEITHER | idx_pmid=30781431 confirmed=False
+  REG start=2020 enroll=14 results=False usable=False
+  REG primary endpoint(s): ['Generation of a predictive models for determining blood glucose levels', 'Validation of predictive model for determining blood glucose levels']
+  ABS usable=False reason=narrative_only n=None effect=None
+  ABS title: The Progress of Glucose Monitoring-A Review of Invasive to Minimally and Non-Invasive Tech
+  ABS results: Current glucose monitoring methods for the ever-increasing number of diabetic people around the world are invasive, painful, time-consuming, and a constant burden for the household budget. The non-invasive glucose monitoring technology overcomes these limitations, for which this topic is significantly being researched and represents an exciting and highly sought after market for many companies. This review aims to offer an up-to-date report on the leading technologies for non-invasive (NI) and minimally-invasive (MI) glucose monitoring sensors, devices currently available in the market, regulatory framework for accuracy assessment, new approaches currently under study by representative group
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (6 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT05022316  | state=NEITHER | idx_pmid=36779911 confirmed=True
+  REG start=2022 enroll=50 results=False usable=False
+  REG primary endpoint(s): ['hypertension control', 'diabetes control']
+  ABS usable=False reason=narrative_only n=None effect=None
+  ABS title: Partner-developed electronic health record tools to facilitate social risk-informed care p
+  ABS results: Partners universally prioritized tools for social risk screening and documentation. Additional high-priority content included adjusting medication costs and changing follow-up plans based on reported social risks. Most content recommendations reflected partners' interests in encouraging provider-patient dialogue about care plan adaptations specific to patients' social needs. Partners recommended CDS tool functions such as alerts and shortcuts to facilitate and efficiently document social risk-informed care plan adjustments.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=50 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.67 (2/3)
+==============================================================================
+NCT05375695  | state=NEITHER | idx_pmid=41199408 confirmed=True
+  REG start=2022 enroll=20 results=False usable=False
+  REG primary endpoint(s): ['Adherence (%)', 'Adherence (%)', "Participants' experiences, needs and barriers", "Participants' experiences, needs and barriers"]
+  ABS usable=False reason=narrative_only n=None effect=None
+  ABS title: Theory-based process evaluation of a non-randomised single-arm pilot study investigating t
+  ABS results: Intervention activities were delivered with high degree of consistency, and the two-phase design (strict respectively individualised TRE) was effectively implemented. Participants found the TRE intervention highly acceptable, appreciating the relevant information, well-organised trial visits, supportive HCPs, and encouraging conversations. Analysis of participants' experiences of implementation of TRE generated themes related to routines and habits, support from relatives, social life, and mental and physical challenges. Intervention components such as conversations and individual support and adjustment options were found to facilitate TRE initiation and maintenance. The initial program theo
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=20 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.75 (3/4)
+==============================================================================
+NCT05396079  | state=NEITHER | idx_pmid=15462130 confirmed=False
+  REG start=2023 enroll=12 results=False usable=False
+  REG primary endpoint(s): ['Concentration of urinary 8-iso-prostaglandin F2a', 'Assessment of Flow-Mediated Dilatation']
+  ABS usable=False reason=narrative_only n=None effect=None
+  ABS title: Antioxidants and prevention of chronic disease.
+  ABS results: The generation of reactive oxygen species (ROS) and other free radicals (R) during metabolism is a necessary and normal process that ideally is compensated for by an elaborate endogenous antioxidant system. However, due to many environmental, lifestyle, and pathological situations, excess radicals can accumulate, resulting in oxidative stress. Oxidative stress has been related to cardiovascular disease, cancer, and other chronic diseases that account for a major portion of deaths today. Antioxidants are compounds that hinder the oxidative processes and thereby delay or prevent oxidative stress. This article examines the process of oxidative stress and the pathways by which it relates to many
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (21 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+
+##############################################################################
+# BUCKET: abstract_usable_control  (n=8)
+##############################################################################
+==============================================================================
+NCT00069784  | state=BOTH | idx_pmid=22686415 confirmed=True
+  REG start=2003 enroll=12537 results=True usable=True
+  REG primary endpoint(s): ['Composite of the First Occurrence of Cardiovascular (CV) Death, Nonfatal Myocardial Infarction (MI) or Nonfatal Stroke', 'Composite of the First Occurrence of Cardiovascular (CV) Death, Nonfatal Myocardial Infarction (MI), Nonfatal Stroke, Revascularization Procedure or Hospitalization for Heart Failure (HF)']
+  REG primary result: 'Composite of the First Occurrence of Cardiovascular (CV) Death, Nonfatal Myocard'
+     family=ratio point=1.022 CI=(0.937,1.114) p=0.6273 sig=False
+  ABS usable=True reason=effect_with_ci n=12536 effect={'measure': 'hazard ratio', 'family': 'ratio', 'point': 0.98, 'ci_lo': 0.93, 'ci_hi': 1.1, 'pvalue': 'P=0.72', 'significant': False}
+  ABS title: n-3 fatty acids and cardiovascular outcomes in patients with dysglycemia.
+  ABS results: During a median follow up of 6.2 years, the incidence of the primary outcome was not significantly decreased among patients receiving n-3 fatty acids, as compared with those receiving placebo (574 patients [9.1%] vs. 581 patients [9.3%]; hazard ratio, 0.98; 95% confidence interval [CI], 0.87 to 1.10; P=0.72). The use of n-3 fatty acids also had no significant effect on the rates of major vascular events (1034 patients [16.5%] vs. 1017 patients [16.3%]; hazard ratio, 1.01; 95% CI, 0.93 to 1.10; P=0.81), death from any cause (951 [15.1%] vs. 964 [15.4%]; hazard ratio, 0.98; 95% CI, 0.89 to 1.07; P=0.63), or death from arrhythmia (288 [4.6%] vs. 259 [4.1%]; hazard ratio, 1.10; 95% CI, 0.93 to 1
+  FLAGS:
+     non_publication: concordant — 37 reporting pubs (38 total linked)
+     enrollment_mismatch: concordant — registry=12537 vs abstract_n=12536 (rel 0.00)
+     direction_flip: concordant — opposite signs but both null (reg 1.022 / abs 0.98) — agree on no effect
+     significance_flip: concordant — registry_sig=False abstract_sig=False
+     primary_endpoint: concordant — term overlap 0.55 (6/11)
+==============================================================================
+NCT00101803  | state=ONE | idx_pmid=17300593 confirmed=True
+  REG start=2005 enroll=527 results=False usable=False
+  REG primary endpoint(s): ['Change from baseline in HbA1c at 24 weeks']
+  ABS usable=True reason=means_sd n=None effect=None
+  ABS title: Efficacy and tolerability of initial combination therapy with vildagliptin and pioglitazon
+  ABS results: After 24-week treatment, adjusted mean changes in HbA(1c) from baseline (approximately 8.7%) in patients receiving pioglitazone monotherapy, 50/15 mg combination, 100/30 mg combination and vildagliptin monotherapy were -1.4 +/- 0.1%, -1.7 +/- 0.1%, -1.9 +/- 0.1% and -1.1 +/- 0.1% respectively. Both low-dose and high-dose combinations were significantly more efficacious than pioglitazone alone (p = 0.039 and p < 0.001 respectively). Adjusted mean changes in fasting plasma glucose were -1.9 +/- 0.2, -2.4 +/- 0.2, -2.8 +/- 0.2 and -1.3 +/- 0.2 mmol/l respectively, and both combination groups were significantly more effective than pioglitazone monotherapy (p = 0.022 and p < 0.001 respectively). 
+  FLAGS:
+     non_publication: concordant — 3 reporting pubs (3 total linked)
+     enrollment_mismatch: silent_on — registry=527 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT00127192  | state=ONE | idx_pmid=20332588 confirmed=False
+  REG start=2005 enroll=363 results=True usable=True
+  REG primary endpoint(s): ['Change From Baseline in HbA1c at Week 12']
+  REG primary result: 'Change From Baseline in HbA1c at Week 12'
+     family=other point=None CI=(None,None) p=<0.001 sig=True
+  ABS usable=True reason=effect_with_p n=None effect={'measure': 'hr', 'family': 'ratio', 'point': -40.3, 'ci_lo': None, 'ci_hi': None, 'pvalue': 'p<0.001', 'significant': None}
+  ABS title: Dose-ranging efficacy of sitagliptin, a dipeptidyl peptidase-4 inhibitor, in Japanese pati
+  ABS results: Sitagliptin is an oral, potent, highly selective, once-daily DPP-4 inhibitor indicated for the treatment of type 2 diabetes mellitus (T2DM). To assess the dose-ranging efficacy and safety/tolerability profile of once-daily sitagliptin 25, 50, 100, and 200 mg in Japanese patients with T2DM. In this randomized, double-blind, placebo-controlled study, 363 Japanese patients with inadequate glycemic control (HbA(1c)=6.5-10%; FPG< or =270 mg/dL) were randomized (1:1:1:1:1) to placebo, sitagliptin 25, 50, 100, or 200 mg q.d. for 12 weeks. The primary endpoint was change from baseline in HbA(1c) at Week 12. At Week 12, treatment with sitagliptin at all doses tested provided significant (p<0.001) red
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00138580  | state=NEITHER | idx_pmid=20518805 confirmed=False
+  REG start=2004 enroll=None results=False usable=False
+  REG primary endpoint(s): ['Safety of vildagliptin in combination with glimepiride during 52 weeks of treatment', 'Change from baseline in HbA1c at 52 weeks']
+  ABS usable=True reason=effect_with_ci n=None effect={'measure': 'or', 'family': 'ratio', 'point': 1.1, 'ci_lo': 0.8, 'ci_hi': 1.93, 'pvalue': None, 'significant': False}
+  ABS title: An assessment of adverse effects of vildagliptin versus comparators on the liver, the panc
+  ABS results: There were > 7000 subject-years of exposure (SYE) to vildagliptin 50 mg bid and > 6500 SYE to ACs. For mild hepatic enzyme elevations with and without elevated bilirubin levels, the ORs for vildagliptin 50 mg bid were 1.24 (95% CI: [0.80, 1.93]) and 1.19 (95% CI: [0.29, 4.90]), respectively. The exposure-adjusted incidences of markedly elevated hepatic enzymes and for enzyme elevations with bilirubin > or = 2x ULN with vildagliptin 50 mg bid were < or = those in the ACs group. For hepatic and pancreatitis-related AEs, the ORs for vildagliptin 50 mg bid were 0.87 (95% CI: [0.64, 1.19]) and 0.70 (95% CI: [0.26, 1.88]), respectively, and for any AE in the infections and infestations SOC, this w
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00286468  | state=ONE | idx_pmid=19125778 confirmed=False
+  REG start=2006 enroll=500 results=True usable=True
+  REG primary endpoint(s): ['Change From Baseline in Glycosylated Hemoglobin (HbA1c) at Week 26.']
+  REG primary result: 'Change From Baseline in Glycosylated Hemoglobin (HbA1c) at Week 26.'
+     family=diff point=-0.39 CI=(-0.59,-0.19) p=<0.001 sig=True
+  ABS usable=True reason=effect_with_p n=203 effect={'measure': 'or', 'family': 'ratio', 'point': 7.0, 'ci_lo': None, 'ci_hi': None, 'pvalue': 'p < 0.001', 'significant': None}
+  ABS title: Efficacy and safety of the dipeptidyl peptidase-4 inhibitor alogliptin in patients with ty
+  ABS results: The study population had a mean age of 57 years and a mean disease duration of 8 years; it was well balanced for gender (52% women) and was mainly white (71%). The mean baseline HbA1c was approximately 8.1% in each group. Significantly greater least squares (LS) mean reductions in HbA1c were seen at week 26 with alogliptin 12.5 mg (-0.38%) and 25 mg (-0.52%) vs. placebo (+0.01%; p < 0.001), and more patients in the alogliptin 25-mg group had HbA1c levels < or =7.0% at week 26 (34.8%, p = 0.002) vs. placebo (18.2%). Proportionately more patients in the alogliptin 12.5 mg (47.3%) and 25 mg (50.5%) groups had an HbA1c reduction > or =0.5% from baseline compared with patients in the placebo grou
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00299871  | state=NEITHER | idx_pmid=20722676 confirmed=False
+  REG start=2006 enroll=542 results=False usable=False
+  REG primary endpoint(s): ['HbA1c levels at baseline and endpoint (at 13 weeks).']
+  ABS usable=True reason=effect_with_p n=None effect={'measure': 'or', 'family': 'ratio', 'point': 7.0, 'ci_lo': None, 'ci_hi': None, 'pvalue': 'P < 0.01', 'significant': None}
+  ABS title: Dose-dependent effects of the once-daily GLP-1 receptor agonist lixisenatide in patients w
+  ABS results: Lixisenatide significantly improved mean HbA(1c) from a baseline of 7.55% (59.0 mmol/mol); respective mean reductions for 5, 10, 20 and 30 microg doses were 0.47, 0.50, 0.69 and 0.76% (5.1, 5.5, 7.5 and 8.3 mmol/mol), on once-daily and 0.65, 0.78, 0.75 and 0.87% (7.1, 8.5, 8.2 and 9.5 mmol/mol) on twice-daily administrations vs. 0.18% (2.0 mmol/mol) with placebo (all P < 0.01 vs. placebo). Target HbA(1c) < 7.0% (53 mmol/mol) at study end was achieved in 68% of patients receiving 20 and 30 microg once-daily lixisenatide vs. 32% receiving placebo (P < 0.0001). Dose-dependent improvements were observed for fasting, postprandial and average self-monitored seven-point blood glucose levels. Weight
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00313001  | state=NEITHER | idx_pmid=19210140 confirmed=False
+  REG start=2006 enroll=373 results=False usable=False
+  REG primary endpoint(s): ['Superiority as assessed by HbA1c reduction']
+  ABS usable=True reason=effect_with_ci n=372 effect={'measure': 'or', 'family': 'ratio', 'point': 6.5, 'ci_lo': -1.23, 'ci_hi': -0.59, 'pvalue': 'p = 0.0060', 'significant': True}
+  ABS title: Efficacy and safety of biphasic insulin aspart 70/30 versus exenatide in subjects with typ
+  ABS results: Glycemic control achieved with both BIAsp 30 BID and BIAsp 30 QD was superior to that with exenatide (BIAsp 30 BID-exenatide: HbA1c difference -0.91% [95% CI: -1.23 to -0.59%] and BIAsp 30 QD-exenatide: difference: -0.67% [95% CI: -0.99 to -0.34%]). At the end of the study, more subjects achieved HbA1c < 7% and < or = 6.5% in the BIAsp 30 BID group than in the exenatide group (HbA1c < 7%: 37% vs. 20%, p = 0.0060; HbA1c < or = 6.5%: 25% vs. 8%, p = 0.0004, respectively). Combined hypoglycemic episodes (major, minor, symptoms only) were reported by 56%, 61%, and 29% of the subjects in the BIAsp 30 QD, BIAsp 30 BID, and exenatide groups, respectively. Weight gain was observed in the BIAsp 30 gr
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00318461  | state=BOTH | idx_pmid=18931095 confirmed=True
+  REG start=2006 enroll=1091 results=True usable=True
+  REG primary endpoint(s): ['Change in Glycosylated A1c (HbA1c) at Week 26', 'Change in Glycosylated A1c (HbA1c) at Week 104']
+  REG primary result: 'Change in Glycosylated A1c (HbA1c) at Week 26'
+     family=diff point=-1.09 CI=(-1.3,-0.88) p=<0.0001 sig=True
+  ABS usable=True reason=effect_with_p n=None effect={'measure': 'or', 'family': 'ratio', 'point': 1.8, 'ci_lo': None, 'ci_hi': None, 'pvalue': 'P < 0.0001', 'significant': None}
+  ABS title: Efficacy and safety comparison of liraglutide, glimepiride, and placebo, all in combinatio
+  ABS results: A1C values were significantly reduced in all liraglutide groups versus the placebo group (P < 0.0001) with mean decreases of 1.0% for 1.8 mg liraglutide, 1.2 mg liraglutide, and glimepiride and 0.7% for 0.6 mg liraglutide and an increase of 0.1% for placebo. Body weight decreased in all liraglutide groups (1.8-2.8 kg) compared with an increase in the glimepiride group (1.0 kg; P < 0.0001). The incidence of minor hypoglycemia with liraglutide ( approximately 3%) was comparable to that with placebo but less than that with glimepiride (17%; P < 0.001). Nausea was reported by 11-19% of the liraglutide-treated subjects versus 3-4% in the placebo and glimepiride groups. The incidence of nausea dec
+  FLAGS:
+     non_publication: concordant — 18 reporting pubs (18 total linked)
+     enrollment_mismatch: silent_on — registry=1091 abstract_n=None
+     direction_flip: silent_on — reg_family=diff abs_family=ratio
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (1/3); adjudicate
+
+##############################################################################
+# BUCKET: primary_endpoint:switch_candidate  (n=8)
+##############################################################################
+==============================================================================
+NCT00097786  | state=ONE | idx_pmid=24361242 confirmed=True
+  REG start=2002 enroll=9306 results=True usable=True
+  REG primary endpoint(s): ['Percentage of Patients Reaching the Endpoint: Progression to Diabetes - Valsartan Versus Non-valsartan', 'Percentage of Patients Reaching the Endpoint: Extended Morbidity and Mortality Event - Valsartan Versus Non-valsartan', 'Percentage of Patients Reaching the Endpoint: Core Cardiovascular Morbidity and Mortality Event - Valsartan Versus Non-valsartan', 'Percentage of Patients Reaching the Endpoint: Progression to Diabetes - Nateglinide Versus Non-nateglinide', 'Percentage of Patients Reaching the Endpoint: Extended Morbidity and Mortality Event - Nateglinide Versus Non-nateglinide', 'Percentage of Patients Reaching the Endpoint: Core Cardiovascular Morbidity and Mortality Event - Nateglinide Versus Non-nateglinide']
+  REG primary result: 'Percentage of Patients Reaching the Endpoint: Progression to Diabetes - Valsarta'
+     family=other point=None CI=(None,None) p=None sig=None
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Association between change in daily ambulatory activity and cardiovascular events in peopl
+  ABS results: The extent to which change in physical activity can modify the risk of cardiovascular disease in individuals at high cardiovascular risk is uncertain. We investigated whether baseline and change in objectively-assessed ambulatory activity is associated with the risk of a cardiovascular event in individuals at high cardiovascular risk with impaired glucose tolerance. We assessed prospective data from the NAVIGATOR trial involving 9306 individuals with impaired glucose tolerance who were recruited in 40 countries between January, 2002, and January, 2004. Participants also either had existing cardiovascular disease (if age ≥50 years) or at least one additional cardiovascular risk factor (if age
+  FLAGS:
+     non_publication: concordant — 12 reporting pubs (12 total linked)
+     enrollment_mismatch: silent_on — registry=9306 abstract_n=None
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.21 (3/14); adjudicate
+==============================================================================
+NCT00108004  | state=NEITHER | idx_pmid=17109671 confirmed=True
+  REG start=2003 enroll=None results=False usable=False
+  REG primary endpoint(s): ['To investigate the clinical utility and safety of pramlintide in subjects with type 1 and type 2 diabetes mellitus', 'Understand management issues in subjects with type 1 and type 2 diabetes mellitus']
+  ABS usable=False reason=numbers_no_estimate n=None effect=None
+  ABS title: Pramlintide in the treatment of diabetes.
+  ABS results: Diabetes treatment has traditionally focused on correcting insulin deficiency with exogenous insulin and oral agents designed to enhance insulin secretion or insulin sensitivity in peripheral tissues. The more recent view of diabetes as a disease that affects multiple hormones in addition to insulin has led to the development of new therapies more broadly aimed at restoring glucose homeostasis by correcting abnormalities in additional glucoregulatory hormones. Pramlintide, a synthetic analogue of the beta-cell hormone amylin, regulates the appearance of glucose in the circulation following meals through several mechanisms of action: slowing gastric emptying, preventing inappropriate postpran
+  FLAGS:
+     non_publication: concordant — 3 reporting pubs (3 total linked)
+     enrollment_mismatch: silent_on — registry=None abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (4/12); adjudicate
+==============================================================================
+NCT00270439  | state=NEITHER | idx_pmid=20457158 confirmed=True
+  REG start=2006 enroll=10 results=False usable=False
+  REG primary endpoint(s): ['Insulin sensitivity as measured by the minimal model and HOMA score']
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Surgical removal of omental fat does not improve insulin sensitivity and cardiovascular ri
+  ABS results: The greater omentum, which weighed 0.82 kg (95% confidence interval: 0.67-0.97), was removed from subjects who had omentectomy in both studies. In study 1, there was an approximate 2-fold increase in muscle insulin sensitivity (relative increase in glucose disposal during insulin infusion) and a 4-fold increase in hepatic insulin sensitivity 12 months after RYGB alone and RYGB plus omentectomy, compared with baseline values (P<.001). There were no significant differences between groups (P>.87) or group x time interactions (P>.36). In study 2, surgery had no effect on insulin sensitivity (P=.844) or use of diabetes medications.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (6 total linked)
+     enrollment_mismatch: silent_on — registry=10 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (2/6); adjudicate
+==============================================================================
+NCT00285896  | state=NEITHER | idx_pmid=19094067 confirmed=True
+  REG start=2005 enroll=8 results=False usable=False
+  REG primary endpoint(s): ['Area under curve (AUC)for plasma glucose, insulin, insulin secretion velocity and glucagon for the periods 0-48 hours(day 1-2) and 0-180 min (day 3). And also the lowest plasma glucose during the period 0-180 min day 3 and mean blood pressure']
+  ABS usable=False reason=numbers_no_estimate n=None effect={'measure': 'or', 'family': 'ratio', 'point': 2.8, 'ci_lo': None, 'ci_hi': None, 'pvalue': None, 'significant': None}
+  ABS title: No increased risk of hypoglycaemic episodes during 48 h of subcutaneous glucagon-like-pept
+  ABS results: Two subjects in the GLP-1 group and one subject in the placebo group were withdrawn due to protocol specified plasma glucose (PG) < or = 2.8 mm and neuroglycopaenic symptoms. The infusion of GLP-1 resulted in pharmacological levels of intact GLP-1. During the fasting period PG, insulin and C-peptide levels declined and glucagon, GH and free fatty acid (FFA) levels increased with no differences between GLP-1 and placebo. During OGTT circulating levels of insulin and C-peptide were higher with GLP-1 infusion. However, PG was similar during GLP-1 vs. placebo infusions. GLP-1 infusion increased norepinephrine and cortisol levels during OGTT.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=8 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=ratio
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.29 (5/17); adjudicate
+==============================================================================
+NCT00318461  | state=BOTH | idx_pmid=18931095 confirmed=True
+  REG start=2006 enroll=1091 results=True usable=True
+  REG primary endpoint(s): ['Change in Glycosylated A1c (HbA1c) at Week 26', 'Change in Glycosylated A1c (HbA1c) at Week 104']
+  REG primary result: 'Change in Glycosylated A1c (HbA1c) at Week 26'
+     family=diff point=-1.09 CI=(-1.3,-0.88) p=<0.0001 sig=True
+  ABS usable=True reason=effect_with_p n=None effect={'measure': 'or', 'family': 'ratio', 'point': 1.8, 'ci_lo': None, 'ci_hi': None, 'pvalue': 'P < 0.0001', 'significant': None}
+  ABS title: Efficacy and safety comparison of liraglutide, glimepiride, and placebo, all in combinatio
+  ABS results: A1C values were significantly reduced in all liraglutide groups versus the placebo group (P < 0.0001) with mean decreases of 1.0% for 1.8 mg liraglutide, 1.2 mg liraglutide, and glimepiride and 0.7% for 0.6 mg liraglutide and an increase of 0.1% for placebo. Body weight decreased in all liraglutide groups (1.8-2.8 kg) compared with an increase in the glimepiride group (1.0 kg; P < 0.0001). The incidence of minor hypoglycemia with liraglutide ( approximately 3%) was comparable to that with placebo but less than that with glimepiride (17%; P < 0.001). Nausea was reported by 11-19% of the liraglutide-treated subjects versus 3-4% in the placebo and glimepiride groups. The incidence of nausea dec
+  FLAGS:
+     non_publication: concordant — 18 reporting pubs (18 total linked)
+     enrollment_mismatch: silent_on — registry=1091 abstract_n=None
+     direction_flip: silent_on — reg_family=diff abs_family=ratio
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (1/3); adjudicate
+==============================================================================
+NCT00400036  | state=NEITHER | idx_pmid=17682120 confirmed=True
+  REG start=2004 enroll=None results=False usable=False
+  REG primary endpoint(s): ['Insulin sensitivity at 4 weeks', 'Insulin signaling in skeletal muscle at 4 weeks']
+  ABS usable=False reason=median_no_dispersion n=None effect=None
+  ABS title: Dietary cod protein improves insulin sensitivity in insulin-resistant men and women: a ran
+  ABS results: There was a significant improvement in insulin sensitivity (P = 0.027) and a strong tendency for a better disposition index (beta-cell function x M/I) (P = 0.055) in subjects consuming the cod protein diet compared with those consuming the BPVEM diet. When median baseline M/I (4.8 x 10(-3) mg x kg(-1) x min(-1) x pmol(-1)) was taken into account, an interaction on the 30-min C-peptide-to-30-min glucose ratio, used as an index of beta-cell function, was observed between diet and M/I status (P = 0.022). Indeed, this ratio strongly tended to increase in subjects with low M/I consuming the cod protein diet compared with those consuming the BPVEM diet (P = 0.065).
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=None abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.40 (2/5); adjudicate
+==============================================================================
+NCT00467649  | state=ONE | idx_pmid=20199136 confirmed=True
+  REG start=2007 enroll=112 results=True usable=True
+  REG primary endpoint(s): ['The Percentage of Patients Achieving HbA1c <=7% at Week 24 With no Gain in Body Weight From Baseline and no Incidence of Severe Hypoglycemia']
+  REG primary result: 'The Percentage of Patients Achieving HbA1c <=7% at Week 24 With no Gain in Body '
+     family=other point=None CI=(None,None) p=0.0180 sig=True
+  ABS usable=False reason=narrative_only n=56 effect=None
+  ABS title: Patient reported outcomes in adults with type 2 diabetes on basal insulin randomized to ad
+  ABS results: PRAM patients experienced significant improvement in total diabetes distress, while RAIA patients did not; both groups experienced significant improvement in regimen-related distress and physician-related distress. Between-group differences in DDS measures were not significant. PRAM patients experienced significant improvement in sleep latency and daytime dysfunction, while RAIA patients did not; the difference between groups was significant for daytime dysfunction. Both treatment groups experienced significant improvement in most individual DTSQ items and total diabetes treatment satisfaction, while only PRAM patients experienced significant improvement in perceived hypoglycemia. Between-gr
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: contradicts — registry=112 vs abstract_n=56 (rel 0.50); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.43 (3/7); adjudicate
+==============================================================================
+NCT00494715  | state=NEITHER | idx_pmid=18776118 confirmed=True
+  REG start=2007 enroll=102 results=False usable=False
+  REG primary endpoint(s): ['Progression to ESRD (i.e. need for renal replacement therapy by chronic dialysis or renal transplantation)']
+  ABS usable=False reason=numbers_no_estimate n=None effect=None
+  ABS title: Is there added value to adding ARB to ACE inhibitors in the management of CKD?
+  ABS results: Antagonism of the rennin-angiotensin-aldosterone-system (RAAS) decreases BP and reduces proteinuria in chronic kidney disease. BP is decreased approximately 5 mmHg when angiotensin II blockers are added to angiotensin-converting enzyme (ACE) inhibitors and is less than typically seen when other agents are added to existing ACE inhibitor regimens. Dual RAAS blockade results in additional reduction in proteinuria. Clinically insignificant increases in hyperkalemia and modest decreases in GFR occur. Data regarding long-term preservation of renal function are lacking. We suggest dual RAAS blockade be used in patients with chronic kidney disease with residual proteinuria on maximal ACE inhibitor 
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: silent_on — registry=102 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (3/9); adjudicate
+
+##############################################################################
+# BUCKET: abstract_unusable:relative_only  (n=8)
+##############################################################################
+==============================================================================
+NCT00097786  | state=ONE | idx_pmid=24361242 confirmed=True
+  REG start=2002 enroll=9306 results=True usable=True
+  REG primary endpoint(s): ['Percentage of Patients Reaching the Endpoint: Progression to Diabetes - Valsartan Versus Non-valsartan', 'Percentage of Patients Reaching the Endpoint: Extended Morbidity and Mortality Event - Valsartan Versus Non-valsartan', 'Percentage of Patients Reaching the Endpoint: Core Cardiovascular Morbidity and Mortality Event - Valsartan Versus Non-valsartan', 'Percentage of Patients Reaching the Endpoint: Progression to Diabetes - Nateglinide Versus Non-nateglinide', 'Percentage of Patients Reaching the Endpoint: Extended Morbidity and Mortality Event - Nateglinide Versus Non-nateglinide', 'Percentage of Patients Reaching the Endpoint: Core Cardiovascular Morbidity and Mortality Event - Nateglinide Versus Non-nateglinide']
+  REG primary result: 'Percentage of Patients Reaching the Endpoint: Progression to Diabetes - Valsarta'
+     family=other point=None CI=(None,None) p=None sig=None
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Association between change in daily ambulatory activity and cardiovascular events in peopl
+  ABS results: The extent to which change in physical activity can modify the risk of cardiovascular disease in individuals at high cardiovascular risk is uncertain. We investigated whether baseline and change in objectively-assessed ambulatory activity is associated with the risk of a cardiovascular event in individuals at high cardiovascular risk with impaired glucose tolerance. We assessed prospective data from the NAVIGATOR trial involving 9306 individuals with impaired glucose tolerance who were recruited in 40 countries between January, 2002, and January, 2004. Participants also either had existing cardiovascular disease (if age ≥50 years) or at least one additional cardiovascular risk factor (if age
+  FLAGS:
+     non_publication: concordant — 12 reporting pubs (12 total linked)
+     enrollment_mismatch: silent_on — registry=9306 abstract_n=None
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.21 (3/14); adjudicate
+==============================================================================
+NCT00121641  | state=ONE | idx_pmid=19650754 confirmed=True
+  REG start=2005 enroll=1035 results=True usable=True
+  REG primary endpoint(s): ['Hemoglobin A1c (A1C) Changes From Baseline at Week 24', 'A1C Changes From Baseline at Week 24 - Open Label Cohort']
+  REG primary result: 'Hemoglobin A1c (A1C) Changes From Baseline at Week 24'
+     family=diff point=-0.62 CI=(-0.9,-0.33) p=<.0001 sig=True
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Effect of saxagliptin monotherapy in treatment-naïve patients with type 2 diabetes.
+  ABS results: In the MTC, saxagliptin demonstrated statistically significant decreases in adjusted mean HbA(1c) changes from baseline (mean, 7.9%) to week 24 (-0.43%, -0.46%, -0.54%) for saxagliptin 2.5, 5, and 10 mg, respectively, vs. +0.19% for placebo (all p < 0.0001). Adjusted mean FPG was significantly reduced from baseline (-15, -9, -17 mg/dL) for saxagliptin 2.5, 5, and 10 mg, respectively, vs. +6 mg/dL for placebo (p = 0.0002, p = 0.0074, p < 0.0001, respectively). More saxagliptin-treated patients achieved HbA(1c) < 7% at week 24 (35% [p = NS], 38% [p = 0.0443], 41% [p = 0.0133]) for saxagliptin 2.5, 5, and 10 mg, respectively, than placebo (24%). PPG-AUC was reduced for saxagliptin 2.5, 5, and 1
+  FLAGS:
+     non_publication: concordant — 5 reporting pubs (5 total linked)
+     enrollment_mismatch: silent_on — registry=1035 abstract_n=None
+     direction_flip: silent_on — reg_family=diff abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.67 (4/6)
+==============================================================================
+NCT00162305  | state=NEITHER | idx_pmid=19129749 confirmed=False
+  REG start=2005 enroll=47 results=False usable=False
+  REG primary endpoint(s): ['To assess the safety and tolerability of multiple oral doses of BMS-512148 administered alone or concomitantly with metformin in diabetic subjects']
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Dapagliflozin, a novel, selective SGLT2 inhibitor, improved glycemic control over 2 weeks 
+  ABS results: Dapagliflozin, administered to patients in once-daily oral doses, is a sodium-glucose cotransporter 2 (SGLT2) inhibitor that blocks the reabsorption of glucose from urine into the blood. This 14-day study randomized patients with type 2 diabetes mellitus (T2DM) to four treatment groups receiving daily oral doses of 5-, 25-, or 100-mg doses of dapagliflozin or placebo, in order to evaluate glucosuria and glycemic parameters. Significant reductions in fasting serum glucose (FSG) were observed on day 2 with 100 mg dapagliflozin (-9.3%, P < 0.001), and dose-dependent reductions were observed on day 13 with the 5-mg (-11.7%; P < 0.05), 25-mg (-13.3%; P < 0.05), and 100-mg (-21.8%; P < 0.0001) dos
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00212914  | state=NEITHER | idx_pmid=20547525 confirmed=True
+  REG start=2002 enroll=None results=False usable=False
+  REG primary endpoint(s): ['The proportion of patients screened in each group']
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Screening for type 2 diabetes following gestational diabetes: family physician and patient
+  ABS results: Response rates were 78% (173 of 223) for PCPs and 63% (140 of 223) for patients. Only 37% of the PCP responders had their patients complete OGTTs, while 85% of patient responders reported that they had completed OGTTs. The most common reason PCPs gave for not screening was no postpartum visit from the patient for any reason. Time pressures were the most common reason provided by patients for not being screened. More than 95% of patients and providers agreed that screening for T2DM was important. Patients and PCPs agreed that PCPs should be responsible for screening. Reminder letters were perceived as helpful by more than 85% of patients and PCPs.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=None abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.50 (2/4)
+==============================================================================
+NCT00225264  | state=NEITHER | idx_pmid=17101640 confirmed=True
+  REG start=2003 enroll=458 results=False usable=False
+  REG primary endpoint(s): ['Absolute change from Baseline in carotid intima-media thickness.']
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Effect of pioglitazone compared with glimepiride on carotid intima-media thickness in type
+  ABS results: Mean change in CIMT was less with pioglitazone vs glimepiride at all time points (weeks 24, 48, 72). At week 72, the primary end point of progression of mean CIMT was less with pioglitazone vs glimepiride (-0.001 mm vs +0.012 mm, respectively; difference, -0.013 mm; 95% confidence interval, -0.024 to -0.002; P = .02). Pioglitazone also slowed progression of maximum CIMT compared with glimepiride (0.002 mm vs 0.026 mm, respectively, at 72 weeks; difference, -0.024 mm; 95% confidence interval, -0.042 to -0.006; P = .008). The beneficial effect of pioglitazone on mean CIMT was similar across prespecified subgroups based on age, sex, systolic blood pressure, duration of DM, body mass index, HbA(
+  FLAGS:
+     non_publication: concordant — 6 reporting pubs (6 total linked)
+     enrollment_mismatch: silent_on — registry=458 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 1.00 (4/4)
+==============================================================================
+NCT00264901  | state=NEITHER | idx_pmid=17924873 confirmed=False
+  REG start=2005 enroll=5652 results=False usable=False
+  REG primary endpoint(s): ['Comparison of the change from baseline to end of treatment']
+  ABS usable=False reason=relative_only n=5604 effect=None
+  ABS title: The usage of a simplified self-titration dosing guideline (303 Algorithm) for insulin dete
+  ABS results: The Predictable Results and Experience in Diabetes through Intensification and Control to Target: An International Variability Evaluation 303 (PREDICTIVE 303) Study (n = 5604) evaluated the effectiveness of insulin detemir, a long-acting basal insulin analogue, using a simplified patient self-adjusted dosing algorithm (303 Algorithm group) compared with standard-of-care physician-driven adjustments (Standard-of-care group) in a predominantly primary care setting, over a period of 6 months. Insulin detemir was to be started once-daily as add-on therapy to any other glucose-lowering regimens or as a replacement of prestudy basal insulin in patients with type 2 diabetes. Investigator sites rath
+  FLAGS:
+     non_publication: concordant — 3 reporting pubs (3 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00270439  | state=NEITHER | idx_pmid=20457158 confirmed=True
+  REG start=2006 enroll=10 results=False usable=False
+  REG primary endpoint(s): ['Insulin sensitivity as measured by the minimal model and HOMA score']
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Surgical removal of omental fat does not improve insulin sensitivity and cardiovascular ri
+  ABS results: The greater omentum, which weighed 0.82 kg (95% confidence interval: 0.67-0.97), was removed from subjects who had omentectomy in both studies. In study 1, there was an approximate 2-fold increase in muscle insulin sensitivity (relative increase in glucose disposal during insulin infusion) and a 4-fold increase in hepatic insulin sensitivity 12 months after RYGB alone and RYGB plus omentectomy, compared with baseline values (P<.001). There were no significant differences between groups (P>.87) or group x time interactions (P>.36). In study 2, surgery had no effect on insulin sensitivity (P=.844) or use of diabetes medications.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (6 total linked)
+     enrollment_mismatch: silent_on — registry=10 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (2/6); adjudicate
+==============================================================================
+NCT00351585  | state=NEITHER | idx_pmid=18957505 confirmed=True
+  REG start=2004 enroll=39 results=False usable=False
+  REG primary endpoint(s): ['Change from baseline in maximal insulin secretory capacity at 12 weeks', 'Durability of this effect after a 2-week washout']
+  ABS usable=False reason=relative_only n=None effect=None
+  ABS title: Treatment with the dipeptidyl peptidase-4 inhibitor vildagliptin improves fasting islet-ce
+  ABS results: There were small and comparable reductions in glycosylated hemoglobin in both groups over 3 months. Vildagliptin increased fasting GLP-1 levels in subjects taking metformin, but not those managed with diet, and raised active GIP levels slightly. DPP-4 inhibitor treatment improved the acute insulin and C-peptide responses to glucose (50 and 100% respectively; P < 0.05) and increased the slope of the C-peptide response to glucose (33%; P = 0.023).
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=39 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.50 (4/8)
+
+##############################################################################
+# BUCKET: abstract_unusable:numbers_no_estimate  (n=8)
+##############################################################################
+==============================================================================
+NCT00108004  | state=NEITHER | idx_pmid=17109671 confirmed=True
+  REG start=2003 enroll=None results=False usable=False
+  REG primary endpoint(s): ['To investigate the clinical utility and safety of pramlintide in subjects with type 1 and type 2 diabetes mellitus', 'Understand management issues in subjects with type 1 and type 2 diabetes mellitus']
+  ABS usable=False reason=numbers_no_estimate n=None effect=None
+  ABS title: Pramlintide in the treatment of diabetes.
+  ABS results: Diabetes treatment has traditionally focused on correcting insulin deficiency with exogenous insulin and oral agents designed to enhance insulin secretion or insulin sensitivity in peripheral tissues. The more recent view of diabetes as a disease that affects multiple hormones in addition to insulin has led to the development of new therapies more broadly aimed at restoring glucose homeostasis by correcting abnormalities in additional glucoregulatory hormones. Pramlintide, a synthetic analogue of the beta-cell hormone amylin, regulates the appearance of glucose in the circulation following meals through several mechanisms of action: slowing gastric emptying, preventing inappropriate postpran
+  FLAGS:
+     non_publication: concordant — 3 reporting pubs (3 total linked)
+     enrollment_mismatch: silent_on — registry=None abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (4/12); adjudicate
+==============================================================================
+NCT00205725  | state=NEITHER | idx_pmid=15367925 confirmed=False
+  REG start=2000 enroll=120 results=False usable=False
+  REG primary endpoint(s): ['Effects of olanzapine/ziprasidone/haloperidol on glucose regulation']
+  ABS usable=False reason=numbers_no_estimate n=27 effect=None
+  ABS title: Plasma leptin and adiposity during antipsychotic treatment of schizophrenia.
+  ABS results: Alterations in plasma leptin have been reported in schizophrenia patients treated with antipsychotics, suggesting the hypothesis that impairments in leptin secretion or signaling might play a role in antipsychotic-induced weight gain. Plasma leptin was measured in 72 schizophrenia patients chronically treated with olanzapine (n=27), risperidone (n=24) or typical antipsychotics (n=21) and 124 healthy adult control subjects. ANCOVA was used to test effects of adiposity (body mass index kg/m2; BMI), subject group (treated patients vs untreated controls), and treatment group (specific medication groups and untreated controls) on plasma leptin concentrations. Additional analyses were performed in
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00207233  | state=NEITHER | idx_pmid=11832527 confirmed=False
+  REG start=2004 enroll=None results=False usable=False
+  REG primary endpoint(s): ['Weight change', 'Waist circumference change', 'Glycemic control', 'Change in expression of selected adipocyte metabolic genes']
+  ABS usable=False reason=numbers_no_estimate n=3234 effect=None
+  ABS title: Reduction in the incidence of type 2 diabetes with lifestyle intervention or metformin.
+  ABS results: The average follow-up was 2.8 years. The incidence of diabetes was 11.0, 7.8, and 4.8 cases per 100 person-years in the placebo, metformin, and lifestyle groups, respectively. The lifestyle intervention reduced the incidence by 58 percent (95 percent confidence interval, 48 to 66 percent) and metformin by 31 percent (95 percent confidence interval, 17 to 43 percent), as compared with placebo; the lifestyle intervention was significantly more effective than metformin. To prevent one case of diabetes during a period of three years, 6.9 persons would have to participate in the lifestyle-intervention program, and 13.9 would have to receive metformin.
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (11 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00239707  | state=NEITHER | idx_pmid=24712564 confirmed=True
+  REG start=2003 enroll=41 results=False usable=False
+  REG primary endpoint(s): ['GIP, glucose, insulin measured frequently during infusions']
+  ABS usable=False reason=numbers_no_estimate n=None effect=None
+  ABS title: GIP contributes to islet trihormonal abnormalities in type 2 diabetes.
+  ABS results: After an oral glucose tolerance test, glucose, glucagon, PP, GLP-1, and GIP levels were significantly elevated in type 2 diabetes groups, compared with normal and prediabetes groups. GIP infusion in type 2 diabetes subjects was associated with significantly elevated PP levels compared with placebo. The GIP bolus given to C57BL/6 mice was followed by increased PP levels. GIP receptors were found in both human and mouse PP cells.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (4 total linked)
+     enrollment_mismatch: silent_on — registry=41 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.67 (4/6)
+==============================================================================
+NCT00285896  | state=NEITHER | idx_pmid=19094067 confirmed=True
+  REG start=2005 enroll=8 results=False usable=False
+  REG primary endpoint(s): ['Area under curve (AUC)for plasma glucose, insulin, insulin secretion velocity and glucagon for the periods 0-48 hours(day 1-2) and 0-180 min (day 3). And also the lowest plasma glucose during the period 0-180 min day 3 and mean blood pressure']
+  ABS usable=False reason=numbers_no_estimate n=None effect={'measure': 'or', 'family': 'ratio', 'point': 2.8, 'ci_lo': None, 'ci_hi': None, 'pvalue': None, 'significant': None}
+  ABS title: No increased risk of hypoglycaemic episodes during 48 h of subcutaneous glucagon-like-pept
+  ABS results: Two subjects in the GLP-1 group and one subject in the placebo group were withdrawn due to protocol specified plasma glucose (PG) < or = 2.8 mm and neuroglycopaenic symptoms. The infusion of GLP-1 resulted in pharmacological levels of intact GLP-1. During the fasting period PG, insulin and C-peptide levels declined and glucagon, GH and free fatty acid (FFA) levels increased with no differences between GLP-1 and placebo. During OGTT circulating levels of insulin and C-peptide were higher with GLP-1 infusion. However, PG was similar during GLP-1 vs. placebo infusions. GLP-1 infusion increased norepinephrine and cortisol levels during OGTT.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=8 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=ratio
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.29 (5/17); adjudicate
+==============================================================================
+NCT00440375  | state=NEITHER | idx_pmid=17595249 confirmed=True
+  REG start=2005 enroll=None results=False usable=False
+  REG primary endpoint(s): ['metabolic bone markers before and after the intervention,']
+  ABS usable=False reason=numbers_no_estimate n=None effect=None
+  ABS title: Rosiglitazone decreases serum bone-specific alkaline phosphatase activity in postmenopausa
+  ABS results: Serum total alkaline phosphatase (ALP) and bone-specific ALP levels were statistically significantly lower 12 wk after initiation of rosiglitazone treatment. There were no statistically significant changes in osteocalcin levels among the three groups or in deoxypyridinoline levels in the rosiglitazone group. At the end of 12 wk, all patients had statistically significantly decreased IL-1beta and TNF-alpha levels compared with baseline. Changes in bone-specific ALP levels showed a moderate negative correlation with the changes in the TNF-alpha levels after rosiglitazone treatment and after diet in the diabetic control group.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=None abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 1.00 (5/5)
+==============================================================================
+NCT00494715  | state=NEITHER | idx_pmid=18776118 confirmed=True
+  REG start=2007 enroll=102 results=False usable=False
+  REG primary endpoint(s): ['Progression to ESRD (i.e. need for renal replacement therapy by chronic dialysis or renal transplantation)']
+  ABS usable=False reason=numbers_no_estimate n=None effect=None
+  ABS title: Is there added value to adding ARB to ACE inhibitors in the management of CKD?
+  ABS results: Antagonism of the rennin-angiotensin-aldosterone-system (RAAS) decreases BP and reduces proteinuria in chronic kidney disease. BP is decreased approximately 5 mmHg when angiotensin II blockers are added to angiotensin-converting enzyme (ACE) inhibitors and is less than typically seen when other agents are added to existing ACE inhibitor regimens. Dual RAAS blockade results in additional reduction in proteinuria. Clinically insignificant increases in hyperkalemia and modest decreases in GFR occur. Data regarding long-term preservation of renal function are lacking. We suggest dual RAAS blockade be used in patients with chronic kidney disease with residual proteinuria on maximal ACE inhibitor 
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: silent_on — registry=102 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (3/9); adjudicate
+==============================================================================
+NCT00511108  | state=ONE | idx_pmid=23782502 confirmed=False
+  REG start=2007 enroll=211 results=True usable=True
+  REG primary endpoint(s): ['Change From Baseline in Glucagon 3-hour Total Area Under the Curve (AUC) After 12 Weeks of Treatment', 'Percent Change From Baseline in Index of Static Beta-cell Sensitivity to Glucose After 12 Weeks of Treatment']
+  REG primary result: 'Change From Baseline in Glucagon 3-hour Total Area Under the Curve (AUC) After 1'
+     family=diff point=-29.7 CI=(-48.7,-10.6) p=0.002 sig=True
+  ABS usable=False reason=numbers_no_estimate n=None effect=None
+  ABS title: Sitagliptin and pioglitazone provide complementary effects on postprandial glucose and pan
+  ABS results: After 12 weeks, 5-h glucose total area under the curve (AUC) decreased in all active treatments versus placebo; reduction with sitagliptin + pioglitazone was greater versus either monotherapy. The 5-h insulin total AUC increased with sitagliptin versus all other treatments and increased with sitagliptin + pioglitazone versus pioglitazone. The 3-h glucagon AUC decreased with sitagliptin versus placebo and decreased with sitagliptin + pioglitazone versus pioglitazone or placebo. Φ(s), a measure of dynamic β-cell responsiveness to above-basal glucose concentrations, increased with either monotherapy versus placebo and increased with sitagliptin + pioglitazone versus either monotherapy. The insu
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+
+##############################################################################
+# BUCKET: abstract_unusable:no_abstract  (n=8)
+##############################################################################
+==============================================================================
+NCT00237640  | state=NEITHER | idx_pmid=17563345 confirmed=True
+  REG start=2005 enroll=85 results=False usable=False
+  REG primary endpoint(s): ['- Primary outcomes include HbA1c, glucose, total cholesterol, LDL cholesterol, HDL cholesterol, and triglycerides levels.']
+  ABS usable=False reason=no_abstract n=None effect=None
+  ABS title: Effect of cinnamon on glucose and lipid levels in non insulin-dependent type 2 diabetes.
+  ABS results: 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=85 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT00418366  | state=NEITHER | idx_pmid=17468348 confirmed=False
+  REG start=2003 enroll=24 results=False usable=False
+  REG primary endpoint(s): ['Determination of the pharmacokinetics of MK0431 (sitagliptin phosphate) in patients with renal insufficiency compared to healthy volunteers']
+  ABS usable=False reason=no_abstract n=None effect=None
+  ABS title: Effect of renal insufficiency on the pharmacokinetics of sitagliptin, a dipeptidyl peptida
+  ABS results: 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00985361  | state=NEITHER | idx_pmid=22018074 confirmed=True
+  REG start=2009 enroll=37 results=False usable=False
+  REG primary endpoint(s): ['Hemoglobin A1c']
+  ABS usable=False reason=no_abstract n=None effect=None
+  ABS title: Effect of daily vitamin D supplementation on HbA1c in patients with uncontrolled type 2 di
+  ABS results: 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=37 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT01562561  | state=NEITHER | idx_pmid=15983336 confirmed=False
+  REG start=2001 enroll=213 results=False usable=False
+  REG primary endpoint(s): ['HbA1c (glycosylated haemoglobin)']
+  ABS usable=False reason=no_abstract n=None effect=None
+  ABS title: Repaglinide/bedtime NPH insulin is comparable to twice-daily NPH insulin.
+  ABS results: 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT01588795  | state=NEITHER | idx_pmid=25186534 confirmed=True
+  REG start=2012 enroll=25 results=False usable=False
+  REG primary endpoint(s): ['proteinuria/creatininuria ratio']
+  ABS usable=False reason=no_abstract n=None effect=None
+  ABS title: Renal artery stenosis following renal denervation: a matter of concern.
+  ABS results: 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=25 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT02710448  | state=NEITHER | idx_pmid=24596656 confirmed=False
+  REG start=2012 enroll=82 results=False usable=False
+  REG primary endpoint(s): ['the percentage of patients in each category of renal function whose rate of erythrocyte metformin remain within the therapeutic range, at each stage of treatment.', 'the percentage of patients in each category of renal function whose rate of erythrocyte metformin remain within the therapeutic range, at each stage of treatment.', 'the percentage of patients in each category of renal function whose rate of erythrocyte metformin remain within the therapeutic range, at each stage of treatment.', 'the percentage of patients in stage 1 of chronic kidney disease (CKD) each category of renal function whose rate of erythrocyte metformin remain within the therapeutic range, at each stage of treatment.']
+  ABS usable=False reason=no_abstract n=None effect=None
+  ABS title: Erythrocyte metformin levels in patients with type 2 diabetes and varying severity of chro
+  ABS results: 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT02895750  | state=NEITHER | idx_pmid=34545662 confirmed=False
+  REG start=2017 enroll=12 results=False usable=False
+  REG primary endpoint(s): ['Efficacy of once daily Metformin XR on 24-h blood glucose control']
+  ABS usable=False reason=no_abstract n=None effect=None
+  ABS title: Pharmacodynamics and pharmacokinetics of extended-release metformin in patients with type 
+  ABS results: 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT03579615  | state=NEITHER | idx_pmid=36514847 confirmed=True
+  REG start=2020 enroll=18 results=False usable=False
+  REG primary endpoint(s): ['Time spent in the target glucose range']
+  ABS usable=False reason=no_abstract n=None effect=None
+  ABS title: Comparison of faster-acting aspart with insulin aspart under conditions mimicking underest
+  ABS results: 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=18 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+
+##############################################################################
+# BUCKET: abstract_unusable:median_no_dispersion  (n=8)
+##############################################################################
+==============================================================================
+NCT00400036  | state=NEITHER | idx_pmid=17682120 confirmed=True
+  REG start=2004 enroll=None results=False usable=False
+  REG primary endpoint(s): ['Insulin sensitivity at 4 weeks', 'Insulin signaling in skeletal muscle at 4 weeks']
+  ABS usable=False reason=median_no_dispersion n=None effect=None
+  ABS title: Dietary cod protein improves insulin sensitivity in insulin-resistant men and women: a ran
+  ABS results: There was a significant improvement in insulin sensitivity (P = 0.027) and a strong tendency for a better disposition index (beta-cell function x M/I) (P = 0.055) in subjects consuming the cod protein diet compared with those consuming the BPVEM diet. When median baseline M/I (4.8 x 10(-3) mg x kg(-1) x min(-1) x pmol(-1)) was taken into account, an interaction on the 30-min C-peptide-to-30-min glucose ratio, used as an index of beta-cell function, was observed between diet and M/I status (P = 0.022). Indeed, this ratio strongly tended to increase in subjects with low M/I consuming the cod protein diet compared with those consuming the BPVEM diet (P = 0.065).
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=None abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.40 (2/5); adjudicate
+==============================================================================
+NCT00558571  | state=ONE | idx_pmid=23940010 confirmed=True
+  REG start=2008 enroll=78 results=True usable=True
+  REG primary endpoint(s): ['Number of Subjects With Drug Related Adverse Events', 'Clinical Relevant Abnormalities for Vital Signs, Blood Chemistry, Haematology, Urinanalysis and ECG']
+  REG primary result: 'Number of Subjects With Drug Related Adverse Events'
+     family=other point=None CI=(None,None) p=None sig=None
+  ABS usable=False reason=median_no_dispersion n=974 effect=None
+  ABS title: Population pharmacokinetics of empagliflozin, a sodium glucose cotransporter 2 inhibitor, 
+  ABS results: Data from five randomized, placebo-controlled, multiple oral dose studies of empagliflozin in patients with type 2 diabetes mellitus (T2DM; N = 974; 1-100 mg q.d.; ≤12 weeks) were used to develop a population pharmacokinetic (PK) model for empagliflozin. The model consisted of two-compartmental disposition, lagged first-order absorption and first-order elimination, and incorporated appropriate covariates. Population estimates (interindividual variance, CV%) of oral apparent clearance, central and peripheral volumes of distribution, and inter-compartmental clearance were 9.87 L/h (26.9%), 3.02 L, 60.4 L (30.8%), and 5.16 L/h, respectively. An imposed allometric weight effect was the most infl
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: contradicts — registry=78 vs abstract_n=974 (rel 0.92); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT00789035  | state=ONE | idx_pmid=23940010 confirmed=True
+  REG start=2008 enroll=408 results=True usable=True
+  REG primary endpoint(s): ['Change of Glycosilated Haemoglobin A1c (HbA1c) From Baseline After 12 Weeks of Treatment']
+  REG primary result: 'Change of Glycosilated Haemoglobin A1c (HbA1c) From Baseline After 12 Weeks of T'
+     family=diff point=-0.52 CI=(-0.74,-0.29) p=<0.0001 sig=True
+  ABS usable=False reason=median_no_dispersion n=974 effect=None
+  ABS title: Population pharmacokinetics of empagliflozin, a sodium glucose cotransporter 2 inhibitor, 
+  ABS results: Data from five randomized, placebo-controlled, multiple oral dose studies of empagliflozin in patients with type 2 diabetes mellitus (T2DM; N = 974; 1-100 mg q.d.; ≤12 weeks) were used to develop a population pharmacokinetic (PK) model for empagliflozin. The model consisted of two-compartmental disposition, lagged first-order absorption and first-order elimination, and incorporated appropriate covariates. Population estimates (interindividual variance, CV%) of oral apparent clearance, central and peripheral volumes of distribution, and inter-compartmental clearance were 9.87 L/h (26.9%), 3.02 L, 60.4 L (30.8%), and 5.16 L/h, respectively. An imposed allometric weight effect was the most infl
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: contradicts — registry=408 vs abstract_n=974 (rel 0.58); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=diff abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT00964262  | state=NEITHER | idx_pmid=24373998 confirmed=True
+  REG start=2009 enroll=34 results=False usable=False
+  REG primary endpoint(s): ['To evaluate the safety and pharmacokinetics of SR exenatide (PT302) in healthy subjects after a single subcutaneous injection']
+  ABS usable=False reason=median_no_dispersion n=None effect=None
+  ABS title: Pharmacokinetic properties and effects of PT302 after repeated oral glucose loading tests 
+  ABS results: PT302 exhibits a biphasic pharmacokinetic profile, with the initial peak occurring 2 hours after administration. PT302 was quantifiable in the plasma until days 23, 30, 32, and 55 (median) in the 0.5-mg, 1-mg, 2-mg, and 4-mg dosage groups of PT302, respectively. Systemic exposure increased proportionally to the dose during the entire dose range investigated. The pharmacodynamic effect of PT302 on the postprandial response of insulin and C-peptide was significant on days 21 to 28 at the 4-mg dose and was positively correlated with plasma exenatide concentrations, whereas the correlations with glucose and glucagon were not significant. The fasting levels of these pharmacodynamic biomarkers wer
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=34 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.80 (8/10)
+==============================================================================
+NCT01093833  | state=NEITHER | idx_pmid=21299393 confirmed=True
+  REG start=2009 enroll=40 results=False usable=False
+  REG primary endpoint(s): ['Blood Glucose']
+  ABS usable=False reason=median_no_dispersion n=None effect=None
+  ABS title: Continuous glucose monitoring using a novel glucose/galactose binding protein: results of 
+  ABS results: BD-ID and BD-SC sensors performed as well as or better than the GOx-based sensor (differences in median absolute percentage error 2-4 points in hyperglycemic and euglycemic regions, ≥ 10 points in the hypoglycemic region). For glucose values ≤ 100 mg/dL, the percentage of measurement values in consensus error plot Zone A was substantially higher with the GGBP sensors than the GOx-based sensor.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=40 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 1.00 (2/2)
+==============================================================================
+NCT01524705  | state=ONE | idx_pmid=26068865 confirmed=True
+  REG start=2012 enroll=102 results=True usable=True
+  REG primary endpoint(s): ['Coefficient of Variation at 26 Weeks Minus Coefficient of Variation at Baseline']
+  REG primary result: 'Coefficient of Variation at 26 Weeks Minus Coefficient of Variation at Baseline'
+     family=other point=None CI=(None,None) p=<0.024 sig=True
+  ABS usable=False reason=median_no_dispersion n=None effect=None
+  ABS title: Design of FLAT-SUGAR: Randomized Trial of Prandial Insulin Versus Prandial GLP-1 Receptor 
+  ABS results: At randomization, the mean age of the population was 62 years, median duration of diabetes 15 years, mean BMI 34 kg/m(2), and mean HbA(1c) 7.9% (63 mmol/mol). Thirty-three percent had a prior cardiovascular event, 18% had microalbuminuria, and 3% had macroalbuminuria. At baseline, the continuous glucose monitoring coefficient of variation for glucose levels was similar in both groups.
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (46 total linked)
+     enrollment_mismatch: silent_on — registry=102 abstract_n=None
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.67 (2/3)
+==============================================================================
+NCT01633177  | state=ONE | idx_pmid=40199888 confirmed=True
+  REG start=2011 enroll=22220 results=True usable=True
+  REG primary endpoint(s): ['Incident Type 2 Diabetes']
+  REG primary result: 'Incident Type 2 Diabetes'
+     family=other point=None CI=(None,None) p=None sig=None
+  ABS usable=False reason=median_no_dispersion n=5205 effect={'measure': 'hazard ratio', 'family': 'ratio', 'point': 0.91, 'ci_lo': None, 'ci_hi': None, 'pvalue': None, 'significant': None}
+  ABS title: Vitamin D supplementation vs. placebo and incident type 2 diabetes in an ancillary study o
+  ABS results: Observational and experimental evidence suggests that vitamin D plays a role in type 2 diabetes (T2D). However, prior randomized supplementation trials are limited to high-risk patients with prediabetes. Here we aim to evaluate whether vitamin D supplementation reduces risk of T2D in a general population of older US adults. The study design is an ancillary analysis (VITAL-T2D) of The Vitamin D and Omega-3 Trial (VITAL), a completed randomized, double-blind, placebo-controlled 2 × 2 trial of daily vitamin D3 (cholecalciferol; 2000 IU/day) and omega-3 fatty acids (1 g/day) for the primary prevention of cancer and cardiovascular disease. We also conducted a systematic review and meta-analysis o
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: contradicts — registry=22220 vs abstract_n=5205 (rel 0.77); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=other abs_family=ratio
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 1.00 (3/3)
+==============================================================================
+NCT02330406  | state=NEITHER | idx_pmid=31189978 confirmed=True
+  REG start=2015 enroll=353 results=False usable=False
+  REG primary endpoint(s): ['Change in low-density lipoprotein cholesterol', 'Change in glycated hemoglobin']
+  ABS usable=False reason=median_no_dispersion n=None effect=None
+  ABS title: Randomized Evaluation of Anagliptin vs Sitagliptin On low-density lipoproteiN cholesterol 
+  ABS results: Additional reductions in low-density lipoprotein-cholesterol (LDL-C) via antidiabetic therapies should be considered in statin-using patients with sub-optimal LDL-C levels. We compared the efficacy of anagliptin and sitagliptin, two antidiabetic therapies, in reducing LDL-C in type 2 diabetic patients. A randomized, open-label, parallel-group trial was conducted at 17 centres in Japan between April 2015 and January 2018. Adults (age ≥20 years) with type 2 diabetes, any atherosclerotic vascular lesions, and statin prescriptions were included. Anagliptin or sitagliptin were administered for 52 weeks. Primary and secondary endpoints were changes in LDL-C and haemoglobin A1C (HbA1c) levels, resp
+  FLAGS:
+     non_publication: concordant — 4 reporting pubs (4 total linked)
+     enrollment_mismatch: silent_on — registry=353 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.60 (3/5)
+
+##############################################################################
+# BUCKET: abstract_unusable:pvalue_only  (n=8)
+##############################################################################
+==============================================================================
+NCT00412165  | state=NEITHER | idx_pmid=23759410 confirmed=True
+  REG start=2006 enroll=101 results=False usable=False
+  REG primary endpoint(s): ['To evaluate the effect, at 12 months, of the 3 intensities of the PACEi-DP intervention on Body Mass Index (BMI) among male & female adolescents.']
+  ABS usable=False reason=pvalue_only n=101 effect=None
+  ABS title: Outcomes of a 12-month technology-based intervention to promote weight loss in adolescents
+  ABS results: There were no treatment effects for BMI, adiposity, physical activity, or diet at 12 months. Treatment effects were observed for sedentary behavior, with the W arm having a greater decrease in sedentary behavior (4.9 to 2.8 h/day) than the UC arm (p = .006).
+  FLAGS:
+     non_publication: concordant — 3 reporting pubs (3 total linked)
+     enrollment_mismatch: concordant — registry=101 vs abstract_n=101 (rel 0.00)
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.58 (7/12)
+==============================================================================
+NCT00525629  | state=ONE | idx_pmid=19910942 confirmed=True
+  REG start=2007 enroll=40 results=True usable=True
+  REG primary endpoint(s): ['Insulin Resistance']
+  REG primary result: 'Insulin Resistance'
+     family=other point=None CI=(None,None) p=None sig=None
+  ABS usable=False reason=pvalue_only n=None effect=None
+  ABS title: Walnut consumption increases satiation but has no effect on insulin resistance or the meta
+  ABS results: Obesity and diabetes have been associated with increased consumption of highly processed foods, and reduced consumption of whole grains and nuts. It has been proposed, mainly on the basis of observational studies, that nuts may provide superior satiation, may lead to reduced calorie consumption, and may decrease the risk of type 2 diabetes; but evidence from randomized, interventional studies is lacking. A total of 20 men and women with the metabolic syndrome participated in a randomized, double-blind, crossover study of walnut consumption. Subjects had two 4-day admissions to the clinical research center where they were fed an isocaloric diet. In addition, they consumed shakes for breakfast
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=40 abstract_n=None
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 1.00 (2/2)
+==============================================================================
+NCT00676819  | state=NEITHER | idx_pmid=19120432 confirmed=False
+  REG start=2002 enroll=19 results=False usable=False
+  REG primary endpoint(s): ['Glucose infusion rate']
+  ABS usable=False reason=pvalue_only n=None effect=None
+  ABS title: The rapid-acting properties of insulin aspart are preserved in elderly people with type 2 
+  ABS results: IAsp showed a faster onset of action with significantly higher values for area under the glucose infusion rate curves, AUC(GIR(0-120 min)) and AUC(GIR(0-300 min)) (p = 0.0001). Maximum metabolic activity was higher (4.4 vs. 3.8 mg/kg/min, p = 0.0039) and occurred earlier with IAsp (196 vs. 278 min, p < 0.0001). Late metabolic activity (AUC(GIR (300-600 min))) was significantly lower with IAsp (p = 0.0006).
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT00737815  | state=NEITHER | idx_pmid=21159786 confirmed=True
+  REG start=2007 enroll=14 results=False usable=False
+  REG primary endpoint(s): ['Fasting insulin']
+  ABS usable=False reason=pvalue_only n=None effect=None
+  ABS title: Magnesium supplementation, metabolic and inflammatory markers, and global genomic and prot
+  ABS results: We observed that magnesium treatment significantly decreased fasting C-peptide concentrations (change: -0.4 ng/mL after magnesium treatment compared with +0.05 ng/mL after placebo treatment; P = 0.004) and appeared to decrease fasting insulin concentrations (change: -2.2 μU/mL after magnesium treatment compared with 0.0 μU/mL after placebo treatment; P = 0.25). No consistent patterns were observed across inflammatory biomarkers. Gene expression profiling revealed up-regulation of 24 genes and down-regulation of 36 genes including genes related to metabolic and inflammatory pathways such as C1q and tumor necrosis factor-related protein 9 (C1QTNF9) and pro-platelet basic protein (PPBP). Urine 
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=14 abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 1.00 (2/2)
+==============================================================================
+NCT01209416  | state=NEITHER | idx_pmid=28736944 confirmed=True
+  REG start=2012 enroll=None results=False usable=False
+  REG primary endpoint(s): ['Effects of ghrelin during basal and hyperinsulinemic conditions', 'Effects of ghrelin during basal and hyperinsulinemic conditions', 'Effects of ghrelin during basal and hyperinsulinemic conditions']
+  ABS usable=False reason=pvalue_only n=None effect=None
+  ABS title: Short-term acipimox treatment is associated with decreased cardiac parasympathetic modulat
+  ABS results: Plasma glucose (4.7 vs. 4.9 mmol l-1 , P = 0.02) and serum FFA (0.05 vs. 0.41 mmol l-1 , P < 0.001) were significantly decreased during acipimox treatment. Acipimox had an inhibitory effect on standard deviation of normal-to-normal intervals (41.3 vs. 45.3 ms, P = 0.01), root mean square of successive differences (23.2 vs. 11 ms, P = 0.03) and high frequency (3.79 vs 3.60 ln (ms2 ), P = 0.02) and these effects were reversed during clamping.
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: silent_on — registry=None abstract_n=None
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.40 (2/5); adjudicate
+==============================================================================
+NCT01354262  | state=NEITHER | idx_pmid=21060157 confirmed=False
+  REG start=2011 enroll=150 results=False usable=False
+  REG primary endpoint(s): ['Change in serum levels of Hemoglobin A1c.']
+  ABS usable=False reason=pvalue_only n=None effect=None
+  ABS title: Glycemic changes after vitamin D supplementation in patients with type 1 diabetes mellitus
+  ABS results: There was a significant difference in mean (SD) glycosylated hemoglobin level (%) between the groups that achieved 25-hydroxyvitamin D levels of <35.4 nmol/L, 35.4-51 nmol/L and >51 nmol/L at 12 weeks (P=.02). There was a significant difference in glycosylated hemoglobin change from baseline between the groups that achieved 25-hydroxyvitamin D levels of <35.4 nmol/L, 35.4-51 nmol/L and >51 nmol/L at 12 weeks (P=.04). There was a significant difference in 25-hydroxyvitamin D level between the groups that achieved glycosylated hemoglobin levels of <7.8, 7.8-9.9 and >9.9 at 12 weeks (P=.001). Patients were more likely to achieve lower glycosylated hemoglobin levels at 12 weeks if they had highe
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (2 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT01645995  | state=NEITHER | idx_pmid=17217576 confirmed=False
+  REG start=2012 enroll=50 results=False usable=False
+  REG primary endpoint(s): ['Changes in body weight and body composition']
+  ABS usable=False reason=pvalue_only n=None effect=None
+  ABS title: Long-term dietary compensation for added sugar: effects of supplementary sucrose drinks ov
+  ABS results: The long-term physiological effects of refined carbohydrates on appetite and mood remain unclear. Reported effects when subjects are not blind may be due to expectations and have rarely been studied for more than 24 h. The present study compared the effects of supplementary soft drinks added to the diet over 4 weeks on dietary intake, mood and BMI in normal-weight women (n 133). Subjects were categorised as 'watchers' or 'non-watchers' of what they ate then received sucrose or artificially sweetened drinks (4 x 250 ml per d). Expectancies were varied by labelling drinks 'sugar' or 'diet' in a counter-balanced design. Sucrose supplements provided 1800 kJ per d and sweetener supplements provid
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+==============================================================================
+NCT01854463  | state=NEITHER | idx_pmid=23561637 confirmed=False
+  REG start=2011 enroll=158 results=False usable=False
+  REG primary endpoint(s): ['glycemic control']
+  ABS usable=False reason=pvalue_only n=None effect=None
+  ABS title: Effect of high doses of vitamin D on arterial properties, adiponectin, leptin and glucose 
+  ABS results: In randomized, placebo-controlled study 47 diabetic patients were assigned into two groups: Group 1 received oral daily supplementation with vitamin D at a dose of 1000 U/day for 12 months. Group 2 received matching placebo capsules. Blood sampling for metabolic parameters, including fasting glucose, lipid profile, HbA1C, insulin, hs-CRP, 25 OH Vit D, adiponectin and leptin was performed at baseline and at the end of the study. Insulin resistance was assessed by homeostasis model assessment (HOMA-IR). Central aortic augmentation index (AI) was evaluated using SphygmoCor. The two groups were similar at baseline in terms of hemodynamic parameters. After 12 months, AI decreased significantly du
+  FLAGS:
+     non_publication: contradicts — completed, results_posted=False, 0 reporting publications (1 background-only refs)
+     enrollment_mismatch: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     direction_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     significance_flip: no_confirmed_pub — no databank-confirmed index publication in fetched set
+     primary_endpoint: no_confirmed_pub — no databank-confirmed index publication in fetched set
+
+##############################################################################
+# BUCKET: enrollment_mismatch:contradicts  (n=8)
+##############################################################################
+==============================================================================
+NCT00467649  | state=ONE | idx_pmid=20199136 confirmed=True
+  REG start=2007 enroll=112 results=True usable=True
+  REG primary endpoint(s): ['The Percentage of Patients Achieving HbA1c <=7% at Week 24 With no Gain in Body Weight From Baseline and no Incidence of Severe Hypoglycemia']
+  REG primary result: 'The Percentage of Patients Achieving HbA1c <=7% at Week 24 With no Gain in Body '
+     family=other point=None CI=(None,None) p=0.0180 sig=True
+  ABS usable=False reason=narrative_only n=56 effect=None
+  ABS title: Patient reported outcomes in adults with type 2 diabetes on basal insulin randomized to ad
+  ABS results: PRAM patients experienced significant improvement in total diabetes distress, while RAIA patients did not; both groups experienced significant improvement in regimen-related distress and physician-related distress. Between-group differences in DDS measures were not significant. PRAM patients experienced significant improvement in sleep latency and daytime dysfunction, while RAIA patients did not; the difference between groups was significant for daytime dysfunction. Both treatment groups experienced significant improvement in most individual DTSQ items and total diabetes treatment satisfaction, while only PRAM patients experienced significant improvement in perceived hypoglycemia. Between-gr
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: contradicts — registry=112 vs abstract_n=56 (rel 0.50); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.43 (3/7); adjudicate
+==============================================================================
+NCT00558571  | state=ONE | idx_pmid=23940010 confirmed=True
+  REG start=2008 enroll=78 results=True usable=True
+  REG primary endpoint(s): ['Number of Subjects With Drug Related Adverse Events', 'Clinical Relevant Abnormalities for Vital Signs, Blood Chemistry, Haematology, Urinanalysis and ECG']
+  REG primary result: 'Number of Subjects With Drug Related Adverse Events'
+     family=other point=None CI=(None,None) p=None sig=None
+  ABS usable=False reason=median_no_dispersion n=974 effect=None
+  ABS title: Population pharmacokinetics of empagliflozin, a sodium glucose cotransporter 2 inhibitor, 
+  ABS results: Data from five randomized, placebo-controlled, multiple oral dose studies of empagliflozin in patients with type 2 diabetes mellitus (T2DM; N = 974; 1-100 mg q.d.; ≤12 weeks) were used to develop a population pharmacokinetic (PK) model for empagliflozin. The model consisted of two-compartmental disposition, lagged first-order absorption and first-order elimination, and incorporated appropriate covariates. Population estimates (interindividual variance, CV%) of oral apparent clearance, central and peripheral volumes of distribution, and inter-compartmental clearance were 9.87 L/h (26.9%), 3.02 L, 60.4 L (30.8%), and 5.16 L/h, respectively. An imposed allometric weight effect was the most infl
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: contradicts — registry=78 vs abstract_n=974 (rel 0.92); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT00566189  | state=NEITHER | idx_pmid=25098565 confirmed=True
+  REG start=2007 enroll=36 results=False usable=False
+  REG primary endpoint(s): ['Improvement or reversal of type 2 diabetes mellitus']
+  ABS usable=False reason=relative_only n=24 effect=None
+  ABS title: Surgical treatment of type 2 diabetes in subjects with mild obesity: mechanisms underlying
+  ABS results: All subjects achieved normal-to-overweight BMI after 3 months. Over 24 months, 31/36 (86 %) subjects presented HbA1c <7 % [complete and partial remission of diabetes in 9/36 (22 %) and 1/36 (3 %), respectively]. Since 3 months postsurgery, improvements were observed in OGIS [290 (174) to 373 (77) ml/min/m(2), P = 0.009], ΔCP(0-30)/ΔGlu(0-30) [0.24 (0.19) to 0.52 (0.34) ng/mg, P = 0.001], DI [7.16 (8.53) to 19.8 (15.4) (ng/mg) (ml/min/m(2)), P = 0.001], GLP-1 AUCi [0.56 (0.64) to 3.97 (3.86) ng/dl [Symbol: see text] 10 min [Symbol: see text] 103, P = 0.000], and GIP AUCi [30.2 (12.6) to 27.0 (20.2) ng/dl [Symbol: see text] 10 min [Symbol: see text] 103, P = 0.004]. At baseline and after 12 mo
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (6 total linked)
+     enrollment_mismatch: contradicts — registry=36 vs abstract_n=24 (rel 0.33); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 0.60 (3/5)
+==============================================================================
+NCT00577824  | state=BOTH | idx_pmid=24843486 confirmed=True
+  REG start=2008 enroll=181 results=True usable=True
+  REG primary endpoint(s): ['Change in Glycosylated Hemoglobin (HbA1c) From Baseline to Week 24']
+  REG primary result: 'Change in Glycosylated Hemoglobin (HbA1c) From Baseline to Week 24'
+     family=other point=None CI=(None,None) p=<0.001 sig=True
+  ABS usable=True reason=means_sd n=72 effect=None
+  ABS title: Improved glycemic control and reduced bodyweight with exenatide: A double-blind, randomize
+  ABS results:   A total of 179 patients received the study drug and composed the full analysis set (n = 35, placebo; n = 72, exenatide 5 μg; n = 72, exenatide 10 μg; 68% male; 58 ± 10 years; body mass index 25.5 ± 4.1 kg/m(2); HbA1c 8.2 ± 0.9%; means ± standard deviations). Baseline to end-point (least-squares means ± standard errors) HbA1c changes (%) were -0.28 ± 0.15 (placebo), -1.34 ± 0.11 (exenatide 5 μg) and -1.62 ± 0.11 (exenatide 10 μg) (both P < 0.001, exenatide vs placebo). Baseline to end-point bodyweight changes (kg) were -0.47 ± 0.39 (placebo), -0.39 ± 0.28 (exenatide 5 μg) and -1.54 ± 0.27 (exenatide 10 μg; P = 0.026, exenatide 10 μg vs placebo). Nausea, generally mild to moderate, was repor
+  FLAGS:
+     non_publication: concordant — 3 reporting pubs (3 total linked)
+     enrollment_mismatch: contradicts — registry=181 vs abstract_n=72 (rel 0.60); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=other abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.33 (1/3); adjudicate
+==============================================================================
+NCT00637273  | state=ONE | idx_pmid=23522121 confirmed=True
+  REG start=2008 enroll=514 results=True usable=True
+  REG primary endpoint(s): ['Change in HbA1c From Baseline to Week 26']
+  REG primary result: 'Change in HbA1c From Baseline to Week 26'
+     family=diff point=0.63 CI=(0.37,0.89) p=<.0001 sig=True
+  ABS usable=False reason=numbers_no_estimate n=641 effect={'measure': 'or', 'family': 'ratio', 'point': 6.5, 'ci_lo': None, 'ci_hi': None, 'pvalue': None, 'significant': None}
+  ABS title: Treatment of patients with type 2 diabetes with exenatide once weekly versus oral glucose-
+  ABS results: Significant ABIs favoring exenatide QW over all four glucose-lowering medications were observed for at least one HbA1c glycemic goal. NNTs of 4 and 5 were calculated when exenatide QW was compared to sitagliptin for attaining HbA1c goals of <7.0% and ≤6.5%, respectively. Additionally, significantly more patients using exenatide QW compared to sitagliptin, pioglitazone, or insulin glargine attained the composite goal of HbA1c <7% or ≤6.5%, without weight gain or hypoglycemia. Exenatide QW was also favored over sitagliptin and insulin glargine for the achievement of the composite goals of HbA1c <7% (or ≤6.5%), systolic blood pressure <130 mm Hg, and low-density lipoprotein <2.59 mmol/L. For mo
+  FLAGS:
+     non_publication: concordant — 8 reporting pubs (8 total linked)
+     enrollment_mismatch: contradicts — registry=514 vs abstract_n=641 (rel 0.20); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=diff abs_family=ratio
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: concordant — term overlap 1.00 (1/1)
+==============================================================================
+NCT00643851  | state=ONE | idx_pmid=26894924 confirmed=True
+  REG start=2008 enroll=994 results=True usable=True
+  REG primary endpoint(s): ['Adjusted Mean Change From Baseline in Hemoglobin A1C (HbA1c) at Week 24 (Last Observation Carried Forward [LOCF])']
+  REG primary result: 'Adjusted Mean Change From Baseline in Hemoglobin A1C (HbA1c) at Week 24 (Last Ob'
+     family=diff point=-0.86 CI=(-1.11,-0.62) p=<0.0001 sig=True
+  ABS usable=False reason=relative_only n=4545 effect=None
+  ABS title: The effect of dapagliflozin on renal function in patients with type 2 diabetes.
+  ABS results: Mean eGFR showed small transient reductions with dapagliflozin at week 1, but returned to near baseline values by week 24 and remained stable to week 102. Mean eGFR changes were not very different for dapagliflozin 2.5, 5 and 10 mg versus placebo at 102 weeks: -0.74, 2.52 and 1.38 versus 1.31 mL/min/1.73 m(2), respectively. Renal AEs were similar in frequency to placebo through 24 weeks (1.4, 1.3, 0.9, and 0.9 %, respectively) and 102 weeks (2.4, 1.8, 1.9 and 1.7 %, respectively). Few were serious (0.2, 0.1, 0 and 0.3 %, respectively, over 102 weeks). The most common renal event was serum creatinine increase. In sub-group analyses in patients ≥65 years of age or those with moderate renal imp
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: contradicts — registry=994 vs abstract_n=4545 (rel 0.78); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=diff abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT00789035  | state=ONE | idx_pmid=23940010 confirmed=True
+  REG start=2008 enroll=408 results=True usable=True
+  REG primary endpoint(s): ['Change of Glycosilated Haemoglobin A1c (HbA1c) From Baseline After 12 Weeks of Treatment']
+  REG primary result: 'Change of Glycosilated Haemoglobin A1c (HbA1c) From Baseline After 12 Weeks of T'
+     family=diff point=-0.52 CI=(-0.74,-0.29) p=<0.0001 sig=True
+  ABS usable=False reason=median_no_dispersion n=974 effect=None
+  ABS title: Population pharmacokinetics of empagliflozin, a sodium glucose cotransporter 2 inhibitor, 
+  ABS results: Data from five randomized, placebo-controlled, multiple oral dose studies of empagliflozin in patients with type 2 diabetes mellitus (T2DM; N = 974; 1-100 mg q.d.; ≤12 weeks) were used to develop a population pharmacokinetic (PK) model for empagliflozin. The model consisted of two-compartmental disposition, lagged first-order absorption and first-order elimination, and incorporated appropriate covariates. Population estimates (interindividual variance, CV%) of oral apparent clearance, central and peripheral volumes of distribution, and inter-compartmental clearance were 9.87 L/h (26.9%), 3.02 L, 60.4 L (30.8%), and 5.16 L/h, respectively. An imposed allometric weight effect was the most infl
+  FLAGS:
+     non_publication: concordant — 2 reporting pubs (2 total linked)
+     enrollment_mismatch: contradicts — registry=408 vs abstract_n=974 (rel 0.58); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=diff abs_family=None
+     significance_flip: silent_on — registry_sig=True abstract_sig=None trusted=False
+     primary_endpoint: silent_on — registry primary terms absent from abstract (score 0); omission != switch — needs adjudication
+==============================================================================
+NCT00857870  | state=ONE | idx_pmid=23430192 confirmed=True
+  REG start=2009 enroll=96 results=False usable=False
+  REG primary endpoint(s): ['Area under the curve (AUC) after a testmeal measured CGM.']
+  ABS usable=True reason=means_sd n=39 effect=None
+  ABS title: Effects of insulin glargine versus metformin on glycemic variability, microvascular and be
+  ABS results: We investigated whether basal insulin as first-line treatment in recently diagnosed type 2 diabetes (T2D) can improve glucose control, microvascular function and preserve insulin secretion in comparison with metformin (MET). In this open-label, randomized, prospective 36-week study, 75 patients (44 m, 31 f, mean age 60.7 ± 9.2 year) were allocated to treatment with either MET 1,000 mg b.i.d. (n = 36) or insulin glargine (GLA) at bedtime (n = 39). At baseline and study end, we performed a continuous glucose monitoring for assessment of interstitial glucose (IG) and measured microvascular function using Laser-Doppler fluxmetry. GLA versus MET treatment resulted in a more pronounced reduction i
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: contradicts — registry=96 vs abstract_n=39 (rel 0.59); may be analyzed-vs-randomized set
+     direction_flip: silent_on — reg_family=None abs_family=None
+     significance_flip: silent_on — registry_sig=None abstract_sig=None trusted=False
+     primary_endpoint: switch_candidate — low term overlap 0.29 (2/7); adjudicate
+
+##############################################################################
+# BUCKET: significance_flip:contradicts  (n=1)
+##############################################################################
+==============================================================================
+NCT01708902  | state=BOTH | idx_pmid=32328953 confirmed=True
+  REG start=2012 enroll=876 results=True usable=True
+  REG primary endpoint(s): ['The Change From Baseline in HbA1c After 24 Weeks of Treatment in Main Group', 'The Change From Baseline in HbA1c After 24 Weeks of Treatment in Main Group - FAS (OC)', 'The Change From Baseline in HbA1c After 12 Weeks of Treatment in APG']
+  REG primary result: 'The Change From Baseline in HbA1c After 24 Weeks of Treatment in Main Group'
+     family=diff point=-0.22 CI=(-0.45,0.01) p=0.0587 sig=False
+  ABS usable=True reason=effect_with_ci n=None effect={'measure': 'odds ratio', 'family': 'ratio', 'point': 2.84, 'ci_lo': 1.54, 'ci_hi': 3.4, 'pvalue': None, 'significant': True}
+  ABS title: Early Combination Therapy with Linagliptin and Metformin in People with Type 2 Diabetes Im
+  ABS results: Most (> 70%) of the 1160 patients analyzed were treatment naive, and more than half had had diabetes for ≤ 1 year; mean baseline HbA1c was approximately 8.7%. Combination therapy with linagliptin and metformin resulted in more patients achieving HbA1c ≤ 6.5% than metformin alone, both for a metformin dose of 500 mg (40.1 vs. 22.9%, respectively, odds ratio [OR] 2.84, 95% confidence interval [CI] 1.87-4.32) and 1000 mg (49.5 vs. 35.4%, respectively, OR 2.28, 95% CI 1.54-3.40). Hypoglycemia occurred in < 3% of patients, with a comparable incidence between treatment groups. Other adverse events were also balanced between groups.
+  FLAGS:
+     non_publication: concordant — 1 reporting pubs (1 total linked)
+     enrollment_mismatch: silent_on — registry=876 abstract_n=None
+     direction_flip: silent_on — reg_family=diff abs_family=ratio
+     significance_flip: contradicts — registry_sig=False abstract_sig=True
+     primary_endpoint: concordant — term overlap 0.50 (3/6)

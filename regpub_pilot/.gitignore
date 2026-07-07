@@ -1,0 +1,7 @@
+# Raw external API caches — reproducible from scripts (see README), large, offline.
+data/ctgov/
+data/pubmed/
+# Session checkpoint (may contain local paths / internal state)
+PROGRESS.md
+__pycache__/
+*.pyc
