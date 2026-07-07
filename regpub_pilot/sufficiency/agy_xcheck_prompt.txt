@@ -1,0 +1,21 @@
+You are an independent biostatistics checker. Compute from the raw data ONLY (show numbers, be terse). Do NOT use any external files.
+
+TASK A — IV magnesium in acute MI (outcome = death; effect = odds ratio, Mg vs control).
+Trials as (deaths_Mg / N_Mg , deaths_ctrl / N_ctrl):
+Morton84 1/40,2/36 ; Rasmussen86 4/56,14/74 ; Smith86 2/92,7/93 ; Abraham87 1/48,1/46 ; Ceremuzynski89 1/25,3/23 ; Shechter90 1/50,9/53 ; Singh90 6/81,11/81 ; Feldstedt91 10/150,8/148 ; Shechter91 2/21,4/25 ; Woods92 90/1150,118/1150 ; Wu92 5/125,12/102 ; Thogersen95 4/130,8/122 ; Shechter95 4/96,17/98 ; ISIS-4 2216/29011,2103/29039 ; Bhargava95 3/40,3/38 ; Urek96 1/31,0/30 ; Raghu99 6/169,18/181 ; MAGIC 475/3113,472/3100 ; Gyamlani00 2/50,10/50 ; Santoro00 0/75,1/75 ; Zhu02 101/1691,134/1488 ; Nakashima04 1/89,3/91
+The "open-data poolable subset" = {ISIS-4, MAGIC} ONLY.
+Compute, using log OR with Haldane 0.5 correction only for zero cells, variance vi = 1/a+1/b+1/c+1/d:
+A1. Fixed-effect inverse-variance weight (1/vi) of the subset as a % of the total over all 22 trials.
+A2. Random-effects weight coverage: recompute weights as 1/(vi + tau2) using a DerSimonian-Laird tau2 estimated from ALL 22 trials, subset % of total.
+A3. DL random-effects pooled OR of the subset {ISIS-4,MAGIC} with 95% CI. Does the CI exclude 1?
+A4. DL random-effects pooled OR of ALL 22 trials with 95% CI. Does it exclude 1?
+
+TASK B — BCG vaccine vs tuberculosis (effect = risk ratio, vaccine vs control; log RR).
+Trials as (TB_vax/N_vax , TB_ctrl/N_ctrl):
+Aronson48 4/123,11/139 ; Ferguson49 6/306,29/303 ; Rosenthal60 3/231,11/220 ; Hart&Sutherland77 62/13598,248/12867 ; Frimodt-Moller73 33/5069,47/5808 ; Stein&Aronson53 180/1541,372/1451 ; Vandiviere73 8/2545,10/629 ; TPT-Madras80 505/88391,499/88391 ; Coetzee&Berjak68 29/7499,45/7277 ; Rosenthal61 17/1716,65/1665 ; Comstock74 186/50634,141/27338 ; Comstock&Webster69 5/2498,3/2341 ; Comstock76 27/16913,29/17854
+Poolable subset = the 6 trials with total N >= 5000: {Hart&Sutherland77, Frimodt-Moller73, TPT-Madras80, Coetzee&Berjak68, Comstock74, Comstock76}.
+B1. Fixed-effect log-RR weight coverage of the subset as % of total over all 13.
+B2. DL random-effects pooled RR of the subset (6 trials) with 95% CI. Does it exclude 1?
+B3. DL random-effects pooled RR of ALL 13 trials with 95% CI. Does it exclude 1?
+
+Report a compact table of the 9 requested numbers (A1-A4, B1-B3) with the yes/no on CI excluding 1. That is all.

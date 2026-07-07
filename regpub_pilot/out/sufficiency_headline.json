@@ -1,0 +1,106 @@
+{
+  "N": 10,
+  "overall": {
+    "n": 10,
+    "reproduced": 8,
+    "robust": 7,
+    "fragile": 1,
+    "not_reproduced": 2,
+    "insufficient": 0,
+    "reproduced_and_robust": 7
+  },
+  "tier1_allopen_reconstruct": {
+    "n": 6,
+    "reproduced": 6,
+    "robust": 6,
+    "fragile": 0,
+    "not_reproduced": 0,
+    "insufficient": 0,
+    "reproduced_and_robust": 6
+  },
+  "tier2_historical_longtail": {
+    "n": 4,
+    "reproduced": 2,
+    "robust": 1,
+    "fragile": 1,
+    "not_reproduced": 2,
+    "insufficient": 0,
+    "reproduced_and_robust": 1
+  },
+  "poolability_rule": "open-data-poolable := (year >= 2006) OR (total N >= 5000); P1 = registry-results era, P2 = landmark/OA-certain mega-trial. Deterministic; ESTIMATE for pre-registry trials; swept in sensitivity.",
+  "notes": {
+    "tier1": "modern registered-trial CLASS meta-analyses; open data fidelity IS tested (real CT.gov + PubMed extraction). All trials free -> coverage ~100%.",
+    "tier2": "historical mixed-era meta-analyses (metadat); per-trial data from the published dataset, so only COVERAGE + INFLUENCE are tested, not extraction. Poolability is an ESTIMATE from the rule; see sensitivity sweep.",
+    "iv_mg_mi": "NOT_REPRODUCED vs the published RE-protective result \u2014 but the open-data mega-trial subset (null) is the modern-consensus CORRECT answer; the published RE conclusion was itself a small-study-effect artifact. Open data RESISTS the artifact rather than being 'wrong'."
+  },
+  "sensitivity_sweep_tier2": {
+    "base (year>=2006 | N>=5000)": {
+      "summary": {
+        "n": 4,
+        "reproduced": 2,
+        "robust": 1,
+        "fragile": 1,
+        "not_reproduced": 2,
+        "insufficient": 0,
+        "reproduced_and_robust": 1
+      },
+      "per_review": {
+        "iv_mg_mi": "NOT_REPRODUCED",
+        "bcg_tb": "NOT_REPRODUCED",
+        "hypericum_dep": "FRAGILE",
+        "metformin_hba1c": "ROBUST"
+      }
+    },
+    "strict (year>=2010 | N>=5000)": {
+      "summary": {
+        "n": 4,
+        "reproduced": 0,
+        "robust": 0,
+        "fragile": 0,
+        "not_reproduced": 2,
+        "insufficient": 2,
+        "reproduced_and_robust": 0
+      },
+      "per_review": {
+        "iv_mg_mi": "NOT_REPRODUCED",
+        "bcg_tb": "NOT_REPRODUCED",
+        "hypericum_dep": "INSUFFICIENT",
+        "metformin_hba1c": "INSUFFICIENT"
+      }
+    },
+    "lenient (year>=2000 | N>=5000)": {
+      "summary": {
+        "n": 4,
+        "reproduced": 1,
+        "robust": 1,
+        "fragile": 0,
+        "not_reproduced": 3,
+        "insufficient": 0,
+        "reproduced_and_robust": 1
+      },
+      "per_review": {
+        "iv_mg_mi": "NOT_REPRODUCED",
+        "bcg_tb": "NOT_REPRODUCED",
+        "hypericum_dep": "NOT_REPRODUCED",
+        "metformin_hba1c": "ROBUST"
+      }
+    },
+    "abstract-era (year>=1995 | N>=5000)": {
+      "summary": {
+        "n": 4,
+        "reproduced": 3,
+        "robust": 2,
+        "fragile": 1,
+        "not_reproduced": 1,
+        "insufficient": 0,
+        "reproduced_and_robust": 2
+      },
+      "per_review": {
+        "iv_mg_mi": "FRAGILE",
+        "bcg_tb": "NOT_REPRODUCED",
+        "hypericum_dep": "ROBUST",
+        "metformin_hba1c": "ROBUST"
+      }
+    }
+  }
+}
