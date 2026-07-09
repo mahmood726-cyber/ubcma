@@ -111,9 +111,9 @@ external metafor — **not** a two-vendor quorum (Seat B `.codex-noreen` is `401
 `codex login` there would add a second). Exact invocation (prompt piped on stdin; codex-cli 0.140.0,
 gpt-5.5, approval=never, sandbox=danger-full-access):
 ```
-ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
-  "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
-   -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+ssh -i ~\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+  "codex exec --skip-git-repo-check -s danger-full-access -C ~\codex-xverify \
+   -o ~\codex-xverify\multi_last.txt -"  < prompt_multi.txt
 ```
 
 ## Files

@@ -39,3 +39,7 @@ node_modules/
 borrowing/field_scale/*.log
 truth-recovery-dta/*.log
 truth-recovery/run_*.log
+
+# codex-daemon runtime state (queues, per-seat status/logs/caps) — machine-
+# specific scratch that churns every run; never belongs in version control.
+verification/codex-daemon/

@@ -124,9 +124,9 @@ empty; running `codex login` in `.codex-noreen` on the laptop would add a second
 Exact invocation (prompt with embedded data piped on stdin; codex-cli 0.140.0, model gpt-5.5,
 approval=never, sandbox=danger-full-access, reasoning=xhigh):
 ```
-ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
-  "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
-   -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+ssh -i ~\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+  "codex exec --skip-git-repo-check -s danger-full-access -C ~\codex-xverify \
+   -o ~\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
 ```
 
 ## Files

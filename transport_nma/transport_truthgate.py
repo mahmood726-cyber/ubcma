@@ -7,7 +7,7 @@ REAL COVARIATE (country-level):
   X_c = Diabetes prevalence (% of population ages 20-79), World Bank WDI indicator
   SH.STA.DIAB.ZS, year 2024.
   Source file: F:/WorldBankData/api_data/source_2_World Development Indicators/SH_STA_DIAB_ZS.csv
-  Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+  Country codes aligned via <projects>/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
   (iso2 -> iso3 -> ihme_id / wb_code). Real values (2024, %):
      France 6.5, S.Africa 7.2, UK 7.4, Australia 7.4, Canada 7.7, Germany 7.8, Japan 8.1,
      Korea 9.6, Thailand 10.2, India 10.5, Brazil 10.6, China 11.9, USA 13.7, Mexico 16.4,
@@ -40,15 +40,25 @@ all beta; (ii) a real FAR target (Pakistan, X*=31.4) where transport should star
 beta is strong enough. Honest boundary expected: inert at beta=0 (no spurious win) and at
 target=pool; wins only when the covariate genuinely modifies the effect AND the target is far.
 """
-import io, sys
+import io, os, sys
 import numpy as np
 import pandas as pd
 from pathlib import Path
 
-ROOT = Path(r"F:\ubcma")
+ROOT = Path(__file__).resolve().parent.parent  # ubcma repo root (portable)
 sys.path.insert(0, str(ROOT / "nma"))
 sys.path.insert(0, str(ROOT / "src"))
-sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+# who-data-lakehouse is a sibling repo; resolve via env var or common project
+# roots (candidate-root discovery per lessons.md#code-quality — no machine-
+# specific literal path). Set WHO_DATA_LAKEHOUSE_SRC to override.
+_wdl_env = os.environ.get("WHO_DATA_LAKEHOUSE_SRC")
+_wdl_cands = ([Path(_wdl_env)] if _wdl_env else []) + [
+    Path(drive) / "Projects" / "who-data-lakehouse" / "src" for drive in ("C:/", "F:/")
+]
+for _c in _wdl_cands:
+    if _c.is_dir():
+        sys.path.insert(0, str(_c))
+        break
 from nma_core import Comparison, fit_nma  # noqa: E402
 from who_data_lakehouse.crosswalk import iso3_to_ihme, iso3_to_wb, iso3_to_name  # noqa: E402
 sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding="utf-8", errors="replace")

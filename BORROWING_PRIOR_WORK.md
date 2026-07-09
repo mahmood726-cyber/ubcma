@@ -3,7 +3,7 @@
 > *Read-only reconnaissance · compiled 2026-06-30 · owner: Mahmood · host: pc1 (this workstation)*
 > Purpose: ensure the new **registry-scale borrowing field** program (registry-scale Bayesian borrowing + transportability + registry-based publication bias + dose-response MA/NMA + large-scale NMA) builds on existing work instead of reinventing it.
 > Scope of the new idea: *every trial influences every result* — a borrowing "field" where the strength of borrowing between any two trials is modulated by their transportability, their registry/selection status, and the network/dose geometry.
-> Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and a full-drive sweep (C:, F:, G:) for external data. No files changed. Counts/claims are from on-disk artifacts; where a number is a project's own README it is marked **[as-documented]**.
+> Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, <projects>, ~\code, and a full-drive sweep (C:, F:, G:) for external data. No files changed. Counts/claims are from on-disk artifacts; where a number is a project's own README it is marked **[as-documented]**.
 
 ---
 
@@ -98,9 +98,9 @@ The program already has a manifesto: **`F:\ubcma\docs\EVIDENCE-SYNTHESIS-METHODS
 | **field_bakeoff.py** | `F:\ubcma\truth-recovery\field_bakeoff.py` | 12-estimator tournament, per-cell paired-bootstrap verdicts; shardable (`--shard/--nshards`). | **Method-tournament harness** — drop borrowing-field variants into the panel. |
 | **misspec_harness.py** | `F:\ubcma\truth-recovery\misspec_harness.py` | Robustness under *mismatched* selection mechanism (smooth/step/copas at same true μ). | **Mechanism-misspecification robustness** for the field's selection layer. |
 | **NMA_SCOREBOARD.py** | `F:\ubcma\truth-recovery\NMA_SCOREBOARD.py` | Aggregates per-rep CSVs → per-(τ,k) MCIW0 scoreboard + honest residual-weakness report. | **Final-report generator** template. |
-| **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, recomputes DL+REML, flags divergence; editorial gate + standalone; 7 tests + known-truth fixtures. | **Reproduce-or-remove gate** — re-source registry data, recompute, flag before borrowing. |
-| **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl. `dose-response-pro`, `component-nma`, `adaptsim`), RUNNING_TABLE.md. | **Parallel platform** to run the field tournament at registry scale. Not a git repo (orchestrator). |
-| **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction intervals; **[as-documented]** 92.1% vs 70.5% standard across 307 reviews. *Caveat:* in-repo conformal AdaptShrink is an honest miss (1/54 cells). | **Coverage layer** for the field's intervals; use the standalone conformal PI, not the AdaptShrink-conformal combo. |
+| **repro-checker** | `<projects>\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, recomputes DL+REML, flags divergence; editorial gate + standalone; 7 tests + known-truth fixtures. | **Reproduce-or-remove gate** — re-source registry data, recompute, flag before borrowing. |
+| **truth-recovery-sweep** | `<projects>\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl. `dose-response-pro`, `component-nma`, `adaptsim`), RUNNING_TABLE.md. | **Parallel platform** to run the field tournament at registry scale. Not a git repo (orchestrator). |
+| **conformal-ma** | `~\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction intervals; **[as-documented]** 92.1% vs 70.5% standard across 307 reviews. *Caveat:* in-repo conformal AdaptShrink is an honest miss (1/54 cells). | **Coverage layer** for the field's intervals; use the standalone conformal PI, not the AdaptShrink-conformal combo. |
 
 **Harness shortlist:** matched_coverage_bakeoff.py (MCIW0 + G4 gate) · field_bakeoff.py (tournament) · repro-checker (reproduce-or-remove).
 
@@ -108,22 +108,22 @@ The program already has a manifesto: **`F:\ubcma\docs\EVIDENCE-SYNTHESIS-METHODS
 
 ## 7. External data on disk  *(the registry + target-population layer)*
 
-> **Drives present on pc1:** C: (Main, 235 GB), F: (Storage, 466 GB), G: (Google Drive, 235 GB). D: = empty optical (0 B). No network drives mounted. The WHO/World Bank data my first pass missed live on **F:\**, not C:\Projects.
+> **Drives present on pc1:** C: (Main, 235 GB), F: (Storage, 466 GB), G: (Google Drive, 235 GB). D: = empty optical (0 B). No network drives mounted. The WHO/World Bank data my first pass missed live on **F:\**, not <projects>.
 
 ### 7a. ClinicalTrials.gov / AACT  *(the trial registry)*
 - **`F:\AACT-storage\AACT\2026-04-12`** — full AACT snapshot, **~14 GB, 49 pipe/tab-delimited `.txt` tables** (studies, outcomes, outcome_analyses, baseline_measurements, design_outcomes, conditions, facilities…). DuckDB-queryable via `read_csv()`.
-- Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.duckdb` ~2 GB). Candidate roots in code: `F:\AACT-storage\AACT`, `D:\AACT-storage\AACT`, `D:\AACT`, `C:\AACT`. (`E:\AACT` does **not** exist.)
-- Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- Access libs: **`<projects>\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.duckdb` ~2 GB). Candidate roots in code: `F:\AACT-storage\AACT`, `D:\AACT-storage\AACT`, `D:\AACT`, `C:\AACT`. (`E:\AACT` does **not** exist.)
+- Gold-file builders: `<projects>\cm-factory\scripts\*\build_aact_*_gold.py`.
 - **Reuse: the trial universe** — every node of the borrowing field; CT.gov linkage is also GWAM's λ source.
 
 ### 7b. IHME / Global Burden of Disease  *(target-population disease burden)*
-- **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing tests**. GBD 2023: Deaths/DALYs **13,872 rows × 204 countries (1990–2023)**, Population 20,808, **SDI 52,992 (1950–2021)**, YLL/YLD, CVD subset 8,736; CSV + Parquet; bronze/silver/datasets medallion; `ihme-data` CLI (`fetch/promote/search`).
+- **`<projects>\ihme-data-lakehouse`** *(also mirrored at `<projects>\ihme-data-lakehouse`)* — git repo, **39 passing tests**. GBD 2023: Deaths/DALYs **13,872 rows × 204 countries (1990–2023)**, Population 20,808, **SDI 52,992 (1950–2021)**, YLL/YLD, CVD subset 8,736; CSV + Parquet; bronze/silver/datasets medallion; `ihme-data` CLI (`fetch/promote/search`).
 - **`F:\data\Obesity-IHME`** — ~**1 GB** of IHME global+USA overweight/obesity prevalence 1990–2050 by age/sex (CSV).
 - **`F:\data\Research-Archives\IHME`** + **`F:\Downloads\IHME-GBD_2023_DATA-ba202403-1\*.csv`** — additional GBD extracts.
 - **Reuse: target-population baselines** (SDI, mortality, DALYs, demographics, obesity prevalence) → the covariate distributions transportability weighting standardizes toward.
 
 ### 7c. WHO Data Lakehouse  *(corrected — IS on disk)*
-- **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests** (mock, no-network). Medallion layout: **raw ~9.25 GB (3,543 files), silver ~6.8 GB (7,527 parquet)**, `catalog.parquet`.
+- **`<projects>\who-data-lakehouse`** *(README installs from `<projects>\who-data-lakehouse`)* — git repo, **81 tests** (mock, no-network). Medallion layout: **raw ~9.25 GB (3,543 files), silver ~6.8 GB (7,527 parquet)**, `catalog.parquet`.
   - **Sources:** GHO OData (indicators/dimensions), **WHO Mortality Database** (`morticd09/10`, 5 parts ~60 MB), **GHED** Global Health Expenditure (`ghed_data.parquet` 25 MB), **HIDR** Health Inequality Data Repository (`rep_gho`, `rep_gho_ncd`, `rep_ghe_daly/deaths_age`, `rep_ihme_malaria`), GLAAS, COVID, World Health Statistics, **XMart** services (mncah ~41M rows, wiise/immunization ~53M rows, ncd, ntd, nutrition, flumart). Life-expectancy `LIFE_*` + `GHE_DALYNUM` parquet.
   - **6 domain extractors** → DataFrame `(country_iso3, year, indicator, value, sex, data_source)`: Mortality (life-exp, U5MR, maternal, neonatal), Morbidity (TB/malaria/HIV/NCD obesity), Risk Factors (tobacco/alcohol/obesity/raised-BP), Health Systems (UHC index, doctors, beds), Expenditure (CHE/GDP, OOP, GGHE), Immunization (DTP3, MCV1, BCG).
   - ⭐ **`crosswalk.py`** — maps **WHO ISO3 ↔ IHME location_id ↔ World Bank country code for 66 countries** (`enrich_dataframe()`). **This is the join key that fuses all three data systems** — directly the transportability target-population fabric.

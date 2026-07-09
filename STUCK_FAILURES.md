@@ -1,0 +1,6107 @@
+# STUCK_FAILURES.md
+
+*Written by Sentinel — BLOCK-tier violations.*
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:38.262617+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:39.604538+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:39.604982+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:39.605202+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:43.388595+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:43.557052+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:44.996548+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:44.999400+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:44.999421+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:44.999436+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:44.999588+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:44.999605+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:44.999653+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:44.999757+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:45.079911+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:46.133049+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:46.247741+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:55:46.757734+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:11.953706+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:11.981691+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:12.806417+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:12.815593+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:13.288641+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:13.888230+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:13.888652+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:13.888864+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:14.381259+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.019860+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.021058+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.021067+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.021074+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.021138+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.021145+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.021165+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.021209+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:15.492020+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:28.781124+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:29.213604+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:30.334108+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:30.378199+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:30.951572+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:30.951995+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:30.952207+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.918439+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.974108+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.975318+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.975327+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.975334+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.975398+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.975404+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.975424+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.975469+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:31.996907+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:32.227255+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.257950+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.693427+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.694641+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.694650+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.694657+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.694722+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.694728+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.694748+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.694793+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.774950+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:54.780979+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:56.024123+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:56.782079+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:56.782533+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:56.782746+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:57.619219+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:57.637008+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T07:56:57.815972+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:16.019103+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:16.598996+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:16.599431+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:16.599642+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:16.617727+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:17.293925+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:17.299485+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:17.299526+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:17.299544+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:17.299725+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:17.299743+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:17.299801+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:17.299924+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:18.413620+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:18.588621+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:18.776006+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:19.542001+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-01T08:02:20.750239+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.840408+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.840432+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.840441+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.840447+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.840452+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.840457+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.840462+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.840467+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.867807+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.868001+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.869430+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.869445+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.869453+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.869459+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.869465+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.869471+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.869477+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.869484+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:41.879433+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:42.359444+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:42.957150+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:42.957175+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:42.957238+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:42.957297+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:42.958040+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:43.156836+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.805256+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.806643+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.806660+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.806666+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.806735+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.806742+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.806763+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.806811+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.811294+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.811751+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.811978+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.986725+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.986751+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:45.986758+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:46.126738+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:46.126756+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:46.126762+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:46.201965+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:47.014337+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:47.118145+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:47.202490+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:47.327997+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:48.143422+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:48.143446+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:48.143467+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/field_scale/xverify_fable/fable_verify_learned.py:7`
+- **Detail:** pattern matched: OUT = r"C:\Users\mahmo\AppData\Local\Temp\claude\F--ubcma\79a11b39-006d-4fab-8171-19f6311944df\scratchpad\fable_learned_
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:49.941018+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:43:50.532875+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:17.305751+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:17.305779+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:17.305788+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:18.594570+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:18.594589+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:18.594595+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:18.624705+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:19.226629+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:20.675164+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:20.677102+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:20.677115+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:20.677164+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:20.677223+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:20.677913+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:20.684859+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.104043+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.179056+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.180385+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.180394+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.180401+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.180470+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.180477+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.180498+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.180545+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.185766+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.185802+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.185840+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.248249+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.248265+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.248272+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.248279+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.248285+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.248305+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.248311+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.248317+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/field_scale/xverify_fable/fable_verify_learned.py:7`
+- **Detail:** pattern matched: OUT = r"C:\Users\mahmo\AppData\Local\Temp\claude\F--ubcma\79a11b39-006d-4fab-8171-19f6311944df\scratchpad\fable_learned_
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.256592+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.260308+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.260524+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.524463+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.524491+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.524497+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.524502+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.524506+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.524511+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.524515+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.524520+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.556656+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.607902+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.911314+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.921081+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.921655+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:21.921909+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-05T10:44:22.070305+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:53.143547+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:53.143607+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:53.143629+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:53.980635+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:54.179227+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:55.590817+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:58.707870+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:59.405477+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:59.405506+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:59.405584+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:59.405680+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:45:59.406816+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.216194+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.216210+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.216216+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.216221+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.216226+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.216231+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.216236+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.216240+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.885647+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.885673+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.885693+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:04.923412+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.155903+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.156096+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.316916+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.623336+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.624780+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.624790+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.624796+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.624861+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.624867+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.624888+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:05.624932+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.264734+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.671474+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.671491+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.671499+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.671505+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.671511+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.671517+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.671523+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:06.671530+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:07.709448+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:07.709466+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:07.709472+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/field_scale/xverify_fable/fable_verify_learned.py:7`
+- **Detail:** pattern matched: OUT = r"C:\Users\mahmo\AppData\Local\Temp\claude\F--ubcma\79a11b39-006d-4fab-8171-19f6311944df\scratchpad\fable_learned_
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:07.809906+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:08.037944+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=8645 idx=8644 state=RUNNING started=2026-07-06T15:46:02Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Loc
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:09.050987+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:09.108373+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:09.224695+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:09.225175+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:09.225389+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/field_scale/xverify_fable/fable_verify_learned.py:7`
+- **Detail:** pattern matched: OUT = r"C:\Users\mahmo\AppData\Local\Temp\claude\F--ubcma\79a11b39-006d-4fab-8171-19f6311944df\scratchpad\fable_learned_
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:26.629707+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/launch_codex_remote.sh:15`
+- **Detail:** pattern matched: KEY="${KEY:-C:/Users/mahmo/.ssh/node2_ed25519}"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:26.657013+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/laptop_watch.sh:7`
+- **Detail:** pattern matched: KEY="C:/Users/mahmo/.ssh/node2_ed25519"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.067609+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.106052+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.106070+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.106077+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.106082+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.106087+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.106092+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.106097+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.106101+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.203656+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.203681+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.203700+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.206777+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.206792+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.206800+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.206806+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.206825+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.206830+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.206836+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.206842+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.603520+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.614183+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.614375+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.674724+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:27.832280+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.240351+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.240870+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.241121+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.258052+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.258073+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.258079+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=8648 idx=8647 state=RUNNING started=2026-07-06T15:46:24Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Loc
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.259737+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.341627+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.341645+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:28.341650+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:29.203309+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:29.204550+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:29.204560+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:29.204566+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:29.204652+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:29.204659+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:29.204679+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:29.204723+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.037078+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.674744+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.674761+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.674806+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.674863+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.675666+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.713016+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.783972+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T15:46:30.788589+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:35.947129+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:35.947160+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:35.947170+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:35.947178+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:35.947185+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:35.947191+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:35.947196+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:35.947202+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.055639+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.102175+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.102203+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.102219+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.102232+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.102242+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.102251+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.102260+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.102268+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.876836+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.876875+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.876888+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:36.925064+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:37.915691+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:37.915883+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:39.676559+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:39.676585+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:39.676630+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:39.676686+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:39.677435+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:40.329303+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:42.370486+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:42.524623+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:42.524666+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:42.524681+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:44.431570+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:44.431609+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:44.431649+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:44.867603+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=9091 idx=9090 state=RUNNING started=2026-07-06T16:37:43Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Loc
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.446026+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.474956+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.478032+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.478056+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.478072+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.478236+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.478251+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.478302+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:45.478413+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:46.429511+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:46.430455+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:46.431385+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:46.475174+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:37:47.045409+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.813135+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.826514+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.873002+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.873022+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.873028+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.912227+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.975969+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.975992+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.976000+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.976006+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.976013+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.976021+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.976027+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:15.976033+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:16.772758+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.077098+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.093163+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.093604+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.093870+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.228500+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.523854+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.523873+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.523922+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.523984+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.525004+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.533601+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.533799+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.558030+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.558053+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:17.558059+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.295136+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.295150+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.295156+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.295175+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.295180+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.295198+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.295202+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.295221+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.355241+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.356452+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.356461+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.356467+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.356532+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.356538+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.356558+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.356602+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.401043+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.401062+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.401080+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=9229 idx=9228 state=RUNNING started=2026-07-06T16:53:15Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Loc
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:19.667028+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-06T16:53:20.211321+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:31.215107+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:32.444668+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:32.444692+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:32.444698+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:36.113261+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:36.113280+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:36.113288+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:36.113294+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:36.113300+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:36.113306+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:36.113312+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:36.113319+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=22159 idx=22158 state=RUNNING started=2026-07-07T17:59:30Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/L
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:38.982072+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:42.933805+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:42.934051+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:43.790263+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:43.790280+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:43.790286+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:43.791634+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:43.791684+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:43.791691+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:43.791697+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:43.791761+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:46.682255+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:47.503372+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:47.752855+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:47.752877+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:47.752883+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:48.143630+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:48.160767+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:57.251709+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:57.252204+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:57.252445+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:58.901970+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:59.485982+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:59.487301+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:59.487314+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:59.487321+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:59.487392+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:59.487399+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:59.487421+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T17:59:59.487477+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:00.302104+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:04.417721+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:04.417755+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:04.417776+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:14.766785+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:14.766809+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:14.766858+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:14.766919+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:00:14.767640+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=22167 idx=22166 state=RUNNING started=2026-07-07T18:01:22Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/L
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.266768+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.790076+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.819368+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.961130+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.961150+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.961159+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.961165+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.961172+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.961178+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.961184+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:33.961190+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:34.345136+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:34.345765+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:34.347068+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:34.534389+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:34.534413+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:34.534537+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:34.534607+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:34.535776+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:40.905279+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:40.905312+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:40.905334+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:41.871954+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.800622+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.800662+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.800670+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.852490+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.852513+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.852521+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.852528+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.852534+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.852539+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.852544+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:44.852551+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:45.069193+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:45.344815+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.777338+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.777545+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.903060+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.921397+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.923599+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.923626+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.923634+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.923707+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.923714+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.923737+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:48.923840+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:49.042310+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:49.098288+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:49.098309+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T18:01:49.098316+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:48.538954+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:48.538976+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:48.538985+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:48.538990+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:48.538995+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:48.539000+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:48.539005+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:48.539010+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:50.191191+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:51.796566+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:52.058134+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:53.926054+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:53.926072+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:53.926077+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=23827 idx=23826 state=RUNNING started=2026-07-07T22:44:48Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/L
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:54.542447+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:56.344697+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:57.201056+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:57.201487+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:57.201700+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:58.186764+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:44:59.345173+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:02.519646+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:02.519663+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:02.519671+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:02.519678+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:02.519685+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:02.519693+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:02.519700+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:02.519707+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.088563+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.088586+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.088592+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.747224+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.748528+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.748538+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.748544+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.748613+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.748619+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.748640+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:03.748687+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:04.015308+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:04.015332+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:04.015353+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:05.336795+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:05.491162+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:05.491182+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:05.491236+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:05.491304+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:05.492106+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:05.736659+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:05.736877+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:25.786188+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:25.799325+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:26.406277+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:26.592463+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:26.592486+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:26.592493+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:26.936338+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:26.983305+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:26.983500+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.357081+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.358345+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.358355+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.358362+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.358428+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.358435+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.358456+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.358502+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.387605+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.388032+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.388244+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.400990+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.401007+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.401053+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.401110+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.401887+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.408158+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:27.833592+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=23831 idx=23830 state=RUNNING started=2026-07-07T22:45:24Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/L
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:28.220713+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.122651+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.979836+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.979850+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.979855+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.979860+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.979865+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.979869+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.979873+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:29.979877+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.350525+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.350542+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.350547+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.354048+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.354064+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.354082+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.594879+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.594898+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.594906+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.594912+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.594919+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.594939+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.594958+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:30.594964+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:47.781041+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:47.781078+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:47.781085+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.251866+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.313544+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.313660+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.313696+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.313707+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.313714+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.313722+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.313729+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.313737+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.542790+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.544102+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.544113+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.544119+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.544188+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.544195+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.544217+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:48.544264+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.321072+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.321089+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.321097+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.321103+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.321109+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.321115+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.321122+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.321128+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:49.563141+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.116127+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.116176+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.116203+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.138057+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.138657+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.138986+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.259441+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.259464+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:50.259470+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:51.315060+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=23833 idx=23832 state=RUNNING started=2026-07-07T22:45:47Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/L
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:51.328713+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:51.978187+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:51.978204+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:51.978248+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:51.978303+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:51.978953+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:52.347712+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:52.658680+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:52.792894+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:52.826724+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:52.826931+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:45:53.110083+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:08.982130+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:08.982157+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:08.982208+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:08.982275+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:08.982958+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.631847+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.964973+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.965394+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.965606+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.990223+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.991604+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.991623+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.991631+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.991701+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.991709+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.991731+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:09.991779+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.042196+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.109709+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.109725+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.109731+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.109736+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.109741+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.109746+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.109750+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.109755+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.112005+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.112024+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.112030+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=23835 idx=23834 state=RUNNING started=2026-07-07T22:46:04Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/L
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.478097+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.484570+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.635801+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.635835+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.635874+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:10.729697+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:11.356999+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.607828+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.607845+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.607851+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.680823+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.680854+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.680862+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.680869+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.680875+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.680881+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.680887+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:12.680893+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:13.237634+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:13.237857+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:13.762881+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:46:13.778441+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:10`
+- **Detail:** pattern matched: Country codes aligned via F:/Projects/who-data-lakehouse/src/who_data_lakehouse/crosswalk.py
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:00.191244+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `transport_nma/transport_truthgate.py:51`
+- **Detail:** pattern matched: sys.path.insert(0, r"F:\Projects\who-data-lakehouse\src")
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:00.191493+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:127`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:00.266229+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:128`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:00.266247+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/bcg/REPORT_BORROWING_BCG.md:129`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\bcg_last.txt -"  < prompt_bcg.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:00.266253+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_nma_inconsistency_wit.md:87`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.345705+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:82`
+- **Detail:** pattern matched: - **conformal-ma** — `C:\Users\mahmo\code\conformal-ma` (primary) + `F:\Models\ConformalMA` mirror. Distribution-free pr
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.440001+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:111`
+- **Detail:** pattern matched: - **reprocheck** (`C:\Projects\repro-checker`) — live editorial gate for Synthēsis + standalone tool; re-sources trials 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.440423+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `docs/EVIDENCE-SYNTHESIS-METHODS-PROGRAM.md:130`
+- **Detail:** pattern matched: - **RCT Extractor v5** (`C:\Projects\rct-extractor-v2` + ~20 domain variants) — 180+ regex patterns, Proof-Carrying Numb
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.440644+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:1`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.564901+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:2`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.564918+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:3`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.564925+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:4`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.564930+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:5`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA4.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.564935+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:6`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA1.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.564940+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:7`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA2.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.564944+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueA.tsv:8`
+- **Detail:** pattern matched: /f/ubcma	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scratchpad/qA3.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.564949+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:19`
+- **Detail:** pattern matched: | **A / default** | `C:\Users\mahmo\.codex` | **401** (missing bearer) | **"Not logged in"** | **absent** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.615930+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:20`
+- **Detail:** pattern matched: | **B / Noreen** | `C:\Users\mahmo\.codex-noreen` | **401** (refresh token revoked) | — | present, **Jun-20, revoked** |
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.615949+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:24`
+- **Detail:** pattern matched: **Conclusion:** not a path mismatch — the login never wrote a token on pc1. Correct homes for a future real login: Seat 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.615996+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:36`
+- **Detail:** pattern matched: **Reviewed:** RapidMeta `C:\Users\mahmo\rmf-live-fix` (`pairwise-pool.js`, `stats-ext.js`, `advanced-stats-suite.js`, `r
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.616055+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/2026-07-04-codex-postreauth.md:129`
+- **Detail:** pattern matched: Codex (gpt-5.5) independently re-pooled a deterministic 28-app sample from `C:\Users\mahmo\rmf-live-fix`, compared to ea
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.616740+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:108`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\frame.py", line 9210, in grou
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.658660+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:114`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\groupby.py", line 133
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.658679+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup4_truthrecovery_dta_wit.md:124`
+- **Detail:** pattern matched: File "C:\Users\mahmo\AppData\Local\Programs\Python\Python313\Lib\site-packages\pandas\core\groupby\grouper.py", line 104
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:01.658697+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_dep.py:22`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:02.309173+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/seatB_status.txt:1`
+- **Detail:** pattern matched: job=23842 idx=23841 state=RUNNING started=2026-07-07T22:47:01Z line=/c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/L
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:02.342425+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_gradient.py:15`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:02.357704+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/agy_sup3_drma_spline_wit.md:78`
+- **Detail:** pattern matched: platform win32 -- Python 3.13.13, pytest-9.0.3, pluggy-1.6.0 -- C:\Users\mahmo\AppData\Local\Programs\Python\Python313\p
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:02.830978+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:114`
+- **Detail:** pattern matched: ssh -i C:\Users\mahmo\.ssh\node2_ed25519 mahmo@100.80.183.43 \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.052261+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:115`
+- **Detail:** pattern matched: "codex exec --skip-git-repo-check -s danger-full-access -C C:\Users\mahmo\codex-xverify \
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.052291+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/replication/REPORT_BORROWING_MULTISPECIALTY.md:116`
+- **Detail:** pattern matched: -o C:\Users\mahmo\codex-xverify\multi_last.txt -"  < prompt_multi.txt
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.052299+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/pilot4/hunt_sbp.py:25`
+- **Detail:** pattern matched: SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.095919+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `borrowing/REPORT_BORROWING_PILOT3.md:56`
+- **Detail:** pattern matched: - Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.113405+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `nma/verify/agy_phase2_raw_response.txt:4`
+- **Detail:** pattern matched: Task logs are available at: file:///C:/Users/mahmo/.gemini/antigravity/brain/687461af-7850-48c2-b9ba-59bc2eaccccd/.syste
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.265370+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:1`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.594014+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:2`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.594058+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:3`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.594080+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:4`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.594087+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:5`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.594093+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:6`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.594112+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:7`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.594118+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `verification/codex-daemon/queueB.tsv:8`
+- **Detail:** pattern matched: /c/Users/mahmo/rmf-live-fix	C:/Users/mahmo/AppData/Local/Temp/claude/F--ubcma/6fe81b46-02e3-4ce8-a9d9-4cfe930ffb92/scrat
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:04.594124+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:6`
+- **Detail:** pattern matched: > Method: directory + git survey across F:\ubcma, F:\E156, F:\allmeta, F:\Models, C:\Projects, C:\Users\mahmo\code, and 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:05.592903+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:101`
+- **Detail:** pattern matched: | **repro-checker** | `C:\Projects\repro-checker` (`synthesis_gate.py`) | Re-sources trials from PubMed/PMC/CT.gov, reco
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:05.594210+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:102`
+- **Detail:** pattern matched: | **truth-recovery-sweep** | `C:\Projects\truth-recovery-sweep` | Distributed sweep orchestrator, 125 subprojects (incl.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:05.594223+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:103`
+- **Detail:** pattern matched: | **conformal-ma** | `C:\Users\mahmo\code\conformal-ma` (+ `F:\Models\ConformalMA`) | Distribution-free prediction inter
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:05.594230+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:115`
+- **Detail:** pattern matched: - Access libs: **`C:\Projects\aact-kit`** (5-backend lib), **`F:\aact-cockpit`** (ingests → `data/warehouse/aact_<date>.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:05.594299+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:116`
+- **Detail:** pattern matched: - Gold-file builders: `C:\Projects\cm-factory\scripts\*\build_aact_*_gold.py`.
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:05.594306+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:120`
+- **Detail:** pattern matched: - **`C:\Projects\ihme-data-lakehouse`** *(also mirrored at `F:\Projects\ihme-data-lakehouse`)* — git repo, **39 passing 
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:05.594328+00:00
+
+## [BLOCK] P0-hardcoded-local-path
+- **Location:** `BORROWING_PRIOR_WORK.md:126`
+- **Detail:** pattern matched: - **`F:\Projects\who-data-lakehouse`** *(README installs from `C:\Projects\who-data-lakehouse`)* — git repo, **81 tests*
+- **Fix hint:** Replace absolute paths with relative paths, config-driven roots, or environment variables. Use candidate-root discovery for data snapshots.
+
+- **Source:** lessons.md#code-quality
+- **When:** 2026-07-07T22:47:05.594378+00:00

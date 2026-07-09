@@ -6,14 +6,26 @@ near-zero SDI spread (like depression: CV~0.04) cannot exercise transportability
 no matter how strong the modifier. Find where -- if anywhere -- the gradient is wide.
 """
 from __future__ import annotations
-import duckdb, csv, re
+import duckdb, csv, os, re
 import numpy as np
 from collections import defaultdict
 from pathlib import Path
 
 A = r"F:\AACT-storage\AACT\2026-04-12"
-SDI = Path("C:/Projects/ihme-data-lakehouse/data/bronze/gbd_covariates/"
-           "gbd-2023-socio-demographic-index-sdi_SDI_Values__1950-2023_[CSV].csv")
+_SDI_REL = ("data/bronze/gbd_covariates/"
+            "gbd-2023-socio-demographic-index-sdi_SDI_Values__1950-2023_[CSV].csv")
+def _resolve_sdi():
+    # ihme-data-lakehouse is a sibling repo; resolve via env var or common
+    # project roots (candidate-root discovery, no machine-specific literal).
+    env = os.environ.get("IHME_DATA_LAKEHOUSE")
+    cands = ([Path(env) / _SDI_REL] if env else []) + [
+        Path(drive) / "Projects" / "ihme-data-lakehouse" / _SDI_REL for drive in ("C:/", "F:/")
+    ]
+    for c in cands:
+        if c.exists():
+            return c
+    return cands[-1]  # best-effort; read fails loudly if truly absent
+SDI = _resolve_sdi()
 con = duckdb.connect()
 def t(n): return (f"read_csv('{A}/{n}.txt', delim='|', header=true, quote='', "
                   f"ignore_errors=true, auto_detect=true, all_varchar=true)")

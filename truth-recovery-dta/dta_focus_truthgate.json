@@ -1,0 +1,1642 @@
+{
+  "target": 0.95,
+  "cov_tol": 0.06,
+  "pass": true,
+  "notes": [],
+  "G1_finite_point_ok": true,
+  "npd_region_excluded": 0,
+  "verified_wins_vs_HC": [
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "mciw0_area": 1.1142,
+      "hc_area": 1.178,
+      "ratio": 0.946,
+      "test_cov": 0.9
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "mciw0_area": 1.0059,
+      "hc_area": 1.016,
+      "ratio": 0.99,
+      "test_cov": 0.92
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "mciw0_area": 0.9833,
+      "hc_area": 1.0035,
+      "ratio": 0.98,
+      "test_cov": 0.96
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "mciw0_area": 0.955,
+      "hc_area": 1.0035,
+      "ratio": 0.952,
+      "test_cov": 0.96
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "mciw0_area": 1.1337,
+      "hc_area": 1.1932,
+      "ratio": 0.95,
+      "test_cov": 0.9
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "mciw0_area": 1.5274,
+      "hc_area": 1.5585,
+      "ratio": 0.98,
+      "test_cov": 0.9
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "mciw0_area": 1.7328,
+      "hc_area": 1.7901,
+      "ratio": 0.968,
+      "test_cov": 0.96
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "mciw0_area": 1.7175,
+      "hc_area": 1.7901,
+      "ratio": 0.959,
+      "test_cov": 0.96
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "mciw0_area": 1.3044,
+      "hc_area": 1.4192,
+      "ratio": 0.919,
+      "test_cov": 0.9
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "mciw0_area": 1.2811,
+      "hc_area": 1.4192,
+      "ratio": 0.903,
+      "test_cov": 0.92
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "mciw0_area": 1.6793,
+      "hc_area": 1.6848,
+      "ratio": 0.997,
+      "test_cov": 0.92
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "mciw0_area": 1.5923,
+      "hc_area": 1.6848,
+      "ratio": 0.945,
+      "test_cov": 0.92
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "mciw0_area": 1.4942,
+      "hc_area": 1.8876,
+      "ratio": 0.792,
+      "test_cov": 0.94
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "mciw0_area": 1.6223,
+      "hc_area": 1.8876,
+      "ratio": 0.859,
+      "test_cov": 0.94
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "mciw0_area": 1.7241,
+      "hc_area": 1.7308,
+      "ratio": 0.996,
+      "test_cov": 0.9
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "mciw0_area": 2.129,
+      "hc_area": 2.1896,
+      "ratio": 0.972,
+      "test_cov": 0.94
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "mciw0_area": 2.1436,
+      "hc_area": 2.1896,
+      "ratio": 0.979,
+      "test_cov": 0.94
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "mciw0_area": 2.148,
+      "hc_area": 2.439,
+      "ratio": 0.881,
+      "test_cov": 0.92
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "mciw0_area": 1.4509,
+      "hc_area": 1.4756,
+      "ratio": 0.983,
+      "test_cov": 0.9
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "mciw0_area": 2.3182,
+      "hc_area": 2.6699,
+      "ratio": 0.868,
+      "test_cov": 0.92
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "mciw0_area": 2.5337,
+      "hc_area": 2.6699,
+      "ratio": 0.949,
+      "test_cov": 0.92
+    }
+  ],
+  "bootstrap_mciw0_vs_HC": [
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 4.5632,
+      "ci_lo": 1.8657,
+      "ci_hi": 6.6821,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.3394,
+      "ci_lo": -0.0449,
+      "ci_hi": 0.5919,
+      "robust_win": false,
+      "frac_better": 0.087
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.0376,
+      "ci_lo": -0.0773,
+      "ci_hi": 0.463,
+      "robust_win": false,
+      "frac_better": 0.143
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 0.8767,
+      "ci_lo": -0.1537,
+      "ci_hi": 2.5537,
+      "robust_win": false,
+      "frac_better": 0.053
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": -0.2214,
+      "ci_lo": -0.3553,
+      "ci_hi": 0.389,
+      "robust_win": false,
+      "frac_better": 0.384
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.3303,
+      "ci_lo": -0.4036,
+      "ci_hi": 0.3409,
+      "robust_win": false,
+      "frac_better": 0.479
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 3.7084,
+      "ci_lo": 1.8282,
+      "ci_hi": 6.8398,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.1981,
+      "ci_lo": -0.1886,
+      "ci_hi": 0.3528,
+      "robust_win": false,
+      "frac_better": 0.244
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": 0.1516,
+      "ci_lo": -0.1523,
+      "ci_hi": 0.3404,
+      "robust_win": false,
+      "frac_better": 0.227
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 2.2651,
+      "ci_lo": 0.9941,
+      "ci_hi": 4.1307,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.137,
+      "ci_lo": -0.2319,
+      "ci_hi": 0.2153,
+      "robust_win": false,
+      "frac_better": 0.344
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.0894,
+      "ci_lo": -0.2197,
+      "ci_hi": 0.1917,
+      "robust_win": false,
+      "frac_better": 0.437
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 0.1125,
+      "ci_lo": -0.2831,
+      "ci_hi": 2.0873,
+      "robust_win": false,
+      "frac_better": 0.259
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.0214,
+      "ci_lo": -0.0825,
+      "ci_hi": 0.3225,
+      "robust_win": false,
+      "frac_better": 0.103
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.0269,
+      "ci_lo": -0.1644,
+      "ci_hi": 0.1999,
+      "robust_win": false,
+      "frac_better": 0.348
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 2.2583,
+      "ci_lo": 1.4506,
+      "ci_hi": 4.1805,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": -0.0285,
+      "ci_lo": -0.3344,
+      "ci_hi": 0.2129,
+      "robust_win": false,
+      "frac_better": 0.757
+    },
+    {
+      "cell": "k10_t0.6_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.0183,
+      "ci_lo": -0.3133,
+      "ci_hi": 0.1413,
+      "robust_win": false,
+      "frac_better": 0.793
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 2.3643,
+      "ci_lo": 1.1678,
+      "ci_hi": 4.537,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": -0.0586,
+      "ci_lo": -0.1646,
+      "ci_hi": 0.2776,
+      "robust_win": false,
+      "frac_better": 0.529
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": -0.0516,
+      "ci_lo": -0.1603,
+      "ci_hi": 0.2202,
+      "robust_win": false,
+      "frac_better": 0.576
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 2.7734,
+      "ci_lo": 0.508,
+      "ci_hi": 3.8696,
+      "robust_win": false,
+      "frac_better": 0.001
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": -0.0861,
+      "ci_lo": -0.1009,
+      "ci_hi": 0.329,
+      "robust_win": false,
+      "frac_better": 0.245
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.0674,
+      "ci_lo": -0.0918,
+      "ci_hi": 0.357,
+      "robust_win": false,
+      "frac_better": 0.264
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 3.9312,
+      "ci_lo": 1.9085,
+      "ci_hi": 7.0976,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": -0.0104,
+      "ci_lo": -0.1784,
+      "ci_hi": 0.0506,
+      "robust_win": false,
+      "frac_better": 0.835
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.0082,
+      "ci_lo": -0.1573,
+      "ci_hi": 0.0625,
+      "robust_win": false,
+      "frac_better": 0.707
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 4.0228,
+      "ci_lo": 1.587,
+      "ci_hi": 4.9451,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.0475,
+      "ci_lo": -0.1031,
+      "ci_hi": 0.1178,
+      "robust_win": false,
+      "frac_better": 0.438
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.1256,
+      "ci_lo": -0.1313,
+      "ci_hi": 0.1384,
+      "robust_win": false,
+      "frac_better": 0.58
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 2.887,
+      "ci_lo": 0.5773,
+      "ci_hi": 4.6035,
+      "robust_win": false,
+      "frac_better": 0.004
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.0085,
+      "ci_lo": -0.1829,
+      "ci_hi": 0.1258,
+      "robust_win": false,
+      "frac_better": 0.464
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.0436,
+      "ci_lo": -0.1873,
+      "ci_hi": 0.0705,
+      "robust_win": false,
+      "frac_better": 0.86
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 1.3021,
+      "ci_lo": 0.0876,
+      "ci_hi": 2.8355,
+      "robust_win": false,
+      "frac_better": 0.011
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": -0.1333,
+      "ci_lo": -0.3147,
+      "ci_hi": 0.0553,
+      "robust_win": false,
+      "frac_better": 0.892
+    },
+    {
+      "cell": "k10_t0.6_r0.0_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.0647,
+      "ci_lo": -0.2815,
+      "ci_hi": 0.1,
+      "robust_win": false,
+      "frac_better": 0.805
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 2.6715,
+      "ci_lo": 0.6021,
+      "ci_hi": 4.6712,
+      "robust_win": false,
+      "frac_better": 0.003
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.4826,
+      "ci_lo": 0.0104,
+      "ci_hi": 0.8053,
+      "robust_win": false,
+      "frac_better": 0.018
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.5264,
+      "ci_lo": 0.0809,
+      "ci_hi": 0.8773,
+      "robust_win": false,
+      "frac_better": 0.007
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 1.9141,
+      "ci_lo": -0.4753,
+      "ci_hi": 3.162,
+      "robust_win": false,
+      "frac_better": 0.117
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": -0.2047,
+      "ci_lo": -0.5814,
+      "ci_hi": 0.6459,
+      "robust_win": false,
+      "frac_better": 0.373
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.1901,
+      "ci_lo": -0.5681,
+      "ci_hi": 0.6659,
+      "robust_win": false,
+      "frac_better": 0.39
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 4.7943,
+      "ci_lo": 2.5671,
+      "ci_hi": 8.3203,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.1769,
+      "ci_lo": -0.1744,
+      "ci_hi": 0.4297,
+      "robust_win": false,
+      "frac_better": 0.287
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": 0.2453,
+      "ci_lo": -0.1377,
+      "ci_hi": 0.4819,
+      "robust_win": false,
+      "frac_better": 0.213
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 5.4512,
+      "ci_lo": 2.4807,
+      "ci_hi": 6.5602,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.0949,
+      "ci_lo": -0.1322,
+      "ci_hi": 0.4059,
+      "robust_win": false,
+      "frac_better": 0.214
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.0672,
+      "ci_lo": -0.2039,
+      "ci_hi": 0.3444,
+      "robust_win": false,
+      "frac_better": 0.337
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 0.8277,
+      "ci_lo": -0.2012,
+      "ci_hi": 2.8217,
+      "robust_win": false,
+      "frac_better": 0.083
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.8177,
+      "ci_lo": -0.0666,
+      "ci_hi": 1.1129,
+      "robust_win": false,
+      "frac_better": 0.06
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.4121,
+      "ci_lo": -0.1177,
+      "ci_hi": 0.857,
+      "robust_win": false,
+      "frac_better": 0.094
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 3.1947,
+      "ci_lo": 1.0359,
+      "ci_hi": 6.3147,
+      "robust_win": false,
+      "frac_better": 0.001
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.155,
+      "ci_lo": -0.5073,
+      "ci_hi": 0.2975,
+      "robust_win": false,
+      "frac_better": 0.615
+    },
+    {
+      "cell": "k10_t0.8_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": 0.0947,
+      "ci_lo": -0.4241,
+      "ci_hi": 0.3188,
+      "robust_win": false,
+      "frac_better": 0.546
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 5.2569,
+      "ci_lo": 3.1628,
+      "ci_hi": 11.7107,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.1047,
+      "ci_lo": -0.1505,
+      "ci_hi": 0.293,
+      "robust_win": false,
+      "frac_better": 0.231
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.0065,
+      "ci_lo": -0.1777,
+      "ci_hi": 0.2523,
+      "robust_win": false,
+      "frac_better": 0.359
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 5.1863,
+      "ci_lo": 1.7098,
+      "ci_hi": 6.5457,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.0068,
+      "ci_lo": -0.1692,
+      "ci_hi": 0.2119,
+      "robust_win": false,
+      "frac_better": 0.26
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.0597,
+      "ci_lo": -0.2135,
+      "ci_hi": 0.2295,
+      "robust_win": false,
+      "frac_better": 0.273
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 6.9046,
+      "ci_lo": 3.4822,
+      "ci_hi": 11.8412,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": -0.0532,
+      "ci_lo": -0.1699,
+      "ci_hi": 0.2332,
+      "robust_win": false,
+      "frac_better": 0.598
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.0054,
+      "ci_lo": -0.1688,
+      "ci_hi": 0.2173,
+      "robust_win": false,
+      "frac_better": 0.542
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 4.2724,
+      "ci_lo": 2.5292,
+      "ci_hi": 5.9809,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.0347,
+      "ci_lo": -0.2284,
+      "ci_hi": 0.2327,
+      "robust_win": false,
+      "frac_better": 0.452
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": -0.0628,
+      "ci_lo": -0.2862,
+      "ci_hi": 0.147,
+      "robust_win": false,
+      "frac_better": 0.839
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 4.1322,
+      "ci_lo": 1.2926,
+      "ci_hi": 6.243,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": -0.0136,
+      "ci_lo": -0.0838,
+      "ci_hi": 0.1757,
+      "robust_win": false,
+      "frac_better": 0.47
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.0404,
+      "ci_lo": -0.1703,
+      "ci_hi": 0.1,
+      "robust_win": false,
+      "frac_better": 0.798
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 2.4823,
+      "ci_lo": 1.0325,
+      "ci_hi": 6.0727,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": -0.0491,
+      "ci_lo": -0.6634,
+      "ci_hi": 0.1353,
+      "robust_win": false,
+      "frac_better": 0.607
+    },
+    {
+      "cell": "k10_t0.8_r0.0_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": 0.0293,
+      "ci_lo": -0.5801,
+      "ci_hi": 0.2667,
+      "robust_win": false,
+      "frac_better": 0.474
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 7.8699,
+      "ci_lo": 3.012,
+      "ci_hi": 11.208,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.1415,
+      "ci_lo": -0.12,
+      "ci_hi": 0.6505,
+      "robust_win": false,
+      "frac_better": 0.079
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.1423,
+      "ci_lo": -0.2766,
+      "ci_hi": 0.4783,
+      "robust_win": false,
+      "frac_better": 0.247
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 2.4634,
+      "ci_lo": 0.1017,
+      "ci_hi": 7.6651,
+      "robust_win": false,
+      "frac_better": 0.019
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.3338,
+      "ci_lo": -0.0553,
+      "ci_hi": 0.8968,
+      "robust_win": false,
+      "frac_better": 0.078
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.3379,
+      "ci_lo": -0.2421,
+      "ci_hi": 0.8419,
+      "robust_win": false,
+      "frac_better": 0.164
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 4.4007,
+      "ci_lo": 2.5794,
+      "ci_hi": 12.1227,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.1584,
+      "ci_lo": -0.144,
+      "ci_hi": 0.3746,
+      "robust_win": false,
+      "frac_better": 0.303
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": 0.0575,
+      "ci_lo": -0.2573,
+      "ci_hi": 0.2498,
+      "robust_win": false,
+      "frac_better": 0.514
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 3.3208,
+      "ci_lo": 0.9329,
+      "ci_hi": 11.6767,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.2886,
+      "ci_lo": -0.0244,
+      "ci_hi": 0.9104,
+      "robust_win": false,
+      "frac_better": 0.051
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.0345,
+      "ci_lo": -0.2915,
+      "ci_hi": 0.6201,
+      "robust_win": false,
+      "frac_better": 0.335
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 2.7645,
+      "ci_lo": 0.7163,
+      "ci_hi": 5.5633,
+      "robust_win": false,
+      "frac_better": 0.002
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.2078,
+      "ci_lo": -0.0269,
+      "ci_hi": 0.8782,
+      "robust_win": false,
+      "frac_better": 0.045
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.006,
+      "ci_lo": -0.1125,
+      "ci_hi": 0.4427,
+      "robust_win": false,
+      "frac_better": 0.268
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 5.6708,
+      "ci_lo": 1.1788,
+      "ci_hi": 9.0736,
+      "robust_win": false,
+      "frac_better": 0.001
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.0287,
+      "ci_lo": -0.4823,
+      "ci_hi": 0.4223,
+      "robust_win": false,
+      "frac_better": 0.418
+    },
+    {
+      "cell": "k6_t0.6_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": 0.0277,
+      "ci_lo": -0.5243,
+      "ci_hi": 0.3014,
+      "robust_win": false,
+      "frac_better": 0.499
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 6.2725,
+      "ci_lo": 3.0484,
+      "ci_hi": 10.1746,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.0221,
+      "ci_lo": -0.1509,
+      "ci_hi": 0.2243,
+      "robust_win": false,
+      "frac_better": 0.448
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.0024,
+      "ci_lo": -0.2368,
+      "ci_hi": 0.2346,
+      "robust_win": false,
+      "frac_better": 0.483
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 6.5099,
+      "ci_lo": 2.8012,
+      "ci_hi": 14.4852,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.0617,
+      "ci_lo": -0.0883,
+      "ci_hi": 0.3308,
+      "robust_win": false,
+      "frac_better": 0.274
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.0726,
+      "ci_lo": -0.1471,
+      "ci_hi": 0.3222,
+      "robust_win": false,
+      "frac_better": 0.254
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 5.0738,
+      "ci_lo": 2.1658,
+      "ci_hi": 12.1386,
+      "robust_win": false,
+      "frac_better": 0.001
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.0232,
+      "ci_lo": -0.0579,
+      "ci_hi": 0.152,
+      "robust_win": false,
+      "frac_better": 0.346
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.231,
+      "ci_lo": -0.3925,
+      "ci_hi": 0.1244,
+      "robust_win": false,
+      "frac_better": 0.84
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 6.7403,
+      "ci_lo": 1.4824,
+      "ci_hi": 7.6179,
+      "robust_win": false,
+      "frac_better": 0.001
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": -0.2419,
+      "ci_lo": -0.3137,
+      "ci_hi": 0.2261,
+      "robust_win": false,
+      "frac_better": 0.616
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": -0.1765,
+      "ci_lo": -0.2238,
+      "ci_hi": 0.2099,
+      "robust_win": false,
+      "frac_better": 0.525
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 6.0992,
+      "ci_lo": 2.1782,
+      "ci_hi": 9.0711,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.1066,
+      "ci_lo": -0.1594,
+      "ci_hi": 0.1673,
+      "robust_win": false,
+      "frac_better": 0.443
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.0002,
+      "ci_lo": -0.2114,
+      "ci_hi": 0.0784,
+      "robust_win": false,
+      "frac_better": 0.731
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 4.0134,
+      "ci_lo": 1.2874,
+      "ci_hi": 7.5428,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": -0.1584,
+      "ci_lo": -0.5408,
+      "ci_hi": 0.3223,
+      "robust_win": false,
+      "frac_better": 0.709
+    },
+    {
+      "cell": "k6_t0.6_r0.0_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.1194,
+      "ci_lo": -0.5016,
+      "ci_hi": 0.2998,
+      "robust_win": false,
+      "frac_better": 0.539
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 5.3041,
+      "ci_lo": 1.2844,
+      "ci_hi": 15.3575,
+      "robust_win": false,
+      "frac_better": 0.001
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.1818,
+      "ci_lo": -0.2197,
+      "ci_hi": 0.8662,
+      "robust_win": false,
+      "frac_better": 0.087
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": -0.0859,
+      "ci_lo": -0.4084,
+      "ci_hi": 0.5066,
+      "robust_win": false,
+      "frac_better": 0.36
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 5.9129,
+      "ci_lo": 1.8551,
+      "ci_hi": 12.601,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.3336,
+      "ci_lo": -0.1924,
+      "ci_hi": 0.9206,
+      "robust_win": false,
+      "frac_better": 0.105
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.1874,
+      "ci_lo": -0.4175,
+      "ci_hi": 0.9166,
+      "robust_win": false,
+      "frac_better": 0.148
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 9.9028,
+      "ci_lo": 3.9067,
+      "ci_hi": 17.204,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.3977,
+      "ci_lo": -0.0713,
+      "ci_hi": 0.9975,
+      "robust_win": false,
+      "frac_better": 0.057
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": 0.4753,
+      "ci_lo": -0.1589,
+      "ci_hi": 0.8405,
+      "robust_win": false,
+      "frac_better": 0.11
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 11.0098,
+      "ci_lo": 5.6681,
+      "ci_hi": 16.3143,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.2087,
+      "ci_lo": -0.388,
+      "ci_hi": 0.7345,
+      "robust_win": false,
+      "frac_better": 0.252
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": 0.0859,
+      "ci_lo": -0.4961,
+      "ci_hi": 0.6186,
+      "robust_win": false,
+      "frac_better": 0.442
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 5.6918,
+      "ci_lo": 2.9734,
+      "ci_hi": 9.8723,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.5992,
+      "ci_lo": -0.0264,
+      "ci_hi": 0.9538,
+      "robust_win": false,
+      "frac_better": 0.035
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.2431,
+      "ci_lo": -0.1516,
+      "ci_hi": 0.7363,
+      "robust_win": false,
+      "frac_better": 0.221
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 6.8189,
+      "ci_lo": 4.0926,
+      "ci_hi": 10.8087,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.1353,
+      "ci_lo": -0.3486,
+      "ci_hi": 0.8269,
+      "robust_win": false,
+      "frac_better": 0.418
+    },
+    {
+      "cell": "k6_t0.8_r-0.6_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.0011,
+      "ci_lo": -0.4629,
+      "ci_hi": 0.2524,
+      "robust_win": false,
+      "frac_better": 0.704
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 7.923,
+      "ci_lo": 3.0761,
+      "ci_hi": 9.4807,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": 0.1057,
+      "ci_lo": -0.2163,
+      "ci_hi": 0.5806,
+      "robust_win": false,
+      "frac_better": 0.276
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": -0.0977,
+      "ci_lo": -0.3145,
+      "ci_hi": 0.388,
+      "robust_win": false,
+      "frac_better": 0.536
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 10.2581,
+      "ci_lo": 3.8318,
+      "ci_hi": 16.3095,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.0173,
+      "ci_lo": -0.1622,
+      "ci_hi": 0.5369,
+      "robust_win": false,
+      "frac_better": 0.186
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": -0.011,
+      "ci_lo": -0.166,
+      "ci_hi": 0.556,
+      "robust_win": false,
+      "frac_better": 0.214
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 8.0422,
+      "ci_lo": 4.1587,
+      "ci_hi": 11.7539,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.1066,
+      "ci_lo": -0.4837,
+      "ci_hi": 0.2217,
+      "robust_win": false,
+      "frac_better": 0.47
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.1",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": -0.2381,
+      "ci_lo": -0.4811,
+      "ci_hi": 0.1422,
+      "robust_win": false,
+      "frac_better": 0.771
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "adaptshrink_dta",
+      "darea": 2.1542,
+      "ci_lo": 0.3046,
+      "ci_hi": 7.0411,
+      "robust_win": false,
+      "frac_better": 0.003
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "reitsma_indep",
+      "darea": -0.0982,
+      "ci_lo": -0.6452,
+      "ci_hi": 0.3318,
+      "robust_win": false,
+      "frac_better": 0.578
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "moderate",
+      "method": "sep_univariate",
+      "darea": -0.0146,
+      "ci_lo": -0.615,
+      "ci_hi": 0.3785,
+      "robust_win": false,
+      "frac_better": 0.511
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "adaptshrink_dta",
+      "darea": 7.3093,
+      "ci_lo": 3.7636,
+      "ci_hi": 15.8178,
+      "robust_win": false,
+      "frac_better": 0.0
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "reitsma_indep",
+      "darea": 0.1708,
+      "ci_lo": -0.4371,
+      "ci_hi": 0.4737,
+      "robust_win": false,
+      "frac_better": 0.429
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "none",
+      "method": "sep_univariate",
+      "darea": 0.1239,
+      "ci_lo": -0.3197,
+      "ci_hi": 0.3677,
+      "robust_win": false,
+      "frac_better": 0.343
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "strong",
+      "method": "adaptshrink_dta",
+      "darea": 3.5058,
+      "ci_lo": 1.2642,
+      "ci_hi": 11.2412,
+      "robust_win": false,
+      "frac_better": 0.001
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "strong",
+      "method": "reitsma_indep",
+      "darea": 0.0645,
+      "ci_lo": -0.5306,
+      "ci_hi": 0.44,
+      "robust_win": false,
+      "frac_better": 0.537
+    },
+    {
+      "cell": "k6_t0.8_r0.0_p0.3",
+      "strength": "strong",
+      "method": "sep_univariate",
+      "darea": 0.064,
+      "ci_lo": -0.4481,
+      "ci_hi": 0.6483,
+      "robust_win": false,
+      "frac_better": 0.395
+    }
+  ],
+  "robust_wins_vs_HC": []
+}

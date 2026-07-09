@@ -53,7 +53,7 @@ Same pilot-2 AACT T2DM HbA1c slice, now joined to **populations**:
   Canada 29.4 % vs **Japan 4.2 %, China 6.2 %, India 3.9 %**.
 - **Trial population covariate** = mean obesity over its recruiting countries (WB-covered).
 - Diabetes prevalence (`SH.STA.DIAB.ZS`) carried as a secondary covariate.
-- Crosswalk (`F:\Projects\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
+- Crosswalk (`<projects>\who-data-lakehouse\src\who_data_lakehouse\crosswalk.py`) confirmed
   WHO-ISO3 ↔ IHME ↔ WB alignment; the WB join is by country name with a small alias map.
 
 **Target = a population, not just another trial.** Each held-out single-country trial is

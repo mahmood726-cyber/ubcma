@@ -1,0 +1,10 @@
+# AdaptShrink Independent Correctness Review
+
+Independent third-vendor correctness bug-review of the CORE proposed estimator on branch `methods-borrowing`.
+
+| Target File | Finding / Defect Description | Severity | Impact |
+| --- | --- | --- | --- |
+| [adaptshrink.py](file:///F:/ubcma/src/ubcma/adaptshrink.py#L147) | **Within-member variance underestimation due to correlation neglect**: `within_var` is computed as `sum(w^2 * s2) / w_sum^2`. This assumes panel members are independent. Since they are fit to the exact same dataset `(y, se)`, they are highly correlated (correlation approx 1.0). The true within-member variance of the weighted average is approximately `(sum(w * se) / w_sum)^2` (or uses the covariance matrix). Neglecting correlation divides the within-member variance by the number of members (underestimating it by a factor of ~3 for the default 3 members), causing a too-narrow raw CI. | P0 | Affects the SHIPPED AdaptShrink headline; the uncalibrated interval is severely under-covered, making the estimator rely entirely on tuning `kappa` to achieve nominal coverage. |
+| [adaptshrink.py](file:///F:/ubcma/src/ubcma/adaptshrink.py#L140-L148) | **In-sample reuse of estimates in variance estimation**: The weights `w` are computed using the member estimates `mus` (penalizing distance from the median). Using these same data-dependent weights to compute the between-member variance `between_var` downweights outliers, which artificially suppresses the estimated between-member variance precisely when the estimators disagree. This double use of data leads to optimistic, too-narrow CIs. | P1 | Affects the SHIPPED AdaptShrink headline. |
+| [adaptshrink.py](file:///F:/ubcma/src/ubcma/adaptshrink.py#L152-L153) | **Degenerate edge-case for small panels (k=2)**: When `n=2`, using a t-distribution critical value with `df = 1` yields a very large critical value (e.g. 12.706 for alpha=0.05). This results in an excessively wide confidence interval. | P2 | Affects internal paths/edge-case behavior. |
+
