@@ -1,0 +1,1060 @@
+{
+ "anchor": {
+  "poolable_pct": 33.7,
+  "poolable_total": 202,
+  "n_total": 600,
+  "source": "out/metrics.json poolability"
+ },
+ "target_set": {
+  "definition": "type-eligible (R2/R3) AND state==NEITHER (currently NOT poolable). state ONE/BOTH are already inside 33.7% -> excluded (zero delta by construction).",
+  "found_R2": 101,
+  "found_R3": 26,
+  "found_total": 127,
+  "note_type_eligible_ceiling_160_includes_already_poolable": "metrics reason-breakdown counts (relative_only 99 + numbers_no_estimate 35 + pvalue_only 15 + median_no_dispersion 11 = 160) span state ONE/BOTH too; only the NEITHER subset can move the anchor."
+ },
+ "FOUND": 127,
+ "RECOVERED": {
+  "R2": 0,
+  "R3": 0,
+  "total": 0
+ },
+ "RIGHT": {
+  "total": 0,
+  "blocked": true,
+  "gold_files_found": []
+ },
+ "realised_poolable_pct": null,
+ "realised_delta_pp": null,
+ "missing_ingredient_breakdown": {
+  "R2:no_registry_resultsSection": 100,
+  "R3:pvalue_only_has_no_point_estimate": 18,
+  "R3:median_no_IQR_or_range_present": 5,
+  "R3:median_dispersion_not_arm_paired_outcome": 3,
+  "R2:no_two_arm_event_counts": 1
+ },
+ "verdict_tags": {
+  "FOUND": "VERIFIED",
+  "RECOVERED": "VERIFIED",
+  "RIGHT": "BLOCKED_no_per_trial_gold",
+  "realised_delta_pp": "BLOCKED"
+ },
+ "named_blocker": "RIGHT-check blocked: no per-trial gold (published effect) is wired for the 600. The delta-eligible trials are state==NEITHER precisely because the registry posts NO results section (no 2x2 event counts / no per-arm denominators) AND the abstract is relative-only / p-only / median-without-dispersion. R2 counts and R3 numerators are therefore ABSENT at source, not merely unextracted. To complete the RIGHT check one must wire an independent gold-effect file mapping each NCT to a verified published primary effect+CI (e.g. from full-text methods/results), which the mission's open-data constraint (abstract+registry only) does not supply.",
+ "per_trial": [
+  {
+   "nct": "NCT00270439",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05266261",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02612805",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00264901",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04994288",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02808182",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT03997773",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02214641",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02020629",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05343767",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04163757",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT01135901",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00162305",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04887077",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00813228",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05936151",
+   "method": "R3",
+   "abstract_reason": "median_no_dispersion",
+   "recovered": false,
+   "missing_reason": "median_dispersion_not_arm_paired_outcome",
+   "effect": null
+  },
+  {
+   "nct": "NCT02971865",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00412165",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT07195188",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT02417012",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02773381",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01747967",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04642378",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00566189",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00551590",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05260879",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01425580",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04403789",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00963768",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04090840",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00964262",
+   "method": "R3",
+   "abstract_reason": "median_no_dispersion",
+   "recovered": false,
+   "missing_reason": "median_dispersion_not_arm_paired_outcome",
+   "effect": null
+  },
+  {
+   "nct": "NCT01719640",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00285896",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01354262",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT04219215",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02970838",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02520050",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00351585",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01669473",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01077505",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT06579105",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04136951",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_two_arm_event_counts",
+   "effect": null
+  },
+  {
+   "nct": "NCT03419195",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04283201",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02931630",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT02629705",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT01042769",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05239572",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01571622",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00876980",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00519480",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT03531177",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00440375",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01040806",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01357252",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00108004",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01691755",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04532385",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00737815",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT00494715",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00363948",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00850824",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01264796",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04261361",
+   "method": "R3",
+   "abstract_reason": "median_no_dispersion",
+   "recovered": false,
+   "missing_reason": "median_no_IQR_or_range_present",
+   "effect": null
+  },
+  {
+   "nct": "NCT07089979",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT07330388",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT03462069",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01742741",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05550870",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01340079",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00727779",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00977262",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT03733743",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT00790517",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01296100",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT03225209",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT03527667",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT03414892",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01645995",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT00676819",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT05279911",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02627287",
+   "method": "R3",
+   "abstract_reason": "median_no_dispersion",
+   "recovered": false,
+   "missing_reason": "median_no_IQR_or_range_present",
+   "effect": null
+  },
+  {
+   "nct": "NCT06066021",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00239707",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00207233",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT03707171",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT05589467",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01335763",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04959487",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01093833",
+   "method": "R3",
+   "abstract_reason": "median_no_dispersion",
+   "recovered": false,
+   "missing_reason": "median_no_IQR_or_range_present",
+   "effect": null
+  },
+  {
+   "nct": "NCT07323771",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT06353347",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00400036",
+   "method": "R3",
+   "abstract_reason": "median_no_dispersion",
+   "recovered": false,
+   "missing_reason": "median_no_IQR_or_range_present",
+   "effect": null
+  },
+  {
+   "nct": "NCT03790787",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00920764",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05597293",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04296825",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00225264",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01794052",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01854463",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT03609463",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT01209416",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT05524909",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02224417",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02603510",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT04004273",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT01497522",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT06080451",
+   "method": "R3",
+   "abstract_reason": "median_no_dispersion",
+   "recovered": false,
+   "missing_reason": "median_dispersion_not_arm_paired_outcome",
+   "effect": null
+  },
+  {
+   "nct": "NCT03358745",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02330406",
+   "method": "R3",
+   "abstract_reason": "median_no_dispersion",
+   "recovered": false,
+   "missing_reason": "median_no_IQR_or_range_present",
+   "effect": null
+  },
+  {
+   "nct": "NCT03811587",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00362193",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01632163",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01244971",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05689684",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01127308",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02263352",
+   "method": "R3",
+   "abstract_reason": "pvalue_only",
+   "recovered": false,
+   "missing_reason": "pvalue_only_has_no_point_estimate",
+   "effect": null
+  },
+  {
+   "nct": "NCT01447147",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT01073826",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02956811",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05459285",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT07258316",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT06192108",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00205725",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT00212914",
+   "method": "R2",
+   "abstract_reason": "relative_only",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT05633784",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  },
+  {
+   "nct": "NCT02813343",
+   "method": "R2",
+   "abstract_reason": "numbers_no_estimate",
+   "recovered": false,
+   "missing_reason": "no_registry_resultsSection",
+   "effect": null
+  }
+ ]
+}
