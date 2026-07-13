@@ -66,5 +66,10 @@
   "claim_H_harms_omission_dominant": "REFUTED (pre-reg >=40%; observed 12.1-32.3%). Harms NON-QUANTIFICATION gap (55-88%) IS dominant \u2014 weaker related claim SUPPORTED.",
   "claim_R_route_to_registry_table": "SUPPORTED for t2d (2.47x) + onc (4.21x); borderline tb (1.96x); REFUTED for malaria (1.67x). All >1.5x directionally. For HARMS numbers specifically the registry table is the route in 55-88% of trials (overwhelming).",
   "claim_C_malaria_tb_coverage_advantage": "AXIS-DEPENDENT (pre-registered): SUPPORTED on reporting-pub linkage (66/59% vs 45/37%) and lower non-publication (34/41% vs 55/63%); REFUTED on abstract usability (17% vs t2d 28.5%). Malaria/TB are more open but their abstracts are MORE relative-only/median-only."
+ },
+ "non_publication_precision_note": {
+  "malaria_active_search": "0/15 flagged non-pub trials have an NCT-mentioning paper (bare-NCT PubMed search) \u2014 cleaner than T2D (3/9 were published-but-untagged). Higher databank-linkage culture (66%) => absence of link is more likely TRUE non-publication.",
+  "confound": "several flagged malaria trials are RECENT (2023-2025); non-publication may be publication time-lag, not permanent. The 34% raw rate is an UPPER bound on permanent non-publication.",
+  "t2d_reference": "T2D non-pub precision ~0.67 (databank-miss); malaria plausibly higher but recency-confounded."
  }
 }
