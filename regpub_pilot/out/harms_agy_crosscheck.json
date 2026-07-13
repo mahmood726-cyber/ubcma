@@ -1,0 +1,14 @@
+{
+ "vendor": "agy / Gemini 3.1 Pro (google family, decorrelated from Claude/anthropic)",
+ "task": "independently judge whether each flagged abstract is silent on harms (NO=silent=agrees with our 'omitted' label)",
+ "n": 8,
+ "agree": 7,
+ "agreement_pct": 87.5,
+ "disagreement": {
+  "nct": "NCT03143218",
+  "our_label": "omitted(silent)",
+  "agy": "YES(mentions harms)",
+  "reason": "agy counted disease-outcome mortality ('death from malaria') as a harms mention; our lexicon counts only TREATMENT adverse-event terms. Genuine mortality-as-harm boundary \u2014 disclosed; would marginally LOWER omission counts if disease-mortality counts as harms reporting."
+ },
+ "verdict": "harms-omission measurement CONFIRMED by a decorrelated family at 7/8; the one miss is a definitional edge case, not a measurement error."
+}
