@@ -1,0 +1,241 @@
+[
+ {
+  "nct": "NCT02735707",
+  "class": "MATCH",
+  "registered_primary": [
+   "All-cause mortality",
+   "Days alive and not receiving organ support in ICU"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2016-04-13",
+  "start_date": "2016-04-11"
+ },
+ {
+  "nct": "NCT04261517",
+  "class": "MATCH",
+  "registered_primary": [
+   "The virological clearance rate of throat swabs, sputum, or lower respiratory tract secretions at day 3",
+   "The virological clearance rate of throat swabs, sputum, or lower respiratory tract secretions at day 5"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-02-07",
+  "start_date": "2020-02-06"
+ },
+ {
+  "nct": "NCT04304053",
+  "class": "NOVEL_not_registered",
+  "registered_primary": [
+   "Study 1- Clinical and virological outcome in exposed contacts",
+   "Study 1- Transmission of SARS-CoV-2 in exposed contacts"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-03-11",
+  "start_date": "2020-03-18"
+ },
+ {
+  "nct": "NCT04308668",
+  "class": "SWITCH_secondary",
+  "registered_primary": [
+   "Number of Participants With Active COVID-19 Disease at Day 14 Among Those Who Were Asymptomatic at Baseline",
+   "Change in Disease Severity Over 14 Days Among Those Who Are Symptomatic at Baseline"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-03-16",
+  "start_date": "2020-03-17"
+ },
+ {
+  "nct": "NCT04315896",
+  "class": "MATCH",
+  "registered_primary": [
+   "All-cause hospital mortality"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-03-20",
+  "start_date": "2020-04-14"
+ },
+ {
+  "nct": "NCT04316377",
+  "class": "SWITCH_secondary",
+  "registered_primary": [
+   "Rate of decline in SARS-CoV-2 viral load"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-03-20",
+  "start_date": "2020-03-25"
+ },
+ {
+  "nct": "NCT04322123",
+  "class": "SWITCH_secondary",
+  "registered_primary": [
+   "Evaluation of the clinical status"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-03-26",
+  "start_date": "2020-04-01"
+ },
+ {
+  "nct": "NCT04323527",
+  "class": "MATCH",
+  "registered_primary": [
+   "Mortality rate reduction of 50% by day 28"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-03-26",
+  "start_date": "2020-03-23"
+ },
+ {
+  "nct": "NCT04325893",
+  "class": "MATCH",
+  "registered_primary": [
+   "Number of death from any cause, or the need for intubation and mechanical ventilation during the 14 days following inclusion and start of treatment."
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-03-30",
+  "start_date": "2020-04-01"
+ },
+ {
+  "nct": "NCT04329923",
+  "class": "NOVEL_not_registered",
+  "registered_primary": [
+   "Time to Release From Quarantine Time",
+   "Time to Hospital Discharge"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-04-01",
+  "start_date": "2020-04-09"
+ },
+ {
+  "nct": "NCT04333654",
+  "class": "NOVEL_not_registered",
+  "registered_primary": [
+   "Change from baseline to Day 3 in nasopharyngeal SARS-CoV-2 viral load (if quantitative PCR is available)",
+   "Number of participants by PCR result status (positive or negative) (if quantitative PCR is not available)"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-04-03",
+  "start_date": "2020-04-12"
+ },
+ {
+  "nct": "NCT04335552",
+  "class": "SWITCH_secondary",
+  "registered_primary": [
+   "World Health Organization (WHO) Ordinal Scale Measured at 14 Days After Enrollment"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-04-06",
+  "start_date": "2020-04-17"
+ },
+ {
+  "nct": "NCT04338698",
+  "class": "NOVEL_not_registered",
+  "registered_primary": [
+   "Laboratory Result",
+   "Clinical Outcome"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-04-08",
+  "start_date": "2020-04-22"
+ },
+ {
+  "nct": "NCT04340544",
+  "class": "SWITCH_secondary",
+  "registered_primary": [
+   "Difference in time to resolution of clinical signs and symptoms of mild COVID-19 treated with hydroxychloroquine or placebo as assessed by daily self-assessment"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-04-09",
+  "start_date": "2020-04-22"
+ },
+ {
+  "nct": "NCT04342221",
+  "class": "NOVEL_not_registered",
+  "registered_primary": [
+   "Effect of HCQ on in vivo viral clearance"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-04-10",
+  "start_date": "2020-03-29"
+ },
+ {
+  "nct": "NCT04342650",
+  "class": "SWITCH_secondary",
+  "registered_primary": [
+   "Proportion of patients with onset of severe acute respiratory syndrome (SARS)"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-04-13",
+  "start_date": "2020-04-08"
+ },
+ {
+  "nct": "NCT04345289",
+  "class": "MATCH",
+  "registered_primary": [
+   "All-cause mortality or need of invasive mechanical ventilation"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-04-14",
+  "start_date": "2020-05-01"
+ },
+ {
+  "nct": "NCT04345692",
+  "class": "SWITCH_secondary",
+  "registered_primary": [
+   "i. Clinical status"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-04-14",
+  "start_date": "2020-03-26"
+ },
+ {
+  "nct": "NCT04353336",
+  "class": "MATCH",
+  "registered_primary": [
+   "Number of patients with cure or death"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-04-20",
+  "start_date": "2020-03-23"
+ },
+ {
+  "nct": "NCT04369742",
+  "class": "SWITCH_secondary",
+  "registered_primary": [
+   "Percent of Participants With SAE Through Day 30",
+   "Percent of Participants With Grade 3 or 4 AEs Through Day 30"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-04-30",
+  "start_date": "2020-04-15"
+ },
+ {
+  "nct": "NCT04381936",
+  "class": "MATCH",
+  "registered_primary": [
+   "Community-acquired pneumonia: All-cause mortality (with subsidiary analyses of cause of death and of death at various timepoints following discharge)",
+   "Influenza co-primary outcome: All-cause mortality (with subsidiary analysis of cause of death and death at various timepoints following discharge)"
+  ],
+  "mortality_in_secondary": true,
+  "reg_date": "2020-05-11",
+  "start_date": "2020-03-19"
+ },
+ {
+  "nct": "NCT04384380",
+  "class": "NOVEL_not_registered",
+  "registered_primary": [
+   "Time to negatively RT-PCR"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-05-12",
+  "start_date": "2020-04-01"
+ },
+ {
+  "nct": "NCT04491994",
+  "class": "NOVEL_not_registered",
+  "registered_primary": [
+   "Number of Participants With Progression"
+  ],
+  "mortality_in_secondary": false,
+  "reg_date": "2020-07-30",
+  "start_date": "2020-04-10"
+ }
+]

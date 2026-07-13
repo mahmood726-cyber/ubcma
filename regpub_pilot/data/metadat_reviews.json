@@ -1,0 +1,48 @@
+{
+ "dat.axfors2021": {
+  "pooled_outcome": "all-cause mortality",
+  "k_rows": 33,
+  "n_ncts": 23,
+  "ncts": [
+   "NCT02735707",
+   "NCT04261517",
+   "NCT04304053",
+   "NCT04308668",
+   "NCT04315896",
+   "NCT04316377",
+   "NCT04322123",
+   "NCT04323527",
+   "NCT04325893",
+   "NCT04329923",
+   "NCT04333654",
+   "NCT04335552",
+   "NCT04338698",
+   "NCT04340544",
+   "NCT04342221",
+   "NCT04342650",
+   "NCT04345289",
+   "NCT04345692",
+   "NCT04353336",
+   "NCT04369742",
+   "NCT04381936",
+   "NCT04384380",
+   "NCT04491994"
+  ]
+ },
+ "dat.hartmannboyce2018": {
+  "pooled_outcome": "smoking cessation/abstinence",
+  "k_rows": 136,
+  "n_ncts": 1,
+  "ncts": [
+   "NCT00534404"
+  ]
+ },
+ "dat.karner2014": {
+  "pooled_outcome": "COPD exacerbations",
+  "k_rows": 22,
+  "n_ncts": 1,
+  "ncts": [
+   "NCT00144326"
+  ]
+ }
+}
