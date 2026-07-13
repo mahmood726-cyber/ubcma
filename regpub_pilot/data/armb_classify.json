@@ -1,0 +1,661 @@
+[
+ {
+  "nct": "NCT02248974",
+  "review": "CD001431_pub6",
+  "review_pooled_outcome": "Accurate risk perceptions - all studies",
+  "protocol_primary": [
+   "Left Ventricular Assist Device (LVAD) Knowledge Scale",
+   "Left Ventricular Assist Device (LVAD) Knowledge Scale",
+   "Left Ventricular Assist Device (LVAD) Knowledge Scale"
+  ],
+  "protocol_secondary": [
+   "Decisional Conflict Scale",
+   "Decisional Conflict Scale",
+   "collaboRATE-Shared Decision Making",
+   "collaboRATE-Shared Decision Making",
+   "Satisfaction With Decision Making Process",
+   "Ottawa Decision Regret Scale",
+   "Satisfaction With Life Scale",
+   "Satisfaction With Life Scale",
+   "Preparedness for Decision-Making Scale",
+   "Usability and Acceptability: Helped me Understand More About the Risks",
+   "Shared Decision-Making (SDM-9)",
+   "Shared Decision-Making (SDM-9)",
+   "Number and Percentage of Participants Whose Control Preferences for Tr",
+   "Ability to Envision Life With an LVAD: Somewhat/Easy Picturing What to",
+   "Number and Percentage of Participants Reporting Ability to Envision Li",
+   "Number & Percentage of Participants Who Perceived a Strong Likelihood ",
+   "Number and Percentage of Participants Who Perceived and Strong Likelih",
+   "Participants' Perceived Survival Estimate in Number of Years After LVA",
+   "Satisfaction With Life",
+   "Quality of Life -- Health Rating",
+   "Quality of Life -- Health Rating",
+   "Preferred Treatment: Number of Patients Predicting They Will Choose LV",
+   "Number of Patients Whose Preferred Treatment Was LVAD",
+   "Number of Patients Whose Preferred Treatment Was LVAD",
+   "Number and Percentage of Patients Who Filled Out an Advanced Directive",
+   "Usability and Acceptability: Helped me Understand my Options for Deali",
+   "Usability and Acceptability: Learned Something New That I Didn't Know ",
+   "Usability and Acceptability: Would Recommend to Others.",
+   "Usability and Acceptability: Held my Interest.",
+   "Usability and Acceptability: Helps Someone Make an Informed Decision.",
+   "Usability and Acceptability: Helped me to Think About Aspects of Heart",
+   "Participants' Control Preferences Over Treatment Decision-Making",
+   "Participants' Control Preferences Over Treatment Decision-Making"
+  ],
+  "reg_date": null,
+  "start": "2014-02"
+ },
+ {
+  "nct": "NCT02905032",
+  "review": "CD001431_pub6",
+  "review_pooled_outcome": "Accurate risk perceptions - all studies",
+  "protocol_primary": [
+   "Number of Clinician Satisfied Encounters",
+   "Number of Clinician Recommendation"
+  ],
+  "protocol_secondary": [
+   "Number of Participants With Anticoagulant Medication Use",
+   "Patient Involvement",
+   "Encounter Duration"
+  ],
+  "reg_date": null,
+  "start": "2016-09-01"
+ },
+ {
+  "nct": "NCT01167582",
+  "review": "CD002042_pub6",
+  "review_pooled_outcome": "Participants exposed to blood transfusion (all trials)",
+  "protocol_primary": [
+   "Hemoglobin Concentration",
+   "Red Blood Cell Transfusion"
+  ],
+  "protocol_secondary": [
+   "Mortality or Myocardial Ischemia",
+   "Mortality or Myocardial Ischemia",
+   "Individual Components of Composite Outcome",
+   "Mortality From Cardiac Causes",
+   "Unscheduled Hospital Admission",
+   "Stroke",
+   "Congestive Heart Failure",
+   "Stent Thrombosis",
+   "Deep Vein Thrombosis or Pulmonary Embolism",
+   "Pneumonia or Blood Stream Infection and Each Separately",
+   "Composite Mortality and Morbidity"
+  ],
+  "reg_date": null,
+  "start": "2009-09"
+ },
+ {
+  "nct": "NCT03389555",
+  "review": "CD002243_pub5",
+  "review_pooled_outcome": "28-day all-cause mortality",
+  "protocol_primary": [
+   "Sequential Organ Failure Assessment (SOFA) Score at Baseline and 72 Hours"
+  ],
+  "protocol_secondary": [
+   "Renal Failure",
+   "30-day Mortality"
+  ],
+  "reg_date": null,
+  "start": "2018-02-09"
+ },
+ {
+  "nct": "NCT03509350",
+  "review": "CD002243_pub5",
+  "review_pooled_outcome": "28-day all-cause mortality",
+  "protocol_primary": [
+   "Vasopressor and Ventilator-free Days (VVFD)"
+  ],
+  "protocol_secondary": [
+   "Mortality at 30 Days",
+   "Intensive Care Unit (ICU) Mortality",
+   "Mortality at 180 Days",
+   "Length of ICU Stay",
+   "Length of Hospital Stay",
+   "Digit Span Test Score",
+   "Number of Participants With Delirium Assessed With the DeliriumTelepho",
+   "Hayling Test Score",
+   "Controlled Oral Word Association Test (COWAT) Score",
+   "Wechsler Memory Scale III - Delayed Recall Logical Memory Score",
+   "Telephone Interview for Cognitive Status (TICS)",
+   "Wechsler Adult Intelligence Scale (WAIS)-IV Similarities Score",
+   "Katz Index of Independence in Activities of Daily Living (ADL) Score",
+   "Number of Participants Employed",
+   "Functional Activities Questionnaire (FAQ) Score",
+   "Patient-Reported Outcomes Measurement Information System (PROMIS) Depr",
+   "Posttraumatic Stress Disorder-8 (PTSD-8) Score",
+   "EuroQol, 5 Dimension (EQ-5D) Visual Analog Scale Score"
+  ],
+  "reg_date": null,
+  "start": "2018-08-22"
+ },
+ {
+  "nct": "NCT02282293",
+  "review": "CD006689_pub3",
+  "review_pooled_outcome": "Maternal peripheral parasitaemia at delivery (amplification techniques)",
+  "protocol_primary": [
+   "Number of Participants With Placental Malaria",
+   "Incidence of Malaria, Pregnant Women"
+  ],
+  "protocol_secondary": [
+   "Maternal Parasitemia at Delivery by Microscopy and LAMP",
+   "Placental Parasitemia (Number of Women With Placental Blood Samples Po",
+   "Number of Monthly Routine Visits With Positive Blood Samples for Paras",
+   "Composite Adverse Birth Outcome (Proportion With Low Birth Weight (<25",
+   "Number of Routine Visits Measured Every 8 Weeks During Pregnancy for W"
+  ],
+  "reg_date": null,
+  "start": "2014-12-09"
+ },
+ {
+  "nct": "NCT02164734",
+  "review": "CD008309_pub3",
+  "review_pooled_outcome": "Failure to place LMA or ETT at first attempt",
+  "protocol_primary": [
+   "Number of Participants Failing to Avoid Invasive Mechanical Ventilation"
+  ],
+  "protocol_secondary": [
+   "Number of Surfactant Doses",
+   "Days on Any Respiratory Support",
+   "Rate of Pneumothorax",
+   "Rate of Bronchopulmonary Dysplasia (O2 Dependence at the Later of 28 D",
+   "Number of Participants With Complications During Insertion of LMA or E",
+   "Mortality Rate"
+  ],
+  "reg_date": null,
+  "start": "2014-06"
+ },
+ {
+  "nct": "NCT00791648",
+  "review": "CD008493_pub5",
+  "review_pooled_outcome": "Short-term mortality",
+  "protocol_primary": [
+   "Number of Participants With Acute Kidney Injury",
+   "Number of Participants With Delirium"
+  ],
+  "protocol_secondary": [
+   "Number of Participants Requiring Dialysis",
+   "Liver Enzyme: Aspartate Aminotransferase Level",
+   "Number of Participants With Stroke",
+   "Number of Participants That Died",
+   "Mitochondrial Function--mtDNA Copy Number",
+   "Mitochondrial Function--lactate / Pyruvate Ratio",
+   "Mitochondrial Function--PGC-1alpha RNA Expression",
+   "Urine Markers of Renal Injury",
+   "Plasma Markers of Oxidative Stress: f2-Isoprostanes",
+   "Plasma Markers of Oxidative Stress: Isofurans",
+   "Urine Markers of Oxidative Stress: f2-Isoprostanes",
+   "Urine Markers of Oxidative Stress: Isofurans",
+   "Plasma Markers of Inflammation: Measurements of Neuronal Injury (Ubiqu",
+   "Plasma Markers of Inflammation: Blood Brain Barrier Disruption (S100 C"
+  ],
+  "reg_date": null,
+  "start": "2009-07"
+ },
+ {
+  "nct": "NCT02135419",
+  "review": "CD009244_pub3",
+  "review_pooled_outcome": "Development of anal cancer",
+  "protocol_primary": [
+   "Anal Cancer Incidence"
+  ],
+  "protocol_secondary": [
+   "Incidence of Adverse Events for Each Treatment",
+   "Change in Physical Symptom Score From Baseline (2-7 Days Post Randomiz"
+  ],
+  "reg_date": null,
+  "start": "2014-09-24"
+ },
+ {
+  "nct": "NCT01164722",
+  "review": "CD009244_pub3",
+  "review_pooled_outcome": "AIN HSIL eradication",
+  "protocol_primary": [
+   "Complete Response Through 1 Year"
+  ],
+  "protocol_secondary": [
+   "Tolerability and Safety of Infrared Coagulator Ablation",
+   "Proportion of Patients With High-grade Anal Intraepithelial Neoplasia ",
+   "Recurrence Rate at 1 Year",
+   "Incidence of Metachronous Lesions"
+  ],
+  "reg_date": null,
+  "start": "2011-04"
+ },
+ {
+  "nct": "NCT03442777",
+  "review": "CD009362_pub4",
+  "review_pooled_outcome": "Pressure ulcer",
+  "protocol_primary": [
+   "Number of Participants Who Developed a New Pressure Ulcer Category 2 or Worse on Sacrum, Heels or Greater Trochanter"
+  ],
+  "protocol_secondary": [],
+  "reg_date": null,
+  "start": "2018-02-08"
+ },
+ {
+  "nct": "NCT03277794",
+  "review": "CD009788_pub3",
+  "review_pooled_outcome": "Service use: hospitalization",
+  "protocol_primary": [
+   "Housing",
+   "Employment/Education",
+   "Mental Health",
+   "Housing Security Scale",
+   "Housing Security Scale (Subjective Housing Stability Subscale)"
+  ],
+  "protocol_secondary": [
+   "Mental Health Continuum - Short Form",
+   "Cognitive and Affective Mindfulness Scale",
+   "Community Integration Scale",
+   "Community Integration Measure",
+   "Resilience Scale",
+   "Adults Hope Scale",
+   "GAIN Short Screener (CAMH Modified)",
+   "Medical Outcomes Study (MOS) Social Support Survey",
+   "World Health Organization Quality of Life Scale - BREF"
+  ],
+  "reg_date": null,
+  "start": "2017-04-01"
+ },
+ {
+  "nct": "NCT03569748",
+  "review": "CD010216_pub9",
+  "review_pooled_outcome": "Adverse events at 12 weeks",
+  "protocol_primary": [
+   "Number of Participants With Smoking Cessation"
+  ],
+  "protocol_secondary": [
+   "Number of Participants Smoking Reduction",
+   "Adoption Rate",
+   "Acceptability",
+   "Number of Participants With Product-related Adverse Events",
+   "Changes in Biomarkers of Biological Effects (BoBE)",
+   "Reliability"
+  ],
+  "reg_date": null,
+  "start": "2019-05-25"
+ },
+ {
+  "nct": "NCT01710137",
+  "review": "CD011120_pub3",
+  "review_pooled_outcome": "Tobacco use cessation",
+  "protocol_primary": [
+   "Point Prevalence Tobacco Abstinence",
+   "Point Prevalence Tobacco Abstinence"
+  ],
+  "protocol_secondary": [
+   "Quality of Life at Week 12",
+   "Continuous Abstinence to Week 12",
+   "Continuous Abstinence to Week 24",
+   "Time to 7-day Relapse",
+   "Point Prevalence Tobacco Abstinence"
+  ],
+  "reg_date": null,
+  "start": "2012-10"
+ },
+ {
+  "nct": "NCT02672553",
+  "review": "CD011793_pub3",
+  "review_pooled_outcome": "Mortality",
+  "protocol_primary": [
+   "Median Subject Time Spent on Cardiopulmonary Cross Clamp",
+   "Median Amount of Time Subject Spent on Cardiopulmonary Bypass"
+  ],
+  "protocol_secondary": [
+   "Number of Participants With Change From Baseline in New York Heart Ass",
+   "Subject's Average Mean Gradients (mmHg) Measurements Over Time.",
+   "Subject's Average Peak Gradients (mmHg) Measurements Over Time.",
+   "Subject's Effective Orifice Area (EOA) Measurement Over Time.",
+   "Amount of Paravalvular Leak Over Time.",
+   "Conversion of Edwards INTUITY Surgical Aortic Valve to Control Surgica",
+   "Subjects Who Required a Thoracic Resternotomy Over Time",
+   "Subjects Who Received a Permanent Pacemaker Over Time.",
+   "Subjects With a Paravalvular Leak > or Equal to 3+ and/or Requiring In",
+   "Subjects Who Experienced Major Bleeding Over Time.",
+   "Subjects Who Experienced Respiratory Failure Over Time",
+   "Subjects With a Cerebral Vascular Accident or Permanent Stroke Over Ti",
+   "Subjects With Renal Failure Over Time",
+   "Subjects With Endocarditis Over Time",
+   "Subjects With a Deep Sternal Would Infection Over Time",
+   "Subjects With a Myocardial Infarction Over Time",
+   "Subjects With a Thromboembolism Over Time",
+   "Subjects With a Cardiac Tamponade Over Time",
+   "Subjects With a Cardiac Reoperation for Any Reason Over Time",
+   "Conversion of Subjects Undergoing Minimally Invasive Surgical Incision",
+   "Subject's Average Score on the EQ-5D - Quality of Life Questionnaire O",
+   "Subject's Average Score SF-12 - Quality of Life Questionnaire Over Tim",
+   "Subject's Average Score on the KCCQ - Quality of Life Questionnaire Ov",
+   "Health Care Utilization",
+   "Subject's Effective Orifice Area Index (EOAI) Measurement Over Time.",
+   "Amount of Aortic Valvular Regurgitation Over Time."
+  ],
+  "reg_date": null,
+  "start": "2012-05"
+ },
+ {
+  "nct": "NCT03481777",
+  "review": "CD012503_pub3",
+  "review_pooled_outcome": "Mortality during follow-up (for all studies)",
+  "protocol_primary": [
+   "Modified Rankin Scale at 3 Months in Acute Stroke (AIS and ICH)"
+  ],
+  "protocol_secondary": [
+   "Difference Neurological Impairment During the First 24 Hours",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Acute Isc",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Acute Isc",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Patients ",
+   "Difference in Proportion of Patients With Complete Remission of Sympto",
+   "Major Adverse Cardiac and Cerebral Events (MACCE)",
+   "Early Neurological Improvement in Acute Ischemic Stroke Patients (AIS)",
+   "Early Neurological Improvement in Patients With Intracerebral Hemorrha",
+   "Quality of Life Measures at 3 Months in AIS and ICH Patients",
+   "Bed-day Use in AIS and ICH Patients",
+   "Three-month and One-year Mortality"
+  ],
+  "reg_date": null,
+  "start": "2018-03-15"
+ },
+ {
+  "nct": "NCT03481777",
+  "review": "CD012503_pub3",
+  "review_pooled_outcome": "Treatment-related adverse events",
+  "protocol_primary": [
+   "Modified Rankin Scale at 3 Months in Acute Stroke (AIS and ICH)"
+  ],
+  "protocol_secondary": [
+   "Difference Neurological Impairment During the First 24 Hours",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Acute Isc",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Acute Isc",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Patients ",
+   "Difference in Proportion of Patients With Complete Remission of Sympto",
+   "Major Adverse Cardiac and Cerebral Events (MACCE)",
+   "Early Neurological Improvement in Acute Ischemic Stroke Patients (AIS)",
+   "Early Neurological Improvement in Patients With Intracerebral Hemorrha",
+   "Quality of Life Measures at 3 Months in AIS and ICH Patients",
+   "Bed-day Use in AIS and ICH Patients",
+   "Three-month and One-year Mortality"
+  ],
+  "reg_date": null,
+  "start": "2018-03-15"
+ },
+ {
+  "nct": "NCT03481777",
+  "review": "CD012503_pub3",
+  "review_pooled_outcome": "Functional independence (mRS 0-2) at 90 days (for all studies)",
+  "protocol_primary": [
+   "Modified Rankin Scale at 3 Months in Acute Stroke (AIS and ICH)"
+  ],
+  "protocol_secondary": [
+   "Difference Neurological Impairment During the First 24 Hours",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Acute Isc",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Acute Isc",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Patients ",
+   "Difference in Proportion of Patients With Complete Remission of Sympto",
+   "Major Adverse Cardiac and Cerebral Events (MACCE)",
+   "Early Neurological Improvement in Acute Ischemic Stroke Patients (AIS)",
+   "Early Neurological Improvement in Patients With Intracerebral Hemorrha",
+   "Quality of Life Measures at 3 Months in AIS and ICH Patients",
+   "Bed-day Use in AIS and ICH Patients",
+   "Three-month and One-year Mortality"
+  ],
+  "reg_date": null,
+  "start": "2018-03-15"
+ },
+ {
+  "nct": "NCT03481777",
+  "review": "CD012503_pub3",
+  "review_pooled_outcome": "Cardiovascular events during follow-up (for all studies)",
+  "protocol_primary": [
+   "Modified Rankin Scale at 3 Months in Acute Stroke (AIS and ICH)"
+  ],
+  "protocol_secondary": [
+   "Difference Neurological Impairment During the First 24 Hours",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Acute Isc",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Acute Isc",
+   "Clinical Outcome (Modified Rankin Scale (mRS) at 3 Months in Patients ",
+   "Difference in Proportion of Patients With Complete Remission of Sympto",
+   "Major Adverse Cardiac and Cerebral Events (MACCE)",
+   "Early Neurological Improvement in Acute Ischemic Stroke Patients (AIS)",
+   "Early Neurological Improvement in Patients With Intracerebral Hemorrha",
+   "Quality of Life Measures at 3 Months in AIS and ICH Patients",
+   "Bed-day Use in AIS and ICH Patients",
+   "Three-month and One-year Mortality"
+  ],
+  "reg_date": null,
+  "start": "2018-03-15"
+ },
+ {
+  "nct": "NCT01353339",
+  "review": "CD013344_pub2",
+  "review_pooled_outcome": "Graft loss",
+  "protocol_primary": [
+   "Occurrence of BK Viruria"
+  ],
+  "protocol_secondary": [
+   "Adverse Events",
+   "Acute Rejection",
+   "Clostridium Difficile Associated Diarrhea",
+   "Infections",
+   "Quinolone Resistance",
+   "Allograft Loss",
+   "Mortality",
+   "Adherence",
+   "Use of Quinolones",
+   "Proportion of Patient Drop-out and Loss to Follow-up",
+   "Quantitative BK Urine Viral Load",
+   "BK Viremia"
+  ],
+  "reg_date": null,
+  "start": "2011-12-01"
+ },
+ {
+  "nct": "NCT00728819",
+  "review": "CD013366_pub2",
+  "review_pooled_outcome": "Venous thromboembolism",
+  "protocol_primary": [
+   "Evidence of PICC-related Venous Thrombosis"
+  ],
+  "protocol_secondary": [
+   "Post-operative Bleeding",
+   "Symptomatic PICC-related Venous Thrombosis"
+  ],
+  "reg_date": null,
+  "start": "2008-08"
+ },
+ {
+  "nct": "NCT01601847",
+  "review": "CD013396_pub2",
+  "review_pooled_outcome": "Asthma",
+  "protocol_primary": [
+   "Number of Infants With Recurrent Wheezing"
+  ],
+  "protocol_secondary": [
+   "Number With Infants With Allergic Sensitization as Measured by the Pha",
+   "Bone Density"
+  ],
+  "reg_date": null,
+  "start": "2013-01"
+ },
+ {
+  "nct": "NCT01601847",
+  "review": "CD013396_pub2",
+  "review_pooled_outcome": "Asthma – as defined by trial authors",
+  "protocol_primary": [
+   "Number of Infants With Recurrent Wheezing"
+  ],
+  "protocol_secondary": [
+   "Number With Infants With Allergic Sensitization as Measured by the Pha",
+   "Bone Density"
+  ],
+  "reg_date": null,
+  "start": "2013-01"
+ },
+ {
+  "nct": "NCT02025621",
+  "review": "CD013781_pub2",
+  "review_pooled_outcome": "Primary outcome: all-cause mortality",
+  "protocol_primary": [
+   "Number of Dual Efficacy Endpoint Events",
+   "Number of Quad Efficacy Endpoint Events"
+  ],
+  "protocol_secondary": [
+   "Duration of Intensive Care Unit/Critical or Coronary Care Unit (ICU/CC",
+   "Incidence of Low Cardiac Output Syndrome (LCOS)",
+   "Postoperative Use of Secondary Inotrope"
+  ],
+  "reg_date": null,
+  "start": "2014-07"
+ },
+ {
+  "nct": "NCT02042183",
+  "review": "CD014580_pub2",
+  "review_pooled_outcome": "Treatment success",
+  "protocol_primary": [
+   "Number of Participants Classified as Overall Responders at Week 12"
+  ],
+  "protocol_secondary": [
+   "Mean Number of SBMs Observed Each Week for 12 Weeks"
+  ],
+  "reg_date": null,
+  "start": "2013-12-13"
+ },
+ {
+  "nct": "NCT02614547",
+  "review": "CD014624_pub2",
+  "review_pooled_outcome": "Depression response (early phase)",
+  "protocol_primary": [
+   "Change From Baseline at End of Treatment Period (at 60 Hours) in Hamilton Rating Scale for Depression (HAM-D) Total Score"
+  ],
+  "protocol_secondary": [
+   "Percentage of Participants With HAM-D Response",
+   "Percentage of Participants With HAM-D Remission",
+   "Change From Baseline in Montgomery-Asberg Depression Rating Scale (MAD",
+   "Percentage of Participants With Clinical Global Impression-Improvement",
+   "Change From Baseline in HAM-D Bech 6 Subscale",
+   "Change From Baseline to 60 Hours in the HAM-D Individual Item Scores",
+   "Change From Baseline in Generalized Anxiety Disorder 7-item Scale (GAD",
+   "Number of Participants With Treatment-Emergent Adverse Events (TEAEs)"
+  ],
+  "reg_date": null,
+  "start": "2015-12-15"
+ },
+ {
+  "nct": "NCT01450137",
+  "review": "CD014741_pub2",
+  "review_pooled_outcome": "All-cause mortality",
+  "protocol_primary": [
+   "Number of Patients That Have Achieved Complete Remission of Disease"
+  ],
+  "protocol_secondary": [
+   "Number of Relapse Free Patients",
+   "Cumulative Dose of GCs in mg/kg",
+   "Restricted Mean Survival Time to First Relapse After Induction of Remi"
+  ],
+  "reg_date": null,
+  "start": "2011-09"
+ },
+ {
+  "nct": "NCT03350750",
+  "review": "CD014923_pub2",
+  "review_pooled_outcome": "Patient disability - number of participants who improved (unpaired, parallel assessment < 12 months)",
+  "protocol_primary": [
+   "Change in Gait Velocity"
+  ],
+  "protocol_secondary": [
+   "Change in Cognition as Assessed by the Montreal Cognitive Assessment (",
+   "Change in Bladder Control as Assessed by the Overactive Bladder Questi"
+  ],
+  "reg_date": null,
+  "start": "2018-05-21"
+ },
+ {
+  "nct": "NCT04600895",
+  "review": "CD015219_pub2",
+  "review_pooled_outcome": "All-cause mortality – at 28 to 30 days, or in‐hospital",
+  "protocol_primary": [
+   "Number of Participants With Sustained Clinical Recovery"
+  ],
+  "protocol_secondary": [
+   "Proportion of Subjects With COVID-19 Progression (Narrow Progression)"
+  ],
+  "reg_date": null,
+  "start": "2020-11-30"
+ },
+ {
+  "nct": "NCT02508194",
+  "review": "CD016131",
+  "review_pooled_outcome": "RSV-associated lower respiratory tract infection",
+  "protocol_primary": [
+   "Percentage of Participants Who Had a First Episode of Acute Respiratory Syncytial Virus-Associated Respiratory Illness (ARA-RI) During Respiratory Syncytial Virus (RSV) Surveillance Period in Season 1"
+  ],
+  "protocol_secondary": [
+   "Percentage of Participants Who Had a RSV Polymerase Chain Reaction (PC",
+   "Geometric Mean Responses (GMRs) of Serum Antibodies Concentration Agai",
+   "Geometric Mean Fold Change of Serum Antibodies Concentration Against R",
+   "Percentage of Participants Who Had a Post-dose Seroresponse to RSV as ",
+   "Geometric Mean Titers (GMTs) of Strain-Specific Hemagglutination Inhib",
+   "Post-dose Geometric Mean Fold Change of Strain-Specific HAI Antibodies",
+   "Percentage of Participants Who Had a Strain-specific Post-dose Serores",
+   "Post-dose GMTs of Serum Antibodies Against RSV by Microneutralization ",
+   "Post-dose Geometric Mean Fold Change of Serum Antibodies Against RSV b",
+   "Percentage of Participants Who Had a Post-dose Seroresponse to RSV by ",
+   "Post-dose Geometric Mean Concentration (GMC) of Palivizumab Competitiv",
+   "Post-dose Geometric Mean Fold Change of Palivizumab Competitive Antibo",
+   "Percentage of Participants Who Had a Post-dose Seroresponse to RSV as ",
+   "Number of Participants With Any Solicited Symptoms",
+   "Number of Participants With Treatment-Emergent Adverse Events",
+   "Number of Participants With Treatment-Emergent Adverse Events of Speci"
+  ],
+  "reg_date": null,
+  "start": "2015-09-29"
+ },
+ {
+  "nct": "NCT03102034",
+  "review": "CD016131",
+  "review_pooled_outcome": "All-cause medically attended acute respiratory illnesses (MAARI)",
+  "protocol_primary": [
+   "Number of Participants With Solicited Adverse Events (AEs) by Grade",
+   "Number of Participants With Unsolicited AEs by Grade",
+   "Number of Participants With Serious Adverse Events (SAEs)",
+   "Number of Participants Infected With RSV Vaccine Virus",
+   "Peak Titer of Vaccine Virus Shed",
+   "Duration of Vaccine Virus Shedding in Nasal Washes",
+   "Number of Participants With a Greater Than or Equal to 4-fold Rise in Serum RSV-neutralizing Antibody Titer",
+   "Serum Antibody Responses to RSV F Glycoprotein as Assessed by Enzyme-linked Immunosorbent Assay (ELISA)"
+  ],
+  "protocol_secondary": [
+   "Number of Participants Who Had Symptomatic, Medically Attended Respira",
+   "Magnitude of Serum RSV-neutralizing Antibody Responses in the Vaccine ",
+   "Number of Participants With B Cell Responses to Vaccine"
+  ],
+  "reg_date": null,
+  "start": "2017-04-06"
+ },
+ {
+  "nct": "NCT03364491",
+  "review": "CD016278",
+  "review_pooled_outcome": "Estimated blood loss ≥ 1000ml",
+  "protocol_primary": [
+   "Number of Participants With Maternal Death or Transfusion of Packed Red Blood Cells"
+  ],
+  "protocol_secondary": [
+   "Number of Participants With Estimated Blood Loss Greater Than 1 Liter ",
+   "Number of Mothers Who Died or Had Thromboembolic Events (Venous or Art",
+   "Number of Participants Who Were Transfused With Other Blood Products",
+   "Number of Participants Who Were Transfused With 4 or More Units of Pac",
+   "Number of Participants With a Thromboembolic Event (Venous or Arterial",
+   "Number of Participants With Seizure Activity That Was Not Seen Prior t",
+   "Number of Participants With Postpartum Infectious Complications",
+   "Number of Participants Who Were Treated With Uterotonics Other Than Ox",
+   "Number of Participants Who Received Surgical or Radiologic Interventio",
+   "Change in Hemoglobin",
+   "Number of Participants Who Received Open Label TXA or Other Antifibrin",
+   "Length of Stay",
+   "Number of Participants Who Received Treatments and Interventions in Re"
+  ],
+  "reg_date": null,
+  "start": "2018-03-15"
+ }
+]
