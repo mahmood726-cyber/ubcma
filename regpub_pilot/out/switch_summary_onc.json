@@ -1,0 +1,1 @@
+{"area": "onc", "n_with_ft_methods": 41, "n_llm": 30, "n_scored": 21, "counts": {"concordant": 18, "abstain_no_primary_in_methods": 9, "switch_silent": 1, "switch_demotion": 1, "switch_timepoint": 1}, "switch_any": 3, "switch_rate_pct": 14.3, "by_type": {"switch_silent": 1, "switch_demotion": 1, "switch_timepoint": 1}}

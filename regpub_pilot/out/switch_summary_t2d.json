@@ -1,0 +1,1 @@
+{"area": "t2d", "n_with_ft_methods": 70, "n_llm": 58, "n_scored": 28, "counts": {"concordant": 26, "abstain_no_primary_in_methods": 30, "switch_demotion": 2}, "switch_any": 2, "switch_rate_pct": 7.1, "by_type": {"switch_demotion": 2}}
